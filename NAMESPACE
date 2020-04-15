@@ -1,0 +1,7 @@
+export(Anova)
+export(AnovaRepeatedMeasures)
+export(Ancova)
+export(Manova)
+export(AnovaBayesian)
+export(AnovaRepeatedMeasuresBayesian)
+export(AncovaBayesian)

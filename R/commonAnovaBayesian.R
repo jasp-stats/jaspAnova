@@ -1141,7 +1141,7 @@
     dataset <- try(.shortToLong(dataset, rm.factors, rm.vars, c(bs.factors, bs.covariates)), silent = TRUE)
     
     idx <- match(c("dependent", "subject"), colnames(dataset))
-    colnames(dataset)[idx] <- .v(colnames(dataset)[idx])
+    #colnames(dataset)[idx] <- .v(colnames(dataset)[idx]) #not necessary and breaks ANOVA RM as in: https://github.com/jasp-stats/jasp-issues/issues/683
 
   }
   return(dataset)

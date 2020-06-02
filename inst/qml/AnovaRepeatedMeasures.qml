@@ -146,10 +146,10 @@ Form
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList { name: "postHocTestsAvailable"; source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates" }]; mixedModelTerms: true }
+			AvailableVariablesList { name: "postHocTestsAvailable"; source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates", combineWithOtherModels: true }] }
 			AssignedVariablesList {  name: "postHocTestsVariables" }
 		}
-		
+
 		CheckBox
 		{
 			name: "confidenceIntervalsPostHoc"; label: qsTr("Confidence intervals")

@@ -789,7 +789,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   
   # if (nrow(assumptionResult) == 0 || all(is.na(assumptionResult[["GG eps"]]))) {
   if (all(is.na(anovaResult[["Test statistic"]]))) {
-    sphericityTable$setError(gettext("Cannot perform sphericity tests because there only two levels of the RM factor."))
+    sphericityTable$setError(gettext("Cannot perform sphericity tests because there are only two levels of the RM factor."))
     return()  
   }
   
@@ -939,9 +939,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     if (!grepl(var, pattern = ":"))
       resultPostHoc[['cohenD']] <- resultPostHoc[['t.ratio']] / sqrt(nrow(dataset))
 
-    resultPostHoc[["contrast_A"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[1]], " ")[[1]]), 
+    resultPostHoc[["contrast_A"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[1]], "[ ,]")[[1]]), 
                                                                            collapse = ", "))
-    resultPostHoc[["contrast_B"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[2]], " ")[[1]]), 
+    resultPostHoc[["contrast_B"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[2]], "[ ,]")[[1]]), 
                                                                            collapse = ", "))
     
     if (nrow(resultPostHoc) > 1)

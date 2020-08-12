@@ -1,4 +1,4 @@
-Package: ANOVA
+Package: jaspAnova
 Type: Package
 Title: ANOVA Module for JASP
 Version: 0.0.0

@@ -3,7 +3,7 @@ import JASP.Module 	1.0
 
 Description
 {
-	name		: "ANOVA"
+	name		: "jaspAnova"
 	title		: qsTr("ANOVA")
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("This module offers the standard Frequentist and Bayesian ANOVA tests.")

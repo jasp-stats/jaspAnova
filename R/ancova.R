@@ -1752,8 +1752,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   yticks <- pretty(c(ylow, yhigh))
   
   # format axes labels
-  xLabs <- JASPgraphs::axesLabeller(xticks)
-  yLabs <- JASPgraphs::axesLabeller(yticks)
+  xLabs <- jaspGraphs::axesLabeller(xticks)
+  yLabs <- jaspGraphs::axesLabeller(yticks)
     
   # format y labels
   yLabs <- vector("character", length(yticks))
@@ -1765,7 +1765,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     }
   }
   
-  p <- JASPgraphs::drawAxis(xName = gettext("Theoretical Quantiles"),
+  p <- jaspGraphs::drawAxis(xName = gettext("Theoretical Quantiles"),
                             yName = gettext("Standardized Residuals"),
                             xBreaks = xticks, 
                             yBreaks = xticks, 
@@ -1778,9 +1778,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                               col = "darkred", 
                               size = 1)
   
-  p <- JASPgraphs::drawPoints(p, dat = data.frame(xVar, yVar), size = 3)
+  p <- jaspGraphs::drawPoints(p, dat = data.frame(xVar, yVar), size = 3)
 
-  qqPlot$plotObject <- JASPgraphs::themeJasp(p)
+  qqPlot$plotObject <- jaspGraphs::themeJasp(p)
   
   return()
 }

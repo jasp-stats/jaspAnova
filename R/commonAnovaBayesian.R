@@ -873,8 +873,8 @@
                               y = c(densities[, ind, "y"]),
                               g = rep(xNames[ind], each = nrow(densities)))
         
-        xBreaks <- JASPgraphs::getPrettyAxisBreaks(dfLines$x)
-        yBreaks <- JASPgraphs::getPrettyAxisBreaks(c(0, dfLines$y))
+        xBreaks <- jaspGraphs::getPrettyAxisBreaks(dfLines$x)
+        yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(0, dfLines$y))
         breaksYmax <- yBreaks[length(yBreaks)]
         obsYmax <- max(dfLines$y)
         newymax <- max(1.25 * obsYmax, breaksYmax)
@@ -939,7 +939,7 @@
           colorspace::scale_color_discrete_qualitative() + 
           ggplot2::scale_linetype() + 
           ggplot2::guides(color = guideLegend, linetype = guideLegend)
-        p <- JASPgraphs::themeJasp(p, legend.position = if (showLegend) "right" else "none")
+        p <- jaspGraphs::themeJasp(p, legend.position = if (showLegend) "right" else "none")
         
         plot <- createJaspPlot(title = nms[i], width = 400, height = 400, plot = p)
       }
@@ -952,7 +952,7 @@
       df <- data.frame(x = densities[, i, "x"],
                        y = densities[, i, "y"])
 
-      p <- JASPgraphs::PlotPriorAndPosterior(
+      p <- jaspGraphs::PlotPriorAndPosterior(
         dfLines    = df,
         xName      = xNames[i],
         CRI        = cris[i, ],
@@ -980,7 +980,7 @@
   )
 
   if (!is.null(model[["models"]])) {
-    plot$plotObject <- JASPgraphs::plotQQnorm(
+    plot$plotObject <- jaspGraphs::plotQQnorm(
       residuals = model[["posteriors"]][["weightedResidSumStats"]][,"mean"],
       lower     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.2.5%"],
       upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"]
@@ -1012,7 +1012,7 @@
 
     df <- data.frame(x = dd$x, y = dd$y)
     xName <- expression(R^2)
-    plot$plotObject <- JASPgraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
+    plot$plotObject <- jaspGraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
     plot$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
   }
 
@@ -1555,17 +1555,17 @@
                   summaryStatSubset[,"dependent"]+summaryStatSubset[,"ci"],
                   min(summaryStatSubset[,"dependent"])*1.1,
                   max(summaryStatSubset[,"dependent"])*1.1)
-      yBreaks <- JASPgraphs::getPrettyAxisBreaks(ci.pos)
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ci.pos)
     } else {
-      yBreaks <- JASPgraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"], 
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"], 
                                                    min(summaryStatSubset[,"dependent"])*1.1,
                                                    max(summaryStatSubset[,"dependent"])*1.1))
     }
 
     if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
-      ggXaxis <- ggplot2::scale_x_continuous(breaks = JASPgraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
     } else {
-      ggXaxis <- ggplot2::scale_x_discrete(breaks = JASPgraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
     } 
 
     p <- p + line +
@@ -1576,8 +1576,8 @@
       ggplot2::labs(y = yLabel, x = options[["plotHorizontalAxis"]]) +
       ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
       ggXaxis +
-      JASPgraphs::geom_rangeframe() + 
-      JASPgraphs::themeJaspRaw(legend.position = "right")
+      jaspGraphs::geom_rangeframe() + 
+      jaspGraphs::themeJaspRaw(legend.position = "right")
 
     descriptivesPlot$plotObject <- p
   }
@@ -2615,7 +2615,7 @@
   if (is.null(model) || jaspContainer$getError()) {
     p <- NULL
   } else {
-    p <- JASPgraphs::plotQQnorm(
+    p <- jaspGraphs::plotQQnorm(
       residuals = model$residSumStats[,"mean"],
       lower     = model$residSumStats[,"cri.2.5%"],
       upper     = model$residSumStats[,"cri.97.5%"]
@@ -2646,7 +2646,7 @@
     rsqCri <- model$rsqCri
     df     <- data.frame(x = dd$x, y = dd$y)
     xName <- expression(R^2)
-    p <- JASPgraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
+    p <- jaspGraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
   }
   plot <- createJaspPlot(
     title       = gettextf("Posterior R%s", "\u00B2"),

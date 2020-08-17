@@ -106,7 +106,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
         dfNum         = thisRow['num Df'],
         dfDen    = thisRow['den Df'],
         p             = p,
-        VovkSellkeMPR = .VovkSellkeMPR(p)
+        VovkSellkeMPR = VovkSellkeMPR(p)
       )
     }
   }
@@ -231,7 +231,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     for (case in rownames(manovaResults[["anova"]][[thisVar]])) {
       row <- as.list(manovaResults[["anova"]][[thisVar]][case, ])
       row["cases"] <- stringi::stri_unescape_unicode(gsub("<U\\+(....)>", "\\\\u\\1", case)) # summary() seemingly escapes unicode on windows
-      row["VovkSellkeMPR"] <- if(trimws(case) == "Residuals") "" else .VovkSellkeMPR(row[["Pr(>F)"]])
+      row["VovkSellkeMPR"] <- if(trimws(case) == "Residuals") "" else VovkSellkeMPR(row[["Pr(>F)"]])
       anovaTable$addRows(row, rowNames = paste0(thisVar, " - ", case))
     }
     

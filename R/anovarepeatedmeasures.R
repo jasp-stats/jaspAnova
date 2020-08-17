@@ -20,11 +20,11 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   numericVariables <- numericVariables[numericVariables != ""]
   factorVariables <- c(unlist(options$betweenSubjectFactors))
   factorVariables <- factorVariables[factorVariables != ""]
-  
+
   if (is.null(dataset)) 
     dataset <- .readDataSetToEnd(columns.as.numeric=numericVariables, columns.as.factor=factorVariables, 
                                  exclude.na.listwise=c(numericVariables, factorVariables))
-  
+
   longData <- .BANOVAreadRManovaData(dataset, options)
   if (isTryError(longData)) 
     .quitAnalysis(gettext("Error while loading data. Please verify your repeated measures observations."))
@@ -356,7 +356,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   sortedModel[["case"]] <- unlist(modelDef$terms.normal)[mappedRownamesCases]
   sortedModel[["Mean Sq"]] <- sortedModel[["Sum Sq"]] / sortedModel[["num Df"]]
-  sortedModel[["VovkSellkeMPR"]] <- .VovkSellkeMPR(sortedModel[["Pr(>F)"]])
+  sortedModel[["VovkSellkeMPR"]] <- VovkSellkeMPR(sortedModel[["Pr(>F)"]])
 
   rownames(residualResults) <- cases
   residualResults[["Mean Sq"]] <- residualResults[["Sum Sq"]] / residualResults[["num Df"]]
@@ -467,7 +467,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   wResidualResultsList[["None"]]["BetweenResidualResults", "Mean Sq"] <- interceptRow[["Error SS"]] / interceptRow[["den Df"]]
   
   for (tableIndex in .indices(withinAnovaTableCollection)) {
-    withinAnovaTableCollection[[tableIndex]][["VovkSellkeMPR"]] <- .VovkSellkeMPR(withinAnovaTableCollection[[tableIndex]][["Pr(>F)"]])
+    withinAnovaTableCollection[[tableIndex]][["VovkSellkeMPR"]] <- VovkSellkeMPR(withinAnovaTableCollection[[tableIndex]][["Pr(>F)"]])
   }
 
   return(list(anovaResult = sortedModel, 
@@ -748,7 +748,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
                       df2 = r[[1]]$Df[2],
                       p=r[[1]]$`Pr(>F)`[1],
                       ".isNewGroup" = i == 1,
-                      VovkSellkeMPR = .VovkSellkeMPR(r[[1]]$`Pr(>F)`[1]))
+                      VovkSellkeMPR = VovkSellkeMPR(r[[1]]$`Pr(>F)`[1]))
     
     rmAnovaLevenesTable$addRows(row)
     

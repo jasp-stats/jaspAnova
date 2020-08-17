@@ -410,7 +410,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   }
     
   if (options$VovkSellkeMPR) {
-    result[["VovkSellkeMPR"]] <-  ifelse(result[['Pr(>F)']] != "", .VovkSellkeMPR(na.omit(result[['Pr(>F)']])), "")
+    result[["VovkSellkeMPR"]] <-  ifelse(result[['Pr(>F)']] != "", VovkSellkeMPR(na.omit(result[['Pr(>F)']])), "")
   }
   
   if ((options$homogeneityBrown || options$homogeneityWelch) && length(options$modelTerms) > 1) 
@@ -438,7 +438,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     
     if (options$VovkSellkeMPR) {
       brownResult[['VovkSellkeMPR']] <-  ifelse(brownResult[['Pr(>F)']] != "", 
-                                                .VovkSellkeMPR(na.omit(brownResult[['Pr(>F)']])), "")
+                                                VovkSellkeMPR(na.omit(brownResult[['Pr(>F)']])), "")
     }
     
     anovaResult[['brownResult']] <- brownResult
@@ -461,7 +461,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     if (options$VovkSellkeMPR) {
       welchResult[["VovkSellkeMPR"]] <-  ifelse(!is.na(welchResult[['Pr(>F)']]), 
-                                                .VovkSellkeMPR(na.omit(welchResult[["Pr(>F)"]])), NA)
+                                                VovkSellkeMPR(na.omit(welchResult[["Pr(>F)"]])), NA)
     }
     
     anovaResult[['welchResult']] <- welchResult
@@ -1437,7 +1437,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                                  df1 = leveneResult$Df[1],
                                  df2 = leveneResult$Df[2],
                                  p = leveneResult$`Pr(>F)`[1],
-                                 VovkSellkeMPR = .VovkSellkeMPR(leveneResult$`Pr(>F)`[1])))
+                                 VovkSellkeMPR = VovkSellkeMPR(leveneResult$`Pr(>F)`[1])))
 
   return()
 }

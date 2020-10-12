@@ -1432,7 +1432,8 @@
   if (length(repeatedMeasuresFactors) == 0) {
     summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependentV, groupvars = groupVarsV,
                                          conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
-                                         errorBarType = errorBarType)
+                                         errorBarType = errorBarType, dependentName = .BANOVAdependentName,
+                                         subjectName = .BANOVAsubjectName)
   } else {
     summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
                                                betweenvars = betweenSubjectFactors,
@@ -1440,7 +1441,8 @@
                                                idvar = .BANOVAsubjectName,
                                                conf.interval = options$confidenceIntervalInterval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = options$errorBarType,
-                                               usePooledSE = usePooledSE)
+                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               subjectName = .BANOVAsubjectName)
   }
 
   if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {

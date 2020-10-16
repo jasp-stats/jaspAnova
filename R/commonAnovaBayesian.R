@@ -455,7 +455,7 @@
   effectsTable$addColumnInfo(name = "BFInclusion",  title = inclusion.title,         type = "number")
 
   if (options$effectsType == "matchedModels") {
-    effectsTable$addFootnote(gettext("Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Mathôt."))
+    effectsTable$addFootnote(gettextf("Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st.", "\u00F4"))
   }
   
   if (is.null(model$models)) {

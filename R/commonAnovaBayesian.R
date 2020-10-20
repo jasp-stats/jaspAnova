@@ -1430,17 +1430,19 @@
   repeatedMeasuresFactors <- groupVarsV[groupVars %in% sapply(options$repeatedMeasuresFactors,function(x)x$name)]
   
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- .summarySE(as.data.frame(dataset), measurevar = dependentV, groupvars = groupVarsV,
-                              conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
-                              errorBarType = errorBarType)
+    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependentV, groupvars = groupVarsV,
+                                         conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
+                                         errorBarType = errorBarType, dependentName = .BANOVAdependentName,
+                                         subjectName = .BANOVAsubjectName)
   } else {
-    summaryStat <- .summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
-                                  betweenvars = betweenSubjectFactors,
-                                  withinvars = repeatedMeasuresFactors,
-                                  idvar = .BANOVAsubjectName,
-                                  conf.interval = options$confidenceIntervalInterval,
-                                  na.rm=TRUE, .drop = FALSE, errorBarType = options$errorBarType,
-                                  usePooledSE = usePooledSE)
+    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
+                                               betweenvars = betweenSubjectFactors,
+                                               withinvars = repeatedMeasuresFactors,
+                                               idvar = .BANOVAsubjectName,
+                                               conf.interval = options$confidenceIntervalInterval,
+                                               na.rm=TRUE, .drop = FALSE, errorBarType = options$errorBarType,
+                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               subjectName = .BANOVAsubjectName)
   }
 
   if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
@@ -1617,7 +1619,6 @@
   }
   return()
 }
-
 
 # Sample posteriors ----
 .BANOVAsamplePosteriors <- function(jaspResults, dataset, options, model, state) {

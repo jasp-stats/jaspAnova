@@ -1118,7 +1118,8 @@
 
     pairs <- utils::combn(variable.levels, 2)
 
-    allSplits <- split(dataset[[.v(dependent)]], dataset[[.v(posthoc.var)]])
+    splitname <- if (model[["analysisType"]] == "RM-ANOVA") .BANOVAdependentName else .v(dependent)
+    allSplits <- split(dataset[[splitname]], dataset[[.v(posthoc.var)]])
 
     errMessages <- NULL
     for (i in 1:ncol(pairs)) {
@@ -2336,8 +2337,9 @@
   for (term in modelTerms) {
 
     comp <- term$component
-    if (comp != .BANOVAsubjectName)
-      comp <- .v(comp)
+    idx <- comp != .BANOVAsubjectName
+    if (any(idx))
+      comp[idx] <- .v(comp[idx])
 
     if (is.null (effects) & is.null (nuisance)){
       model.formula <- paste0(model.formula, comp, collapse = ":")

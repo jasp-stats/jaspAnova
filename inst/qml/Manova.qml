@@ -23,7 +23,7 @@ import JASP				1.0
 
 Form
 {
-	usesJaspResults: true
+	
 	
 	IntegerField { visible: false; name: "plotWidthQQPlot"                      ; defaultValue: 300 }
 	IntegerField { visible: false; name: "plotHeightQQPlot"                     ; defaultValue: 300 }

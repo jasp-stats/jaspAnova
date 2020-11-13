@@ -338,7 +338,7 @@
         if (isTryError(bf)) {
           modelName <- strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L]
           .quitAnalysis(gettextf("Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s.",
-                                modelName, .extractErrorMessage(bf)))
+                                .BANOVAdecodeSubject(modelName), .extractErrorMessage(bf)))
         } else {
           # delete the data object -- otherwise it gets saved in the state
           bf@data <- data.frame()
@@ -1215,6 +1215,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAdependentName <- "JaspColumn_.dependent._Encoded"
 .BANOVAsubjectName <- "JaspColumn_.subject._Encoded"
+
+.BANOVAdecodeSubject <- function(string) {
+  return(gsub(BANOVAsubjectName, "subject", string))
+}
 
 .BANOVAdecodeNuisance <- function(nuisance) {
   # .BANOVAsubjectName needs to be handled separately

@@ -1,0 +1,762 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: R 3.6.1\n"
+"Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
+"POT-Creation-Date: 2020-11-19 11:20\n"
+"PO-Revision-Date: 2020-10-14 09:57+0000\n"
+"Last-Translator: JASP Stats <F.A.M.Meerhoff@uva.nl>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jasp-engine/"
+"nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
+"X-Generator: Weblate 4.3-dev\n"
+
+msgid ""
+"The WLS weights contain negative and/or zero values.<br><br>(only positive "
+"WLS weights allowed)."
+msgstr ""
+"De WLS gewichten bevatten negatieve en/of nulwaardes.<br><br>(alleen "
+"positieve WLS waarden toegestaan)."
+
+msgid ""
+"Singular fit encountered; one or more predictor variables are a linear "
+"combination of other predictor variables"
+msgstr ""
+"Singulaire passing gedetecteerd; een of meer voorspellende variabelen zijn "
+"een lineaire combinatie van andere voorspellende variabelen"
+
+msgid ""
+"Residual sum of squares is 0; this might be due to extremely low variance of "
+"your dependent variable"
+msgstr ""
+"Resterende som van kwadraten is 0, dit kan het gevolg zijn van een extreem "
+"lage variantie van uw afhankelijke variabele"
+
+msgid "An error occurred while computing the ANOVA: %s"
+msgstr "Een fout trad op bij het berekenen van de ANOVA: %s"
+
+msgid ""
+"Your design contains empty cells. Please try a different type of sum of "
+"squares."
+msgstr ""
+"Uw ontwerp bevat lege cellen. Probeer een ander type van de kwadratensom."
+
+msgid "ANOVA"
+msgstr "ANOVA"
+
+msgid "ANCOVA"
+msgstr "ANCOVA"
+
+msgid "Homogeneity Correction"
+msgstr "Homogeniteitscorrectie"
+
+msgid "Cases"
+msgstr "Waarnemingen"
+
+msgid "Sum of Squares"
+msgstr "Kwadratensom"
+
+msgid "df"
+msgstr "vg"
+
+msgid "Mean Square"
+msgstr "Gemiddelde kwadraatsom"
+
+msgid "F"
+msgstr "F"
+
+msgid "p"
+msgstr "p"
+
+msgid "VS-MPR%s"
+msgstr "VS-MPR%s"
+
+msgid "Type I Sum of Squares"
+msgstr "Type I Kwadratensom"
+
+msgid "Type II Sum of Squares"
+msgstr "Type II Kwadratensom"
+
+msgid "Type III Sum of Squares"
+msgstr "Type III Kwadratensom"
+
+msgid ""
+"The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
+msgstr ""
+"De Brown-Forsythe en Welch correcties zijn alleen beschikbaar bij een "
+"eenzijdige ANOVA"
+
+msgid "Contrast Tables"
+msgstr "Geplande contrasten"
+
+msgid "%1$s Contrast - %2$s"
+msgstr "%1$s Contrast - %2$s"
+
+msgid "Please specify an additional contrast."
+msgstr "Specificeer a.u.b. een toegevoegd contrast."
+
+msgid "Wrong number of custom contrast matrix rows."
+msgstr "Onjuist aantal aangepaste contrastmatrixrijen."
+
+msgid "Please specify non-zero contrast weights."
+msgstr "Specificeer het aantal contrastgewichten ongelijk aan 0."
+
+msgid "Estimate"
+msgstr "Schatting"
+
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% BI voor Gemiddelde Verschil"
+
+msgid "Lower"
+msgstr "Onder"
+
+msgid "Upper"
+msgstr "Boven"
+
+msgid "SE"
+msgstr "Std. Fout"
+
+msgid "t"
+msgstr "t"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s Contrast Coëfficiënten - %2$s"
+
+msgid "Post Hoc Tests"
+msgstr "Post-Hoc Toetsen"
+
+msgid "Standard"
+msgstr "Standaard"
+
+msgid "Results are averaged over the levels of: %s"
+msgstr "Resultaten zijn gemiddeld over de levels van: %s"
+
+msgid "Cohen's d does not correct for multiple comparisons."
+msgstr "Cohen's d corrigeert niet voor meerdere vergelijkingen."
+
+msgid "Bootstrapping based on %s successful replicates."
+msgstr "Bootstrapping gebaseerd op %s succesvolle replicaties."
+
+msgid ""
+"Mean Difference estimate is based on the median of the bootstrap "
+"distribution."
+msgstr ""
+"Gemiddelde Verschilsschatting is gebaseerd op de mediaan van de "
+"bootstrapverdeling."
+
+msgid "Bias corrected accelerated."
+msgstr "Onzuiverheid gecorrigeerd versneld."
+
+msgid "Bootstrapping Post Hoc Test"
+msgstr "Bootstrapping Post Hoc-Toets"
+
+msgid ""
+"Some confidence intervals could not be computed.\n"
+"Possibly too few bootstrap replicates."
+msgstr ""
+"Sommige betrouwbaarheidsintervallen konden niet worden berekend. \n"
+"Er zijn mogelijk te weinig bootstrap replicaties."
+
+msgid "Dunn"
+msgstr "Dunn"
+
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "Dunn's Post-Hoc vergelijkingen - %s"
+
+msgid "Comparison"
+msgstr "Vergelijking"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Games-Howell"
+msgstr "Games-Howel"
+
+msgid "Games-Howell Post Hoc Comparisons - %s"
+msgstr "Games-Howell Post-Hoc Vergelijkingen - %s"
+
+msgid "Mean Difference"
+msgstr "Gemiddeld Verschil"
+
+msgid "%.0f%% CI for Mean Difference"
+msgstr "%.0f%% CI voor Gemiddelde Verschil"
+
+msgid "p<sub>tukey</sub>"
+msgstr "p<sub>tukey</sub>"
+
+msgid "Dunnett"
+msgstr "Dunnett"
+
+msgid "Dunnett Post Hoc Comparisons - %s"
+msgstr "Dunnett Post-Hoc Vergelijkingen - %s"
+
+msgid "p<sub>dunnett</sub>"
+msgstr "p<sub>dunnett</sub>"
+
+msgid ""
+"Confidence interval is too narrow, please select a different confidence "
+"level."
+msgstr ""
+"Betrouwbaarheidsinterval is te smal, kies een ander betrouwbaarheidslevel."
+
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgid "SD"
+msgstr "SD"
+
+msgid "N"
+msgstr "N"
+
+msgid "Assumption Checks"
+msgstr "Verificatie van Aannames"
+
+msgid "Test for Equality of Variances (Levene's)"
+msgstr "Toets voor Gelijkheid van Varianties (Levene's)"
+
+msgid "df1"
+msgstr "df1"
+
+msgid "df2"
+msgstr "df2"
+
+msgid ""
+"F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
+"essentially perfect fit are unreliable)"
+msgstr ""
+"F-waarde gelijk aan nul geeft een perfecte passing aan.<br><br>(Levene's "
+"toets bij een vrijwel perfecte passing is onbetrouwbaar)"
+
+msgid "Marginal Means"
+msgstr "Marginale Gemiddeldes"
+
+msgid "Bootstrapping Marginal Means"
+msgstr "Bootstrapping Marginale Gemiddelden"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
+"mogelijk te weinig bootstrap replicaties."
+
+msgid "Bootstrapping based on %s replicates."
+msgstr "Bootstrapping gebaseerd op %s herhalingen."
+
+msgid "Simple Main Effects"
+msgstr "Hoofdeffecten"
+
+msgid "Simple Main Effects - %s"
+msgstr "Hoofdeffecten - %s"
+
+msgid "Level of %s"
+msgstr "Niveau van %s"
+
+msgid "Not enough observations in cells %s."
+msgstr "Niet genoeg observaties in cellen %s."
+
+msgid "Kruskal-Wallis Test"
+msgstr "Kruskal-Wallis Toets"
+
+msgid "Factor"
+msgstr "Factor"
+
+msgid "Statistic"
+msgstr "Statistiek"
+
+msgid "Q-Q Plot"
+msgstr "Q-Q plot"
+
+msgid "Theoretical Quantiles"
+msgstr "Theoretische Kwantielen"
+
+msgid "Standardized Residuals"
+msgstr "Gestandaardiseerde Residuen"
+
+msgid ""
+"Error while loading data. Please verify your repeated measures observations."
+msgstr ""
+"Fout tijdens laden van gegevens. Controleer uw herhaalde metingen "
+"waarnemingen."
+
+msgid "Factor: <em>%s</em>, contains fewer than two levels."
+msgstr "Factor: <em>%s</em>, bevat minder dan twee niveaus."
+
+msgid "Factors: <em>%s</em>, contain fewer than two levels."
+msgstr "Factoren: <em>%s</em>, bevatten minder dan twee niveaus."
+
+msgid "The repeated measure: <em>%s</em>, contains infinite values."
+msgstr "De herhaalde meting: <em>%s</em>, bevat oneindige waarden."
+
+msgid "The repeated measures: <em>%s</em>, contain infinite values."
+msgstr "De herhaalde metingen: <em>%s</em>, bevatten oneindige waarden."
+
+msgid "The covariate: <em>%s</em>, contains infinite values."
+msgstr "De covariaat: <em>%s</em>, bevat oneindige waarden."
+
+msgid "The covariates: <em>%s</em>, contain infinite values."
+msgstr "De covariaten: <em>%s</em>, bevatten oneindige waarden."
+
+msgid ""
+"Please choose a name for the RM factors that differs from those for the "
+"between subjects factors."
+msgstr ""
+"Kies een naam voor de BP factoren die verschilt van die voor de tussen-"
+"proefpersoon factoren."
+
+msgid ""
+"Some parameters are not estimable, most likely due to empty cells of the "
+"design."
+msgstr ""
+"Sommige parameters kunnen niet worden geschat, waarschijnlijk door lege "
+"cellen in het ontwerp."
+
+msgid "Greenhouse-Geisser"
+msgstr "Greenhouse-Geisser"
+
+msgid "Huynh-Feldt"
+msgstr "Huynh-Feldt"
+
+msgid "None"
+msgstr "Geen"
+
+msgid "Between Subjects Effects"
+msgstr "Tussen-proefpersoon Effecten"
+
+msgid "%s<sub>G</sub>"
+msgstr "%s<sub>G</sub>"
+
+msgid "Within Subjects Effects"
+msgstr "Binnen-proefpersoon Effecten"
+
+msgid "Sphericity Correction"
+msgstr "Sfericiteitscorrectie"
+
+msgid "Sphericity corrections not available for factors with 2 levels."
+msgstr ""
+"Sfericiteitscorrecties zijn niet beschikbaar voor factoren met 2 niveaus."
+
+msgid ""
+"Mauchly's test of sphericity indicates that the assumption of sphericity is "
+"violated (p < .05)."
+msgstr ""
+"Mauchly's toets geeft aan dat de aanname van sfericiteit is geschonden (p "
+"< .05)."
+
+msgid ""
+"Cannot perform homogeneity tests because there are no between subjects "
+"factors specified."
+msgstr ""
+"Kan geen toets voor homogeniteit uitvoeren omdat er geen tussen-proefpersoon "
+"factoren zijn gespecificeerd."
+
+msgid "Test of Sphericity"
+msgstr "Toets voor Sfericiteit"
+
+msgid "Mauchly's W"
+msgstr "Mauchly's W"
+
+msgid "Approx. %s"
+msgstr "Geschatte %s"
+
+msgid "dfSphericity"
+msgstr "dfSfericiteit"
+
+msgid "p-value"
+msgstr "p-waarde"
+
+msgid "Greenhouse-Geisser %s"
+msgstr "Greenhouse-Geisser %s"
+
+msgid "Huynh-Feldt %s"
+msgstr "Huynh-Feldt %s"
+
+msgid "Lower Bound %s"
+msgstr "Bovengrens %s"
+
+msgid ""
+"Cannot perform sphericity tests because there are only two levels of the RM "
+"factor."
+msgstr ""
+"Kan geen sfericiteitstoets uitvoeren omdat de BP factor slechts twee niveaus "
+"bevat."
+
+msgid "Unpooled error term only allowed in balanced designs."
+msgstr "Aparte fout term enkel toegestaan bij gebalanceerde designs."
+
+msgid ""
+"%s corrected p-values are not appropriate for repeated measures post-hoc "
+"tests (Maxwell, 1980; Field, 2012)."
+msgstr ""
+"%s gecorrigeerde p-waarden zijn niet geschikt voor herhaalde metingen post-"
+"hoc toetsen (Maxwell, 1980; Field, 2012)."
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "P-waarde aangepast om een familie van %s te vergelijken"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"P-waarde en betrouwbaarheidsintervallen aangepast om een familie van %1$s "
+"schattingen te vergelijken (betrouwbaarheidsintervallen gecorrigeerd met de "
+"%2$s methode)."
+
+msgid "Post Hoc Comparisons -"
+msgstr "Post-Hoc Vergelijkingen -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "Gebootstrapte Post-Hoc Vergelijkingen -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s BI"
+
+msgid "bias"
+msgstr "onzuiverheid"
+
+msgid "Cohen's d"
+msgstr "Cohen's d"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p<sub>scheffe</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>sidak</sub>"
+
+msgid ""
+"Unequal variances only available for main effects of within subjects factors"
+msgstr ""
+"Ongelijke varianties alleen beschikbaar voor hoofdeffecten van binnen-"
+"proefpersoon factoren"
+
+msgid "Marginal Means -"
+msgstr "Marginale Gemiddeldes -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "Gebootstrapte Marginale Gemiddeldes -"
+
+msgid "Marginal Mean"
+msgstr "Marginaal Gemiddelde"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s BI"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+"Marginale Gemiddelden schatting is gebaseerd op de mediaan van de "
+"bootstrapverdeling."
+
+msgid "95%% CI for Mean Difference"
+msgstr "95%% BI voor Gemiddeld Verschil"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni BI aanpassing"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak BI aanpassing"
+
+msgid "Nonparametrics"
+msgstr "Niet parametrisch"
+
+msgid "Friedman Test"
+msgstr "Friedman Toets"
+
+msgid "Chi-Squared"
+msgstr "Chi-Kwadraat"
+
+msgid "Kendall's W"
+msgstr "Kendall's W"
+
+msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgstr "Specificeer juiste termen voor de Friedman/Durbin toets."
+
+msgid "Durbin Test"
+msgstr "Durbin Toets"
+
+msgid "df num"
+msgstr "vg teller"
+
+msgid "df den"
+msgstr "vg noemer"
+
+msgid "p<sub>F</sub>"
+msgstr "p<sub>F</sub>"
+
+msgid "Conover Test"
+msgstr "Conover Toets"
+
+msgid "Conover's Post Hoc Comparisons - %s"
+msgstr "Conover's Post-Hoc Vergelijkingen - %s"
+
+msgid "T-Stat"
+msgstr "T-Stat"
+
+msgid "Grouped by %s."
+msgstr "Gegroepeerd met %s."
+
+msgid "Infinity found in repeated measures cells."
+msgstr "Oneindig gevonden in de binnenproefpersoon cellen."
+
+msgid "Number of observations is < %s in repeated measures cells"
+msgstr "Het aantal observaties is < %s in de binnenproefpersoon cellen"
+
+msgid "The variance in the repeated measures cells is 0."
+msgstr "De variantie van de binnenproefpersoon cellen is 0."
+
+msgid "Duplicate variables encountered in repeated measures cells, %s"
+msgstr "Duplicate variabelen gevonden in de binnenproefpersoon cellen, %s"
+
+msgid "Duplicate variables encountered in %s"
+msgstr "Duplicate variabelen gevonden in %s"
+
+msgid "Bayes factor is undefined -- all effects are specified as nuisance."
+msgstr ""
+"Bayes factor is niet gedefinieerd -- alle effecten zijn gespecificeerd als "
+"ruis."
+
+msgid "Null model"
+msgstr "Nulmodel"
+
+msgid "Null model (incl. %s)"
+msgstr "Nulmodel (incl. %s)"
+
+msgid "Computing Bayes factors"
+msgstr "Bayes factoren berekenen"
+
+msgid ""
+"Bayes factor could not be computed for model: %1$s.\n"
+"The error message was: %2$s."
+msgstr ""
+"Bayes factor kon niet worden berekend voor model: %1$s.\n"
+"Foutbericht: %2$s."
+
+msgid "All models include %s"
+msgstr "Alle modellen bevatten %s"
+
+msgid "Analysis of Effects - %s"
+msgstr "Analyse van Effecten - %s"
+
+msgid "Analysis of Effects"
+msgstr "Analyse van Effecten"
+
+msgid "Log(BF<sub>incl</sub>)"
+msgstr "Log(BF<sub>incl</sub>)"
+
+msgid "BF<sub>excl</sub>"
+msgstr "BF<sub>excl</sub>"
+
+msgid "BF<sub>incl</sub>"
+msgstr "BF<sub>incl</sub>"
+
+msgid "Effects"
+msgstr "Effecten"
+
+msgid "P(incl)"
+msgstr "P(incl)"
+
+msgid "P(excl)"
+msgstr "P(excl)"
+
+msgid "P(incl|data)"
+msgstr "P(incl|data)"
+
+msgid "P(excl|data)"
+msgstr "P(excl|data)"
+
+msgid ""
+"Compares models that contain the effect to equivalent models stripped of the "
+"effect. Higher-order interactions are excluded. Analysis suggested by "
+"Sebastiaan Math%st."
+msgstr ""
+"Vergelijkt modellen die het effect bevatten met vergelijkbare modellen "
+"waarbij het effect is weggenomen. Hogere-orde interacties zijn niet "
+"meegenomen. Analyse voorgesteld door Sebastiaan Math%st."
+
+msgid ""
+"Some Bayes factors could not be calculated. Inclusion probabilities and "
+"Bayes factors are calculated while excluding these models. The results may "
+"be uninterpretable!"
+msgstr ""
+"Sommige Bayes factoren konden niet worden berekend. Inclusiekansen en Bayes "
+"factoren worden berekend zonder deze modellen. Hierdoor kunnen de resultaten "
+"misschien niet goed worden geïnterpreteerd!"
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>Waarschuwing.</em></b>"
+
+msgid "Model Comparison"
+msgstr "Model Vergelijking"
+
+msgid "BF<sub>M</sub>"
+msgstr "BF<sub>M</sub>"
+
+msgid "BF<sub>10</sub>"
+msgstr "BF<sub>10</sub>"
+
+msgid "BF<sub>01</sub>"
+msgstr "BF<sub>01</sub>"
+
+msgid "Log(BF<sub>M</sub>)"
+msgstr "Log(BF<sub>M</sub>)"
+
+msgid "Log(BF<sub>10</sub>)"
+msgstr "Log(BF<sub>10</sub>)"
+
+msgid "Models"
+msgstr "Modellen"
+
+msgid "P(M)"
+msgstr "P(M)"
+
+msgid "P(M|data)"
+msgstr "P(M|data)"
+
+msgid "error %"
+msgstr "fout %"
+
+msgid ""
+"<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
+"model inference is carried out while excluding these models. The results may "
+"be uninterpretable!"
+msgstr ""
+"<b><em>Waarschuwing.</em></b> Sommige Bayes factoren konden niet worden "
+"berekend. Multimodel inferentie wordt zonder deze modellen toegepast. "
+"Hierdoor kunnen de resultaten misschien niet goed worden geïnterpreteerd!"
+
+msgid "Model Averaged Posterior Summary"
+msgstr "Model Gemiddelde Posterior Samenvatting"
+
+msgid "%s%% Credible Interval"
+msgstr "%s%% Geloofwaardigheidsinterval"
+
+msgid "Model Averaged R%s"
+msgstr "Model Gemiddelde R%s"
+
+msgid "Model Averaged Posterior Distributions"
+msgstr "Model Gemiddelde Posterior Verdeling"
+
+msgid "Posterior distribution"
+msgstr "Posterior verdeling"
+
+msgid ""
+"Could not plot posterior distribution. Check if an error occurred for models "
+"including this parameter."
+msgstr ""
+"Kon de posterior verdeling niet plotten. Controleer of er een fout zat in "
+"modellen die deze parameter bevatten."
+
+msgid "Level"
+msgstr "Niveau"
+
+msgid "Density"
+msgstr "Dichtheid"
+
+msgid "Model Averaged Q-Q Plot"
+msgstr "Model Gemiddeld Q-Q Plot"
+
+msgid "Model Averaged Posterior R%s"
+msgstr "Model Gemiddelde Posterior R%s"
+
+msgid ""
+"The posterior odds have been corrected for multiple testing by fixing to 0.5 "
+"the prior probability that the null hypothesis holds across all comparisons "
+"(Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the "
+"default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the "
+"Bayes factor denotes that it is uncorrected."
+msgstr ""
+"De posterior kansen zijn gecorrigeerd voor meerdere toetsen door de prior "
+"kans dat de nulhypothese waar is, vast te zetten op 0.5 over alle "
+"vergelijkingen (Westfall, Johnson, & Utts, 1997). Individuele vergelijkingen "
+"zijn gebaseerd op de standaard t-toets met een Cauchy (0, r = 1/sqrt(2)) "
+"prior. De \"U\" in de Bayes factor geeft aan dat deze niet is gecorrigeerd."
+
+msgid "Prior Odds"
+msgstr "Prior Kans"
+
+msgid "Posterior Odds"
+msgstr "Posterior Kans"
+
+msgid "Descriptives"
+msgstr "Beschrijvende statistiek"
+
+msgid "Descriptives - %s"
+msgstr "Beschrijvingen - %s"
+
+msgid ""
+"Some combinations of factors are not observed and hence omitted (%g out of "
+"%g combinations are unobserved)."
+msgstr ""
+"Sommige combinaties van factoren zijn niet geobserveerd en dus vermeden (%g "
+"van de %g combinaties zijn niet geobserveerd)."
+
+msgid "Descriptives plots"
+msgstr "Beschrijvende diagrammen"
+
+msgid "Descriptives Plot"
+msgstr "Beschrijvend Diagram"
+
+msgid "Sampling posteriors"
+msgstr "Steekproef posteriors"
+
+msgid "length of samples must be equal to length of weights!"
+msgstr ""
+"lengte van steekproeven moeten gelijk zijn aan de lengte van gewichten!"
+
+msgid ""
+"All predictions had zero variance. Check the predictors for anomalies or "
+"increase the number of posterior samples."
+msgstr ""
+"Alle voorspellingen hadden een variantie van nul. Bekijk de voorspeller voor "
+"afwijkingen of verhoog het aantal posterior steekproeven."
+
+msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
+msgstr ""
+"De volgende fout deed zich voor in BayesFactor::enumerateGeneralModels: %s"
+
+msgid "Single Model Inference"
+msgstr "Enkel Model Inferentie"
+
+msgid ""
+"Error in single model inference:\n"
+"%s"
+msgstr ""
+"Fout in enkel model inferentie: \n"
+"%s"
+
+msgid "Single Model Posterior Summary"
+msgstr "Enkel Model Posterior Samenvatting"
+
+msgid "Variable"
+msgstr "Variabele"
+
+msgid "Single Model Posterior Distributions"
+msgstr "Enkel Model Posterior Verdelingen"
+
+msgid "Posterior R%s"
+msgstr "Posterior R%s"
+
+msgid "Single Model R%s"
+msgstr "Enkel Model R%s"
+
+msgid "MANOVA"
+msgstr "MANOVA"
+
+msgid ""
+"The design matrix is not invertible. This might be due to collinear "
+"dependent variables."
+msgstr ""
+"De ontwerp matrix is niet inverteerbaar. Dit kan het gevolg zijn van "
+"collinaire variabelen."

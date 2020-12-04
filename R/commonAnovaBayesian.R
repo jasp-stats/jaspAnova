@@ -277,7 +277,7 @@
 
       if (m > 1L) {
         model.title <- setdiff(model.effects, nuisance)
-        modelObject[[m]]$title <- .BANOVAaddInteractionSymbol(paste(model.title, collapse = " + "))
+        modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
   }
@@ -508,7 +508,7 @@
     )
   }
 
-  effectsTable[["Effects"]]      <- .BANOVAaddInteractionSymbol(effectNames)
+  effectsTable[["Effects"]]      <- jaspBase::gsubInteractionSymbol(effectNames)
   effectsTable[["P(incl)"]]      <- priorInclProb
   effectsTable[["P(incl|data)"]] <- postInclProb
   effectsTable[["BFInclusion"]] <- switch(
@@ -781,7 +781,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   idxDup <- duplicated(table[, "Variable"])
   table[idxDup, "Variable"]  <- ""
   # decode base64 variables
-  table[!idxDup, "Variable"] <- .BANOVAaddInteractionSymbol(table[!idxDup, "Variable"])
+  table[!idxDup, "Variable"] <- jaspBase::gsubInteractionSymbol(table[!idxDup, "Variable"])
   # rename mu to Intercept
   table[1L, "Variable"] <- "Intercept"
   # attach posterior means and sds
@@ -866,7 +866,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   allParamNames <- colnames(densities)
 
   tmp <- .BANOVAgetLevelsFromParamNames(allParamNames)
-  plotTitles <- .BANOVAaddInteractionSymbol(tmp[, "parameter"])
+  plotTitles <- jaspBase::gsubInteractionSymbol(tmp[, "parameter"])
   xNames <- tmp[, "level"]
 
   if (is.null(isRandom)) {
@@ -1224,7 +1224,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # .BANOVAsubjectName needs to be handled separately
   idx <- nuisance == .BANOVAsubjectName
   nuisance[idx]  <- "subject"
-  nuisance[!idx] <- .BANOVAaddInteractionSymbol(nuisance[!idx])
+  nuisance[!idx] <- jaspBase::gsubInteractionSymbol(nuisance[!idx])
   return(nuisance)
 }
 
@@ -2445,13 +2445,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   for (i in which(lengths(s) > 1L))
     s[[i]] <- paste0(sort(s[[i]]), collapse = ":")
   return(unlist(s))
-}
-
-.BANOVAaddInteractionSymbol <- function(strings) {
-  # this function should maybe move to jaspBase
-  interactionSymbol <- "\u2009\u273B\u2009"
-  base::Encoding(interactionSymbol) <- "UTF-8"
-  gsub(":", interactionSymbol, strings)
 }
 
 # Single Model Inference (SMI) ----

@@ -1217,7 +1217,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAsubjectName <- "JaspColumn_.subject._Encoded"
 
 .BANOVAdecodeSubject <- function(string) {
-  return(gsub(BANOVAsubjectName, "subject", string))
+  return(gsub(.BANOVAsubjectName, "subject", string))
 }
 
 .BANOVAdecodeNuisance <- function(nuisance) {

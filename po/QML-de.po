@@ -135,7 +135,7 @@ msgstr "Kontraste"
 
 msgctxt "Ancova|"
 msgid "Confidence intervals"
-msgstr "Konfidenzintervalle"
+msgstr "Konfidenzintervall"
 
 msgctxt "Ancova|"
 msgid "Post Hoc Tests"
@@ -235,7 +235,7 @@ msgstr "Vergleiche Randmittelwerte mit 0"
 
 msgctxt "Ancova|"
 msgid "Confidence interval adjustment"
-msgstr "Konfidenzintervall-Adjustierung"
+msgstr "Konfidenzintervall-Anpassung"
 
 msgctxt "Ancova|"
 msgid "None"
@@ -319,7 +319,7 @@ msgstr "Deskriptive Statistik"
 
 msgctxt "AncovaBayesian|"
 msgid "Credible interval"
-msgstr "Kredibilitätsintervall"
+msgstr "Glaubwürdigkeitsintervall"
 
 msgctxt "AncovaBayesian|"
 msgid "Order"
@@ -655,7 +655,7 @@ msgstr "Randmittelwerte mit 0 vergleichen"
 
 msgctxt "Anova|"
 msgid "Confidence interval adjustment"
-msgstr "Konfidenzintervall-Adjustierung"
+msgstr "Konfidenzintervall-Anpassung"
 
 msgctxt "Anova|"
 msgid "Simple Main Effects"
@@ -727,7 +727,7 @@ msgstr "Deskriptive Statistik"
 
 msgctxt "AnovaBayesian|"
 msgid "Credible interval"
-msgstr "Kredibilitätsintervall"
+msgstr "Glaubwürdigkeitsintervall"
 
 msgctxt "AnovaBayesian|"
 msgid "Order"
@@ -1071,7 +1071,7 @@ msgstr "Vergleiche Randmittelwerte mit 0"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval adjustment"
-msgstr "Konfidenzintervall-Adjustierung"
+msgstr "Konfidenzintervall-Anpassung"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Šidák"
@@ -1159,7 +1159,7 @@ msgstr "Deskriptive Statistik"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Credible interval"
-msgstr "Kredibilitätsintervall"
+msgstr "Glaubwürdigkeitsintervall"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Order"

@@ -237,6 +237,23 @@ Form
 	
 	Section
 	{
+		title: qsTr("Raincloud Plots")
+
+		VariablesForm
+		{
+			preferredHeight: 150 * preferencesModel.uiScale
+			AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); source: ["fixedFactors", "randomFactors"] }
+			AssignedVariablesList { name: "rainCloudPlotsHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true }
+			AssignedVariablesList { name: "rainCloudPlotsSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true }
+		}
+		CheckBox
+		{
+			name: "rainCloudPlotsHorizontalDisplay"; label: qsTr("Horizontal display")
+		}
+	}
+
+	Section
+	{
 		title: qsTr("Marginal Means")
 		columns: 1
 		

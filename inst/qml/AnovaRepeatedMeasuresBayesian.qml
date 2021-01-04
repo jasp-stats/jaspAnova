@@ -206,6 +206,21 @@ Form
 
 	Section
 	{
+		title: qsTr("Raincloud Plots")
+
+		VariablesForm
+		{
+			preferredHeight: 150 * preferencesModel.uiScale
+			AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
+			AssignedVariablesList { name: "rainCloudPlotsHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true }
+			AssignedVariablesList { name: "rainCloudPlotsSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true }
+		}
+
+		TextField { name: "rainCloudPlotsLabelYAxis"; label: qsTr("Label y-axis"); fieldWidth: 200 }
+	}
+
+	Section
+	{
 		title: qsTr("Additional Options")
 
 		Group

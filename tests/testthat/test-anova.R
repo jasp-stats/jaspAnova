@@ -237,6 +237,30 @@ test_that("Descriptives plots match", {
   jaspTools::expect_equal_plots(testPlot, "descriptives-se", dir="Anova")
 })
 
+test_that("Raincloud plots match", {
+  options <- jaspTools::analysisOptions("Anova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("facFive", "contBinom")
+  options$wlsWeights <- "facFifty"
+  options$modelTerms <- list(
+    list(components="facFive"),
+    list(components="contBinom"),
+    list(components=c("facFive", "contBinom"))
+  )
+  options$rainCloudPlotsHorizontalAxis <- "contBinom"
+  options$rainCloudPlotsSeparatePlots <- "facFive"
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
+  testPlot <- results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-vertical", dir="Anova")
+
+  options$rainCloudPlotsHorizontalDisplay <- TRUE
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
+  testPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-horizontal", dir="Anova")
+})
+
 test_that("Simple Main Effects table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"

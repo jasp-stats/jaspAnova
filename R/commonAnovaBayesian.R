@@ -1637,11 +1637,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                      "rainCloudPlotsLabelYAxis", "rainCloudPlotsHorizontalDisplay"))
 
   if (errors$noVariables) {
-    rainCloudPlotsContainer[["dummyplot"]] <- createJaspPlot(title = gettext("Descriptives Plot"))
+    rainCloudPlotsContainer[["dummyplot"]] <- createJaspPlot(title = "")
     return()
   }
 
-  groupVar <- options$rainCloudPlotsHorizontalAxis
+  groupVar <- options[["rainCloudPlotsHorizontalAxis"]]
   if (analysisType == "RM-ANOVA") {
     addLines   <- TRUE
     dependentV <- .BANOVAdependentName

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2020-12-29 01:21\n"
-"PO-Revision-Date: 2021-01-26 11:51+0000\n"
-"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
+"PO-Revision-Date: 2021-02-01 08:41+0000\n"
+"Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
 "Language: ja\n"
@@ -14,67 +14,67 @@ msgstr ""
 "X-Generator: Weblate 4.5-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
-msgstr ""
+msgstr "加重最小二乗法ウェイトが0以下<br><br>(加重最小二乗法ウェイトは正の値のみ許容される)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
-msgstr ""
+msgstr "特異な適合が発生しました; 1つ以上の予測変数は，他の予測変数の線形結合です"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
-msgstr ""
+msgstr "残差平方和が0です; これは従属変数の分散が非常に小さいことが原因である可能性があります"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "分散分析の計算中にエラーが発生しました: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
-msgstr ""
+msgstr "デザインに空のセルが含まれています.別の種類の平方和を試してください."
 
 msgid "ANOVA"
-msgstr ""
+msgstr "分散分析"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "共分散分析"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "等質性の補正"
 
 msgid "Cases"
-msgstr ""
+msgstr "ケース"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "平方和"
 
 msgid "df"
 msgstr "自由度"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "平均二乗"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "タイプI平方和"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "タイプ II 平方和"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "タイプ III 平方和"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
-msgstr ""
+msgstr "ブラウン・フォーサイスとウェルチ補正は，１要因分散分析でのみ使用できます"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "コントラスト表"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s コントラスト - %2$s"
 
 msgid "Please specify an additional contrast."
 msgstr ""

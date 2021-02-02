@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2020-12-29 01:21\n"
-"PO-Revision-Date: 2021-02-01 08:41+0000\n"
+"PO-Revision-Date: 2021-02-03 07:41+0000\n"
 "Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -77,46 +77,46 @@ msgid "%1$s Contrast - %2$s"
 msgstr "%1$s コントラスト - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "追加のコントラストを指定してください。"
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "カスタムのコントラスト行列の行数が正しくありません。"
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "ゼロ以外のコントラストの重みを指定してください。"
 
 msgid "Estimate"
-msgstr ""
+msgstr "推定"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% 平均値差の信頼区間"
 
 msgid "Lower"
-msgstr ""
+msgstr "下"
 
 msgid "Upper"
-msgstr ""
+msgstr "上"
 
 msgid "SE"
-msgstr ""
+msgstr "標準誤差"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s コントラスト係数 - %2$s"
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "事後検定"
 
 msgid "Standard"
-msgstr ""
+msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "結果は次のレベルで平均化されています: %s"
 
 msgid "Cohen's d does not correct for multiple comparisons."
-msgstr ""
+msgstr "Cohenのdは，多重比較の補正をしない。"
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr ""

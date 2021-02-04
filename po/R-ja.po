@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2020-12-29 01:21\n"
-"PO-Revision-Date: 2021-02-03 07:41+0000\n"
+"PO-Revision-Date: 2021-02-05 20:42+0000\n"
 "Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -89,7 +89,7 @@ msgid "Estimate"
 msgstr "推定"
 
 msgid "%s%% CI for Mean Difference"
-msgstr "%s%% 平均値差の信頼区間"
+msgstr "平均値差の %s%% 信頼区間"
 
 msgid "Lower"
 msgstr "下"
@@ -119,64 +119,66 @@ msgid "Cohen's d does not correct for multiple comparisons."
 msgstr "Cohenのdは，多重比較の補正をしない。"
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "平均差の推定値は，ブートストラップ分布の中央値に基づいています。"
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "バイアス補正を実施した。"
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "ブートストラップ事後検定"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"いくつかの信頼区間が計算できませんでした。\n"
+"ブートストラップの再標本が少なすぎる可能性があります。"
 
 msgid "Dunn"
-msgstr ""
+msgstr "ダン(Dunn)"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "ダンの事後比較-％s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "比較"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>ボンフェロー二</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>ホルム</sub>"
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "ゲームス・ハウエル(Games-Howell)"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "ゲームス・ハウエルの事後比較 - %s"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "平均値差"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "平均値差の%.0f%% 信頼区間"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>テューキー</sub>"
 
 msgid "Dunnett"
-msgstr ""
+msgstr "ダネット(Dunnett)"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "ダネットの事後比較 - %s"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>ダネット</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""

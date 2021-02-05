@@ -1648,7 +1648,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
   } else {
     addLines   <- FALSE
-    dependentV <- .v(options$dependent)
+    dependentV <- options[["dependent"]]
     yLabel     <- options[["dependent"]]
   }
   
@@ -1658,8 +1658,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     horiz <- FALSE
 
   if (options$rainCloudPlotsSeparatePlots != "") {
-    for (thisLevel in levels(dataset[[.v(options[["rainCloudPlotsSeparatePlots"]])]])) {
-      subData      <- dataset[dataset[[.v(options[["rainCloudPlotsSeparatePlots"]])]] == thisLevel, ]
+    for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
+      subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
       thisPlotName <- paste0(options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot

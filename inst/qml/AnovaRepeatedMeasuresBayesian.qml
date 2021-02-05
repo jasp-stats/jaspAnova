@@ -19,6 +19,7 @@ import QtQuick			2.8
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "./common" as ANOVA
 
 Form
 {
@@ -204,19 +205,11 @@ Form
 		}
 	}
 
-	Section
+	ANOVA.RainCloudPlots
 	{
-		title: qsTr("Raincloud Plots")
-
-		VariablesForm
-		{
-			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
-			AssignedVariablesList { name: "rainCloudPlotsHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true }
-			AssignedVariablesList { name: "rainCloudPlotsSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true }
-		}
-
-		TextField { name: "rainCloudPlotsLabelYAxis"; label: qsTr("Label y-axis"); fieldWidth: 200 }
+		availableVariableSource: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		enableHorizontal: false
+		enableYAxisLabel: true
 	}
 
 	Section

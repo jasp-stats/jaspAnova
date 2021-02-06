@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2020-12-29 01:21\n"
-"PO-Revision-Date: 2021-02-05 20:42+0000\n"
+"PO-Revision-Date: 2021-02-07 07:50+0000\n"
 "Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -181,13 +181,13 @@ msgid "p<sub>dunnett</sub>"
 msgstr "p<sub>ダネット</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
-msgstr ""
+msgstr "信頼区間が狭すぎるので，別の信頼水準を選択してください。"
 
 msgid "Mean"
 msgstr "平均値"
 
 msgid "SD"
-msgstr ""
+msgstr "標準偏差"
 
 msgid "N"
 msgstr "N"
@@ -196,46 +196,46 @@ msgid "Assumption Checks"
 msgstr "仮定のチェック"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "等分散性の検定（ルビーン）"
 
 msgid "df1"
-msgstr ""
+msgstr "自由度１"
 
 msgid "df2"
-msgstr ""
+msgstr "自由度２"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
-msgstr ""
+msgstr "F 値は 0 に等しく，完全適合を示します。<br><br>(本質的に完全適合におけるルビーン検定は信頼できません)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "周辺平均"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "ブートストラップ周辺平均"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
-msgstr ""
+msgstr "いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎる可能性があります。"
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "%s の再標本に基づくブートストラップ。"
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "単純主効果"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "単純主効果 - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "%s 水準"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "セル %s に十分な観測値がありません。"
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
 
 msgid "Factor"
-msgstr ""
+msgstr "要因"
 
 msgid "Statistic"
 msgstr "統計"
@@ -247,31 +247,31 @@ msgid "Theoretical Quantiles"
 msgstr "理論上の分位数"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "標準化された残差"
 
 msgid "Error while loading data. Please verify your repeated measures observations."
-msgstr ""
+msgstr "データの読み込み中にエラーが発生しました。繰り返し測定する観測を確認してください。"
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "要因: <em>%s</em>，2水準より少なくなっています。"
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "要因: <em>%s</em>，2水準より少なくなっています。"
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "反復測定：<em>％s </em>，無限大の値が含まれています。"
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "反復測定：<em>％s </em>，無限大の値が含まれています。"
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "共変量: <em>%s</em>，無限大の値が含まれています。"
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "共変量: <em>%s</em>，無限大の値が含まれています。"
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
-msgstr ""
+msgstr "参加者間要因とは異なる反復測定要因の名前を選択してください。"
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""

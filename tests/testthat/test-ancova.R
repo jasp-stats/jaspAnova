@@ -1,7 +1,7 @@
 context("ANCOVA")
 
 # does not test
-# - descriptives table/plot & Q-Q plot (uses same code as ANOVA)
+# - descriptives table/plot & Q-Q plot & raincloud plot (uses same code as ANOVA)
 # - if analysis handles too few observations
 
 test_that("Main table results match", {

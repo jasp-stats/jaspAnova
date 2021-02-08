@@ -19,6 +19,7 @@ import QtQuick			2.8
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "./common" as ANOVA
 
 Form
 {
@@ -202,6 +203,13 @@ Form
 			childrenOnSameRow: true
 			CIField { name: "plotCredibleIntervalInterval" }
 		}
+	}
+
+	ANOVA.RainCloudPlots
+	{
+		availableVariableSource: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		enableHorizontal: false
+		enableYAxisLabel: true
 	}
 
 	Section

@@ -19,6 +19,7 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "./common" as ANOVA
 
 Form
 {
@@ -209,7 +210,12 @@ Form
 			}
 		}
 	}
-	
+
+	ANOVA.RainCloudPlots
+	{
+		availableVariableSource: ["fixedFactors", "randomFactors"]
+	}
+
 	Section
 	{
 		title: qsTr("Marginal Means")

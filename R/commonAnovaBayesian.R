@@ -1267,6 +1267,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   .BANOVAdescriptivesTable(descriptivesContainer, dataset, options, errors, analysisType)
   .BANOVAdescriptivesPlots(descriptivesContainer, dataset, options, errors, analysisType)
+  .BANOVArainCloudPlots   (descriptivesContainer, dataset, options, errors, analysisType)
   return()
 
 }
@@ -1618,6 +1619,64 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       jaspGraphs::themeJaspRaw(legend.position = "right")
 
     descriptivesPlot$plotObject <- p
+  }
+  return()
+}
+
+.BANOVArainCloudPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
+
+  if (length(options[["rainCloudPlotsHorizontalAxis"]]) == 0L
+      || options[["rainCloudPlotsHorizontalAxis"]] == ""
+      || !is.null(jaspContainer[["containerRainCloudPlots"]]))
+    return()
+
+  rainCloudPlotsContainer <- createJaspContainer(title = gettext("Raincloud plots"))
+  rainCloudPlotsContainer$position <- 3
+  jaspContainer[["containerRainCloudPlots"]] <- rainCloudPlotsContainer
+  rainCloudPlotsContainer$dependOn(c("dependent", "rainCloudPlotsHorizontalAxis", "rainCloudPlotsSeparatePlots",
+                                     "rainCloudPlotsLabelYAxis", "rainCloudPlotsHorizontalDisplay"))
+
+  if (errors$noVariables) {
+    rainCloudPlotsContainer[["dummyplot"]] <- createJaspPlot(title = "")
+    return()
+  }
+
+  groupVar <- options[["rainCloudPlotsHorizontalAxis"]]
+  if (analysisType == "RM-ANOVA") {
+    addLines   <- TRUE
+    dependentV <- .BANOVAdependentName
+    yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
+  } else {
+    addLines   <- FALSE
+    dependentV <- options[["dependent"]]
+    yLabel     <- options[["dependent"]]
+  }
+  
+  if (!is.null(options$rainCloudPlotsHorizontalDisplay) && options$rainCloudPlotsHorizontalDisplay)
+    horiz <- TRUE
+  else
+    horiz <- FALSE
+
+  if (options$rainCloudPlotsSeparatePlots != "") {
+    for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
+      subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
+      thisPlotName <- paste0(options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
+      subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
+      rainCloudPlotsContainer[[thisLevel]] <- subPlot
+      p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
+      if(isTryError(p))
+        subPlot$setError(.extractErrorMessage(p))
+      else
+        subPlot$plotObject <- p
+    } 
+  } else {
+    singlePlot <- createJaspPlot(title = "", width = 480, height = 320)
+    rainCloudPlotsContainer[["rainCloudPlotSingle"]] <- singlePlot
+    p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(dataset, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
+    if(isTryError(p))
+      singlePlot$setError(.extractErrorMessage(p))
+    else
+      singlePlot$plotObject <- p
   }
   return()
 }

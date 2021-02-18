@@ -829,6 +829,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   for (var in variables) {
     formula <- as.formula(paste("~", var))
     referenceGrid <- emmeans::emmeans(fullModel, formula)
+    # after updating emmeans, check if this is still necessary by following the steps in https://github.com/jasp-stats/jasp-desktop/pull/4323
+    environment(referenceGrid@dffun) <- baseenv()
     referenceGridList[[var]] <- referenceGrid
   }
   

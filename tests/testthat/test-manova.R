@@ -88,5 +88,3 @@ test_that("Main table results match", {
                            ))
     
 })
-
-

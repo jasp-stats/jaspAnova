@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2020-12-29 01:21\n"
-"PO-Revision-Date: 2021-02-07 07:50+0000\n"
+"PO-Revision-Date: 2021-02-21 06:50+0000\n"
 "Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr "加重最小二乗法ウェイトが0以下<br><br>(加重最小二乗法ウェイトは正の値のみ許容される)."
@@ -274,73 +274,73 @@ msgid "Please choose a name for the RM factors that differs from those for the b
 msgstr "参加者間要因とは異なる反復測定要因の名前を選択してください。"
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
-msgstr ""
+msgstr "一部のパラメーターが推定できません。おそらく，デザインのセルが空であることが原因です。"
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "グリーンハウス・ゲイザー(Greenhouse-Geisser)"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "ホイン・フェルト(Huynh-Feldt)"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "参加者間効果"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "％s <sub> G </sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "参加者内効果"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "球面性の補正"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "水準が２つの因子では，球形度補正は使用できません。"
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
-msgstr ""
+msgstr "モークリー(Mauchly)の球面性の検定は，球面性の仮定に違反していることを示しています（p <.05）。"
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
-msgstr ""
+msgstr "参加者間要因が指定されていないため，均質性検定を実行できません。"
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "球面性の検定"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "モークリー(Mauchly)のW"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "約 %s"
 
 msgid "dfSphericity"
-msgstr ""
+msgstr "球面性の自由度"
 
 msgid "p-value"
-msgstr ""
+msgstr "p値"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "グリーンハウス・ゲイザー(Greenhouse-Geisser)%s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "ホイン・フェルト(Huynh-Feldt)%s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "下限 %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor."
-msgstr ""
+msgstr "混合モデル因子が２水準だけなので，球面性の検定は実行できません。"
 
 msgid "Unpooled error term only allowed in balanced designs."
-msgstr ""
+msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
-msgstr ""
+msgstr "％s 修正されたp値は，反復測定の事後検定には適していません（Maxwell、1980; Field、2012）。"
 
 msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
+msgstr "%s のファミーを比較するために調整された P 値"
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""

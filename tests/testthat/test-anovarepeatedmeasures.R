@@ -4,6 +4,7 @@ context("Repeated Measures ANOVA")
 #    - type I and type II sum of squares
 #    - Contrasts apart from 'repeated'
 
+
 opts <- options()
 on.exit(options(opts))
 options(list(
@@ -21,6 +22,40 @@ options(list(
   afex.include_aov = TRUE
 ))
 
+test_that("Main results match R, SPSS, SAS, MiniTab", {
+  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  
+  options$repeatedMeasuresFactors <- list(
+    list(name = "RMFactor1", levels = c("control", "experimental"))
+  )
+  
+  options$repeatedMeasuresCells <- c("A2.control.", "A1.experimental.")
+  
+  options$withinModelTerms <- list(
+    list(components = "RMFactor1")
+  )
+  
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", 
+                                    dataset = "Ranova.csv",
+                                    options = options)
+  
+  # Main table
+  resultTable <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
+  
+  jaspTools::expect_equal_tables(
+    "test"=resultTable, 
+    "ref"=list("TRUE", 22.5, 20, 20, "RMFactor1", 1, 0.00105387125701656, "TRUE",
+               "", 0.88888888888889, 8.00000000000001, "Residuals", 9, "")
+  )
+  
+  # Between effects table
+  resultTable <- results$results$rmAnovaContainer$collection$rmAnovaContainer_betweenTable$data
+  
+  jaspTools::expect_equal_tables(
+    "test"=resultTable, 
+    "ref"=list("TRUE", "", 20.2222222222222, "", 182, "Residuals", 9)
+  )
+})
 
 initOpts <- function(){
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")

@@ -802,9 +802,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   contrasts <- NULL
   nLevels <- length(variableLevels)
   
-  for (i in 1:nLevels) {
+  for (i in 1:(nLevels - 1)) {
     
-    for (j in .seqx(i+1, nLevels)) {
+    for (j in (i + 1):nLevels) {
       
       name <- paste(variableLevels[[i]], "-", variableLevels[[j]], sep = " ")
       contrast <- rep(0, nLevels)
@@ -1112,9 +1112,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     nTies <- tab[tab > 1]
     nTies <- sum(nTies^3 - nTies)
     
-    for (i in 1:nLevels) {
-      
-      for (j in .seqx(i+1, nLevels)) {
+    for (i in 1:(nLevels - 1)) {
+    
+      for (j in (i + 1):nLevels) {
 
         contrast <- paste0(variableLevels[[i]], " - ", variableLevels[[j]])
         
@@ -1205,9 +1205,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                               df = numeric(),
                               pTukey = numeric())
     
-    for (i in 1:nLevels) {
-      
-      for (j in .seqx(i+1, nLevels)) {
+    for (i in 1:(nLevels - 1)) {
+    
+      for (j in (i + 1):nLevels) {
         
         contrast <- paste0(variableLevels[[i]], " - ", variableLevels[[j]])
 
@@ -1459,7 +1459,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   marginalVariables <- unlist(options$marginalMeansTerms, recursive = FALSE)
   marginalVariablesListV <- unname(lapply(marginalVariables, .v))
   
-  for (i in .indices(marginalVariables)) {
+  for (i in seq_along(marginalVariables)) {
     thisVarName <- paste(marginalVariables[[i]], collapse = " \u273B ")
     individualTerms <- marginalVariables[[i]]
     marginalMeansContainer[[thisVarName]] <- .createMarginalMeansTableAnova(thisVarName, options, individualTerms, 
@@ -1481,7 +1481,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   }
   
 
-  for (i in .indices(marginalVariables)) {
+  for (i in seq_along(marginalVariables)) {
 
     thisVarName <- paste(marginalVariables[[i]], collapse = " \u273B ")
     thisTermNameV <- paste(marginalVariablesListV[[i]], collapse = ":")

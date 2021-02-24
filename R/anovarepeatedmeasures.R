@@ -378,7 +378,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) + 
                                                                      (df / (n * (df + 1))) * (MSm - MSr))
   sortedModel[["omega"]] <- sapply(omega, max, 0)
-  for (i in .indices(summaryResult)) {
+  for (i in seq_along(summaryResult)) {
     if (any(rownames(summaryResult[[i]]) == "(Intercept)")) 
       summaryResult[[i]] <- summaryResult[[i]][-1, ]
   }
@@ -466,7 +466,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   wResidualResultsList[["None"]]["BetweenResidualResults", c("Sum Sq", "num Df")] <- interceptRow[, c("Error SS", "den Df")]
   wResidualResultsList[["None"]]["BetweenResidualResults", "Mean Sq"] <- interceptRow[["Error SS"]] / interceptRow[["den Df"]]
   
-  for (tableIndex in .indices(withinAnovaTableCollection)) {
+  for (tableIndex in seq_along(withinAnovaTableCollection)) {
     withinAnovaTableCollection[[tableIndex]][["VovkSellkeMPR"]] <- VovkSellkeMPR(withinAnovaTableCollection[[tableIndex]][["Pr(>F)"]])
   }
 
@@ -622,7 +622,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   residualResults <- rmAnovaContainer[["anovaResult"]]$object$residualTable
   mauchlyResult   <- rmAnovaContainer[["anovaResult"]]$object$assumptionResult
   
-  for(i in .indices(withinResults)) {
+  for(i in seq_along(withinResults)) {
     names(withinResults[[i]])[names(withinResults[[i]]) == "Pr(>F)"] <- "p"
   }
   
@@ -632,7 +632,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   for (case in allCases) {
 
-    for (i in .indices(corrections)) {
+    for (i in seq_along(corrections)) {
 
       withinResults[[corrections[i]]][case, ".isNewGroup"] <- i == 1
       if (!is.na(withinResults[[corrections[i]]][case, "num Df"])) {
@@ -649,7 +649,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     }  
     if (case %in% addResidualAfter) {
       
-      for (i in .indices(corrections)) {
+      for (i in seq_along(corrections)) {
 
         if (!is.na(withinResults[[corrections[i]]][currentCase, "num Df"])) {
           residualResults[[corrections[i]]][currentCase, ".isNewGroup"] <- i == 1  
@@ -717,7 +717,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     return()
   }
   
-  for (i in .indices(options$repeatedMeasuresCells)) {
+  for (i in seq_along(options$repeatedMeasuresCells)) {
     
     interaction <- paste(.v(options$betweenSubjectFactors), collapse=":", sep="")
     if (length(options$covariates) > 0 ) {
@@ -900,7 +900,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
         # Loop over all the levels within factor and do pairwise t.tests on them
         bonfAdjustCIlevel <- 1-((1-options$confidenceIntervalIntervalPostHoc)/choose(numberOfLevels, 2))
         
-        for (compIndex in .indices(comparisons)) {
+        for (compIndex in seq_along(comparisons)) {
           
           levelANoDots <- gsub(.unv(comparisons[[compIndex]][1]), pattern = "\\.", replacement = " ")
           levelBNoDots <- gsub(.unv(comparisons[[compIndex]][2]), pattern = "\\.", replacement = " ")
@@ -1541,9 +1541,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     B <- 1 - T2 / (b * (t- 1))
     denom <- sqrt(A) * sqrt(B)
 
-    for (i in 1:t) {
-      
-      for (j in .seqx(i+1, t)) {
+    for (i in 1:(nLevels - 1)) {
+    
+      for (j in (i + 1):nLevels) {
         
         row <- list("(I)"=groupNames[[i]], "(J)"=groupNames[[j]])
         

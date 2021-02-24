@@ -1541,9 +1541,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     B <- 1 - T2 / (b * (t- 1))
     denom <- sqrt(A) * sqrt(B)
 
-    for (i in 1:(nLevels - 1)) {
+    for (i in 1:(t - 1)) {
     
-      for (j in (i + 1):nLevels) {
+      for (j in (i + 1):t) {
         
         row <- list("(I)"=groupNames[[i]], "(J)"=groupNames[[j]])
         

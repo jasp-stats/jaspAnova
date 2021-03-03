@@ -1,14 +1,20 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: JASP 0.9.2\n"
+"Project-Id-Version: R 3.6.1\n"
+"Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: es\n"
+"PO-Revision-Date: 2020-12-02 21:29+0000\n"
+"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspAnova/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: en_US\n"
+"X-Source-Language: American English\n"
+"X-Qt-Contexts: true\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -39,17 +45,20 @@ msgstr ""
 msgid "ANCOVA"
 msgstr ""
 
+#, fuzzy
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Correções de Homogeneidade"
 
 msgid "Cases"
 msgstr ""
 
+#, fuzzy
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Soma dos quadrados"
 
+#, fuzzy
 msgid "df"
-msgstr ""
+msgstr "gl:"
 
 msgid "Mean Square"
 msgstr ""
@@ -63,24 +72,29 @@ msgstr ""
 msgid "VS-MPR%s"
 msgstr ""
 
+#, fuzzy
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Soma dos quadrados"
 
+#, fuzzy
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Soma dos quadrados"
 
+#, fuzzy
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Soma dos quadrados"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
 
+#, fuzzy
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Contrastes"
 
+#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "Contrastes"
 
 msgid "Please specify an additional contrast."
 msgstr ""
@@ -91,8 +105,9 @@ msgstr ""
 msgid "Please specify non-zero contrast weights."
 msgstr ""
 
+#, fuzzy
 msgid "Estimate"
-msgstr ""
+msgstr "Estimativas"
 
 msgid "%s%% CI for Mean Difference"
 msgstr ""
@@ -106,17 +121,20 @@ msgstr ""
 msgid "SE"
 msgstr ""
 
+#, fuzzy
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr ""
 
+#, fuzzy
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Testes Post Hoc"
 
+#, fuzzy
 msgid "Standard"
-msgstr ""
+msgstr "Padrão"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr ""
@@ -135,16 +153,18 @@ msgstr ""
 msgid "Bias corrected accelerated."
 msgstr ""
 
+#, fuzzy
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Testes Post Hoc"
 
 msgid ""
 "Some confidence intervals could not be computed.\n"
 "Possibly too few bootstrap replicates."
 msgstr ""
 
+#, fuzzy
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
@@ -164,8 +184,9 @@ msgstr ""
 msgid "p<sub>holm</sub>"
 msgstr ""
 
+#, fuzzy
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr ""
@@ -179,8 +200,9 @@ msgstr ""
 msgid "p<sub>tukey</sub>"
 msgstr ""
 
+#, fuzzy
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
@@ -193,8 +215,9 @@ msgid ""
 "level."
 msgstr ""
 
+#, fuzzy
 msgid "Mean"
-msgstr ""
+msgstr "Médias"
 
 msgid "SD"
 msgstr ""
@@ -202,28 +225,33 @@ msgstr ""
 msgid "N"
 msgstr ""
 
+#, fuzzy
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Verificar pressupostos"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
 
+#, fuzzy
 msgid "df1"
-msgstr ""
+msgstr "gl:"
 
+#, fuzzy
 msgid "df2"
-msgstr ""
+msgstr "gl:"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
 "essentially perfect fit are unreliable)"
 msgstr ""
 
+#, fuzzy
 msgid "Marginal Means"
-msgstr ""
+msgstr "Médias marginais"
 
+#, fuzzy
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Médias marginais"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -233,11 +261,13 @@ msgstr ""
 msgid "Bootstrapping based on %s replicates."
 msgstr ""
 
+#, fuzzy
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efeitos principais simples"
 
+#, fuzzy
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Efeitos principais simples"
 
 msgid "Level of %s"
 msgstr ""
@@ -245,23 +275,28 @@ msgstr ""
 msgid "Not enough observations in cells %s."
 msgstr ""
 
+#, fuzzy
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Teste Kruskal-Wallis "
 
+#, fuzzy
 msgid "Factor"
-msgstr ""
+msgstr "Fatores"
 
+#, fuzzy
 msgid "Statistic"
-msgstr ""
+msgstr "Estatísticas"
 
+#, fuzzy
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Diagramas"
 
 msgid "Theoretical Quantiles"
 msgstr ""
 
+#, fuzzy
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "Tamanho de efeito padronizado"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -301,8 +336,9 @@ msgstr ""
 msgid "Huynh-Feldt"
 msgstr ""
 
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgid "Between Subjects Effects"
 msgstr ""
@@ -313,8 +349,9 @@ msgstr ""
 msgid "Within Subjects Effects"
 msgstr ""
 
+#, fuzzy
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Correção"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
@@ -341,8 +378,9 @@ msgstr ""
 msgid "dfSphericity"
 msgstr ""
 
+#, fuzzy
 msgid "p-value"
-msgstr ""
+msgstr "Valor"
 
 msgid "Greenhouse-Geisser %s"
 msgstr ""
@@ -350,8 +388,9 @@ msgstr ""
 msgid "Huynh-Feldt %s"
 msgstr ""
 
+#, fuzzy
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Limite inferior"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -374,8 +413,9 @@ msgid ""
 "estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
 
+#, fuzzy
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Testes Post Hoc"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
 msgstr ""
@@ -399,14 +439,17 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
 
+#, fuzzy
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Médias marginais"
 
+#, fuzzy
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Médias marginais"
 
+#, fuzzy
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Médias marginais"
 
 msgid "95%% bca%s CI"
 msgstr ""
@@ -418,14 +461,16 @@ msgstr ""
 msgid "95%% CI for Mean Difference"
 msgstr ""
 
+#, fuzzy
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "Ajuste do intervalo de confiança"
 
 msgid "Sidak CI adjustment"
 msgstr ""
 
+#, fuzzy
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Não paramétricos"
 
 msgid "Friedman Test"
 msgstr ""
@@ -481,14 +526,16 @@ msgstr ""
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
+#, fuzzy
 msgid "Null model"
-msgstr ""
+msgstr "Controle nulo"
 
 msgid "Null model (incl. %s)"
 msgstr ""
 
+#, fuzzy
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Fator de Bayes"
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -501,8 +548,9 @@ msgstr ""
 msgid "Analysis of Effects - %s"
 msgstr ""
 
+#, fuzzy
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Estimativas de tamanho de efeito"
 
 msgid "Log(BF<sub>incl</sub>)"
 msgstr ""
@@ -513,8 +561,9 @@ msgstr ""
 msgid "BF<sub>incl</sub>"
 msgstr ""
 
+#, fuzzy
 msgid "Effects"
-msgstr ""
+msgstr "Efeitos"
 
 msgid "P(incl)"
 msgstr ""
@@ -543,8 +592,9 @@ msgstr ""
 msgid "<b><em>Warning.</em></b>"
 msgstr ""
 
+#, fuzzy
 msgid "Model Comparison"
-msgstr ""
+msgstr "Opções de modelo"
 
 msgid "BF<sub>M</sub>"
 msgstr ""
@@ -561,8 +611,9 @@ msgstr ""
 msgid "Log(BF<sub>10</sub>)"
 msgstr ""
 
+#, fuzzy
 msgid "Models"
-msgstr ""
+msgstr "Modelo"
 
 msgid "P(M)"
 msgstr ""
@@ -579,17 +630,21 @@ msgid ""
 "be uninterpretable!"
 msgstr ""
 
+#, fuzzy
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Modelo médio posterior"
 
+#, fuzzy
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "Intervalo de credibilidade"
 
+#, fuzzy
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "Modelo médio"
 
+#, fuzzy
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "Modelo médio posterior"
 
 msgid "Posterior distribution"
 msgstr ""
@@ -605,11 +660,13 @@ msgstr ""
 msgid "Density"
 msgstr ""
 
+#, fuzzy
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "Modelo médio"
 
+#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "Modelo médio posterior"
 
 msgid ""
 "The posterior odds have been corrected for multiple testing by fixing to 0.5 "
@@ -619,34 +676,41 @@ msgid ""
 "Bayes factor denotes that it is uncorrected."
 msgstr ""
 
+#, fuzzy
 msgid "Prior Odds"
-msgstr ""
+msgstr "Anterior"
 
+#, fuzzy
 msgid "Posterior Odds"
-msgstr ""
+msgstr "Amostras posteriores"
 
+#, fuzzy
 msgid "Descriptives"
-msgstr ""
+msgstr "Descritivas"
 
+#, fuzzy
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Descritivas"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
 msgstr ""
 
+#, fuzzy
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Diagramas Descritivos"
 
+#, fuzzy
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Diagramas Descritivos"
 
 msgid "Raincloud plots"
 msgstr ""
 
+#, fuzzy
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "Posteriores marginal"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr ""
@@ -659,28 +723,33 @@ msgstr ""
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""
 
+#, fuzzy
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferência de modelo único"
 
+#, fuzzy
 msgid ""
 "Error in single model inference:\n"
 "%s"
-msgstr ""
+msgstr "Inferência de modelo único"
 
 msgid "Single Model Posterior Summary"
 msgstr ""
 
+#, fuzzy
 msgid "Variable"
-msgstr ""
+msgstr "Variáveis"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""
 
+#, fuzzy
 msgid "Posterior R%s"
-msgstr ""
+msgstr "RÂ² Posterior"
 
+#, fuzzy
 msgid "Single Model R%s"
-msgstr ""
+msgstr "Inferência de modelo único"
 
 msgid "MANOVA"
 msgstr ""
@@ -689,3 +758,4 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr ""
+

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2020-12-29 01:21\n"
+"Project-Id-Version: jaspAnova 0.15\n"
+"POT-Creation-Date: 2021-03-03 12:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -584,6 +584,9 @@ msgid "Descriptives plots"
 msgstr ""
 
 msgid "Descriptives Plot"
+msgstr ""
+
+msgid "Raincloud plots"
 msgstr ""
 
 msgid "Sampling posteriors"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2020-12-29 01:21\n"
+"POT-Creation-Date: 2021-03-03 12:00\n"
 "PO-Revision-Date: 2020-12-02 21:29+0000\n"
 "Last-Translator: JASP Stats <F.A.M.Meerhoff@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jasp-engine/"
@@ -707,6 +707,9 @@ msgstr "Beschrijvende diagrammen"
 
 msgid "Descriptives Plot"
 msgstr "Beschrijvend Diagram"
+
+msgid "Raincloud plots"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "Steekproef posteriors"

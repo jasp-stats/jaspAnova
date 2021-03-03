@@ -1,0 +1,1377 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-01 04:41+0000\n"
+"Last-Translator: Yoshihiko Kunisato <ykunisato@psy.senshu-u.ac.jp>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.5-dev\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Description|"
+msgid "ANOVA"
+msgstr "分散分析"
+
+msgctxt "Description|"
+msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
+msgstr "このモジュールは，標準的な頻度論分散分析とベイジアン分散分析を提供します。"
+
+msgctxt "Description|"
+msgid "Classical"
+msgstr "古典的"
+
+msgctxt "Description|"
+msgid "Repeated Measures ANOVA"
+msgstr "反復測定分散分析"
+
+msgctxt "Description|"
+msgid "ANCOVA"
+msgstr "共分散分析"
+
+msgctxt "Description|"
+msgid "MANOVA"
+msgstr "多変量分散分析"
+
+msgctxt "Description|"
+msgid "Bayesian"
+msgstr "ベイジアン"
+
+msgctxt "Description|"
+msgid "Bayesian ANOVA"
+msgstr "ベイジアン分散分析"
+
+msgctxt "Description|"
+msgid "Bayesian Repeated Measures ANOVA"
+msgstr "ベイジアン反復測定分散分析"
+
+msgctxt "Description|"
+msgid "Bayesian ANCOVA"
+msgstr "ベイジアン共分散分析"
+
+msgctxt "Ancova|"
+msgid "Dependent Variable"
+msgstr "従属変数"
+
+msgctxt "Ancova|"
+msgid "Fixed Factors"
+msgstr "固定要因"
+
+msgctxt "Ancova|"
+msgid "Random Factors"
+msgstr "変動要因"
+
+msgctxt "Ancova|"
+msgid "Covariates"
+msgstr "共変量"
+
+msgctxt "Ancova|"
+msgid "WLS Weights"
+msgstr "加重最小二乗法ウェイト"
+
+msgctxt "Ancova|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "Ancova|"
+msgid "Descriptive statistics"
+msgstr "記述統計"
+
+msgctxt "Ancova|"
+msgid "Estimates of effect size"
+msgstr "効果量の推定値"
+
+msgctxt "Ancova|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Ancova|"
+msgid "partial η²"
+msgstr "偏η²"
+
+msgctxt "Ancova|"
+msgid "ω²"
+msgstr "ω²"
+
+msgctxt "Ancova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p比"
+
+msgctxt "Ancova|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "Ancova|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "Ancova|"
+msgid "Model Terms"
+msgstr "モデル項"
+
+msgctxt "Ancova|"
+msgid "Sum of squares"
+msgstr "平方和"
+
+msgctxt "Ancova|"
+msgid "Assumption Checks"
+msgstr "仮定のチェック"
+
+msgctxt "Ancova|"
+msgid "Homogeneity tests"
+msgstr "等質性検定"
+
+msgctxt "Ancova|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "Ancova|"
+msgid "Factor covariate independence check"
+msgstr "要因共変量の独立性チェック"
+
+msgctxt "Ancova|"
+msgid "Contrasts"
+msgstr "コントラスト"
+
+msgctxt "Ancova|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "Ancova|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "Ancova|"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "Ancova|"
+msgid "Standard"
+msgstr "標準"
+
+msgctxt "Ancova|"
+msgid "From"
+msgstr "右から"
+
+msgctxt "Ancova|"
+msgid "bootstraps"
+msgstr "ブートス トラップ"
+
+msgctxt "Ancova|"
+msgid "Effect size"
+msgstr "効果量"
+
+msgctxt "Ancova|"
+msgid "Games-Howell"
+msgstr "ゲームス・ハウエル(Games-Howell)"
+
+msgctxt "Ancova|"
+msgid "Dunnett"
+msgstr "ダネット(Dunnett)"
+
+msgctxt "Ancova|"
+msgid "Dunn"
+msgstr "ダン(Dunn)"
+
+msgctxt "Ancova|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "Ancova|"
+msgid "Tukey"
+msgstr "テューキー(Tukey)"
+
+msgctxt "Ancova|"
+msgid "Scheffe"
+msgstr "シェフェ(Scheffe)"
+
+msgctxt "Ancova|"
+msgid "Bonferroni"
+msgstr "ボンフェローニ(Bonferroni)"
+
+msgctxt "Ancova|"
+msgid "Holm"
+msgstr "ホルム(Holm)"
+
+msgctxt "Ancova|"
+msgid "Šidák"
+msgstr "シダック(Šidák)"
+
+msgctxt "Ancova|"
+msgid "Flag Significant Comparisons"
+msgstr "有意な比較に印"
+
+msgctxt "Ancova|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "Ancova|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "Ancova|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "Ancova|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "Ancova|"
+msgid "Display error bars"
+msgstr "エラーバーの表示"
+
+msgctxt "Ancova|"
+msgid "Standard error"
+msgstr "標準誤差"
+
+msgctxt "Ancova|"
+msgid "Marginal Means"
+msgstr "周辺平均"
+
+msgctxt "Ancova|"
+msgid "Compare marginal means to 0"
+msgstr "周辺平均を 0 と比較する"
+
+msgctxt "Ancova|"
+msgid "Confidence interval adjustment"
+msgstr "信頼区間の調整"
+
+msgctxt "Ancova|"
+msgid "None"
+msgstr "なし"
+
+msgctxt "Ancova|"
+msgid "Simple Main Effects"
+msgstr "単純主効果"
+
+msgctxt "Ancova|"
+msgid "Factors"
+msgstr "要因"
+
+msgctxt "Ancova|"
+msgid "Simple Effect Factor"
+msgstr "単純効果を検討する要因"
+
+msgctxt "Ancova|"
+msgid "Moderator Factor 1"
+msgstr "調整要因１"
+
+msgctxt "Ancova|"
+msgid "Moderator Factor 2"
+msgstr "調整要因２"
+
+msgctxt "Ancova|"
+msgid "Nonparametrics"
+msgstr "ノンパラメトリック"
+
+msgctxt "Ancova|"
+msgid "Kruskal-Wallis Test"
+msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
+
+msgctxt "Ancova|"
+msgid " "
+msgstr "　"
+
+msgctxt "AncovaBayesian|"
+msgid "Dependent Variable"
+msgstr "従属変数"
+
+msgctxt "AncovaBayesian|"
+msgid "Fixed Factors"
+msgstr "固定要因"
+
+msgctxt "AncovaBayesian|"
+msgid "Random Factors"
+msgstr "変動要因"
+
+msgctxt "AncovaBayesian|"
+msgid "Covariates"
+msgstr "共変量"
+
+msgctxt "AncovaBayesian|"
+msgid "Tables"
+msgstr "表"
+
+msgctxt "AncovaBayesian|"
+msgid "Effects"
+msgstr "効果"
+
+msgctxt "AncovaBayesian|"
+msgid "Across all models"
+msgstr "全てのモデル"
+
+msgctxt "AncovaBayesian|"
+msgid "Across matched models"
+msgstr "一致したモデル"
+
+msgctxt "AncovaBayesian|"
+msgid "Estimates"
+msgstr "推定値"
+
+msgctxt "AncovaBayesian|"
+msgid "Model averaged R²"
+msgstr "モデル平均R²"
+
+msgctxt "AncovaBayesian|"
+msgid "Descriptives"
+msgstr "記述統計量"
+
+msgctxt "AncovaBayesian|"
+msgid "Credible interval"
+msgstr "信用区間"
+
+msgctxt "AncovaBayesian|"
+msgid "Order"
+msgstr "順序"
+
+msgctxt "AncovaBayesian|"
+msgid "Compare to best model"
+msgstr "ベストモデルとの比較"
+
+msgctxt "AncovaBayesian|"
+msgid "Compare to null model"
+msgstr "帰無モデルとの比較"
+
+msgctxt "AncovaBayesian|"
+msgid "Plots"
+msgstr "プロット"
+
+msgctxt "AncovaBayesian|"
+msgid "Model averaged posteriors"
+msgstr "モデル平均事後分布"
+
+msgctxt "AncovaBayesian|"
+msgid "Group levels in single plot"
+msgstr "群の水準を１つにプロットする"
+
+msgctxt "AncovaBayesian|"
+msgid "Individual plot per level"
+msgstr "水準ごとに個別のプロット"
+
+msgctxt "AncovaBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "AncovaBayesian|"
+msgid "Posterior R²"
+msgstr "事後R²"
+
+msgctxt "AncovaBayesian|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "AncovaBayesian|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "AncovaBayesian|"
+msgid "Single Model Inference"
+msgstr "単一モデルの推論"
+
+msgctxt "AncovaBayesian|"
+msgid "Specific Model Terms"
+msgstr "特定のモデル項"
+
+msgctxt "AncovaBayesian|"
+msgid "R²"
+msgstr "R²"
+
+msgctxt "AncovaBayesian|"
+msgid "Marginal posteriors"
+msgstr "周辺事後分布"
+
+msgctxt "AncovaBayesian|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "AncovaBayesian|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "AncovaBayesian|"
+msgid "Null control"
+msgstr "帰無コントロール"
+
+msgctxt "AncovaBayesian|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "AncovaBayesian|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "AncovaBayesian|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "AncovaBayesian|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "AncovaBayesian|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "AncovaBayesian|"
+msgid "Additional Options"
+msgstr "追加オプション"
+
+msgctxt "AncovaBayesian|"
+msgid "Prior"
+msgstr "事前分布"
+
+msgctxt "AncovaBayesian|"
+msgid "r scale fixed effects"
+msgstr "固定効果のr スケール"
+
+msgctxt "AncovaBayesian|"
+msgid "r scale random effects"
+msgstr "ランダム効果のrスケール"
+
+msgctxt "AncovaBayesian|"
+msgid "r scale covariates"
+msgstr "共変量のrスケール"
+
+msgctxt "AncovaBayesian|"
+msgid "Numerical Accuracy"
+msgstr "数値精度"
+
+msgctxt "AncovaBayesian|"
+msgid "Auto"
+msgstr "自動"
+
+msgctxt "AncovaBayesian|"
+msgid "Manual"
+msgstr "手動"
+
+msgctxt "AncovaBayesian|"
+msgid "No. samples"
+msgstr "サンプル数"
+
+msgctxt "AncovaBayesian|"
+msgid "Posterior Samples"
+msgstr "事後分布サンプル"
+
+msgctxt "Anova|"
+msgid "Dependent Variable"
+msgstr "従属変数"
+
+msgctxt "Anova|"
+msgid "Fixed Factors"
+msgstr "固定要因"
+
+msgctxt "Anova|"
+msgid "Random Factors"
+msgstr "変動要因"
+
+msgctxt "Anova|"
+msgid "WLS Weights"
+msgstr "加重最小二乗法ウェイト"
+
+msgctxt "Anova|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "Anova|"
+msgid "Descriptive statistics"
+msgstr "記述統計"
+
+msgctxt "Anova|"
+msgid "Estimates of effect size"
+msgstr "効果量の推定値"
+
+msgctxt "Anova|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Anova|"
+msgid "partial η²"
+msgstr "偏η²"
+
+msgctxt "Anova|"
+msgid "ω²"
+msgstr "ω²"
+
+msgctxt "Anova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p比"
+
+msgctxt "Anova|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "Anova|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "Anova|"
+msgid "Model Terms"
+msgstr "モデル項"
+
+msgctxt "Anova|"
+msgid "Sum of squares"
+msgstr "平方和"
+
+msgctxt "Anova|"
+msgid "Assumption Checks"
+msgstr "仮定のチェック"
+
+msgctxt "Anova|"
+msgid "Homogeneity tests"
+msgstr "等質性検定"
+
+msgctxt "Anova|"
+msgid "Homogeneity corrections"
+msgstr "等質性補正"
+
+msgctxt "Anova|"
+msgid "None"
+msgstr "なし"
+
+msgctxt "Anova|"
+msgid "Brown-Forsythe"
+msgstr "ブラウン・フォーサイス(Brown-Forsythe)"
+
+msgctxt "Anova|"
+msgid "Welch"
+msgstr "ウェルチ(Welch)"
+
+msgctxt "Anova|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "Anova|"
+msgid "Contrasts"
+msgstr "コントラスト"
+
+msgctxt "Anova|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "Anova|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "Anova|"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "Anova|"
+msgid "Standard"
+msgstr "標準"
+
+msgctxt "Anova|"
+msgid "From"
+msgstr "右から"
+
+msgctxt "Anova|"
+msgid "bootstraps"
+msgstr "ブートス トラップ"
+
+msgctxt "Anova|"
+msgid "Effect size"
+msgstr "効果量"
+
+msgctxt "Anova|"
+msgid "Games-Howell"
+msgstr "ゲームス・ハウエル(Games-Howell)"
+
+msgctxt "Anova|"
+msgid "Dunnett"
+msgstr "ダネット(Dunnett)"
+
+msgctxt "Anova|"
+msgid "Dunn"
+msgstr "ダン(Dunn)"
+
+msgctxt "Anova|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "Anova|"
+msgid "Tukey"
+msgstr "テューキー(Tukey)"
+
+msgctxt "Anova|"
+msgid "Scheffe"
+msgstr "シェフェ(Scheffe)"
+
+msgctxt "Anova|"
+msgid "Bonferroni"
+msgstr "ボンフェローニ(Bonferroni)"
+
+msgctxt "Anova|"
+msgid "Holm"
+msgstr "ホルム(Holm)"
+
+msgctxt "Anova|"
+msgid "Šidák"
+msgstr "シダック(Šidák)"
+
+msgctxt "Anova|"
+msgid "Flag Significant Comparisons"
+msgstr "有意な比較に印"
+
+msgctxt "Anova|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "Anova|"
+msgid "Factors"
+msgstr "要因"
+
+msgctxt "Anova|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "Anova|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "Anova|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "Anova|"
+msgid "Display error bars"
+msgstr "エラーバーの表示"
+
+msgctxt "Anova|"
+msgid "Confidence interval"
+msgstr "信頼区間"
+
+msgctxt "Anova|"
+msgid "Standard error"
+msgstr "標準誤差"
+
+msgctxt "Anova|"
+msgid "Marginal Means"
+msgstr "周辺平均"
+
+msgctxt "Anova|"
+msgid "Compare marginal means to 0"
+msgstr "周辺平均を 0 と比較する"
+
+msgctxt "Anova|"
+msgid "Confidence interval adjustment"
+msgstr "信頼区間の調整"
+
+msgctxt "Anova|"
+msgid "Simple Main Effects"
+msgstr "単純主効果"
+
+msgctxt "Anova|"
+msgid "Simple Effect Factor"
+msgstr "単純効果を検討する要因"
+
+msgctxt "Anova|"
+msgid "Moderator Factor 1"
+msgstr "調整要因１"
+
+msgctxt "Anova|"
+msgid "Moderator Factor 2"
+msgstr "調整要因２"
+
+msgctxt "Anova|"
+msgid "Nonparametrics"
+msgstr "ノンパラメトリック"
+
+msgctxt "Anova|"
+msgid "Kruskal-Wallis Test"
+msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
+
+msgctxt "Anova|"
+msgid " "
+msgstr "　"
+
+msgctxt "AnovaBayesian|"
+msgid "Dependent Variable"
+msgstr "従属変数"
+
+msgctxt "AnovaBayesian|"
+msgid "Fixed Factors"
+msgstr "固定要因"
+
+msgctxt "AnovaBayesian|"
+msgid "Random Factors"
+msgstr "変動要因"
+
+msgctxt "AnovaBayesian|"
+msgid "Tables"
+msgstr "表"
+
+msgctxt "AnovaBayesian|"
+msgid "Effects"
+msgstr "効果"
+
+msgctxt "AnovaBayesian|"
+msgid "Across all models"
+msgstr "全てのモデル"
+
+msgctxt "AnovaBayesian|"
+msgid "Across matched models"
+msgstr "一致したモデル"
+
+msgctxt "AnovaBayesian|"
+msgid "Estimates"
+msgstr "推定値"
+
+msgctxt "AnovaBayesian|"
+msgid "Model averaged R²"
+msgstr "モデル平均R²"
+
+msgctxt "AnovaBayesian|"
+msgid "Descriptives"
+msgstr "記述統計量"
+
+msgctxt "AnovaBayesian|"
+msgid "Credible interval"
+msgstr "信用区間"
+
+msgctxt "AnovaBayesian|"
+msgid "Order"
+msgstr "順序"
+
+msgctxt "AnovaBayesian|"
+msgid "Compare to best model"
+msgstr "ベストモデルとの比較"
+
+msgctxt "AnovaBayesian|"
+msgid "Compare to null model"
+msgstr "帰無モデルとの比較"
+
+msgctxt "AnovaBayesian|"
+msgid "Plots"
+msgstr "プロット"
+
+msgctxt "AnovaBayesian|"
+msgid "Model averaged posteriors"
+msgstr "モデル平均事後分布"
+
+msgctxt "AnovaBayesian|"
+msgid "Group levels in single plot"
+msgstr "群の水準を１つにプロットする"
+
+msgctxt "AnovaBayesian|"
+msgid "Individual plot per level"
+msgstr "水準ごとに個別のプロット"
+
+msgctxt "AnovaBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "AnovaBayesian|"
+msgid "Posterior R²"
+msgstr "事後R²"
+
+msgctxt "AnovaBayesian|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "AnovaBayesian|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "AnovaBayesian|"
+msgid "Single Model Inference"
+msgstr "単一モデルの推論"
+
+msgctxt "AnovaBayesian|"
+msgid "Specific Model Terms"
+msgstr "特定のモデル項"
+
+msgctxt "AnovaBayesian|"
+msgid "R²"
+msgstr "R²"
+
+msgctxt "AnovaBayesian|"
+msgid "Marginal posteriors"
+msgstr "周辺事後分布"
+
+msgctxt "AnovaBayesian|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "AnovaBayesian|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "AnovaBayesian|"
+msgid "Null control"
+msgstr "帰無コントロール"
+
+msgctxt "AnovaBayesian|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "AnovaBayesian|"
+msgid "Factors"
+msgstr "要因"
+
+msgctxt "AnovaBayesian|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "AnovaBayesian|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "AnovaBayesian|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "AnovaBayesian|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "AnovaBayesian|"
+msgid "Additional Options"
+msgstr "追加オプション"
+
+msgctxt "AnovaBayesian|"
+msgid "Prior"
+msgstr "事前分布"
+
+msgctxt "AnovaBayesian|"
+msgid "r scale fixed effects"
+msgstr "固定効果のr スケール"
+
+msgctxt "AnovaBayesian|"
+msgid "r scale random effects"
+msgstr "ランダム効果のrスケール"
+
+msgctxt "AnovaBayesian|"
+msgid "Numerical Accuracy"
+msgstr "数値精度"
+
+msgctxt "AnovaBayesian|"
+msgid "Auto"
+msgstr "自動"
+
+msgctxt "AnovaBayesian|"
+msgid "Manual"
+msgstr "手動"
+
+msgctxt "AnovaBayesian|"
+msgid "No. samples"
+msgstr "サンプル数"
+
+msgctxt "AnovaBayesian|"
+msgid "Posterior Samples"
+msgstr "事後分布サンプル"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Factors"
+msgstr "反復測定要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Cells"
+msgstr "反復測定のセル"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subject Factors"
+msgstr "参加者間要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Covariates"
+msgstr "共変量"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Descriptive statistics"
+msgstr "記述統計"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Estimates of effect size"
+msgstr "効果量の推定値"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "partial η²"
+msgstr "偏η²"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "general η²"
+msgstr "一般化η²"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "ω²"
+msgstr "ω²"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p比"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Components"
+msgstr "反復測定コンポーネント"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model Terms"
+msgstr "モデル項"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subjects Components"
+msgstr "参加者間コンポーネント"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model terms"
+msgstr "モデル項"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sum of squares"
+msgstr "平方和"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Use multivariate model for follow-up tests"
+msgstr "フォローアップ検定のため多変量モデルを使用"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Assumption Checks"
+msgstr "仮定のチェック"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity tests"
+msgstr "球面性検定"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity corrections"
+msgstr "球面性の補正"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "None"
+msgstr "なし"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Greenhouse-Geisser"
+msgstr "グリーンハウス・ゲイザー(Greenhouse-Geisser)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Huynh-Feldt"
+msgstr "ホイン・フェルト(Huynh-Feldt)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Homogeneity tests"
+msgstr "等質性検定"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Contrasts"
+msgstr "コントラスト"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Assume equal variances"
+msgstr "等分散を仮定"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Effect size"
+msgstr "効果量"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for RM factors"
+msgstr "反復測定要因のプール誤差項"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Holm"
+msgstr "ホルム(Holm)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Bonferroni"
+msgstr "ボンフェローニ(Bonferroni)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Tukey"
+msgstr "テューキー(Tukey)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffe"
+msgstr "シェフェ(Scheffe)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Flag Significant Comparisons"
+msgstr "有意な比較に印"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Factors"
+msgstr "要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Label y-axis"
+msgstr "Y軸のラベル"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Display error bars"
+msgstr "エラーバーの表示"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence interval"
+msgstr "信頼区間"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Standard error"
+msgstr "標準誤差"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Average across unused RM factors"
+msgstr "使用してない反復要因の平均"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Marginal Means"
+msgstr "周辺平均"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "From"
+msgstr "右から"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "bootstraps"
+msgstr "ブートス トラップ"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Compare marginal means to 0"
+msgstr "周辺平均を 0 と比較する"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence interval adjustment"
+msgstr "信頼区間の調整"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Šidák"
+msgstr "シダック(Šidák)"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Simple Main Effects"
+msgstr "単純主効果"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Simple Effect Factor"
+msgstr "単純効果を検討する要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Moderator Factor 1"
+msgstr "調整要因１"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Moderator Factor 2"
+msgstr "調整要因２"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error terms"
+msgstr "プール誤差項"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Nonparametrics"
+msgstr "ノンパラメトリック"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr "反復測定要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Optional Grouping Factor"
+msgstr "追加的な群の要因"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conover's post hoc tests"
+msgstr "コノバー(Conover)の事後検定"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Factors"
+msgstr "反復測定要因"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Cells"
+msgstr "反復測定のセル"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Between Subject Factors"
+msgstr "参加者間要因"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Covariates"
+msgstr "共変量"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Tables"
+msgstr "表"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Effects"
+msgstr "効果"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Across all models"
+msgstr "全てのモデル"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Across matched models"
+msgstr "一致したモデル"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Estimates"
+msgstr "推定値"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model averaged R²"
+msgstr "モデル平均R²"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Descriptives"
+msgstr "記述統計量"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Credible interval"
+msgstr "信用区間"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Order"
+msgstr "順序"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Compare to best model"
+msgstr "ベストモデルとの比較"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Compare to null model"
+msgstr "帰無モデルとの比較"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Plots"
+msgstr "プロット"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model averaged posteriors"
+msgstr "モデル平均事後分布"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Group levels in single plot"
+msgstr "群の水準を１つにプロットする"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Individual plot per level"
+msgstr "水準ごとに個別のプロット"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Posterior R²"
+msgstr "事後R²"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Single Model Inference"
+msgstr "単一モデルの推論"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Specific Model Terms"
+msgstr "特定のモデル項"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "R²"
+msgstr "R²"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Marginal posteriors"
+msgstr "周辺事後分布"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Correction"
+msgstr "補正"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Null control"
+msgstr "帰無コントロール"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Factors"
+msgstr "要因"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr "Y軸のラベル"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Additional Options"
+msgstr "追加オプション"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Prior"
+msgstr "事前分布"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale fixed effects"
+msgstr "固定効果のr スケール"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale random effects"
+msgstr "ランダム効果のrスケール"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale covariates"
+msgstr "共変量のrスケール"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Numerical Accuracy"
+msgstr "数値精度"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Auto"
+msgstr "自動"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Manual"
+msgstr "手動"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "No. samples"
+msgstr "サンプル数"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Posterior Samples"
+msgstr "事後分布サンプル"
+
+msgctxt "Manova|"
+msgid "Dependent Variables"
+msgstr "従属変数"
+
+msgctxt "Manova|"
+msgid "Fixed Factors"
+msgstr "固定要因"
+
+msgctxt "Manova|"
+msgid "Random Factors"
+msgstr "変動要因"
+
+msgctxt "Manova|"
+msgid "Model"
+msgstr "モデル"
+
+msgctxt "Manova|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "Manova|"
+msgid "Model Terms"
+msgstr "モデル項"
+
+msgctxt "Manova|"
+msgid "Include intercept"
+msgstr "切片を含む"
+
+msgctxt "Manova|"
+msgid "Additional Options"
+msgstr "追加オプション"
+
+msgctxt "Manova|"
+msgid "Test"
+msgstr "検定"
+
+msgctxt "Manova|"
+msgid "Pillai"
+msgstr "Pillai"
+
+msgctxt "Manova|"
+msgid "Wilks"
+msgstr "Wilks"
+
+msgctxt "Manova|"
+msgid "Hotelling-Lawley"
+msgstr "Hotelling-Lawley"
+
+msgctxt "Manova|"
+msgid "Roy"
+msgstr "Roy"
+
+msgctxt "Manova|"
+msgid "Assumption Checks"
+msgstr "仮定のチェック"
+
+msgctxt "Manova|"
+msgid "Homogeneity of covariance matrices"
+msgstr "共変量行列の等質性"
+
+msgctxt "Manova|"
+msgid "Multivariate normality"
+msgstr "多変量正規性"
+
+msgctxt "Manova|"
+msgid "Display"
+msgstr "表示"
+
+msgctxt "Manova|"
+msgid "ANOVA tables"
+msgstr "分散分析表"
+
+msgctxt "Manova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p比"

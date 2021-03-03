@@ -1372,3 +1372,31 @@ msgstr "ANOVA tabellen"
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Vovk-Sellke maximum p-ratio"
+
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr "Factoren"
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr "Horizontale as"
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr "Aparte grafieken"
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr "Label y-as"

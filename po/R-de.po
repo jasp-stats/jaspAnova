@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2020-12-29 01:21\n"
+"POT-Creation-Date: 2021-03-03 12:00\n"
 "PO-Revision-Date: 2021-01-17 17:32+0000\n"
 "Last-Translator: Johannes Keyser <johanneskeyser@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -708,6 +708,9 @@ msgstr "Deskriptive Abbildungen"
 
 msgid "Descriptives Plot"
 msgstr "Deskriptive Abbildung"
+
+msgid "Raincloud plots"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "Stichprobennahme der Posterior"

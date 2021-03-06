@@ -731,9 +731,10 @@ msgctxt "AnovaBayesian|"
 msgid "Additional Options"
 msgstr "Opções Adicionais"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prévio"
 
 #, fuzzy
 msgctxt "AnovaBayesian|"
@@ -825,9 +826,10 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
 msgstr ""
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
@@ -1179,9 +1181,10 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Additional Options"
 msgstr "Opções Adicionais"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prévio"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -1333,9 +1336,10 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
 msgstr ""
 
+#, fuzzy
 msgctxt "Ancova|"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-12 02:20+0000\n"
+"PO-Revision-Date: 2021-03-13 16:02+0000\n"
 "Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/es/>\n"
@@ -120,7 +120,7 @@ msgstr "Suma de cuadrados"
 
 msgctxt "Ancova|"
 msgid "Assumption Checks"
-msgstr "Verificación de supuestos"
+msgstr "Verificaciones de supuestos"
 
 msgctxt "Ancova|"
 msgid "Homogeneity tests"
@@ -1385,7 +1385,6 @@ msgctxt "Manova|"
 msgid "Roy"
 msgstr "Roy"
 
-#, fuzzy
 msgctxt "Manova|"
 msgid "Assumption Checks"
 msgstr "Verificaciones de supuestos"

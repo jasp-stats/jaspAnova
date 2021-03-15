@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-03-17 19:18+0000\n"
-"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
+"Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pt/>\n"
 "Language: pt\n"
@@ -716,7 +716,7 @@ msgstr "Fatores"
 
 msgctxt "AnovaBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Lines"
@@ -822,11 +822,11 @@ msgstr "Verificações de suposições"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr ""
+msgstr "Testes de esfericidade"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr ""
+msgstr "Correções de esfericidade"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
@@ -856,7 +856,7 @@ msgstr "Testes Post Hoc"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Intervalos de confiança"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
@@ -898,7 +898,7 @@ msgstr "Fatores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Lines"
@@ -956,7 +956,7 @@ msgstr "Ajuste do intervalo de confiança"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Estatística descritiva"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
@@ -1148,7 +1148,7 @@ msgstr "Fatores"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Lines"
@@ -1215,7 +1215,7 @@ msgstr "Amostras posteriores"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr ""
+msgstr "Variáveis dependentes"
 
 #, fuzzy
 msgctxt "Manova|"
@@ -1224,7 +1224,7 @@ msgstr "Fatores Fixos"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Fatores aleatórios"
 
 #, fuzzy
 msgctxt "Manova|"
@@ -1251,15 +1251,15 @@ msgstr "Opções Adicionais"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr ""
+msgstr "Teste"
 
 msgctxt "Manova|"
 msgid "Pillai"
-msgstr ""
+msgstr "Pillai"
 
 msgctxt "Manova|"
 msgid "Wilks"
-msgstr ""
+msgstr "Wilks"
 
 msgctxt "Manova|"
 msgid "Hotelling-Lawley"
@@ -1275,11 +1275,11 @@ msgstr ""
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr ""
+msgstr "Homogeneidade das matrizes de covariância"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
-msgstr ""
+msgstr "Normalidade multivariada"
 
 #, fuzzy
 msgctxt "Manova|"
@@ -1288,7 +1288,7 @@ msgstr "Exibir"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr ""
+msgstr "Tabelas ANOVA"
 
 #, fuzzy
 msgctxt "Manova|"
@@ -1297,7 +1297,7 @@ msgstr "Razão p máxima de Vovk-Sellke"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Sinalizar comparações significantes"
 
 msgctxt "Ancova|"
 msgid " "
@@ -1309,7 +1309,7 @@ msgstr "Tamano de efeito"
 
 msgctxt "Anova|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Sinalizar comparações significantes"
 
 msgctxt "Anova|"
 msgid " "
@@ -1321,7 +1321,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Sinalizar comparações significantes"
 
 #, fuzzy
 msgctxt "Ancova|"
@@ -1334,15 +1334,15 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
-msgstr ""
+msgstr "Esse módulo oferece os testes ANOVA Frequentista e Bayesiano."
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Clássico"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
@@ -1350,19 +1350,19 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Bayesiano"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "ANOVA Bayesiana"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
@@ -1370,19 +1370,19 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "ANCOVA Bayesiana"
 
 msgctxt "Ancova|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Ancova|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parcial"
 
 msgctxt "Ancova|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Ancova|"
 msgid "Šidák"
@@ -1395,19 +1395,19 @@ msgstr "Modelo médio"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 msgctxt "Anova|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Anova|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parcial"
 
 msgctxt "Anova|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Anova|"
 msgid "Šidák"
@@ -1415,7 +1415,7 @@ msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 #, fuzzy
 msgctxt "AnovaBayesian|"
@@ -1424,19 +1424,19 @@ msgstr "R²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parcial"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "general η²"
-msgstr ""
+msgstr "η² geral"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Šidák"
@@ -1449,7 +1449,7 @@ msgstr "Modelo médio"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -1467,7 +1467,7 @@ msgstr "Fatores"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 #, fuzzy
 msgctxt "RainCloudPlots|"
@@ -1480,4 +1480,4 @@ msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Rotular eixo y"

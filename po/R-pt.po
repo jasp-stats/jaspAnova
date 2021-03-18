@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: 2021-03-18 05:18+0000\n"
-"Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
+"PO-Revision-Date: 2021-03-19 18:18+0000\n"
+"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
 "Language: pt\n"
@@ -17,110 +17,127 @@ msgstr ""
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
 
+#, fuzzy
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
 msgstr ""
+"Os pesos WLS contêm valores negativos e/ou zero. <br> <br> (somente pesos "
+"WLS positivos são permitidos)."
 
+#, fuzzy
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
 "combination of other predictor variables"
 msgstr ""
+"Ajuste singular encontrado; uma ou mais variáveis preditoras são uma "
+"combinação linear de outras variáveis preditoras"
 
+#, fuzzy
 msgid ""
 "Residual sum of squares is 0; this might be due to extremely low variance of "
 "your dependent variable"
 msgstr ""
+"A soma residual dos quadrados é 0; isso pode ser devido à variação "
+"extremamente baixa de sua variável dependente"
 
+#, fuzzy
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Ocorreu um erro ao calcular a ANOVA:% s"
 
+#, fuzzy
 msgid ""
 "Your design contains empty cells. Please try a different type of sum of "
 "squares."
 msgstr ""
+"Seu design contém células vazias. Tente um tipo diferente de soma de "
+"quadrados."
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 #, fuzzy
 msgid "Homogeneity Correction"
 msgstr "Correções de Homogeneidade"
 
 msgid "Cases"
-msgstr ""
+msgstr "Casos"
 
-#, fuzzy
 msgid "Sum of Squares"
 msgstr "Soma dos quadrados"
 
-#, fuzzy
 msgid "df"
-msgstr "gl:"
+msgstr "gl"
 
+#, fuzzy
 msgid "Mean Square"
-msgstr ""
+msgstr "Média Quadrática"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
-
-msgid "VS-MPR%s"
-msgstr ""
+msgstr "p"
 
 #, fuzzy
+msgid "VS-MPR%s"
+msgstr "VS-MPR%s"
+
 msgid "Type I Sum of Squares"
-msgstr "Soma dos quadrados"
+msgstr "Tipo I Soma dos quadrados"
 
 #, fuzzy
 msgid "Type II Sum of Squares"
-msgstr "Soma dos quadrados"
+msgstr "Soma dos quadrados Tipo II"
 
 #, fuzzy
 msgid "Type III Sum of Squares"
-msgstr "Soma dos quadrados"
+msgstr "Soma dos quadrados Tipo III"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"As correções Brown-Forsythe e Welch estão disponíveis apenas para ANOVA "
+"unilateral"
 
-#, fuzzy
 msgid "Contrast Tables"
-msgstr "Contrastes"
+msgstr "Tabela de Contrastes"
 
-#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr "Contrastes"
+msgstr "%1$s Contraste - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Especifique um contraste adicional."
 
+#, fuzzy
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Número errado de linhas de matriz de contraste personalizadas."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Especifique pesos de contraste diferentes de zero."
 
 #, fuzzy
 msgid "Estimate"
 msgstr "Estimativas"
 
+#, fuzzy
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% IC para diferença média"
 
+#, fuzzy
 msgid "Lower"
-msgstr ""
+msgstr "Inferior"
 
+#, fuzzy
 msgid "Upper"
-msgstr ""
+msgstr "Superior"
 
+#, fuzzy
 msgid "SE"
-msgstr ""
+msgstr "EP"
 
 #, fuzzy
 msgid "t"

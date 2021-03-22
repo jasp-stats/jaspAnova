@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: 2021-03-19 18:18+0000\n"
-"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
+"PO-Revision-Date: 2021-03-23 23:29+0000\n"
+"Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
 "Language: pt\n"
@@ -119,7 +119,6 @@ msgstr "Número errado de linhas de matriz de contraste personalizadas."
 msgid "Please specify non-zero contrast weights."
 msgstr "Especifique pesos de contraste diferentes de zero."
 
-#, fuzzy
 msgid "Estimate"
 msgstr "Estimativas"
 
@@ -127,11 +126,9 @@ msgstr "Estimativas"
 msgid "%s%% CI for Mean Difference"
 msgstr "%s%% IC para diferença média"
 
-#, fuzzy
 msgid "Lower"
 msgstr "Inferior"
 
-#, fuzzy
 msgid "Upper"
 msgstr "Superior"
 
@@ -235,7 +232,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Mean"
-msgstr "Médias"
+msgstr "Média"
 
 msgid "SD"
 msgstr ""
@@ -297,9 +294,8 @@ msgstr ""
 msgid "Kruskal-Wallis Test"
 msgstr "Teste Kruskal-Wallis "
 
-#, fuzzy
 msgid "Factor"
-msgstr "Fatores"
+msgstr "Fator"
 
 #, fuzzy
 msgid "Statistic"
@@ -309,8 +305,9 @@ msgstr "Estatísticas"
 msgid "Q-Q Plot"
 msgstr "Diagramas"
 
+#, fuzzy
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "Quantis teóricos"
 
 #, fuzzy
 msgid "Standardized Residuals"
@@ -631,7 +628,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Models"
-msgstr "Modelo"
+msgstr "Modelos"
 
 msgid "P(M)"
 msgstr ""
@@ -757,7 +754,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Variable"
-msgstr "Variáveis"
+msgstr "Variável"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""

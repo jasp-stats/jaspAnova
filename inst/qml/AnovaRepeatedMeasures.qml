@@ -33,7 +33,13 @@ Form
 	{
 		preferredHeight: 520 * preferencesModel.uiScale
 		AvailableVariablesList		{ name: "allVariablesList" }
-		RepeatedMeasuresFactorsList { name: "repeatedMeasuresFactors"; title: qsTr("Repeated Measures Factors"); height: 180 }
+		FactorLevelList
+		{
+			name: "repeatedMeasuresFactors"
+			title: qsTr("Repeated Measures Factors")
+			height: 180 * preferencesModel.uiScale
+			factorName: qsTr("RM Factor")
+		}
 		AssignedRepeatedMeasuresCells
 		{
 			name:				"repeatedMeasuresCells"
@@ -168,7 +174,7 @@ Form
 			CheckBox { name: "postHocTestsHolm";		label: qsTr("Holm"); 		checked: true	}
 			CheckBox { name: "postHocTestsBonferroni";	label: qsTr("Bonferroni")			}
 			CheckBox { name: "postHocTestsTukey";		label: qsTr("Tukey")				}
-			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffe")				}
+			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffé")				}
 		}
 
 		Group

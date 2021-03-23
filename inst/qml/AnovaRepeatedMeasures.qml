@@ -33,7 +33,13 @@ Form
 	{
 		preferredHeight: 520 * preferencesModel.uiScale
 		AvailableVariablesList		{ name: "allVariablesList" }
-		RepeatedMeasuresFactorsList { name: "repeatedMeasuresFactors"; title: qsTr("Repeated Measures Factors"); height: 180 }
+		FactorLevelList
+		{
+			name: "repeatedMeasuresFactors"
+			title: qsTr("Repeated Measures Factors")
+			height: 180 * preferencesModel.uiScale
+			factorName: qsTr("RM Factor")
+		}
 		AssignedRepeatedMeasuresCells
 		{
 			name:				"repeatedMeasuresCells"

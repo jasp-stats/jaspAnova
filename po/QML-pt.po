@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-17 19:18+0000\n"
-"Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
+"PO-Revision-Date: 2021-04-03 08:29+0000\n"
+"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pt/>\n"
 "Language: pt\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -586,62 +586,77 @@ msgctxt "Anova|"
 msgid "Kruskal-Wallis Test"
 msgstr "Teste Kruskal-Wallis"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
 msgstr "Variável Dependente"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
 msgstr "Fatores Fixos"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
 msgstr "Fatores aleatórios"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Tables"
 msgstr "Tabelas"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Effects"
 msgstr "Efeitos"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Across all models"
 msgstr "Em todos os modelos"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Across matched models"
 msgstr "Em modelos correspondentes"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Estimates"
 msgstr "Estimativas"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Model averaged R²"
 msgstr "Modelo médio"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Descriptives"
 msgstr "Descritivas"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Credible interval"
 msgstr "Intervalo de credibilidade"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Order"
 msgstr "Ordem"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Compare to best model"
 msgstr "Comparar com o melhor modelo"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Compare to null model"
 msgstr "Comparar com o modelo nulo"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Plots"
 msgstr "Diagramas"
@@ -661,6 +676,7 @@ msgctxt "AnovaBayesian|"
 msgid "Individual plot per level"
 msgstr "Diagrama individual por nível"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
@@ -705,6 +721,7 @@ msgctxt "AnovaBayesian|"
 msgid "Null control"
 msgstr "Controle nulo"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Descriptives Plots"
 msgstr "Diagramas Descritivos"
@@ -714,10 +731,12 @@ msgctxt "AnovaBayesian|"
 msgid "Factors"
 msgstr "Fatores"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Horizontal Axis"
 msgstr "Eixo horizontal"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Separate Lines"
 msgstr "Linhas separadas"
@@ -762,51 +781,62 @@ msgctxt "AnovaBayesian|"
 msgid "Auto"
 msgstr "Auto"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Manual"
 msgstr "Manual"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "No. samples"
 msgstr "No. de amostras"
 
+#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Posterior Samples"
 msgstr "Amostras posteriores"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
 msgstr "Fatores de medidas repetidas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "Células de medidas repetidas"
+msgstr "Células de Medidas Repetidas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Fatores entre sujeitos"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
 msgstr "Covariáveis"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
 msgstr "Modelo"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr "Componentes de medidas repetidas"
+msgstr "Componentes de Medidas Repetidas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
 msgstr "Termos do modelo"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr ""
+msgstr "Componentes entre sujeitos"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
 msgstr "Termos do modelo"
@@ -816,14 +846,17 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Sum of squares"
 msgstr "Soma dos quadrados"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Verificações de suposições"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
 msgstr "Testes de esfericidade"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
 msgstr "Correções de esfericidade"
@@ -833,14 +866,17 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
 msgstr "Nenhum"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
 msgstr "Greenhouse-Geisser"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
 msgstr "Huynh-Feldt"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
 msgstr "Testes de homogeneidade"
@@ -850,27 +886,32 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Contrasts"
 msgstr "Contrastes"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
 msgstr "Testes Post Hoc"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
 msgstr "Intervalos de confiança"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "Tamanho de efeito"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
-msgstr ""
+msgstr "Termo de erro de grupo para fatores de RM"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
 msgstr "Correção"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
 msgstr "Holm"
@@ -880,34 +921,42 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
 msgstr "Tukey"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffe"
 msgstr "Scheffe"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptives Plots"
 msgstr "Diagramas Descritivos"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
 msgstr "Fatores"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
 msgstr "Eixo horizontal"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Lines"
 msgstr "Linhas separadas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Plots"
 msgstr "Diagramas Separados"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
 msgstr "Rótulo eixo-y"
@@ -917,30 +966,37 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Display"
 msgstr "Exibir"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Display error bars"
 msgstr "Exibir barras de erro"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval"
 msgstr "Intervalo de Confiança"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Standard error"
 msgstr "Erro padrão"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr ""
+msgstr "Média de fatores de RM não usados"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
 msgstr "Médias marginais"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
 msgstr "A partir de"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "bootstraps"
 msgstr "bootstraps"
@@ -950,14 +1006,17 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Compare marginal means to 0"
 msgstr "Comparar médias marginais com 0"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval adjustment"
 msgstr "Ajuste do intervalo de confiança"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptive statistics"
 msgstr "Estatística descritiva"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
 msgstr "Estimativas de tamanho de efeito"
@@ -970,13 +1029,14 @@ msgstr "Razão p máxima de Vovk-Sellke"
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Main Effects"
-msgstr "Efeitos principais simples"
+msgstr "Efeitos Principais Simples"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Effect Factor"
 msgstr "Efeito Simples de Fator"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 1"
 msgstr "Moderador Fator 1"
@@ -986,37 +1046,45 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 2"
 msgstr "Moderador Fator 2"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr ""
+msgstr "Termos de erro de grupo"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
 msgstr "Não paramétricos"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr ""
+msgstr "Fator RM"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr ""
+msgstr "Fator de Agrupamento Opcional"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
 msgstr "Teste post hoc de Conover"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "Fatores de Medidas Repetidas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Células de Medidas Repetidas"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Entre Fatores de Assunto"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"

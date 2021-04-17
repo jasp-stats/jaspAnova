@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-04-17 18:27+0000\n"
-"Last-Translator: Lucas Müller-Silveira <mullerlucass@gmail.com>\n"
+"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pt/>\n"
 "Language: pt\n"
@@ -19,6 +19,7 @@ msgctxt "Ancova|"
 msgid "Dependent Variable"
 msgstr "Variável Dependente"
 
+#, fuzzy
 msgctxt "Ancova|"
 msgid "Fixed Factors"
 msgstr "Fatores Fixos"

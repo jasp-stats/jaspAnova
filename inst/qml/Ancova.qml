@@ -184,7 +184,7 @@ Form
 		{
 			title: qsTr("Correction")
 			CheckBox { name: "postHocTestsTukey";		label: qsTr("Tukey"); checked: true	}
-			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffe")				}
+			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffé")				}
 			CheckBox { name: "postHocTestsBonferroni";	label: qsTr("Bonferroni")			}
 			CheckBox { name: "postHocTestsHolm";		label: qsTr("Holm")					}
 			CheckBox { name: "postHocTestsSidak";       label: qsTr("Šidák")                }

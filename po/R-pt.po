@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: 2021-04-25 14:32+0000\n"
-"Last-Translator: Pedro Afonso Cortez <cor.afonso@gmail.com>\n"
+"PO-Revision-Date: 2021-04-26 20:32+0000\n"
+"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
 "Language: pt\n"
@@ -17,6 +17,7 @@ msgstr ""
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
 
+#, fuzzy
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
@@ -24,6 +25,7 @@ msgstr ""
 "Os pesos WLS contêm valores negativos e/ou zero. <br> <br> (somente pesos "
 "WLS positivos são permitidos)."
 
+#, fuzzy
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
 "combination of other predictor variables"
@@ -138,9 +140,11 @@ msgstr "Estimativas"
 msgid "%s%% CI for Mean Difference"
 msgstr "%s%% IC para diferença média"
 
+#, fuzzy
 msgid "Lower"
 msgstr "Inferior"
 
+#, fuzzy
 msgid "Upper"
 msgstr "Superior"
 
@@ -268,9 +272,11 @@ msgstr ""
 "O intervalo de confiança é muito estreito, selecione um nível de confiança "
 "diferente."
 
+#, fuzzy
 msgid "Mean"
 msgstr "Média"
 
+#, fuzzy
 msgid "SD"
 msgstr "DP"
 
@@ -841,6 +847,7 @@ msgstr ""
 msgid "Level"
 msgstr "Nível"
 
+#, fuzzy
 msgid "Density"
 msgstr "Densidade"
 

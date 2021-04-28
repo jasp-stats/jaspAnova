@@ -6,7 +6,7 @@ Description
 	name		: "jaspAnova"
 	title		: qsTr("ANOVA")
 	icon		: "analysis-classical-anova.svg"
-	description	: qsTr("This module offers the standard Frequentist and Bayesian ANOVA tests.")
+	description	: qsTr("Evaluate the difference between multiple means")
 	version		: "0.13"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"

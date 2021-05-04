@@ -126,7 +126,7 @@
           return(NULL)
         },
         duplicateColumns = function() {
-          cols <- c(.BANOVAsubjectName, .v(target))
+          cols <- c(.BANOVAsubjectName, target)
           if (length(cols) == 1L)
             return()
 
@@ -202,8 +202,7 @@
   modelTerms    <- options$modelTerms
   dependent     <- options$dependent
   randomFactors <- unlist(options$randomFactors)
-  if (length(randomFactors) > 0L)
-    randomFactors <- .v(randomFactors)
+
   fixedFactors  <- options$fixedFactors
 
   if (analysisType == "RM-ANOVA") {
@@ -278,7 +277,7 @@
 
       if (m > 1L) {
         model.title <- setdiff(model.effects, nuisance)
-        modelObject[[m]]$title <- .unvf(paste(model.title, collapse = " + "))
+        modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
   }
@@ -337,9 +336,9 @@
           rscaleCont   = rscaleCont,
           iterations   = bfIterations))
         if (isTryError(bf)) {
-          modelName <- .unvf(strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L])
+          modelName <- strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L]
           .quitAnalysis(gettextf("Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s.",
-                                modelName, .extractErrorMessage(bf)))
+                                .BANOVAdecodeSubject(modelName), .extractErrorMessage(bf)))
         } else {
           # delete the data object -- otherwise it gets saved in the state
           bf@data <- data.frame()
@@ -509,7 +508,7 @@
     )
   }
 
-  effectsTable[["Effects"]]      <- .unvf(effectNames)
+  effectsTable[["Effects"]]      <- jaspBase::gsubInteractionSymbol(effectNames)
   effectsTable[["P(incl)"]]      <- priorInclProb
   effectsTable[["P(incl|data)"]] <- postInclProb
   effectsTable[["BFInclusion"]] <- switch(
@@ -782,7 +781,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   idxDup <- duplicated(table[, "Variable"])
   table[idxDup, "Variable"]  <- ""
   # decode base64 variables
-  table[!idxDup, "Variable"] <- .unvf(table[!idxDup, "Variable"])
+  table[!idxDup, "Variable"] <- jaspBase::gsubInteractionSymbol(table[!idxDup, "Variable"])
   # rename mu to Intercept
   table[1L, "Variable"] <- "Intercept"
   # attach posterior means and sds
@@ -867,7 +866,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   allParamNames <- colnames(densities)
 
   tmp <- .BANOVAgetLevelsFromParamNames(allParamNames)
-  plotTitles <- .unvf(tmp[, "parameter"])
+  plotTitles <- jaspBase::gsubInteractionSymbol(tmp[, "parameter"])
   xNames <- tmp[, "level"]
 
   if (is.null(isRandom)) {
@@ -880,7 +879,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     indices <- split(indices, plotTitles[indices])[order(unique(plotTitles[indices]))]
     nms <- names(indices)
-
     for (i in seq_along(indices)) {
 
       ind <- indices[[i]]
@@ -1108,7 +1106,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       variable.levels <- options$repeatedMeasuresFactors[[which(lapply(options$repeatedMeasuresFactors, function(x) x$name) == posthoc.var)]]$levels
       paired <- TRUE
     } else if (posthoc.var %in% c(options$fixedFactors, options$betweenSubjectFactors, options$randomFactors)) {
-      variable.levels <- levels(dataset[[.v(posthoc.var)]])
+      variable.levels <- levels(dataset[[posthoc.var]])
       paired <- FALSE
     } else {
       next
@@ -1119,8 +1117,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     pairs <- utils::combn(variable.levels, 2)
 
-    splitname <- if (model[["analysisType"]] == "RM-ANOVA") .BANOVAdependentName else .v(dependent)
-    allSplits <- split(dataset[[splitname]], dataset[[.v(posthoc.var)]])
+    splitname <- if (model[["analysisType"]] == "RM-ANOVA") .BANOVAdependentName else dependent
+    allSplits <- split(dataset[[splitname]], dataset[[posthoc.var]])
 
     errMessages <- NULL
     for (i in 1:ncol(pairs)) {
@@ -1218,11 +1216,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAdependentName <- "JaspColumn_.dependent._Encoded"
 .BANOVAsubjectName <- "JaspColumn_.subject._Encoded"
 
+.BANOVAdecodeSubject <- function(string) {
+  return(gsub(.BANOVAsubjectName, "subject", string))
+}
+
 .BANOVAdecodeNuisance <- function(nuisance) {
   # .BANOVAsubjectName needs to be handled separately
   idx <- nuisance == .BANOVAsubjectName
   nuisance[idx]  <- "subject"
-  nuisance[!idx] <- .unvf(nuisance[!idx])
+  nuisance[!idx] <- jaspBase::gsubInteractionSymbol(nuisance[!idx])
   return(nuisance)
 }
 
@@ -1237,7 +1239,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     all.variables <- c (bs.factors, bs.covariates, rm.vars)
 
     dataset <- .readDataSetToEnd(
-      columns.as.numeric  = c (rm.vars, bs.covariates),
+      columns.as.numeric  = c(rm.vars, bs.covariates),
       columns.as.factor   = bs.factors,
       exclude.na.listwise = all.variables
     )
@@ -1298,11 +1300,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # internal names use base64 so they don't have " " which R changes into "." because R does that to dataframe names.
   # Also adds a . in case the base64 is magically "Mean", "SD" or "N"
-  fixedB64 <- .v(fixed)
-  nmsB64 <- paste0(fixedB64, ".")
-  for (i in seq_along(fixed)) {
-    descriptivesTable$addColumnInfo(name = nmsB64[i], type = "string", title = fixed[i], combine = TRUE)
-  }
+  fixedDot <- paste0(fixed, ".")
+  for (i in seq_along(fixed))
+    descriptivesTable$addColumnInfo(name = fixedDot[i], type = "string", title = fixed[i], combine = TRUE)
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
   descriptivesTable$addColumnInfo(name = "Mean", title = gettext("Mean"),  type = "number")
@@ -1318,20 +1318,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (errors$noVariables)
     return()
 
-  dependentB64 <- .v(dependent)
-
   # order the data to show
-  dataset2 <- dataset[do.call(order, dataset[, fixedB64, drop = FALSE]), c(dependentB64, fixedB64)]
+  dataset2 <- dataset[do.call(order, dataset[, fixed, drop = FALSE]), c(dependent, fixed)]
 
   # by pasting the fixedFactors together we obtain the unique indices to group on. This excludes
   # non-existent combinations. A "." is added to deal with the level "".
-  ind <- apply(dataset2[, fixedB64, drop = FALSE], 1L, paste0, ".", collapse = "")
+  ind <- apply(dataset2[, fixed, drop = FALSE], 1L, paste0, ".", collapse = "")
 
   # temporary function to calculate all descriptives
-  tmpFun <- function(data, fixedB64, dependentB64, cri) {
+  tmpFun <- function(data, fixed, dependent, cri) {
 
     row <- list()
-    for (j in fixedB64)
+    for (j in fixed)
       row[[paste0(j, ".")]] <- as.character(data[1L, j])
 
     N <- nrow(data)
@@ -1343,15 +1341,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     } else if (N == 1L) {
 
-      row[["Mean"]] <- data[[dependentB64]]
+      row[["Mean"]] <- data[[dependent]]
       row[["SD"]] <- row[["Lower"]] <- row[["Upper"]] <- NA
 
     } else {
 
-      row[["Mean"]] <- mean(data[[dependentB64]])
-      row[["SD"]]   <- stats::sd(data[[dependentB64]])
+      row[["Mean"]] <- mean(data[[dependent]])
+      row[["SD"]]   <- stats::sd(data[[dependent]])
 
-      tmp <- jaspTTests::.posteriorSummaryGroupMean(data[[dependentB64]], cri)
+      tmp <- jaspTTests::.posteriorSummaryGroupMean(data[[dependent]], cri)
       row[["Lower"]] <- tmp[["ciLower"]]
       row[["Upper"]] <- tmp[["ciUpper"]]
 
@@ -1360,15 +1358,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 
   # apply tempFun on each subset defined by ind
-  rows <- by(dataset2, ind, tmpFun, fixedB64 = fixedB64,
-             dependentB64 = dependentB64, cri = options[["credibleInterval"]])
+  rows <- by(dataset2, ind, tmpFun, fixed = fixed,
+             dependent = dependent, cri = options[["credibleInterval"]])
 
   # do.call(rbind, rows) turns rows into a data.frame (from a list) for jaspResults
   data <- do.call(rbind.data.frame, rows)
 
   # add footnote if there are unobserved combinations
   nObserved <- nrow(data)
-  nPossible <- prod(sapply(dataset2[, fixedB64, drop = FALSE], nlevels))
+  nPossible <- prod(sapply(dataset2[, fixed, drop = FALSE], nlevels))
   if (nObserved != nPossible) {
     descriptivesTable$addFootnote(
       message = gettextf(
@@ -1409,7 +1407,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                          "usePooledStandErrorCI"))
 
   }
-  if(is.null(options[["usePooledStandErrorCI"]]))  usePooledSE <- FALSE else usePooledSE <- options[["usePooledStandErrorCI"]]
+  usePooledSE <- if (is.null(options[["usePooledStandErrorCI"]])) FALSE else options[["usePooledStandErrorCI"]]
 
   descriptivesPlotContainer$dependOn(c("plotHorizontalAxis", "plotSeparateLines", "plotSeparatePlots", "labelYAxis"))
 
@@ -1420,20 +1418,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   groupVars <- c(options$plotHorizontalAxis, options$plotSeparateLines, options$plotSeparatePlots)
   groupVars <- groupVars[groupVars != ""]
-  groupVarsV <- .v(groupVars)
-  dependentV <- .v(options$dependent)
   if (analysisType == "RM-ANOVA") {
-    dependentV <- .BANOVAdependentName
+    dependent <- .BANOVAdependentName
     yLabel <- options[["labelYAxis"]]
   } else {
+    dependent<- options$dependent
     yLabel <- options[["dependent"]]
   }
 
-  betweenSubjectFactors <- groupVarsV[groupVars %in% options$betweenSubjectFactors]
-  repeatedMeasuresFactors <- groupVarsV[groupVars %in% sapply(options$repeatedMeasuresFactors,function(x)x$name)]
+  betweenSubjectFactors <- groupVars[groupVars %in% options$betweenSubjectFactors]
+  repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependentV, groupvars = groupVarsV,
+    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
                                          subjectName = .BANOVAsubjectName)
@@ -1464,9 +1461,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     if (options$plotSeparatePlots != "") {
 
-      for (thisLevel in levels(dataset[[.v(options[["plotSeparatePlots"]])]])) {
+      for (thisLevel in levels(dataset[[options[["plotSeparatePlots"]]]])) {
 
-        subData <- dataset[dataset[[.v(options[["plotSeparatePlots"]])]] == thisLevel, ]
+        subData <- dataset[dataset[[options[["plotSeparatePlots"]]]] == thisLevel, ]
         thisPlotName <- paste0(options[["plotHorizontalAxis"]], " - ", options[["dependent"]], ": ",
                                options[["plotSeparatePlots"]], " = ", thisLevel)
         jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, subData, c(options[["plotHorizontalAxis"]], options[["dependent"]]),
@@ -1483,18 +1480,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   }
 
-  colnames(summaryStat)[colnames(summaryStat) == dependentV] <- "dependent"
+  colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
 
   if (options$plotHorizontalAxis != "") {
-    colnames(summaryStat)[colnames(summaryStat) == .v(options$plotHorizontalAxis)] <- "plotHorizontalAxis"
+    colnames(summaryStat)[colnames(summaryStat) == options$plotHorizontalAxis] <- "plotHorizontalAxis"
   }
 
   if (options$plotSeparateLines != "") {
-    colnames(summaryStat)[colnames(summaryStat) == .v(options$plotSeparateLines)] <- "plotSeparateLines"
+    colnames(summaryStat)[colnames(summaryStat) == options$plotSeparateLines] <- "plotSeparateLines"
   }
 
   if (options$plotSeparatePlots != "") {
-    colnames(summaryStat)[colnames(summaryStat) == .v(options$plotSeparatePlots)] <- "plotSeparatePlots"
+    colnames(summaryStat)[colnames(summaryStat) == options$plotSeparatePlots] <- "plotSeparatePlots"
   }
 
   base_breaks_x <- function(x){
@@ -1756,7 +1753,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         # NULL model only contains an intercept, use custom sampler
         # NOTE: RM-ANOVA never enters here (and would crash if it did)
         .setSeedJASP(options)
-        samples <- .BANOVAsampleNullModel(dataset[[.v(options$dependent)]], nsamples = nIter)
+        samples <- .BANOVAsampleNullModel(dataset[[options[["dependent"]]]], nsamples = nIter)
         types <- NULL
 
       } else {
@@ -2389,19 +2386,14 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAcreateModelFormula <- function(dependent, modelTerms) {
 
-  if (dependent != .BANOVAdependentName)
-    dependent <- .v(dependent)
   model.formula <- paste(dependent, " ~ ", sep = "")
   nuisance <- NULL
   effects <- NULL
   for (term in modelTerms) {
 
     comp <- term$component
-    idx <- comp != .BANOVAsubjectName
-    if (any(idx))
-      comp[idx] <- .v(comp[idx])
 
-    if (is.null (effects) & is.null (nuisance)){
+    if (is.null(effects) & is.null(nuisance)) {
       model.formula <- paste0(model.formula, comp, collapse = ":")
     } else {
       model.formula <- paste0(model.formula, " + ", paste(comp, collapse = ":"))
@@ -2412,7 +2404,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       effects <- c(effects, paste(comp, collapse = ":"))
     }
   }
-  model.formula <- formula (model.formula)
+  model.formula <- formula(model.formula)
   return(list(model.formula = model.formula, nuisance = nuisance, effects = effects))
 }
 
@@ -2588,7 +2580,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   samples <- BayesFactor::lmBF(
     formula      = formula,
     data         = dataset,
-    whichRandom  = .v(unlist(randomFactors)),
+    whichRandom  = unlist(randomFactors),
     progress     = TRUE,
     posterior    = TRUE,
     rscaleFixed  = rscaleFixed,

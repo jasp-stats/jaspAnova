@@ -4,6 +4,7 @@ context("ANCOVA")
 # - descriptives table/plot & Q-Q plot & raincloud plot (uses same code as ANOVA)
 # - if analysis handles too few observations
 
+
 test_that("Main table results match", {
   options <- jaspTools::analysisOptions("Ancova")
   options$dependent <- "contNormal"

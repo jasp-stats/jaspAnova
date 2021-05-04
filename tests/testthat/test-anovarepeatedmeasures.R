@@ -4,6 +4,7 @@ context("Repeated Measures ANOVA")
 #    - type I and type II sum of squares
 #    - Contrasts apart from 'repeated'
 
+
 opts <- options()
 on.exit(options(opts))
 options(list(
@@ -20,7 +21,6 @@ options(list(
   afex.emmeans_model = c("univariate"),
   afex.include_aov = TRUE
 ))
-
 
 initOpts <- function(){
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")

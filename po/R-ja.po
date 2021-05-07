@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: 2021-02-21 06:50+0000\n"
+"PO-Revision-Date: 2021-03-12 01:02+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"r/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -395,244 +395,251 @@ msgstr "%s のファミーを比較するために調整された P 値"
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
+msgstr "%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用いて修正された信頼区間）。"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "事後比較-"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "ブートストラップ事後比較-"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s%% bca%2$s 信頼区間"
 
 msgid "bias"
-msgstr ""
+msgstr "バイアス"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "コーエン(Cohen)のd"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "p <sub>シェッフェ</sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "p<sub>シダック</sub>"
 
 msgid ""
 "Unequal variances only available for main effects of within subjects factors"
-msgstr ""
+msgstr "参加者内要因の主効果に対してのみ利用可能な不等分散"
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "周辺平均 -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "ブートストラップ周辺平均 -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "周辺平均"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95% bca%s 信頼区間"
 
 msgid ""
 "Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "周辺平均の推定値は，ブートストラップ分布の中央値に基づく。"
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "平均値差の95%%信頼区間"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "ボンフェローニの信頼区間調整"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "シダックの信頼区間調整"
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "ノンパラメトリック"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "フリードマン(Friedman)検定"
 
 msgid "Chi-Squared"
-msgstr ""
+msgstr "カイ二乗"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "ケンドール(Kendall)のW"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "フリードマン(Friedman)/ダービン(Durbin)検定に適切な項を指定してください。"
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "ダービン(Durbin)検定"
 
 msgid "df num"
-msgstr ""
+msgstr "df 番号"
 
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "コノバー(Conover)検定"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "コノバー(Conover)の事後比較 - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "T統計量"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "%sでグループ化。"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "反復測定セルに無限大がある。"
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "反復測定セルでの観測数は< %sです"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "反復測定セルの分散は0です。"
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "反復測定セルで重複する変数が %s検出されました"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "%s に重複した変数が見つかりました"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
-msgstr ""
+msgstr "ベイズファクターが未定義 -- すべての効果が撹乱母数に指定されています。"
 
 msgid "Null model"
-msgstr ""
+msgstr "帰無モデル"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "帰無モデル (%s含む)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "ベイズファクターの計算"
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
 "The error message was: %2$s."
 msgstr ""
+"ベイズファクターはモデルで計算できませんでした: %1$s。\n"
+"エラー・メッセージは%2$sです。"
 
 msgid "All models include %s"
-msgstr ""
+msgstr "すべてのモデルには%sが含まれます"
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "効果の分析 - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "効果の分析"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>効果を含む</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>効果を含まない</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>効果を含む</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "効果"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(効果を含む)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(効果を含まない)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P（効果を含む|データ）"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(効果を含まない|データ)"
 
 msgid ""
 "Compares models that contain the effect to equivalent models stripped of the "
 "effect. Higher-order interactions are excluded. Analysis suggested by "
 "Sebastiaan Math%st."
 msgstr ""
+"効果を含んだモデルと効果を取り除いた同等のモデルを比較します。高次の相互作用は除外されます。 Sebastiaan "
+"Math％stによって提案された分析です。"
 
 msgid ""
 "Some Bayes factors could not be calculated. Inclusion probabilities and "
 "Bayes factors are calculated while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"ベイズファクターの一部を計算できませんでした。包含確率とベイズファクターは、これらのモデルを除外しながら計算されます。結果が解釈できない可能性があります！"
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>警告</em></b>"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "モデル比較"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF <sub> M </sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "モデル"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|データ)"
 
 msgid "error %"
-msgstr ""
+msgstr "エラー %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
 "model inference is carried out while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"<b><em>警告</em></b> "
+"ベイズファクターの一部が計算できませんでした。これらのモデルを除外してマルチモデル推論を行っています。結果が解釈できない場合があります！"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "モデル平均事後要約"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% 信用区間"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "モデル平均 R%s"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "モデル平均事後分布"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "事後分布"
 
 msgid ""
 "Could not plot posterior distribution. Check if an error occurred for models "
 "including this parameter."
-msgstr ""
+msgstr "事後分布をプロットできませんでした。このパラメータを含むモデルでエラーが発生したかどうかを確認してください。"
 
 msgid "Level"
-msgstr ""
+msgstr "水準"
 
 msgid "Density"
 msgstr "密度"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "モデル平均Q-Qプロット"
 
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "モデル平均事後R%s"
 
 msgid ""
 "The posterior odds have been corrected for multiple testing by fixing to 0.5 "
@@ -641,74 +648,79 @@ msgid ""
 "default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the "
 "Bayes factor denotes that it is uncorrected."
 msgstr ""
+"事後オッズは，すべての比較で帰無仮説が成り立つ0.5に事前確率を固定することで，多重検定用に補正されました (Westfall, Johnson, & "
+"Utts, 1997)。個々の比較は，Cauchy (0, r = 1/"
+"sqrt(2))事前分布を使用したデフォルトのt検定に基づいています。ベイズファクターの「U」は，それが修正されていないことを示します。"
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "事前オッズ"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "事後オッズ"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "記述統計量"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "記述統計量 - %s"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
-msgstr ""
+msgstr "要因の組み合わせのいくつかは観測されないため，除外されます（％gの組み合わせのうち％gは観測されません）。"
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "記述統計量プロット"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "記述統計量プロット"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "雨雲プロット"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "事後分布のサンプリング"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
-msgstr ""
+msgstr "すべての予測の分散はゼロでした。予測変数に異常がないか確認するか，事後分布のサンプル数を増やしましょう。"
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "以下のエラーは，BayesFactor::enumerateGeneralModels: %sで生じています。"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "単一モデル推論"
 
 msgid ""
 "Error in single model inference:\n"
 "%s"
 msgstr ""
+"単一モデル推論でのエラー:\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "単一モデルの事後分布要約"
 
 msgid "Variable"
 msgstr "変数"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "単一モデルの事後分布"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "事後分布 R%s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "単一モデル R%s"
 
 msgid "MANOVA"
-msgstr ""
+msgstr "多変量分散分析"
 
 msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
-msgstr ""
+msgstr "デザイン行列が正則ではありません。これは，共線従属変数が原因である可能性があります。"

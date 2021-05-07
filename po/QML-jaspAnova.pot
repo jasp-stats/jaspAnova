@@ -10,10 +10,6 @@ msgid "ANOVA"
 msgstr ""
 
 msgctxt "Description|"
-msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
-msgstr ""
-
-msgctxt "Description|"
 msgid "Classical"
 msgstr ""
 
@@ -175,10 +171,6 @@ msgstr ""
 
 msgctxt "Ancova|"
 msgid "Tukey"
-msgstr ""
-
-msgctxt "Ancova|"
-msgid "Scheffe"
 msgstr ""
 
 msgctxt "Ancova|"
@@ -590,10 +582,6 @@ msgid "Tukey"
 msgstr ""
 
 msgctxt "Anova|"
-msgid "Scheffe"
-msgstr ""
-
-msgctxt "Anova|"
 msgid "Bonferroni"
 msgstr ""
 
@@ -1002,10 +990,6 @@ msgid "Tukey"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffe"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
 msgstr ""
 
@@ -1391,4 +1375,24 @@ msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
 msgstr ""

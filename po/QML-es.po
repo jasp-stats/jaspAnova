@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-17 19:18+0000\n"
-"Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/es/>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -17,10 +11,6 @@ msgstr ""
 msgctxt "Description|"
 msgid "ANOVA"
 msgstr "ANOVA"
-
-msgctxt "Description|"
-msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
-msgstr "Este módulo ofrece las pruebas estándar ANOVA Frequentist y Bayesian."
 
 msgctxt "Description|"
 msgid "Classical"
@@ -185,10 +175,6 @@ msgstr "Corrección"
 msgctxt "Ancova|"
 msgid "Tukey"
 msgstr "Tukey"
-
-msgctxt "Ancova|"
-msgid "Scheffe"
-msgstr "Scheffe"
 
 msgctxt "Ancova|"
 msgid "Bonferroni"
@@ -599,10 +585,6 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgctxt "Anova|"
-msgid "Scheffe"
-msgstr "Scheffe"
-
-msgctxt "Anova|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
@@ -1011,10 +993,6 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffe"
-msgstr "Scheffe"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
 msgstr "Marcar Comparaciones Significativas"
 
@@ -1401,3 +1379,24 @@ msgstr "Mostrar Horizontal"
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
 msgstr "Etiqueta del eje y"
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr "Factor RM"

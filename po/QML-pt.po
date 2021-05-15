@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-05-13 16:32+0000\n"
+"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.7-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -266,7 +272,7 @@ msgstr "Modelo médio posterior"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "Níveis de grupo em um único diagrama"
+msgstr "Níveis de grupo num único diagrama"
 
 msgctxt "AncovaBayesian|"
 msgid "Individual plot per level"
@@ -540,7 +546,6 @@ msgctxt "Anova|"
 msgid "Descriptive statistics"
 msgstr "Estatísticas Descritivas"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Estimates of effect size"
 msgstr "Estimativas de tamanho de efeito"
@@ -639,7 +644,7 @@ msgstr "Modelo médio posterior"
 
 msgctxt "AnovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "Níveis de grupo em um único diagrama"
+msgstr "Níveis de grupo num único diagrama"
 
 msgctxt "AnovaBayesian|"
 msgid "Individual plot per level"
@@ -1023,7 +1028,7 @@ msgstr "Modelo médio posterior"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Group levels in single plot"
-msgstr "Níveis de grupo em um único diagrama"
+msgstr "Níveis de grupo num único diagrama"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Individual plot per level"
@@ -1155,7 +1160,7 @@ msgstr "Termos do modelo"
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Incluir intercepto"
 
 msgctxt "Manova|"
 msgid "Additional Options"
@@ -1227,7 +1232,7 @@ msgstr " "
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assume equal variances"
-msgstr ""
+msgstr "Assuma variâncias iguais"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
@@ -1239,7 +1244,7 @@ msgstr "Nenhum"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr ""
+msgstr "Use modelo multivariado para testes de acompanhamento"
 
 msgctxt "Description|"
 msgid "ANOVA"
@@ -1251,7 +1256,7 @@ msgstr "Clássico"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA de medidas repetidas"
 
 msgctxt "Description|"
 msgid "ANCOVA"

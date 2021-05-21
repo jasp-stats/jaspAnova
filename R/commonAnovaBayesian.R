@@ -1049,7 +1049,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   postHocCollection <- jaspResults[["collectionPosthoc"]]
   if (is.null(postHocCollection)) {
     postHocCollection <- createJaspContainer(title = gettext("Post Hoc Tests"))
-    postHocCollection$position <- 7
+    postHocCollection$position <- 8
     postHocCollection$addCitation(.BANOVAcitations[3:4])
     postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocTestsNullControl", "bayesFactorType"))
     jaspResults[["collectionPosthoc"]] <- postHocCollection
@@ -1682,6 +1682,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # TODO: the density approximation can become more efficient with a fast parametric density approximation
   # TODO: Bayes factor samples unobserved interaction levels, what to do?
+  save(dataset, options, model, state, file = "~/jaspDeletable/robjects/banovaError1181.RData")
+  # load("~/jaspDeletable/robjects/banovaError1181.RData")
 
   # if the most complex model is retrieved from the state?
   nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]
@@ -2448,7 +2450,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   } else {
     # put the null-model first
     i <- length(out)
-    return(c(out[[i]], out[-i]))
+    out <- c(out[[i]], out[-i])
+
+    # BayesFactor has the nasty habit of changing the order of interactions whenever one of the components is
+    # a nuisance variable. Here we ensure the order matches that of the input formula (which matches the order a user entered the factors).
+    # see also https://github.com/jasp-stats/jasp-test-release/issues/1181
+    originalTerms  <- terms(formula)
+    originalOrd    <- attr(originalTerms, "order")
+    originalIdxNonInteraction <- which(originalOrd == 1L)
+
+    originalLabels <- attr(originalTerms, "term.labels")
+    originalLabelsPieces <- strsplit(originalLabels[originalOrd > 1L], ":")
+    originalLabelsPiecesSorted <- lapply(originalLabelsPieces, sort)
+
+    dependent <- all.vars(out[[1]])[1L]
+
+    for (i in seq_along(out)) {
+
+      term <- terms(out[[i]])
+      ord  <- attr(term, "order") # interaction order
+      idxNonInteraction <- which(ord == 1L)
+
+      termLabels <- attr(term, "term.labels")
+      termLabels[idxNonInteraction] <- originalLabels[originalIdxNonInteraction][match(termLabels[idxNonInteraction], originalLabels[originalIdxNonInteraction])]
+
+      for (j in which(ord > 1L)) {
+        labelPieces <- strsplit(termLabels[j], ":")[[1L]]
+        for (k in seq_along(originalLabelsPieces))
+          if (all(sort(labelPieces) == originalLabelsPiecesSorted[[k]]))
+            termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
+      }
+
+      out[[i]] <- as.formula(paste(dependent, "~", paste(termLabels, collapse = " + ")))
+
+    }
+
+    return(out)
   }
 }
 
@@ -2596,7 +2633,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (!userWantsSMI)
     return()
 
-  if (!is.null(jaspResults[["collectionSingleModel"]])) {
+  if (!is.null(jaspResults[["containerSingleModel"]])) {
     singleModelContainer <- jaspResults[["containerSingleModel"]]
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
@@ -2605,7 +2642,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       "priorFixedEffects", "priorRandomEffects", "repeatedMeasuresCells", "seed", "setSeed"
     ))
     jaspResults[["containerSingleModel"]] <- singleModelContainer
-    singleModelContainer$position <- 8
+    singleModelContainer$position <- 7
   }
 
   singleModel <- jaspResults[["singleModelState"]]$object

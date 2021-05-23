@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
 "POT-Creation-Date: 2021-03-03 12:00\n"
-"PO-Revision-Date: 2021-04-23 20:31+0000\n"
+"PO-Revision-Date: 2021-05-24 16:34+0000\n"
 "Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "es/>\n"
@@ -289,58 +289,65 @@ msgstr "Residuos Estandarizados"
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Error al cargar datos. Verifique sus observaciones de medidas repetidas."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Factor: <em>%s</em>, contiene menos de dos niveles."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Factores: <em>%s</em>, contienen menos de dos niveles."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La medida repetida: <em>%s</em>, contiene valores infinitos."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Las medidas repetidas: <em>%s</em>, contienen valores infinitos"
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La covariable: <em>%s</em>, contiene valores infinitos."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Las covariables: <em>%s</em>, contiene valores infinitos."
 
 msgid ""
 "Please choose a name for the RM factors that differs from those for the "
 "between subjects factors."
 msgstr ""
+"Por favor elija un nombre para los factores de RM que difiera de los de los "
+"factores entre sujetos."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
 "design."
 msgstr ""
+"Algunos parámetros no son estimables, probablemente debido a celdas vacías "
+"del diseño."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Efectos entre sujetos"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Efectos dentro de los sujetos"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Corrección de esfericidad"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
+"Las correcciones de esfericidad no están disponibles para factores con 2 "
+"niveles."
 
 msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "

@@ -1682,8 +1682,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # TODO: the density approximation can become more efficient with a fast parametric density approximation
   # TODO: Bayes factor samples unobserved interaction levels, what to do?
-  save(dataset, options, model, state, file = "~/jaspDeletable/robjects/banovaError1181.RData")
-  # load("~/jaspDeletable/robjects/banovaError1181.RData")
 
   # if the most complex model is retrieved from the state?
   nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]

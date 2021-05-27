@@ -201,7 +201,7 @@
   rscaleRandom  <- options$priorRandomEffects
   modelTerms    <- options$modelTerms
   dependent     <- options$dependent
-  randomFactors <- unlist(options$randomFactors)
+  randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
 
   fixedFactors  <- options$fixedFactors
 
@@ -210,7 +210,6 @@
     modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)
 
     dependent     <- .BANOVAdependentName
-    randomFactors <- .BANOVAsubjectName
 
   } else if (analysisType == "ANCOVA") {
     rscaleCont <- options[["priorCovariates"]]
@@ -1648,7 +1647,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     dependentV <- options[["dependent"]]
     yLabel     <- options[["dependent"]]
   }
-  
+
   if (!is.null(options$rainCloudPlotsHorizontalDisplay) && options$rainCloudPlotsHorizontalDisplay)
     horiz <- TRUE
   else
@@ -1665,7 +1664,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         subPlot$setError(.extractErrorMessage(p))
       else
         subPlot$plotObject <- p
-    } 
+    }
   } else {
     singlePlot <- createJaspPlot(title = "", width = 480, height = 320)
     rainCloudPlotsContainer[["rainCloudPlotSingle"]] <- singlePlot
@@ -1690,7 +1689,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   postProbs  <- model[["postProbs"]]
   statistics <- vector("list", nmodels)
 
-  levelInfo  <- .BANOVAgetLevelInfo(dataset, model[["model.list"]][[nmodels]])
+  randomFactors <- .BANOVAgetRandomFactors(options, model[["analysisType"]])
+  dataTypes     <- .BANOVAgetDataTypes(dataset, model[["model.list"]][[nmodels]], randomFactors)
+  levelInfo     <- .BANOVAgetLevelInfo(dataset, model[["model.list"]][[nmodels]], dataTypes)
 
   renameFrom <- renameTo <- NULL
   if (!is.null(state)) { # can we reuse some posteriors?
@@ -1743,6 +1744,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   h <- (1 - options[["credibleInterval"]]) / 2
   probs <- c(h, 1-h)
+
+  originalFun <- BayesFactor:::makeChainNeater
+  on.exit(jaspBase:::assignFunctionInPackage(originalFun, "makeChainNeater", "BayesFactor"))
+  jaspBase:::assignFunctionInPackage(.BANOVAmakeChainNeater, "makeChainNeater", "BayesFactor")
 
   startProgressbar(nmodels, gettext("Sampling posteriors"))
   for (i in seq_len(nmodels)) {
@@ -2354,6 +2359,43 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(matrixStats::colVars(preds) / var(obs))
 
 }
+
+.BANOVAmakeChainNeater <- function(chains, Xnames, formula, data, dataTypes, gMap, unreduce, continuous, columnFilter) {
+  # identical to BayesFactor::makeChainNeater
+  P = length(gMap)
+  nGs = max(gMap) + 1
+  factors = BayesFactor:::fmlaFactors(formula, data)[-1]
+  dataTypes = dataTypes[names(dataTypes) %in% factors]
+  types = BayesFactor:::termTypes(formula, data, dataTypes)
+  lastPars = ncol(chains) + (-nGs):0
+  if (any(continuous)) {
+    gNames = paste("g", c(names(types[types != "continuous"]), "continuous"), sep = "_")
+  } else {
+    gNames = paste("g", names(types), sep = "_")
+  }
+  if (is.null(columnFilter)) {
+    ignoreCols = ignoreCols = rep(0, P)
+  } else {
+    ignoreCols = BayesFactor:::filterVectorLogical(columnFilter, names(gMap))
+  }
+  # also checking here if any dataTypes are "random"
+  if (!unreduce | !any(dataTypes %in% c("fixed", "random"))) {
+    labels = c("mu", Xnames[!ignoreCols], "sig2", gNames)
+    colnames(chains) = labels
+    return(chains)
+  }
+  parLabels = BayesFactor:::makeLabelList(formula, data, dataTypes, unreduce,
+                                          columnFilter)
+  labels = c("mu", parLabels)
+  betaChains = chains[, 1:(ncol(chains) - 2 - nGs) + 1, drop = FALSE]
+  betaChains = BayesFactor:::ureduceChains(betaChains, formula, data, dataTypes, gMap, ignoreCols)
+  newChains = cbind(chains[, 1], betaChains, chains[, lastPars])
+  labels = c(labels, "sig2", gNames)
+  colnames(newChains) = labels
+  return(newChains)
+}
+
+
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {
   what <- match.arg(what)
@@ -2417,43 +2459,56 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 }
 
-.BANOVAgetLevelInfo <- function(dataset, formula) {
+.BANOVAgetLevelInfo <- function(dataset, formula, dataTypes) {
 
-  # we use the components by splitting the formula rather than those in options$modelTerms
-  # the reason is that the BayesFactor::enumerateGeneralModels swaps the order of interaction effects
-  # depending on whether a variable is nuisance or not
-  nms <- attr(stats::terms(formula), "term.labels")
-  components <- strsplit(nms, ":")
-
-  # compute how many levels each predictor has. Returns 1 for continuous predictors.
-  levls <- lapply(dataset, levels)
-
-  obsLevelCounts <- lengths(levls) # counts of the factors in the data
-  levelNames     <- vector("list", length(components)) # for each parameter, all levels
-  names(levelNames) <- nms
-
-  for (i in seq_along(components)) {
-    idx <- components[[i]]
-    # exclude any non-factors
-    idx <- idx[obsLevelCounts[idx] != 0L]
-
-    if (length(idx) > 0) { # we're dealing with factors
-      # tmp <- unique(dataset[idx])  # all _observed_ combinations of factors
-      tmp <- expand.grid(lapply(dataset[idx], levels)) # all _possible_ combinations of factors
-
-      # ensure order is alphabetical
-      tmp <- tmp[do.call(order, tmp), , drop = FALSE]
-      combs <- apply(tmp, 1, paste, collapse = ".&.")
-
-      levelNames[[i]] <- paste0(nms[i], "-", combs)
-    } else {
-      # continuous variables get their name-name, because Bayesfactor returns it like that
-      levelNames[[i]] <- paste0(nms[i], "-", nms[i])
-    }
-  }
-  levelNames <- levelNames[lengths(levelNames) > 0]
+  levelNames <- .BANOVAmakeLabelList(formula, dataset, dataTypes)
   levelCounts <- lengths(levelNames) # counts of the factors including interaction terms
   return(list(levelCounts = levelCounts, levelNames = levelNames))
+}
+
+.BANOVAmakeLabelList <- function(formula, data, dataTypes, unreduce = TRUE, columnFilter = NULL) {
+
+  # from BayesFactor 0.9.12.4.2
+  # identical to BayesFactor:::makeLabelList, except that we return a named list
+  # with
+  #   names:  the variables that make up a particular (interaction) effect
+  #   values: the parameter names as returned by BayesFactor::posterior(...)
+
+  terms = attr(terms(formula, data = data), "term.labels")
+  if (!is.null(columnFilter))
+    terms = terms[!BayesFactor:::filterVectorLogical(columnFilter, terms)]
+
+  if (unreduce)
+    dataTypes[dataTypes == "fixed"] = "random"
+
+  labelList = lapply(terms, function(term, data, dataTypes) {
+    effects = strsplit(term, ":", fixed = TRUE)[[1]]
+    my.names = BayesFactor:::design.names.intList(effects, data, dataTypes)
+    return(paste(term, "-", my.names, sep = ""))
+  }, data = data, dataTypes = dataTypes)
+
+  # this part is different from BayesFactor
+  names(labelList) <- terms
+
+  return(labelList)
+}
+
+.BANOVAgetDataTypes <- function(dataset, formula, whichRandom = NULL) {
+
+  # from BayesFactor:::lmBF
+  BayesFactor:::createDataTypes(
+    formula,
+    whichRandom = whichRandom,
+    data = dataset,
+    analysis = "lm"
+  )
+}
+
+.BANOVAgetRandomFactors <- function(options, analysisType) {
+  if (analysisType == "RM-ANOVA")
+    return(.BANOVAsubjectName)
+  else
+    return(unlist(options[["randomFactors"]]))
 }
 
 .BANOVAgetLevelsFromParamNames <- function(names) {
@@ -2557,14 +2612,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTerms <- options$singleModelTerms
 
   dependent     <- options$dependent
-  randomFactors <- unlist(options$randomFactors)
+  randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
   rscaleFixed   <- options$priorFixedEffects
   rscaleRandom  <- options$priorRandomEffects
 
   if (analysisType == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
     rscaleCont <- options[["priorCovariates"]]
-    randomFactors <- .BANOVAsubjectName
     modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)
   } else if (analysisType == "ANCOVA") {
     rscaleCont <- options[["priorCovariates"]]
@@ -2573,7 +2627,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 
   formula <- .BANOVAcreateModelFormula(dependent, modelTerms)$model.formula
-  levelInfo  <- .BANOVAgetLevelInfo(dataset, formula)
+  randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
+  dataTypes     <- .BANOVAgetDataTypes(dataset, formula, randomFactors)
+  levelInfo     <- .BANOVAgetLevelInfo(dataset, formula, dataTypes)
   allParamNames <- c("mu", unlist(levelInfo$levelNames))
 
   .setSeedJASP(options)

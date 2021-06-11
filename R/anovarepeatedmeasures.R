@@ -785,11 +785,12 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   }
   
   assumptionResult <- rmAnovaContainer[["anovaResult"]]$object$assumptionResult
+  
   anovaResult <- rmAnovaContainer[["anovaResult"]]$object$withinAnovaTable$None
   
   # if (nrow(assumptionResult) == 0 || all(is.na(assumptionResult[["GG eps"]]))) {
   if (all(is.na(anovaResult[["Test statistic"]]))) {
-    sphericityTable$setError(gettext("Cannot perform sphericity tests because there are only two levels of the RM factor."))
+    sphericityTable$setError(gettext("Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."))
     return()  
   }
   
@@ -1303,7 +1304,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   marginalMeansTable$addColumnInfo(name="lsmean", title=gettext("Marginal Mean"), type="number")
   
   if (makeBootstrapTable) {
-    thisOverTitle <- gettextf("95%% bca%s CI", "\u002A")
+    thisOverTitle <- gettextf("95%% bca%s CI", "\u2020")
     marginalMeansTable$addColumnInfo(name="bias", title=gettext("bias"), type="number")
     
     marginalMeansTable$addFootnote(message = gettext("Marginal Means estimate is based on the median of the bootstrap distribution."))
@@ -1346,9 +1347,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   anovaModelBoots <- .rmAnovaComputeResults(dataset, options, returnResultsEarly = TRUE)$result # refit model
 
-  if (!is.null(anovaModelBoots[["tryResult"]]))
+  if (!is.null(anovaModelBoots[["tryResult"]]) || is.null(anovaModelBoots))
     return(rep(NA, termLength))
-  
+
   resultBoots <- summary(emmeans::lsmeans(anovaModelBoots, formula), infer = c(FALSE,FALSE))
   progressbarTick()
   
@@ -1517,9 +1518,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   y <- longData[, .BANOVAdependentName]
 
   for (groupingVar in groupingVariables) {
-    
+
     conoverTable <- createConoverTable(groupingVar)
-    conoverTable$addFootnote(gettextf("Grouped by %s.", .unv(blockingVar)))
+    noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", .BANOVAsubjectName)
+    conoverTable$addFootnote(gettextf("Grouped by %s.", noteBlockName))
     
     rows <- list()
     
@@ -1700,12 +1702,13 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       simpleEffectResult[[i, ".isNewGroup"]] <- TRUE
     
     if (nrow(simpleDataset) < 2 || 
-        nrow(unique(simpleDataset[simpleFactorBase64])) <  nrow(unique(longData[simpleFactorBase64]))) {
+        nrow(unique(simpleDataset[simpleFactorBase64])) <  nrow(unique(longData[simpleFactorBase64])) ||
+        length(unique(simpleDataset[["JaspColumn_.subject._Encoded"]])) == 1) {
       
       emptyCaseIndices <- c(emptyCaseIndices, i)
       emptyCases <- c(emptyCases, paste(simpleEffectResult[i, 1:nMods], collapse = ", "))
-      allSimpleModels[[i]] <- NA
-      
+      thisRow <- rep(NA, 5)
+
     } else if (performBetweenAnova) {
       
       .anovaModelContainer(rmAnovaContainer[["simpleEffectsContainer"]], simpleDataset, simpleOptions, TRUE)
@@ -1721,7 +1724,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
       anovaResult <- anovaResult[simpleFactorBase64, ]
       df <- anovaResult[["Df"]]
-      
+      MS <- anovaResult[["Mean Sq"]] <- anovaResult[["Sum Sq"]] /  df
+      fStat <- MS / fullAnovaMS
+      p <- pf(fStat, df, fullAnovaDf, lower.tail = FALSE)
+      thisRow <- c(anovaResult[["Sum Sq"]], MS, df, fStat, p)
     } else {
 
       anovaResult <-  .rmAnovaComputeResults(simpleDataset, simpleOptions, returnResultsEarly = TRUE)$model[simpleFactorBase64, ]
@@ -1732,13 +1738,14 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       }
       
       df <- anovaResult[["num Df"]]
-      
+      MS <- anovaResult[["Mean Sq"]] <- anovaResult[["Sum Sq"]] /  df
+      fStat <- MS / fullAnovaMS
+      p <- pf(fStat, df, fullAnovaDf, lower.tail = FALSE)
+      thisRow <- c(anovaResult[["Sum Sq"]], MS, df, fStat, p)
     }
 
-    MS <- anovaResult[["Mean Sq"]] <- anovaResult[["Sum Sq"]] /  df
-    F <- MS / fullAnovaMS
-    p <- pf(F, df, fullAnovaDf, lower.tail = FALSE)
-    simpleEffectResult[i, c("SumSq", "MeanSq", "Df", "F", "p")] <- c(anovaResult[["Sum Sq"]], MS, df, F, p)
+
+    simpleEffectResult[i, c("SumSq", "MeanSq", "Df", "F", "p")] <- thisRow
   }
   
   if (!is.null(emptyCaseIndices)) {

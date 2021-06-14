@@ -503,7 +503,7 @@
 
   if (sum(!idxNotNan) > 1L) { # null model is always omitted, so 2 or more omitted indicates some models failed
     effectsTable$addFootnote(message = gettext("Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"),
-      symbol = gettext("<b><em>Warning.</em></b>")
+      symbol = .BANOVAGetWarningSymbol()
     )
   }
 
@@ -726,6 +726,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   }
 
+  .BANOVASamplingIssuesTable(jaspResults, posteriors[["samplingIssues"]])
+
   return(c(posteriors, posteriorsCRI))
 }
 
@@ -829,6 +831,43 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspResults[["tableBMACRI"]] <- criTable
   return()
 
+}
+
+.BANOVASamplingIssuesTable <- function(jaspResults, samplingIssues) {
+
+  if (is.null(samplingIssues) || length(samplingIssues) == 0L)
+    return()
+
+  issuesTable <- createJaspTable(title = gettext("<b><em>Warning: sampling issues encountered!</em></b>"),
+                           # below model and effects table (which may be unaffected) but above estimates table
+                           position = 2.5)
+
+  issuesTable$addColumnInfo(name = "Models",           title = gettext("Affected model"),      type = "string")
+  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("% useful samples"),    type = "number")
+  issuesTable$addColumnInfo(name = "noSuccess",        title = gettext("Useful samples"),      type = "integer")
+  issuesTable$addColumnInfo(name = "total",            title = gettext("Total samples drawn"), type = "integer")
+
+  df <- data.frame(
+    Models    = vapply(samplingIssues, `[[`, FUN.VALUE = character(1L), "model"),
+    noSuccess = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "remainingRows"),
+    total     = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "originalRows")
+  )
+  df[["percentageSucces"]] <- df[["noSuccess"]] / df[["total"]]
+
+  if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
+    issuesTable$addFootnote(
+      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable! Check the model specification and data for any odd patterns!"),
+      symbol = .BANOVAGetWarningSymbol()
+    )
+
+  issuesTable$setData(df)
+  issuesTable$dependOn(optionsFromObject = jaspResults[["statePosteriors"]])
+  jaspResults[["tableSamplingIssues"]] <- issuesTable
+
+}
+
+.BANOVAGetWarningSymbol <- function() {
+  gettext("<b><em>Warning.</em></b>")
 }
 
 # Plots wrappers ----
@@ -1742,6 +1781,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   names(weights) <- names(weightedMeans) <- allParamNames
   allContinuous <- TRUE
 
+  rawParamNames <- c("mu", unlist(levelInfo[["rawLevelNames"]]))
+
   h <- (1 - options[["credibleInterval"]]) / 2
   probs <- c(h, 1-h)
 
@@ -1749,6 +1790,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   on.exit(jaspBase:::assignFunctionInPackage(originalFun, "makeChainNeater", "BayesFactor"))
   jaspBase:::assignFunctionInPackage(.BANOVAmakeChainNeater, "makeChainNeater", "BayesFactor")
 
+  samplingIssues <- list()
   startProgressbar(nmodels, gettext("Sampling posteriors"))
   for (i in seq_len(nmodels)) {
     if (is.na(reuseable[i])) {
@@ -1783,8 +1825,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         }
 
         # keep only relevant columns, drop sig2, g_xxx, ...
-        idx <- match(allParamNames, colnames(samples), nomatch = 0L)
+        idx <- match(rawParamNames, colnames(samples), nomatch = 0L)
         samples <- samples[, idx, drop = FALSE]
+
+        colnames(samples) <- unname(allParamNames[idx])
 
         # for some odd reason, Bayesfactor uses as column name contcor1-contcor1
         # if there is a covariate AND fixed factors, but only contcor1 if all variables are continuous...
@@ -1794,6 +1838,24 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         } else {
           allContinuous <- FALSE
         }
+
+        # so some models may yield a bunch of NAs, for example,
+        # BayesFactor::lmBF(contNormal ~ facGender + contGamma + facGender * contGamma, data = "debug.csv", whichRandom = "facGender")
+        # we add a footnote and try to not to crash.
+        if (anyNA(samples)) {
+
+          originalRows <- nrow(samples)
+          samples  <- samples[complete.cases(samples), , drop = FALSE]
+          remainingRows     <- nrow(samples)
+
+          samplingIssues[[length(samplingIssues) + 1L]] <- list(
+            model         = model[["models"]][[i]][["title"]],
+            originalRows  = originalRows,
+            remainingRows = remainingRows
+          )
+          next
+        }
+
       }
 
       # although matrixStats::colMeans2 is faster than .colMeans the cost of matrixStats:: is not worth it.
@@ -1964,7 +2026,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     weightedDensities = weightedDensities,
     #weightedCRIs = weightedCRIs, weightedResidSumStats = weightedResidSumStats,
     #weightedRsqDens = weightedRsqDens, weightedRsqCri = weightedRsqCri,
-    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo
+    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo,
+    samplingIssues = samplingIssues
   ))
 }
 
@@ -2551,6 +2614,20 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # this part is different from BayesFactor
   names(labelList) <- terms
 
+  obsLevelCounts <- lengths(levls) # counts of the factors in the data
+  levelNames     <- vector("list", length(components)) # for each parameter, all levels
+  names(levelNames) <- nms
+  prettyLevelNames <- levelNames
+
+  for (i in seq_along(components)) {
+    idx <- components[[i]]
+    # exclude any non-factors
+    idxFactors <- idx[obsLevelCounts[idx] != 0L]
+
+    if (length(idxFactors) > 0) { # we're dealing with factors
+      # tmp <- unique(dataset[idx])  # all _observed_ combinations of factors
+      tmp <- expand.grid(lapply(idx, function(var) if (is.factor(dataset[[var]])) levels(dataset[[var]]) else var))
+
   return(labelList)
 }
 
@@ -2570,6 +2647,25 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     return(.BANOVAsubjectName)
   else
     return(unlist(options[["randomFactors"]]))
+      levelNames[[i]] <- paste0(nms[i], "-", combs)
+
+      # only make the level name using the factors
+      tmp <- expand.grid(lapply(dataset[idxFactors], levels))
+
+      # ensure order is alphabetical
+      tmp <- tmp[do.call(order, tmp), , drop = FALSE]
+      combs <- apply(tmp, 1, paste, collapse = ".&.")
+
+      prettyLevelNames[[i]] <- paste0(nms[i], "-", combs)
+    } else {
+      # continuous variables get their name-name, because Bayesfactor returns it like that
+      prettyLevelNames[[i]] <- levelNames[[i]] <- paste0(nms[i], "-", nms[i])
+    }
+  }
+  levelNames <- levelNames[lengths(levelNames) > 0]
+  levelCounts <- lengths(levelNames) # counts of the factors including interaction terms
+  prettyNames <-
+  return(list(levelCounts = levelCounts, rawLevelNames = levelNames, levelNames = prettyLevelNames))
 }
 
 .BANOVAgetLevelsFromParamNames <- function(names) {
@@ -2692,6 +2788,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   dataTypes     <- .BANOVAgetDataTypes(dataset, formula, randomFactors)
   levelInfo     <- .BANOVAgetLevelInfo(dataset, formula, dataTypes)
   allParamNames <- c("mu", unlist(levelInfo$levelNames))
+  rawParamNames <- c("mu", unlist(levelInfo$rawLevelNames))
 
   .setSeedJASP(options)
   samples <- BayesFactor::lmBF(
@@ -2709,8 +2806,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   types <- samples@model@dataTypes
 
   # keep only relevant columns, drop sig2, g_xxx, ...
-  idx <- match(allParamNames, colnames(samples), nomatch = 0L)
+  idx <- match(rawParamNames, colnames(samples), nomatch = 0L)
   samples <- samples[, idx, drop = FALSE]
+  colnames(samples) <- allParamNames[idx]
 
   # for some odd reason, Bayesfactor uses as column name contcor1-contcor1
   # if there is a covariate AND fixed factors, but only contcor1 if all variables are continuous...

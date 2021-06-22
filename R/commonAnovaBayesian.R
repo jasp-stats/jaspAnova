@@ -2361,7 +2361,33 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 }
 
 .BANOVAmakeChainNeater <- function(chains, Xnames, formula, data, dataTypes, gMap, unreduce, continuous, columnFilter) {
-  # identical to BayesFactor::makeChainNeater
+
+  # so BayesFactor:::makeChainNeater doesn't always make things neater
+  # see also https://github.com/jasp-stats/jaspAnova/pull/43#discussion_r656430090
+
+  # example where BayesFactor goes wrong:
+  # dd <- structure(list(
+  #   rm_factor = structure(c(1L, 2L, 1L, 2L, 1L, 2L), .Label = c("Level 1", "Level 2"), class = "factor"),
+  #   dependent = c(6, 6, 5, 10, 6, 9),
+  #   age = c(59.2161793866222, 59.2161793866222, 53.4457078686802, 53.4457078686802, 50.3248450015473, 50.3248450015473),
+  #   subject = structure(c(1L, 1L, 2L, 2L, 3L, 3L), .Label = c("1", "2", "3"), class = "factor")),
+  #   row.names = c(NA, 6L), class = "data.frame"
+  # )
+  #
+  # bf_obj_1   <- BayesFactor::lmBF(dependent ~ age + subject,             data = dd, whichRandom = "subject")
+  # bf_obj_2   <- BayesFactor::lmBF(dependent ~ age + subject + rm_factor, data = dd, whichRandom = "subject")
+  #
+  # print(BayesFactor::posterior(bf_obj_1, iterations = 3)) # <- ugly
+  # print(BayesFactor::posterior(bf_obj_2, iterations = 3)) # <- good
+  #
+  # originalFun <- BayesFactor:::makeChainNeater
+  # jaspBase:::assignFunctionInPackage(.BANOVAmakeChainNeater, "makeChainNeater", "BayesFactor")
+  # print(BayesFactor::posterior(bf_obj_1, iterations = 3)) # <- good
+  #
+  # jaspBase:::assignFunctionInPackage(originalFun, "makeChainNeater", "BayesFactor")
+  # print(BayesFactor::posterior(bf_obj_1, iterations = 3)) # <- ugly
+
+  # this part is identical to BayesFactor:::makeChainNeater
   P = length(gMap)
   nGs = max(gMap) + 1
   factors = BayesFactor:::fmlaFactors(formula, data)[-1]
@@ -2378,7 +2404,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   } else {
     ignoreCols = BayesFactor:::filterVectorLogical(columnFilter, names(gMap))
   }
-  # also checking here if any dataTypes are "random"
+  # here we're also checking here if any dataTypes are "random" instead of only checking for fixed dataTypes
   if (!unreduce | !any(dataTypes %in% c("fixed", "random"))) {
     labels = c("mu", Xnames[!ignoreCols], "sig2", gNames)
     colnames(chains) = labels

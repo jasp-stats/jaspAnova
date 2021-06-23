@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2021-06-24 14:36+0000\n"
-"Last-Translator: Frans Meerhoff <Frans.Meerhoff@upcmail.nl>\n"
+"Last-Translator: Frans Meerhoff <Frans.Meerhoff@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-qml/"
 "nl/>\n"
 "Language: nl\n"
@@ -1366,24 +1366,21 @@ msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
 msgstr ""
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Factors"
 msgstr "Factoren"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
 msgstr "Horizontale as"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
 msgstr "Aparte grafieken"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "Horizontale weergave"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
@@ -1391,21 +1388,20 @@ msgstr "Label y-as"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "Evalueer het verschil tussen meerdere gemiddelden"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "Anova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
 msgstr "BP factor"

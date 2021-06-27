@@ -149,7 +149,7 @@ results <- jaspTools::runAnalysis("AncovaBayesian", "debug.csv", options)
 test_that("contcor1 - contNormal plot matches", {
   plotName <- results[["results"]][["descriptivesContainer"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots_contcor1 - contNormal"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "contcor1-contnormal", dir="AncovaBayesian")
+  jaspTools::expect_equal_plots(testPlot, "contcor1-contnormal")
 })
 
 test_that("Model Comparison table results match", {

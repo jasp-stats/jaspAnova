@@ -1,48 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: JASP 0.9.2\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-05-29 01:35+0000\n"
-"Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
-"es/>\n"
-"Language: es\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: gl_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Virgin-Header: remove this line if you change anything in the header.\n"
+"X-Language: gl_ES\n"
+"X-Source-Language: C\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
 msgstr ""
-"Los pesos WLS contienen valores negativos y / o cero. <br> <br> (solo se "
-"permiten pesos WLS positivos)."
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
 "combination of other predictor variables"
 msgstr ""
-"Se encontró un ajuste singular; una o más variables predictoras son una "
-"combinación lineal de otras variables predictoras"
 
 msgid ""
 "Residual sum of squares is 0; this might be due to extremely low variance of "
 "your dependent variable"
 msgstr ""
-"La suma de cuadrados residual es 0; esto podría deberse a una varianza "
-"extremadamente baja de su variable dependiente"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr "Se produjo un error al calcular el ANOVA:% s"
+msgstr ""
 
 msgid ""
 "Your design contains empty cells. Please try a different type of sum of "
 "squares."
 msgstr ""
-"Tu diseño contiene celdas vacías. Pruebe con un tipo diferente de suma de "
-"cuadrados."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -50,65 +48,75 @@ msgstr "ANOVA"
 msgid "ANCOVA"
 msgstr "ANCOVA"
 
+#, fuzzy
 msgid "Homogeneity Correction"
-msgstr "Corrección de homogeneidad"
+msgstr "Correccións de homoxeneidade"
 
+#, fuzzy
 msgid "Cases"
-msgstr "Casos"
+msgstr "Caso"
 
+#, fuzzy
 msgid "Sum of Squares"
-msgstr "Suma de cuadrados"
+msgstr "Suma de cadrados"
 
 msgid "df"
 msgstr "gl"
 
+#, fuzzy
 msgid "Mean Square"
-msgstr "Cuadrado medio"
+msgstr "Erro cadrado medio"
 
+#, fuzzy
 msgid "F"
-msgstr "F"
+msgstr "FB"
 
 msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr "VS-MPR%s"
+msgstr ""
 
+#, fuzzy
 msgid "Type I Sum of Squares"
-msgstr "Suma de Cuadrados Tipo I"
+msgstr "Suma de cadrados"
 
+#, fuzzy
 msgid "Type II Sum of Squares"
-msgstr "Suma de Cuadrados Tipo II"
+msgstr "Suma de cadrados"
 
+#, fuzzy
 msgid "Type III Sum of Squares"
-msgstr "Suma de Cuadrados Tipo III"
+msgstr "Suma de cadrados"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
-"Las correcciones de Brown-Forsythe y Welch solo están disponibles para ANOVA "
-"de un factor"
 
+#, fuzzy
 msgid "Contrast Tables"
-msgstr "Tablas de Contraste"
+msgstr "Probas"
 
+#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr "%1$s Contraste -%2$s"
+msgstr "Proba %1"
 
 msgid "Please specify an additional contrast."
-msgstr "Especifique un contraste adicional."
+msgstr ""
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr "Número incorrecto de filas de matriz de contraste personalizadas."
+msgstr ""
 
 msgid "Please specify non-zero contrast weights."
-msgstr "Especifique pesos de contraste distintos de cero."
+msgstr ""
 
+#, fuzzy
 msgid "Estimate"
-msgstr "Estimar"
+msgstr "Estimado"
 
+#, fuzzy
 msgid "%s%% CI for Mean Difference"
-msgstr "%s%% IC para la diferencia de medias"
+msgstr "Amosar as diferencias nas medias"
 
 msgid "Lower"
 msgstr "Inferior"
@@ -116,212 +124,214 @@ msgstr "Inferior"
 msgid "Upper"
 msgstr "Superior"
 
+#, fuzzy
 msgid "SE"
-msgstr "SE"
+msgstr "M.E.S."
 
 msgid "t"
 msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s Coeficientes de contraste -%2$s"
+msgstr ""
 
 msgid "Post Hoc Tests"
-msgstr "Pruebas Post Hoc"
+msgstr "Probas post-hoc"
 
 msgid "Standard"
-msgstr "Estándar"
+msgstr "Típico"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr "Los resultados se promedian sobre los niveles de:%s"
+msgstr ""
 
 msgid "Cohen's d does not correct for multiple comparisons."
-msgstr "La d de Cohen no corrige las comparaciones múltiples."
+msgstr ""
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr "Bootstrapping basado en %s réplicas exitosas."
+msgstr ""
 
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
 "distribution."
 msgstr ""
-"La estimación de la diferencia de medias se basa en la mediana de la "
-"distribución de bootstrap."
 
+#, fuzzy
 msgid "Bias corrected accelerated."
-msgstr "Sesgo corregido acelerado."
+msgstr "Percentil con nesgo corrixido"
 
+#, fuzzy
 msgid "Bootstrapping Post Hoc Test"
-msgstr "Prueba de Bootstrapping Post Hoc"
+msgstr "Probas post-hoc"
 
 msgid ""
 "Some confidence intervals could not be computed.\n"
 "Possibly too few bootstrap replicates."
 msgstr ""
-"No se pudieron calcular algunos intervalos de confianza.\n"
-"Posiblemente muy pocas réplicas de bootstrap."
 
 msgid "Dunn"
 msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Comparaciones Post Hoc de Dunn -%s"
+msgstr ""
 
+#, fuzzy
 msgid "Comparison"
-msgstr "Comparación"
+msgstr "Comparar con:"
 
 msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
+msgstr ""
 
 msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
+msgstr ""
 
 msgid "p<sub>bonf</sub>"
-msgstr "p<sub>bonf</sub>"
+msgstr ""
 
 msgid "p<sub>holm</sub>"
-msgstr "p<sub>holm</sub>"
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr "Comparaciones de Games-Howell Post Hoc -%s"
+msgstr ""
 
+#, fuzzy
 msgid "Mean Difference"
-msgstr "Diferencia significativa"
+msgstr "Diferenza"
 
+#, fuzzy
 msgid "%.0f%% CI for Mean Difference"
-msgstr "% .0f %% IC para la diferencia de medias"
+msgstr "Amosar as diferencias nas medias"
 
 msgid "p<sub>tukey</sub>"
-msgstr "p<sub>tukey</sub>"
+msgstr ""
 
 msgid "Dunnett"
 msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr "Comparaciones de Dunnett Post Hoc:%s"
+msgstr ""
 
 msgid "p<sub>dunnett</sub>"
-msgstr "p<sub>dunnett</sub>"
+msgstr ""
 
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr ""
-"El intervalo de confianza es demasiado estrecho, seleccione un nivel de "
-"confianza diferente."
 
 msgid "Mean"
 msgstr "Media"
 
 msgid "SD"
-msgstr "SD"
+msgstr ""
 
 msgid "N"
 msgstr "N"
 
 msgid "Assumption Checks"
-msgstr "Comprobaciones de supuestos"
+msgstr "Comprobacións de supostos"
 
+#, fuzzy
 msgid "Test for Equality of Variances (Levene's)"
-msgstr "Prueba de igualdad de varianzas (Levene)"
+msgstr "Igualdade de varianzas"
 
+#, fuzzy
 msgid "df1"
-msgstr "gl1"
+msgstr "gl 1"
 
+#, fuzzy
 msgid "df2"
-msgstr "gl2"
+msgstr "gl 2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
 "essentially perfect fit are unreliable)"
 msgstr ""
-"Valor F igual a cero que indica un ajuste perfecto.<br> <br>(Las pruebas de "
-"Levene sobre un ajuste esencialmente perfecto no son confiables)"
 
 msgid "Marginal Means"
-msgstr "Medias marginales"
+msgstr "Medias marxinais"
 
+#, fuzzy
 msgid "Bootstrapping Marginal Means"
-msgstr "Bootstrapping de Medias Marginales"
+msgstr "Medias marxinais estimadas"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
 "replicates."
 msgstr ""
-"No se pudieron calcular algunos intervalos de confianza. Posiblemente muy "
-"pocas réplicas de bootstrap."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr "Bootstrapping basado en %s réplicas."
+msgstr ""
 
 msgid "Simple Main Effects"
-msgstr "Efectos Principales Simples"
+msgstr "Efectos principais simples"
 
+#, fuzzy
 msgid "Simple Main Effects - %s"
-msgstr "Efectos Principales Simples - %s"
+msgstr "Efectos principais simples"
 
+#, fuzzy
 msgid "Level of %s"
-msgstr "Nivel de %s"
+msgstr "Nivel %1"
 
+#, fuzzy
 msgid "Not enough observations in cells %s."
-msgstr "No hay suficientes observaciones en las celdas %s."
+msgstr "Min. observacións no nodo:"
 
 msgid "Kruskal-Wallis Test"
-msgstr "Prueba de Kruskal-Wallis"
+msgstr "Proba de Kruskal-Wallis"
 
 msgid "Factor"
 msgstr "Factor"
 
+#, fuzzy
 msgid "Statistic"
-msgstr "Estadística"
+msgstr "Estatísticos"
 
+#, fuzzy
 msgid "Q-Q Plot"
-msgstr "Gráfico Q-Q"
+msgstr "Gráfica Q-Q"
 
+#, fuzzy
 msgid "Theoretical Quantiles"
-msgstr "Cuantiles Teóricos"
+msgstr "Eixe vertical"
 
+#, fuzzy
 msgid "Standardized Residuals"
-msgstr "Residuos Estandarizados"
+msgstr "Erros tipificados"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
-"Error al cargar datos. Verifique sus observaciones de medidas repetidas."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Factor: <em>%s</em>, contiene menos de dos niveles."
+msgstr ""
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Factores: <em>%s</em>, contienen menos de dos niveles."
+msgstr ""
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "La medida repetida: <em>%s</em>, contiene valores infinitos."
+msgstr ""
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Las medidas repetidas: <em>%s</em>, contienen valores infinitos"
+msgstr ""
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "La covariable: <em>%s</em>, contiene valores infinitos."
+msgstr ""
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Las covariables: <em>%s</em>, contiene valores infinitos."
+msgstr ""
 
 msgid ""
 "Please choose a name for the RM factors that differs from those for the "
 "between subjects factors."
 msgstr ""
-"Por favor elija un nombre para los factores de RM que difiera de los de los "
-"factores entre sujetos."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
 "design."
 msgstr ""
-"Algunos parámetros no son estimables, probablemente debido a celdas vacías "
-"del diseño."
 
 msgid "Greenhouse-Geisser"
 msgstr "Greenhouse-Geisser"
@@ -330,327 +340,326 @@ msgid "Huynh-Feldt"
 msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr "Ninguno"
+msgstr "Ningún"
 
+#, fuzzy
 msgid "Between Subjects Effects"
-msgstr "Efectos entre sujetos"
+msgstr "Factores entre elementos"
 
 msgid "%s<sub>G</sub>"
-msgstr "%s<sub>G</sub>"
+msgstr ""
 
+#, fuzzy
 msgid "Within Subjects Effects"
-msgstr "Efectos dentro de los sujetos"
+msgstr "Factores entre elementos"
 
+#, fuzzy
 msgid "Sphericity Correction"
-msgstr "Corrección de esfericidad"
+msgstr "Correccións de esfericidade"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
-"Las correcciones de esfericidad no están disponibles para factores con 2 "
-"niveles."
 
 msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "
 "violated (p < .05)."
 msgstr ""
-"La prueba de esfericidad de Mauchly indica que se viola el supuesto de "
-"esfericidad (p <.05)."
 
 msgid ""
 "Cannot perform homogeneity tests because there are no between subjects "
 "factors specified."
 msgstr ""
-"No se pueden realizar pruebas de homogeneidad porque no existen factores "
-"entre sujetos especificados."
 
 msgid "Test of Sphericity"
-msgstr "Prueba de esfericidad"
+msgstr ""
 
 msgid "Mauchly's W"
-msgstr "W De Mauchly"
+msgstr ""
 
 msgid "Approx. %s"
-msgstr "Aprox. %s"
-
-msgid "dfSphericity"
-msgstr "glEsfericidad"
-
-msgid "p-value"
-msgstr "Valor p"
-
-msgid "Greenhouse-Geisser %s"
-msgstr "Greenhouse-Geisser %s"
-
-msgid "Huynh-Feldt %s"
-msgstr "Huynh-Feldt %s"
-
-msgid "Lower Bound %s"
-msgstr "Límite inferior %s"
+msgstr ""
 
 #, fuzzy
+msgid "dfSphericity"
+msgstr "Probas de esfericidade"
+
+#, fuzzy
+msgid "p-value"
+msgstr "Valores p"
+
+#, fuzzy
+msgid "Greenhouse-Geisser %s"
+msgstr "Greenhouse-Geisser"
+
+#, fuzzy
+msgid "Huynh-Feldt %s"
+msgstr "Huynh-Feldt"
+
+#, fuzzy
+msgid "Lower Bound %s"
+msgstr "Límite inferior:"
+
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
 "factor, or because the SSP matrix is singular."
 msgstr ""
-"No se pueden realizar pruebas de esfericidad porque solo hay dos niveles del "
-"factor RM."
 
 msgid "Unpooled error term only allowed in balanced designs."
-msgstr "Término de error no agrupado solo permitido en diseños equilibrados."
+msgstr ""
 
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
-"%s valores p corregidos no son apropiados para pruebas post-hoc de medidas "
-"repetidas (Maxwell, 1980; Field, 2012)."
 
 msgid "P-value adjusted for comparing a family of %s"
-msgstr "Valor p ajustado para comparar una familia de %s"
+msgstr ""
 
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
-"Valor p e intervalos de confianza ajustados para comparar una familia de "
-"estimaciones de %1$s (intervalos de confianza corregidos mediante el método "
-"%2$s)."
 
+#, fuzzy
 msgid "Post Hoc Comparisons -"
-msgstr "Comparaciones Post Hoc -"
+msgstr "Amosar as comparacións dos modelos"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "Comparaciones Bootstrapped Post Hoc -"
+msgstr ""
 
 msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s IC"
+msgstr ""
 
 msgid "bias"
-msgstr "parcialidad"
+msgstr ""
 
 msgid "Cohen's d"
-msgstr "d de Cohen"
+msgstr "D de Cohen"
 
 msgid "p<sub>scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
+msgstr ""
 
 msgid "p<sub>sidak</sub>"
-msgstr "p<sub>sidak</sub>"
+msgstr ""
 
 msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
-"La desigualdad de las varianzas solo están disponibles para los efectos "
-"principales de los factores dentro de los sujetos"
 
+#, fuzzy
 msgid "Marginal Means -"
-msgstr "Medias Marginales -"
+msgstr "Medias marxinais"
 
+#, fuzzy
 msgid "Bootstrapped Marginal Means -"
-msgstr "Bootstrapped de Medias Marginales-"
+msgstr "Medias marxinais estimadas"
 
+#, fuzzy
 msgid "Marginal Mean"
-msgstr "Media Marginal"
+msgstr "Medias marxinais"
 
 msgid "95%% bca%s CI"
-msgstr "95%% bca%s IC"
+msgstr ""
 
 msgid ""
 "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
-"La estimación de las medias marginales se basa en la mediana de la "
-"distribución de Bootstrap."
 
+#, fuzzy
 msgid "95%% CI for Mean Difference"
-msgstr "95%% IC para la Diferencia de Medias"
+msgstr "Amosar as diferencias nas medias"
 
+#, fuzzy
 msgid "Bonferroni CI adjustment"
-msgstr "Ajuste del IC Bonferroni"
+msgstr "Axuste do intervalo de confianza"
 
+#, fuzzy
 msgid "Sidak CI adjustment"
-msgstr "Ajuste del IC Sidak"
+msgstr "Axuste LTA"
 
 msgid "Nonparametrics"
-msgstr "No paramétricos"
+msgstr "Probas non paramétricas"
 
+#, fuzzy
 msgid "Friedman Test"
-msgstr "Prueba de Friedman"
+msgstr "Proba Binomial"
 
+#, fuzzy
 msgid "Chi-Squared"
-msgstr "Chi-cuadrado"
+msgstr "Khi-cadrado"
 
+#, fuzzy
 msgid "Kendall's W"
-msgstr "W de Kendall"
+msgstr "Tau de Kendall"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
-"Por favor especifique los términos adecuados para la prueba de Friedman/"
-"Durbin."
 
 msgid "Durbin Test"
-msgstr "Prueba de Durbin"
+msgstr ""
 
 msgid "df num"
-msgstr "gl num"
+msgstr ""
 
 msgid "df den"
-msgstr "gl den"
+msgstr ""
 
 msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgstr ""
 
+#, fuzzy
 msgid "Conover Test"
-msgstr "Prueba de Conover"
+msgstr "Probas post-hoc de Conover"
 
+#, fuzzy
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr "Comparaciones Post Hoc de Conover - %s"
+msgstr "Probas post-hoc de Conover"
 
 msgid "T-Stat"
-msgstr "Estadística-T"
+msgstr ""
 
+#, fuzzy
 msgid "Grouped by %s."
-msgstr "Agrupados por %s."
+msgstr "Tamaño do Grupo 2"
 
+#, fuzzy
 msgid "Infinity found in repeated measures cells."
-msgstr "Infinito encontrado en celdas de medidas repetidas."
+msgstr "Celas de medidas repetidas"
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr "El número de observaciones es < %s en medidas de celdas repetidas"
+msgstr ""
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr "La varianza en las celdas de medidas repetidas es 0."
+msgstr ""
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr "Variables duplicadas encontradas en celdas de medidas repetidas, %s"
+msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr "Variables duplicadas encontradas en %s"
+msgstr ""
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
-"El factor de Bayes no está definido -- todos los efectos se especifican como "
-"factores de confusión."
 
+#, fuzzy
 msgid "Null model"
 msgstr "Modelo nulo"
 
 msgid "Null model (incl. %s)"
-msgstr "Modelo nulo (incl. %s)"
+msgstr ""
 
+#, fuzzy
 msgid "Computing Bayes factors"
-msgstr "Calcular factores de Bayesianos"
+msgstr "Informar dos factores de Bayes"
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
 "The error message was: %2$s."
 msgstr ""
-"No se pudo calcular el factor bayesiano para el modelo: %1$s.\n"
-"El mensaje de error fue: %2$s."
 
 msgid "All models include %s"
-msgstr "Todos los modelos incluyen %s"
+msgstr ""
 
+#, fuzzy
 msgid "Analysis of Effects - %s"
-msgstr "Análisis de efectos - %s"
+msgstr "Opcións de análise - "
 
+#, fuzzy
 msgid "Analysis of Effects"
-msgstr "Análisis de efectos"
+msgstr "Efectos principais"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr "Log(BF<sub>incl</sub>)"
+msgstr ""
 
 msgid "BF<sub>excl</sub>"
-msgstr "BF<sub>excl</sub>"
+msgstr ""
 
 msgid "BF<sub>incl</sub>"
-msgstr "BF<sub>incl</sub>"
+msgstr ""
 
 msgid "Effects"
 msgstr "Efectos"
 
 msgid "P(incl)"
-msgstr "P(incl)"
+msgstr ""
 
 msgid "P(excl)"
-msgstr "P(excl)"
+msgstr ""
 
 msgid "P(incl|data)"
-msgstr "P(incl|datos)"
+msgstr ""
 
 msgid "P(excl|data)"
-msgstr "P(excl|datos)"
+msgstr ""
 
 msgid ""
 "Compares models that contain the effect to equivalent models stripped of the "
 "effect. Higher-order interactions are excluded. Analysis suggested by "
 "Sebastiaan Math%st."
 msgstr ""
-"Compara modelos que contienen el efecto con modelos equivalentes sin efecto. "
-"Se excluyen las interacciones de orden superior. Análisis sugerido por "
-"Sebastiaan Math%st."
 
 msgid ""
 "Some Bayes factors could not be calculated. Inclusion probabilities and "
 "Bayes factors are calculated while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
-"No se pudieron calcular algunos factores de Bayesianos. Las probabilidades "
-"de inclusión y los factores de Bayesianos se calculan excluyendo estos "
-"modelos. ¡Los resultados pueden no ser interpretables!"
 
 msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>Advertencia.</em></b>"
+msgstr ""
 
+#, fuzzy
 msgid "Model Comparison"
-msgstr "Comparación de modelos"
+msgstr "Opcións do modelo"
 
 msgid "BF<sub>M</sub>"
-msgstr "BF<sub>M</sub>"
+msgstr ""
 
 msgid "BF<sub>10</sub>"
-msgstr "BF<sub>10</sub>"
+msgstr ""
 
 msgid "BF<sub>01</sub>"
-msgstr "BF<sub>01</sub>"
+msgstr ""
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr "Log(BF<sub>M</sub>)"
+msgstr ""
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr "Log(BF<sub>10</sub>)"
+msgstr ""
 
 msgid "Models"
 msgstr "Modelos"
 
 msgid "P(M)"
-msgstr "P(M)"
+msgstr ""
 
 msgid "P(M|data)"
-msgstr "P(M|datos)"
+msgstr ""
 
+#, fuzzy
 msgid "error %"
-msgstr "error %"
+msgstr "fallo % >"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
 "model inference is carried out while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
-"<b> <em> Advertencia. </em> </b> Algunos factores de Bayesianos no se "
-"pudieron calcular. La inferencia de modelos múltiples se lleva a cabo "
-"excluyendo estos modelos. ¡Los resultados pueden no ser interpretables!"
 
+#, fuzzy
 msgid "Model Averaged Posterior Summary"
-msgstr "Resumen de la media posterior del modelo"
+msgstr "Posteriores medios do modelo"
 
+#, fuzzy
 msgid "%s%% Credible Interval"
-msgstr "%s%% Intervalo de Credibilidad"
+msgstr "Intervalo de credibilidade"
 
+#, fuzzy
 msgid "Model Averaged R%s"
-msgstr "R promediado por modelo"
+msgstr "R² medio do modelo"
 
+#, fuzzy
 msgid "Model Averaged Posterior Distributions"
-msgstr "Promedio de distribuciones posteriores del modelo"
+msgstr "Posteriores medios do modelo"
 
 msgid "Posterior distribution"
 msgstr "Distribución posterior"
@@ -659,20 +668,21 @@ msgid ""
 "Could not plot posterior distribution. Check if an error occurred for models "
 "including this parameter."
 msgstr ""
-"No se pudo graficar la distribución posterior. Compruebe si se produjo un "
-"error para los modelos que incluyen este parámetro."
 
+#, fuzzy
 msgid "Level"
-msgstr "Nivel"
+msgstr "Niveis"
 
 msgid "Density"
-msgstr "Densidad"
+msgstr "Densidade"
 
+#, fuzzy
 msgid "Model Averaged Q-Q Plot"
-msgstr "Gráfico Q-Q del modelo promediado"
+msgstr "Modelo medio"
 
+#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr "Modelo promediado posterior R%s"
+msgstr "Posteriores medios do modelo"
 
 msgid ""
 "The posterior odds have been corrected for multiple testing by fixing to 0.5 "
@@ -681,84 +691,79 @@ msgid ""
 "default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the "
 "Bayes factor denotes that it is uncorrected."
 msgstr ""
-"Las probabilidades posteriores se han corregido para pruebas múltiples "
-"fijando en 0.5 la probabilidad previa de que la hipótesis nula se mantenga "
-"en todas las comparaciones (Westfall, Johnson & Utts, 1997). Las "
-"comparaciones individuales se basan en la prueba t predeterminada con una "
-"prueba de Cauchy (0, r = 1/sqrt (2)) antes. La \"U\" en el factor de Bayes "
-"denota que no está corregido."
 
 msgid "Prior Odds"
-msgstr "Probabilidades anteriores"
+msgstr "Posibilidades previas"
 
+#, fuzzy
 msgid "Posterior Odds"
-msgstr "Probabilidades posteriores"
+msgstr "Posibilidades previas"
 
 msgid "Descriptives"
-msgstr "Descriptivos"
+msgstr "Descritivos"
 
+#, fuzzy
 msgid "Descriptives - %s"
-msgstr "Descriptivos - %s"
+msgstr "Descritivos"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
 msgstr ""
-"Algunas combinaciones de factores no se observan y, por lo tanto, se omiten "
-"(%g combinaciones de %g no se observan)."
 
 msgid "Descriptives plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficas descritivas"
 
+#, fuzzy
 msgid "Descriptives Plot"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficas descritivas"
 
+#, fuzzy
 msgid "Raincloud plots"
-msgstr "Gráficos de Raincloud"
+msgstr "Gráficas básicas"
 
+#, fuzzy
 msgid "Sampling posteriors"
-msgstr "Muestreo Posterior"
+msgstr "Posteriores marxinais"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr ""
-"¡la longitud de las muestras debe ser igual a la longitud de los pesos!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
 msgstr ""
-"Todas las predicciones tuvieron varianza cero. Compruebe los predictores en "
-"busca de anomalías o aumente el número de muestras posteriores."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""
-"Se produjo el siguiente error en BayesFactor::enumerarmodelosgenerale: %s"
 
 msgid "Single Model Inference"
-msgstr "Inferencia de modelo único"
+msgstr "Inferencia do modelo único"
 
+#, fuzzy
 msgid ""
 "Error in single model inference:\n"
 "%s"
-msgstr ""
-"Error en Inferencia de modelo único:\n"
-"\n"
-"%s"
+msgstr "Inferencia do modelo único"
 
+#, fuzzy
 msgid "Single Model Posterior Summary"
-msgstr "Resumen Modelo único posterior"
+msgstr "Resumo posterior"
 
 msgid "Variable"
 msgstr "Variable"
 
+#, fuzzy
 msgid "Single Model Posterior Distributions"
-msgstr "Distribuciones del Modelo único posterior"
+msgstr "Distribucións posteriores marxinais"
 
+#, fuzzy
 msgid "Posterior R%s"
-msgstr "R Posterior%s"
+msgstr "R² posterior"
 
+#, fuzzy
 msgid "Single Model R%s"
-msgstr "R Modelo único%s"
+msgstr "Modelo único"
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -767,5 +772,3 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr ""
-"La matriz de diseño no es invertible. Esto puede deberse a variables "
-"dependientes colineales."

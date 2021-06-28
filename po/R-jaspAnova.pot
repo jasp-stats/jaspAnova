@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-03-03 12:00\n"
+"POT-Creation-Date: 2021-06-28 16:05\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Lower Bound %s"
 msgstr ""
 
-msgid "Cannot perform sphericity tests because there are only two levels of the RM factor."
+msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
 
 msgid "Unpooled error term only allowed in balanced designs."

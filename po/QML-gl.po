@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-06-29 14:32+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/gl/>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.7.1-dev\n"
 "X-Language: gl_ES\n"
 "X-Source-Language: C\n"
 "X-Qt-Contexts: true\n"
@@ -386,7 +392,7 @@ msgstr "Supoñer varianzas iguais"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "Avaliar a diferenza entre varias medias"
 
 #, fuzzy
 msgctxt "Ancova|"
@@ -550,7 +556,7 @@ msgstr "Tukey"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 #, fuzzy
 msgctxt "Ancova|"
@@ -1034,7 +1040,7 @@ msgstr "Tukey"
 
 msgctxt "Anova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 #, fuzzy
 msgctxt "Anova|"
@@ -1403,7 +1409,7 @@ msgstr "Intervalos de confianza"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
@@ -1562,7 +1568,7 @@ msgstr "Número de mostras"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "Gráficas de nube chovendo"
 
 #, fuzzy
 msgctxt "RainCloudPlots|"
@@ -1581,7 +1587,7 @@ msgstr "Gráficas separadas"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "Presentación horizontal"
 
 #, fuzzy
 msgctxt "RainCloudPlots|"

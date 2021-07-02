@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-01 19:33+0000\n"
+"PO-Revision-Date: 2021-07-02 11:34+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/gl/>\n"
@@ -173,9 +173,8 @@ msgstr "Dunn"
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
 
-#, fuzzy
 msgid "Comparison"
-msgstr "Comparar con:"
+msgstr "Comparación"
 
 msgid "W<sub>i</sub>"
 msgstr ""
@@ -275,9 +274,8 @@ msgstr "Efectos principais simples"
 msgid "Level of %s"
 msgstr "Nivel %1"
 
-#, fuzzy
 msgid "Not enough observations in cells %s."
-msgstr "Min. observacións no nodo:"
+msgstr "Observacións insuficientes nas celas %s."
 
 msgid "Kruskal-Wallis Test"
 msgstr "Proba de Kruskal-Wallis"
@@ -394,9 +392,8 @@ msgstr "Greenhouse-Geisser"
 msgid "Huynh-Feldt %s"
 msgstr "Huynh-Feldt"
 
-#, fuzzy
 msgid "Lower Bound %s"
-msgstr "Límite inferior:"
+msgstr "Límite Inferior %s"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -559,9 +556,8 @@ msgstr ""
 msgid "All models include %s"
 msgstr ""
 
-#, fuzzy
 msgid "Analysis of Effects - %s"
-msgstr "Opcións de análise - "
+msgstr "Análise dos Efectos - %s"
 
 #, fuzzy
 msgid "Analysis of Effects"

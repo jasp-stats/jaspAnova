@@ -7,40 +7,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: gl_ES\n"
+"PO-Revision-Date: 2021-07-02 14:03+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/gl/>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 "X-Virgin-Header: remove this line if you change anything in the header.\n"
 "X-Language: gl_ES\n"
 "X-Source-Language: C\n"
-"X-Generator: Poedit 2.3\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
 msgstr ""
+"As ponderacións MCP (WLS) teñen valores negativos e/ou nulos.<br><br>(Só se "
+"admiten ponderacións positivas)."
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
 "combination of other predictor variables"
 msgstr ""
+"Atopouse un axuste raro; algunha(s) variable(s) preditora(s) é(son) "
+"combinación linear doutras variables preditoras"
 
 msgid ""
 "Residual sum of squares is 0; this might be due to extremely low variance of "
 "your dependent variable"
 msgstr ""
+"A suma de erros cadrados é 0; isto pode deberse a unha varianza "
+"extremadamente pequena da túa variable dependente"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Aconteceu un fallo ao calcular o ANOVA: %s"
 
 msgid ""
 "Your design contains empty cells. Please try a different type of sum of "
 "squares."
 msgstr ""
+"A túa proposta contén celas baleiras. Por favor, intenta un tipo diferente "
+"de suma de cadrados."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -48,75 +58,65 @@ msgstr "ANOVA"
 msgid "ANCOVA"
 msgstr "ANCOVA"
 
-#, fuzzy
 msgid "Homogeneity Correction"
-msgstr "Correccións de homoxeneidade"
+msgstr "Corrección de Homoxeneidade"
 
-#, fuzzy
 msgid "Cases"
-msgstr "Caso"
+msgstr "Casos"
 
-#, fuzzy
 msgid "Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados"
 
 msgid "df"
 msgstr "gl"
 
-#, fuzzy
 msgid "Mean Square"
-msgstr "Erro cadrado medio"
+msgstr "Cadrado Medio"
 
-#, fuzzy
 msgid "F"
-msgstr "FB"
+msgstr "F"
 
 msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
-#, fuzzy
 msgid "Type I Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados do Tipo I"
 
-#, fuzzy
 msgid "Type II Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados do Tipo II"
 
-#, fuzzy
 msgid "Type III Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados do Tipo III"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"As correccións de Brown-Forsythe e de Welch só están dispoñibles para ANOVA "
+"de un factor"
 
-#, fuzzy
 msgid "Contrast Tables"
-msgstr "Probas"
+msgstr "Táboas de Probas"
 
-#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr "Proba %1"
+msgstr "%1$s Proba - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Por favor, indica unha proba adicional."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Número incorrecto de filas da matriz de proba personalizada."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Por favor, indica ponderacións de proba non nulas."
 
-#, fuzzy
 msgid "Estimate"
-msgstr "Estimado"
+msgstr "Estimar"
 
-#, fuzzy
 msgid "%s%% CI for Mean Difference"
-msgstr "Amosar as diferencias nas medias"
+msgstr "IC do %s%% para a Diferenza de Medias"
 
 msgid "Lower"
 msgstr "Inferior"
@@ -124,15 +124,14 @@ msgstr "Inferior"
 msgid "Upper"
 msgstr "Superior"
 
-#, fuzzy
 msgid "SE"
-msgstr "M.E.S."
+msgstr "DT"
 
 msgid "t"
 msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Coeficientes de Proba- %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "Probas post-hoc"
@@ -141,22 +140,21 @@ msgid "Standard"
 msgstr "Típico"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "Calculáronse as medias dos resultados sobre os niveis de: %s"
 
 msgid "Cohen's d does not correct for multiple comparisons."
-msgstr ""
+msgstr "A d de Cohen non corrixe comparacións múltiples."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Bootstrapping baseado en %s réplicas acertadas."
 
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
 "distribution."
 msgstr ""
 
-#, fuzzy
 msgid "Bias corrected accelerated."
-msgstr "Percentil con nesgo corrixido"
+msgstr "Nesgo corrixido acelerado."
 
 #, fuzzy
 msgid "Bootstrapping Post Hoc Test"
@@ -173,9 +171,8 @@ msgstr "Dunn"
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
 
-#, fuzzy
 msgid "Comparison"
-msgstr "Comparar con:"
+msgstr "Comparación"
 
 msgid "W<sub>i</sub>"
 msgstr ""
@@ -224,7 +221,7 @@ msgid "Mean"
 msgstr "Media"
 
 msgid "SD"
-msgstr ""
+msgstr "DS"
 
 msgid "N"
 msgstr "N"
@@ -275,9 +272,8 @@ msgstr "Efectos principais simples"
 msgid "Level of %s"
 msgstr "Nivel %1"
 
-#, fuzzy
 msgid "Not enough observations in cells %s."
-msgstr "Min. observacións no nodo:"
+msgstr "Observacións insuficientes nas celas %s."
 
 msgid "Kruskal-Wallis Test"
 msgstr "Proba de Kruskal-Wallis"
@@ -285,9 +281,8 @@ msgstr "Proba de Kruskal-Wallis"
 msgid "Factor"
 msgstr "Factor"
 
-#, fuzzy
 msgid "Statistic"
-msgstr "Estatísticos"
+msgstr "Estatístico"
 
 #, fuzzy
 msgid "Q-Q Plot"
@@ -395,9 +390,8 @@ msgstr "Greenhouse-Geisser"
 msgid "Huynh-Feldt %s"
 msgstr "Huynh-Feldt"
 
-#, fuzzy
 msgid "Lower Bound %s"
-msgstr "Límite inferior:"
+msgstr "Límite Inferior %s"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -518,13 +512,11 @@ msgstr "Probas post-hoc de Conover"
 msgid "T-Stat"
 msgstr ""
 
-#, fuzzy
 msgid "Grouped by %s."
-msgstr "Tamaño do Grupo 2"
+msgstr "Agrupado consonte %s."
 
-#, fuzzy
 msgid "Infinity found in repeated measures cells."
-msgstr "Celas de medidas repetidas"
+msgstr "Atopado o infinito en celas de medidas repetidas."
 
 msgid "Number of observations is < %s in repeated measures cells"
 msgstr ""
@@ -560,9 +552,8 @@ msgstr ""
 msgid "All models include %s"
 msgstr ""
 
-#, fuzzy
 msgid "Analysis of Effects - %s"
-msgstr "Opcións de análise - "
+msgstr "Análise dos Efectos - %s"
 
 #, fuzzy
 msgid "Analysis of Effects"
@@ -587,7 +578,7 @@ msgid "P(excl)"
 msgstr ""
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|datos)"
 
 msgid "P(excl|data)"
 msgstr ""
@@ -607,24 +598,23 @@ msgstr ""
 msgid "<b><em>Warning.</em></b>"
 msgstr ""
 
-#, fuzzy
 msgid "Model Comparison"
-msgstr "Opcións do modelo"
+msgstr "Cotexo de modelos"
 
 msgid "BF<sub>M</sub>"
 msgstr ""
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "FB<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "FB<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
 msgstr ""
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(FB<sub>10</sub>)"
 
 msgid "Models"
 msgstr "Modelos"
@@ -635,9 +625,8 @@ msgstr ""
 msgid "P(M|data)"
 msgstr ""
 
-#, fuzzy
 msgid "error %"
-msgstr "fallo % >"
+msgstr "fallo %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -714,9 +703,8 @@ msgstr ""
 msgid "Descriptives plots"
 msgstr "Gráficas descritivas"
 
-#, fuzzy
 msgid "Descriptives Plot"
-msgstr "Gráficas descritivas"
+msgstr "Gráfica dos descritivos"
 
 #, fuzzy
 msgid "Raincloud plots"
@@ -740,11 +728,12 @@ msgstr ""
 msgid "Single Model Inference"
 msgstr "Inferencia do modelo único"
 
-#, fuzzy
 msgid ""
 "Error in single model inference:\n"
 "%s"
-msgstr "Inferencia do modelo único"
+msgstr ""
+"Fallo na inferencia do modelo único:\n"
+"%s"
 
 #, fuzzy
 msgid "Single Model Posterior Summary"

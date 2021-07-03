@@ -1,26 +1,15 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-19 06:18+0000\n"
-"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"qml/ja/>\n"
-"Language: ja\n"
-"X-Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
 msgstr "分散分析"
-
-msgctxt "Description|"
-msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
-msgstr ""
-"このモジュールは，標準的な頻度論分散分析とベイジアン分散分析を提供します。"
 
 msgctxt "Description|"
 msgid "Classical"
@@ -185,10 +174,6 @@ msgstr "補正"
 msgctxt "Ancova|"
 msgid "Tukey"
 msgstr "テューキー(Tukey)"
-
-msgctxt "Ancova|"
-msgid "Scheffe"
-msgstr "シェフェ(Scheffe)"
 
 msgctxt "Ancova|"
 msgid "Bonferroni"
@@ -599,10 +584,6 @@ msgid "Tukey"
 msgstr "テューキー(Tukey)"
 
 msgctxt "Anova|"
-msgid "Scheffe"
-msgstr "シェフェ(Scheffe)"
-
-msgctxt "Anova|"
 msgid "Bonferroni"
 msgstr "ボンフェローニ(Bonferroni)"
 
@@ -1011,10 +992,6 @@ msgid "Tukey"
 msgstr "テューキー(Tukey)"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffe"
-msgstr "シェフェ(Scheffe)"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
 msgstr "有意な比較に印をつける"
 
@@ -1377,3 +1354,52 @@ msgstr "分散分析表"
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Vovk-Sellke maximum p比"
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr "反復測定要因"
+
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr "要因"
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+#, fuzzy
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr "Y軸のラベル"

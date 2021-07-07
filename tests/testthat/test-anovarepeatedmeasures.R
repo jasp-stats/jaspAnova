@@ -24,12 +24,12 @@ options(list(
 
 initOpts <- function(){
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
-  
+
   options$repeatedMeasuresFactors <- list(
     list(name = "Drink", levels = c("Beer", "Wine", "Water")),
     list(name = "Imagery", levels = c("Positive", "Neutral", "Negative"))
   )
-  
+
   options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg",
                                      "winepos", "wineneut", "wineneg",
                                      "waterpos", "waterneu", "waterneg")
@@ -38,13 +38,13 @@ initOpts <- function(){
     list(components = "Imagery") ,
     list(components = c("Drink", "Imagery"))
   )
-  
+
   options
 }
 
 test_that("Within subjects table results match", {
   options <- initOpts()
-  
+
   options$sphericityNone <- TRUE
   options$sphericityHuynhFeldt <- TRUE
   options$sphericityGreenhouseGeisser <- TRUE
@@ -52,7 +52,7 @@ test_that("Within subjects table results match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
-  
+
   refTable <- list(1, 1, 1, 1, 1, 1, "TRUE", 5.10598105687077, 1046.17222222222,
                    2092.34444444444, "Drink", "None", 2, 0.0108629307294978, "FALSE",
                    5.10598105687077, 1812.76427443316, 2092.34444444444, "Drink",
@@ -84,18 +84,18 @@ test_that("Within subjects table results match", {
                    2906.68888888889, "Residuals", "Greenhouse-Geisser", 60.6782434330676,
                    "", 0, "", 39.0827528367944, 2906.68888888889, "Residuals",
                    "Huynh-Feldt", 74.3726753595615, "")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
 })
 
 test_that("Sphericity Assumptions table match (Field Chapter 8)", {
   options <- initOpts()
-  
+
   options$sphericityTests <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
-  
+
   # isNewgroup is FALSE now, so changed here
   refTable <- list("Drink", 0.267241056560857, 23.7528754979348, 2, 6.95230186958065e-06,
                    0.577114320365429, 0.590744227025686, 0.5, "FALSE", "Imagery",
@@ -103,27 +103,27 @@ test_that("Sphericity Assumptions table match (Field Chapter 8)", {
                    0.747440723179836, 0.796842044848417, 0.5, "FALSE", "Drink <unicode> Imagery",
                    0.595043993796251, 9.04133890303752, 9, 0.435658665786593, 0.798397939908785,
                    0.97858783367844, 0.25, "FALSE")
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_assumptionsContainer$collection$rmAnovaContainer_assumptionsContainer_sphericityTable$data
   jaspTools::expect_equal_tables(table, refTable)
-  
+
 })
 
 test_that("Post-hoc tests match (Field Chapter 8)", {
   options <- initOpts()
 
-  options$postHocTestsVariables <- list(list(components = "Drink"), 
-                                        list(components = "Imagery"), 
+  options$postHocTestsVariables <- list(list(components = "Drink"),
+                                        list(components = "Imagery"),
                                         list(components = c("Drink", "Imagery")))
   options$postHocTestEffectSize <- TRUE
   options$postHocTestsBonferroni <- TRUE
   options$postHocTestsHolm <- TRUE
-  
+
   options$postHocTestPooledError <- FALSE
   options$confidenceIntervalsPostHoc <- TRUE
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
-  
+
   refTable <- list("TRUE", 2.84948954082566, 0.703009687611414, 0.274654032208925,
        "Beer", "Wine", 3.5, 0.234336562537138, -3.98021184328794, 1.22829017262714,
        10.9802118432879, "FALSE", 3.3351289023547, 0.0660988675936689,
@@ -132,11 +132,11 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
        1.1164571680934, 0.00112213065327869, 0.964693890587566, "Wine",
        "Water", 4.81666666666667, 0.00112213065327869, 1.88584835284471,
        4.31424223366509, 7.74748498048862)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)
-  
-  
+
+
   refTable <- list("TRUE", 1.11255461788524, 8.64627761186188e-10, 2.66640109389732,
                    "Positive", "Neutral", 13.2666666666667, 5.76418507457459e-10,
                    10.3460929604728, 11.9245082024684, 16.1872403728605, "FALSE",
@@ -145,10 +145,10 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
                    31.8760837862839, "TRUE", 1.97985098972636, 4.54655986206157e-06,
                    1.53411831758965, "Neutral", "Negative", 13.5833333333333, 1.51551995402052e-06,
                    8.38601479290266, 6.86078568731614, 18.780651873764)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[3]]$data
   jaspTools::expect_equal_tables(table, refTable)
-  
+
 
   refTable <- list("TRUE", 3.06258786722021, 1, "Beer, Positive", "Wine, Positive",
                    -4.30000000000001, 0.824625255450165, -14.5169752077379, -1.40404134882926,
@@ -238,20 +238,20 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
                    23.8669752077379, "TRUE", 3.06258786722021, 1, "Wine, Negative",
                    "Water, Negative", -2.79999999999999, 1, -13.0169752077379,
                    -0.914259482958587, 7.41697520773789)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[2]]$data
   jaspTools::expect_equal_tables(table, refTable)
-  
+
 })
 
 test_that("Descriptives Match", {
   options <- initOpts()
-  
+
   options$descriptives <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
-  
+
   refTable <- list(4.45, 20, 17.3037111930543, "Beer", "Negative", 10, 20, 10.295630140987,
                    "Beer", "Neutral", 21.05, 20, 13.0079934938807, "Beer", "Positive",
                    -9.2, 20, 6.8024763292882, "Water", "Negative", 2.35, 20, 6.83855170878193,
@@ -259,7 +259,7 @@ test_that("Descriptives Match", {
                    -12, 20, 6.18146635643918, "Wine", "Negative", 11.65, 20, 6.24310145596511,
                    "Wine", "Neutral", 25.35, 20, 6.73775692801786, "Wine", "Positive"
   )
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_descriptivesContainer$collection$rmAnovaContainer_descriptivesContainer_tableDescriptives$data
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -268,14 +268,14 @@ test_that("Field - Chapter 8 marginal means match", {
 
   # compared to SPSS, we pool the standard errors in marginal means
   options <- initOpts()
-  
+
   options$marginalMeansTerms <- options$withinModelTerms[3]
   options$marginalMeansBootstrapping <- TRUE
   options$marginalMeansBootstrappingReplicates <- 500
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv", 
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
-  
+
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
 
   refTable <- list("TRUE", "Beer", "Positive", 2.86790158635509, -0.0460999999999991,
@@ -318,12 +318,12 @@ test_that("Analysis handles errors", {
 # Mixed Effects
 initOpts <- function(){
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
-  
+
   options$repeatedMeasuresFactors <- list(
     list(name = "Looks", levels = c("Attractive", "Average" , "Ugly")),
     list(name = "Charisma", levels = c("High", "Some", "None"))
   )
-  
+
   options$repeatedMeasuresCells <- c("att_high", "att_some", "att_none",
                                      "av_high", "av_some", "av_none",
                                      "ug_high", "ug_some", "ug_none")
@@ -332,7 +332,7 @@ initOpts <- function(){
     list(components = "Charisma"),
     list(components = c("Looks", "Charisma"))
   )
-  
+
   options$betweenSubjectFactors <- "gender"
   options$betweenModelTerms <- list(
     list(components = "gender")
@@ -346,11 +346,11 @@ test_that("Between Subjects table match", {
   options$sphericityTests <- TRUE
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
-    
+
   refTable <- list("gender", 0.200000000000001, 1, 0.200000000000001, 0.00473545746857648,
-                0.945895847556855, TRUE, "Residuals", 760.222222222222, 18, "", "", 
+                0.945895847556855, TRUE, "Residuals", 760.222222222222, 18, "", "",
                 42.2345679012346, TRUE)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_betweenTable$data
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -359,10 +359,10 @@ test_that("Homogeneity tests correct", {
   options <- initOpts()
 
   options$homogeneityTests <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
-  
+
   refTable <- list("att_high", 1.13105200239091, 1, 18, 0.301611198987337, "TRUE",
                 "att_some", 0.598562976996908, 1, 18, 0.449169168742317, "FALSE",
                 "att_none", 1.94893878806521, 1, 18, 0.179682774529315, "FALSE",
@@ -372,7 +372,7 @@ test_that("Homogeneity tests correct", {
                 "ug_high", 0.00491266375545877, 1, 18, 0.944894541517532, "FALSE",
                 "ug_some", 0.123626373626372, 1, 18, 0.729216564281406, "FALSE",
                 "ug_none", 0.0819838056680181, 1, 18, 0.777896246470082, "FALSE")
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_assumptionsContainer$collection$rmAnovaContainer_assumptionsContainer_rmAnovaLevenesTable$data
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -381,20 +381,20 @@ test_that("Homogeneity tests correct", {
 
 test_that("Contrast table match", {
   options <- initOpts()
-  
+
   options$contrasts <- list(list(contrast = "repeated", variable = "Looks"),
                             list(contrast = "difference", variable = "Charisma"))
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
-  
+
   # Difference contrast
   refTable <- list("Some - High", 1.08612650363252, 36, -12.8, 6.48261408516436e-14,
                    -11.7849992217212, "None - High, Some", 0.940613143869335, 36,
                    -21.4, 5.89263452901201e-23, -22.7511173317952)
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_contrastContainer$collection[[1]]$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # Repeated contrast
   refTable <- list("Attractive - Average", 14.31667, 0.9040603, 15.83596, 36,
                    8.431449e-18, "Average - Ugly", 11.96667, 0.9040603, 36,
@@ -416,28 +416,28 @@ test_that("Descriptives Plots match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA1", "AnovaRepeatedMeasures")
-  
+  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA1")
+
   options$usePooledStandErrorCI <- TRUE
   options$errorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA2", "AnovaRepeatedMeasures")
-  
+  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA2")
+
   options$usePooledStandErrorCI <- FALSE
   options$errorBarType <- "standardError"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA3", "AnovaRepeatedMeasures")
-  
+  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA3")
+
   options$usePooledStandErrorCI <- TRUE
   options$errorBarType <- "standardError"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA4", "AnovaRepeatedMeasures")
+  jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA4")
 
 })
 
@@ -451,32 +451,32 @@ test_that("Raincloud Plots match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   testPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "raincloud-plots", "AnovaRepeatedMeasures")
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots")
 })
 
 test_that("Effect Size Calculation correct", {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
-  
+
   options$repeatedMeasuresFactors <- list(
     list(name = "Animal", levels = c("Stick", "Kangaroo", "Fish", "Grub"))
     )
   options$repeatedMeasuresCells <- c("Stick Insect", "Kangaroo Testicle",
                                      "Fish Eye", "Witchetty Grub")
-  
+
   options$withinModelTerms <- list(
     list(components = "Animal")
   )
-  
+
   options$effectSizeEstimates <- TRUE
   options$effectSizeEtaSquared <- TRUE
   options$effectSizePartialEtaSquared <- TRUE
   options$effectSizeOmegaSquared <- TRUE
   options$effectSizeGenEtaSquared <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",
                             options = options)
-  
+
   refTable <- list(1, 1, 1, 1, 1, 1, "TRUE", 3.79380603096984, 27.7083333333333,
                    83.1249999999999, "Animal", 0.351479915433404, 0.351479915433404,
                    0.327424913835549, 3, 0.238785176929506, 0.0255702968630395,
@@ -490,12 +490,12 @@ test_that("Effect Size Calculation correct", {
 
 test_that("Simple Effects table match", {
   options <- initOpts()
-  
+
   options$betweenSubjectFactors <- "gender"
   options$betweenModelTerms <- list(
     list(components = "gender")
   )
-  
+
   options$simpleFactor <- "Looks"
   options$moderatorFactorOne <- "gender"
   options$moderatorFactorTwo <- "Charisma"
@@ -503,39 +503,39 @@ test_that("Simple Effects table match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv",
                             options = options)
-  
-  refTable <- list("Female", "High", 42.4666666666668, 2, 21.2333333333334, 0.639629588307488, 
-                   0.539062933641058, "TRUE", "Female", "Some", 6444.46666666667, 2, 
-                   3222.23333333334, 105.034770010866, 1.18808350406329e-10, "FALSE",               
-                   "Female", "None", 187.8, 2, 93.8999999999999, 10.1696750902527, 
-                   0.0011082808185639, "FALSE", "Male", "High", 5661.66666666667, 2, 
-                   2830.83333333333, 82.5850891410049, 8.54593593608342e-10, "TRUE", 
+
+  refTable <- list("Female", "High", 42.4666666666668, 2, 21.2333333333334, 0.639629588307488,
+                   0.539062933641058, "TRUE", "Female", "Some", 6444.46666666667, 2,
+                   3222.23333333334, 105.034770010866, 1.18808350406329e-10, "FALSE",
+                   "Female", "None", 187.8, 2, 93.8999999999999, 10.1696750902527,
+                   0.0011082808185639, "FALSE", "Male", "High", 5661.66666666667, 2,
+                   2830.83333333333, 82.5850891410049, 8.54593593608342e-10, "TRUE",
                    "Male", "Some", 8157.26666666666, 2 ,4078.63333333333, 121.267591674926,
                    3.58637028279497e-11, "FALSE", "Male", "None", 10955, 2, 5477.5,
                    292.566765578635, 1.87815435905324e-14, "FALSE")
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_simpleEffectsContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)
 })
 
 test_that("Nonparametric table match", {
-  
+
   options <- initOpts()
-  
+
   options$betweenSubjectFactors <- "gender"
   options$betweenModelTerms <- list(
     list(components = "gender")
   )
-  
+
   options$friedmanWithinFactor <- "Charisma"
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv",
                             options = options)
-  
+
   refTable <- list( "Charisma", 40.074508162411, 2, 1.98577994376659e-09, -170.212868480726,
                     26.3987755757377, 8, 158, 1.2968573602055e-25)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -543,28 +543,28 @@ test_that("Nonparametric table match", {
 
 
 test_that("Conover table match", {
-  
+
   options <- initOpts()
-  
+
   options$betweenSubjectFactors <- "gender"
   options$betweenModelTerms <- list(
     list(components = "gender")
   )
-  
+
   options$conoverTest <- TRUE
-  
+
   options$friedmanWithinFactor <- "Charisma"
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv",
                             options = options)
-  
-  refTable <- list( "High", "Some", 1.31809226918034, 406, 306.5, 0.189380510753162, 0.568141532259486, 
+
+  refTable <- list( "High", "Some", 1.31809226918034, 406, 306.5, 0.189380510753162, 0.568141532259486,
                     0.233862092301299, 158, "High", "None", 2.89450412880305, 406, 187.5,
                     0.00433496034546402, 0.0130048810363921, 0.0130048810363921, 158, "Some",
                     "None", 1.57641185962271, 306.5, 187.5, 0.116931046150649, 0.350793138451948,
                     0.233862092301299, 158)
-  
+
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_Charisma$data
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -573,40 +573,40 @@ test_that("Conover table match", {
 
 test_that("Field - Chapter 8 results match", {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
-  
+
   options$repeatedMeasuresFactors <- list(
     list(name = "Animal", levels = c("Stick", "Kangaroo", "Fish", "Grub"))
   )
   options$repeatedMeasuresCells <- c("Stick Insect", "Kangaroo Testicle",
                                      "Fish Eye", "Witchetty Grub")
-  
+
   options$withinModelTerms <- list(
     list(components = "Animal")
   )
-  
+
   options$sphericityTests <- TRUE
   options$sphericityNone <- TRUE
   options$sphericityHuynhFeldt <- TRUE
   options$sphericityGreenhouseGeisser <- TRUE
-  
+
   options$postHocTestsVariables <- "Animal"
   options$postHocTestPooledError <- FALSE
   options$postHocTestsBonferroni <- TRUE
   options$confidenceIntervalsPostHoc <- TRUE
   options$postHocTestEffectSize <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",
                             options = options)
-  
+
   # output 2 (chi square and df for sphericity)
   # changed isnewgroup
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_assumptionsContainer$collection[[1]]$data
   refTable <- list("Animal", 0.136248029372535, 11.4059814340564, 5, 0.0468458123067897,
                    0.532845552798473, 0.66576361409737, 0.333333333333333, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # sphericity corrections
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
   refTable <- list(1, 1, 1, 1, 1, 1, "TRUE", 3.79380603096984, 27.7083333333333,
@@ -619,9 +619,9 @@ test_that("Field - Chapter 8 results match", {
                    21, "", 0, "", 13.7067324484806, 153.375, "Residuals", "Greenhouse-Geisser",
                    11.1897566087679, "", 0, "", 10.9702171670548, 153.375, "Residuals",
                    "Huynh-Feldt", 13.9810358960448, "")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # post hoc tests (bonferroni, confidence intervals, se not pooled)
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[1]]$data
   refTable <-  list("TRUE", 0.811469126250126, 0.0121396972553231, 1.68831979459271,
@@ -638,16 +638,16 @@ test_that("Field - Chapter 8 results match", {
                     -1.12249721603218, 3.3585520347291, "TRUE", 1.82186619392628,
                     1, -0.315349316886945, "Fish", "Grub", -1.625, 0.906918466006362,
                     -8.24895462968414, -0.891942561653216, 4.99895462968414)
-  
+
   jaspTools::expect_equal_tables(table, refTable)
 })
 
 
 test_that("Field - Chapter 9 match",  {
   options <- initOpts()
-  
+
   options$sphericityTests <- TRUE
-  
+
   options$marginalMeansTerms <- list(
     list(components = "Charisma"),
     list(components = "Looks"),
@@ -657,11 +657,11 @@ test_that("Field - Chapter 9 match",  {
     list(components = c("Charisma", "gender")),
     list(components = c("Charisma", "Looks", "gender"))
   )
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv",
                             options = options)
-  
+
   # sphericity
   # changed isnewgroup because automitically first row is TRUE
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_assumptionsContainer$collection[[1]]$data
@@ -671,18 +671,18 @@ test_that("Field - Chapter 9 match",  {
                    0.5, "FALSE", "Looks <unicode> Charisma", 0.613354486153378,
                    8.02466743180245, 9, 0.533938195513754, 0.799354278085918, 0.992241110561882,
                    0.25, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # marginal charisma
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
   refTable <- list("High", 82.1000000000002, 0.792376225226709, 80.5111143833479,
                    83.6888856166524, "TRUE", "Some", 69.3000000000002, 0.792376225226709,
                    67.7111143833479, 70.8888856166524, "FALSE", "None", 54.3000000000002,
                    0.792376225226709, 52.7111143833479, 55.8888856166524, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # gender (strategy) * looks interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[6]]$data
   refTable <- list("Female", "Attractive", 76.1666666666668, 1.00705331467645, 74.1441569164011,
@@ -694,9 +694,9 @@ test_that("Field - Chapter 9 match",  {
                    "Male", "Average", 67.4666666666668, 1.00705331467645, 65.4441569164011,
                    69.4891764169326, "FALSE", "Male", "Ugly", 50.3000000000002,
                    1.00705331467645, 48.2774902497344, 52.3225097502659, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # gender (strategy) * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[3]]$data
   refTable <- list("Female", "High", 88.2333333333335, 1.12058920421761, 85.9863097452043,
@@ -708,9 +708,9 @@ test_that("Field - Chapter 9 match",  {
                    "Male", "Some", 69.5333333333335, 1.12058920421761, 67.2863097452043,
                    71.7803569214627, "FALSE", "Male", "None", 60.3000000000002,
                    1.12058920421761, 58.052976411871, 62.5470235881293, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # looks * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[5]]$data
   refTable <- list("TRUE", "High", "Attractive", 1.23097873335623, 86.5185279595704,
@@ -728,7 +728,7 @@ test_that("Field - Chapter 9 match",  {
                    "FALSE", "None", "Ugly", 1.23097873335623, 43.5185279595704,
                    45.9500000000002, 48.3814720404299)
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # gender (strategy) * looks * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[2]]$data
   refTable <- list("Female", "Attractive", "High", 89.6000000000002, 1.74086681970523,
@@ -761,6 +761,6 @@ test_that("Field - Chapter 9 match",  {
                    "Some", 48.3000000000002, 1.74086681970523, 44.8613792638934,
                    51.7386207361069, "FALSE", "Male", "Ugly", "None", 45.8000000000002,
                    1.74086681970523, 42.3613792638934, 49.2386207361069, "FALSE")
-  
+
   jaspTools::expect_equal_tables(table, refTable)
 })

@@ -209,7 +209,7 @@ test_that("Q-Q plot matches", {
   options$qqPlot <- TRUE
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "q-q", dir="Anova")
+  jaspTools::expect_equal_plots(testPlot, "q-q")
 })
 
 test_that("Descriptives plots match", {
@@ -229,12 +229,12 @@ test_that("Descriptives plots match", {
   options$errorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "descriptives-ci", dir="Anova")
+  jaspTools::expect_equal_plots(testPlot, "descriptives-ci")
 
   options$errorBarType <- "standardError"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "descriptives-se", dir="Anova")
+  jaspTools::expect_equal_plots(testPlot, "descriptives-se")
 })
 
 test_that("Raincloud plots match", {
@@ -252,13 +252,13 @@ test_that("Raincloud plots match", {
   set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-vertical", dir="Anova")
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-vertical")
 
   options$rainCloudPlotsHorizontalDisplay <- TRUE
   set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <-  results$state$figures[[1]]$obj
-  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-horizontal", dir="Anova")
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-horizontal")
 })
 
 test_that("Simple Main Effects table results match", {

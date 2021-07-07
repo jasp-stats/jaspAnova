@@ -222,7 +222,7 @@ test_that("Simple Main Effects table results match", {
 })
 
 test_that("Analysis handles errors", {
-  
+
   # Same as ANOVA
 
  options <- jaspTools::analysisOptions("Ancova")
@@ -231,7 +231,7 @@ test_that("Analysis handles errors", {
  options$fixedFactors <- "contBinom"
  options$modelTerms <- list(list(components="contBinom"))
  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
- expect_identical(results[["results"]][["errorMessage"]], 
+ expect_identical(results[["results"]][["errorMessage"]],
                   "The following problem(s) occurred while running the analysis:<ul><li>Infinity found in debInf</li></ul>",
                   label="Inf covariate check")
 
@@ -242,7 +242,7 @@ test_that("Analysis handles errors", {
 #### Chapter 6 ---
 test_that("Field - Chapter 6 results match", {
   options <- jaspTools::analysisOptions("Ancova")
-  
+
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$covariates <- "Puppy_love"
@@ -250,25 +250,25 @@ test_that("Field - Chapter 6 results match", {
     list(components = "Dose"),
     list(components = "Puppy_love")
   )
-  
+
   options$marginalMeansTerms <- list(
     list(components = "Dose")
   )
   options$marginalMeansBootstrapping <- TRUE
   options$marginalMeansBootstrappingReplicates <- 500
-  
+
   options$contrasts <- list(
-    list(contrast = "simple", variable = "Dose") 
+    list(contrast = "simple", variable = "Dose")
   )
   options$confidenceIntervalsContrast <- TRUE
-  
+
   options$postHocTestsVariables <- "Dose"
   options$postHocTestsSidak <- TRUE
   options$postHocTestsTukey <- FALSE
   options$confidenceIntervalsPostHoc <- TRUE
   options$postHocTestsBootstrapping <- TRUE
   options$postHocTestsBootstrappingReplicates <- 500
-  
+
   set.seed(1) # seed for bootstrapping
   results <- jaspTools::runAnalysis("Ancova", "Puppy Love.csv", options)
   # main table
@@ -278,7 +278,7 @@ test_that("Field - Chapter 6 results match", {
                            0.0274465428639959, "TRUE", "Puppy_love", 15.0757477099169,
                            1, 15.0757477099169, 4.9586811332752, 0.0348333806474409, "TRUE",
                            "Residuals", 79.0471155379463, 26, 3.0402736745364, "", "", "TRUE"))
-  
+
   # marginal means bootstrapping
   table <- results$results$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
@@ -287,8 +287,8 @@ test_that("Field - Chapter 6 results match", {
                            0.374655789875328, 3.87665072858526, 5.46307279640562, "FALSE",
                            3, 5.13975121640456, 0.0363834639636114, 0.660396429197245,
                            4.00063237957797, 6.57588583114463, "FALSE"))
-  
-  # contrast 
+
+  # contrast
   table <- results$results$anovaContainer$collection$anovaContainer_contrastContainer$collection[[1]]$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
                       list("2 - 1", 1.78568011481422, 0.849355306996751, 2.1023947223315,
@@ -296,7 +296,7 @@ test_that("Field - Chapter 6 results match", {
                            "TRUE", "3 - 1", 2.22488132183556, 0.802810905470398, 2.77136409916095,
                            0.0101750138508479, 26, 0.574679871977612, 3.8750827716935,
                            "FALSE"))
-  
+
   # post hoc bootstrap
   # adjusted the elements here because the new results also include t ratio and p-value
   # The rest of the results matched up
@@ -309,10 +309,10 @@ test_that("Field - Chapter 6 results match", {
                            "FALSE", 0.775278163963213, 0.00383207085470289, 2, 3, -0.410252544853603,
                            -2.12122714048355, 0.932499470707816, -0.541407321622228, 0.972524781215359
                       ))
-  
+
   # interaction with covariate
   options <- jaspTools::analysisOptions("Ancova")
-  
+
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$covariates <- "Puppy_love"
@@ -321,7 +321,7 @@ test_that("Field - Chapter 6 results match", {
     list(components = "Puppy_love"),
     list(components = list("Dose", "Puppy_love"))
   )
-  
+
   options$contrasts <- list(
     list(contrast = "none", variable = "Dose")
   )
@@ -329,7 +329,7 @@ test_that("Field - Chapter 6 results match", {
   options$plotSeparatePlots <- "Dose"
   options$plotErrorBars <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "Puppy Love.csv", options)
-  
+
   table <- results$result$anovaContainer$collection$anovaContainer_anovaTable$data
   jaspTools::expect_equal_tables(table,
                       list("Dose", 36.5575599693692, 2, 18.2787799846846, 7.483568988423,
@@ -338,14 +338,14 @@ test_that("Field - Chapter 6 results match", {
                            "Dose <unicode> Puppy_love", 20.4265936571326, 2, 10.2132968285663,
                            4.18145584551367, 0.0276671129121842, "FALSE", "Residuals", 58.6205218808138,
                            24, 2.44252174503391, "", "", "TRUE"))
-  
+
   # descriptive plots
   plot1 <-  results$state$figures[[1]]$obj$subplots$mainPlot
-  jaspTools::expect_equal_plots(plot1, "PuppyLove1", "Ancova")
+  jaspTools::expect_equal_plots(plot1, "PuppyLove1")
 
   plot2 <-  results$state$figures[[2]]$obj$subplots$mainPlot
-  jaspTools::expect_equal_plots(plot2, "PuppyLove2", "Ancova")
+  jaspTools::expect_equal_plots(plot2, "PuppyLove2")
 
   plot3 <-  results$state$figures[[3]]$obj$subplots$mainPlot
-  jaspTools::expect_equal_plots(plot3, "PuppyLove3", "Ancova")
+  jaspTools::expect_equal_plots(plot3, "PuppyLove3")
 })

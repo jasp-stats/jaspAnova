@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-12 13:32+0000\n"
+"PO-Revision-Date: 2021-07-15 01:37+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -486,16 +486,16 @@ msgid "Effects"
 msgstr "效应"
 
 msgid "P(incl)"
-msgstr "P（包括）"
+msgstr "P(incl)"
 
 msgid "P(excl)"
-msgstr "P（不包括）"
+msgstr "P(excl)"
 
 msgid "P(incl|data)"
-msgstr "P(包括|数据)"
+msgstr "P(incl|data)"
 
 msgid "P(excl|data)"
-msgstr "P(不包括|数据)"
+msgstr "P(excl|data)"
 
 #, fuzzy
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."

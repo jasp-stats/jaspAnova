@@ -116,7 +116,7 @@ test_that("Post-hoc Comparisons table results match", {
 
 test_that("Analysis handles errors", {
   # NOTE: only errors that are not handled in test-anovabayesian or test-ancovabayesian are tested
-  
+
   options <- initOpts()
   options$repeatedMeasuresFactors <- list(
     list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
@@ -183,7 +183,7 @@ test_that("Analysis fails gracefully if some models error", {
   options$repeatedMeasuresCells = list("contcor1", "contcor2")
   options$repeatedMeasuresFactors = list(list(levels = list("Level 1", "Level 2"), name = "RM_FACTOR_1"))
 
-  # NOTE: the option below makes BayesFactor return NaN as BF for models with covariates. 
+  # NOTE: the option below makes BayesFactor return NaN as BF for models with covariates.
   # It's a nice hack to test how gracefully the analysis recovers when some but not all BFs could be computed.
   # A user can never enter NULL here. This hack exists for BayesFactor version 0.9.12.4.2.
   options$priorCovariates <- NULL
@@ -193,9 +193,9 @@ test_that("Analysis fails gracefully if some models error", {
 
   mainTable <- results[["results"]][["tableModelComparison"]][["data"]]
   effectsTable <- results[["results"]][["tableEffects"]][["data"]]
-  
+
   jaspTools::expect_equal_tables(
-    mainTable, 
+    mainTable,
     list(1, 4.81723072651078, "Null model (incl. subject)", 0.1, 0.546342823039303,
          "", 0.57259147990674, 1.82098643786428, "contBinom", 0.1, 0.3128312455805,
          4.73186300857416, 0.138862578799232, 0.328379305953214, "RM_FACTOR_1",
@@ -207,18 +207,18 @@ test_that("Analysis fails gracefully if some models error", {
          0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "contBinom + contNormal",
          0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal",
          0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal + RM_FACTOR_1<unicode><unicode><unicode>contBinom",
-         0.1, "NaN", ""), 
+         0.1, "NaN", ""),
     label = "Table where some BFs are NaN")
-  
+
   jaspTools::expect_equal_tables(
-    effectsTable, 
+    effectsTable,
     list(0.109272332211192, "RM_FACTOR_1", 0.4, 0.859174068619803, 0.6,
          0.140825931380197, 0.404783990575272, "contBinom", 0.4, 0.622209396354992,
          0.6, 0.377790603645008, "NaN", "contNormal", 1, 1, 0, 0, 0.0736149993547432,
          "RM_FACTOR_1<unicode><unicode><unicode>contBinom", 0.8, 0.981928827499309,
          0.2, 0.0180711725006913),
     label = "Table where one inclusion BF is NaN")
-  
+
 })
 
 # Single model inference
@@ -255,4 +255,73 @@ test_that("Model Comparison table results match", {
                       list(1, 75.0836170114885, "RM.Factor.1", 0.5, 0.986856565982542, "",
                            0.0133184846415562, 0.0133184846415562, "Null model (incl. subject)",
                            0.5, 0.0131434340174574, 19.861508543733))
+})
+
+# test whether sampling parameters with interactions effects works
+options <- initOpts()
+options$repeatedMeasuresCells <- c("contNormal", "contGamma")
+options$repeatedMeasuresFactors <- list(list(levels = c("Level 1", "Level 2"), name = "RM_Factor_1"))
+options$betweenSubjectFactors <- "facGender"
+options$covariates <- "contcor1"
+options$modelTerms <- list(
+  # main effects are nuisance to reduce the model complexity a bit
+  list(components = "RM_Factor_1",                 isNuisance = TRUE),
+  list(components = "facGender",                   isNuisance = TRUE),
+  list(components = "contcor1",                    isNuisance = TRUE),
+  list(components = c("contcor1", "facGender"),    isNuisance = FALSE),
+  list(components = c("contcor1", "RM_Factor_1"),  isNuisance = FALSE),
+  list(components = c("RM_Factor_1", "facGender"), isNuisance = FALSE)
+)
+options$posteriorEstimates <- TRUE
+options$singleModelTerms <- list(list(components = "contcor1"), list(components = "facGender"))
+
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
+
+test_that("Model Comparison table results with interactions match", {
+	table <- results[["results"]][["tableModelComparison"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list(1, 7.4011019942129, "contcor1<unicode><unicode><unicode>RM_Factor_1",
+			 0.125, 0.513926086849954, "", 0.319927954089862, 1.37740768818149,
+			 "Null model (incl. RM_Factor_1, facGender, contcor1, subject)",
+			 0.125, 0.164419321519314, 25.2097891946442, 0.239255439868133,
+			 0.981388423531221, "facGender<unicode><unicode><unicode>contcor1 + contcor1<unicode><unicode><unicode>RM_Factor_1",
+			 0.125, 0.122959611968994, 34.233055481541, 0.159227760004727,
+			 0.623871296288928, "facGender<unicode><unicode><unicode>RM_Factor_1 + RM_Factor_1<unicode><unicode><unicode>contcor1",
+			 0.125, 0.0818312996171132, 34.1722466705555, 0.0850497581680873,
+			 0.31994980441561, "facGender<unicode><unicode><unicode>contcor1 + facGender<unicode><unicode><unicode>RM_Factor_1 + contcor1<unicode><unicode><unicode>RM_Factor_1",
+			 0.125, 0.04370928940286, 42.0099728869602, 0.0694789594226266,
+			 0.259204786338546, "facGender<unicode><unicode><unicode>contcor1",
+			 0.125, 0.0357070497344772, 34.7108255032327, 0.0557530731556876,
+			 0.206487179651425, "facGender<unicode><unicode><unicode>RM_Factor_1",
+			 0.125, 0.0286529587167617, 37.1425116715811, 0.017112153703716,
+			 0.0621068668574807, "facGender<unicode><unicode><unicode>contcor1 + facGender<unicode><unicode><unicode>RM_Factor_1",
+			 0.125, 0.00879438219052571, 37.9818481428213))
+})
+
+test_that("Model Averaged Posterior Summary table results with interactions match", {
+	table <- results[["results"]][["tablePosteriorEstimates"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list("", 0.719234259901028, 0.921104000380025, 0.100572386704361, 1.1203456740766,
+			 "Intercept", "Level 1", -1.27224612405687, -1.09846291113912,
+			 0.0862424425049142, -0.928799400426497, "RM_Factor_1", "Level 2",
+			 0.925812907177538, 1.09846291113912, 0.0862424425049142, 1.26925963080791,
+			 "", "f", -0.398255866332023, -0.204771680863285, 0.0968950249571478,
+			 -0.0135542046150514, "facGender", "m", 0.0114404592210022, 0.204771680863285,
+			 0.0968950249571478, 0.396142120937974, "", "", -0.211147243270715,
+			 -0.0234696597689474, 0.0938837414182637, 0.164114708332537,
+			 "contcor1", "f &amp; contcor1", -0.197666349533573, -0.0103632975300062,
+			 0.0926887994083915, 0.173741376044989, "facGender<unicode><unicode><unicode>contcor1",
+			 "m &amp; contcor1", -0.175839724777071, 0.0103632975300062,
+			 0.0926887994083915, 0.195568000801491, "", "f &amp; Level 1",
+			 -0.175438316624131, -0.0141219719774659, 0.0801968484745378,
+			 0.14453349565803, "facGender<unicode><unicode><unicode>RM_Factor_1",
+			 "f &amp; Level 2", -0.146415682789101, 0.0141219719774659, 0.0801968484745378,
+			 0.173556129493059, "", "m &amp; Level 1", -0.147458708170939,
+			 0.0141219719774659, 0.0801968484745378, 0.174923594381005, "",
+			 "m &amp; Level 2", -0.176602668873463, -0.0141219719774659,
+			 0.0801968484745378, 0.145779633678481, "", "Level 1", 0.0194629065393367,
+			 0.185110395127867, 0.0823440335153794, 0.349609596761152, "contcor1<unicode><unicode><unicode>RM_Factor_1",
+			 "Level 2", -0.351014476294011, -0.185110395127867, 0.0823440335153794,
+			 -0.0208677860721954, ""))
 })

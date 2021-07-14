@@ -114,7 +114,7 @@ test_that("Post-hoc Comparisons table results match", {
 
 test_that("Analysis handles errors", {
   # NOTE: only errors that are not handled in test-anovabayesian are tested
- 
+
   options <- initOpts()
 
   options$dependent <- "contNormal"
@@ -161,4 +161,46 @@ test_that("Model Comparison table results match", {
                            0.731634131635191, "Null model", 0.25, 0.196062664727153, 2.03265957838496e-05,
                            0.349403860233028, 0.451394642548716, "contcor1", 0.25, 0.130786157277969,
                            0.0026137271628805))
+})
+
+# test whether sampling parameters with interactions effects works
+options <- initOpts()
+options$covariates <- "contcor1"
+options$dependent <- "contcor2"
+options$fixedFactors <- "facGender"
+options$modelTerms <- list(
+  list(components = "contcor1", isNuisance = FALSE),
+  list(components = "facGender", isNuisance = FALSE),
+  list(components = c("facGender", "contcor1"), isNuisance = FALSE)
+)
+options$posteriorEstimates <- TRUE
+options$singleModelTerms <- list(list(components = "contcor1"), list(components = "facGender"))
+set.seed(1)
+results <- runAnalysis("AncovaBayesian", "test.csv", options)
+
+test_that("Model Comparison table results with interactions match", {
+	table <- results[["results"]][["tableModelComparison"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list(1, 7.06170555213835, "contcor1", 0.2, 0.638392110407715, "", 0.497219687920235,
+			 1.860128626628, "contcor1 + facGender", 0.2, 0.317421125907664,
+			 15.6333480655196, 0.0692157107595034, 0.18491798182066, "contcor1 + facGender + contcor1<unicode><unicode><unicode>facGender",
+			 0.2, 0.0441867636651294, 18.3840890554849, 2.11947931806262e-11,
+			 5.41223549936725e-11, "Null model", 0.2, 1.3530588748235e-11,
+			 0.00566422819161401, 9.33499560994418e-12, 2.38375501924582e-11,
+			 "facGender", 0.2, 5.95938754807902e-12, 0.00566446066096606
+			))
+})
+
+test_that("Model Averaged Posterior Summary table results with interactions match", {
+	table <- results[["results"]][["tablePosteriorEstimates"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list("", -0.085353148152257, 0.0695314166904569, 0.0767563813738564,
+			 0.221601378816917, "Intercept", "", 0.474732635792994, 0.63207636384486,
+			 0.0774072267458595, 0.784874979362299, "contcor1", "f", -0.0535917488388796,
+			 0.0937763860288633, 0.0730456277677311, 0.238994337088761, "facGender",
+			 "m", -0.240684705902945, -0.0937763860288633, 0.0730456277677311,
+			 0.0514589886465098, "", "f", -0.133045698206248, 0.0170589375251757,
+			 0.0747339434683253, 0.166183348317297, "contcor1<unicode><unicode><unicode>facGender",
+			 "m", -0.167513255190735, -0.0170589375251757, 0.0747339434683253,
+			 0.13171579133281, ""))
 })

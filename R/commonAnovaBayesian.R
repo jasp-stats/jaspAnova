@@ -503,7 +503,7 @@
 
   if (sum(!idxNotNan) > 1L) { # null model is always omitted, so 2 or more omitted indicates some models failed
     effectsTable$addFootnote(message = gettext("Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"),
-      symbol = gettext("<b><em>Warning.</em></b>")
+      symbol = .BANOVAGetWarningSymbol()
     )
   }
 
@@ -726,6 +726,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   }
 
+  .BANOVASamplingIssuesTable(jaspResults, posteriors[["samplingIssues"]])
+
   return(c(posteriors, posteriorsCRI))
 }
 
@@ -829,6 +831,43 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspResults[["tableBMACRI"]] <- criTable
   return()
 
+}
+
+.BANOVASamplingIssuesTable <- function(jaspResults, samplingIssues) {
+
+  if (is.null(samplingIssues) || length(samplingIssues) == 0L || !is.null(jaspResults[["tableSamplingIssues"]]))
+    return()
+
+  issuesTable <- createJaspTable(title = gettext("<b><em>Warning: sampling issues encountered!</em></b>"),
+                           # below model and effects table (which may be unaffected) but above estimates table
+                           position = 2.5)
+
+  issuesTable$addColumnInfo(name = "Models",           title = gettext("Affected model"),      type = "string")
+  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("% useful samples"),    type = "number")
+  issuesTable$addColumnInfo(name = "noSuccess",        title = gettext("Useful samples"),      type = "integer")
+  issuesTable$addColumnInfo(name = "total",            title = gettext("Total samples drawn"), type = "integer")
+
+  df <- data.frame(
+    Models    = vapply(samplingIssues, `[[`, FUN.VALUE = character(1L), "model"),
+    noSuccess = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "remainingRows"),
+    total     = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "originalRows")
+  )
+  df[["percentageSucces"]] <- df[["noSuccess"]] / df[["total"]]
+
+  if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
+    issuesTable$addFootnote(
+      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
+      symbol = .BANOVAGetWarningSymbol()
+    )
+
+  issuesTable$setData(df)
+  issuesTable$dependOn(optionsFromObject = jaspResults[["statePosteriors"]])
+  jaspResults[["tableSamplingIssues"]] <- issuesTable
+
+}
+
+.BANOVAGetWarningSymbol <- function() {
+  gettext("<b><em>Warning.</em></b>")
 }
 
 # Plots wrappers ----
@@ -1049,7 +1088,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   postHocCollection <- jaspResults[["collectionPosthoc"]]
   if (is.null(postHocCollection)) {
     postHocCollection <- createJaspContainer(title = gettext("Post Hoc Tests"))
-    postHocCollection$position <- 7
+    postHocCollection$position <- 8
     postHocCollection$addCitation(.BANOVAcitations[3:4])
     postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocTestsNullControl", "bayesFactorType"))
     jaspResults[["collectionPosthoc"]] <- postHocCollection
@@ -1749,9 +1788,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   on.exit(jaspBase:::assignFunctionInPackage(originalFun, "makeChainNeater", "BayesFactor"))
   jaspBase:::assignFunctionInPackage(.BANOVAmakeChainNeater, "makeChainNeater", "BayesFactor")
 
+  samplingIssues <- list()
   startProgressbar(nmodels, gettext("Sampling posteriors"))
   for (i in seq_len(nmodels)) {
-    if (is.na(reuseable[i])) {
+    # check if the state is reuseable and if it's not NULL, which means it didn't crash
+    if (is.na(reuseable[i]) || is.null(state$statistics[[reuseable[i]]])) {
 
       if (i == 1L && is.null(model$models[[i]]$bf)) {
 
@@ -1794,6 +1835,24 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         } else {
           allContinuous <- FALSE
         }
+
+        # so some models may yield a bunch of NAs, for example,
+        # BayesFactor::lmBF(contNormal ~ facGender + contGamma + facGender * contGamma, data = "debug.csv", whichRandom = "facGender")
+        # we add a footnote and try to not to crash.
+        if (anyNA(samples)) {
+
+          originalRows <- nrow(samples)
+          samples  <- samples[complete.cases(samples), , drop = FALSE]
+          remainingRows     <- nrow(samples)
+
+          samplingIssues[[length(samplingIssues) + 1L]] <- list(
+            model         = model[["models"]][[i]][["title"]],
+            originalRows  = originalRows,
+            remainingRows = remainingRows
+          )
+          next
+        }
+
       }
 
       # although matrixStats::colMeans2 is faster than .colMeans the cost of matrixStats:: is not worth it.
@@ -1964,7 +2023,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     weightedDensities = weightedDensities,
     #weightedCRIs = weightedCRIs, weightedResidSumStats = weightedResidSumStats,
     #weightedRsqDens = weightedRsqDens, weightedRsqCri = weightedRsqCri,
-    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo
+    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo,
+    samplingIssues = samplingIssues
   ))
 }
 
@@ -2448,7 +2508,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   } else {
     # put the null-model first
     i <- length(out)
-    return(c(out[[i]], out[-i]))
+    out <- c(out[[i]], out[-i])
+
+    # BayesFactor has the nasty habit of changing the order of interactions whenever one of the components is
+    # a nuisance variable. Here we ensure the order matches that of the input formula (which matches the order a user entered the factors).
+    # see also https://github.com/jasp-stats/jasp-test-release/issues/1181
+    originalTerms  <- terms(formula)
+    originalOrd    <- attr(originalTerms, "order")
+    originalIdxNonInteraction <- which(originalOrd == 1L)
+
+    originalLabels <- attr(originalTerms, "term.labels")
+    originalLabelsPieces <- strsplit(originalLabels[originalOrd > 1L], ":")
+    originalLabelsPiecesSorted <- lapply(originalLabelsPieces, sort)
+
+    dependent <- all.vars(out[[1]])[1L]
+
+    for (i in seq_along(out)) {
+
+      term <- terms(out[[i]])
+      ord  <- attr(term, "order") # interaction order
+      idxNonInteraction <- which(ord == 1L)
+
+      termLabels <- attr(term, "term.labels")
+      termLabels[idxNonInteraction] <- originalLabels[originalIdxNonInteraction][match(termLabels[idxNonInteraction], originalLabels[originalIdxNonInteraction])]
+
+      for (j in which(ord > 1L)) {
+        labelPieces <- strsplit(termLabels[j], ":")[[1L]]
+        for (k in seq_along(originalLabelsPieces))
+          if (all(sort(labelPieces) == originalLabelsPiecesSorted[[k]]))
+            termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
+      }
+
+      out[[i]] <- as.formula(paste(dependent, "~", paste(termLabels, collapse = " + ")))
+
+    }
+
+    return(out)
   }
 }
 
@@ -2515,7 +2610,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # this part is different from BayesFactor
   names(labelList) <- terms
-
   return(labelList)
 }
 
@@ -2596,7 +2690,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (!userWantsSMI)
     return()
 
-  if (!is.null(jaspResults[["collectionSingleModel"]])) {
+  if (!is.null(jaspResults[["containerSingleModel"]])) {
     singleModelContainer <- jaspResults[["containerSingleModel"]]
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
@@ -2605,7 +2699,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       "priorFixedEffects", "priorRandomEffects", "repeatedMeasuresCells", "seed", "setSeed"
     ))
     jaspResults[["containerSingleModel"]] <- singleModelContainer
-    singleModelContainer$position <- 8
+    singleModelContainer$position <- 7
   }
 
   singleModel <- jaspResults[["singleModelState"]]$object

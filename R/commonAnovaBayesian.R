@@ -835,7 +835,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVASamplingIssuesTable <- function(jaspResults, samplingIssues) {
 
-  if (is.null(samplingIssues) || length(samplingIssues) == 0L)
+  if (is.null(samplingIssues) || length(samplingIssues) == 0L || !is.null(jaspResults[["tableSamplingIssues"]]))
     return()
 
   issuesTable <- createJaspTable(title = gettext("<b><em>Warning: sampling issues encountered!</em></b>"),
@@ -856,7 +856,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
     issuesTable$addFootnote(
-      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable! Check the model specification and data for any odd patterns!"),
+      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
       symbol = .BANOVAGetWarningSymbol()
     )
 
@@ -2664,7 +2664,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
   levelNames <- levelNames[lengths(levelNames) > 0]
   levelCounts <- lengths(levelNames) # counts of the factors including interaction terms
-  prettyNames <-
+
   return(list(levelCounts = levelCounts, rawLevelNames = levelNames, levelNames = prettyLevelNames))
 }
 

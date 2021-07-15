@@ -1781,8 +1781,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   names(weights) <- names(weightedMeans) <- allParamNames
   allContinuous <- TRUE
 
-  rawParamNames <- c("mu", unlist(levelInfo[["rawLevelNames"]]))
-
   h <- (1 - options[["credibleInterval"]]) / 2
   probs <- c(h, 1-h)
 
@@ -1793,7 +1791,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   samplingIssues <- list()
   startProgressbar(nmodels, gettext("Sampling posteriors"))
   for (i in seq_len(nmodels)) {
-    if (is.na(reuseable[i])) {
+    # check if the state is reuseable and if it's not NULL, which means it didn't crash
+    if (is.na(reuseable[i]) || is.null(state$statistics[[reuseable[i]]])) {
 
       if (i == 1L && is.null(model$models[[i]]$bf)) {
 
@@ -1825,10 +1824,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         }
 
         # keep only relevant columns, drop sig2, g_xxx, ...
-        idx <- match(rawParamNames, colnames(samples), nomatch = 0L)
+        idx <- match(allParamNames, colnames(samples), nomatch = 0L)
         samples <- samples[, idx, drop = FALSE]
-
-        colnames(samples) <- unname(allParamNames[idx])
 
         # for some odd reason, Bayesfactor uses as column name contcor1-contcor1
         # if there is a covariate AND fixed factors, but only contcor1 if all variables are continuous...
@@ -2613,21 +2610,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # this part is different from BayesFactor
   names(labelList) <- terms
-
-  obsLevelCounts <- lengths(levls) # counts of the factors in the data
-  levelNames     <- vector("list", length(components)) # for each parameter, all levels
-  names(levelNames) <- nms
-  prettyLevelNames <- levelNames
-
-  for (i in seq_along(components)) {
-    idx <- components[[i]]
-    # exclude any non-factors
-    idxFactors <- idx[obsLevelCounts[idx] != 0L]
-
-    if (length(idxFactors) > 0) { # we're dealing with factors
-      # tmp <- unique(dataset[idx])  # all _observed_ combinations of factors
-      tmp <- expand.grid(lapply(idx, function(var) if (is.factor(dataset[[var]])) levels(dataset[[var]]) else var))
-
   return(labelList)
 }
 
@@ -2647,25 +2629,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     return(.BANOVAsubjectName)
   else
     return(unlist(options[["randomFactors"]]))
-      levelNames[[i]] <- paste0(nms[i], "-", combs)
-
-      # only make the level name using the factors
-      tmp <- expand.grid(lapply(dataset[idxFactors], levels))
-
-      # ensure order is alphabetical
-      tmp <- tmp[do.call(order, tmp), , drop = FALSE]
-      combs <- apply(tmp, 1, paste, collapse = ".&.")
-
-      prettyLevelNames[[i]] <- paste0(nms[i], "-", combs)
-    } else {
-      # continuous variables get their name-name, because Bayesfactor returns it like that
-      prettyLevelNames[[i]] <- levelNames[[i]] <- paste0(nms[i], "-", nms[i])
-    }
-  }
-  levelNames <- levelNames[lengths(levelNames) > 0]
-  levelCounts <- lengths(levelNames) # counts of the factors including interaction terms
-
-  return(list(levelCounts = levelCounts, rawLevelNames = levelNames, levelNames = prettyLevelNames))
 }
 
 .BANOVAgetLevelsFromParamNames <- function(names) {
@@ -2788,7 +2751,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   dataTypes     <- .BANOVAgetDataTypes(dataset, formula, randomFactors)
   levelInfo     <- .BANOVAgetLevelInfo(dataset, formula, dataTypes)
   allParamNames <- c("mu", unlist(levelInfo$levelNames))
-  rawParamNames <- c("mu", unlist(levelInfo$rawLevelNames))
 
   .setSeedJASP(options)
   samples <- BayesFactor::lmBF(
@@ -2806,9 +2768,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   types <- samples@model@dataTypes
 
   # keep only relevant columns, drop sig2, g_xxx, ...
-  idx <- match(rawParamNames, colnames(samples), nomatch = 0L)
+  idx <- match(allParamNames, colnames(samples), nomatch = 0L)
   samples <- samples[, idx, drop = FALSE]
-  colnames(samples) <- allParamNames[idx]
 
   # for some odd reason, Bayesfactor uses as column name contcor1-contcor1
   # if there is a covariate AND fixed factors, but only contcor1 if all variables are continuous...

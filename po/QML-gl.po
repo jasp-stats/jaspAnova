@@ -138,7 +138,7 @@ msgstr "Bonferroni"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Standard error"
-msgstr "Desviación padrón"
+msgstr "Erro padrón"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
@@ -558,7 +558,7 @@ msgstr "Presentar as barras de erro"
 
 msgctxt "Ancova|"
 msgid "Standard error"
-msgstr "Desviación padrón"
+msgstr "Erro padrón"
 
 msgctxt "Ancova|"
 msgid "Marginal Means"
@@ -672,7 +672,6 @@ msgctxt "AncovaBayesian|"
 msgid "Plots"
 msgstr "Gráficas"
 
-#, fuzzy
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
 msgstr "Posteriores medios do modelo"
@@ -955,7 +954,7 @@ msgstr "Intervalo de confianza"
 
 msgctxt "Anova|"
 msgid "Standard error"
-msgstr "Desviación padrón"
+msgstr "Erro padrón"
 
 msgctxt "Anova|"
 msgid "Marginal Means"
@@ -1045,7 +1044,6 @@ msgctxt "AnovaBayesian|"
 msgid "Plots"
 msgstr "Gráficas"
 
-#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "Model averaged posteriors"
 msgstr "Posteriores medios do modelo"

@@ -1,0 +1,644 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspAnova 0.15\n"
+"POT-Creation-Date: 2021-06-28 16:05\n"
+"PO-Revision-Date: 2021-07-15 01:37+0000\n"
+"Last-Translator: shun wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspanova-r/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2-dev\n"
+
+msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
+msgstr "WLS 权重中包含负值和/或零值。<br><br>（仅允许正的 WLS 权重）。"
+
+msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
+msgstr "遇到奇异拟合；有一个或多个预测变量是其他预测变量的线性组合"
+
+msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
+msgstr "残差平方和为0；这可能是由于因变量的方差极低造成的"
+
+msgid "An error occurred while computing the ANOVA: %s"
+msgstr "计算 ANOVA 时出错：%s"
+
+msgid "Your design contains empty cells. Please try a different type of sum of squares."
+msgstr "您的设计包含空单元格。请尝试使用不同类型的平方和。"
+
+msgid "ANOVA"
+msgstr "方差分析(ANOVA)"
+
+msgid "ANCOVA"
+msgstr "协方差分析(ANCOVA)"
+
+msgid "Homogeneity Correction"
+msgstr "同质性（齐性）校正"
+
+msgid "Cases"
+msgstr ""
+
+msgid "Sum of Squares"
+msgstr "平方和"
+
+msgid "df"
+msgstr "自由度"
+
+msgid "Mean Square"
+msgstr "均方"
+
+msgid "F"
+msgstr "F"
+
+msgid "p"
+msgstr "p"
+
+msgid "VS-MPR%s"
+msgstr "VS-MPR%s"
+
+msgid "Type I Sum of Squares"
+msgstr "I 型平方和"
+
+msgid "Type II Sum of Squares"
+msgstr "II 型平方和"
+
+msgid "Type III Sum of Squares"
+msgstr "III 型平方和"
+
+msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
+msgstr "Brown-Forsythe 和 Welch 校正仅适用于单因素方差分析"
+
+msgid "Contrast Tables"
+msgstr "对比表"
+
+msgid "%1$s Contrast - %2$s"
+msgstr "%1$s 对比 - %2$s"
+
+msgid "Please specify an additional contrast."
+msgstr "请指定额外的对比。"
+
+msgid "Wrong number of custom contrast matrix rows."
+msgstr "自定义对比矩阵行数有错误。"
+
+msgid "Please specify non-zero contrast weights."
+msgstr "请指定非零的对比度权重。"
+
+msgid "Estimate"
+msgstr "估计"
+
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% 平均差的置信区间"
+
+msgid "Lower"
+msgstr "下限"
+
+msgid "Upper"
+msgstr "上限"
+
+msgid "SE"
+msgstr "标准误"
+
+msgid "t"
+msgstr "t"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s 对比度系数 - %2$s"
+
+msgid "Post Hoc Tests"
+msgstr "事后检验(Post Hoc)"
+
+msgid "Standard"
+msgstr "标准(Standard)"
+
+msgid "Results are averaged over the levels of: %s"
+msgstr "结果在以下水平上取平均值：%s"
+
+msgid "Cohen's d does not correct for multiple comparisons."
+msgstr "Cohen's d 不能校正多重比较。"
+
+msgid "Bootstrapping based on %s successful replicates."
+msgstr "基于 %s 个样本的Bootstrap抽样已成功复刻。"
+
+msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
+msgstr "平均差估计基于自举(bootstrap)分布的中位数。"
+
+msgid "Bias corrected accelerated."
+msgstr "偏差修正加速。"
+
+msgid "Bootstrapping Post Hoc Test"
+msgstr "Bootstrap 式事后检验"
+
+msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
+msgstr ""
+"某些置信区间无法计算。\n"
+"可能是自助抽样(bootstrap)量复刻太少。"
+
+msgid "Dunn"
+msgstr "Dunn"
+
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "邓恩的事后比较 - %s"
+
+msgid "Comparison"
+msgstr "比较"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Games-Howell"
+msgstr "Games-Howell"
+
+msgid "Games-Howell Post Hoc Comparisons - %s"
+msgstr "Games-Howell 的事后比较 - %s"
+
+msgid "Mean Difference"
+msgstr "平均差"
+
+msgid "%.0f%% CI for Mean Difference"
+msgstr "平均差的 %.0f%% 置信区间"
+
+msgid "p<sub>tukey</sub>"
+msgstr "p<sub>tukey</sub>"
+
+msgid "Dunnett"
+msgstr "Dunnett"
+
+msgid "Dunnett Post Hoc Comparisons - %s"
+msgstr "Dunnett 事后比较 - %s"
+
+msgid "p<sub>dunnett</sub>"
+msgstr "p<sub>dunnett</sub>"
+
+msgid "Confidence interval is too narrow, please select a different confidence level."
+msgstr "置信区间太窄，请选择其他的置信水平。"
+
+msgid "Mean"
+msgstr "均值"
+
+msgid "SD"
+msgstr "标准差"
+
+msgid "N"
+msgstr "N"
+
+msgid "Assumption Checks"
+msgstr "假设检验"
+
+msgid "Test for Equality of Variances (Levene's)"
+msgstr "等方差(齐)性检验(Levene's)"
+
+msgid "df1"
+msgstr "df1"
+
+msgid "df2"
+msgstr "df2"
+
+msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
+msgstr "F 值等于零表示完美拟合。<br><br>（Levene 对基本完美拟合的检验不可靠）"
+
+msgid "Marginal Means"
+msgstr "边缘均值"
+
+msgid "Bootstrapping Marginal Means"
+msgstr "自举(Bootstrap)边缘均值"
+
+msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
+msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
+
+msgid "Bootstrapping based on %s replicates."
+msgstr "基于%s 次重复的Bootstrap抽样。"
+
+msgid "Simple Main Effects"
+msgstr "简单主效应"
+
+msgid "Simple Main Effects - %s"
+msgstr "简单的主效应 - %s"
+
+msgid "Level of %s"
+msgstr "%s 的水平"
+
+msgid "Not enough observations in cells %s."
+msgstr "单元(cell)  %s  中没有足够的观测值。"
+
+msgid "Kruskal-Wallis Test"
+msgstr "Kruskal-Wallis 检验"
+
+msgid "Factor"
+msgstr "因子"
+
+msgid "Statistic"
+msgstr "统计"
+
+msgid "Q-Q Plot"
+msgstr "Q-Q 图"
+
+msgid "Theoretical Quantiles"
+msgstr "理论分位数( Theoretical Quantile)"
+
+msgid "Standardized Residuals"
+msgstr "标准化残差"
+
+msgid "Error while loading data. Please verify your repeated measures observations."
+msgstr "加载数据时出错。请验证您的重复测量观测值。"
+
+msgid "Factor: <em>%s</em>, contains fewer than two levels."
+msgstr "因子：<em>%s</em>，包含的水平少于两个。"
+
+msgid "Factors: <em>%s</em>, contain fewer than two levels."
+msgstr "因子：<em>%s</em>，包含的水平少于两个。"
+
+msgid "The repeated measure: <em>%s</em>, contains infinite values."
+msgstr "重复测量：<em>%s</em>，包含无限值。"
+
+msgid "The repeated measures: <em>%s</em>, contain infinite values."
+msgstr "重复测量：<em>%s</em>，包含无限值。"
+
+msgid "The covariate: <em>%s</em>, contains infinite values."
+msgstr "协变量：<em>%s</em>，包含无限值。"
+
+msgid "The covariates: <em>%s</em>, contain infinite values."
+msgstr "协变量：<em>%s</em>，包含无限值。"
+
+msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
+msgstr "请为 RM 因子选择一个与组间因子不同的名称。"
+
+msgid "Some parameters are not estimable, most likely due to empty cells of the design."
+msgstr "某些参数无法估计，很可能是由于设计中有空单元。"
+
+msgid "Greenhouse-Geisser"
+msgstr "Greenhouse-Geisser"
+
+msgid "Huynh-Feldt"
+msgstr "Huynh-Feldt"
+
+msgid "None"
+msgstr "无"
+
+msgid "Between Subjects Effects"
+msgstr "组间(被试间)效应"
+
+msgid "%s<sub>G</sub>"
+msgstr "%s<sub>G</sub>"
+
+msgid "Within Subjects Effects"
+msgstr "组内(被试内)效应"
+
+msgid "Sphericity Correction"
+msgstr "球形校正"
+
+msgid "Sphericity corrections not available for factors with 2 levels."
+msgstr "球度校正不适用于 2 个水平的因子。"
+
+msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
+msgstr "Mauchly 球形检验表明违反了球形假设 (p < .05)。"
+
+msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
+msgstr "无法执行同质性（齐性）检验，因为没有指定组间(被试间)因子。"
+
+msgid "Test of Sphericity"
+msgstr "球形检验"
+
+msgid "Mauchly's W"
+msgstr "Mauchly's W"
+
+msgid "Approx. %s"
+msgstr "大约 %s"
+
+msgid "dfSphericity"
+msgstr "dfSphericity"
+
+msgid "p-value"
+msgstr "p值"
+
+msgid "Greenhouse-Geisser %s"
+msgstr "Greenhouse-Geisser %s"
+
+msgid "Huynh-Feldt %s"
+msgstr "Huynh-Feldt %s"
+
+msgid "Lower Bound %s"
+msgstr "下限 %s"
+
+msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
+msgstr "无法执行球形检验，因为 RM 因子只有两个水平，或者因为 SSP 矩阵是畸形的。"
+
+msgid "Unpooled error term only allowed in balanced designs."
+msgstr "未合并误差项仅在平衡设计中允许。"
+
+msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
+msgstr "%s 中校正的 p 值不适用于重复测量事后检验(Maxwell, 1980; Field, 2012)。"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "为比较 %s 族而调整的 P 值"
+
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
+msgstr "为比较 %1$s 估计值系列而调整的 P 值和置信区间（使用 %2$s 方法校正的置信区间）。"
+
+msgid "Post Hoc Comparisons -"
+msgstr "事后比较 -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "自举的(Bootstrap)事后比较 -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s CI"
+
+msgid "bias"
+msgstr "偏差"
+
+msgid "Cohen's d"
+msgstr "Cohen's d"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p<sub>scheffe</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>sidak</sub>"
+
+msgid "Unequal variances only available for main effects of within subjects factors"
+msgstr "不等方差仅适用于组内(被试内)因子的主效应"
+
+msgid "Marginal Means -"
+msgstr "边际均值 -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "自举(Bootstrap)的边际均值 -"
+
+msgid "Marginal Mean"
+msgstr "边际均值"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s CI"
+
+msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr "边际均值估计基于自举(bootstrap)分布的中位数。"
+
+msgid "95%% CI for Mean Difference"
+msgstr "平均差的 95%% 置信区间"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni 置信区间调整"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak 置信区间调整"
+
+msgid "Nonparametrics"
+msgstr "非参数检验"
+
+msgid "Friedman Test"
+msgstr "Friedman 检验"
+
+msgid "Chi-Squared"
+msgstr "卡方"
+
+msgid "Kendall's W"
+msgstr "Kendall's W"
+
+msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgstr "请为 Friedman/Durbin 检验指定适当的项。"
+
+msgid "Durbin Test"
+msgstr "Durbin 检验"
+
+msgid "df num"
+msgstr "df 编号"
+
+msgid "df den"
+msgstr ""
+
+msgid "p<sub>F</sub>"
+msgstr "p<sub>F</sub>"
+
+msgid "Conover Test"
+msgstr "Conover 检验"
+
+msgid "Conover's Post Hoc Comparisons - %s"
+msgstr "Conover 事后比较 -%s"
+
+msgid "T-Stat"
+msgstr "T-Stat"
+
+msgid "Grouped by %s."
+msgstr "按 %s 分组。"
+
+msgid "Infinity found in repeated measures cells."
+msgstr "在重复测量单元中发现无穷大值。"
+
+msgid "Number of observations is < %s in repeated measures cells"
+msgstr "重复测量单元中的观测值 < %s"
+
+msgid "The variance in the repeated measures cells is 0."
+msgstr "重复测量单元的方差为0。"
+
+msgid "Duplicate variables encountered in repeated measures cells, %s"
+msgstr "在重复测量单元中遇到重复变量，%s"
+
+msgid "Duplicate variables encountered in %s"
+msgstr "在 %s 中遇到重复的变量"
+
+msgid "Bayes factor is undefined -- all effects are specified as nuisance."
+msgstr "贝叶斯因子未定义——所有效应都被指定为公害效应。"
+
+msgid "Null model"
+msgstr "空模型"
+
+msgid "Null model (incl. %s)"
+msgstr "空模型（包括 %s）"
+
+msgid "Computing Bayes factors"
+msgstr "计算贝叶斯因子"
+
+msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
+msgstr ""
+"无法为模型：%1$s 计算贝叶斯因子。\n"
+"错误消息是：%2$s。"
+
+msgid "All models include %s"
+msgstr "所有型号都包括 %s"
+
+msgid "Analysis of Effects - %s"
+msgstr "效应分析 - % s"
+
+msgid "Analysis of Effects"
+msgstr "效应分析"
+
+msgid "Log(BF<sub>incl</sub>)"
+msgstr "Log(BF<sub>incl</sub>)"
+
+msgid "BF<sub>excl</sub>"
+msgstr "BF<sub>excl</sub>"
+
+msgid "BF<sub>incl</sub>"
+msgstr "BF<sub>incl</sub>"
+
+msgid "Effects"
+msgstr "效应"
+
+msgid "P(incl)"
+msgstr "P(incl)"
+
+msgid "P(excl)"
+msgstr "P(excl)"
+
+msgid "P(incl|data)"
+msgstr "P(incl|data)"
+
+msgid "P(excl|data)"
+msgstr "P(excl|data)"
+
+#, fuzzy
+msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
+msgstr "将包含效应的模型与去除效应的等效模型进行比较。排除了高阶相互作用。 Sebastiaan Math%st 建议的分析。"
+
+#, fuzzy
+msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
+msgstr "一些贝叶斯因子无法计算。在排除这些模型的同时计算包含概率和贝叶斯因子。结果可能无法解释！"
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>警告 </em></b>"
+
+msgid "Model Comparison"
+msgstr "模型比较"
+
+msgid "BF<sub>M</sub>"
+msgstr "BF<sub>M</sub>"
+
+msgid "BF<sub>10</sub>"
+msgstr "BF<sub>10</sub>"
+
+msgid "BF<sub>01</sub>"
+msgstr "BF<sub>01</sub>"
+
+msgid "Log(BF<sub>M</sub>)"
+msgstr "Log(BF<sub>M</sub>)"
+
+msgid "Log(BF<sub>10</sub>)"
+msgstr "Log(BF<sub>10</sub>)"
+
+msgid "Models"
+msgstr "模型"
+
+msgid "P(M)"
+msgstr "P(M)"
+
+msgid "P(M|data)"
+msgstr "P(M|data)"
+
+msgid "error %"
+msgstr "误差 %"
+
+msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
+msgstr "<b><em>警告。</em></b>一些贝叶斯因子无法计算。在排除这些模型的同时进行多模型推断。结果可能无法解释！"
+
+msgid "Model Averaged Posterior Summary"
+msgstr "模型平均后验摘要"
+
+msgid "%s%% Credible Interval"
+msgstr "%s%% 可信区间"
+
+msgid "Model Averaged R%s"
+msgstr "模型平均 R%s"
+
+msgid "Model Averaged Posterior Distributions"
+msgstr "模型平均后验分布"
+
+msgid "Posterior distribution"
+msgstr "后验分布"
+
+msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
+msgstr "无法绘制后验分布。检查包含此参数的模型是否有错误。"
+
+msgid "Level"
+msgstr "水平"
+
+msgid "Density"
+msgstr "密度"
+
+msgid "Model Averaged Q-Q Plot"
+msgstr "模型平均 Q-Q 图"
+
+msgid "Model Averaged Posterior R%s"
+msgstr "模型平均后验 R%s"
+
+#, fuzzy
+msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
+msgstr ""
+"通过将零假设在所有比较中成立的先验概率固定为 0.5，已针对多重检验校正后验几率(Westfall, Johnson, & Utts, 1997)。"
+"个别比较基于默认的 t 检验，并使用 Cauchy (0, r = 1/sqrt(2)) 先验。贝叶斯因子中的“U”表示未校正。"
+
+msgid "Prior Odds"
+msgstr "先验几率"
+
+msgid "Posterior Odds"
+msgstr "后验几率"
+
+msgid "Descriptives"
+msgstr "描述统计"
+
+msgid "Descriptives - %s"
+msgstr "描述统计 - %s"
+
+msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
+msgstr "某些因子组合没有被观测到，因此被忽略（%g 组合中的 %g 未被观测到）。"
+
+msgid "Descriptives plots"
+msgstr "描述图"
+
+msgid "Descriptives Plot"
+msgstr "描述性绘图"
+
+msgid "Raincloud plots"
+msgstr "雨云图"
+
+msgid "Sampling posteriors"
+msgstr "抽样后验"
+
+msgid "length of samples must be equal to length of weights!"
+msgstr "样本的长度必须等于权重的长度！"
+
+#, fuzzy
+msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."
+msgstr "所有预测的方差为零。检查异常的预测变量或增加后验样本的数量。"
+
+msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
+msgstr "BayesFactor::enumerateGeneralModels 中出现以下错误：%s"
+
+msgid "Single Model Inference"
+msgstr "单一模型推断"
+
+msgid "Error in single model inference:\n%s"
+msgstr ""
+"单一模型推断中的错误：\n"
+"%s"
+
+msgid "Single Model Posterior Summary"
+msgstr "单一模型后验摘要"
+
+msgid "Variable"
+msgstr "变量"
+
+msgid "Single Model Posterior Distributions"
+msgstr "单一模型后验分布"
+
+msgid "Posterior R%s"
+msgstr "后验 R%s"
+
+msgid "Single Model R%s"
+msgstr "单一模型 R%s"
+
+msgid "MANOVA"
+msgstr "多变量方差分析(MANOVA)"
+
+msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
+msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造成的。"

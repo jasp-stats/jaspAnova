@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-07 12:34+0000\n"
+"PO-Revision-Date: 2021-07-10 13:32+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/gl/>\n"
@@ -125,7 +125,7 @@ msgid "Upper"
 msgstr "Superior"
 
 msgid "SE"
-msgstr "DT"
+msgstr "ET"
 
 msgid "t"
 msgstr "t"
@@ -166,7 +166,7 @@ msgid ""
 "Possibly too few bootstrap replicates."
 msgstr ""
 "Algúns intervalos de confianza non poden calcularse.\n"
-"Posiblemente por moi poucas repeticións do bootstrap."
+"Posiblemente hai moi poucas repeticións do bootstrap."
 
 msgid "Dunn"
 msgstr "Dunn"
@@ -224,22 +224,22 @@ msgid "Mean"
 msgstr "Media"
 
 msgid "SD"
-msgstr "DS"
+msgstr "EP"
 
 msgid "N"
 msgstr "N"
 
 msgid "Assumption Checks"
-msgstr "Comprobacións de supostos"
+msgstr "Comprobacións de Supostos"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr "Proba de Igualdade de Varianzas (de Levene)"
 
 msgid "df1"
-msgstr "gl 1"
+msgstr "gl1"
 
 msgid "df2"
-msgstr "gl 2"
+msgstr "gl2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -330,7 +330,7 @@ msgid ""
 "design."
 msgstr ""
 "Algúns parámetros non son estimables, probablemente debido ás celas baleiras "
-"do deseño."
+"da proposta."
 
 msgid "Greenhouse-Geisser"
 msgstr "Greenhouse-Geisser"
@@ -404,7 +404,7 @@ msgstr ""
 "factor MR, ou porque a matriz SPP é singular."
 
 msgid "Unpooled error term only allowed in balanced designs."
-msgstr "O termo de erro non combinado só se permite en deseños equilibrados."
+msgstr "O termo de erro non combinado só se permite en propostas equilibradas."
 
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
@@ -535,7 +535,7 @@ msgstr "Atopáronse variables duplicadas en %s"
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 "O factor de Bayes non está definido -- todos os efectos se indican como "
-"factores de confusión."
+"molestos."
 
 msgid "Null model"
 msgstr "Modelo nulo"
@@ -600,15 +600,18 @@ msgid ""
 "Bayes factors are calculated while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"Non se poden calcular algúns factores de Bayes. As probabilidades de "
+"inclusión e os factores de Bayes calcúlanse excluíndo eses modelos. Os "
+"resultados poderían non ser interpretables!"
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Aviso.</em></b>"
 
 msgid "Model Comparison"
 msgstr "Cotexo de modelos"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "FB<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
 msgstr "FB<sub>10</sub>"
@@ -617,7 +620,7 @@ msgid "BF<sub>01</sub>"
 msgstr "FB<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(FB<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
 msgstr "Log(FB<sub>10</sub>)"
@@ -626,10 +629,10 @@ msgid "Models"
 msgstr "Modelos"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|datos)"
 
 msgid "error %"
 msgstr "fallo %"
@@ -639,22 +642,21 @@ msgid ""
 "model inference is carried out while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"<b><em>Aviso.</em></b> Algúns factores de Bayes non se poden calcular. A "
+"inferencia do modelo múltiple faise aínda que excluíndo estes modelos. Os "
+"resultados pode que non sexan interpretables!"
 
-#, fuzzy
 msgid "Model Averaged Posterior Summary"
-msgstr "Posteriores medios do modelo"
+msgstr "Resumo do Modelo Medio Posterior"
 
-#, fuzzy
 msgid "%s%% Credible Interval"
-msgstr "Intervalo de credibilidade"
+msgstr "Intervalo co %s%% de Credibilidade"
 
-#, fuzzy
 msgid "Model Averaged R%s"
 msgstr "R² medio do modelo"
 
-#, fuzzy
 msgid "Model Averaged Posterior Distributions"
-msgstr "Posteriores medios do modelo"
+msgstr "Distribucións do Modelo Medio Posterior"
 
 msgid "Posterior distribution"
 msgstr "Distribución posterior"
@@ -663,21 +665,20 @@ msgid ""
 "Could not plot posterior distribution. Check if an error occurred for models "
 "including this parameter."
 msgstr ""
+"Non se pode facer a gráfica da distribución posterior. Comproba se ocorreu "
+"un fallo nos modelos que inclúen este parámetro."
 
-#, fuzzy
 msgid "Level"
-msgstr "Niveis"
+msgstr "Nivel"
 
 msgid "Density"
 msgstr "Densidade"
 
-#, fuzzy
 msgid "Model Averaged Q-Q Plot"
-msgstr "Modelo medio"
+msgstr "Gráfica Q-Q do Modelo Medio"
 
-#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr "Posteriores medios do modelo"
+msgstr "R%s do Modelo Medio Posterior"
 
 msgid ""
 "The posterior odds have been corrected for multiple testing by fixing to 0.5 "
@@ -686,25 +687,30 @@ msgid ""
 "default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the "
 "Bayes factor denotes that it is uncorrected."
 msgstr ""
+"Corrixíronse as posibilidades posteriores para probas múltiples, fixando en "
+"0.5 a probabilidade previa de que a hipótese nula se mantén en todas as "
+"comparacións. (Westfall, Johnson & Utts, 1997). As comparacións individuais "
+"baséanse na proba t predeterminada cunha previa de Cauchy (0, r = 1/sqrt(2))"
+". O \"U\" no factor de Bayes indica que non está corrixido."
 
 msgid "Prior Odds"
 msgstr "Posibilidades previas"
 
-#, fuzzy
 msgid "Posterior Odds"
-msgstr "Posibilidades previas"
+msgstr "Posibilidades Posteriores"
 
 msgid "Descriptives"
 msgstr "Descritivos"
 
-#, fuzzy
 msgid "Descriptives - %s"
-msgstr "Descritivos"
+msgstr "Descritivos - %s"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
 msgstr ""
+"Non se ven algunhas combinacións de factores, polo que se omiten (%g "
+"combinacións de %g, non se ven)."
 
 msgid "Descriptives plots"
 msgstr "Gráficas descritivas"
@@ -712,24 +718,24 @@ msgstr "Gráficas descritivas"
 msgid "Descriptives Plot"
 msgstr "Gráfica dos descritivos"
 
-#, fuzzy
 msgid "Raincloud plots"
-msgstr "Gráficas básicas"
+msgstr "Gráficas de nube chovendo"
 
-#, fuzzy
 msgid "Sampling posteriors"
-msgstr "Posteriores marxinais"
+msgstr "Mostraxe de posteriores"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "o longo das mostras debe ser igual ao longo das ponderacións!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
 msgstr ""
+"Tódalas predicións teñen varianza nula. Comproba se os preditores teñen "
+"anomalías, ou aumenta o número de mostras posteriores."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "Aconteceu o seguinte fallo en BayesFactor::enumerateGeneralModels: %s"
 
 msgid "Single Model Inference"
 msgstr "Inferencia do modelo único"
@@ -741,24 +747,20 @@ msgstr ""
 "Fallo na inferencia do modelo único:\n"
 "%s"
 
-#, fuzzy
 msgid "Single Model Posterior Summary"
-msgstr "Resumo posterior"
+msgstr "Resumo do Modelo Único Posterior"
 
 msgid "Variable"
 msgstr "Variable"
 
-#, fuzzy
 msgid "Single Model Posterior Distributions"
-msgstr "Distribucións posteriores marxinais"
+msgstr "Distribucións do Modelo Único Posterior"
 
-#, fuzzy
 msgid "Posterior R%s"
 msgstr "R² posterior"
 
-#, fuzzy
 msgid "Single Model R%s"
-msgstr "Modelo único"
+msgstr "R%s do Modelo Único"
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -767,3 +769,5 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr ""
+"A matriz da proposta non é invertible. Isto pode deberse a que hai variables "
+"dependentes colineares."

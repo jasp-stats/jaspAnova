@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-15 01:37+0000\n"
+"PO-Revision-Date: 2021-07-19 17:57+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -38,7 +38,7 @@ msgid "Homogeneity Correction"
 msgstr "同质性（齐性）校正"
 
 msgid "Cases"
-msgstr ""
+msgstr "个案"
 
 msgid "Sum of Squares"
 msgstr "平方和"
@@ -415,7 +415,7 @@ msgid "df num"
 msgstr "df 编号"
 
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
 msgstr "p<sub>F</sub>"
@@ -501,7 +501,6 @@ msgstr "P(excl|data)"
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr "将包含效应的模型与去除效应的等效模型进行比较。排除了高阶相互作用。 Sebastiaan Math%st 建议的分析。"
 
-#, fuzzy
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr "一些贝叶斯因子无法计算。在排除这些模型的同时计算包含概率和贝叶斯因子。结果可能无法解释！"
 

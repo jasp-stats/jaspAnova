@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-07-12 08:33+0000\n"
+"PO-Revision-Date: 2021-07-19 17:57+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-qml/zh_Hans/>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -22,7 +22,7 @@ msgstr "比较多个平均值的差异"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "经典ANOVA"
+msgstr "经典"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
@@ -394,7 +394,7 @@ msgstr "校正(Correction)"
 
 msgctxt "AncovaBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Null control"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives Plots"
@@ -686,7 +686,7 @@ msgstr "Kruskal-Wallis 检验"
 
 msgctxt "Anova|"
 msgid " "
-msgstr ""
+msgstr " "
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
@@ -802,7 +802,7 @@ msgstr "校正(Correction)"
 
 msgctxt "AnovaBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Null control"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives Plots"
@@ -992,7 +992,6 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "效应量"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
 msgstr "RM 因子的池(Pool)误差项"
@@ -1059,7 +1058,7 @@ msgstr "标准误"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr ""
+msgstr "未使用的 RM 因子的平均值"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
@@ -1239,7 +1238,7 @@ msgstr "校正"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Null control"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives Plots"
@@ -1323,7 +1322,7 @@ msgstr "多图( Separate Plots)"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "水平显示"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"

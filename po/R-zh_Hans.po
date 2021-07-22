@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-19 17:57+0000\n"
+"PO-Revision-Date: 2021-07-22 19:33+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -119,7 +119,7 @@ msgid "Cohen's d does not correct for multiple comparisons."
 msgstr "Cohen's d 不能校正多重比较。"
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr "基于 %s 个样本的Bootstrap抽样已成功复刻。"
+msgstr "基于 %s 次样本的Bootstrap抽样已成功复刻。"
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
 msgstr "平均差估计基于自举(bootstrap)分布的中位数。"
@@ -497,7 +497,6 @@ msgstr "P(incl|data)"
 msgid "P(excl|data)"
 msgstr "P(excl|data)"
 
-#, fuzzy
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr "将包含效应的模型与去除效应的等效模型进行比较。排除了高阶相互作用。 Sebastiaan Math%st 建议的分析。"
 
@@ -570,7 +569,6 @@ msgstr "模型平均 Q-Q 图"
 msgid "Model Averaged Posterior R%s"
 msgstr "模型平均后验 R%s"
 
-#, fuzzy
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
 "通过将零假设在所有比较中成立的先验概率固定为 0.5，已针对多重检验校正后验几率(Westfall, Johnson, & Utts, 1997)。"
@@ -606,7 +604,6 @@ msgstr "抽样后验"
 msgid "length of samples must be equal to length of weights!"
 msgstr "样本的长度必须等于权重的长度！"
 
-#, fuzzy
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."
 msgstr "所有预测的方差为零。检查异常的预测变量或增加后验样本的数量。"
 

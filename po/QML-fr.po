@@ -1,88 +1,84 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-07-19 17:57+0000\n"
-"Last-Translator: shun wang <shuonwang@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"jasp/jaspanova-qml/zh_Hans/>\n"
-"Language: zh_Hans\n"
+"PO-Revision-Date: 2021-07-22 19:33+0000\n"
+"Last-Translator: Martin Constant <martinc.1994@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.7.2-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr "方差分析"
-
-msgctxt "Description|"
-msgid "Evaluate the difference between multiple means"
-msgstr "比较多个平均值的差异"
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "经典"
+msgstr "Classiques"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr "重复测量方差分析"
+msgstr "ANOVA à mesures répétées"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr "协方差分析(ANCOVA)"
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr "多变量方差分析(MANOVA)"
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr "贝叶斯方法"
+msgstr "Bayésiens"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr "贝叶斯方差分析"
+msgstr "ANOVA bayésienne"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "贝叶斯重复测量方差分析"
+msgstr "ANOVA à mesures répétées bayésienne"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr "贝叶斯协方差分析"
+msgstr "ANCOVA bayésienne"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr "因变量"
+msgstr "Variable dépendante"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr "Facteurs fixes"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr "随机因子"
+msgstr "Facteurs aléatoires"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr "协变量"
+msgstr "Covariables"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "WLS 权重"
+msgstr "Poids moindres carrés pondérés"
 
 msgctxt "Ancova|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "Ancova|"
 msgid "Descriptive statistics"
-msgstr "描述性统计"
+msgstr "Statistiques descriptives"
 
 msgctxt "Ancova|"
 msgid "Estimates of effect size"
-msgstr "效应量估计"
+msgstr "Estimations de taille d'effet"
 
 msgctxt "Ancova|"
 msgid "η²"
@@ -90,7 +86,7 @@ msgstr "η²"
 
 msgctxt "Ancova|"
 msgid "partial η²"
-msgstr "partial η²"
+msgstr "η² partiel"
 
 msgctxt "Ancova|"
 msgid "ω²"
@@ -98,95 +94,91 @@ msgstr "ω²"
 
 msgctxt "Ancova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p-ratio"
+msgstr "Ratio p maximal de Vovk-Sellke"
 
 msgctxt "Ancova|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "Ancova|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "Ancova|"
 msgid "Model Terms"
-msgstr "模型的项(Terms)"
+msgstr "Termes du modèle"
 
 msgctxt "Ancova|"
 msgid "Sum of squares"
-msgstr "平方和"
+msgstr "Somme des carrés"
 
 msgctxt "Ancova|"
 msgid "Assumption Checks"
-msgstr "假设检验"
+msgstr "Vérifications des présupposés"
 
 msgctxt "Ancova|"
 msgid "Homogeneity tests"
-msgstr "齐性检验(Homogeneity)"
+msgstr "Tests d'homogénéité"
 
 msgctxt "Ancova|"
 msgid "Q-Q plot of residuals"
-msgstr "残差的Q-Q图"
+msgstr "Diagramme Q-Q des résidus"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr "因子协变量独立性检验"
+msgstr "Vérification de l'indépendance des facteurs covariants"
 
 msgctxt "Ancova|"
 msgid "Contrasts"
-msgstr "对比(Contrasts)"
+msgstr "Contrastes"
 
 msgctxt "Ancova|"
 msgid "Confidence intervals"
-msgstr "置信区间"
+msgstr "Intervalles de confiance"
 
 msgctxt "Ancova|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "Ancova|"
 msgid "Type"
-msgstr "类型"
+msgstr "Type"
 
 msgctxt "Ancova|"
 msgid "Standard"
-msgstr "标准(Standard)"
+msgstr "Standard"
 
 msgctxt "Ancova|"
 msgid "From"
-msgstr "从"
+msgstr "Depuis"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
-msgstr "次的自助抽样(bootstrap)"
+msgstr "bootstraps"
 
 msgctxt "Ancova|"
 msgid "Effect size"
-msgstr "效应量"
+msgstr "Taille d'effet"
 
 msgctxt "Ancova|"
 msgid "Games-Howell"
-msgstr "Games-Howell 检验"
+msgstr "Games-Howell"
 
 msgctxt "Ancova|"
 msgid "Dunnett"
-msgstr "Dunnett 检验"
+msgstr "Dunnett"
 
 msgctxt "Ancova|"
 msgid "Dunn"
-msgstr "Dunn 检验"
+msgstr "Dunn"
 
 msgctxt "Ancova|"
 msgid "Correction"
-msgstr "校正(Correction)，假定等方差"
+msgstr "Correction"
 
 msgctxt "Ancova|"
 msgid "Tukey"
 msgstr "Tukey"
-
-msgctxt "Ancova|"
-msgid "Scheffé"
-msgstr "Scheffé"
 
 msgctxt "Ancova|"
 msgid "Bonferroni"
@@ -202,75 +194,75 @@ msgstr "Šidák"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr "标记具显著性比较结果"
+msgstr "Marquer les comparaisons significatives"
 
 msgctxt "Ancova|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "Ancova|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "Ancova|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "Ancova|"
 msgid "Separate Plots"
-msgstr "多图"
+msgstr "Graphiques distincts"
 
 msgctxt "Ancova|"
 msgid "Display error bars"
-msgstr "显示误差线"
+msgstr "Afficher les barres d'erreur"
 
 msgctxt "Ancova|"
 msgid "Standard error"
-msgstr "标准误"
+msgstr "Erreur type"
 
 msgctxt "Ancova|"
 msgid "Marginal Means"
-msgstr "边际均值"
+msgstr "Moyenne marginale"
 
 msgctxt "Ancova|"
 msgid "Compare marginal means to 0"
-msgstr "将边际均值与0进行比较"
+msgstr "Comparer les moyennes marginales à 0"
 
 msgctxt "Ancova|"
 msgid "Confidence interval adjustment"
-msgstr "置信区间调整方法"
+msgstr "Ajustement des intervalles de confiance"
 
 msgctxt "Ancova|"
 msgid "None"
-msgstr "无"
+msgstr "Aucun"
 
 msgctxt "Ancova|"
 msgid "Simple Main Effects"
-msgstr "简单主效应"
+msgstr "Effet principaux simples"
 
 msgctxt "Ancova|"
 msgid "Factors"
-msgstr "因子"
+msgstr "Facteurs"
 
 msgctxt "Ancova|"
 msgid "Simple Effect Factor"
-msgstr "简单效应因子"
+msgstr "Facteur d'effet simple"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 1"
-msgstr "调节因子"
+msgstr "Facteur modérateur 1"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 2"
-msgstr "调节因子 2"
+msgstr "Facteur modérateur 2"
 
 msgctxt "Ancova|"
 msgid "Nonparametrics"
-msgstr "非参数检验"
+msgstr "Tests non-paramétriques"
 
 msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
-msgstr "Kruskal-Wallis 检验"
+msgstr "Test de Kruskal-Wallis"
 
 msgctxt "Ancova|"
 msgid " "
@@ -278,103 +270,103 @@ msgstr " "
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr "因变量"
+msgstr "Variable dépendante"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr "Facteurs fixes"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr "随机因子"
+msgstr "Facteurs aléatoires"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr "协变量"
+msgstr "Covariables"
 
 msgctxt "AncovaBayesian|"
 msgid "Tables"
-msgstr "表"
+msgstr "Tableaux"
 
 msgctxt "AncovaBayesian|"
 msgid "Effects"
-msgstr "效应"
+msgstr "Effets"
 
 msgctxt "AncovaBayesian|"
 msgid "Across all models"
-msgstr "交叉(across)所有模型"
+msgstr "Tous modèles confondus"
 
 msgctxt "AncovaBayesian|"
 msgid "Across matched models"
-msgstr "交叉匹配的模型"
+msgstr "Sur les modèles appariés"
 
 msgctxt "AncovaBayesian|"
 msgid "Estimates"
-msgstr "估计"
+msgstr "Estimations"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged R²"
-msgstr "模型平均 R²"
+msgstr "R² moyen du modèle"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives"
-msgstr "描述统计"
+msgstr "Descriptifs"
 
 msgctxt "AncovaBayesian|"
 msgid "Credible interval"
-msgstr "可信区间"
+msgstr "Intervalle de crédibilité"
 
 msgctxt "AncovaBayesian|"
 msgid "Order"
-msgstr "秩次(order)"
+msgstr "Ordre"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to best model"
-msgstr "与最优模型比较"
+msgstr "Comparer au meilleur modèle"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to null model"
-msgstr "与空模型比较"
+msgstr "Comparer au modèle nul"
 
 msgctxt "AncovaBayesian|"
 msgid "Plots"
-msgstr "绘图"
+msgstr "Graphiques"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "模型平均后验"
+msgstr "Postérieurs moyens du modèle"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "为每组水平单独绘图"
+msgstr "Niveaux du groupe dans un seul graphique"
 
 msgctxt "AncovaBayesian|"
 msgid "Individual plot per level"
-msgstr "为每个水平单独绘图"
+msgstr "Graphiques distincts par niveau"
 
 msgctxt "AncovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "残差的 Q-Q 图"
+msgstr "Diagramme Q-Q des résidus"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior R²"
-msgstr "后验 R²"
+msgstr "R² du postérieur"
 
 msgctxt "AncovaBayesian|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "AncovaBayesian|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "AncovaBayesian|"
 msgid "Single Model Inference"
-msgstr "单一模型推断"
+msgstr "Inférence sur modèle unique"
 
 msgctxt "AncovaBayesian|"
 msgid "Specific Model Terms"
-msgstr "指定模型的项"
+msgstr "Termes spécifiques du modèle"
 
 msgctxt "AncovaBayesian|"
 msgid "R²"
@@ -382,107 +374,107 @@ msgstr "R²"
 
 msgctxt "AncovaBayesian|"
 msgid "Marginal posteriors"
-msgstr "边际后验"
+msgstr "Postérieurs marginaux"
 
 msgctxt "AncovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "AncovaBayesian|"
 msgid "Correction"
-msgstr "校正(Correction)"
+msgstr "Correction"
 
 msgctxt "AncovaBayesian|"
 msgid "Null control"
-msgstr "Null control"
+msgstr "Contrôle d'hypothèse nulle"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "AncovaBayesian|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "Graphiques distincts"
 
 msgctxt "AncovaBayesian|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "AncovaBayesian|"
 msgid "Additional Options"
-msgstr "附加选项"
+msgstr "Options supplémentaires"
 
 msgctxt "AncovaBayesian|"
 msgid "Prior"
-msgstr "先验"
+msgstr "Antérieur"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "r 尺度固定效应"
+msgstr "Échelle r des effets fixes"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr "r 尺度随机效应"
+msgstr "Échelle r des effets aléatoires"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
-msgstr "r 尺度协变量"
+msgstr "Échelle r des covariables"
 
 msgctxt "AncovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr "数值精度"
+msgstr "Précision numérique"
 
 msgctxt "AncovaBayesian|"
 msgid "Auto"
-msgstr "自动"
+msgstr "Auto"
 
 msgctxt "AncovaBayesian|"
 msgid "Manual"
-msgstr "手动设置"
+msgstr "Manuelle"
 
 msgctxt "AncovaBayesian|"
 msgid "No. samples"
-msgstr "样本数量"
+msgstr "Nbre d'échantillons"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior Samples"
-msgstr "后验样本"
+msgstr "Échantillonnage du postérieur"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr "因变量"
+msgstr "Variable dépendante"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr "Facteurs fixes"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr "随机因子"
+msgstr "Facteurs aléatoires"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr "WLS 权重"
+msgstr "Poids des moindres carrés pondérés"
 
 msgctxt "Anova|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "Anova|"
 msgid "Descriptive statistics"
-msgstr "描述性统计"
+msgstr "Statistiques descriptives"
 
 msgctxt "Anova|"
 msgid "Estimates of effect size"
-msgstr "效应量估计"
+msgstr "Estimations de taille d'effet"
 
 msgctxt "Anova|"
 msgid "η²"
@@ -490,7 +482,7 @@ msgstr "η²"
 
 msgctxt "Anova|"
 msgid "partial η²"
-msgstr "partial η²"
+msgstr "η² partiel"
 
 msgctxt "Anova|"
 msgid "ω²"
@@ -498,39 +490,39 @@ msgstr "ω²"
 
 msgctxt "Anova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p-ratio"
+msgstr "Ratio p maximal de Vovk-Sellke"
 
 msgctxt "Anova|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "Anova|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "Anova|"
 msgid "Model Terms"
-msgstr "模型的项(Terms)"
+msgstr "Termes du modèle"
 
 msgctxt "Anova|"
 msgid "Sum of squares"
-msgstr "平方和"
+msgstr "Somme des carrés"
 
 msgctxt "Anova|"
 msgid "Assumption Checks"
-msgstr "假设检验"
+msgstr "Vérifications des présupposés"
 
 msgctxt "Anova|"
 msgid "Homogeneity tests"
-msgstr "齐性检验(Homogeneity)"
+msgstr "Tests d'homogénéité"
 
 msgctxt "Anova|"
 msgid "Homogeneity corrections"
-msgstr "同质性（齐性）校正"
+msgstr "Corrections d'homogénéité"
 
 msgctxt "Anova|"
 msgid "None"
-msgstr "无"
+msgstr "Aucune"
 
 msgctxt "Anova|"
 msgid "Brown-Forsythe"
@@ -542,39 +534,39 @@ msgstr "Welch"
 
 msgctxt "Anova|"
 msgid "Q-Q plot of residuals"
-msgstr "残差的 Q-Q 图"
+msgstr "Diagramme Q-Q des résidus"
 
 msgctxt "Anova|"
 msgid "Contrasts"
-msgstr "对比(Contrasts)"
+msgstr "Contrastes"
 
 msgctxt "Anova|"
 msgid "Confidence intervals"
-msgstr "置信区间"
+msgstr "Intervalles de confiance"
 
 msgctxt "Anova|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "Anova|"
 msgid "Type"
-msgstr "类型"
+msgstr "Type"
 
 msgctxt "Anova|"
 msgid "Standard"
-msgstr "标准(Standard)"
+msgstr "Standard"
 
 msgctxt "Anova|"
 msgid "From"
-msgstr "从"
+msgstr "Depuis"
 
 msgctxt "Anova|"
 msgid "bootstraps"
-msgstr "次的自助抽样(bootstrap)"
+msgstr "bootstraps"
 
 msgctxt "Anova|"
 msgid "Effect size"
-msgstr "效应量"
+msgstr "Taille d'effet"
 
 msgctxt "Anova|"
 msgid "Games-Howell"
@@ -582,23 +574,19 @@ msgstr "Games-Howell"
 
 msgctxt "Anova|"
 msgid "Dunnett"
-msgstr "Dunnett 检验"
+msgstr "Dunnett"
 
 msgctxt "Anova|"
 msgid "Dunn"
-msgstr "Dunn 检验"
+msgstr "Dunn"
 
 msgctxt "Anova|"
 msgid "Correction"
-msgstr "校正(Correction)"
+msgstr "Correction"
 
 msgctxt "Anova|"
 msgid "Tukey"
 msgstr "Tukey"
-
-msgctxt "Anova|"
-msgid "Scheffé"
-msgstr "Scheffé"
 
 msgctxt "Anova|"
 msgid "Bonferroni"
@@ -614,75 +602,75 @@ msgstr "Šidák"
 
 msgctxt "Anova|"
 msgid "Flag Significant Comparisons"
-msgstr "标记具显著性比较结果"
+msgstr "Marquer les comparaisons significatives"
 
 msgctxt "Anova|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "Anova|"
 msgid "Factors"
-msgstr "因子"
+msgstr "Facteurs"
 
 msgctxt "Anova|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "Anova|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "Anova|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "Graphiques distincts"
 
 msgctxt "Anova|"
 msgid "Display error bars"
-msgstr "显示误差线"
+msgstr "Afficher les barres d'erreur"
 
 msgctxt "Anova|"
 msgid "Confidence interval"
-msgstr "置信区间"
+msgstr "Intervalle de confiance"
 
 msgctxt "Anova|"
 msgid "Standard error"
-msgstr "标准误"
+msgstr "Erreur type"
 
 msgctxt "Anova|"
 msgid "Marginal Means"
-msgstr "边际均值"
+msgstr "Moyenne marginale"
 
 msgctxt "Anova|"
 msgid "Compare marginal means to 0"
-msgstr "将边际均值与0进行比较"
+msgstr "Comparer les moyennes marginales à 0"
 
 msgctxt "Anova|"
 msgid "Confidence interval adjustment"
-msgstr "置信区间调整方法"
+msgstr "Ajustement des intervalles de confiance"
 
 msgctxt "Anova|"
 msgid "Simple Main Effects"
-msgstr "简单主效应"
+msgstr "Effet principaux simples"
 
 msgctxt "Anova|"
 msgid "Simple Effect Factor"
-msgstr "简单效应因子"
+msgstr "Facteur d'effet simple"
 
 msgctxt "Anova|"
 msgid "Moderator Factor 1"
-msgstr "调节因子 1"
+msgstr "Facteur modérateur 1"
 
 msgctxt "Anova|"
 msgid "Moderator Factor 2"
-msgstr "调节因子 2"
+msgstr "Facteur modérateur 2"
 
 msgctxt "Anova|"
 msgid "Nonparametrics"
-msgstr "非参数检验"
+msgstr "Tests non-paramétriques"
 
 msgctxt "Anova|"
 msgid "Kruskal-Wallis Test"
-msgstr "Kruskal-Wallis 检验"
+msgstr "Test de Kruskal-Wallis"
 
 msgctxt "Anova|"
 msgid " "
@@ -690,99 +678,99 @@ msgstr " "
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr "因变量"
+msgstr "Variable dépendante"
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr "Facteurs fixes"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr "随机因子"
+msgstr "Facteurs aléatoires"
 
 msgctxt "AnovaBayesian|"
 msgid "Tables"
-msgstr "表"
+msgstr "Tableaux"
 
 msgctxt "AnovaBayesian|"
 msgid "Effects"
-msgstr "效应"
+msgstr "Effets"
 
 msgctxt "AnovaBayesian|"
 msgid "Across all models"
-msgstr "交叉(across)所有模型"
+msgstr "Tous modèles confondus"
 
 msgctxt "AnovaBayesian|"
 msgid "Across matched models"
-msgstr "交叉(Across )匹配的模型"
+msgstr "Sur les modèles appariés"
 
 msgctxt "AnovaBayesian|"
 msgid "Estimates"
-msgstr "估计"
+msgstr "Estimations"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged R²"
-msgstr "模型平均 R²"
+msgstr "R² moyen du modèle"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives"
-msgstr "描述统计"
+msgstr "Descriptifs"
 
 msgctxt "AnovaBayesian|"
 msgid "Credible interval"
-msgstr "可信区间"
+msgstr "Intervalle de crédibilité"
 
 msgctxt "AnovaBayesian|"
 msgid "Order"
-msgstr "秩次(order)"
+msgstr "Ordre"
 
 msgctxt "AnovaBayesian|"
 msgid "Compare to best model"
-msgstr "与最优模型比较"
+msgstr "Comparer au meilleur modèle"
 
 msgctxt "AnovaBayesian|"
 msgid "Compare to null model"
-msgstr "与空模型比较"
+msgstr "Comparer au modèle nul"
 
 msgctxt "AnovaBayesian|"
 msgid "Plots"
-msgstr "绘图"
+msgstr "Graphiques"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "模型平均后验"
+msgstr "Postérieurs moyens du modèle"
 
 msgctxt "AnovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "为每组水平单独绘图"
+msgstr "Niveaux du groupe dans un seul graphique"
 
 msgctxt "AnovaBayesian|"
 msgid "Individual plot per level"
-msgstr "为每个水平单独绘图"
+msgstr "Graphiques distincts par niveau"
 
 msgctxt "AnovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "残差的Q-Q 图"
+msgstr "Diagramme Q-Q des résidus"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior R²"
-msgstr "后验 R²"
+msgstr "R² du postérieur"
 
 msgctxt "AnovaBayesian|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "AnovaBayesian|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "AnovaBayesian|"
 msgid "Single Model Inference"
-msgstr "单一模型推断"
+msgstr "Inférence sur modèle unique"
 
 msgctxt "AnovaBayesian|"
 msgid "Specific Model Terms"
-msgstr "指定模型的项(Terms)"
+msgstr "Termes spécifiques du modèle"
 
 msgctxt "AnovaBayesian|"
 msgid "R²"
@@ -790,111 +778,107 @@ msgstr "R²"
 
 msgctxt "AnovaBayesian|"
 msgid "Marginal posteriors"
-msgstr "边际后验"
+msgstr "Postérieurs marginaux"
 
 msgctxt "AnovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "AnovaBayesian|"
 msgid "Correction"
-msgstr "校正(Correction)"
+msgstr "Correction"
 
 msgctxt "AnovaBayesian|"
 msgid "Null control"
-msgstr "Null control"
+msgstr "Contrôle d'hypothèse nulle"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "AnovaBayesian|"
 msgid "Factors"
-msgstr "因子"
+msgstr "Facteurs"
 
 msgctxt "AnovaBayesian|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "Graphiques distincts"
 
 msgctxt "AnovaBayesian|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "AnovaBayesian|"
 msgid "Additional Options"
-msgstr "附加选项"
+msgstr "Options supplémentaires"
 
 msgctxt "AnovaBayesian|"
 msgid "Prior"
-msgstr "先验"
+msgstr "Antérieur"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "r 尺度固定效应"
+msgstr "Échelle r des effets fixes"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale random effects"
-msgstr "r 尺度随机效应"
+msgstr "Échelle r des effets aléatoires"
 
 msgctxt "AnovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr "数值精度"
+msgstr "Précision numérique"
 
 msgctxt "AnovaBayesian|"
 msgid "Auto"
-msgstr "自动"
+msgstr "Auto"
 
 msgctxt "AnovaBayesian|"
 msgid "Manual"
-msgstr "手动设置"
+msgstr "Manuelle"
 
 msgctxt "AnovaBayesian|"
 msgid "No. samples"
-msgstr "样本数量"
+msgstr "Nbre d'échantillons"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior Samples"
-msgstr "后验样本"
+msgstr "Échantillonnage du postérieur"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr "重复测量因子"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "RM Factor"
-msgstr "RM因子"
+msgstr "Facteurs Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "重复测量单元(cell)"
+msgstr "Colonnes Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr "组间因子"
+msgstr "Facteurs Inter-Sujets"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr "协变量"
+msgstr "Covariables"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptive statistics"
-msgstr "描述性统计"
+msgstr "Statistiques descriptives"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
-msgstr "效应量估计"
+msgstr "Estimations de taille d'effet"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "η²"
@@ -902,11 +886,11 @@ msgstr "η²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "partial η²"
-msgstr "partial η²"
+msgstr "η² partiel"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "general η²"
-msgstr "general η²"
+msgstr "η² généralisé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "ω²"
@@ -914,51 +898,51 @@ msgstr "ω²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p-ratio"
+msgstr "Ratio p maximal de Vovk-Sellke"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr "重复测量成分"
+msgstr "Composantes intra-sujet"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr "模型的项(Terms)"
+msgstr "Termes du modèle"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr "组间成分"
+msgstr "Composants Inter-Sujets"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr "模型的项(Terms)"
+msgstr "Termes du modèle"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sum of squares"
-msgstr "平方和"
+msgstr "Somme des carrés"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr "使用多元模型进行 follow-up 检验"
+msgstr "Utiliser un modèle multivarié pour les tests suivants"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr "假设检验"
+msgstr "Vérifications des présupposés"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr "球形检验"
+msgstr "Tests de sphéricité"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr "球形校正"
+msgstr "Corrections de sphéricité"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr "无"
+msgstr "Aucune"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
@@ -970,35 +954,35 @@ msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr "齐性检验(Homogeneity)"
+msgstr "Tests d'homogénéité"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Contrasts"
-msgstr "对比"
+msgstr "Contrastes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assume equal variances"
-msgstr "假设方差齐（相等）"
+msgstr "Supposer des variances égales"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
-msgstr "置信区间"
+msgstr "Intervalles de confiance"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr "效应量"
+msgstr "Taille d'effet"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
-msgstr "RM 因子的池(Pool)误差项"
+msgstr "Terme d'erreur commun pour les facteurs MR"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr "校正"
+msgstr "Correction"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
@@ -1013,72 +997,68 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffé"
-msgstr "Scheffé"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
-msgstr "标记具显著性比较结果"
+msgstr "Marquer les comparaisons significatives"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr "因子"
+msgstr "Facteurs"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "Graphiques distincts"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr "标签 y 轴"
+msgstr "Label de l'axe y"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Display error bars"
-msgstr "显示误差线"
+msgstr "Afficher les barres d'erreur"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval"
-msgstr "置信区间"
+msgstr "Intervalle de confiance"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Standard error"
-msgstr "标准误"
+msgstr "Erreur type"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "未使用的 RM 因子的平均值"
+msgstr "Moyenne des facteurs MR non utilisés"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
-msgstr "边际均值"
+msgstr "Moyenne marginale"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
-msgstr "从"
+msgstr "Depuis"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "bootstraps"
-msgstr "次的自助抽样(bootstrap)"
+msgstr "bootstraps"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Compare marginal means to 0"
-msgstr "将边际均值与0进行比较"
+msgstr "Comparer les moyennes marginales à 0"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval adjustment"
-msgstr "置信区间调整方法"
+msgstr "Ajustement des intervalles de confiance"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Šidák"
@@ -1086,139 +1066,139 @@ msgstr "Šidák"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Main Effects"
-msgstr "简单主效应"
+msgstr "Effet principaux simples"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Effect Factor"
-msgstr "简单效应因子"
+msgstr "Facteur d'effet simple"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 1"
-msgstr "调节因子 1"
+msgstr "Facteur modérateur 1"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 2"
-msgstr "调节因子 2"
+msgstr "Facteur modérateur 2"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr "池(Pool)错误项"
+msgstr "Termes d'erreur communs"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr "非参数检验"
+msgstr "Tests non-paramétriques"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr "Facteur MR"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr "可选分组因子"
+msgstr "Facteur de regroupement facultatif"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr "Conover 的事后检验"
+msgstr "Tests post-hoc de Conover"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr "重复测量因子"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "RM Factor"
-msgstr "RM 因子"
+msgstr "Facteurs Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "重复测量单元(cell)"
+msgstr "Colonnes Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr "组间因子"
+msgstr "Facteurs Inter-Sujets"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr "协变量"
+msgstr "Covariables"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Tables"
-msgstr "表"
+msgstr "Tableaux"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Effects"
-msgstr "效应"
+msgstr "Effets"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across all models"
-msgstr "交叉(across)所有模型"
+msgstr "Tous modèles confondus"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across matched models"
-msgstr "交叉(Across )匹配的模型"
+msgstr "Sur les modèles appariés"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Estimates"
-msgstr "估计"
+msgstr "Estimations"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged R²"
-msgstr "模型平均 R²"
+msgstr "R² moyen du modèle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives"
-msgstr "描述统计"
+msgstr "Descriptifs"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Credible interval"
-msgstr "可信区间"
+msgstr "Intervalle de crédibilité"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Order"
-msgstr "秩次(order)"
+msgstr "Ordre"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Compare to best model"
-msgstr "与最优模型比较"
+msgstr "Comparer au meilleur modèle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Compare to null model"
-msgstr "与空模型比较"
+msgstr "Comparer au modèle nul"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Plots"
-msgstr "绘图"
+msgstr "Graphiques"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged posteriors"
-msgstr "模型平均后验"
+msgstr "Postérieurs moyens du modèle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Group levels in single plot"
-msgstr "为每组水平单独绘图"
+msgstr "Niveaux du groupe dans un seul graphique"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Individual plot per level"
-msgstr "为每个水平单独绘图"
+msgstr "Graphiques distincts par niveau"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "残差的Q-Q 图"
+msgstr "Diagramme Q-Q des résidus"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior R²"
-msgstr "后验 R²"
+msgstr "R² du postérieur"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Single Model Inference"
-msgstr "单一模型推断"
+msgstr "Inférence sur modèle unique"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Specific Model Terms"
-msgstr "指定模型的项(Terms)"
+msgstr "Termes spécifiques du modèle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "R²"
@@ -1226,143 +1206,119 @@ msgstr "R²"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Marginal posteriors"
-msgstr "边际后验"
+msgstr "Postérieurs marginaux"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Post Hoc Tests"
-msgstr "事后检验(Post Hoc)"
+msgstr "Tests post-hoc"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Correction"
-msgstr "校正"
+msgstr "Correction"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Null control"
-msgstr "Null control"
+msgstr "Contrôle d'hypothèse nulle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives Plots"
-msgstr "描述性绘图"
+msgstr "Graphiques descriptifs"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Factors"
-msgstr "因子"
+msgstr "Facteurs"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Horizontal Axis"
-msgstr "横轴"
+msgstr "Axe horizontal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Lines"
-msgstr "分隔线"
+msgstr "Lignes distinctes"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "Graphiques distincts"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr "标签 y 轴"
+msgstr "Label de l'axe y"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Additional Options"
-msgstr "附加选项"
+msgstr "Options supplémentaires"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Prior"
-msgstr "先验"
+msgstr "Antérieur"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
-msgstr "r 尺度固定效应"
+msgstr "Échelle r des effets fixes"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale random effects"
-msgstr "r 尺度随机效应"
+msgstr "Échelle r des effets aléatoires"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale covariates"
-msgstr "r 尺度协变量"
+msgstr "Échelle r des covariables"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Numerical Accuracy"
-msgstr "数值精度"
+msgstr "Précision numérique"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Auto"
-msgstr "自动"
+msgstr "Auto"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Manual"
-msgstr "手动设置"
+msgstr "Manuelle"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "No. samples"
-msgstr "样本数量"
+msgstr "Nbre d'échantillons"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior Samples"
-msgstr "后验样本"
-
-msgctxt "RainCloudPlots|"
-msgid "Raincloud Plots"
-msgstr "雨云图"
-
-msgctxt "RainCloudPlots|"
-msgid "Factors"
-msgstr "因子"
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal Axis"
-msgstr "横轴"
-
-msgctxt "RainCloudPlots|"
-msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal display"
-msgstr "水平显示"
-
-msgctxt "RainCloudPlots|"
-msgid "Label y-axis"
-msgstr "标签 y 轴"
+msgstr "Échantillonnage du postérieur"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr "因变量"
+msgstr "Variables dépendantes"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr "Facteurs fixes"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr "随机因子"
+msgstr "Facteurs aléatoires"
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr "模型"
+msgstr "Modèle"
 
 msgctxt "Manova|"
 msgid "Components"
-msgstr "成分"
+msgstr "Composantes"
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr "模型的项(Terms)"
+msgstr "Termes du modèle"
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr "包括截距"
+msgstr "Inclure l'intercept"
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr "附加选项"
+msgstr "Options supplémentaires"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr "检验"
+msgstr "Test"
 
 msgctxt "Manova|"
 msgid "Pillai"
@@ -1382,24 +1338,68 @@ msgstr "Roy"
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr "假设检验"
+msgstr "Vérifications des présupposés"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr "协方差矩阵的同质性"
+msgstr "Homogénéité des matrices de covariance"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
-msgstr "多元正态性"
+msgstr "Normalité multivariée"
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr "显示"
+msgstr "Afficher"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr "ANOVA 表"
+msgstr "Tableaux d'ANOVA"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p-ratio"
+msgstr "Ratio p maximal de Vovk-Sellke"
+
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr "Graphiques Raincloud"
+
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr "Facteurs"
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr "Axe horizontal"
+
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr "Graphiques distincts"
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr "Affichage horizontal"
+
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr "Label de l'axe y"
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr "Évaluer la différence entre plusieurs moyennes"
+
+msgctxt "Ancova|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+msgctxt "Anova|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr "Facteur MR"

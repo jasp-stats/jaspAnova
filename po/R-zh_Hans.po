@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-06-28 16:05\n"
-"PO-Revision-Date: 2021-07-24 19:13+0000\n"
+"PO-Revision-Date: 2021-07-26 02:32+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -184,7 +184,7 @@ msgid "Confidence interval is too narrow, please select a different confidence l
 msgstr "置信区间太窄，请选择其他的置信水平。"
 
 msgid "Mean"
-msgstr "平均值"
+msgstr "均值"
 
 msgid "SD"
 msgstr "标准差"

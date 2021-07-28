@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-07-19 17:57+0000\n"
+"PO-Revision-Date: 2021-07-29 02:34+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-qml/zh_Hans/>\n"
@@ -154,7 +154,7 @@ msgstr "标准(Standard)"
 
 msgctxt "Ancova|"
 msgid "From"
-msgstr "从"
+msgstr "基于"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
@@ -1306,7 +1306,7 @@ msgstr "后验样本"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr "雨云图"
+msgstr "雨云图(Raincloud)"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"

@@ -1751,27 +1751,25 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     sortTerms <- function(x) {
       # split b:a to c("b", "a"), sort it, and then paste it back
       # otherwise posteriors samples between different runs are not correctly retrieved from the state.
-      sapply(strsplit(names(oldLevelInfo), ":", fixed = TRUE), function(x) paste(sort(x), collapse = ":"))
+      sapply(strsplit(x, ":", fixed = TRUE), function(x) paste(sort(x), collapse = ":"))
     }
 
     tmp_old <- sortTerms(names(oldLevelInfo))
     tmp_new <- sortTerms(names(newLevelInfo))
-    oldNames <- names(oldLevelInfo)
-    newNames <- names(newLevelInfo)
-    names(oldNames) <- tmp_old
-    names(newNames) <- tmp_new
+    matches <- match(tmp_new, tmp_old)
+    for (i in seq_along(matches)) {
+      if (is.na(matches[i]))
+        next
 
-    if (!identical(newLevelInfo, oldLevelInfo)) {
-      for (nm in intersect(names(oldNames), names(newNames))) {
-
-        nm_old <- oldNames[nm]
-        nm_new <- newNames[nm]
-
-        idx <- !(oldLevelInfo[[nm_old]] %in% newLevelInfo[[nm_new]])
-        renameFrom <- c(renameFrom, oldLevelInfo[[nm_old]][idx])
-        renameTo   <- c(renameTo,   newLevelInfo[[nm_new]][idx])
+      j <- matches[i]
+      if (!identical(oldLevelInfo[[j]], newLevelInfo[[i]])) {
+        if (length(oldLevelInfo[[j]]) == length(newLevelInfo[[i]])) {
+          renameFrom <- c(renameFrom, oldLevelInfo[[j]])
+          renameTo   <- c(renameTo,   newLevelInfo[[i]])
+        }
       }
     }
+
   } else {
     reuseable <- rep(NA, nmodels)
   }

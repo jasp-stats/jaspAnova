@@ -2051,8 +2051,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # compute residuals and r-squared
   # sample from the joint posterior over models and parameters
-  tmp  <- .BANOVAgetSMIResidRsq(weightedDensities, dataset, model$model.list[[nmodels]], nIter, model,
-                                posterior$levelInfo, options)
+  tmp  <- .BANOVAgetSMIResidRsq(weightedDensities, dataset, model$model.list[[nmodels]], nIter, model, options)
   means  <- rowMeans(tmp$resid)
   h <- (1 - cri) / 2
   quants <- matrixStats::rowQuantiles(tmp$resid, probs = c(h, 1 - h))
@@ -2262,7 +2261,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(samples)
 }
 
-.BANOVAgetSMIResidRsq <- function(posterior, dataset, formula, nIter, model, levelInfo = NULL, options) {
+.BANOVAgetSMIResidRsq <- function(posterior, dataset, formula, nIter, model, options) {
 
   # @param posterior  object from Bayesfactor package, or SxPx2 array of weighted densities
   # @param dataset    dataset
@@ -2305,40 +2304,54 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (length(dim(posterior)) == 3L) {
     # we're doing model averaged inference
 
+    # recompute the levelInfo, this is relatively cheap and we cannot be sure that the levelInfo in the
+    # posterior was not retrieved from state (and contains too many or too few variables)
+    nmodels   <- length(model[["model.list"]])
+    randomFactors <- .BANOVAgetRandomFactors(options, model[["analysisType"]])
+    dataTypes <- .BANOVAgetDataTypes(dataset, model[["model.list"]][[nmodels]], randomFactors)
+    levelInfo <- .BANOVAgetLevelInfo(dataset, model[["model.list"]][[nmodels]], dataTypes)
+
+    # which parameters are nuisance?
+    parameterNames <- c("mu", names(levelInfo[["levelNames"]]))
+    # the variables that are nuisance, e.g., contBinom
+    isNuisanceVar   <- c(TRUE, parameterNames[-1L] %in% model[["nuisance"]])
+    names(isNuisanceVar) <- parameterNames
+    # the parameters that are nuisance, e.g., contBinom-0 and contBinom-1
+    isNuisanceParam <- rep(isNuisanceVar, c(1, lengths(levelInfo[["levelNames"]])))
+    names(isNuisanceParam) <- c("mu", unlist(levelInfo[["levelNames"]]))
+
+    if (!all(names(isNuisanceParam) %in% colnames(posterior)))
+      stop("!all(names(isNuisance) %in% colnames(posterior)) was not true.")
+
+    # we cannot use model[["effects"]] because that exludes nuisance parameters, so we rebuild one that doesn't exclude these
+    effects <- matrix(FALSE, nmodels, length(isNuisanceParam), dimnames = list(NULL, names(isNuisanceParam)))
+    for (i in seq_along(model[["model.list"]])) {
+      if (is.null(model[["model.list"]][[i]])) { # implies an intercept-only null model
+        cnms <- "mu"
+      } else {
+        idx <- names(levelInfo[["levelNames"]]) %in% attr(terms(model[["model.list"]][[i]]), "term.labels")
+        cnms <- c("mu", unlist(levelInfo[["levelNames"]][idx]))
+      }
+      effects[i, cnms] <- TRUE#c(TRUE, names(levelInfo[["levelNames"]]) %in% attr(terms(model[["model.list"]][[i]]), "term.labels"))
+    }
+
     # sample from the BMA posterior
-    effects <- model[["effects"]]
-    rownames(effects) <- NULL # drop rownames, otherwise they get copied later on
     postProbs <- model[["postProbs"]]
     postProbs[is.na(postProbs)] <- 0
     .setSeedJASP(options)
-    modelIdx <- sample(nrow(effects), nIter, TRUE, postProbs) # resample the models according to posterior prob
-    samples <- matrix(0, nrow = nIter, ncol = ncol(posterior))
 
-    # get for each parameter which variable they belong to (e.g., 0 and 1 belong to contBinom)
-    stems <- sapply(strsplit(colnames(posterior), "-"), `[`, 1L) # before - is the variable name
-    bases <- c("mu", names(levelInfo[["levelNames"]])) # all options
-    pos <- match(stems, bases) # lookup parameters in variable names
-
-    # sort the terms inside bases and colnames(effects) so that they match
-    # NOTE: this cannot be done when creating effects because then the colnames don't match with the formulas...
-    bases <- sapply(strsplit(bases, ":"), function(x) paste0(sort(x), collapse = ":"))
-    cnms <- colnames(effects)
-    cnms <- sapply(strsplit(cnms, ":"), function(x) paste0(sort(x), collapse = ":"))
-    colnames(effects) <- cnms
-    # all(colnames(effects) %in% bases) # should be TRUE
-
-    # which parameters are nuisance?
-    isNuisance <- c(TRUE, bases[-1L] %in% model[["nuisance"]])
+    modelIdx <- sample(length(postProbs), nIter, TRUE, postProbs) # resample the models according to posterior prob
+    samples <- matrix(0, nrow = nIter, ncol = ncol(datOneHot), dimnames = list(NULL, names(isNuisanceParam)))
 
     # resample nuisance parameters
-    for (i in which(isNuisance[pos])) {
+    for (i in which(isNuisanceParam)) {
       .setSeedJASP(options)
       samples[, i] <- .BANOVAreSample(n = nIter, x = posterior[, i, "x"], y = posterior[, i, "y"])
     }
 
     # resample non nuisance parameters
-    for (i in which(!isNuisance[pos])) {
-      idx <- bases[pos[i]] # get the variable from which this parameter comes
+    for (i in which(!isNuisanceParam)) {
+      idx <- names(isNuisanceParam)[i]
       mult <- effects[modelIdx, idx] # how often models with this variable are sampled
       nTemp <- sum(mult)
       if (nTemp > 0L){

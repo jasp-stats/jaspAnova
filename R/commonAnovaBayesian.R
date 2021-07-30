@@ -861,7 +861,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     )
 
   issuesTable$setData(df)
-  issuesTable$dependOn(optionsFromObject = jaspResults[["statePosteriors"]])
+  issuesTable$dependOn(
+    # these options correspond to userNeedsPosteriorSamples inside .BANOVAestimatePosteriors
+    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable"),
+    optionsFromObject = jaspResults[["statePosteriors"]]
+  )
   jaspResults[["tableSamplingIssues"]] <- issuesTable
 
 }

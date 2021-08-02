@@ -863,7 +863,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   issuesTable$setData(df)
   issuesTable$dependOn(
     # these options correspond to userNeedsPosteriorSamples inside .BANOVAestimatePosteriors
-    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable"),
+    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
     optionsFromObject = jaspResults[["statePosteriors"]]
   )
   jaspResults[["tableSamplingIssues"]] <- issuesTable
@@ -1743,7 +1743,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     # it's possible that a user just renames a level of a repeated measures factor
     # in that case everything can be reused, but we have to rename some parameters.
     # the same may happen when a variable becomes a nuisance parameter, because then
-    # BayesFactor changes it's order in the names.
+    # BayesFactor changes its order in the names.
 
     oldLevelInfo <- state[["levelInfo"]]$levelNames
     newLevelInfo <- levelInfo$levelNames

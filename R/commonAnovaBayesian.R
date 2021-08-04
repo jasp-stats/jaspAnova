@@ -503,7 +503,7 @@
 
   if (sum(!idxNotNan) > 1L) { # null model is always omitted, so 2 or more omitted indicates some models failed
     effectsTable$addFootnote(message = gettext("Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"),
-      symbol = gettext("<b><em>Warning.</em></b>")
+      symbol = .BANOVAGetWarningSymbol()
     )
   }
 
@@ -726,6 +726,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   }
 
+  .BANOVASamplingIssuesTable(jaspResults, posteriors[["samplingIssues"]])
+
   return(c(posteriors, posteriorsCRI))
 }
 
@@ -829,6 +831,47 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspResults[["tableBMACRI"]] <- criTable
   return()
 
+}
+
+.BANOVASamplingIssuesTable <- function(jaspResults, samplingIssues) {
+
+  if (is.null(samplingIssues) || length(samplingIssues) == 0L || !is.null(jaspResults[["tableSamplingIssues"]]))
+    return()
+
+  issuesTable <- createJaspTable(title = gettext("<b><em>Warning: sampling issues encountered!</em></b>"),
+                           # below model and effects table (which may be unaffected) but above estimates table
+                           position = 2.5)
+
+  issuesTable$addColumnInfo(name = "Models",           title = gettext("Affected model"),      type = "string")
+  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("% useful samples"),    type = "number")
+  issuesTable$addColumnInfo(name = "noSuccess",        title = gettext("Useful samples"),      type = "integer")
+  issuesTable$addColumnInfo(name = "total",            title = gettext("Total samples drawn"), type = "integer")
+
+  df <- data.frame(
+    Models    = vapply(samplingIssues, `[[`, FUN.VALUE = character(1L), "model"),
+    noSuccess = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "remainingRows"),
+    total     = vapply(samplingIssues, `[[`, FUN.VALUE = integer(1L),   "originalRows")
+  )
+  df[["percentageSucces"]] <- df[["noSuccess"]] / df[["total"]]
+
+  if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
+    issuesTable$addFootnote(
+      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
+      symbol = .BANOVAGetWarningSymbol()
+    )
+
+  issuesTable$setData(df)
+  issuesTable$dependOn(
+    # these options correspond to userNeedsPosteriorSamples inside .BANOVAestimatePosteriors
+    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
+    optionsFromObject = jaspResults[["statePosteriors"]]
+  )
+  jaspResults[["tableSamplingIssues"]] <- issuesTable
+
+}
+
+.BANOVAGetWarningSymbol <- function() {
+  gettext("<b><em>Warning.</em></b>")
 }
 
 # Plots wrappers ----
@@ -1049,7 +1092,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   postHocCollection <- jaspResults[["collectionPosthoc"]]
   if (is.null(postHocCollection)) {
     postHocCollection <- createJaspContainer(title = gettext("Post Hoc Tests"))
-    postHocCollection$position <- 7
+    postHocCollection$position <- 8
     postHocCollection$addCitation(.BANOVAcitations[3:4])
     postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocTestsNullControl", "bayesFactorType"))
     jaspResults[["collectionPosthoc"]] <- postHocCollection
@@ -1697,38 +1740,36 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (!is.null(state)) { # can we reuse some posteriors?
     reuseable <- model[["reuseable"]]
 
-    if (model[["analysisType"]] == "RM-ANOVA") {
-      # it's possible that a user just renames a level of a repeated measures factor
-      # in that case everything can be reused, but we have to rename some parameters.
+    # it's possible that a user just renames a level of a repeated measures factor
+    # in that case everything can be reused, but we have to rename some parameters.
+    # the same may happen when a variable becomes a nuisance parameter, because then
+    # BayesFactor changes its order in the names.
 
-      oldLevelInfo <- state[["levelInfo"]]$levelNames
-      newLevelInfo <- levelInfo$levelNames
+    oldLevelInfo <- state[["levelInfo"]]$levelNames
+    newLevelInfo <- levelInfo$levelNames
 
-      sortTerms <- function(x) {
-        # split b:a to c("b", "a"), sort it, and then paste it back
-        # otherwise posteriors samples between different runs are not correctly retrieved from the state.
-        sapply(strsplit(names(oldLevelInfo), ":", fixed = TRUE), function(x) paste(sort(x), collapse = ":"))
-      }
+    sortTerms <- function(x) {
+      # split b:a to c("b", "a"), sort it, and then paste it back
+      # otherwise posteriors samples between different runs are not correctly retrieved from the state.
+      sapply(strsplit(x, ":", fixed = TRUE), function(x) paste(sort(x), collapse = ":"))
+    }
 
-      tmp_old <- sortTerms(names(oldLevelInfo))
-      tmp_new <- sortTerms(names(newLevelInfo))
-      oldNames <- names(oldLevelInfo)
-      newNames <- names(newLevelInfo)
-      names(oldNames) <- tmp_old
-      names(newNames) <- tmp_new
+    tmp_old <- sortTerms(names(oldLevelInfo))
+    tmp_new <- sortTerms(names(newLevelInfo))
+    matches <- match(tmp_new, tmp_old)
+    for (i in seq_along(matches)) {
+      if (is.na(matches[i]))
+        next
 
-      if (!identical(newLevelInfo, oldLevelInfo)) {
-        for (nm in intersect(names(oldNames), names(newNames))) {
-
-          nm_old <- oldNames[nm]
-          nm_new <- newNames[nm]
-
-          idx <- !(oldLevelInfo[[nm_old]] %in% newLevelInfo[[nm_new]])
-          renameFrom <- c(renameFrom, oldLevelInfo[[nm_old]][idx])
-          renameTo   <- c(renameTo,   newLevelInfo[[nm_new]][idx])
+      j <- matches[i]
+      if (!identical(oldLevelInfo[[j]], newLevelInfo[[i]])) {
+        if (length(oldLevelInfo[[j]]) == length(newLevelInfo[[i]])) {
+          renameFrom <- c(renameFrom, oldLevelInfo[[j]])
+          renameTo   <- c(renameTo,   newLevelInfo[[i]])
         }
       }
     }
+
   } else {
     reuseable <- rep(NA, nmodels)
   }
@@ -1749,9 +1790,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   on.exit(jaspBase:::assignFunctionInPackage(originalFun, "makeChainNeater", "BayesFactor"))
   jaspBase:::assignFunctionInPackage(.BANOVAmakeChainNeater, "makeChainNeater", "BayesFactor")
 
+  samplingIssues <- list()
   startProgressbar(nmodels, gettext("Sampling posteriors"))
   for (i in seq_len(nmodels)) {
-    if (is.na(reuseable[i])) {
+    # check if the state is reuseable and if it's not NULL, which means it didn't crash
+    if (is.na(reuseable[i]) || is.null(state$statistics[[reuseable[i]]])) {
 
       if (i == 1L && is.null(model$models[[i]]$bf)) {
 
@@ -1794,6 +1837,24 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         } else {
           allContinuous <- FALSE
         }
+
+        # so some models may yield a bunch of NAs, for example,
+        # BayesFactor::lmBF(contNormal ~ facGender + contGamma + facGender * contGamma, data = "debug.csv", whichRandom = "facGender")
+        # we add a footnote and try to not to crash.
+        if (anyNA(samples)) {
+
+          originalRows <- nrow(samples)
+          samples  <- samples[complete.cases(samples), , drop = FALSE]
+          remainingRows     <- nrow(samples)
+
+          samplingIssues[[length(samplingIssues) + 1L]] <- list(
+            model         = model[["models"]][[i]][["title"]],
+            originalRows  = originalRows,
+            remainingRows = remainingRows
+          )
+          next
+        }
+
       }
 
       # although matrixStats::colMeans2 is faster than .colMeans the cost of matrixStats:: is not worth it.
@@ -1964,7 +2025,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     weightedDensities = weightedDensities,
     #weightedCRIs = weightedCRIs, weightedResidSumStats = weightedResidSumStats,
     #weightedRsqDens = weightedRsqDens, weightedRsqCri = weightedRsqCri,
-    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo
+    allContinuous = allContinuous, isRandom = isRandom, levelInfo = levelInfo,
+    samplingIssues = samplingIssues
   ))
 }
 
@@ -1987,8 +2049,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # compute residuals and r-squared
   # sample from the joint posterior over models and parameters
-  tmp  <- .BANOVAgetSMIResidRsq(weightedDensities, dataset, model$model.list[[nmodels]], nIter, model,
-                                posterior$levelInfo, options)
+  tmp  <- .BANOVAgetSMIResidRsq(weightedDensities, dataset, model$model.list[[nmodels]], nIter, model, options)
   means  <- rowMeans(tmp$resid)
   h <- (1 - cri) / 2
   quants <- matrixStats::rowQuantiles(tmp$resid, probs = c(h, 1 - h))
@@ -2198,7 +2259,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(samples)
 }
 
-.BANOVAgetSMIResidRsq <- function(posterior, dataset, formula, nIter, model, levelInfo = NULL, options) {
+.BANOVAgetSMIResidRsq <- function(posterior, dataset, formula, nIter, model, options) {
 
   # @param posterior  object from Bayesfactor package, or SxPx2 array of weighted densities
   # @param dataset    dataset
@@ -2241,40 +2302,54 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (length(dim(posterior)) == 3L) {
     # we're doing model averaged inference
 
+    # recompute the levelInfo, this is relatively cheap and we cannot be sure that the levelInfo in the
+    # posterior was not retrieved from state (and contains too many or too few variables)
+    nmodels   <- length(model[["model.list"]])
+    randomFactors <- .BANOVAgetRandomFactors(options, model[["analysisType"]])
+    dataTypes <- .BANOVAgetDataTypes(dataset, model[["model.list"]][[nmodels]], randomFactors)
+    levelInfo <- .BANOVAgetLevelInfo(dataset, model[["model.list"]][[nmodels]], dataTypes)
+
+    # which parameters are nuisance?
+    parameterNames <- c("mu", names(levelInfo[["levelNames"]]))
+    # the variables that are nuisance, e.g., contBinom
+    isNuisanceVar   <- c(TRUE, parameterNames[-1L] %in% model[["nuisance"]])
+    names(isNuisanceVar) <- parameterNames
+    # the parameters that are nuisance, e.g., contBinom-0 and contBinom-1
+    isNuisanceParam <- rep(isNuisanceVar, c(1, lengths(levelInfo[["levelNames"]])))
+    names(isNuisanceParam) <- c("mu", unlist(levelInfo[["levelNames"]]))
+
+    if (!all(names(isNuisanceParam) %in% colnames(posterior)))
+      stop("!all(names(isNuisance) %in% colnames(posterior)) was not true.")
+
+    # we cannot use model[["effects"]] because that exludes nuisance parameters, so we rebuild one that doesn't exclude these
+    effects <- matrix(FALSE, nmodels, length(isNuisanceParam), dimnames = list(NULL, names(isNuisanceParam)))
+    for (i in seq_along(model[["model.list"]])) {
+      if (is.null(model[["model.list"]][[i]])) { # implies an intercept-only null model
+        cnms <- "mu"
+      } else {
+        idx <- names(levelInfo[["levelNames"]]) %in% attr(terms(model[["model.list"]][[i]]), "term.labels")
+        cnms <- c("mu", unlist(levelInfo[["levelNames"]][idx]))
+      }
+      effects[i, cnms] <- TRUE#c(TRUE, names(levelInfo[["levelNames"]]) %in% attr(terms(model[["model.list"]][[i]]), "term.labels"))
+    }
+
     # sample from the BMA posterior
-    effects <- model[["effects"]]
-    rownames(effects) <- NULL # drop rownames, otherwise they get copied later on
     postProbs <- model[["postProbs"]]
     postProbs[is.na(postProbs)] <- 0
     .setSeedJASP(options)
-    modelIdx <- sample(nrow(effects), nIter, TRUE, postProbs) # resample the models according to posterior prob
-    samples <- matrix(0, nrow = nIter, ncol = ncol(posterior))
 
-    # get for each parameter which variable they belong to (e.g., 0 and 1 belong to contBinom)
-    stems <- sapply(strsplit(colnames(posterior), "-"), `[`, 1L) # before - is the variable name
-    bases <- c("mu", names(levelInfo[["levelNames"]])) # all options
-    pos <- match(stems, bases) # lookup parameters in variable names
-
-    # sort the terms inside bases and colnames(effects) so that they match
-    # NOTE: this cannot be done when creating effects because then the colnames don't match with the formulas...
-    bases <- sapply(strsplit(bases, ":"), function(x) paste0(sort(x), collapse = ":"))
-    cnms <- colnames(effects)
-    cnms <- sapply(strsplit(cnms, ":"), function(x) paste0(sort(x), collapse = ":"))
-    colnames(effects) <- cnms
-    # all(colnames(effects) %in% bases) # should be TRUE
-
-    # which parameters are nuisance?
-    isNuisance <- c(TRUE, bases[-1L] %in% model[["nuisance"]])
+    modelIdx <- sample(length(postProbs), nIter, TRUE, postProbs) # resample the models according to posterior prob
+    samples <- matrix(0, nrow = nIter, ncol = ncol(datOneHot), dimnames = list(NULL, names(isNuisanceParam)))
 
     # resample nuisance parameters
-    for (i in which(isNuisance[pos])) {
+    for (i in which(isNuisanceParam)) {
       .setSeedJASP(options)
       samples[, i] <- .BANOVAreSample(n = nIter, x = posterior[, i, "x"], y = posterior[, i, "y"])
     }
 
     # resample non nuisance parameters
-    for (i in which(!isNuisance[pos])) {
-      idx <- bases[pos[i]] # get the variable from which this parameter comes
+    for (i in which(!isNuisanceParam)) {
+      idx <- names(isNuisanceParam)[i]
       mult <- effects[modelIdx, idx] # how often models with this variable are sampled
       nTemp <- sum(mult)
       if (nTemp > 0L){
@@ -2448,7 +2523,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   } else {
     # put the null-model first
     i <- length(out)
-    return(c(out[[i]], out[-i]))
+    out <- c(out[[i]], out[-i])
+
+    # BayesFactor has the nasty habit of changing the order of interactions whenever one of the components is
+    # a nuisance variable. Here we ensure the order matches that of the input formula (which matches the order a user entered the factors).
+    # see also https://github.com/jasp-stats/jasp-test-release/issues/1181
+    originalTerms  <- terms(formula)
+    originalOrd    <- attr(originalTerms, "order")
+    originalIdxNonInteraction <- which(originalOrd == 1L)
+
+    originalLabels <- attr(originalTerms, "term.labels")
+    originalLabelsPieces <- strsplit(originalLabels[originalOrd > 1L], ":")
+    originalLabelsPiecesSorted <- lapply(originalLabelsPieces, sort)
+
+    dependent <- all.vars(out[[1]])[1L]
+
+    for (i in seq_along(out)) {
+
+      term <- terms(out[[i]])
+      ord  <- attr(term, "order") # interaction order
+      idxNonInteraction <- which(ord == 1L)
+
+      termLabels <- attr(term, "term.labels")
+      termLabels[idxNonInteraction] <- originalLabels[originalIdxNonInteraction][match(termLabels[idxNonInteraction], originalLabels[originalIdxNonInteraction])]
+
+      for (j in which(ord > 1L)) {
+        labelPieces <- strsplit(termLabels[j], ":")[[1L]]
+        for (k in seq_along(originalLabelsPieces))
+          if (all(sort(labelPieces) == originalLabelsPiecesSorted[[k]]))
+            termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
+      }
+
+      out[[i]] <- as.formula(paste(dependent, "~", paste(termLabels, collapse = " + ")))
+
+    }
+
+    return(out)
   }
 }
 
@@ -2515,7 +2625,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # this part is different from BayesFactor
   names(labelList) <- terms
-
   return(labelList)
 }
 
@@ -2596,7 +2705,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (!userWantsSMI)
     return()
 
-  if (!is.null(jaspResults[["collectionSingleModel"]])) {
+  if (!is.null(jaspResults[["containerSingleModel"]])) {
     singleModelContainer <- jaspResults[["containerSingleModel"]]
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
@@ -2605,7 +2714,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       "priorFixedEffects", "priorRandomEffects", "repeatedMeasuresCells", "seed", "setSeed"
     ))
     jaspResults[["containerSingleModel"]] <- singleModelContainer
-    singleModelContainer$position <- 8
+    singleModelContainer$position <- 7
   }
 
   singleModel <- jaspResults[["singleModelState"]]$object

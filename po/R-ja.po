@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: 2021-03-12 01:02+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -574,9 +574,6 @@ msgstr ""
 "これらのモデルを除外しながら計算されます。結果が解釈できない可能性がありま"
 "す！"
 
-msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>警告</em></b>"
-
 msgid "Model Comparison"
 msgstr "モデル比較"
 
@@ -624,6 +621,31 @@ msgstr "%s%% 信用区間"
 
 msgid "Model Averaged R%s"
 msgstr "モデル平均 R%s"
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid ""
+"For some affected models, more than 75% of the posterior samples failed, or "
+"fewer than 1000 samples remained for subsequent results. All model-averaged "
+"output may be biased and uninterpretable. Check the model specification and "
+"data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>警告</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "モデル平均事後分布"
@@ -695,6 +717,9 @@ msgstr "事後分布のサンプリング"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+msgstr ""
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "

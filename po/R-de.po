@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: 2021-07-07 12:34+0000\n"
 "Last-Translator: Johannes Keyser <johanneskeyser@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -595,9 +595,6 @@ msgstr ""
 "dieser Modelle berechnet. Die Ergebnisse sind möglicherweise nicht "
 "interpretierbar!"
 
-msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>Warnung.</em></b>"
-
 msgid "Model Comparison"
 msgstr "Modellvergleich"
 
@@ -645,6 +642,31 @@ msgstr "%s%% Glaubwürdigkeitsintervall"
 
 msgid "Model Averaged R%s"
 msgstr "Modell-gemittelte R%s"
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid ""
+"For some affected models, more than 75% of the posterior samples failed, or "
+"fewer than 1000 samples remained for subsequent results. All model-averaged "
+"output may be biased and uninterpretable. Check the model specification and "
+"data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>Warnung.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "Modell-gemittelte Posteriorverteilungen"
@@ -718,6 +740,9 @@ msgstr "Stichprobennahme der Posterior"
 msgid "length of samples must be equal to length of weights!"
 msgstr ""
 "Die Länge der Stichprobe muss mit der Länge der Gewichte übereinstimmen!"
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+msgstr ""
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "

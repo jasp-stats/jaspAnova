@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: 2021-05-29 01:35+0000\n"
 "Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -598,9 +598,6 @@ msgstr ""
 "de inclusión y los factores de Bayesianos se calculan excluyendo estos "
 "modelos. ¡Los resultados pueden no ser interpretables!"
 
-msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>Advertencia.</em></b>"
-
 msgid "Model Comparison"
 msgstr "Comparación de modelos"
 
@@ -648,6 +645,31 @@ msgstr "%s%% Intervalo de Credibilidad"
 
 msgid "Model Averaged R%s"
 msgstr "R promediado por modelo"
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid ""
+"For some affected models, more than 75% of the posterior samples failed, or "
+"fewer than 1000 samples remained for subsequent results. All model-averaged "
+"output may be biased and uninterpretable. Check the model specification and "
+"data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>Advertencia.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "Promedio de distribuciones posteriores del modelo"
@@ -722,6 +744,9 @@ msgstr "Muestreo Posterior"
 msgid "length of samples must be equal to length of weights!"
 msgstr ""
 "¡la longitud de las muestras debe ser igual a la longitud de los pesos!"
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+msgstr ""
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "

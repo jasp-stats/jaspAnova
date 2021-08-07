@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -496,9 +496,6 @@ msgstr ""
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
 
-msgid "<b><em>Warning.</em></b>"
-msgstr ""
-
 msgid "Model Comparison"
 msgstr ""
 
@@ -539,6 +536,27 @@ msgid "%s%% Credible Interval"
 msgstr ""
 
 msgid "Model Averaged R%s"
+msgstr ""
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid "For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
 msgstr ""
 
 msgid "Model Averaged Posterior Distributions"
@@ -593,6 +611,9 @@ msgid "Sampling posteriors"
 msgstr ""
 
 msgid "length of samples must be equal to length of weights!"
+msgstr ""
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."

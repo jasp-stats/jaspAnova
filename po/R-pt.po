@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: 2021-07-10 13:32+0000\n"
 "Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -600,9 +600,6 @@ msgstr ""
 "inclusão e fatores de Bayes são calculados excluindo esses modelos. Os "
 "resultados podem ser ininterpretáveis!"
 
-msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>Aviso.</em></b>"
-
 msgid "Model Comparison"
 msgstr "Comparação de Modelo"
 
@@ -650,6 +647,31 @@ msgstr "%s%% Intervalo de credibilidade"
 
 msgid "Model Averaged R%s"
 msgstr "Modelo médio R%s"
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid ""
+"For some affected models, more than 75% of the posterior samples failed, or "
+"fewer than 1000 samples remained for subsequent results. All model-averaged "
+"output may be biased and uninterpretable. Check the model specification and "
+"data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>Aviso.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "Distribuições posteriores médias do modelo"
@@ -722,6 +744,9 @@ msgstr "Amostragem posterior"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr "o comprimento das amostras deve ser igual ao comprimento dos pesos!"
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+msgstr ""
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "

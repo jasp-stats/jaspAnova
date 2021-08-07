@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-06-28 16:05\n"
+"POT-Creation-Date: 2021-08-07 02:48\n"
 "PO-Revision-Date: 2021-07-23 18:09+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -421,8 +421,8 @@ msgid ""
 "estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
 "Valor p e intervalos de confianza axustados para comparar unha familia de "
-"estimacións de %1$s (intervalos de confianza corrixidos usando o método %2$s "
-")."
+"estimacións de %1$s (intervalos de confianza corrixidos usando o método "
+"%2$s )."
 
 msgid "Post Hoc Comparisons -"
 msgstr "Comparacións Post-hoc -"
@@ -604,9 +604,6 @@ msgstr ""
 "inclusión e os factores de Bayes calcúlanse excluíndo eses modelos. Os "
 "resultados poderían non ser interpretables!"
 
-msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>Aviso.</em></b>"
-
 msgid "Model Comparison"
 msgstr "Cotexo de modelos"
 
@@ -655,6 +652,31 @@ msgstr "Intervalo co %s%% de Credibilidade"
 msgid "Model Averaged R%s"
 msgstr "R² medio do modelo"
 
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid ""
+"For some affected models, more than 75% of the posterior samples failed, or "
+"fewer than 1000 samples remained for subsequent results. All model-averaged "
+"output may be biased and uninterpretable. Check the model specification and "
+"data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>Aviso.</em></b>"
+
 msgid "Model Averaged Posterior Distributions"
 msgstr "Distribucións do Modelo Medio Posterior"
 
@@ -690,8 +712,8 @@ msgstr ""
 "Corrixíronse as posibilidades posteriores para probas múltiples, fixando en "
 "0.5 a probabilidade previa de que a hipótese nula se mantén en tódalas "
 "comparacións. (Westfall, Johnson e Utts, 1997). As comparacións individuais "
-"baséanse na proba t predeterminada cunha previa de Cauchy (0, r = 1/sqrt(2))"
-". O \"U\" no factor de Bayes indica que non está corrixido."
+"baséanse na proba t predeterminada cunha previa de Cauchy (0, r = 1/"
+"sqrt(2)). O \"U\" no factor de Bayes indica que non está corrixido."
 
 msgid "Prior Odds"
 msgstr "Posibilidades previas"
@@ -726,6 +748,9 @@ msgstr "Mostraxe de posteriores"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr "o longo das mostras debe ser igual ao longo das ponderacións!"
+
+msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+msgstr ""
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "

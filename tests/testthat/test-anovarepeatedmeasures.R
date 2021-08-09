@@ -764,3 +764,91 @@ test_that("Field - Chapter 9 match",  {
 
   jaspTools::expect_equal_tables(table, refTable)
 })
+
+# test model without interaction effect
+options <- analysisOptions("AnovaRepeatedMeasures")
+options$contrasts <- list(list(contrast = "none", variable = "Drink"))
+options$customContrasts <- list()
+options$labelYAxis <- "Alcohol Attitudes"
+options$moderatorFactorOne <- "Drink"
+options$plotErrorBars <- TRUE
+options$plotHorizontalAxis <- "Drink"
+options$plotSeparateLines <- "Imagery"
+options$postHocTestPooledError <- FALSE
+options$postHocTestsBonferroni <- TRUE
+options$postHocTestsHolm <- FALSE
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
+options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
+    list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
+options$simpleFactor <- "Imagery"
+options$sphericityGreenhouseGeisser <- TRUE
+options$sphericityHuynhFeldt <- TRUE
+options$sphericityTests <- TRUE
+options$withinModelTerms <- list(list(components = "Drink"))
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasures", "Alcohol Attitudes.csv", options)
+
+
+test_that("Test of Sphericity table results match", {
+  errorMessage <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_simpleEffectsContainer"]][["collection"]][["rmAnovaContainer_simpleEffectsContainer_simpleEffectsTable"]][["error"]][["errorMessage"]]
+  testthat::expect_equal(object = errorMessage, expected = "Moderator factors must also appear in the model terms!")
+})
+
+# test model without interaction effect
+options <- analysisOptions("AnovaRepeatedMeasures")
+options$withinModelTerms <- list(list(components = "Drink"), list(components = "Imagery"))
+options$sphericityGreenhouseGeisser <- TRUE
+options$sphericityHuynhFeldt <- TRUE
+options$postHocTestPooledError <- FALSE
+options$postHocTestsHolm <- FALSE
+options$postHocTestsBonferroni <- TRUE
+options$labelYAxis <- "Alcohol Attitudes"
+options$plotErrorBars <- TRUE
+options$contrasts <- list(list(contrast = "none", variable = "Drink"), list(contrast = "none", variable = "Imagery"))
+options$customContrasts <- list()
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
+options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"), list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasures", "Alcohol Attitudes.csv", options)
+
+
+test_that("No interaction: Between Subjects Effects table results match", {
+	table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_betweenTable"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list("TRUE", "", 101.058187134503, "", 1920.10555555556, "Residuals",
+			 19))
+})
+
+test_that("No interaction: Within Subjects Effects table results match", {
+	table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_withinAnovaTable"]][["data"]]
+	jaspTools::expect_equal_tables(table,
+		list(1, 1, 1, 1, 1, 1, "TRUE", 5.10598105687077, 1046.17222222222,
+			 2092.34444444444, "Drink", "None", 2, 0.0108629307294978, "FALSE",
+			 5.10598105687077, 1812.76427443316, 2092.34444444444, "Drink",
+			 "Greenhouse-Geisser", 1.15422864073086, 0.0297686804863521,
+			 "FALSE", 5.10598105687077, 1770.93939197604, 2092.34444444444,
+			 "Drink", "Huynh-Feldt", 1.18148845405137, 0.028813909529067,
+			 "TRUE", "", 204.891520467836, 7785.87777777778, "Residuals",
+			 "None", 38, "", 0, "", 355.027614525487, 7785.87777777778, "Residuals",
+			 "Greenhouse-Geisser", 21.9303441738863, "", 0, "", 346.836263638895,
+			 7785.87777777778, "Residuals", "Huynh-Feldt", 22.4482806269761,
+			 "", 1, 1, 1, 1, 1, 1, "TRUE", 122.564824909945, 10814.3388888889,
+			 21628.6777777778, "Imagery", "None", 2, 2.68019659683571e-17,
+			 "FALSE", 122.564824909945, 14468.4903478118, 21628.6777777778,
+			 "Imagery", "Greenhouse-Geisser", 1.49488144635967, 1.75728558571484e-13,
+			 "FALSE", 122.564824909945, 13571.4963320567, 21628.6777777778,
+			 "Imagery", "Huynh-Feldt", 1.59368408969683, 3.14280380271786e-14,
+			 "TRUE", "", 88.2336257309941, 3352.87777777778, "Residuals",
+			 "None", 38, "", 0, "", 118.047656482539, 3352.87777777778, "Residuals",
+			 "Greenhouse-Geisser", 28.4027474808338, "", 0, "", 110.729129193702,
+			 3352.87777777778, "Residuals", "Huynh-Feldt", 30.2799977042398,
+			 ""))
+})

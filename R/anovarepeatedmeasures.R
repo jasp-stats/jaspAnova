@@ -354,6 +354,11 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   # Make sure that order of anova result corresponds to order of specified model terms
   mappedRownamesCases <- .mapAnovaTermsToTerms(rownames(sortedModel), unlist(modelDef$terms.base64))
 
+  # when interactions effects are excluded from the model terms they are still computed by afex
+  # their names are mapped to zero by .mapAnovaTermsToTerms so we first exclude them
+  idxValid <- which(mappedRownamesCases != 0L)
+  sortedModel <- sortedModel[idxValid, ]
+
   sortedModel[["case"]] <- unlist(modelDef$terms.normal)[mappedRownamesCases]
   sortedModel[["Mean Sq"]] <- sortedModel[["Sum Sq"]] / sortedModel[["num Df"]]
   sortedModel[["VovkSellkeMPR"]] <- VovkSellkeMPR(sortedModel[["Pr(>F)"]])
@@ -365,10 +370,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   # Now we calculate effect sizes
   SSr <- sortedModel[["Error SS"]]
   MSr <- SSr/sortedModel[["den Df"]]
-  
-  sortedModel[["eta"]] <- sortedModel[["Sum Sq"]] / (sum(sortedModel[["Sum Sq"]]) + sum(residualResults[["Sum Sq"]]))
+
+  sortedModel[["eta"]]     <- sortedModel[["Sum Sq"]] / (sum(sortedModel[["Sum Sq"]]) + sum(residualResults[["Sum Sq"]]))
   sortedModel[["etaPart"]] <- sortedModel[["Sum Sq"]] / (sortedModel[["Sum Sq"]] + SSr)
-  sortedModel[["genEta"]]<- result[["anova_table"]][["ges"]]
+  sortedModel[["genEta"]]  <- result[["anova_table"]][["ges"]][idxValid]
 
   n <- interceptRow[["den Df"]] + 1
   MSb <- interceptRow[["Error SS"]] / (n-1)
@@ -1600,12 +1605,19 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   
   simpleEffectsTable <- createJaspTable(title = gettextf("Simple Main Effects - %s", options$simpleFactor))
   rmAnovaContainer[["simpleEffectsContainer"]][["simpleEffectsTable"]] <- simpleEffectsTable
-  
+
+  # the simple factor must appear in the model terms, but the moderator factors may be missing.
+  modelTerms <- unique(unlist(lapply(options[["withinModelTerms"]], `[[`, "components"), use.names = FALSE))
+  if (!(options[["simpleFactor"]] %in% modelTerms)) {
+    rmAnovaContainer[["simpleEffectsContainer"]]$setError(gettext("Moderator factors must also appear in the model terms!"))
+    return()
+  }
+
   moderatorTerms <- c(options$moderatorFactorOne, options$moderatorFactorTwo[!identical(options$moderatorFactorTwo, "")])
   nMods <- length(moderatorTerms)
   simpleFactor <- options[['simpleFactor']]
-  simpleFactorBase64 <- .v(simpleFactor)
-  
+  simpleFactorBase64 <- simpleFactor
+
   simpleEffectsTable[["title"]] <- gettextf("Simple Main Effects - %s", options$simpleFactor)
   
   simpleEffectsTable$addColumnInfo(name = "modOne", title = gettextf("Level of %s", moderatorTerms[1]),

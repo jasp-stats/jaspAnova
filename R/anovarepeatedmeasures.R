@@ -666,7 +666,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   }
 
   if (!all(is.na(withinResults[[1]][["Test statistic"]]))) {
-    violatedMauchlyCases <- rownames(mauchlyResult)[mauchlyResult[, "p-value"] < 0.05]
+    # when a RM factor consists of only 2 levels the p-value is NA, hence the is.na check
+    violatedMauchlyCases <- rownames(mauchlyResult)[mauchlyResult[, "p-value"] < 0.05 & !is.na(mauchlyResult[, "p-value"])]
     if (length(violatedMauchlyCases) > 0)
       anovaTable$addFootnote(message = gettext("Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."),
                              colNames = c("Sum Sq", "num Df", "F value", "Mean Sq", "Pr(F)", "p"),

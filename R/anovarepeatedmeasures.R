@@ -768,14 +768,14 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   sphericityTable <- createJaspTable(gettext("Test of Sphericity"))
 
-  sphericityTable$addColumnInfo(name="case",            type="string",  title="")
-  sphericityTable$addColumnInfo(name="Test statistic",  type="number",  title=gettext("Mauchly's W"))
-  sphericityTable$addColumnInfo(name="approxChi",       type="number",  title=gettextf("Approx. %s", "\u03A7\u00B2"))
-  sphericityTable$addColumnInfo(name="dfSphericity",    type="integer", title=gettext("dfSphericity"))
-  sphericityTable$addColumnInfo(name="p-value",         type="pvalue",  title=gettext("p-value"))
-  sphericityTable$addColumnInfo(name="GG eps",          type="number",  title=gettextf("Greenhouse-Geisser %s", "\u03B5"))
-  sphericityTable$addColumnInfo(name="HF eps",          type="number",  title=gettextf("Huynh-Feldt %s", "\u03B5"))
-  sphericityTable$addColumnInfo(name="LB",              type="number",  title=gettextf("Lower Bound %s", "\u03B5"))
+  sphericityTable$addColumnInfo(name = "case",            type = "string",  title = "")
+  sphericityTable$addColumnInfo(name = "Test statistic",  type = "number",  title = gettext("Mauchly's W"))
+  sphericityTable$addColumnInfo(name = "approxChi",       type = "number",  title = gettextf("Approx. %s", "\u03A7\u00B2"))
+  sphericityTable$addColumnInfo(name = "df",              type = "integer", title = gettext("dfSphericity"))
+  sphericityTable$addColumnInfo(name = "p-value",         type = "pvalue",  title = gettext("p-value"))
+  sphericityTable$addColumnInfo(name = "GG eps",          type = "number",  title = gettextf("Greenhouse-Geisser %s", "\u03B5"))
+  sphericityTable$addColumnInfo(name = "HF eps",          type = "number",  title = gettextf("Huynh-Feldt %s", "\u03B5"))
+  sphericityTable$addColumnInfo(name = "LB",              type = "number",  title = gettextf("Lower Bound %s", "\u03B5"))
 
   sphericityTable$showSpecifiedColumnsOnly <- TRUE
 

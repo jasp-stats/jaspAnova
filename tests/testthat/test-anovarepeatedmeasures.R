@@ -817,7 +817,7 @@ options$rainCloudPlotsSeparatePlots <- ""
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
 options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"), list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasures", "Alcohol Attitudes.csv", options)
+results <- runAnalysis("AnovaRepeatedMeasures", "AnovaRepeatedMeasures.csv", options)
 
 
 test_that("No interaction: Between Subjects Effects table results match", {

@@ -356,7 +356,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   # when interactions effects are excluded from the model terms they are still computed by afex
   # their names are mapped to zero by .mapAnovaTermsToTerms so we first exclude them
-  idxValid <- which(mappedRownamesCases != 0L)
+  idxValid <- mappedRownamesCases != 0L
   sortedModel <- sortedModel[idxValid, ]
 
   sortedModel[["case"]] <- unlist(modelDef$terms.normal)[mappedRownamesCases]

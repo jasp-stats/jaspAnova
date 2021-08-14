@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: 2021-08-05 06:34+0000\n"
 "Last-Translator: shun wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -343,9 +343,6 @@ msgstr "Mauchly's W"
 msgid "Approx. %s"
 msgstr "大约 %s"
 
-msgid "dfSphericity"
-msgstr "dfSphericity"
-
 msgid "p-value"
 msgstr "p值"
 
@@ -470,6 +467,9 @@ msgstr "T-Stat"
 
 msgid "Grouped by %s."
 msgstr "按 %s 分组。"
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
 
 msgid "Infinity found in repeated measures cells."
 msgstr "在重复测量单元中发现无穷大值。"
@@ -735,3 +735,6 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造成的。"
+
+#~ msgid "dfSphericity"
+#~ msgstr "dfSphericity"

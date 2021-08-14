@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: 2020-12-02 21:29+0000\n"
 "Last-Translator: JASP Stats <F.A.M.Meerhoff@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jasp-engine/"
@@ -371,9 +371,6 @@ msgstr "Mauchly's W"
 msgid "Approx. %s"
 msgstr "Geschatte %s"
 
-msgid "dfSphericity"
-msgstr "dfSfericiteit"
-
 msgid "p-value"
 msgstr "p-waarde"
 
@@ -507,6 +504,9 @@ msgstr "T-Stat"
 
 msgid "Grouped by %s."
 msgstr "Gegroepeerd met %s."
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
 
 msgid "Infinity found in repeated measures cells."
 msgstr "Oneindig gevonden in de binnenproefpersoon cellen."
@@ -789,3 +789,6 @@ msgid ""
 msgstr ""
 "De ontwerp matrix is niet inverteerbaar. Dit kan het gevolg zijn van "
 "collinaire variabelen."
+
+#~ msgid "dfSphericity"
+#~ msgstr "dfSfericiteit"

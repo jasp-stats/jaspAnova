@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -310,9 +310,6 @@ msgstr ""
 msgid "Approx. %s"
 msgstr ""
 
-msgid "dfSphericity"
-msgstr ""
-
 msgid "p-value"
 msgstr ""
 
@@ -425,6 +422,9 @@ msgid "T-Stat"
 msgstr ""
 
 msgid "Grouped by %s."
+msgstr ""
+
+msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
 
 msgid "Infinity found in repeated measures cells."

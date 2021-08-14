@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: 2021-08-09 00:36+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -372,9 +372,6 @@ msgstr "W De Mauchly"
 msgid "Approx. %s"
 msgstr "Aprox. %s"
 
-msgid "dfSphericity"
-msgstr "glEsfericidad"
-
 msgid "p-value"
 msgstr "Valor p"
 
@@ -510,6 +507,9 @@ msgstr "Estadística-T"
 
 msgid "Grouped by %s."
 msgstr "Agrupados por %s."
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
 
 msgid "Infinity found in repeated measures cells."
 msgstr "Infinito encontrado en celdas de medidas repetidas."
@@ -794,3 +794,6 @@ msgid ""
 msgstr ""
 "La matriz de diseño no es invertible. Esto puede deberse a variables "
 "dependientes colineales."
+
+#~ msgid "dfSphericity"
+#~ msgstr "glEsfericidad"

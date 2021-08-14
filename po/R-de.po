@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: 2021-08-09 00:36+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -372,9 +372,6 @@ msgstr "Mauchlys W"
 msgid "Approx. %s"
 msgstr "Ungefähr %s"
 
-msgid "dfSphericity"
-msgstr "dfSphärizität"
-
 msgid "p-value"
 msgstr "p-Wert"
 
@@ -506,6 +503,9 @@ msgstr "T-Stat"
 
 msgid "Grouped by %s."
 msgstr "Gruppiert mit %s."
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
 
 msgid "Infinity found in repeated measures cells."
 msgstr "Unendlichkeit gefunden in Messwiederholung-Zellen."
@@ -794,3 +794,6 @@ msgid ""
 msgstr ""
 "Die Designmatrix ist nicht invertierbar. Ein möglicher Grund sind kollineare "
 "abhängige Variablen."
+
+#~ msgid "dfSphericity"
+#~ msgstr "dfSphärizität"

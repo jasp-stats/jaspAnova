@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-08-07 02:48\n"
+"POT-Creation-Date: 2021-08-14 02:42\n"
 "PO-Revision-Date: 2021-07-10 13:32+0000\n"
 "Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -375,9 +375,6 @@ msgstr "W de Mauchly"
 msgid "Approx. %s"
 msgstr "Aprox. % s"
 
-msgid "dfSphericity"
-msgstr "glEsfericidade"
-
 msgid "p-value"
 msgstr "p-valor"
 
@@ -512,6 +509,9 @@ msgstr "Estatística-T"
 
 msgid "Grouped by %s."
 msgstr "Agrupado por %s."
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
 
 msgid "Infinity found in repeated measures cells."
 msgstr "Infinito encontrado em células de medidas repetidas."
@@ -792,3 +792,6 @@ msgid ""
 msgstr ""
 "O design da matriz não é invertível. Isso pode ser devido a variáveis "
 "dependentes colineares."
+
+#~ msgid "dfSphericity"
+#~ msgstr "glEsfericidade"

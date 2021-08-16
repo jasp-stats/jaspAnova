@@ -925,10 +925,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     colnames(allPvalues) <- postHocCorrections
     resultPostHoc <- cbind(resultPostHoc[[1]], allPvalues)
 
-    resultPostHoc[["contrast_A"]] <- lapply(allContrasts, function(x) paste(.unv(strsplit(x[[1]], "[ ,]")[[1]]), 
-                                                                           collapse = ", "))
-    resultPostHoc[["contrast_B"]] <- lapply(allContrasts, function(x) paste(.unv(strsplit(x[[2]], "[ ,]")[[1]]), 
-                                                                           collapse = ", "))
+    resultPostHoc[["contrast_A"]] <- lapply(allContrasts, function(x) paste(strsplit(x[[1]], "[ ,]")[[1]], collapse = ", "))
+    resultPostHoc[["contrast_B"]] <- lapply(allContrasts, function(x) paste(strsplit(x[[2]], "[ ,]")[[1]], collapse = ", "))
 
     if (options$postHocTestsBootstrapping) {
 

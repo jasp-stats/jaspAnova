@@ -349,6 +349,54 @@ test_that("Analysis handles errors", {
                   label="Negative WLS weights check")
 })
 
+options <- analysisOptions("Anova")
+options$contrasts <- list(list(contrast = "none", variable = "Species"))
+options$customContrasts <- list()
+options$dependent <- "Sepal.Length"
+options$fixedFactors <- "Species"
+options$modelTerms <- list(list(components = "Species"))
+options$postHocTestsVariables <- list(list(variable = "Species"))
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+
+# dataset is created from:
+# dd <- read.csv("~/github/jasp-desktop/Resources/Data Sets/Data Library/10. Machine Learning/iris.csv")
+# newLabels <- c("First species", "Second species", "Third species")
+# oldLabels <- unique(dd$Species)
+# dd$Species <- newLabels[match(dd$Species, oldLabels)]
+# dataset <- dd[c(1:5, 51:55, 101:105), ]
+dataset <- data.frame(
+   Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 7, 6.4, 6.9, 5.5, 6.5, 6.3, 5.8, 7.1, 6.3, 6.5),
+   Sepal.Width  = c(3.5, 3, 3.2, 3.1, 3.6, 3.2, 3.2, 3.1, 2.3, 2.8, 3.3, 2.7, 3, 2.9, 3),
+   Petal.Length = c(1.4, 1.4, 1.3, 1.5, 1.4, 4.7, 4.5, 4.9, 4, 4.6, 6, 5.1, 5.9, 5.6, 5.8),
+   Petal.Width  = c(0.2, 0.2, 0.2, 0.2, 0.2, 1.4, 1.5, 1.5, 1.3, 1.5, 2.5, 1.9, 2.1, 1.8, 2.2),
+   Species      = rep(c("First species", "Second species", "Third species"), each = 5)
+)
+
+set.seed(1)
+results <- runAnalysis("Anova", dataset, options)
+
+test_that("Post Hoc Comparisons - Species table results match and contrast names do not contain commas", {
+   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species"]][["data"]]
+   jaspTools::expect_equal_tables(table,
+                                  list("TRUE", 0.286589136802729, "First species", "Second species",
+                                       -1.6, -5.58290526239083, 0.000324812090923943, "FALSE", 0.286589136802729,
+                                       "First species", "Third species", -1.54, -5.37354631505117,
+                                       0.000453440993214982, "FALSE", 0.286589136802729, "Second species",
+                                       "Third species", 0.0599999999999998, 0.209358947339655, 0.976174158311121
+                                  ))
+
+   # following https://github.com/jasp-stats/jasp-issues/issues/1295, assert that these names do not contain commas.
+   contrast_A <- vapply(table, `[[`, "contrast_A", FUN.VALUE = character(1L))
+   contrast_B <- vapply(table, `[[`, "contrast_B", FUN.VALUE = character(1L))
+   expect_true(!grepl(",", contrast_A))
+   expect_true(!grepl(",", contrast_B))
+
+})
+
+
 #### Andy Field Tests ----
 
 #### Chapter 4 -----

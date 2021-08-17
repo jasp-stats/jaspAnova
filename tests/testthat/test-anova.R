@@ -391,8 +391,8 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
    # following https://github.com/jasp-stats/jasp-issues/issues/1295, assert that these names do not contain commas.
    contrast_A <- vapply(table, `[[`, "contrast_A", FUN.VALUE = character(1L))
    contrast_B <- vapply(table, `[[`, "contrast_B", FUN.VALUE = character(1L))
-   expect_true(!grepl(",", contrast_A))
-   expect_true(!grepl(",", contrast_B))
+   expect_true(!any(grepl(",", contrast_A)))
+   expect_true(!any(grepl(",", contrast_B)))
 
 })
 

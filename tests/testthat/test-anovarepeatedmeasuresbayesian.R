@@ -356,3 +356,23 @@ test_that("Model Comparison table results matches for beer data", {
          2.56126043451803e-29, 7.66536860710751e-29, "Null model (incl. subject)",
          0.25, 2.55512286903585e-29, 10.5326335209382))
 })
+
+options <- initOpts()
+options$repeatedMeasuresCells <- c("contNormal", "contGamma")
+options$repeatedMeasuresFactors <- list(
+  list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
+)
+options$betweenSubjectFactors <- c("facGender", "facFifty")
+options$covariates <- "contcor1"
+options$modelTerms <- list(
+  list(components="RM_FACTOR_1", isNuisance=TRUE),
+  list(components="facGender", isNuisance=FALSE),
+  list(components="contcor1", isNuisance=FALSE),
+  list(components=c("RM_FACTOR_1", "facGender", "facFifty"), isNuisance=FALSE)
+)
+set.seed(1)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
+test_that("Missing cells in interactions with between-subject factors returns an error") {
+  expect_true(results[["results"]][["error"]], label = "Missing interaction cells check")
+}
+

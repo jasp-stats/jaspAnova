@@ -54,12 +54,21 @@
 
 .BANOVAerrorhandling <- function(dataset, options, analysisType) {
 
+  customChecks <- list()
+
   if (analysisType != "RM-ANOVA") {
     hasDV <- options$dependent != ""
     hasIV <- any(lengths(options[c("fixedFactors", "covariates")]) != 0)
     fixed <- options$fixedFactors
     noVariables <- !(hasDV && hasIV)
     target <- c(options$covariates, options$dependent)
+
+    # check if the last model has an interaction effect
+    mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
+    mostComplexModel <- intersect(mostComplexModel, fixed)
+
+    if (length(mostComplexModel) > 1L)
+      customChecks[["missingInteractionCells"]] <- .BANOVAmissingInteractionCells
 
     if (!noVariables) {
       .hasErrors(
@@ -71,6 +80,9 @@
         observations.amount = paste("<", length(options$modelTerms) + 1),
         factorLevels.target = fixed,
         factorLevels.amount = " < 2",
+        # custom checks
+        custom              = customChecks,
+        missingInteractionCells.target = mostComplexModel,
         exitAnalysisIfErrors = TRUE
       )
     }
@@ -83,6 +95,13 @@
     noVariables <- !hasDV
     target <- c(covariates, fixed)
 
+    # check if the last model has an interaction effect
+    mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
+    mostComplexModel <- intersect(mostComplexModel, fixed)
+
+    if (length(mostComplexModel) > 1L)
+      customChecks[["missingInteractionCells"]] <- .BANOVAmissingInteractionCells
+
     if (length(target) > 0L) {
       .hasErrors(
         dataset = dataset,
@@ -94,6 +113,9 @@
         factorLevels.target = fixed,
         factorLevels.amount = " < 2",
         duplicateColumns.target = target,
+        # custom checks
+        custom              = customChecks,
+        missingInteractionCells.target = mostComplexModel,
         exitAnalysisIfErrors = TRUE
       )
     }
@@ -158,6 +180,42 @@
   }
 
   return(list(noVariables = noVariables, hasIV = hasIV, hasDV = hasDV))
+}
+
+.BANOVAmissingInteractionCells <- function(dataset, target) {
+
+  # sorts a data frame by all its columns
+  sortDataFrame <- function(df) {
+    df[do.call(order, df), ]
+  }
+
+  uniqueObservedCombinations <- sortDataFrame(unique(dataset[, target, drop = FALSE]))
+  uniqueExpectedCombinations <- sortDataFrame(do.call(expand.grid, c(lapply(uniqueObservedCombinations, unique), stringsAsFactors = FALSE)))
+
+  # if the rows match then it must be
+  if (nrow(uniqueObservedCombinations) == nrow(uniqueExpectedCombinations))
+    return(NULL)
+
+  # find missing combinations
+  observedStrings <- unname(apply(uniqueObservedCombinations, 1L, paste, collapse = jaspBase::interactionSymbol))
+  expectedStrings <- unname(apply(uniqueExpectedCombinations, 1L, paste, collapse = jaspBase::interactionSymbol))
+  missingStrings  <- setdiff(expectedStrings, observedStrings)
+  missingStringsCollapsed <- paste(missingStrings[1:10], collapse = ", ")
+
+  interactionVariable <- paste(colnames(uniqueObservedCombinations), collapse = jaspBase::interactionSymbol)
+
+  if (length(missingStrings) <= 10) {
+    return(gettextf(
+      "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells",
+      interactionVariable, missingStringsCollapsed
+    ))
+  } else {
+    return(gettextf(
+      "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells",
+      interactionVariable, missingStringsCollapsed
+    ))
+  }
+
 }
 
 # model comparison ----

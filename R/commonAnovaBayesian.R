@@ -200,7 +200,7 @@
   observedStrings <- unname(apply(uniqueObservedCombinations, 1L, paste, collapse = jaspBase::interactionSymbol))
   expectedStrings <- unname(apply(uniqueExpectedCombinations, 1L, paste, collapse = jaspBase::interactionSymbol))
   missingStrings  <- setdiff(expectedStrings, observedStrings)
-  missingStringsCollapsed <- paste(missingStrings[1:10], collapse = ", ")
+  missingStringsCollapsed <- paste(missingStrings[1:min(length(missingStrings), 10)], collapse = ", ")
 
   interactionVariable <- paste(colnames(uniqueObservedCombinations), collapse = jaspBase::interactionSymbol)
 

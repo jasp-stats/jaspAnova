@@ -372,7 +372,7 @@ options$modelTerms <- list(
 )
 set.seed(1)
 results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
-test_that("Missing cells in interactions with between-subject factors returns an error") {
+test_that("Missing cells in interactions with between-subject factors returns an error", {
   expect_true(results[["results"]][["error"]], label = "Missing interaction cells check")
-}
+})
 

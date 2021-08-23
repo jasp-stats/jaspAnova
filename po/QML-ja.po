@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-08-24 19:32+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
@@ -1357,49 +1363,44 @@ msgstr "Vovk-Sellke maximum p比"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "複数の平均値差を評価する"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
 msgctxt "Anova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
 msgstr "反復測定要因"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "レインクラウドプロット"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Factors"
 msgstr "要因"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
 msgstr "横軸"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
 msgstr "分割プロット"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "水平方向の表示"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
 msgstr "Y軸のラベル"

@@ -1481,8 +1481,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                betweenvars = betweenSubjectFactors,
                                                withinvars = repeatedMeasuresFactors,
                                                idvar = .BANOVAsubjectName,
-                                               conf.interval = options$confidenceIntervalInterval,
-                                               na.rm=TRUE, .drop = FALSE, errorBarType = options$errorBarType,
+                                               conf.interval = conf.interval,
+                                               na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
                                                usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }

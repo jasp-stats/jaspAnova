@@ -326,3 +326,33 @@ test_that("Model Averaged Posterior Summary table results with interactions matc
 			 -0.351014476294011, -0.185156290606396, 0.0824454986811013,
 			 -0.0222726656050543, ""))
 })
+
+
+options <- initOpts()
+options$plotHorizontalAxis <- "Drink"
+options$plotSeparateLines <- "Imagery"
+options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
+options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
+    list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
+options$modelTerms <- list(list(components = "Drink", isNuisance = FALSE), list(components = "Imagery",
+    isNuisance = FALSE))
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
+
+test_that("Descriptives plot matches for beer data", {
+  plotName <- results[["results"]][["descriptivesContainer"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots_"]][["data"]]
+  testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
+  jaspTools::expect_equal_plots(testPlot, "Descriptives plot")
+})
+
+test_that("Model Comparison table results matches for beer data", {
+  table <- results[["results"]][["tableModelComparison"]][["data"]]
+  jaspTools::expect_equal_tables(
+    table,
+    list(1, 1248.92657020971, "Drink + Imagery", 0.25, 0.997603693322448,
+         "", 0.00240206275657685, 0.00720618826973056, "Imagery", 0.25,
+         0.00239630667755337, 13.6259323546224, 8.3225913320555e-29,
+         2.49079435526158e-28, "Drink", 0.25, 8.30264785087197e-29, 13.7458740674974,
+         2.56126043451803e-29, 7.66536860710751e-29, "Null model (incl. subject)",
+         0.25, 2.55512286903585e-29, 10.5326335209382))
+})

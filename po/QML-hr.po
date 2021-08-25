@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-08-24 19:32+0000\n"
+"PO-Revision-Date: 2021-08-26 17:34+0000\n"
 "Last-Translator: Darko Lončarić <loncaricd@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/hr/>\n"
@@ -414,115 +414,117 @@ msgstr "Zasebni grafovi"
 
 msgctxt "AncovaBayesian|"
 msgid "Display"
-msgstr ""
+msgstr "Prikaz"
 
 msgctxt "AncovaBayesian|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Dodatne mogućnosti"
 
+#, fuzzy
 msgctxt "AncovaBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prior"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "Fiksni efekti izraženi na r skali"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "Nasumični efekti na r skali"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
-msgstr ""
+msgstr "Kovarijati na r skali"
 
 msgctxt "AncovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr ""
+msgstr "Numerička preciznost"
 
 msgctxt "AncovaBayesian|"
 msgid "Auto"
-msgstr ""
+msgstr "Automatski"
 
 msgctxt "AncovaBayesian|"
 msgid "Manual"
-msgstr ""
+msgstr "Ručno podešavanje"
 
 msgctxt "AncovaBayesian|"
 msgid "No. samples"
-msgstr ""
+msgstr "Broj uzoraka"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior Samples"
-msgstr ""
+msgstr "Posterior uzorci"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Zavisna varijabla"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Fiksni faktori"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Nasumični faktori"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "WLS ponderi"
 
 msgctxt "Anova|"
 msgid "Display"
-msgstr ""
+msgstr "Prikaz"
 
 msgctxt "Anova|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Deskriptivna statistika"
 
 msgctxt "Anova|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Procjene veličine efekta"
 
+#, fuzzy
 msgctxt "Anova|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Anova|"
 msgid "partial η²"
-msgstr ""
+msgstr "parcijalni η²"
 
 msgctxt "Anova|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Anova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke maksimalan p-omjer"
 
 msgctxt "Anova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Anova|"
 msgid "Components"
-msgstr ""
+msgstr "Komponente"
 
 msgctxt "Anova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Elementi modela"
 
 msgctxt "Anova|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "Suma kvadrata"
 
 msgctxt "Anova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Provjera preduvjeta"
 
 msgctxt "Anova|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Test homogenosti"
 
 msgctxt "Anova|"
 msgid "Homogeneity corrections"

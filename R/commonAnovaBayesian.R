@@ -64,8 +64,11 @@
     target <- c(options$covariates, options$dependent)
 
     # check if the last model has an interaction effect
-    mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
-    mostComplexModel <- intersect(mostComplexModel, fixed)
+    mostComplexModel <- NULL
+    if (length(options[["modelTerms"]]) > 0L) {
+      mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
+      mostComplexModel <- intersect(mostComplexModel, fixed)
+    }
 
     if (length(mostComplexModel) > 1L)
       customChecks[["missingInteractionCells"]] <- .BANOVAmissingInteractionCells
@@ -96,8 +99,11 @@
     target <- c(covariates, fixed)
 
     # check if the last model has an interaction effect
-    mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
-    mostComplexModel <- intersect(mostComplexModel, fixed)
+    mostComplexModel <- NULL
+    if (length(options[["modelTerms"]]) > 0L) {
+      mostComplexModel <- options[["modelTerms"]][[length(options[["modelTerms"]])]][["components"]]
+      mostComplexModel <- intersect(mostComplexModel, fixed)
+    }
 
     if (length(mostComplexModel) > 1L)
       customChecks[["missingInteractionCells"]] <- .BANOVAmissingInteractionCells

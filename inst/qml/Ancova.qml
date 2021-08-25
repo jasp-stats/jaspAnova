@@ -136,6 +136,11 @@ Form
 		}
 	}
 	
+	ANOVA.OrderRestrictions
+	{
+		type: "Ancova"
+	}
+	
 	Section
 	{
 		title: qsTr("Post Hoc Tests")

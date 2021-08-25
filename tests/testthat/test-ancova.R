@@ -130,6 +130,186 @@ test_that("Contrasts table results match", {
   }
 })
 
+# Order restrictions
+
+test_that("Model Comparison Table results match", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$covariates <- "contGamma"
+  options$modelTerms <- list(list(components = "facFive"),
+                            list(components = "contGamma"))
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+                                        modelSummary = FALSE, informedHypothesisTest = FALSE))
+  options$includeIntercept <- TRUE
+  options$restrictedModelComparisonCoefficients <- FALSE
+  options$highlightEstimates <- FALSE
+
+  comparison <- c("none", "complement", "unconstrained")
+
+  refTables <- list(none = list(301.817283957095, 1, -144.908641978547, "Model 1", 6, 1),
+                    complement = list(301.817283957095, 0.727394455051185, -144.908641978547, "Model 1",
+                                      6, 1, 303.780170056147, 0.272605544948815, -144.890085028074,
+                                      "Complement", 7, 0.374769896932514),
+                    unconstrained = list(301.817283957095, 0.727394455051185, -144.908641978547, "Model 1",
+                                         6, 1, 303.780170056147, 0.272605544948815, -144.890085028074,
+                                         "Unconstrained", 7, 0.374769896932514)
+  )
+
+  for (comp in comparison) {
+    options$restrictedModelComparison <- comp
+    options$restrictedModelComparisonReference <- "Model 1"
+    results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_comparisonTable"]][["data"]]
+    jaspTools::expect_equal_tables(table, refTables[[comp]])
+  }
+})
+
+test_that("Model Coefficients Table results match", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$covariates <- "contGamma"
+  options$modelTerms <- list(list(components = "facFive"),
+                            list(components = "contGamma"))
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+      modelSummary = FALSE, informedHypothesisTest = FALSE))
+  options$includeIntercept <- TRUE
+  options$restrictedModelComparisonCoefficients <- TRUE
+  options$highlightEstimates <- TRUE
+
+  comparison <- c("none", "complement", "unconstrained")
+
+  refTables <- list(none = list(0, -0.154738134097615, "(Intercept)", -0.149125688998174, 0, -0.169197472317935,
+                                "facFive (1)", -0.136596626658275, 0, -0.169197472317935, "facFive (2)",
+                                -0.200720248979633, 0, 0.327083593303366, "facFive (3)", 0.326355030521639,
+                                0, -0.163871391497433, "facFive (4)", -0.163006179525351, 0,
+                                -0.0167295176108609, "contGamma", -0.0194902423183439),
+                    complement = list(0, -0.154738134097615, "(Intercept)", -0.149125688998174, -0.149125688998174,
+                                      0, -0.169197472317935, "facFive (1)", -0.136596626658275, -0.136596626658275,
+                                      0, -0.169197472317935, "facFive (2)", -0.200720248979633, -0.200720248979633,
+                                      0, 0.327083593303366, "facFive (3)", 0.326355030521639, 0.326355030521639,
+                                      0, -0.163871391497433, "facFive (4)", -0.163006179525351, -0.163006179525351,
+                                      0, -0.0167295176108609, "contGamma", -0.0194902423183439, -0.0194902423183439),
+                    unconstrained = list(0, -0.154738134097615, "(Intercept)", -0.149125688998174, 0, -0.169197472317935,
+                                         "facFive (1)", -0.136596626658275, 0, -0.169197472317935, "facFive (2)",
+                                         -0.200720248979633, 0, 0.327083593303366, "facFive (3)", 0.326355030521639,
+                                         0, -0.163871391497433, "facFive (4)", -0.163006179525351, 0,
+                                         -0.0167295176108609, "contGamma", -0.0194902423183439)
+  )
+
+  for (comp in comparison) {
+    options$restrictedModelComparison <- comp
+    options$restrictedModelComparisonReference <- "Model 1"
+    results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_coefficientsTable"]][["data"]]
+    jaspTools::expect_equal_tables(table, refTables[[comp]])
+  }
+})
+
+test_that("Model Summary Tables results match", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$covariates <- "contGamma"
+  options$modelTerms <- list(list(components = "facFive"),
+                             list(components = "contGamma"))
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+      modelSummary = TRUE, informedHypothesisTest = FALSE))
+  options$includeIntercept <- TRUE
+  options$restrictedModelComparison <- "complement"
+  options$restrictedModelComparisonReference <- "Complement"
+  options$restrictedModelComparisonCoefficients <- FALSE
+  options$highlightEstimates <- FALSE
+  options$restrictedModelHeteroskedasticity <- "none"
+  options$restrictedModelMarginalMeansTerm <- "facFive"
+  options$restrictedConfidenceIntervalLevel <- 0.95
+  options$restrictedConfidenceIntervalBootstrap <- FALSE
+  options$restrictedConfidenceIntervalBootstrapSamples <- 100
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Model 1"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+    list(0.167755327188213, 1, -0.691028194488133, -0.357946059857934,
+       -0.0248639252277356, 0.167755327188215, 2, -0.691028194488137,
+       -0.357946059857934, -0.0248639252277325, 0.237172321281224,
+       3, -0.332576197902421, 0.138335005763366, 0.609246209429153,
+       0.237473181443956, 4, -0.82412854760905, -0.352619979037433,
+       0.118888589534183, 0.238474666193202, 5, -0.487062884727979,
+       -0.0135658447100634, 0.459931195307852))
+
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Complement"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+    list(0.159726533626395, 1, -0.651051263991961, -0.325345214198275,
+       0.0483008940136666, 0.199148441441157, 2, -0.750097437911133,
+       -0.389468836519633, -0.0353077560310458, 0.255662534264972,
+       3, -0.691415077431805, 0.137606442981639, 0.581202803702893,
+       0.229407103860898, 4, -0.873806534090684, -0.351754767065351,
+       0.0280912707956404, 0.287368435064222, 5, -0.632138106089154,
+       -0.0147805628983806, 0.521517824174558))
+})
+
+test_that("Model Summary Tables results match (bootstrap)", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$covariates <- "contGamma"
+  options$modelTerms <- list(list(components = "facFive"),
+                             list(components = "contGamma"))
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+      modelSummary = TRUE, informedHypothesisTest = FALSE))
+  options$includeIntercept <- TRUE
+  options$restrictedModelComparison <- "complement"
+  options$restrictedModelComparisonReference <- "Complement"
+  options$restrictedModelComparisonCoefficients <- FALSE
+  options$highlightEstimates <- FALSE
+  options$restrictedModelHeteroskedasticity <- "none"
+  options$restrictedModelMarginalMeansTerm <- "facFive"
+  options$restrictedConfidenceIntervalLevel <- 0.95
+  options$restrictedConfidenceIntervalBootstrap <- TRUE
+  options$restrictedConfidenceIntervalBootstrapSamples <- 100
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Model 1"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+    list(0.136444548762599, 1, -0.596749619547702, -0.357946059857934,
+       -0.075006510897505, 0.136444548762599, 2, -0.596749619547702,
+       -0.357946059857934, -0.075006510897505, 0.255829822339125, 3,
+       -0.683329961210056, 0.138335005763366, 0.593206544372537, 0.229114370339469,
+       4, -0.872325989888679, -0.352619979037433, 0.0262324605079643,
+       0.286896913993928, 5, -0.631396953717359, -0.0135658447100634,
+       0.526191083889959))
+})
+
+test_that("Restricted Marginal Means Plot matches", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$covariates <- "contGamma"
+  options$modelTerms <- list(list(components = "facFive"),
+                             list(components = "contGamma"))
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+      modelSummary = TRUE, informedHypothesisTest = FALSE))
+  options$includeIntercept <- TRUE
+  options$restrictedModelComparison <- "complement"
+  options$restrictedModelComparisonReference <- "Complement"
+  options$restrictedModelComparisonCoefficients <- FALSE
+  options$highlightEstimates <- FALSE
+  options$restrictedConfidenceIntervalLevel <- 0.95
+  options$restrictedConfidenceIntervalBootstrap <- FALSE
+  options$restrictedConfidenceIntervalBootstrapSamples <- 100
+  options$restrictedModelHeteroskedasticity <- "none"
+  options$restrictedModelMarginalMeansTerm <- "facFive"
+  options$plotRestrictedModels <- c("Model 1", "Complement")
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+  plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_marginalMeansPlotContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_marginalMeansPlotContainer_marginalMeansPlotSingle"]][["data"]]
+  testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
+  jaspTools::expect_equal_plots(testPlot, "restricted-marginal-means")
+})
+
 test_that("Post Hoc table results match", {
   options <- jaspTools::analysisOptions("Ancova")
   options$dependent <- "contNormal"

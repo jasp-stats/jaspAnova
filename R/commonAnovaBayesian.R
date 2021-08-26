@@ -498,7 +498,8 @@
   effectsTable$position <- 2
   effectsTable$dependOn(c(
     "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed"
+    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
+    "repeatedMeasuresCells"
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])

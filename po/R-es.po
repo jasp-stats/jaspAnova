@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-08-14 02:42\n"
+"POT-Creation-Date: 2021-08-28 02:41\n"
 "PO-Revision-Date: 2021-08-09 00:36+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -525,6 +525,17 @@ msgstr "Variables duplicadas encontradas en celdas de medidas repetidas, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Variables duplicadas encontradas en %s"
+
+msgid ""
+"The interaction effect of %1$s has no observations for the combination(s): "
+"%2$s. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+
+msgid ""
+"The interaction effect of %1$s has no observations for the combination(s): "
+"%2$s. Only the first 10 missing combinations are shown. Please adjust the "
+"model and remove any interactions with missing cells"
+msgstr ""
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""

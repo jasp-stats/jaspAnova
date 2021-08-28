@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-08-14 02:42\n"
+"POT-Creation-Date: 2021-08-28 02:41\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -440,6 +440,12 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
+msgstr ""
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."

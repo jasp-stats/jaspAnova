@@ -533,8 +533,7 @@ test_that("Nonparametric table match", {
                             dataset = "AnovaMixedEffects.csv",
                             options = options)
 
-  refTable <- list( "Charisma", 40.074508162411, 2, 1.98577994376659e-09, -170.212868480726,
-                    26.3987755757377, 8, 158, 1.2968573602055e-25)
+  refTable <- list("Charisma", 40.074508162411, 2, -170.212868480726, 1.98577994376659e-09)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)

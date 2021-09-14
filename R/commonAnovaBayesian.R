@@ -908,7 +908,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                            position = 2.5)
 
   issuesTable$addColumnInfo(name = "Models",           title = gettext("Affected model"),      type = "string")
-  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("% useful samples"),    type = "number")
+  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("%% useful samples"),    type = "number")
   issuesTable$addColumnInfo(name = "noSuccess",        title = gettext("Useful samples"),      type = "integer")
   issuesTable$addColumnInfo(name = "total",            title = gettext("Total samples drawn"), type = "integer")
 
@@ -921,7 +921,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
     issuesTable$addFootnote(
-      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
+      gettext("For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
       symbol = .BANOVAGetWarningSymbol()
     )
 

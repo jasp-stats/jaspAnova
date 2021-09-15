@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-08-28 02:41\n"
+"POT-Creation-Date: 2021-09-15 11:36\n"
 "PO-Revision-Date: 2021-09-11 02:41+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -618,7 +618,8 @@ msgstr "<b><em>警告：遇到抽样问题！</em></b>"
 msgid "Affected model"
 msgstr "受影响的模型"
 
-msgid "% useful samples"
+#, fuzzy
+msgid "%% useful samples"
 msgstr "% 有用的样本"
 
 msgid "Useful samples"
@@ -627,8 +628,9 @@ msgstr "有用的样本"
 msgid "Total samples drawn"
 msgstr "抽取的样本总数"
 
+#, fuzzy
 msgid ""
-"For some affected models, more than 75% of the posterior samples failed, or "
+"For some affected models, more than 75%% of the posterior samples failed, or "
 "fewer than 1000 samples remained for subsequent results. All model-averaged "
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."

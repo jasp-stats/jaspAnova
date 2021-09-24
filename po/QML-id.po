@@ -1,1399 +1,1410 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-09-25 01:31+0000\n"
+"Last-Translator: Sunu Bagaskara <sunu.bagaskara@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Klasikal"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA Pengukuran Berulang"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Bayesian"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "ANOVA Bayesian"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA Pengukuran Berulang Bayesian"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "ANCOVA Bayesian"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabel Terikat"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Faktor Tetap"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Faktor Acak"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr ""
+msgstr "Kovariat"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "Bobot WLS"
 
 msgctxt "Ancova|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "Ancova|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Statistik deskriptif"
 
 msgctxt "Ancova|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Estimasi besaran efek"
 
 msgctxt "Ancova|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Ancova|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parsial"
 
 msgctxt "Ancova|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Ancova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Rasio-p maksimum Vovk-Sellke"
 
 msgctxt "Ancova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Ancova|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
+#, fuzzy
 msgctxt "Ancova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Ketentuan Model"
 
 msgctxt "Ancova|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "Jumlah kuadrat"
 
 msgctxt "Ancova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Pemeriksaan Asumsi"
 
 msgctxt "Ancova|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Pengujian homogenitas"
 
 msgctxt "Ancova|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Plot Q-Q residual"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr ""
+msgstr "Pemeriksaan independensi kovariat faktor"
 
 msgctxt "Ancova|"
 msgid "Contrasts"
-msgstr ""
+msgstr "Kontras"
 
 msgctxt "Ancova|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Interval kepercayaan"
 
 msgctxt "Ancova|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Pengujian Pos Hoc"
 
 msgctxt "Ancova|"
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
 msgctxt "Ancova|"
 msgid "Standard"
-msgstr ""
+msgstr "Standar"
 
 msgctxt "Ancova|"
 msgid "From"
-msgstr ""
+msgstr "Dari"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstrap"
 
 msgctxt "Ancova|"
 msgid "Effect size"
-msgstr ""
+msgstr "Besaran efek"
 
 msgctxt "Ancova|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgctxt "Ancova|"
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgctxt "Ancova|"
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgctxt "Ancova|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "Ancova|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "Ancova|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "Ancova|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "Ancova|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Tandai Perbandingan yang Signifikan"
 
 msgctxt "Ancova|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 msgctxt "Ancova|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "Ancova|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "Ancova|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "Ancova|"
 msgid "Display error bars"
-msgstr ""
+msgstr "Tampilkan batang galat"
 
 msgctxt "Ancova|"
 msgid "Standard error"
-msgstr ""
+msgstr "Galat baku"
 
 msgctxt "Ancova|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Rerata Marjinal"
 
 msgctxt "Ancova|"
 msgid "Compare marginal means to 0"
-msgstr ""
+msgstr "Bandingkan rerata marjinal dengan 0"
 
 msgctxt "Ancova|"
 msgid "Confidence interval adjustment"
-msgstr ""
+msgstr "Penyesuaian interval kepercayaan"
 
 msgctxt "Ancova|"
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 msgctxt "Ancova|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efek Utama Sederhana"
 
 msgctxt "Ancova|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "Ancova|"
 msgid "Simple Effect Factor"
-msgstr ""
+msgstr "Faktor Efek Sederhana"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 1"
-msgstr ""
+msgstr "Moderator Faktor 1"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 2"
-msgstr ""
+msgstr "Moderator Faktor 2"
 
 msgctxt "Ancova|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nonparametrik"
 
 msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Uji Kruskal-Wallis"
 
 msgctxt "Ancova|"
 msgid " "
-msgstr ""
+msgstr " "
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabel Terikat"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Faktor Tetap"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Faktor Acak"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Kovariat"
 
 msgctxt "AncovaBayesian|"
 msgid "Tables"
-msgstr ""
+msgstr "Tabel"
 
 msgctxt "AncovaBayesian|"
 msgid "Effects"
-msgstr ""
+msgstr "Efek"
 
 msgctxt "AncovaBayesian|"
 msgid "Across all models"
-msgstr ""
+msgstr "Di semua model"
 
 msgctxt "AncovaBayesian|"
 msgid "Across matched models"
-msgstr ""
+msgstr "Di seluruh model berpasangan"
 
 msgctxt "AncovaBayesian|"
 msgid "Estimates"
-msgstr ""
+msgstr "Estimasi"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R² rata-rata model"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskriptif"
 
 msgctxt "AncovaBayesian|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Interval kredibel"
 
 msgctxt "AncovaBayesian|"
 msgid "Order"
-msgstr ""
+msgstr "Urutan"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "Bandingkan dengan model terbaik"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Bandingkan dengan model nol"
 
 msgctxt "AncovaBayesian|"
 msgid "Plots"
-msgstr ""
+msgstr "Plot"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr ""
+msgstr "Posterior rata-rata model"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Level kelompok pada plot tunggal"
 
 msgctxt "AncovaBayesian|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "Plot individual per level"
 
 msgctxt "AncovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Plot Q-Q residual"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 msgctxt "AncovaBayesian|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AncovaBayesian|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
 msgctxt "AncovaBayesian|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferensi Model Tunggal"
 
 msgctxt "AncovaBayesian|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "Ketentuan Model Spesifik"
 
 msgctxt "AncovaBayesian|"
 msgid "R²"
-msgstr ""
+msgstr "R²"
 
 msgctxt "AncovaBayesian|"
 msgid "Marginal posteriors"
-msgstr ""
+msgstr "Posterior marjinal"
 
 msgctxt "AncovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgctxt "AncovaBayesian|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "AncovaBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Kontrol nol"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot deskriptif"
 
 msgctxt "AncovaBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "AncovaBayesian|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "AncovaBayesian|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Opsi Tambahan"
 
 msgctxt "AncovaBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prior"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "efek tetap skala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "efek acak skala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
-msgstr ""
+msgstr "kovariat skala r"
 
 msgctxt "AncovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr ""
+msgstr "Keakuratan Numerik"
 
 msgctxt "AncovaBayesian|"
 msgid "Auto"
-msgstr ""
+msgstr "Oto"
 
 msgctxt "AncovaBayesian|"
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgctxt "AncovaBayesian|"
 msgid "No. samples"
-msgstr ""
+msgstr "Jml. Sampel"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior Samples"
-msgstr ""
+msgstr "Sampel Posterior"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabel Terikat"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Faktor Tetap"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Faktor Acak"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "Bobot WLS"
 
 msgctxt "Anova|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "Anova|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Statistik deskriptif"
 
 msgctxt "Anova|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Estimasi besaran efek"
 
 msgctxt "Anova|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Anova|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parsial"
 
 msgctxt "Anova|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Anova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Rasio-p maksimum Vovk-Sellke"
 
 msgctxt "Anova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Anova|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
 msgctxt "Anova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Ketentuan Model"
 
 msgctxt "Anova|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "Jumlah kuadrat"
 
 msgctxt "Anova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Pemeriksaan Asumsi"
 
 msgctxt "Anova|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Uji homogenitas"
 
 msgctxt "Anova|"
 msgid "Homogeneity corrections"
-msgstr ""
+msgstr "Koreksi homogenitas"
 
 msgctxt "Anova|"
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 msgctxt "Anova|"
 msgid "Brown-Forsythe"
-msgstr ""
+msgstr "Brown-Forsythe"
 
 msgctxt "Anova|"
 msgid "Welch"
-msgstr ""
+msgstr "Welch"
 
 msgctxt "Anova|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Plot-QQ residual"
 
 msgctxt "Anova|"
 msgid "Contrasts"
-msgstr ""
+msgstr "Kontras"
 
 msgctxt "Anova|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Interval kepercayaan"
 
 msgctxt "Anova|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgctxt "Anova|"
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
 msgctxt "Anova|"
 msgid "Standard"
-msgstr ""
+msgstr "Standar"
 
 msgctxt "Anova|"
 msgid "From"
-msgstr ""
+msgstr "Dari"
 
 msgctxt "Anova|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstrap"
 
 msgctxt "Anova|"
 msgid "Effect size"
-msgstr ""
+msgstr "Besaran efek"
 
 msgctxt "Anova|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgctxt "Anova|"
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgctxt "Anova|"
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgctxt "Anova|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "Anova|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "Anova|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "Anova|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "Anova|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "Anova|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Tandai Perbandingan yang Signifikan"
 
 msgctxt "Anova|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 msgctxt "Anova|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "Anova|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "Anova|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "Anova|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "Anova|"
 msgid "Display error bars"
-msgstr ""
+msgstr "Tampilkan batang galat"
 
 msgctxt "Anova|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Interval kepercayaan"
 
 msgctxt "Anova|"
 msgid "Standard error"
-msgstr ""
+msgstr "Galat baku"
 
 msgctxt "Anova|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Rerata Marjinal"
 
 msgctxt "Anova|"
 msgid "Compare marginal means to 0"
-msgstr ""
+msgstr "Bandingan rerata marjinal dengan 0"
 
 msgctxt "Anova|"
 msgid "Confidence interval adjustment"
-msgstr ""
+msgstr "Penyesuaian interval kepercayaan"
 
 msgctxt "Anova|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efek Utama Sederhana"
 
 msgctxt "Anova|"
 msgid "Simple Effect Factor"
-msgstr ""
+msgstr "Faktor Efek Sederhana"
 
 msgctxt "Anova|"
 msgid "Moderator Factor 1"
-msgstr ""
+msgstr "Moderator Faktor 1"
 
 msgctxt "Anova|"
 msgid "Moderator Factor 2"
-msgstr ""
+msgstr "Moderator Faktor 2"
 
 msgctxt "Anova|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nonparametrik"
 
 msgctxt "Anova|"
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Uji Kruskal-Wallis"
 
 msgctxt "Anova|"
 msgid " "
-msgstr ""
+msgstr " "
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabel Terikat"
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Faktor Tetap"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Faktor Acak"
 
 msgctxt "AnovaBayesian|"
 msgid "Tables"
-msgstr ""
+msgstr "Tabel"
 
 msgctxt "AnovaBayesian|"
 msgid "Effects"
-msgstr ""
+msgstr "Efek"
 
 msgctxt "AnovaBayesian|"
 msgid "Across all models"
-msgstr ""
+msgstr "Di semua model"
 
 msgctxt "AnovaBayesian|"
 msgid "Across matched models"
-msgstr ""
+msgstr "Di model yang berpasangan"
 
 msgctxt "AnovaBayesian|"
 msgid "Estimates"
-msgstr ""
+msgstr "Estimasi"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R² rata -rata model"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskriptif"
 
 msgctxt "AnovaBayesian|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Interval kredibel"
 
 msgctxt "AnovaBayesian|"
 msgid "Order"
-msgstr ""
+msgstr "Urutan"
 
 msgctxt "AnovaBayesian|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "Bandingkan dengan model terbaik"
 
 msgctxt "AnovaBayesian|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Bandingkan dengan model nol"
 
 msgctxt "AnovaBayesian|"
 msgid "Plots"
-msgstr ""
+msgstr "Plot"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr ""
+msgstr "Posterior rata-rata model"
 
 msgctxt "AnovaBayesian|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Level grup di plot tunggal"
 
 msgctxt "AnovaBayesian|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "Plot individual per level"
 
 msgctxt "AnovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Plot Q-Q residual"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 msgctxt "AnovaBayesian|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AnovaBayesian|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
 msgctxt "AnovaBayesian|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferensi Model Tunggal"
 
 msgctxt "AnovaBayesian|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "Ketentuan Model Spesifik"
 
 msgctxt "AnovaBayesian|"
 msgid "R²"
-msgstr ""
+msgstr "R²"
 
 msgctxt "AnovaBayesian|"
 msgid "Marginal posteriors"
-msgstr ""
+msgstr "Posterior marjinal"
 
 msgctxt "AnovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgctxt "AnovaBayesian|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "AnovaBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Kontrol nol"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 msgctxt "AnovaBayesian|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "AnovaBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "AnovaBayesian|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "AnovaBayesian|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Opsi Tambahan"
 
 msgctxt "AnovaBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prior"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "efek tetap skala r"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "efek acak skala r"
 
 msgctxt "AnovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr ""
+msgstr "Keakuratan Numerik"
 
 msgctxt "AnovaBayesian|"
 msgid "Auto"
-msgstr ""
+msgstr "Otomatis"
 
 msgctxt "AnovaBayesian|"
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgctxt "AnovaBayesian|"
 msgid "No. samples"
-msgstr ""
+msgstr "Jml. sampel"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior Samples"
-msgstr ""
+msgstr "Sampel Posterior"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "Faktor Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Sel Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Faktor Antar Subyek"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr ""
+msgstr "Kovariat"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Statistik deskriptif"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Estimasi besaran efek"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² parsial"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "general η²"
-msgstr ""
+msgstr "η² umum"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Rasio-p maksimum Vovk-Sellke"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr ""
+msgstr "Komponen Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Ketentuan Model"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr ""
+msgstr "Komponen Antar Subyek"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr ""
+msgstr "Ketentuan model"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "Jumlah kuadrat"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr ""
+msgstr "Gunakan model multivariat untuk uji tindak lanjut"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Pemeriksaan Asumsi"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr ""
+msgstr "Uji kebulatan"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr ""
+msgstr "Koreksi kebulatan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Uji homogenitas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Contrasts"
-msgstr ""
+msgstr "Kontras"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assume equal variances"
-msgstr ""
+msgstr "Asumsikan varians setara"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Interval kepercayaan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr ""
+msgstr "Besaran efek"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
-msgstr ""
+msgstr "Kumpulan galat untuk faktor pengukuran berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Tandai Perbandingan yang Signifikan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Label aksis-y"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Display error bars"
-msgstr ""
+msgstr "Tampilkan batang galat"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Interval kepercayaan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Standard error"
-msgstr ""
+msgstr "Galat baku"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr ""
+msgstr "Rata-rata di seluruh faktor pengukuran berulang yang tidak digunakan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Rerata Marjinal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
-msgstr ""
+msgstr "Dari"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstrap"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Compare marginal means to 0"
-msgstr ""
+msgstr "Bandingkan rerata marjinal dengan 0"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence interval adjustment"
-msgstr ""
+msgstr "Penyesuaian interval kepercayaan"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efek Utama Sederhana"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Effect Factor"
-msgstr ""
+msgstr "Faktor Efek Sederhana"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 1"
-msgstr ""
+msgstr "Moderator Faktor 1"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 2"
-msgstr ""
+msgstr "Moderator Faktor 2"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr ""
+msgstr "Kumpulan galat"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nonparametrik"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr ""
+msgstr "Faktor Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr ""
+msgstr "Faktor Pengelompokan Opsional"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr ""
+msgstr "Uji pos hoc Conover"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "Faktor Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Sel Pengukuran Berulang"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Faktor Antar Subyek"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Kovariat"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Tables"
-msgstr ""
+msgstr "Tabel"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Effects"
-msgstr ""
+msgstr "Efek"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across all models"
-msgstr ""
+msgstr "Di seluruh model"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across matched models"
-msgstr ""
+msgstr "Di model yang berpasangan"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Estimates"
-msgstr ""
+msgstr "Estimasi"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R² rata-rata model"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskriptif"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Interval kredibel"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Order"
-msgstr ""
+msgstr "Urutan"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "Bandingkan dengan model terbaik"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Bandingkan dengan model nol"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Plots"
-msgstr ""
+msgstr "Plot"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged posteriors"
-msgstr ""
+msgstr "Posterior rata-rata model"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Level kelompok di plot individual"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "Plot individual per level"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Plot Q-Q residual"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R² posterior"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferensi Model Tunggal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "Model Spesifik"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "R²"
-msgstr ""
+msgstr "R²"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Marginal posteriors"
-msgstr ""
+msgstr "Posterior marjinal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Correction"
-msgstr ""
+msgstr "Koreksi"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Kontrol nol"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Garis Terpisah"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Label aksis-y"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Opsi Tambahan"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Prior"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "efek tetap skala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "efek acak skala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale covariates"
-msgstr ""
+msgstr "kovariat skala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Numerical Accuracy"
-msgstr ""
+msgstr "Keakuratan Numerik"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Auto"
-msgstr ""
+msgstr "Otomatis"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "No. samples"
-msgstr ""
+msgstr "Jml. sampel"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior Samples"
-msgstr ""
+msgstr "Sampel Posterior"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr ""
+msgstr "Variabel Terikat"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Faktor Tetap"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Faktor Acak"
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Manova|"
 msgid "Components"
-msgstr ""
+msgstr "Komponen"
 
+#, fuzzy
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Ketentuan Model"
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Sertakan intersep"
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Opsi Tambahan"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr ""
+msgstr "Uji"
 
 msgctxt "Manova|"
 msgid "Pillai"
-msgstr ""
+msgstr "Pillai"
 
 msgctxt "Manova|"
 msgid "Wilks"
-msgstr ""
+msgstr "Wilks"
 
 msgctxt "Manova|"
 msgid "Hotelling-Lawley"
-msgstr ""
+msgstr "Hotelling-Lawley"
 
 msgctxt "Manova|"
 msgid "Roy"
-msgstr ""
+msgstr "Roy"
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Pemeriksaan Asumsi"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr ""
+msgstr "Matrix homogenitas kovarians"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
-msgstr ""
+msgstr "Normalitas multivariat"
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr ""
+msgstr "Tabel ANOVA"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Rasio-p maksimum Vovk-Sellke"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "Plot Rainclouds"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Faktor"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Aksis Horizontal"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Plot Terpisah"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "Tampilan horizontal"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Label aksis-y"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "Evaluasi perbedaan antara rerata majemuk"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "Anova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr ""
+msgstr "Faktor Pengukuran Berulang"

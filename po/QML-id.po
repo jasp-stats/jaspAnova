@@ -1,0 +1,1399 @@
+msgid ""
+msgstr ""
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Description|"
+msgid "ANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Classical"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Repeated Measures ANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "ANCOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "MANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Bayesian"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Bayesian ANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Bayesian Repeated Measures ANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Bayesian ANCOVA"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "WLS Weights"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Descriptive statistics"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Estimates of effect size"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "η²"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "partial η²"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "ω²"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Sum of squares"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Homogeneity tests"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Factor covariate independence check"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Contrasts"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Confidence intervals"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Type"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Standard"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "From"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "bootstraps"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Effect size"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Games-Howell"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Dunnett"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Dunn"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Tukey"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Bonferroni"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Holm"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Šidák"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Flag Significant Comparisons"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Display error bars"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Standard error"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Marginal Means"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Compare marginal means to 0"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Confidence interval adjustment"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "None"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Simple Main Effects"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Simple Effect Factor"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Moderator Factor 1"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Moderator Factor 2"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Nonparametrics"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Kruskal-Wallis Test"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid " "
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Tables"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Effects"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Across all models"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Across matched models"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Estimates"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Model averaged R²"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Descriptives"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Credible interval"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Order"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Compare to best model"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Compare to null model"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Plots"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Model averaged posteriors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Group levels in single plot"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Individual plot per level"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Posterior R²"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Model"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Components"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Single Model Inference"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Specific Model Terms"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "R²"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Marginal posteriors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Null control"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Display"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Prior"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "r scale fixed effects"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "r scale random effects"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "r scale covariates"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Numerical Accuracy"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Auto"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Manual"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "No. samples"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Posterior Samples"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "WLS Weights"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Descriptive statistics"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Estimates of effect size"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "η²"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "partial η²"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "ω²"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Sum of squares"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Homogeneity tests"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Homogeneity corrections"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "None"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Brown-Forsythe"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Welch"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Contrasts"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Confidence intervals"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Type"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Standard"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "From"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "bootstraps"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Effect size"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Games-Howell"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Dunnett"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Dunn"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Tukey"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Bonferroni"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Holm"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Šidák"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Flag Significant Comparisons"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Display error bars"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Confidence interval"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Standard error"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Marginal Means"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Compare marginal means to 0"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Confidence interval adjustment"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Simple Main Effects"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Simple Effect Factor"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Moderator Factor 1"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Moderator Factor 2"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Nonparametrics"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Kruskal-Wallis Test"
+msgstr ""
+
+msgctxt "Anova|"
+msgid " "
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Tables"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Effects"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Across all models"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Across matched models"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Estimates"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Model averaged R²"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Descriptives"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Credible interval"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Order"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Compare to best model"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Compare to null model"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Plots"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Model averaged posteriors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Group levels in single plot"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Individual plot per level"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Posterior R²"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Model"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Components"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Single Model Inference"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Specific Model Terms"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "R²"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Marginal posteriors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Null control"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Display"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Prior"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "r scale fixed effects"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "r scale random effects"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Numerical Accuracy"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Auto"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Manual"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "No. samples"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Posterior Samples"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Cells"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subject Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Display"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Descriptive statistics"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Estimates of effect size"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "η²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "partial η²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "general η²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "ω²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Components"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subjects Components"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sum of squares"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Use multivariate model for follow-up tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity corrections"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "None"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Greenhouse-Geisser"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Huynh-Feldt"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Homogeneity tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Contrasts"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Assume equal variances"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence intervals"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Effect size"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for RM factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Holm"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Bonferroni"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Tukey"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Flag Significant Comparisons"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Display error bars"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence interval"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Standard error"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Average across unused RM factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Marginal Means"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "From"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "bootstraps"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Compare marginal means to 0"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Confidence interval adjustment"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Šidák"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Simple Main Effects"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Simple Effect Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Moderator Factor 1"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Moderator Factor 2"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Nonparametrics"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Optional Grouping Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conover's post hoc tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Cells"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Between Subject Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Tables"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Effects"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Across all models"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Across matched models"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Estimates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model averaged R²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Descriptives"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Credible interval"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Order"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Compare to best model"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Compare to null model"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Plots"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model averaged posteriors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Group levels in single plot"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Individual plot per level"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Posterior R²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Model"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Components"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Single Model Inference"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Specific Model Terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "R²"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Marginal posteriors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Null control"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Descriptives Plots"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Separate Lines"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Prior"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale fixed effects"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale random effects"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "r scale covariates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Numerical Accuracy"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Auto"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Manual"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "No. samples"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Posterior Samples"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Dependent Variables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Test"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Pillai"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Wilks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Hotelling-Lawley"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Roy"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Homogeneity of covariance matrices"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Multivariate normality"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "ANOVA tables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr ""

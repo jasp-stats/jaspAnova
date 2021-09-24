@@ -782,7 +782,7 @@ msgstr "Soma dos quadrados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr "Verificações de suposições"
+msgstr "Verificação dos pressupostos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
@@ -1182,7 +1182,7 @@ msgstr "Roy"
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr "Verificação de suposições"
+msgstr "Verificar pressupostos"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"

@@ -145,7 +145,7 @@ msgstr "標準"
 
 msgctxt "Ancova|"
 msgid "From"
-msgstr "右から"
+msgstr "次から"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
@@ -553,7 +553,7 @@ msgstr "標準"
 
 msgctxt "Anova|"
 msgid "From"
-msgstr "右から"
+msgstr "次から"
 
 msgctxt "Anova|"
 msgid "bootstraps"
@@ -1041,7 +1041,7 @@ msgstr "周辺平均"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
-msgstr "右から"
+msgstr "次から"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "bootstraps"
@@ -1357,49 +1357,44 @@ msgstr "Vovk-Sellke maximum p比"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "複数の平均値差を評価する"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
 msgctxt "Anova|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
 msgstr "反復測定要因"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "レインクラウドプロット"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Factors"
 msgstr "要因"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
 msgstr "横軸"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
 msgstr "分割プロット"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "水平方向の表示"
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
 msgstr "Y軸のラベル"

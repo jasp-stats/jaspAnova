@@ -83,9 +83,9 @@ test_that("Contrasts table results match", {
 
   refTables <- list(
     deviation = list("2 - 1, 2, 3, 4, 5", -0.19513913461, 0.211517937182489, -0.922565420263351, 0.358570880186821,
-                      95, -0.615055331660948, 0.224777062440949, "TRUE", "3 - 1, 2, 3, 4, 5", 0.331498558639999, 
-                     0.211517937182488, 1.56723615526752, 0.120384543718471, 95, -0.0884176384109483, 0.751414755690946, 
-                     "FALSE", "4 - 1, 2, 3, 4, 5", -0.16911442746, 0.211517937182488, -0.799527594267789, 0.425979159402386, 
+                      95, -0.615055331660948, 0.224777062440949, "TRUE", "3 - 1, 2, 3, 4, 5", 0.331498558639999,
+                     0.211517937182488, 1.56723615526752, 0.120384543718471, 95, -0.0884176384109483, 0.751414755690946,
+                     "FALSE", "4 - 1, 2, 3, 4, 5", -0.16911442746, 0.211517937182488, -0.799527594267789, 0.425979159402386,
                      95, -0.589030624510948, 0.250801769590948, "FALSE", "5 - 1, 2, 3, 4, 5", 0.18254372644, 0.211517937182488,
                      0.863017713162119, 0.390301247101766, 95, -0.237372470610948, 0.602459923490948, "FALSE"),
     simple = list("2 - 1", -0.0453504116000002, 0.334439223738541, -0.135601354090735,
@@ -536,11 +536,11 @@ test_that("Nonparametric table results match", {
   options$modelTerms <- list(
     list(components="facExperim"),
     list(components="facFive")
-  )  
+  )
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   jaspTools::expect_equal_tables(table,
-                      list("facFive", 3.39599999999996, 4, 0.493866894607871, "facExperim",       
+                      list("facFive", 3.39599999999996, 4, 0.493866894607871, "facExperim",
                            1.02696237623763, 1, 0.310873187457312)
   )
 })
@@ -560,7 +560,7 @@ test_that("Analysis handles errors", {
   options$wlsWeights <- "debInf"
   options$modelTerms <- list(list(components="contBinom"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  expect_identical(results[["results"]][["errorMessage"]], 
+  expect_identical(results[["results"]][["errorMessage"]],
                    "The following problem(s) occurred while running the analysis:<ul><li>Infinity found in debInf</li></ul>",
                   label="Inf WLS weights check")
   options$wlsWeights <- ""
@@ -569,7 +569,7 @@ test_that("Analysis handles errors", {
   options$fixedFactors <- "debSame"
   options$modelTerms <- list(list(components="debSame"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  expect_identical(results[["results"]][["errorMessage"]], 
+  expect_identical(results[["results"]][["errorMessage"]],
                    "The following problem(s) occurred while running the analysis:<ul><li>Number of factor levels is < 2 in debSame</li></ul>",
                   label="1-level factor check")
 
@@ -577,7 +577,7 @@ test_that("Analysis handles errors", {
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components="facFive"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  expect_identical(results[["results"]][["errorMessage"]], 
+  expect_identical(results[["results"]][["errorMessage"]],
                    "The following problem(s) occurred while running the analysis:<ul><li>The variance in debSame is equal to 0 after grouping on facFive</li></ul>",
                   label="No variance check")
 
@@ -586,10 +586,58 @@ test_that("Analysis handles errors", {
   options$wlsWeights <- "contNormal"
   options$modelTerms <- list(list(components="facFive"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  expect_identical(results[["results"]][["errorMessage"]], 
+  expect_identical(results[["results"]][["errorMessage"]],
                    "The following problem(s) occurred while running the analysis:<ul><li>The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed).</li></ul>",
                   label="Negative WLS weights check")
 })
+
+options <- analysisOptions("Anova")
+options$contrasts <- list(list(contrast = "none", variable = "Species"))
+options$customContrasts <- list()
+options$dependent <- "Sepal.Length"
+options$fixedFactors <- "Species"
+options$modelTerms <- list(list(components = "Species"))
+options$postHocTestsVariables <- list(list(variable = "Species"))
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+
+# dataset is created from:
+# dd <- read.csv("~/github/jasp-desktop/Resources/Data Sets/Data Library/10. Machine Learning/iris.csv")
+# newLabels <- c("First species", "Second species", "Third species")
+# oldLabels <- unique(dd$Species)
+# dd$Species <- newLabels[match(dd$Species, oldLabels)]
+# dataset <- dd[c(1:5, 51:55, 101:105), ]
+dataset <- data.frame(
+   Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 7, 6.4, 6.9, 5.5, 6.5, 6.3, 5.8, 7.1, 6.3, 6.5),
+   Sepal.Width  = c(3.5, 3, 3.2, 3.1, 3.6, 3.2, 3.2, 3.1, 2.3, 2.8, 3.3, 2.7, 3, 2.9, 3),
+   Petal.Length = c(1.4, 1.4, 1.3, 1.5, 1.4, 4.7, 4.5, 4.9, 4, 4.6, 6, 5.1, 5.9, 5.6, 5.8),
+   Petal.Width  = c(0.2, 0.2, 0.2, 0.2, 0.2, 1.4, 1.5, 1.5, 1.3, 1.5, 2.5, 1.9, 2.1, 1.8, 2.2),
+   Species      = rep(c("First species", "Second species", "Third species"), each = 5)
+)
+
+set.seed(1)
+results <- runAnalysis("Anova", dataset, options)
+
+test_that("Post Hoc Comparisons - Species table results match and contrast names do not contain commas", {
+   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species"]][["data"]]
+   jaspTools::expect_equal_tables(table,
+                                  list("TRUE", 0.286589136802729, "First species", "Second species",
+                                       -1.6, -5.58290526239083, 0.000324812090923943, "FALSE", 0.286589136802729,
+                                       "First species", "Third species", -1.54, -5.37354631505117,
+                                       0.000453440993214982, "FALSE", 0.286589136802729, "Second species",
+                                       "Third species", 0.0599999999999998, 0.209358947339655, 0.976174158311121
+                                  ))
+
+   # following https://github.com/jasp-stats/jasp-issues/issues/1295, assert that these names do not contain commas.
+   contrast_A <- vapply(table, `[[`, "contrast_A", FUN.VALUE = character(1L))
+   contrast_B <- vapply(table, `[[`, "contrast_B", FUN.VALUE = character(1L))
+   expect_identical(contrast_A, c("First species", "First species", "Second species"))
+   expect_identical(contrast_B, c("Second species", "Third species", "Third species"))
+
+})
+
 
 #### Andy Field Tests ----
 
@@ -599,11 +647,11 @@ test_that("Field - Chapter 4 results match", {
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$modelTerms <- list(list(components = "Dose"))
-  
+
   options$homogeneityCorrections <- TRUE
   options$homogeneityBrown <- TRUE
   options$homogeneityWelch <- TRUE
-  
+
   results <- jaspTools::runAnalysis("Anova", "Puppies Dummy.csv", options)
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
 
@@ -626,26 +674,26 @@ test_that("Field - Chapter 5 results match", {
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$modelTerms <- list(list(components = "Dose"))
-  
+
   options$contrasts <- list(
     list(contrast = "Helmert", variable = "Dose")
-  )  
+  )
   options$confidenceIntervalsContrast <- TRUE
-  
+
   options$postHocTestsVariables <- "Dose"
   options$postHocTestsTypeGames <- TRUE
   options$postHocTestsTypeDunnett <- TRUE
   options$confidenceIntervalsPostHoc <- TRUE
   results <- jaspTools::runAnalysis("Anova", "Puppies Dummy.csv", options)
-  
-  # contrast 
+
+  # contrast
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_contrastContainer$collection[[1]]$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
                       list("1 - 2, 3", -1.9, 0.768114574786861, -2.47358930863565, 0.0293002196554282,
                            12, -3.5735778902, -0.2264221098, "TRUE", "2 - 3", -1.8, 0.886942313043338,
                            -2.02944427560764, 0.0651922067570462, 12, -3.73248129083355,
                            0.132481290833552, "FALSE"))
-  
+
   # standard post hoc (tukey)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Dose$data
   jaspTools::expect_equal_tables(table,
@@ -655,7 +703,7 @@ test_that("Field - Chapter 5 results match", {
                            -5.16624115850686, -0.433758841493135, "FALSE",
                            2, 3, -1.8, 0.886942313043338, -2.02944427560764, 0.147457622995377,
                            -4.16624115850686, 0.566241158506865, "FALSE"))
-  
+
   # games-howell post hoc
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocGamesContainer$collection$anovaContainer_postHocContainer_postHocGamesContainer_Dose$data
   jaspTools::expect_equal_tables(table,
@@ -664,10 +712,10 @@ test_that("Field - Chapter 5 results match", {
                           0.916515138991168, -5.43893919399355, -0.161060806006447, 0.0388414107946456,
                           7.7199124726477, "2 - 3", -1.8, -1.96396101212393, 0.916515138991168,
                           -4.43893919399355, 0.838939193993553, 0.185393344481167, 7.7199124726477))
-  
+
   # dunnet post hoc
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocDunnettContainer$collection$anovaContainer_postHocContainer_postHocDunnettContainer_Dose$data
-  jaspTools::expect_equal_tables(table, 
+  jaspTools::expect_equal_tables(table,
                       list("2 - 1", 1, 1.12746904200424, 0.886942313043338, 0.445888579780104,
                            -1.21963511399532, 3.21963511399532, "3 - 1", 2.8, 3.15691331761188,
                            0.886942313043338, 0.0152377020148067, 0.580364886004677, 5.01963511399532))
@@ -677,7 +725,7 @@ test_that("Field - Chapter 5 results match", {
 
 test_that("Field - Chapter 7 results match", {
   options <- jaspTools::analysisOptions("Anova")
-  
+
   options$dependent <- "Attractiveness"
   options$fixedFactors <- list("FaceType", "Alcohol")
   options$modelTerms <- list(
@@ -685,28 +733,28 @@ test_that("Field - Chapter 7 results match", {
     list(components = "Alcohol"),
     list(components = c("FaceType", "Alcohol"))
   )
-  
+
   options$contrasts <- list(
     list(contrast = "none", variable = "FaceType"),
     list(contrast = "Helmert", variable = "Alcohol")
   )
   options$confidenceIntervalsContrast <- TRUE
-  
+
   options$postHocTestsVariables <- "Alcohol"
   options$postHocTestsBonferroni <- TRUE
   options$confidenceIntervalsPostHoc <- TRUE
   options$postHocTestsBootstrapping <- TRUE
   options$postHocTestsBootstrappingReplicates <- 500
-  
+
   options$marginalMeansTerms <- list(
     list(components = c("FaceType", "Alcohol"))
   )
   options$marginalMeansBootstrapping <- TRUE
   options$marginalMeansBootstrappingReplicates <- 500
-  options$marginalMeansCompareMainEffects <- FALSE 
+  options$marginalMeansCompareMainEffects <- FALSE
   set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "Beer Goggles.csv", options)
-   
+
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
                       list("FaceType", 21.3333333333334, 1, 21.3333333333334, 15.5826086956522,
@@ -715,28 +763,28 @@ test_that("Field - Chapter 7 results match", {
                            "FaceType <unicode> Alcohol", 23.2916666666667, 2, 11.6458333333333,
                            8.50652173913045, 0.000791273868880283, "FALSE", "Residuals",
                            57.5, 42, 1.36904761904762, "", "", "TRUE"))
-  
+
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_contrastContainer$collection[[1]]$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
                       list("0 - 1, 2", -1.09375, 0.358257190138194, -3.05297431596026, 0.003921402019941,
                            42, -1.81674228032104, -0.37075771967896, "TRUE", "1 - 2", -0.6875,
                            0.413679770330811, -1.66191351211161, 0.103977316507, 42, -1.52233957533075,
                            0.147339575330745, "FALSE"))
-  
-  # removed both post hoc table and contrast table because bootstrap results are now in same table 
+
+  # removed both post hoc table and contrast table because bootstrap results are now in same table
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection[[1]]$collection$anovaContainer_postHocContainer_postHocStandardContainer_Alcohol$data
   jaspTools::expect_equal_tables(table,
                       list(0, 1, -0.769579725829725, -0.00376914898826841, 0.392000159227314,
-                           -1.48733254329573, 0.0548973391001531, 0.230950085511107, -1.8129965586672, 
+                           -1.48733254329573, 0.0548973391001531, 0.230950085511107, -1.8129965586672,
                            0.177726007657148, "TRUE", 0, 2, -1.43536324786325,
                            0.0142934574412497, 0.435378856593833, -2.31465226049576, -0.602581004497448, -3.47491007077881,
-                           0.00359956767679779, 0.00337043014651417, "FALSE", 1, 2, -0.690674603174602, 
+                           0.00359956767679779, 0.00337043014651417, "FALSE", 1, 2, -0.690674603174602,
                            0.018062606429518, 0.407611902363181, -1.43846891737073, 0.214248742598683, -1.66191351211161,
                            0.311931949521, 0.231712504393661, "FALSE"))
-  
+
 
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
-  jaspTools::expect_equal_tables(table, 
+  jaspTools::expect_equal_tables(table,
                       list("TRUE", 0, 0, 0.609481794897967, -0.000576109837874483, 2.18310354552326,
                            3.5, 4.69446190218147, "FALSE", 0, 1, 0.319660323889613, -0.0167382728382766,
                            5.87621516465174, 6.33333333333334, 7.1687561775422, "TRUE",
@@ -746,5 +794,5 @@ test_that("Field - Chapter 7 results match", {
                            -0.0390126855170978, 6, 6.57142857142858, 7.5, "FALSE", 2, 1,
                            0.395829403830131, 0.0118089133089123, 5.4, 6.14285714285714,
                            7))
-  
+
 })

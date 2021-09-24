@@ -417,6 +417,53 @@ test_that("Analysis handles errors", {
 
 })
 
+test_that("Main table results match for three-way ANOVA", {
+  options <- jaspTools::analysisOptions("Ancova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("facFive", "contBinom", "facGender")
+  options$modelTerms <- list(
+    list(components="facFive"),
+    list(components="contBinom"),
+    list(components="facGender"),
+    list(components="contGamma"),
+    list(components=c("facFive", "contBinom")),
+    list(components=c("facFive", "facGender")),
+    list(components=c("contBinom", "facGender")),
+    list(components=c("facFive", "contBinom", "facGender"))
+  )
+  options$covariates <- "contGamma"
+  options$effectSizeEstimates <- TRUE
+  options$effectSizeEtaSquared <- TRUE
+  options$effectSizeOmegaSquared <- TRUE
+  options$effectSizePartialEtaSquared <- TRUE
+  options$sumOfSquares <- "type3"
+  
+  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
+  jaspTools::expect_equal_tables(table, list("TRUE", 4, 0.751434182416169, 0.849676498436306, 0.560010211401303,
+                                             3.39870599374522, "facFive", 0.0319287041344809, 0.0366527617399892,
+                                             0, "FALSE", 1, 0.0718225589534214, 0.0812126222473069, 0.789399900467283,
+                                             0.0812126222473069, "contBinom", 0.000762941481990983, 0.000908320519612062,
+                                             0, "FALSE", 1, 4.03921343627837, 4.56729918505772, 0.0478686068240798,
+                                             4.56729918505772, "facGender", 0.0429069018154958, 0.0486422410464898,
+                                             0.0319449750880257, "FALSE", 4, 0.801330995992751, 0.906096808870625,
+                                             0.527940897125054, 3.6243872354825, "facFive <unicode> facGender",
+                                             0.0340488373879581, 0.038991683611587, 0, "FALSE", 1, 1.08113657469412,
+                                             1.22248409855909, 0.301615301439538, 1.22248409855909, "contBinom <unicode> facGender",
+                                             0.0114844688430931, 0.0135005148645175, 0.000852821268290132,
+                                             "FALSE", 4, 0.702807193128186, 0.79469202879871, 0.592348641591512,
+                                             3.17876811519484, "facFive <unicode> contBinom <unicode> facGender",
+                                             0.0298625261640639, 0.0343623829478194, 0, "TRUE", 1, 0.0608023312347779,
+                                             0.0687516127283629, 0.805871897218375, 0.0687516127283629, "contGamma",
+                                             0.0006458781388011, 0.000769057857268374, 0, "FALSE", 4, 0.215937435642927,
+                                             0.244169041669682, 0.928844739039307, 0.976676166678729, "facFive <unicode> contBinom",
+                                             0.00917525800068415, 0.0108152916104724, 0, "TRUE", 79, "",
+                                             1.13073974849567, "", 89.3284401311576, "Residuals", "", "",
+                                             ""))
+  
+})
+
+
 ### Andy Field tests ----
 
 #### Chapter 6 ---

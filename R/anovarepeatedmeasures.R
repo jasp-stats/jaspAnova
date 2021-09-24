@@ -1868,8 +1868,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     blocks <- as.factor(longData[, betweenTerms.base64])
     y <- longData[, .BANOVAdependentName]
 
-    useDurbin <- any(table(groups, blocks) != 1)
-
+    # useDurbin <- any(table(groups, blocks) != 1)
+    useDurbin <- any(table(groups, blocks) < 1) && length(unique(table(groups))) == 1
+    
     t <- nlevels(groups)
     b <- nlevels(blocks)
     r <- unique(table(groups))

@@ -258,7 +258,7 @@ msgstr "R²"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior Samples"
@@ -294,7 +294,7 @@ msgstr "Posteriores medios do modelo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fixos de escala r"
+msgstr "Efectos fixos de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged R²"
@@ -758,11 +758,11 @@ msgstr "Previo"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fixos de escala r"
+msgstr "Efectos fixos de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
@@ -1134,11 +1134,11 @@ msgstr "Previo"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fixos de escala r"
+msgstr "Efectos fixos de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "Numerical Accuracy"

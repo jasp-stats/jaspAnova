@@ -148,4 +148,11 @@ test_that("Analysis handles errors", {
   options$modelTerms <- list(list(components="facFive", isNuisance=FALSE))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Too few obs check")
+
+  options$dependent <- "contGamma"
+  options$fixedFactors <- c("facFive", "facFifty")
+  options$modelTerms <- list(list(components=c("facFive", "facFifty")))
+  results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
+  expect_true(results[["results"]][["error"]], label = "Missing interaction cells check")
+
 })

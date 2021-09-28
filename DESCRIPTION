@@ -27,7 +27,8 @@ Imports:
   onewaytests,
   plyr,
   stringi,
-  stringr
+  stringr,
+  restriktor
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspDescriptives,

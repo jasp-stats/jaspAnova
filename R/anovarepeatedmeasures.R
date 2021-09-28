@@ -44,6 +44,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   .referenceGrid(rmAnovaContainer, options, ready)
 
   .rmAnovaAssumptionsContainer(rmAnovaContainer, dataset, options, ready)
+  
+  .rmAnovaOrdinalRestrictions(rmAnovaContainer, dataset, longData, options, ready)
 
   .rmAnovaPostHocTable(rmAnovaContainer, dataset, longData, options, ready)
 
@@ -846,6 +848,460 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
                                                                           "betweenModelterms"))
 
   return()
+}
+
+.rmAnovaOrdinalRestrictions <- function(rmAnovaContainer, wideData, longData, options, ready) {
+  if (!ready) return()
+
+  restrictedModels <- options[["restrictedModels"]]
+  restrictedModels <- restrictedModels[sapply(restrictedModels, function(mod) mod[["restrictionSyntax"]]) != ""]
+  if (length(restrictedModels) == 0L) return()
+
+  ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"))
+  rmAnovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
+
+  baseModel <- rmAnovaContainer[["anovaResult"]]$object[["fullModel"]]
+
+  modelNames <- lapply(restrictedModels, function(mod) mod[["modelName"]])
+
+  compareGoric <- .rmAnovaOrdinalRestrictionsCompareModels(baseModel, restrictedModels, ordinalRestrictionsContainer, longData, options)
+  .rmAnovaOrdinalRestrictionsGetSyntaxErrors(compareGoric, ordinalRestrictionsContainer)
+  .ordinalRestrictionsCreateComparisonTable(compareGoric, modelNames, ordinalRestrictionsContainer, type = "gorica", options)
+
+  if (options[["restrictedModelComparisonCoefficients"]])
+    .rmAnovaOrdinalRestrictionsCreateCoefficientsTable(compareGoric, modelNames, baseModel, ordinalRestrictionsContainer, options)
+
+  if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
+    modelSummaryList <- .rmAnovaOrdinalRestrictionsCalcModelSummaries(compareGoric, modelNames, baseModel, wideData, ordinalRestrictionsContainer, options)
+    .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
+  }
+
+  if (length(options[["plotRestrictedModels"]]) > 0L && length(options[["restrictedModelMarginalMeansTerm"]]) > 0L)
+    .ordinalRestrictionsCreateMarginalMeansPlot(modelSummaryList, modelNames, ordinalRestrictionsContainer, options)
+
+  return()
+}
+
+.rmAnovaOrdinalRestrictionsTranslateSyntax <- function(syntax, dataset, options) {
+
+  # Within terms
+  withinTerms        <- decodeColNames(sapply(options$withinModelTerms, function(x) { paste(x$components, collapse = ":") }))
+  usedWithinTerms    <- withinTerms[stringr::str_detect(syntax, pattern = withinTerms)]
+  newWithinTermNames <- encodeColNames(usedWithinTerms)
+
+  for (i in 1:length(usedWithinTerms)) {
+    syntax <- try(gsub(usedWithinTerms[i], newWithinTermNames[i], syntax))
+  }
+
+  # Within term levels
+  withinLevels <- decodeColNames(as.vector(sapply(options$repeatedMeasuresFactors, function(x) {
+    if (!x$name %in% encodeColNames(withinTerms)) return()
+    else return(x$levels)
+  })))
+
+  usedWithinLevels <- withinLevels[stringr::str_detect(syntax, pattern = withinLevels)]
+  newLevelNames    <- encodeColNames(usedWithinLevels)
+
+  for (i in 1:length(usedWithinLevels)) {
+    syntax <- try(gsub(usedWithinLevels[i], newLevelNames[i], syntax))
+  }
+
+  # Between terms
+  if (length(options$betweenModelTerms) > 0L) {
+    betweenTerms        <- decodeColNames(sapply(options$betweenModelTerms, function(x) { paste(x$components, collapse = ":") }))
+    usedBetweenTerms    <- betweenTerms[stringr::str_detect(syntax, pattern = betweenTerms)]
+
+    if (length(usedBetweenTerms) > 0L) {
+      newBetweenTermNames <- encodeColNames(usedBetweenTerms)
+
+      for (i in 1:length(usedBetweenTerms)) {
+        syntax <- try(gsub(usedBetweenTerms[i], newBetweenTermNames[i], syntax))
+      }
+    }
+  }
+
+  return(syntax)
+}
+
+.rmAnovaOrdinalRestrictionsGetBaseModelCoefficients <- function(model, options) {
+
+  withinLevels <- .rmAnovaOrdinalRestrictionsGetWithinLevels(options)
+  terms        <- do.call(tidyr::expand_grid, args = withinLevels)
+
+  for (col in names(terms)) {
+    terms[[col]] <- paste0(col, terms[[col]])
+  }
+
+  withinNames <- apply(terms, 1, paste, collapse = ":")
+  
+  if (length(options$betweenModelTerms) == 0L) {
+    coef        <- as.vector(coef(model))
+    names(coef) <- withinNames
+  } else {
+    betweenLevels     <- model[["xlevels"]]
+    betweenNames      <- row.names(coef(model))
+    betweenNamesSplit <- strsplit(betweenNames, ":")
+
+    if (length(betweenLevels) > 0L) {
+      for (i in 1:length(betweenLevels)) {
+        idxFac  <- which(stringr::str_detect(betweenNames, names(betweenLevels)[i]))
+        lvls    <- betweenLevels[[i]][-1]
+        newLvls <- numeric(length(idxFac))
+        newLvls[1:length(idxFac)] <- lvls
+        
+        for (j in 1:length(idxFac)) {
+          idxInt <- which(stringr::str_detect(betweenNamesSplit[[idxFac[j]]], names(betweenLevels)[i]))
+          betweenNamesSplit[[idxFac[j]]][idxInt] <- paste0(names(betweenLevels)[i], newLvls[j])
+        }
+      }
+    }
+
+    betweenTerms <- sapply(betweenNamesSplit, paste, collapse = ":")
+    coefNames    <- c()
+
+    for (betweenTerm in betweenTerms) {
+      newName   <- paste(betweenTerm, withinNames, sep = ":")
+      coefNames <- c(coefNames, newName)
+    }
+    
+    coef        <- as.vector(coef(model))
+    names(coef) <- coefNames
+  }
+
+  return(coef)
+}
+
+.rmAnovaOrdinalRestrictionsGetSyntaxErrors <- function(compareGoric, ordinalRestrictionsContainer) {
+  if (ordinalRestrictionsContainer$getError()) return()
+
+  if (isTryError(compareGoric)) {
+    msgSplit      <- stringr::str_split(compareGoric, "lavaan ERROR: ")
+    msgExtracted  <- msgSplit[[1]][length(msgSplit[[1]])]
+    msgUpper      <- paste0(toupper(substr(msgExtracted, 1, 1)), substr(msgExtracted, 2, nchar(msgExtracted)), ".")
+
+    ordinalRestrictionsContainer$setError(msgUpper)
+  }
+  return()
+}
+
+.rmAnovaOrdinalRestrictionsCompareModels <- function(baseModel, restrictedModels, ordinalRestrictionsContainer, dataset, options) {
+  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]])) return()
+
+  restrictionSyntax <- lapply(restrictedModels, function(mod) mod[["restrictionSyntax"]])
+  translatedSyntax  <- lapply(restrictionSyntax, .rmAnovaOrdinalRestrictionsTranslateSyntax, dataset = dataset, options = options)
+
+  if (any(sapply(translatedSyntax, isTryError))) {
+    modelNames       <- sapply(restrictedModels, function(mod) mod[["modelName"]])
+    modelHasErrors   <- modelNames[sapply(translatedSyntax, isTryError)]
+    ordinalRestrictionsContainer$setError(gettextf("There are errors in the restriction syntax for %s.", paste(modelHasErrors, collapse = ", ")))
+    return()
+  }
+
+  modelComparison <- createJaspState()
+  modelComparison$dependOn(c("restrictionSyntax", "restrictedModelComparison"))
+
+  baseModelCoef <- .rmAnovaOrdinalRestrictionsGetBaseModelCoefficients(baseModel$lm, options)
+
+  baseModelVcov <- vcov(baseModel$lm)
+
+  compareGoric <- try(do.call(restriktor::goric, append(list(object = baseModelCoef,
+                                                        VCOV = baseModelVcov,
+                                                        comparison = options[["restrictedModelComparison"]],
+                                                        type = "gorica"), translatedSyntax)))
+
+  return(compareGoric)
+}
+
+.rmAnovaOrdinalRestrictionsCreateCoefficientsTable <- function(compareGoric, modelNames, baseModel, ordinalRestrictionsContainer, options) {
+  if (!is.null(ordinalRestrictionsContainer[["coefficientsTable"]]) || ordinalRestrictionsContainer$getError()) return()
+
+  coefTable <- createJaspTable(gettext("Model Coefficients Table"))
+  coefTable$dependOn(c("restrictionSyntax", "restrictedModelComparison", "restrictedModelComparisonCoefficients", "highlightEstimates"))
+  overtitleCoefficients <- gettext("Coefficients")
+
+  if (length(options$betweenModelTerms) > 0L) 
+    coefTable$addColumnInfo(name = "coefBetween", title = gettext("Between Subjects"), type = "string", overtitle = overtitleCoefficients)
+  
+  coefTable$addColumnInfo(name = "coefWithin", title = gettext("Within Subjects"), type = "string", overtitle = overtitleCoefficients)
+
+  overtitleEstimates <- gettext("Estimates")
+  for (name in modelNames) {
+    coefTable$addColumnInfo(name = name, title = name, type = "number", overtitle = overtitleEstimates)
+  }
+
+  compareAgainst <- options[["restrictedModelComparison"]]
+
+  if (compareAgainst == "complement")
+    coefTable$addColumnInfo(name = "complement", title = gettext("Complement"), type = "number", overtitle = overtitleEstimates)
+
+  coefTable$addColumnInfo(name = "unconstrained", title = gettext("Unconstrained"), type = "number", overtitle = overtitleEstimates)
+
+  ordinalRestrictionsContainer[["coefficientsTable"]] <- coefTable
+
+  footnotes <- .rmAnovaOrdinalRestrictionsCoefficientsTableFill(coefTable, compareGoric, baseModel, modelNames, compareAgainst, options)
+
+  if (options[["highlightEstimates"]])
+    coefTable$addFootnote(message  = gettext("Coefficients differ from unconstrained model."),
+                          symbol   = "\u2020",
+                          colNames = footnotes[["colLabels"]],
+                          rowNames = footnotes[["rowLabels"]])
+
+  return()
+}
+
+.rmAnovaOrdinalRestrictionsCoefficientsTableFill <- function(coefTable, compareGoric, baseModel, modelNames, compareAgainst, options) {
+  
+  withinLevels <- .rmAnovaOrdinalRestrictionsGetWithinLevels(options)
+
+  coefs      <- coef(compareGoric)
+  coefNames  <- names(coefs)
+  terms      <- do.call(tidyr::expand_grid, args = withinLevels)
+
+  for (col in names(terms)) {
+    terms[[col]] <- paste0(col, " (", as.numeric(as.factor(terms[[col]])), ")")
+  }
+
+  withinCoefs <- decodeColNames(apply(terms, 1, paste, collapse = " \u273B "))
+
+  if (compareAgainst != "unconstrained")
+    coefs <- rbind(coefs, compareGoric[["objectList"]][[1]][["b.unrestr"]])
+
+  # Only within terms
+  if (length(options$betweenModelTerms) == 0L) {
+
+    coefDf <- cbind.data.frame(coefWithin = withinCoefs, t(coefs), stringsAsFactors = FALSE)
+
+    if (compareAgainst == "complement")
+      names(coefDf) <- c("coefWithin", modelNames, compareAgainst, "unconstrained")
+    else
+      names(coefDf) <- c("coefWithin", modelNames, "unconstrained")
+    
+    if (options[["highlightEstimates"]])
+      .ordinalRestrictionsCoefficientsTableAddDifferenceSymbols(coefTable, coefDf[,-1])
+  } else {
+    xLevels      <- baseModel$lm[["xlevels"]]
+    betweenCoefs <- row.names(coef(baseModel$lm))
+    betweenTerms <- strsplit(betweenCoefs, ":")
+    
+    if (length(baseModel$lm[["xlevels"]]) > 0L) {
+      for (i in 1:length(xLevels)) {
+        idxFac  <- which(stringr::str_detect(betweenCoefs, names(xLevels)[i]))
+        idxLvl  <- 1:(length(xLevels[[i]])-1)
+        newLvls <- numeric(length(idxFac))
+        newLvls[1:length(idxFac)] <- idxLvl
+        
+        for (j in 1:length(idxFac)) {
+          idxInt <- which(stringr::str_detect(betweenTerms[[idxFac[j]]], names(xLevels)[i]))
+          
+          betweenTerms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], " (", newLvls[j], ")")
+        }
+      }
+    }
+
+    betweenCoefs <- as.vector(sapply(sapply(betweenTerms, paste, collapse = " \u273B "), function(x) c(x, rep(NA, length(withinCoefs)-1))))
+
+    coefDf <- cbind.data.frame(coefBetween = betweenCoefs, coefWithin = withinCoefs, t(coefs), stringsAsFactors = FALSE)
+
+    if (compareAgainst == "complement")
+      names(coefDf) <- c("coefBetween", "coefWithin", modelNames, compareAgainst, "unconstrained")
+    else
+      names(coefDf) <- c("coefBetween", "coefWithin", modelNames, "unconstrained")
+    
+    if (options[["highlightEstimates"]])
+      .ordinalRestrictionsCoefficientsTableAddDifferenceSymbols(coefTable, coefDf[,-c(1, 2)])
+  }
+  
+  coefTable$setData(coefDf)
+
+  return()
+}
+
+.rmAnovaOrdinalRestrictionsCalcModelSummaries <- function(compareGoric, modelNames, baseModel, wideData, container, options) {
+  if (!is.null(container[["modelSummaries"]]) || container$getError()) return()
+
+  modelSummaryContainer <- createJaspContainer()
+  modelSummaryContainer$dependOn(c("restrictedConfidenceIntervalLevel",
+                                   "restrictedModelMarginalMeansTerm",
+                                   "restrictedModelHeteroskedasticity",
+                                   "restrictedConfidenceIntervalBootstrap",
+                                   "restrictedConfidenceIntervalBootstrapSamples"))
+
+  ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
+  
+  modelTerm  <- unlist(options[["restrictedModelMarginalMeansTerm"]])
+  emmTerm    <- paste(modelTerm, collapse = ":")
+  emmFormula <- as.formula(paste("~", emmTerm))
+
+  modelSummaryList <- list()
+
+  modelList        <- compareGoric[["objectList"]]
+  names(modelList) <- modelNames
+
+  withinLevels <- .rmAnovaOrdinalRestrictionsGetWithinLevels(options)
+
+  for (name in modelNames) {
+    newState  <- createJaspState()
+    modelSummaryContainer[[name]] <- newState
+    newModel  <- modelList[[name]]
+    newEmmObj <- emmeans::ref_grid(
+      object    = baseModel$lm,
+      mult.levs = withinLevels
+    )
+
+    newEmmObj@bhat <- newModel[["b.restr"]]
+    newEmmSummary  <- summary(emmeans::lsmeans(newEmmObj, emmFormula), level = ciLvl)
+    
+    for (i in 1:(ncol(newEmmSummary)-5)) {
+      newEmmSummary[,i] <- as.character(newEmmSummary[,i])
+    }
+
+    samples <- options[["restrictedConfidenceIntervalBootstrapSamples"]]
+    constraints <- sapply(modelList, function(mod) mod[["CON"]][["constraints"]])
+    startProgressbar(samples,
+                      label = paste(gettext("Bootstrapping Restricted Marginal Means:"), name))
+    bootstrapEmm <- try(boot::boot(data = wideData,
+                                    statistic = .rmAnovaOrdinalRestrictionsBootstrapMarginalMeans,
+                                    R = samples,
+                                    options = options,
+                                    modelIndex = which(name %in% modelNames),
+                                    emmFormula = emmFormula,
+                                    constraints = constraints,
+                                    withinLevels = withinLevels))
+    if (class(bootstrapEmm) == "try-error") {
+        modelSummaryList[[name]] <- bootstrapEmm
+        next
+    }
+
+    bootstrapSummary <- summary(bootstrapEmm)
+
+    ci.fails <- FALSE
+    bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
+      res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
+                                index = index)[['bca']][1,4:5])
+      if (!inherits(res, "try-error")){
+        return(res)
+      } else {
+        ci.fails <<- TRUE
+        return(c(NA, NA))
+      }
+    }))
+
+    if(ci.fails)
+      modelSummaryList[[name]] <- gettext("Some confidence intervals could not be computed. Possibly too few bootstrap replicates.")
+
+    newEmmSummary[["SE"]]       <- bootstrapSummary[["bootSE"]]
+    newEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
+    newEmmSummary[["upper.CL"]] <- bootstrapEmmCI[,2]
+
+    modelSummaryList[[name]] <- newEmmSummary
+    newState$object <- newEmmSummary
+  }
+
+  if (options[["restrictedModelComparison"]] == "complement" || options[["restrictedModelComparison"]] == "unconstrained") {
+    comparisonName <- switch(options[["restrictedModelComparison"]],
+                             complement = "Complement",
+                             unconstrained = "Unconstrained")
+
+    comparisonState <- createJaspState()
+    modelSummaryContainer[[comparisonName]] <- comparisonState
+    comparisonEmmObj <- emmeans::ref_grid(
+      object    = baseModel$lm,
+      mult.levs = withinLevels
+    )
+
+    comparisonEmmObj@bhat <- as.numeric(coef(compareGoric)[which(row.names(coef(compareGoric)) == options[["restrictedModelComparison"]]),])
+    comparisonEmmSummary  <- summary(emmeans::lsmeans(comparisonEmmObj, emmFormula), level = ciLvl)
+    
+    for (i in 1:(ncol(comparisonEmmSummary)-5)) {
+      comparisonEmmSummary[,i] <- as.character(comparisonEmmSummary[,i])
+    }
+
+    samples <- options[["restrictedConfidenceIntervalBootstrapSamples"]]
+    constraints <- sapply(modelList, function(mod) mod[["CON"]][["constraints"]])
+    startProgressbar(samples, label = paste(gettext("Bootstrapping Restricted Marginal Means:"), name))
+    bootstrapEmm <- boot::boot(data = wideData,
+                                    statistic = .rmAnovaOrdinalRestrictionsBootstrapMarginalMeans,
+                                    R = samples,
+                                    options = options,
+                                    modelIndex = length(modelNames)+1,
+                                    emmFormula = emmFormula,
+                                    constraints = constraints,
+                                    withinLevels = withinLevels)
+
+    if (class(bootstrapEmm) == "try-error") {
+        modelSummaryList[[comparisonName]] <- bootstrapEmm
+        next
+    }
+
+    bootstrapSummary <- summary(bootstrapEmm)
+
+    ci.fails <- FALSE
+    bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
+      res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
+                                index = index)[['bca']][1,4:5])
+      if (!inherits(res, "try-error")){
+        return(res)
+      } else {
+        ci.fails <<- TRUE
+        return(c(NA, NA))
+      }
+    }))
+
+    if(ci.fails)
+      modelSummaryList[[comparisonName]] <- gettext("Some confidence intervals could not be computed. Possibly too few bootstrap replicates.")
+
+    comparisonEmmSummary[["SE"]]       <- bootstrapSummary[["bootSE"]]
+    comparisonEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
+    comparisonEmmSummary[["upper.CL"]] <- bootstrapEmmCI[,2]
+
+    modelSummaryList[[comparisonName]] <- comparisonEmmSummary
+    comparisonState$object <- comparisonEmmSummary
+  }
+
+  container[["modelSummaries"]] <- modelSummaryContainer
+
+  return(modelSummaryList)
+}
+
+.rmAnovaOrdinalRestrictionsBootstrapMarginalMeans <- function(data, indices, options, modelIndex, emmFormula, constraints, withinLevels) {
+
+  resamples <- data[indices, , drop=FALSE]
+  
+  dataset <- .shortToLong(resamples, options$repeatedMeasuresFactors, options$repeatedMeasuresCells, 
+                          c(options$betweenSubjectFactors, options$covariates),
+                          dependentName = .BANOVAdependentName, subjectName = .BANOVAsubjectName)
+
+  baseModelRefit <- .rmAnovaComputeResults(dataset, options, returnResultsEarly = TRUE)$result
+  
+  baseModelRefitCoef <- .rmAnovaOrdinalRestrictionsGetBaseModelCoefficients(baseModelRefit$lm, options)
+  baseModelRefitVcov <- vcov(baseModelRefit$lm)
+
+  compareGoricRefit <- do.call(restriktor::goric, append(list(object = baseModelRefitCoef,
+                                                         VCOV = baseModelRefitVcov,
+                                                         comparison = options[["restrictedModelComparison"]],
+                                                         type = "gorica"), constraints))
+
+  goricCoef <- coef(compareGoricRefit)
+
+  newEmmObj      <- emmeans::ref_grid(object = baseModelRefit$lm, mult.levs = withinLevels)
+  newEmmObj@bhat <- as.numeric(goricCoef[modelIndex,])
+  newEmmSummary  <- summary(emmeans::lsmeans(newEmmObj, emmFormula))
+  progressbarTick()
+
+  return(newEmmSummary[["lsmean"]])
+}
+
+.rmAnovaOrdinalRestrictionsGetWithinLevels <- function(options) {
+  withinTerms  <- sapply(options$withinModelTerms, function(x) { paste(x$components, collapse = ":") })
+  withinLevels <- lapply(options$repeatedMeasuresFactors, function(x) {
+    if (!x$name %in% withinTerms) return()
+    else return(x$levels)
+  })
+  names(withinLevels) <- sapply(options$repeatedMeasuresFactors, function(x) {
+    if (!x$name %in% withinTerms) return()
+    else return(x$name)
+  })
+  return(withinLevels)
 }
 
 .rmAnovaPostHocTable <- function(rmAnovaContainer, dataset, longData, options, ready) {

@@ -803,7 +803,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   if (!ready) return()
 
   restrictedModels <- options[["restrictedModels"]]
-  restrictedModels <- restrictedModels[sapply(restrictedModels, function(mod) mod[["restrictionSyntax"]]) != ""]
+  restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
   if (length(restrictedModels) == 0L) return()
 
   ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"))
@@ -820,7 +820,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   .anovaOrdinalRestrictionsGetSyntaxErrors(modelList, ordinalRestrictionsContainer)
 
-  modelNames <- lapply(restrictedModels, function(mod) mod[["modelName"]])
+  modelNames <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
   names(modelList) <- modelNames
 
   compareGoric <- .anovaOrdinalRestrictionsCompareModels(modelList, ordinalRestrictionsContainer, options)
@@ -861,8 +861,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   }
 
   WLS <- NULL
-  if (!is.null(options$wlsWeights))
-    WLS <- dataset[[encodeColNames(options[["wlsWeights"]])]]
+  if (options$wlsWeights == "")
+    WLS <- dataset[[options[["wlsWeights"]]]]
 
   fit <- lm(modelFormula, dataset)
 
@@ -882,13 +882,15 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     }
   }
 
-  names(fit[["coefficients"]]) <- sapply(terms, paste, collapse = ":")
+  names(fit[["coefficients"]]) <- vapply(terms, paste, collapse = ":", FUN.VALUE = character(1))
 
   baseModel$object <- fit
 
   return(list(fit = fit, modelFormula = modelFormula))
 }
 
+# the following two functions should not be necessary if the QML component
+# for the restrictions encodes the column names
 .anovaOrdinalRestrictionsGetUsedVars <- function(syntax, availablevars) {
   allVars <- decodeColNames(availablevars)
   inSyntax <- stringr::str_detect(syntax, pattern = allVars)
@@ -913,10 +915,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   translatedSyntax <- .anovaOrdinalRestrictionsTranslateSyntax(model[["restrictionSyntax"]], dataset)
 
-  if (any(sapply(translatedSyntax, isTryError))) {
-    modelNames <- sapply(restrictedModels, function(mod) mod[["modelName"]])
-    modelHasErrors <- modelNames[sapply(translatedSyntax, isTryError)]
-    container$setError(gettextf("There are errors in the restriction syntax for %s.", paste(modelHasErrors, collapse = ", ")))
+  if (any(vapply(translatedSyntax, isTryError, logical(1)))) {
+    container$setError(gettextf("There are errors in the restriction syntax for %s.", modelName))
     return()
   }
 
@@ -931,7 +931,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 .anovaOrdinalRestrictionsGetSyntaxErrors <- function(modelList, ordinalRestrictionsContainer) {
   if(ordinalRestrictionsContainer$getError()) return()
 
-  modelHasErrors <- sapply(modelList, isTryError)
+  modelHasErrors <- vapply(modelList, isTryError, logical(1))
 
   if (any(modelHasErrors)) {
     syntaxErrors   <- sapply(modelList[modelHasErrors], function(msg) {
@@ -967,26 +967,25 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   comparisonTable <- createJaspTable(gettext("Model Comparison Table"))
   comparisonTable$dependOn(c("restrictedModelComparison", "restrictedModelComparisonReference"))
-  comparisonTable$addColumnInfo(name = "model", title = gettext("Model"), type = "string")
-  comparisonTable$addColumnInfo(name = "loglik", title = gettext("LL"), type = "number")
+  comparisonTable$addColumnInfo(name = "model",   title = gettext("Model"),   type = "string")
+  comparisonTable$addColumnInfo(name = "loglik",  title = gettext("LL"),      type = "number")
   comparisonTable$addColumnInfo(name = "penalty", title = gettext("Penalty"), type = "number")
   if (type == "goric") {
-    comparisonTable$addColumnInfo(name = "goric", title = gettext("GORIC"), type = "number")
+    comparisonTable$addColumnInfo(name = "goric",         title = gettext("GORIC"),  type = "number")
     comparisonTable$addColumnInfo(name = "goric.weights", title = gettext("Weight"), type = "number")
   } else {
-    comparisonTable$addColumnInfo(name = "gorica", title = gettext("GORICA"), type = "number")
+    comparisonTable$addColumnInfo(name = "gorica",         title = gettext("GORICA"), type = "number")
     comparisonTable$addColumnInfo(name = "gorica.weights", title = gettext("Weight"), type = "number")
   }
   comparisonTable$addColumnInfo(name = "ratio", title = gettext("Ratio"), type = "number")
 
   comparison <- options[["restrictedModelComparison"]]
   reference  <- options[["restrictedModelComparisonReference"]]
-  abbrev     <- if (type == "goric")
-    ". GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
-    else
-    ". GORICA = Generalized Order-Restricted Information Criterion Approximation."
-
-  comparisonTable$addFootnote(gettext(paste0("Ratios indicate the relative weight for each model against ", reference, abbrev)))
+  abbrev     <- switch(type,
+                       goric = gettext("GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."),
+                               gettext("GORICA = Generalized Order-Restricted Information Criterion Approximation.")
+                       )
+  comparisonTable$addFootnote(gettextf("Ratios indicate the relative weight for each model against the %1$s model %2$s. %3$s", comparison, reference, abbrev))
   comparisonTable$addCitation(c("Kuiper, R. M., Hoijtink, H., Silvapulle, M. J. (2011). An Akaike-type information criterion for model selection under equality constarints. Biometrika, 98(2), 495-501.",
                                 "Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a theory-based hypothesis against its complement using an AIC-type information criterion with an application to facial burn injury. Psychological Methods, 25(2), 129-142."))
 
@@ -1134,7 +1133,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     else
       newVcov <- restriktor:::sandwich(newModel,
                                       bread. = restriktor:::bread.conLM(newModel),
-                                      meat. = restriktor:::meatHC(newModel, type = options[["restrictedModelHeteroskedasticity"]]))
+                                      meat.  = restriktor:::meatHC(newModel, type = options[["restrictedModelHeteroskedasticity"]]))
     newEmmObj <- emmeans::qdrg(
       formula = formula(newModel[["model.org"]]),
       data    = newModel[["model.org"]][["model"]],
@@ -1172,7 +1171,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
         res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
                              index = index)[['bca']][1,4:5])
-        if (!inherits(res, "try-error")){
+        if (!isTryError(res)){
           return(res)
         } else {
           ci.fails <<- TRUE
@@ -1181,7 +1180,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       }))
 
       if(ci.fails)
-        modelSummaryList[[name]] <- gettext("Some confidence intervals could not be computed. Possibly too few bootstrap replicates.")
+        modelSummaryList[[name]] <- gettext("Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates.")
 
       newEmmSummary[["SE"]]       <- bootstrapSummary[["bootSE"]]
       newEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
@@ -1227,14 +1226,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                                      emmFormula = emmFormula,
                                      comparison = "unrestricted"))
 
-      if (class(bootstrapEmm) != "try-error") {
+      if (!isTryError(bootstrapEmm)) {
         bootstrapSummary <- summary(bootstrapEmm)
         bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
           res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
                               index = index)[['bca']][1,4:5])
           return(res)
         }))
-        if (class(bootstrapEmmCI) != "try-error") {
+        if (!isTryError(bootstrapEmmCI)) {
           unrestrEmmSummary[["SE"]] <- bootstrapSummary[["bootSE"]]
           unrestrEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
           unrestrEmmSummary[["upper.CL"]] <- bootstrapEmmCI[,2]
@@ -1269,7 +1268,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     samples <- options[["restrictedConfidenceIntervalBootstrapSamples"]]
     startProgressbar(samples,
-                     label = paste(gettext("Bootstrapping Restricted Marginal Means:"), "Complement"))
+                     label = gettextf("Bootstrapping Restricted Marginal Means: %s", "Complement"))
     bootstrapEmm <- try(boot::boot(data = dataset,
                                    statistic = .anovaOrdinalRestrictionsBootstrapMarginalMeans,
                                    R = samples,
@@ -1278,14 +1277,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                                    emmFormula = emmFormula,
                                    comparison = "complement"))
 
-    if (class(bootstrapEmm) != "try-error") {
+    if (!isTryError(bootstrapEmm)) {
       bootstrapSummary <- summary(bootstrapEmm)
       bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
         res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
                                  index = index)[['bca']][1,4:5])
         return(res)
       }))
-      if (class(bootstrapEmmCI) != "try-error") {
+      if (!isTryError(bootstrapEmmCI)) {
         complementEmmSummary[["SE"]] <- bootstrapSummary[["bootSE"]]
         complementEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
         complementEmmSummary[["upper.CL"]] <- bootstrapEmmCI[,2]

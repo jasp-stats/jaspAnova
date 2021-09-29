@@ -1134,6 +1134,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       newVcov <- restriktor:::sandwich(newModel,
                                       bread. = restriktor:::bread.conLM(newModel),
                                       meat.  = restriktor:::meatHC(newModel, type = options[["restrictedModelHeteroskedasticity"]]))
+
     newEmmObj <- emmeans::qdrg(
       formula = formula(newModel[["model.org"]]),
       data    = newModel[["model.org"]][["model"]],
@@ -1252,10 +1253,11 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     complementState  <- createJaspState()
     modelSummaryContainer[["Complement"]] <- complementState
     goricObj <- container[["modelComparison"]]$object
+
     complementEmmObj <- emmeans::qdrg(
       formula = baseModel[["modelFormula"]],
       data    = baseModel[["fit"]][["model"]],
-      coef    = coef(goricObj)[which(row.names(coef(goricObj)) == "complement"),],
+      coef    = as.numeric(coef(goricObj)[row.names(coef(goricObj)) == "complement",]),
       vcov    = vcov(baseModel[["fit"]]),
       df      = baseModel[["fit"]][["df.residual"]]
     )
@@ -1340,7 +1342,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     emmObj <- emmeans::qdrg(
       formula = formula(baseModel),
       data    = resamples,
-      coef    = coef(newGoricObj)[which(row.names(coef(newGoricObj)) == "complement"),],
+      coef    = as.numeric(coef(newGoricObj)[row.names(coef(newGoricObj)) == "complement",]),
       vcov    = vcov(baseModel),
       df      = baseModel[["df.residual"]]
     )

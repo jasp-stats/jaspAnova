@@ -902,7 +902,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   new.names <- encodeColNames(usedvars)
 
-  for (i in 1:length(usedvars)) {
+  for (i in seq_along(usedvars)) {
     syntax <- try(gsub(usedvars[i], new.names[i], syntax))
   }
 
@@ -938,9 +938,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
       msgSplit      <- stringr::str_split(msg, "lavaan ERROR: ")
       msgExtracted  <- msgSplit[[1]][length(msgSplit[[1]])]
-      msgUpper      <- paste0(toupper(substr(msgExtracted, 1, 1)), substr(msgExtracted, 2, nchar(msgExtracted)), ".")
+      msgExtracted  <- gsub("\n", "", msgExtracted)
+      msgFinal      <- gettextf("Syntax error: %1$s%2$s.", toupper(substr(msgExtracted, 1, 1)), substr(msgExtracted, 2, nchar(msgExtracted)))
 
-      return(msgUpper)
+      return(msgFinal)
     })
 
     finMsg <- paste(unlist(syntaxErrors), collapse = "\n")
@@ -999,12 +1000,11 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .ordinalRestrictionsComparisonTableFill <- function(comparisonTable, compareGoric, modelNames, comparison, reference, type) {
-  if (comparison == "unconstrained")
-    nms <- c(modelNames, gettext("Unconstrained"))
-  else if (comparison == "complement")
-    nms <- c(modelNames, gettext("Complement"))
-  else
-    nms <- modelNames
+  nms <- switch(comparison,
+                unconstrained = c(modelNames, gettext("Unconstrained")),
+                complement    = c(modelNames, gettext("Complement")),
+                modelNames
+                )
 
   compareDf <- compareGoric[["result"]]
   compareDf[["model"]] <- nms
@@ -1076,7 +1076,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     }
   }
 
-  coefNamesPretty  <- sapply(terms, paste, collapse = " \u273B ")
+  coefNamesPretty  <- sapply(terms, paste, collapse = jaspBase::interactionSymbol)
   coefNamesPrettyV <- decodeColNames(coefNamesPretty)
   coefDf           <- cbind.data.frame(coef = coefNamesPrettyV, t(coefs), stringsAsFactors = FALSE)
 

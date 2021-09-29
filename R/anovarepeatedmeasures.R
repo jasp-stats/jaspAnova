@@ -891,7 +891,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   usedWithinTerms    <- withinTerms[stringr::str_detect(syntax, pattern = withinTerms)]
   newWithinTermNames <- encodeColNames(usedWithinTerms)
 
-  for (i in 1:length(usedWithinTerms)) {
+  for (i in seq_along(usedWithinTerms)) {
     syntax <- try(gsub(usedWithinTerms[i], newWithinTermNames[i], syntax))
   }
 
@@ -904,7 +904,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   usedWithinLevels <- withinLevels[stringr::str_detect(syntax, pattern = withinLevels)]
   newLevelNames    <- encodeColNames(usedWithinLevels)
 
-  for (i in 1:length(usedWithinLevels)) {
+  for (i in seq_along(usedWithinLevels)) {
     syntax <- try(gsub(usedWithinLevels[i], newLevelNames[i], syntax))
   }
 
@@ -912,13 +912,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   if (length(options$betweenModelTerms) > 0L) {
     betweenTerms        <- decodeColNames(sapply(options$betweenModelTerms, function(x) { paste(x$components, collapse = ":") }))
     usedBetweenTerms    <- betweenTerms[stringr::str_detect(syntax, pattern = betweenTerms)]
+    newBetweenTermNames <- encodeColNames(usedBetweenTerms)
 
-    if (length(usedBetweenTerms) > 0L) {
-      newBetweenTermNames <- encodeColNames(usedBetweenTerms)
-
-      for (i in 1:length(usedBetweenTerms)) {
-        syntax <- try(gsub(usedBetweenTerms[i], newBetweenTermNames[i], syntax))
-      }
+    for (i in seq_along(usedBetweenTerms)) {
+      syntax <- try(gsub(usedBetweenTerms[i], newBetweenTermNames[i], syntax))
     }
   }
 
@@ -944,26 +941,25 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     betweenNames      <- row.names(coef(model))
     betweenNamesSplit <- strsplit(betweenNames, ":")
 
-    if (length(betweenLevels) > 0L) {
-      for (i in 1:length(betweenLevels)) {
-        idxFac  <- which(stringr::str_detect(betweenNames, names(betweenLevels)[i]))
-        lvls    <- betweenLevels[[i]][-1]
-        newLvls <- numeric(length(idxFac))
-        newLvls[1:length(idxFac)] <- lvls
+    for (i in seq_along(betweenLevels)) {
+      idxFac  <- which(stringr::str_detect(betweenNames, names(betweenLevels)[i]))
+      lvls    <- betweenLevels[[i]][-1]
+      newLvls <- numeric(length(idxFac))
+      newLvls[1:length(idxFac)] <- lvls
 
-        for (j in 1:length(idxFac)) {
-          idxInt <- which(stringr::str_detect(betweenNamesSplit[[idxFac[j]]], names(betweenLevels)[i]))
-          betweenNamesSplit[[idxFac[j]]][idxInt] <- paste0(names(betweenLevels)[i], newLvls[j])
-        }
+      for (j in seq_along(idxFac)) {
+        idxInt <- which(stringr::str_detect(betweenNamesSplit[[idxFac[j]]], names(betweenLevels)[i]))
+        betweenNamesSplit[[idxFac[j]]][idxInt] <- paste0(names(betweenLevels)[i], newLvls[j])
       }
     }
 
     betweenTerms <- sapply(betweenNamesSplit, paste, collapse = ":")
-    coefNames    <- c()
+    coefNames    <- character(length(betweenTerms))
 
-    for (betweenTerm in betweenTerms) {
-      newName   <- paste(betweenTerm, withinNames, sep = ":")
-      coefNames <- c(coefNames, newName)
+    for (i in seq_along(betweenTerms)) {
+      betweenTerm  <- betweenTerms[i]
+      newName      <- paste(betweenTerm, withinNames, sep = ":")
+      coefNames[i] <- newName
     }
 
     coef        <- as.vector(coef(model))
@@ -979,9 +975,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   if (isTryError(compareGoric)) {
     msgSplit      <- stringr::str_split(compareGoric, "lavaan ERROR: ")
     msgExtracted  <- msgSplit[[1]][length(msgSplit[[1]])]
-    msgUpper      <- paste0(toupper(substr(msgExtracted, 1, 1)), substr(msgExtracted, 2, nchar(msgExtracted)), ".")
+    msgExtracted  <- gsub("\n", "", msgExtracted)
+    msgFinal      <- gettextf("Syntax error: %1$s%2$s.", toupper(substr(msgExtracted, 1, 1)), substr(msgExtracted, 2, nchar(msgExtracted)))
 
-    ordinalRestrictionsContainer$setError(msgUpper)
+    ordinalRestrictionsContainer$setError(msgFinal)
   }
   return()
 }
@@ -1085,18 +1082,16 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     betweenCoefs <- row.names(coef(baseModel$lm))
     betweenTerms <- strsplit(betweenCoefs, ":")
 
-    if (length(baseModel$lm[["xlevels"]]) > 0L) {
-      for (i in 1:length(xLevels)) {
-        idxFac  <- which(stringr::str_detect(betweenCoefs, names(xLevels)[i]))
-        idxLvl  <- 1:(length(xLevels[[i]])-1)
-        newLvls <- numeric(length(idxFac))
-        newLvls[1:length(idxFac)] <- idxLvl
+    for (i in seq_along(xLevels)) {
+      idxFac  <- which(stringr::str_detect(betweenCoefs, names(xLevels)[i]))
+      idxLvl  <- 1:(length(xLevels[[i]])-1)
+      newLvls <- numeric(length(idxFac))
+      newLvls[1:length(idxFac)] <- idxLvl
 
-        for (j in 1:length(idxFac)) {
-          idxInt <- which(stringr::str_detect(betweenTerms[[idxFac[j]]], names(xLevels)[i]))
+      for (j in seq_along(idxFac)) {
+        idxInt <- which(stringr::str_detect(betweenTerms[[idxFac[j]]], names(xLevels)[i]))
 
-          betweenTerms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], " (", newLvls[j], ")")
-        }
+        betweenTerms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], " (", newLvls[j], ")")
       }
     }
 

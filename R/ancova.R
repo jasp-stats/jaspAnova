@@ -1169,20 +1169,15 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
       bootstrapSummary <- summary(bootstrapEmm)
 
-      ci.fails <- FALSE
       bootstrapEmmCI <- t(sapply(1:nrow(bootstrapSummary), function(index) {
         res <- try(boot::boot.ci(boot.out = bootstrapEmm, conf = ciLvl, type = "bca",
                              index = index)[['bca']][1,4:5])
         if (!isTryError(res)){
           return(res)
         } else {
-          ci.fails <<- TRUE
           return(c(NA, NA))
         }
       }))
-
-      if(ci.fails)
-        modelSummaryList[[name]] <- gettext("Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates.")
 
       newEmmSummary[["SE"]]       <- bootstrapSummary[["bootSE"]]
       newEmmSummary[["lower.CL"]] <- bootstrapEmmCI[,1]
@@ -1536,8 +1531,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       if (isTryError(newSummaryObj)) {
         newSummaryTable$setError(.extractErrorMessage(newSummaryObj))
         next
-      } else if (is.character(newSummaryObj)) {
-        newSummaryTable$addFootnote(message = newSummaryObj)
+      } else if (isBoot && any(is.na(newSummaryObj[["lower.CL"]]) || is.na(newSummaryObj[["upper.CL"]]))) {
+        newSummaryTable$addFootnote(message = gettext("Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates."))
       }
       for (i in 1:(length(names(newSummaryObj)) - 5)) {
         newSummaryTable$addColumnInfo(name = names(newSummaryObj)[i], type = "string", combine = TRUE)
@@ -1549,8 +1544,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       if (isBoot || name == "Complement" || type == "gorica")
         newSummaryTable$addFootnote(gettextf("Bootstrapped SE and CI based on %i samples.", nBoot))
       newSummaryTable$showSpecifiedColumnsOnly <- TRUE
-      newSummaryTable$addColumns(as.list(newSummaryObj))
 
+      newSummaryTable$addColumns(as.list(newSummaryObj))
       summaryContainer[[name]] <- newSummaryTable
     }
   }

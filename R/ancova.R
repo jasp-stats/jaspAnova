@@ -870,13 +870,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   coefNames <- names(coef(fit))
   terms     <- strsplit(coefNames, ":")
 
-  for (i in 1:length(xLevels)) {
+  for (i in seq_along(xLevels)) {
     idxFac  <- which(stringr::str_detect(coefNames, names(xLevels)[i]))
     lvls    <- if (options[["includeIntercept"]]) xLevels[[i]][-1] else xLevels[[i]]
     newLvls <- numeric(length(idxFac))
     newLvls[1:length(idxFac)] <- lvls
 
-    for (j in 1:length(idxFac)) {
+    for (j in seq_along(idxFac)) {
       idxInt <- which(stringr::str_detect(terms[[idxFac[j]]], names(xLevels)[i]))
       terms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], newLvls[j])
     }
@@ -934,6 +934,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   modelHasErrors <- vapply(modelList, isTryError, logical(1))
 
   if (any(modelHasErrors)) {
+
     syntaxErrors   <- sapply(modelList[modelHasErrors], function(msg) {
 
       msgSplit      <- stringr::str_split(msg, "lavaan ERROR: ")
@@ -1063,13 +1064,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   if (compareAgainst != "unconstrained")
     coefs    <- rbind(coefs, coef(compareGoric[["model.org"]]))
 
-  for (i in 1:length(xLevels)) {
+  for (i in seq_along(xLevels)) {
     idxFac  <- which(stringr::str_detect(coefNames, names(xLevels)[i]))
     idxLvl  <- if (includeIntercept || i > 1) 1:(length(xLevels[[i]])-1) else 1:length(xLevels[[i]])
     newLvls <- numeric(length(idxFac))
     newLvls[1:length(idxFac)] <- idxLvl
 
-    for (j in 1:length(idxFac)) {
+    for (j in seq_along(idxFac)) {
       idxInt <- which(stringr::str_detect(terms[[idxFac[j]]], names(xLevels)[i]))
 
       terms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], " (", newLvls[j], ")")
@@ -1314,13 +1315,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   coefNames <- names(coef(baseModelRefit))
   terms     <- strsplit(coefNames, ":")
 
-  for (i in 1:length(xLevels)) {
+  for (i in seq_along(xLevels)) {
     idxFac  <- which(stringr::str_detect(coefNames, names(xLevels)[i]))
     lvls    <- xLevels[[i]][-1]
     newLvls <- numeric(length(idxFac))
     newLvls[1:length(idxFac)] <- lvls
 
-    for (j in 1:length(idxFac)) {
+    for (j in seq_along(idxFac)) {
       idxInt <- which(stringr::str_detect(terms[[idxFac[j]]], names(xLevels)[i]))
       terms[[idxFac[j]]][idxInt] <- paste0(names(xLevels)[i], newLvls[j])
     }

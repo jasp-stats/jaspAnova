@@ -1531,7 +1531,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       if (isTryError(newSummaryObj)) {
         newSummaryTable$setError(.extractErrorMessage(newSummaryObj))
         next
-      } else if (isBoot && any(is.na(newSummaryObj[["lower.CL"]]) || is.na(newSummaryObj[["upper.CL"]]))) {
+      } else if (isBoot && any(is.na(newSummaryObj[["lower.CL"]]) | is.na(newSummaryObj[["upper.CL"]]))) {
         newSummaryTable$addFootnote(message = gettext("Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates."))
       }
       for (i in 1:(length(names(newSummaryObj)) - 5)) {
@@ -1612,6 +1612,11 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       plotDf <- newModelSummary
     else
       plotDf <- rbind(plotDf, newModelSummary)
+  }
+
+  if(options[["restrictedConfidenceIntervalBootstrap"]] &&
+     any(is.na(plotDf[["lower.CL"]]) | is.na(plotDf[["upper.CL"]]))) {
+    stop(gettext("Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates."))
   }
 
   if (!is.null(factors) && !is.null(levels)) {

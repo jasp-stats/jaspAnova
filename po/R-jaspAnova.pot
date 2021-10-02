@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-09-15 11:36\n"
+"POT-Creation-Date: 2021-10-02 02:42\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,6 +101,126 @@ msgid "t"
 msgstr ""
 
 msgid "%1$s Contrast Coefficients - %2$s"
+msgstr ""
+
+msgid "Order Restrictions"
+msgstr ""
+
+msgid "There are errors in the restriction syntax for %s."
+msgstr ""
+
+msgid "Syntax error: %1$s%2$s."
+msgstr ""
+
+msgid "Model Comparison Table"
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "LL"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "GORICA"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid "Ratios indicate the relative weight for each model against the %1$s model %2$s. %3$s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Model Coefficients Table"
+msgstr ""
+
+msgid "Estimates"
+msgstr ""
+
+msgid "Coefficient"
+msgstr ""
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+msgid "Bootstrapping Restricted Marginal Means:"
+msgstr ""
+
+msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
+msgstr ""
+
+msgid "Bootstrapping Restricted Marginal Means: %s"
+msgstr ""
+
+msgid "Informed Hypothesis Tests"
+msgstr ""
+
+msgid "Restriction Summary"
+msgstr ""
+
+msgid "Restriction"
+msgstr ""
+
+msgid "Reduction Summary"
+msgstr ""
+
+msgid "Unrestricted R%s"
+msgstr ""
+
+msgid "Restricted R%s"
+msgstr ""
+
+msgid "Test Type"
+msgstr ""
+
+msgid "F̅"
+msgstr ""
+
+msgid "Residual df"
+msgstr ""
+
+msgid "Classical Test"
+msgstr ""
+
+msgid "Model Summaries"
+msgstr ""
+
+msgid "%.0f%% CI"
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr ""
+
+msgid "Some confidence intervals could not be computed. Possibly too few successful bootstrap replicates."
+msgstr ""
+
+msgid "Marginal Mean"
+msgstr ""
+
+msgid "Bootstrapped SE and CI based on %i samples."
+msgstr ""
+
+msgid "Marginal Means Plots"
 msgstr ""
 
 msgid "Post Hoc Tests"
@@ -206,9 +326,6 @@ msgid "Marginal Means"
 msgstr ""
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
-
-msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
 
 msgid "Bootstrapping based on %s replicates."
@@ -325,6 +442,15 @@ msgstr ""
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
 
+msgid "Coefficients"
+msgstr ""
+
+msgid "Between Subjects"
+msgstr ""
+
+msgid "Within Subjects"
+msgstr ""
+
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr ""
 
@@ -361,13 +487,7 @@ msgstr ""
 msgid "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
 
-msgid "Marginal Means -"
-msgstr ""
-
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
-
-msgid "Marginal Mean"
 msgstr ""
 
 msgid "95%% bca%s CI"

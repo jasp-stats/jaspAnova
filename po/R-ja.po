@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2021-09-15 11:36\n"
+"POT-Creation-Date: 2021-10-02 02:42\n"
 "PO-Revision-Date: 2021-09-24 01:34+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +16,9 @@ msgstr ""
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
-msgstr "重みつけ最小二乗法ウェイトが0以下<br><br>(加重最小二乗法ウェイトは正の値のみ許容される)."
+msgstr ""
+"重みつけ最小二乗法ウェイトが0以下<br><br>(加重最小二乗法ウェイトは正の値のみ"
+"許容される)."
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
@@ -118,6 +120,148 @@ msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s コントラスト係数 - %2$s"
+
+msgid "Order Restrictions"
+msgstr ""
+
+msgid "There are errors in the restriction syntax for %s."
+msgstr ""
+
+msgid "Syntax error: %1$s%2$s."
+msgstr ""
+
+#, fuzzy
+msgid "Model Comparison Table"
+msgstr "モデル比較"
+
+#, fuzzy
+msgid "Model"
+msgstr "モデル"
+
+msgid "LL"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "GORICA"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid ""
+"Ratios indicate the relative weight for each model against the %1$s model "
+"%2$s. %3$s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Model Coefficients Table"
+msgstr ""
+
+#, fuzzy
+msgid "Estimates"
+msgstr "推定"
+
+msgid "Coefficient"
+msgstr ""
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means:"
+msgstr "ブートストラップ周辺平均"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
+"る可能性があります。"
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means: %s"
+msgstr "ブートストラップ周辺平均"
+
+msgid "Informed Hypothesis Tests"
+msgstr ""
+
+msgid "Restriction Summary"
+msgstr ""
+
+msgid "Restriction"
+msgstr ""
+
+msgid "Reduction Summary"
+msgstr ""
+
+msgid "Unrestricted R%s"
+msgstr ""
+
+msgid "Restricted R%s"
+msgstr ""
+
+msgid "Test Type"
+msgstr ""
+
+msgid "F̅"
+msgstr ""
+
+msgid "Residual df"
+msgstr ""
+
+msgid "Classical Test"
+msgstr ""
+
+#, fuzzy
+msgid "Model Summaries"
+msgstr "モデル比較"
+
+msgid "%.0f%% CI"
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr "周辺平均 -"
+
+#, fuzzy
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few successful "
+"bootstrap replicates."
+msgstr ""
+"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
+"る可能性があります。"
+
+msgid "Marginal Mean"
+msgstr "周辺平均"
+
+#, fuzzy
+msgid "Bootstrapped SE and CI based on %i samples."
+msgstr "%s の再標本に基づくブートストラップ。"
+
+#, fuzzy
+msgid "Marginal Means Plots"
+msgstr "周辺平均 -"
 
 msgid "Post Hoc Tests"
 msgstr "事後検定"
@@ -235,13 +379,6 @@ msgstr "周辺平均"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "ブートストラップ周辺平均"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr ""
-"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
-"る可能性があります。"
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "%s の再標本に基づくブートストラップ。"
@@ -376,6 +513,17 @@ msgstr ""
 "反復測定因子が２水準だけか，SSP行列が特異であるため，球面性の検定は実行できま"
 "せん。"
 
+msgid "Coefficients"
+msgstr ""
+
+#, fuzzy
+msgid "Between Subjects"
+msgstr "参加者間効果"
+
+#, fuzzy
+msgid "Within Subjects"
+msgstr "参加者内効果"
+
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"
 
@@ -421,14 +569,8 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr "参加者内要因の主効果に対してのみ利用可能な不等分散"
 
-msgid "Marginal Means -"
-msgstr "周辺平均 -"
-
 msgid "Bootstrapped Marginal Means -"
 msgstr "ブートストラップ周辺平均 -"
-
-msgid "Marginal Mean"
-msgstr "周辺平均"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s 信頼区間"
@@ -508,7 +650,8 @@ msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
 "%2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
-"%1$s の相互作用効果は、組み合わせ（複数可）: %2$s に対して観測値がありません。モデルを調整して、セルが見つからない相互作用を削除してください"
+"%1$s の相互作用効果は、組み合わせ（複数可）: %2$s に対して観測値がありませ"
+"ん。モデルを調整して、セルが見つからない相互作用を削除してください"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
@@ -657,8 +800,10 @@ msgid ""
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
 msgstr ""
-"影響を受けた一部のモデルでは、事後サンプルの75%%以上が失敗したり、後続の結果として残るサンプル数が1000以下になったりしました。すべてのモデルの平均"
-"化された出力は偏っており、解釈できないことがあります。モデルの仕様やデータにおかしなパターンがないか確認してください。"
+"影響を受けた一部のモデルでは、事後サンプルの75%%以上が失敗したり、後続の結果"
+"として残るサンプル数が1000以下になったりしました。すべてのモデルの平均化され"
+"た出力は偏っており、解釈できないことがあります。モデルの仕様やデータにおかし"
+"なパターンがないか確認してください。"
 
 msgid "<b><em>Warning.</em></b>"
 msgstr "<b><em>警告</em></b>"

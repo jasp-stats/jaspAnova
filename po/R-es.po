@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-09-15 11:36\n"
+"POT-Creation-Date: 2021-10-02 02:42\n"
 "PO-Revision-Date: 2021-09-11 02:41+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -125,6 +125,148 @@ msgstr "t"
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coeficientes de contraste -%2$s"
 
+msgid "Order Restrictions"
+msgstr ""
+
+msgid "There are errors in the restriction syntax for %s."
+msgstr ""
+
+msgid "Syntax error: %1$s%2$s."
+msgstr ""
+
+#, fuzzy
+msgid "Model Comparison Table"
+msgstr "Comparación de modelos"
+
+#, fuzzy
+msgid "Model"
+msgstr "Modelos"
+
+msgid "LL"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "GORICA"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid ""
+"Ratios indicate the relative weight for each model against the %1$s model "
+"%2$s. %3$s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Model Coefficients Table"
+msgstr ""
+
+#, fuzzy
+msgid "Estimates"
+msgstr "Estimar"
+
+msgid "Coefficient"
+msgstr ""
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means:"
+msgstr "Bootstrapping de Medias Marginales"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"No se pudieron calcular algunos intervalos de confianza. Posiblemente muy "
+"pocas réplicas de bootstrap."
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means: %s"
+msgstr "Bootstrapping de Medias Marginales"
+
+msgid "Informed Hypothesis Tests"
+msgstr ""
+
+msgid "Restriction Summary"
+msgstr ""
+
+msgid "Restriction"
+msgstr ""
+
+msgid "Reduction Summary"
+msgstr ""
+
+msgid "Unrestricted R%s"
+msgstr ""
+
+msgid "Restricted R%s"
+msgstr ""
+
+msgid "Test Type"
+msgstr ""
+
+msgid "F̅"
+msgstr ""
+
+msgid "Residual df"
+msgstr ""
+
+msgid "Classical Test"
+msgstr ""
+
+#, fuzzy
+msgid "Model Summaries"
+msgstr "Comparación de modelos"
+
+msgid "%.0f%% CI"
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr "Medias Marginales -"
+
+#, fuzzy
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few successful "
+"bootstrap replicates."
+msgstr ""
+"No se pudieron calcular algunos intervalos de confianza. Posiblemente muy "
+"pocas réplicas de bootstrap."
+
+msgid "Marginal Mean"
+msgstr "Media Marginal"
+
+#, fuzzy
+msgid "Bootstrapped SE and CI based on %i samples."
+msgstr "Bootstrapping basado en %s réplicas."
+
+#, fuzzy
+msgid "Marginal Means Plots"
+msgstr "Medias Marginales -"
+
 msgid "Post Hoc Tests"
 msgstr "Pruebas Post Hoc"
 
@@ -245,13 +387,6 @@ msgstr "Medias marginales"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "Bootstrapping de Medias Marginales"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr ""
-"No se pudieron calcular algunos intervalos de confianza. Posiblemente muy "
-"pocas réplicas de bootstrap."
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "Bootstrapping basado en %s réplicas."
@@ -392,6 +527,17 @@ msgstr ""
 "No se pueden realizar pruebas de esfericidad porque solo hay dos niveles del "
 "factor RM."
 
+msgid "Coefficients"
+msgstr ""
+
+#, fuzzy
+msgid "Between Subjects"
+msgstr "Efectos entre sujetos"
+
+#, fuzzy
+msgid "Within Subjects"
+msgstr "Efectos dentro de los sujetos"
+
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "Término de error no agrupado solo permitido en diseños equilibrados."
 
@@ -440,14 +586,8 @@ msgstr ""
 "La desigualdad de las varianzas solo están disponibles para los efectos "
 "principales de los factores dentro de los sujetos"
 
-msgid "Marginal Means -"
-msgstr "Medias Marginales -"
-
 msgid "Bootstrapped Marginal Means -"
 msgstr "Bootstrapped de Medias Marginales-"
-
-msgid "Marginal Mean"
-msgstr "Media Marginal"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s IC"

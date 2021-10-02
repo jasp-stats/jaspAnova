@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-09-15 11:36\n"
+"POT-Creation-Date: 2021-10-02 02:42\n"
 "PO-Revision-Date: 2021-10-01 10:39+0000\n"
 "Last-Translator: shun wang <yootell@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -114,6 +114,144 @@ msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s 对比度系数 - %2$s"
+
+msgid "Order Restrictions"
+msgstr ""
+
+msgid "There are errors in the restriction syntax for %s."
+msgstr ""
+
+msgid "Syntax error: %1$s%2$s."
+msgstr ""
+
+#, fuzzy
+msgid "Model Comparison Table"
+msgstr "模型比较"
+
+#, fuzzy
+msgid "Model"
+msgstr "模型"
+
+msgid "LL"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "GORICA"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid ""
+"Ratios indicate the relative weight for each model against the %1$s model "
+"%2$s. %3$s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Model Coefficients Table"
+msgstr ""
+
+#, fuzzy
+msgid "Estimates"
+msgstr "估计"
+
+msgid "Coefficient"
+msgstr ""
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means:"
+msgstr "自举(Bootstrap)边缘均值"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
+
+#, fuzzy
+msgid "Bootstrapping Restricted Marginal Means: %s"
+msgstr "自举(Bootstrap)边缘均值"
+
+msgid "Informed Hypothesis Tests"
+msgstr ""
+
+msgid "Restriction Summary"
+msgstr ""
+
+msgid "Restriction"
+msgstr ""
+
+msgid "Reduction Summary"
+msgstr ""
+
+msgid "Unrestricted R%s"
+msgstr ""
+
+msgid "Restricted R%s"
+msgstr ""
+
+msgid "Test Type"
+msgstr ""
+
+msgid "F̅"
+msgstr ""
+
+msgid "Residual df"
+msgstr ""
+
+msgid "Classical Test"
+msgstr ""
+
+#, fuzzy
+msgid "Model Summaries"
+msgstr "模型比较"
+
+msgid "%.0f%% CI"
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr "边际均值 -"
+
+#, fuzzy
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few successful "
+"bootstrap replicates."
+msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
+
+msgid "Marginal Mean"
+msgstr "边际均值"
+
+#, fuzzy
+msgid "Bootstrapped SE and CI based on %i samples."
+msgstr "基于%s 次重复的Bootstrap抽样。"
+
+#, fuzzy
+msgid "Marginal Means Plots"
+msgstr "边际均值 -"
 
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
@@ -229,11 +367,6 @@ msgstr "边缘均值"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "自举(Bootstrap)边缘均值"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "基于%s 次重复的Bootstrap抽样。"
@@ -361,6 +494,17 @@ msgid ""
 msgstr ""
 "无法执行球形检验，因为 RM 因子只有两个水平，或者因为 SSP 矩阵是畸形的。"
 
+msgid "Coefficients"
+msgstr ""
+
+#, fuzzy
+msgid "Between Subjects"
+msgstr "组间(被试间)效应"
+
+#, fuzzy
+msgid "Within Subjects"
+msgstr "组内(被试内)效应"
+
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "未合并误差项仅在平衡设计中允许。"
 
@@ -404,14 +548,8 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr "不等方差仅适用于组内(被试内)因子的主效应"
 
-msgid "Marginal Means -"
-msgstr "边际均值 -"
-
 msgid "Bootstrapped Marginal Means -"
 msgstr "自举(Bootstrap)的边际均值 -"
-
-msgid "Marginal Mean"
-msgstr "边际均值"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s CI"
@@ -489,13 +627,17 @@ msgstr "在 %s 中遇到重复的变量"
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
 "%2$s. Please adjust the model and remove any interactions with missing cells"
-msgstr "对组合：%1$s的交互作用没有观测值：%2$s. 请调整模型并删除任何缺失单元的交互作用"
+msgstr ""
+"对组合：%1$s的交互作用没有观测值：%2$s. 请调整模型并删除任何缺失单元的交互作"
+"用"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
 "%2$s. Only the first 10 missing combinations are shown. Please adjust the "
 "model and remove any interactions with missing cells"
-msgstr "%1$s 的相互作用对组合没有观察值：0.2 美元。仅显示前 10 个缺失的组合。请调整模型并删除与缺失单元格的任何交互"
+msgstr ""
+"%1$s 的相互作用对组合没有观察值：0.2 美元。仅显示前 10 个缺失的组合。请调整模"
+"型并删除与缺失单元格的任何交互"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr "贝叶斯因子未定义——所有效应都被指定为公害效应。"
@@ -633,8 +775,9 @@ msgid ""
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
 msgstr ""
-"对于一些受影响的模型，有超过 75%% "
-"的后验样本失败，或者后续结果所剩样本少于1000个。所有模型平均输出都可能有偏差且无法解释。请检查模型规格和数据是否有任何异常的模式。"
+"对于一些受影响的模型，有超过 75%% 的后验样本失败，或者后续结果所剩样本少于"
+"1000个。所有模型平均输出都可能有偏差且无法解释。请检查模型规格和数据是否有任"
+"何异常的模式。"
 
 msgid "<b><em>Warning.</em></b>"
 msgstr "<b><em>警告 </em></b>"

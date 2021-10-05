@@ -1740,8 +1740,16 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       summary(emmeans::contrast(postHocRef[[postHocVarIndex]], method = "pairwise"),
               adjust = x, infer = c(TRUE, TRUE), level = options$confidenceIntervalIntervalPostHoc))
 
+    numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
+    bonfAdjustCIlevel <- 1 - ((1-options$confidenceIntervalIntervalPostHoc) /
+                                choose(numberOfLevels, 2))
+    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]], 
+                                                        sigma = sqrt(mean(sigma(model)^2)), 
+                                                        edf = df.residual(model),
+                                                        level = bonfAdjustCIlevel))
+    
     allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
-
+    
     if (nrow(resultPostHoc[[1]]) > 1)
       postHocStandardContainer[[thisVarName]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
                                                                                       options$confidenceIntervalsPostHoc))
@@ -1754,20 +1762,20 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     }
 
     # Calculate effect sizes
-    if (options$postHocTestEffectSize && nrow(dataset) > 0 && !interactionTerm) {
-
-      den <- numeric(length(allContrasts))
-
-      for(i in 1:length(allContrasts)) {
-        x <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][1]), .v(options$dependent)]
-        y <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][2]), .v(options$dependent)]
-        n1 <- length(x)
-        n2 <- length(y)
-        den[i] <- sqrt(((n1 - 1) * var(x) + (n2 - 1) * var(y)) / (n1 + n2 - 2))
-      }
-      resultPostHoc[[1]][["cohenD"]] <- resultPostHoc[[1]][["estimate"]] / den
-      postHocStandardContainer[[thisVarName]]$addFootnote(gettext("Cohen's d does not correct for multiple comparisons."))
-    }
+    # if (options$postHocTestEffectSize && nrow(dataset) > 0 && !interactionTerm) {
+    # 
+    #   den <- numeric(length(allContrasts))
+    # 
+    #   for(i in 1:length(allContrasts)) {
+    #     x <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][1]), .v(options$dependent)]
+    #     y <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][2]), .v(options$dependent)]
+    #     n1 <- length(x)
+    #     n2 <- length(y)
+    #     den[i] <- sqrt(((n1 - 1) * var(x) + (n2 - 1) * var(y)) / (n1 + n2 - 2))
+    #   }
+    #   resultPostHoc[[1]][["cohenD"]] <- resultPostHoc[[1]][["estimate"]] / den
+    #   postHocStandardContainer[[thisVarName]]$addFootnote(gettext("Cohen's d does not correct for multiple comparisons."))
+    # }
 
     allPvalues <- do.call(cbind, lapply(resultPostHoc, function(x) x$p.value))
     colnames(allPvalues) <- postHocCorrections
@@ -1776,6 +1784,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["contrast_A"]] <- lapply(allContrasts, `[[`, 1L)
     resultPostHoc[["contrast_B"]] <- lapply(allContrasts, `[[`, 2L)
 
+    resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+    resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+    resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    
     if (options$postHocTestsBootstrapping) {
 
       postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTestsBootstrappingReplicates']])))

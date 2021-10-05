@@ -331,10 +331,11 @@ test_that("Post Hoc table results match", {
   results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
-                      list("control", "experimental", -0.0830902357515323, 0.21391801479091,
-                           -0.388420937024623, -0.0781542885222932, 0.698555762823947,
-                           0.698555762823947, 0.698555762823947, 0.698555762823947, 0.698555762823947,
-                           -0.507658279613133, 0.341477808110069, "TRUE")
+                                 list("TRUE", 0.21391801479091, 0.698555762823947, -0.0779045273305165,
+                                      -0.476129796984023, 0.32032074232299, "control", "experimental",
+                                      -0.0830902357515325, 0.698555762823947, -0.507658279613134,
+                                      0.698555762823947, 0.698555762823947, -0.388420937024623, 0.698555762823947,
+                                      0.341477808110069)
   )
 })
 

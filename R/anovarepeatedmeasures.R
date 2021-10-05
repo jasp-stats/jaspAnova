@@ -1487,14 +1487,14 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   if (options$postHocTestEffectSize) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
     
-    if (!options$postHocTestPooledError)
+    if (!is.null(options$postHocTestPooledError) && !options$postHocTestPooledError)
       postHocTable$addFootnote(gettext("Computation of Cohen's d based on pooled error."))
     
-    # if (options$confidenceIntervalsPostHoc) {
-    #   thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$confidenceIntervalIntervalPostHoc * 100)
-    #   postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
-    #   postHocTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
-    # }
+    if (options$confidenceIntervalsPostHoc) {
+      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$confidenceIntervalIntervalPostHoc * 100)
+      postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
+      postHocTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
+    }
   }
 
   if (options$postHocTestsTukey)

@@ -1761,22 +1761,6 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       postHocStandardContainer[[thisVarName]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
     }
 
-    # Calculate effect sizes
-    # if (options$postHocTestEffectSize && nrow(dataset) > 0 && !interactionTerm) {
-    # 
-    #   den <- numeric(length(allContrasts))
-    # 
-    #   for(i in 1:length(allContrasts)) {
-    #     x <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][1]), .v(options$dependent)]
-    #     y <- dataset[(dataset[.v(thisVarName)] == allContrasts[[i]][2]), .v(options$dependent)]
-    #     n1 <- length(x)
-    #     n2 <- length(y)
-    #     den[i] <- sqrt(((n1 - 1) * var(x) + (n2 - 1) * var(y)) / (n1 + n2 - 2))
-    #   }
-    #   resultPostHoc[[1]][["cohenD"]] <- resultPostHoc[[1]][["estimate"]] / den
-    #   postHocStandardContainer[[thisVarName]]$addFootnote(gettext("Cohen's d does not correct for multiple comparisons."))
-    # }
-
     allPvalues <- do.call(cbind, lapply(resultPostHoc, function(x) x$p.value))
     colnames(allPvalues) <- postHocCorrections
     resultPostHoc <- cbind(resultPostHoc[[1]], allPvalues)

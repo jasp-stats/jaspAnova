@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-10-02 02:42\n"
-"PO-Revision-Date: 2021-09-15 11:48+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"r/gl/>\n"
+"PO-Revision-Date: 2021-10-07 11:02+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -134,76 +134,78 @@ msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coeficientes de Proba- %2$s"
 
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Restricións de Orde"
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "Hai erros na sintaxe das restricións para %s."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "Erro de sintaxe: %1$s%2$s."
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "Cotexo de modelos"
+msgstr "Táboa co Cotexo de Modelos"
 
-#, fuzzy
 msgid "Model"
-msgstr "Modelos"
+msgstr "Modelo"
 
 msgid "LL"
-msgstr ""
+msgstr "LL"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Penalización"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Ponderación"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Proporción"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Criterio de Información Xeneralizado de Orde Restrinxida (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Aproximación ao Criterio de Información Xeneralizado de Orde "
+"Restrinxida."
 
 msgid ""
 "Ratios indicate the relative weight for each model against the %1$s model "
 "%2$s. %3$s"
 msgstr ""
+"As proporcións indican o peso relativo de cada modelo contra o %1$s modelo "
+"%2$s. %3$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Non restrinxido"
 
 msgid "Complement"
-msgstr ""
+msgstr "Complemento"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "Táboa de Coeficientes do Modelo"
 
-#, fuzzy
 msgid "Estimates"
-msgstr "Estimar"
+msgstr "Estimacións"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Coeficiente"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Os coeficientes difiren do modelo non restrinxido."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "Medias Marxinais con Bootstrapping"
+msgstr "Medias Marxinais Restrinxidas con Bootstrapping:"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -212,71 +214,66 @@ msgstr ""
 "Algúns intervalos de confianza non poden calcularse. Posiblemente por moi "
 "poucas repeticións do bootstrap."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "Medias Marxinais con Bootstrapping"
+msgstr "Medias Marxinais Restrinxidas con Bootstrapping: %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "Probas de Hipóteses Informadas"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "Resumo de Restricións"
 
 msgid "Restriction"
-msgstr ""
+msgstr "Restrición"
 
 msgid "Reduction Summary"
-msgstr ""
+msgstr "Resumo da Redución"
 
 msgid "Unrestricted R%s"
-msgstr ""
+msgstr "R%s non restrinxido"
 
 msgid "Restricted R%s"
-msgstr ""
+msgstr "R%s restrinxido"
 
 msgid "Test Type"
-msgstr ""
+msgstr "Tipo de Proba"
 
 msgid "F̅"
-msgstr ""
+msgstr "F̅"
 
 msgid "Residual df"
-msgstr ""
+msgstr "GL dos erros"
 
 msgid "Classical Test"
-msgstr ""
+msgstr "Proba Clásica"
 
-#, fuzzy
 msgid "Model Summaries"
-msgstr "Cotexo de modelos"
+msgstr "Resumos dos Modelos"
 
 msgid "%.0f%% CI"
-msgstr ""
+msgstr "IC do %.0f%%"
 
 msgid "Marginal Means -"
 msgstr "Medias Marxinais -"
 
-#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few successful "
 "bootstrap replicates."
 msgstr ""
 "Algúns intervalos de confianza non poden calcularse. Posiblemente por moi "
-"poucas repeticións do bootstrap."
+"poucas repeticións do bootstrap con éxito."
 
 msgid "Marginal Mean"
 msgstr "Media Marxinal"
 
-#, fuzzy
 msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "Bootstrapping baseado en %s repeticións."
+msgstr "ET e IC con Bootstrapping baseados en %i mostras."
 
-#, fuzzy
 msgid "Marginal Means Plots"
-msgstr "Medias Marxinais -"
+msgstr "Gráficas das Medias Marxinais"
 
 msgid "Post Hoc Tests"
-msgstr "Probas post-hoc"
+msgstr "Probas Post-hoc"
 
 msgid "Standard"
 msgstr "Típico"
@@ -536,15 +533,13 @@ msgstr ""
 "factor MR, ou porque a matriz SPP é singular."
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Coeficientes"
 
-#, fuzzy
 msgid "Between Subjects"
-msgstr "Efectos Entre Elementos"
+msgstr "Entre Elementos"
 
-#, fuzzy
 msgid "Within Subjects"
-msgstr "Efectos Dentro dos Elementos"
+msgstr "Dentro dos Elementos"
 
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "O termo de erro non combinado só se permite en propostas equilibradas."

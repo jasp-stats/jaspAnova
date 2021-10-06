@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-07 11:02+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/gl/>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: gl_ES\n"
 "X-Source-Language: C\n"
 "X-Qt-Contexts: true\n"
@@ -54,7 +60,7 @@ msgstr "Comprobación da independencia de factores covariantes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "Probas post-hoc"
+msgstr "Probas Post-hoc"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
@@ -1402,7 +1408,7 @@ msgstr "Cociente p máximo de Vovk-Sellke"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Restricións de Orde"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -1413,145 +1419,150 @@ msgid ""
 "\n"
 "where factor is the factor name and Low/Med/High are the factor level names."
 msgstr ""
+"Coloca cada restrición nunha nova liña. Por exemplo:\n"
+"\n"
+"factorMenor = factorMedio = factorMaior\n"
+"factorMenor < factorMedio < factorMaior\n"
+"\n"
+"no que factor é o nome do factor e Menor/Medio/Maior son os nomes dos niveis "
+"dos factores."
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Modelo 1"
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button below for help on the "
 "restriction syntax"
 msgstr ""
+"Ctrl + Enter para aplicar. Fai click no botón azul de abaixo para obter "
+"axuda sobre a sintaxe das restricións"
 
 msgctxt "OrderRestrictions|"
 msgid "Summary for "
-msgstr ""
+msgstr "Resumo para "
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis test for "
-msgstr ""
+msgstr "Proba de hipóteses informada para "
 
 msgctxt "OrderRestrictions|"
 msgid "Type global"
-msgstr ""
+msgstr "Tipo xeral"
 
 msgctxt "OrderRestrictions|"
 msgid "Type A"
-msgstr ""
+msgstr "Tipo A"
 
 msgctxt "OrderRestrictions|"
 msgid "Type B"
-msgstr ""
+msgstr "Tipo B"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
+msgstr "Fai click para saber máis sobre a sintaxe para as restricións de orde."
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
 msgstr "Incluír a constante"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "Cotexo de modelos"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement"
-msgstr ""
+msgstr "Complemento"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained"
-msgstr ""
+msgstr "Non restrinxido"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Ningún"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare against"
-msgstr ""
+msgstr "Cotexar fronte a"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model for weight ratios"
-msgstr ""
+msgstr "Modelo de referencia para proporcións de ponderacións"
 
 msgctxt "OrderRestrictions|"
 msgid "Show model coefficients"
-msgstr ""
+msgstr "Amosar os coeficientes do modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight coefficients"
-msgstr ""
+msgstr "Destacar os coeficientes"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty"
-msgstr ""
+msgstr "Incerteza"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals based on"
-msgstr ""
+msgstr "% intervalos de confianza baseados en"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals"
-msgstr ""
+msgstr "% intervalos de confianza"
 
 msgctxt "OrderRestrictions|"
 msgid "based on"
-msgstr ""
+msgstr "beseado en"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "bootstraps"
 msgstr "bootstraps"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr ""
+msgstr "Corrección de Huber-White para a heterocedasticidade"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Model Terms"
 msgstr "Elementos do Modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "Medias Marxinais Restrinxidas"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Models"
-msgstr ""
+msgstr "Modelos Restrinxidos"
 
 msgctxt "OrderRestrictions|"
 msgid "Plot Restricted Marginal Means"
-msgstr ""
+msgstr "Debuxar as Medias Marxinais Restrinxidas"

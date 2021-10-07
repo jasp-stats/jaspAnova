@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-10-02 02:42\n"
-"PO-Revision-Date: 2021-10-01 10:39+0000\n"
-"Last-Translator: shun wang <yootell@gmail.com>\n"
+"PO-Revision-Date: 2021-10-08 12:34+0000\n"
+"Last-Translator: Peng Li <P.Lee2008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -142,7 +142,7 @@ msgid "GORIC"
 msgstr ""
 
 msgid "Weight"
-msgstr ""
+msgstr "权重"
 
 msgid "GORICA"
 msgstr ""
@@ -171,21 +171,20 @@ msgid "Complement"
 msgstr ""
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "模型系数表"
 
 #, fuzzy
 msgid "Estimates"
 msgstr "估计"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "系数"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "自举(Bootstrap)边缘均值"
+msgstr "自举(Bootstrap)边缘均值："
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -224,7 +223,7 @@ msgid "Residual df"
 msgstr ""
 
 msgid "Classical Test"
-msgstr ""
+msgstr "经典检验法"
 
 #, fuzzy
 msgid "Model Summaries"

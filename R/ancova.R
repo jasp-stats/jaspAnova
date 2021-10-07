@@ -1741,8 +1741,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
               adjust = x, infer = c(TRUE, TRUE), level = options$confidenceIntervalIntervalPostHoc))
 
     numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
-    bonfAdjustCIlevel <- 1 - ((1-options$confidenceIntervalIntervalPostHoc) /
-                                choose(numberOfLevels, 2))
+    bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
+                                                      numberOfLevels = numberOfLevels)
+    
     effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]], 
                                                         sigma = sqrt(mean(sigma(model)^2)), 
                                                         edf = df.residual(model),

@@ -1341,9 +1341,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
                           infer = TRUE, level = options$confidenceIntervalIntervalPostHoc)
 
     numberOfLevels <- nrow(as.data.frame(referenceGrid[[var]]))
-    bonfAdjustCIlevel <- 1 - ((1-options$confidenceIntervalIntervalPostHoc) /
-                                choose(numberOfLevels, 2))
-
+    bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
+                                                      numberOfLevels = numberOfLevels)
+    
     effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[var]], 
                                                         sigma = sqrt(mean(sigma(fullModel$lm)^2)), 
                                                         edf = df.residual(fullModel$lm),
@@ -1452,6 +1452,13 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   }
 
   return(correctionFootnote)
+}
+
+.computeBonferroniConfidence <- function(confidenceLevel, numberOfLevels) {
+  
+  bonfAdjustCIlevel <- 1 - ((1-confidenceLevel) /
+                              choose(numberOfLevels, 2))
+  return(bonfAdjustCIlevel)
 }
 
 .createPostHocStandardTable <- function(myTitle, interactionTerm, options, makeBootstrapTable = FALSE) {

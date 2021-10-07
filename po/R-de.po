@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-10-02 02:42\n"
-"PO-Revision-Date: 2021-10-01 10:39+0000\n"
+"PO-Revision-Date: 2021-10-07 11:02+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -127,76 +127,77 @@ msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Kontrast-Koeffizienten - %2$s"
 
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Reihenfolgebeschränkungen"
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "Die Einschränkungssyntax für %s enthält Fehler."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "Syntaxfehler: %1$s%2$s."
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "Modellvergleich"
+msgstr "Modellvergleichstabelle"
 
-#, fuzzy
 msgid "Model"
-msgstr "Modelle"
+msgstr "Modell"
 
 msgid "LL"
-msgstr ""
+msgstr "LL"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Strafterm"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Gewichtung"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Verhältnis"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid ""
 "Ratios indicate the relative weight for each model against the %1$s model "
 "%2$s. %3$s"
 msgstr ""
+"Verhältnisse geben das relative Gewicht jedes Modells gegenüber dem %1$s-"
+"Modell %2$s an. %3$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Unbeschränkt"
 
 msgid "Complement"
-msgstr ""
+msgstr "Komplement"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "Tabelle der Modellkoeffizienten"
 
-#, fuzzy
 msgid "Estimates"
-msgstr "Schätzung"
+msgstr "Schätzungen"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Koeffizient"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Koeffizienten unterscheiden sich vom unbeschränkten Modell."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "Bootstrapping Randmittelwerte"
+msgstr "Bootstrapping Beschränkter Randmittelwerte:"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -205,68 +206,63 @@ msgstr ""
 "Einige Konfidenzintervalle konnten nicht berechnet werden. Möglicherweise zu "
 "wenige Bootstrap-Wiederholungen."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "Bootstrapping Randmittelwerte"
+msgstr "Bootstrapping Beschränkter Randmittelwerte: %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "Informierte Hypothesentests"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "Beschränkungszusammenfassung"
 
 msgid "Restriction"
-msgstr ""
+msgstr "Beschränkung"
 
 msgid "Reduction Summary"
-msgstr ""
+msgstr "Beschränkungszusammenfassung"
 
 msgid "Unrestricted R%s"
-msgstr ""
+msgstr "Unbeschränktes R%s"
 
 msgid "Restricted R%s"
-msgstr ""
+msgstr "Beschränktes R%s"
 
 msgid "Test Type"
-msgstr ""
+msgstr "Test-Typ"
 
 msgid "F̅"
-msgstr ""
+msgstr "F̅"
 
 msgid "Residual df"
-msgstr ""
+msgstr "Residuelle df"
 
 msgid "Classical Test"
-msgstr ""
+msgstr "Klassischer Test"
 
-#, fuzzy
 msgid "Model Summaries"
-msgstr "Modellvergleich"
+msgstr "Modellvergleiche"
 
 msgid "%.0f%% CI"
-msgstr ""
+msgstr "%.0f%% KI"
 
 msgid "Marginal Means -"
 msgstr "Randmittelwerte -"
 
-#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few successful "
 "bootstrap replicates."
 msgstr ""
 "Einige Konfidenzintervalle konnten nicht berechnet werden. Möglicherweise zu "
-"wenige Bootstrap-Wiederholungen."
+"wenige erfolgreiche Bootstrap-Wiederholungen."
 
 msgid "Marginal Mean"
 msgstr "Randmittelwerte"
 
-#, fuzzy
 msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "Bootstrapping basiert auf %s Wiederholungen."
+msgstr "Bootstrap-SF und -KI basierend auf %s Wiederholungen."
 
-#, fuzzy
 msgid "Marginal Means Plots"
-msgstr "Randmittelwerte -"
+msgstr "Diagramme Randmittelwerte"
 
 msgid "Post Hoc Tests"
 msgstr "Post-hoc-Tests"
@@ -527,15 +523,15 @@ msgstr ""
 "des MW-Faktors gibt oder weil die SSP-Matrix singulär ist."
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Koeffizienten"
 
 #, fuzzy
 msgid "Between Subjects"
-msgstr "Zwischensubjekteffekte"
+msgstr "Zwischensubjekt"
 
 #, fuzzy
 msgid "Within Subjects"
-msgstr "Innersubjekteffekte"
+msgstr "Innersubjekt"
 
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "Ungepoolter Fehlerterm nur für balancierte Designs erlaubt."

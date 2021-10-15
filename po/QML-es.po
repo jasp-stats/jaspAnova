@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-14 01:51+0000\n"
+"PO-Revision-Date: 2021-10-15 11:32+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/es/>\n"
@@ -420,19 +420,19 @@ msgstr "Anterior"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fijos de escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
-msgstr "covariables de escala r"
+msgstr "Covariables de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr "Precisión numérica"
+msgstr "Precisión Numérica"
 
 msgctxt "AncovaBayesian|"
 msgid "Auto"
@@ -828,11 +828,11 @@ msgstr "Anterior"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "Efectos fijos de la escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "Numerical Accuracy"
@@ -1252,23 +1252,23 @@ msgstr "Opciones Adicionales"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Prior"
-msgstr "Anterior"
+msgstr "Previo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fijos de escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale covariates"
-msgstr "covariables de escala r"
+msgstr "Covariables de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Numerical Accuracy"
-msgstr "Precisión numérica"
+msgstr "Precisión Numérica"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Auto"

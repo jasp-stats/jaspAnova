@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-15 11:32+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -46,15 +52,15 @@ msgstr "ANCOVA Bayesiano"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr "Variable dependiente"
+msgstr "Variable Dependiente"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr "Factores fijos"
+msgstr "Factores Fijos"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr "Factores aleatorios"
+msgstr "Factores Aleatorios"
 
 msgctxt "Ancova|"
 msgid "Covariates"
@@ -62,7 +68,7 @@ msgstr "Covariables"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "Pesos WLS"
+msgstr "Ponderaciones MCP (WLS)"
 
 msgctxt "Ancova|"
 msgid "Display"
@@ -74,7 +80,7 @@ msgstr "Estadísticos descriptivos"
 
 msgctxt "Ancova|"
 msgid "Estimates of effect size"
-msgstr "Estimaciones del tamaño del efecto"
+msgstr "Estimaciones de la magnitud del efecto"
 
 msgctxt "Ancova|"
 msgid "η²"
@@ -102,7 +108,7 @@ msgstr "Componentes"
 
 msgctxt "Ancova|"
 msgid "Model Terms"
-msgstr "Términos del modelo"
+msgstr "Elementos del Modelo"
 
 msgctxt "Ancova|"
 msgid "Sum of squares"
@@ -266,15 +272,15 @@ msgstr " "
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr "Variable dependiente"
+msgstr "Variable Dependiente"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr "Factores fijos"
+msgstr "Factores Fijos"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr "Factores aleatorios"
+msgstr "Factores Aleatorios"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
@@ -414,19 +420,19 @@ msgstr "Anterior"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fijos de escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale covariates"
-msgstr "covariables de escala r"
+msgstr "Covariables de escala r"
 
 msgctxt "AncovaBayesian|"
 msgid "Numerical Accuracy"
-msgstr "Precisión numérica"
+msgstr "Precisión Numérica"
 
 msgctxt "AncovaBayesian|"
 msgid "Auto"
@@ -438,11 +444,11 @@ msgstr "Manual"
 
 msgctxt "AncovaBayesian|"
 msgid "No. samples"
-msgstr "No. de muestras"
+msgstr "Número de muestras"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior Samples"
-msgstr "Muestras posteriores"
+msgstr "Muestras Posteriores"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
@@ -458,7 +464,7 @@ msgstr "Factores Aleatorios"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr "Pesos WLS"
+msgstr "Ponderaciones MCP (WLS)"
 
 msgctxt "Anova|"
 msgid "Display"
@@ -466,11 +472,11 @@ msgstr "Mostrar"
 
 msgctxt "Anova|"
 msgid "Descriptive statistics"
-msgstr "Estadísticas Descriptivas"
+msgstr "Estadísticos descriptivos"
 
 msgctxt "Anova|"
 msgid "Estimates of effect size"
-msgstr "Estimaciones del tamaño del efecto"
+msgstr "Estimaciones de la magnitud del efecto"
 
 msgctxt "Anova|"
 msgid "η²"
@@ -498,7 +504,7 @@ msgstr "Componentes"
 
 msgctxt "Anova|"
 msgid "Model Terms"
-msgstr "Términos del modelo"
+msgstr "Elementos del Modelo"
 
 msgctxt "Anova|"
 msgid "Sum of squares"
@@ -822,11 +828,11 @@ msgstr "Anterior"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
-msgstr "Efectos fijos de la escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaBayesian|"
 msgid "Numerical Accuracy"
@@ -842,11 +848,11 @@ msgstr "Manual"
 
 msgctxt "AnovaBayesian|"
 msgid "No. samples"
-msgstr "No. de muestras"
+msgstr "Número de muestras"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior Samples"
-msgstr "Muestras posteriores"
+msgstr "Muestras Posteriores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
@@ -854,11 +860,11 @@ msgstr "Factores de Medidas Repetidas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "Celdas de medidas repetidas"
+msgstr "Celdas de Medidas Repetidas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr "Factores inter-sujetos"
+msgstr "Factores Entre Elementos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
@@ -870,11 +876,11 @@ msgstr "Mostrar"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptive statistics"
-msgstr "Estadísticas Descriptivas"
+msgstr "Estadísticos descriptivos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
-msgstr "Estimaciones del tamaño del efecto"
+msgstr "Estimaciones de la magnitud del efecto"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "η²"
@@ -906,15 +912,15 @@ msgstr "Componentes de Medidas Repetidas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr "Términos del Modelo"
+msgstr "Elementos del Modelo"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr "Componentes inter-sujetos"
+msgstr "Componentes Entre Elementos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr "Términos del Modelo"
+msgstr "Elementos del modelo"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sum of squares"
@@ -922,7 +928,7 @@ msgstr "Suma de cuadrados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr "Utilice un modelo multivariado para las pruebas de seguimiento"
+msgstr "Utilice el modelo multivariante para los siguientes contrastes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
@@ -1102,11 +1108,11 @@ msgstr "Factores de Medidas Repetidas"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "Celdas de medidas repetidas"
+msgstr "Celdas de Medidas Repetidas"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr "Factores inter-sujetos"
+msgstr "Factores Entre Elementos"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
@@ -1246,27 +1252,27 @@ msgstr "Opciones Adicionales"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Prior"
-msgstr "Anterior"
+msgstr "Previo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
-msgstr "efectos fijos de escala r"
+msgstr "Efectos fijos de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale random effects"
-msgstr "efectos aleatorios de escala r"
+msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale covariates"
-msgstr "covariables de escala r"
+msgstr "Covariables de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Numerical Accuracy"
-msgstr "Precisión numérica"
+msgstr "Precisión Numérica"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Auto"
-msgstr "Automático"
+msgstr "Auto"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Manual"
@@ -1274,23 +1280,23 @@ msgstr "Manual"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "No. samples"
-msgstr "No. de muestras"
+msgstr "Número de muestras"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior Samples"
-msgstr "Muestras posteriores"
+msgstr "Muestras Posteriores"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr "Variables dependientes"
+msgstr "Variables Dependientes"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr "Factores fijos"
+msgstr "Factores Fijos"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr "Factores aleatorios"
+msgstr "Factores Aleatorios"
 
 msgctxt "Manova|"
 msgid "Model"
@@ -1302,11 +1308,11 @@ msgstr "Componentes"
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr "Términos de modelo"
+msgstr "Elementos del Modelo"
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr "Incluir intercepción"
+msgstr "Incluir constante"
 
 msgctxt "Manova|"
 msgid "Additional Options"
@@ -1314,7 +1320,7 @@ msgstr "Opciones Adicionales"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr "Contraste"
+msgstr "Contrastar"
 
 msgctxt "Manova|"
 msgid "Pillai"
@@ -1402,7 +1408,7 @@ msgstr "Factor RM"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Restricciones de Orden"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -1413,144 +1419,151 @@ msgid ""
 "\n"
 "where factor is the factor name and Low/Med/High are the factor level names."
 msgstr ""
+"Colocar cada restricción en una nueva linea. Por ejemplo:\n"
+"\n"
+"FactorMenor = FactorMedio = FactorMayor\n"
+"FactorMenor < FactorMedio < FactorMayor\n"
+"\n"
+"en el que Factor es el nombre del factor y Menor/Medio/Mayor son los nombres "
+"de los niveles de los factores."
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Modelo 1"
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button below for help on the "
 "restriction syntax"
 msgstr ""
+"Ctrl + Enter para aplicar. Hacer click en el botón azul de abajo para "
+"obtener ayuda sobre la sintaxis de las restricciones"
 
 msgctxt "OrderRestrictions|"
 msgid "Summary for "
-msgstr ""
+msgstr "Resumen para "
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis test for "
-msgstr ""
+msgstr "Contraste de hipótesis informado para "
 
 msgctxt "OrderRestrictions|"
 msgid "Type global"
-msgstr ""
+msgstr "Tipo general"
 
 msgctxt "OrderRestrictions|"
 msgid "Type A"
-msgstr ""
+msgstr "Tipo A"
 
 msgctxt "OrderRestrictions|"
 msgid "Type B"
-msgstr ""
+msgstr "Tipo B"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
 msgstr ""
+"Hacer click para saber más sobre la sintaxis para las restricciones de orden."
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
-msgstr "Incluir intercepción"
+msgstr "Incluir constante"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "Comparación de modelos"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement"
-msgstr ""
+msgstr "Complemento"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained"
-msgstr ""
+msgstr "No restringido"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Ninguna"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare against"
-msgstr ""
+msgstr "Comparar frente a"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model for weight ratios"
-msgstr ""
+msgstr "Modelo de referencia para ratios de ponderaciones"
 
 msgctxt "OrderRestrictions|"
 msgid "Show model coefficients"
-msgstr ""
+msgstr "Mostrar los coeficientes del modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight coefficients"
-msgstr ""
+msgstr "Resaltar los coeficientes"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty"
-msgstr ""
+msgstr "Incertidumbre"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals based on"
-msgstr ""
+msgstr "% intervalos de confianza basados en"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals"
-msgstr ""
+msgstr "% intervalos de confianza"
 
 msgctxt "OrderRestrictions|"
 msgid "based on"
-msgstr ""
+msgstr "basado en"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "bootstraps"
 msgstr "bootstraps"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr ""
+msgstr "Corrección de heterocedasticidad de Huber-White"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
 msgctxt "OrderRestrictions|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Elementos del Modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "Medias Marginales Restringidas"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Models"
-msgstr ""
+msgstr "Modelos Restringidos"
 
 msgctxt "OrderRestrictions|"
 msgid "Plot Restricted Marginal Means"
-msgstr ""
+msgstr "Dibujar las Medias Marginales Restringidas"

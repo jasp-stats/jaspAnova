@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-23 02:42+0000\n"
+"Last-Translator: shun wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspanova-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -1401,7 +1407,7 @@ msgstr "Vovk-Sellke maximum p-ratio"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restrictions"
-msgstr ""
+msgstr "次序统计"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -1412,145 +1418,148 @@ msgid ""
 "\n"
 "where factor is the factor name and Low/Med/High are the factor level names."
 msgstr ""
+"将每个限制放在一个新行上。例如：\n"
+"\n"
+"factorLow = factorMed = factorHigh\n"
+"factorLow < factorMed < factorHigh\n"
+"\n"
+"其中，factor 是因子名称，Low/Med/High 是因子级别名称。"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "模型 1"
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button below for help on the "
 "restriction syntax"
-msgstr ""
+msgstr "Ctrl + Enter 应用。单击下面的蓝色按钮以获取有关限制语法的帮助"
 
 msgctxt "OrderRestrictions|"
 msgid "Summary for "
-msgstr ""
+msgstr "摘要 "
 
+#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis test for "
-msgstr ""
+msgstr "假设检验信息为 "
 
 msgctxt "OrderRestrictions|"
 msgid "Type global"
-msgstr ""
+msgstr "全局类型"
 
 msgctxt "OrderRestrictions|"
 msgid "Type A"
-msgstr ""
+msgstr "类型 A"
 
 msgctxt "OrderRestrictions|"
 msgid "Type B"
-msgstr ""
+msgstr "类型 B"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
+msgstr "单击以了解有关顺序限制语法的更多信息。"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
 msgstr "包括截距"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "模型比较"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement"
-msgstr ""
+msgstr "补充"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained"
-msgstr ""
+msgstr "不受限的"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "无"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare against"
-msgstr ""
+msgstr "对照"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model for weight ratios"
-msgstr ""
+msgstr "权重比率的参考模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Show model coefficients"
-msgstr ""
+msgstr "显示模型系数"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight coefficients"
-msgstr ""
+msgstr "高亮系数"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty"
-msgstr ""
+msgstr "不确定性"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals based on"
-msgstr ""
+msgstr "％的置信区间，基于"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals"
-msgstr ""
+msgstr "％ 置信区间"
 
 msgctxt "OrderRestrictions|"
 msgid "based on"
-msgstr ""
+msgstr "基于"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "bootstraps"
 msgstr "次的自助抽样(bootstrap)"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr ""
+msgstr "异方差性 Huber-White 校正"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Model Terms"
 msgstr "模型的项(Terms)"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "受限边际均值"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Models"
-msgstr ""
+msgstr "受限模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Plot Restricted Marginal Means"
-msgstr ""
+msgstr "绘制受限边际均值"

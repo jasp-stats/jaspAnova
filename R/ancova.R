@@ -1414,7 +1414,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
             newTest <- ihtObject[[type]]
 
             newTestTable <- createJaspTable(paste0(gettext("Test Type "), type))
-            newTestTable$addColumnInfo(name = "stat", title = gettext("F\u0305"), type = "number")
+            newTestTable$addColumnInfo(name = "stat", title = gettext("F"), type = "number")
             newTestTable$addColumnInfo(name = "df", title = gettext("df"), type = "integer")
             newTestTable$addColumnInfo(name = "dfresid", title = gettext("Residual df"), type = "integer")
             newTestTable$addColumnInfo(name = "pval", title = gettext("p"), type = "pvalue")

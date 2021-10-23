@@ -805,7 +805,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"), dependencies = "restrictedModels")
     anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
   } else {
-    orginalRestrictionsContainer <- anovaContainer[["ordinalRestrictions"]]
+    ordinalRestrictionsContainer <- anovaContainer[["ordinalRestrictions"]]
   }
 
   restrictedModels <- options[["restrictedModels"]]
@@ -848,7 +848,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCalcBaseModel <- function(ordinalRestrictionsContainer, dataset, options) {
-  if (!is.null(ordinalRestrictionsContainer[["baseModel"]])) return()
+  if (!is.null(ordinalRestrictionsContainer[["baseModel"]])) return(ordinalRestrictionsContainer[["baseModel"]]$object)
 
   baseModel <- createJaspState()
   baseModel$dependOn(c("includeIntercept"))
@@ -915,7 +915,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
 .anovaOrdinalRestrictionsComputeModel <- function(model, baseModel, container, dataset, options) {
   modelName <- model[["modelName"]]
-  if (!is.null(container[[modelName]]) || model[["restrictionSyntax"]] == "") return()
+  if (model[["restrictionSyntax"]] == "") return()
+  if (!is.null(container[[modelName]])) return(container[[modelName]]$object)
 
   translatedSyntax <- .anovaOrdinalRestrictionsTranslateSyntax(model[["restrictionSyntax"]], dataset)
 
@@ -956,7 +957,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCompareModels <- function(modelList, ordinalRestrictionsContainer, options) {
-  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]]) || ordinalRestrictionsContainer$getError()) return()
+  if (ordinalRestrictionsContainer$getError()) return()
+  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]])) return(ordinalRestrictionsContainer[["modelComparison"]]$object)
 
   modelComparison <- createJaspState()
   modelComparison$dependOn(c("restrictedModelComparison"))

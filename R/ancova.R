@@ -987,7 +987,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                        goric = gettext("GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."),
                                gettext("GORICA = Generalized Order-Restricted Information Criterion Approximation.")
                        )
-  comparisonTable$addFootnote(gettextf("Ratios indicate the relative weight for each model against the %1$s model %2$s. %3$s", comparison, reference, abbrev))
+  comparisonTable$addFootnote(gettextf('Ratios indicate the relative weight for each model against the "%1$s" model. %2$s', reference, abbrev))
   comparisonTable$addCitation(c("Kuiper, R. M., Hoijtink, H., Silvapulle, M. J. (2011). An Akaike-type information criterion for model selection under equality constarints. Biometrika, 98(2), 495-501.",
                                 "Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a theory-based hypothesis against its complement using an AIC-type information criterion with an application to facial burn injury. Psychological Methods, 25(2), 129-142."))
 

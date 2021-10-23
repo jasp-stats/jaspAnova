@@ -801,13 +801,17 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
   if (!ready) return()
+  if (is.null(anovaContainer[["ordinalRestrictions"]])) {
+    ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"), dependencies = "restrictedModels")
+    anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
+  } else {
+    orginalRestrictionsContainer <- anovaContainer[["ordinalRestrictions"]]
+  }
 
   restrictedModels <- options[["restrictedModels"]]
   restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
   if (length(restrictedModels) == 0L) return()
 
-  ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"))
-  anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
 
   baseModel <- .anovaOrdinalRestrictionsCalcBaseModel(ordinalRestrictionsContainer, dataset, options)
 

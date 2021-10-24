@@ -911,6 +911,19 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       }
     }
   }
+
+  # check duplication of order restrictions
+  for (model in restrictedModels) {
+    lines <- strsplit(model[["restrictionSyntax"]], "\n")[[1]]
+    lines <- trimws(lines)
+    lines <- gsub(" ", "", lines)
+    lines <- lines[lines != ""]
+
+    if(length(lines) != length(unique(lines))) {
+      ordinalRestrictionsContainer$setError(gettextf("Syntax error found in model %1$s.\n\nSome restrictions are duplicate!", model[["modelName"]]))
+      return()
+    }
+  }
 }
 # the following two functions should not be necessary if the QML component
 # for the restrictions encodes the column names

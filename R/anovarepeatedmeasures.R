@@ -991,7 +991,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   restrictionSyntax <- vapply(restrictedModels, "[[", "restrictionSyntax", FUN.VALUE = character(1))
   translatedSyntax  <- vapply(restrictionSyntax, .rmAnovaOrdinalRestrictionsTranslateSyntax, dataset = dataset, options = options, FUN.VALUE = character(1))
-
+  names(translatedSyntax) <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
   if (any(sapply(translatedSyntax, isTryError))) {
     modelNames       <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
     modelHasErrors   <- modelNames[sapply(translatedSyntax, isTryError)]

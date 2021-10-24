@@ -836,8 +836,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
     modelSummaryList <- .anovaOrdinalRestrictionsCalcModelSummaries(modelList, modelNames, baseModel, dataset, ordinalRestrictionsContainer, options)
-    .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "goric", options)
+  } else {
+    modelSummaryList <- NULL
   }
+  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "goric", options)
 
   if (any(sapply(restrictedModels, function(mod) mod[["informedHypothesisTest"]])))
     .anovaOrdinalRestrictionsCreateInformedHypothesisTestTables(modelList, modelNames, ordinalRestrictionsContainer, options)
@@ -889,9 +891,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   names(fit[["coefficients"]]) <- vapply(terms, paste, collapse = ":", FUN.VALUE = character(1))
 
-  baseModel$object <- fit
+  result <- list(fit = fit, modelFormula = modelFormula)
+  baseModel$object <- result
 
-  return(list(fit = fit, modelFormula = modelFormula))
+  return(result)
 }
 
 .anovaOrdinalRestrictionsCustomCheckSyntax <- function(restrictedModels, ordinalRestrictionsContainer) {
@@ -1541,6 +1544,16 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   ordinalRestrictionsContainer[["modelSummaryTables"]] <- summaryContainer
 
   whichModels <- sapply(options[["restrictedModels"]], function(mod) mod[["modelSummary"]])
+
+  if(length(options[["restrictedModelMarginalMeansTerm"]]) == 0L && sum(whichModels) > 0L) {
+    table <- createJaspTable(title = gettext("Marginal means"))
+    summaryContainer[["table"]] <- table
+    summaryContainer$setError(gettextf("Please, select a model term to summarise in the 'Restricted Marginal Means' section."))
+    return()
+  } else if(sum(whichModels) == 0L) {
+    return()
+  }
+
   ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
   isBoot <- options[["restrictedConfidenceIntervalBootstrap"]]
   nBoot  <- options[["restrictedConfidenceIntervalBootstrapSamples"]]

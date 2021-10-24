@@ -874,8 +874,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
     modelSummaryList <- .rmAnovaOrdinalRestrictionsCalcModelSummaries(compareGoric, modelNames, baseModel, wideData, ordinalRestrictionsContainer, options)
-    .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
+  } else {
+    modelSummaryList <- NULL
   }
+  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
 
   if (length(options[["plotRestrictedModels"]]) > 0L && length(options[["restrictedModelMarginalMeansTerm"]]) > 0L)
     .ordinalRestrictionsCreateMarginalMeansPlot(modelSummaryList, modelNames, ordinalRestrictionsContainer, options)

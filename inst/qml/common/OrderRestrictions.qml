@@ -206,6 +206,7 @@ Section
 				{
 					name: "restrictedConfidenceIntervalBootstrapSamples"
 					defaultValue: 1000
+					min: 100
 					afterLabel: qsTr("bootstraps")
 				}
 			}

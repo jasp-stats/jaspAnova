@@ -864,6 +864,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   modelNames <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
 
+  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
   compareGoric <- .rmAnovaOrdinalRestrictionsCompareModels(baseModel, restrictedModels, ordinalRestrictionsContainer, longData, options)
   .rmAnovaOrdinalRestrictionsGetSyntaxErrors(compareGoric, ordinalRestrictionsContainer)
   .ordinalRestrictionsCreateComparisonTable(compareGoric, modelNames, ordinalRestrictionsContainer, type = "gorica", options)

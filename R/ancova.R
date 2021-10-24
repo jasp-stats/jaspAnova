@@ -815,6 +815,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   baseModel <- .anovaOrdinalRestrictionsCalcBaseModel(ordinalRestrictionsContainer, dataset, options)
 
+  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
   modelList  <- lapply(restrictedModels,
                        .anovaOrdinalRestrictionsComputeModel,
                        baseModel = baseModel$fit,
@@ -893,6 +894,21 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   return(list(fit = fit, modelFormula = modelFormula))
 }
 
+.anovaOrdinalRestrictionsCustomCheckSyntax <- function(restrictedModels, ordinalRestrictionsContainer) {
+  # restriktor package does not handle multiple constraints on a single line (https://github.com/LeonardV/restriktor/issues/3)
+  # so we need to check for this and ask the user to split constraints on separate lines
+  for (model in restrictedModels) {
+    lines <- strsplit(model[["restrictionSyntax"]], "\n")[[1]]
+    for (line in lines) {
+      terms <- strsplit(line, "<|>|==")[[1]]
+
+      if(length(terms) > 2) {
+        ordinalRestrictionsContainer$setError(gettextf("Syntax error found in model %1$s, line: %2$s.\n\nMultiple restrictions on one line.\n\nPlease use one restriction per line!", model[["modelName"]], line))
+        return()
+      }
+    }
+  }
+}
 # the following two functions should not be necessary if the QML component
 # for the restrictions encodes the column names
 .anovaOrdinalRestrictionsGetUsedVars <- function(syntax, availablevars) {

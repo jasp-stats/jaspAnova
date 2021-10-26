@@ -1892,7 +1892,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       pValOne <- pchisq(testStatOne, dfChi, lower.tail = FALSE)
       pValTwo <- pf(testStatTwo, dfOneF, dfTwoF, lower.tail = FALSE)
 
-      # Kendall W, from descTools https://github.com/cran/DescTools/blob/master/R/StatsAndCIs.r
+      # Kendall W, from descTools https://github.com/cran/DescTools/blob/513a58f635798dacf49982c396e2af9a81f3491d/R/StatsAndCIs.r#L5553-L5625
       ratings <- t(do.call(cbind, tapply(y, groups, cbind)))
       ratings <- as.matrix(na.omit(ratings))
       

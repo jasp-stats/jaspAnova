@@ -119,7 +119,7 @@ test_that("Friedman results match R, SPSS, SAS, MiniTab 2", {
   
   jaspTools::expect_equal_tables(
     "test"=resultTable, 
-    "ref"=list("RMFactor1", 11.9454545454546, 3, 0.345631641086186, 0.00757236506542182
+    "ref"=list("RMFactor1", 11.9454545454546, 3, 0.36198347107438, 0.00757236506542182
     )
   )
 })

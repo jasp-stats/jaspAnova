@@ -1859,9 +1859,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   rows <- list()
 
-  for (i in 1:length(withinTerms)) {
+  for (withinTermIndex in 1:length(withinTerms)) {
 
-    groups <- as.factor(longData[, withinTerms.base64[i]])
+    groups <- as.factor(longData[, withinTerms.base64[withinTermIndex]])
     blocks <- as.factor(longData[, betweenTerms.base64])
     y <- longData[, .BANOVAdependentName]
 
@@ -1892,19 +1892,27 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       pValOne <- pchisq(testStatOne, dfChi, lower.tail = FALSE)
       pValTwo <- pf(testStatTwo, dfOneF, dfTwoF, lower.tail = FALSE)
 
-      # Kendall W
-      rankMatrixRM <- matrix(rankPerGroup, ncol = t)
-      rowSumsMatrix <- rowSums(rankMatrixRM)
-      nTies <- unlist(apply(rankMatrixRM, 2, function(x) {
-        tab <- table(x)
-        tab[tab > 1] }))
-      nTies <- sum(nTies^3 - nTies)
-      kendallW <- (sum(rowSumsMatrix^2) - sum(rowSumsMatrix)^2 / b) / (t^2 * (b^3 - b) / 12)
-      kendallWcor <-(sum(rowSumsMatrix^2) - sum(rowSumsMatrix)^2 / b) / ((t^2 * (b^3 - b) - t * nTies) / 12)
+      # Kendall W, from descTools https://github.com/cran/DescTools/blob/513a58f635798dacf49982c396e2af9a81f3491d/R/StatsAndCIs.r#L5553-L5625
+      ratings <- t(do.call(cbind, tapply(y, groups, cbind)))
+      ratings <- as.matrix(na.omit(ratings))
+      
+      ns <- nrow(ratings)
+      nr <- ncol(ratings)
+      
+      ratings.rank <- apply(ratings, 2, rank)
+      
+      tieAdjust <- 0
+      for (i in 1:nr) {
+        rater <- table(ratings.rank[,i])
+        ties  <- rater[rater>1]
+        l 	  <- as.numeric(ties)
+        tieAdjust	  <- tieAdjust + sum(l^3-l)
+      }
+      kendallWcor <- (12 * var(apply(ratings.rank, 1, sum)) * (ns - 1)) / 
+        (nr^2 * (ns^3 - ns) - nr * tieAdjust)
 
       row <- list()
-
-      row[["Factor"]] <- withinTerms[i]
+      row[["Factor"]] <- withinTerms[withinTermIndex]
       row[["chiSqr"]] <- testStatOne
       row[["df"]] <- dfChi
       row[["p"]] <- pValOne
@@ -1918,7 +1926,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
         row[["dfden"]] <- dfTwoF
         row[["pF"]] <- pValTwo
 
-        if (i == 1) {
+        if (withinTermIndex == 1) {
           friedmanTable$addColumnInfo(name="F",     title=gettext("F"),             type="number")
           friedmanTable$addColumnInfo(name="dfnum", title=gettext("df num"),        type="integer")
           friedmanTable$addColumnInfo(name="dfden", title=gettext("df den"),        type="integer")
@@ -1927,7 +1935,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
       }
 
-      rows[[i]] <- row
+      rows[[withinTermIndex]] <- row
 
     } else {
 

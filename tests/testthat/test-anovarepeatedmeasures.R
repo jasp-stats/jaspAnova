@@ -654,6 +654,8 @@ test_that("Simple Effects table match", {
 
 test_that("Nonparametric table match", {
 
+  # Kendall W now also verified by case presented in  
+  # https://github.com/jasp-stats/jasp-issues/issues/1473
   options <- initOpts()
 
   options$betweenSubjectFactors <- "gender"

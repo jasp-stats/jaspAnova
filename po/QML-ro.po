@@ -1,262 +1,272 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-29 06:00+0000\n"
+"Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "Analiză de varianță"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Clasic"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "Analiză de varianță cu măsurători repetate"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "Analiză de covarianță"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "Analiză de varianță multivariată"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Bayesian"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "Analiză de varianță bayesiană"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr ""
+msgstr "Analiză de varianță bayesiană cu măsurători repetate"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "Analiză de covarianță bayesiană"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabilă Dependentă"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Factori Ficsați"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Factori Aleatori"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr ""
+msgstr "Covariantă"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "Cele mai mici pătrate ponderate"
 
+#, fuzzy
 msgctxt "Ancova|"
 msgid "Display"
-msgstr ""
+msgstr "Afișaj"
 
 msgctxt "Ancova|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "Statistici descriptive"
 
 msgctxt "Ancova|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Estimări ale mărimii efectului"
 
 msgctxt "Ancova|"
 msgid "η²"
-msgstr ""
+msgstr "Eta-Pătrat"
 
 msgctxt "Ancova|"
 msgid "partial η²"
-msgstr ""
+msgstr "Eta-Pătrat parțial"
 
 msgctxt "Ancova|"
 msgid "ω²"
-msgstr ""
+msgstr "Omega-Pătrat"
 
 msgctxt "Ancova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Raport p maxim Vovk-Sellke"
 
 msgctxt "Ancova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Ancova|"
 msgid "Components"
-msgstr ""
+msgstr "Componente"
 
 msgctxt "Ancova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Termenii Modelului"
 
 msgctxt "Ancova|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "Suma pătratelor"
 
 msgctxt "Ancova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Verificările Asumpțiilor"
 
 msgctxt "Ancova|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Teste de omogenitate"
 
 msgctxt "Ancova|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Grafic Q-Q al reziduurilor"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr ""
+msgstr "Verificarea independenței covariatei factorilor"
 
 msgctxt "Ancova|"
 msgid "Contrasts"
-msgstr ""
+msgstr "Contraste"
 
 msgctxt "Ancova|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Intervale de încredere"
 
 msgctxt "Ancova|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Teste post hoc"
 
 msgctxt "Ancova|"
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 msgctxt "Ancova|"
 msgid "Standard"
-msgstr ""
+msgstr "Standard"
 
+#, fuzzy
 msgctxt "Ancova|"
 msgid "From"
-msgstr ""
+msgstr "De la"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstraps"
 
 msgctxt "Ancova|"
 msgid "Effect size"
-msgstr ""
+msgstr "Mărimea efectului"
 
 msgctxt "Ancova|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgctxt "Ancova|"
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgctxt "Ancova|"
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgctxt "Ancova|"
 msgid "Correction"
-msgstr ""
+msgstr "Corecție"
 
 msgctxt "Ancova|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "Ancova|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "Ancova|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "Ancova|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "Marchează Comparațiile Semnificative"
 
 msgctxt "Ancova|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Grafice Descriptive"
 
 msgctxt "Ancova|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Axă orizontală"
 
 msgctxt "Ancova|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Linii Separate"
 
 msgctxt "Ancova|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Grafice Separate"
 
 msgctxt "Ancova|"
 msgid "Display error bars"
-msgstr ""
+msgstr "Afișează bare de eroare"
 
 msgctxt "Ancova|"
 msgid "Standard error"
-msgstr ""
+msgstr "Eroare standard"
 
 msgctxt "Ancova|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Medii Marginale"
 
 msgctxt "Ancova|"
 msgid "Compare marginal means to 0"
-msgstr ""
+msgstr "Compară mediile marginale cu 0=0"
 
 msgctxt "Ancova|"
 msgid "Confidence interval adjustment"
-msgstr ""
+msgstr "Ajustarea intervalului de încredere"
 
 msgctxt "Ancova|"
 msgid "None"
-msgstr ""
+msgstr "Nimic"
 
 msgctxt "Ancova|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efecte Primare Simple"
 
 msgctxt "Ancova|"
 msgid "Factors"
-msgstr ""
+msgstr "Factori"
 
 msgctxt "Ancova|"
 msgid "Simple Effect Factor"
-msgstr ""
+msgstr "Factor Simplu de Efect"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 1"
-msgstr ""
+msgstr "Factor Moderator 1"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 2"
-msgstr ""
+msgstr "Factor Moderator 2"
 
 msgctxt "Ancova|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Neparametrice"
 
 msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Testul Kruskal-Wallis"
 
 msgctxt "Ancova|"
 msgid " "
@@ -264,151 +274,151 @@ msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variabilă Dependentă"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Factori Ficși"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Factori Aleatori"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Covariante"
 
 msgctxt "AncovaBayesian|"
 msgid "Tables"
-msgstr ""
+msgstr "Tabele"
 
 msgctxt "AncovaBayesian|"
 msgid "Effects"
-msgstr ""
+msgstr "Efecte"
 
 msgctxt "AncovaBayesian|"
 msgid "Across all models"
-msgstr ""
+msgstr "De-a lungul tuturor modelelor"
 
 msgctxt "AncovaBayesian|"
 msgid "Across matched models"
-msgstr ""
+msgstr "De-a lungul modelelor potrivite"
 
 msgctxt "AncovaBayesian|"
 msgid "Estimates"
-msgstr ""
+msgstr "Estimări"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R-pătrat mediu al modelului"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Descriptive"
 
 msgctxt "AncovaBayesian|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Interval credibil"
 
 msgctxt "AncovaBayesian|"
 msgid "Order"
-msgstr ""
+msgstr "Ordine"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "Compară cu cel mai bun model"
 
 msgctxt "AncovaBayesian|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Compară cu modelul de nul"
 
 msgctxt "AncovaBayesian|"
 msgid "Plots"
-msgstr ""
+msgstr "Grafice"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr ""
+msgstr "Posterioare medii ale modelului"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Grupează nivelurile într-un singur grafic"
 
 msgctxt "AncovaBayesian|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "Un singur grafic per nivel"
 
 msgctxt "AncovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Grafic Q-Q de reziduuri"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "R-pătrat Posterior"
 
 msgctxt "AncovaBayesian|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AncovaBayesian|"
 msgid "Components"
-msgstr ""
+msgstr "Componente"
 
 msgctxt "AncovaBayesian|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferență cu un Singur Model"
 
 msgctxt "AncovaBayesian|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "Termeni Specifici Modelului"
 
 msgctxt "AncovaBayesian|"
 msgid "R²"
-msgstr ""
+msgstr "R-pătrat"
 
 msgctxt "AncovaBayesian|"
 msgid "Marginal posteriors"
-msgstr ""
+msgstr "Posterioare marginale"
 
 msgctxt "AncovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Teste post hoc"
 
 msgctxt "AncovaBayesian|"
 msgid "Correction"
-msgstr ""
+msgstr "Corecție"
 
 msgctxt "AncovaBayesian|"
 msgid "Null control"
-msgstr ""
+msgstr "Control de nul"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Grafice Descriptive"
 
 msgctxt "AncovaBayesian|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Axă Orizontală"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Linii Separate"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "Grafice Separate"
 
 msgctxt "AncovaBayesian|"
 msgid "Display"
-msgstr ""
+msgstr "Afișaj"
 
 msgctxt "AncovaBayesian|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Mai Multe Opțiuni"
 
 msgctxt "AncovaBayesian|"
 msgid "Prior"
-msgstr ""
+msgstr "Înainte"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"

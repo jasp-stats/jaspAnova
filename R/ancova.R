@@ -1053,8 +1053,12 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   else
     weights <- compareDf[["gorica.weights"]]
 
-  ratio <- weights/weights[nms == reference]
-  compareDf[["ratio"]] <- ratio
+  if (reference %in% nms) {
+    ratio <- weights/weights[nms == reference]
+    compareDf[["ratio"]] <- ratio
+  } else {
+    comparisonTable$addFootnote(colNames = "ratio", message = gettextf("Model '%s' cannot be a reference model as it is empty!", reference))
+  }
 
   if (length(nms) == 1)
     comparisonTable$addRows(as.list(compareDf))

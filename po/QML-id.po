@@ -1,16 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-25 01:31+0000\n"
-"Last-Translator: Sunu Bagaskara <sunu.bagaskara@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/id/>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
-"X-Qt-Contexts: true\n"
 "X-Language: id\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -1411,3 +1404,159 @@ msgstr "Scheffé"
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
 msgstr "Faktor Pengukuran Berulang"
+
+msgctxt "OrderRestrictions|"
+msgid "Order Restrictions"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Place each restriction on a new line. For example:\n"
+"\n"
+"factorLow = factorMed = factorHigh\n"
+"factorLow < factorMed < factorHigh\n"
+"\n"
+"where factor is the factor name and Low/Med/High are the factor level names."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model 1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Ctrl + Enter to apply. Click on the blue button below for help on the "
+"restriction syntax"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Summary for "
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis test for "
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Type global"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Type A"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Type B"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Click to learn more about the syntax for order restrictions."
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "Include intercept"
+msgstr "Sertakan intersep"
+
+msgctxt "OrderRestrictions|"
+msgid "Model comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Complement"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Unconstrained"
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "None"
+msgstr "Tidak ada"
+
+msgctxt "OrderRestrictions|"
+msgid "Compare against"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Reference model for weight ratios"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Show model coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Highlight coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Uncertainty"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "% confidence intervals based on"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "% confidence intervals"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "based on"
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "bootstraps"
+msgstr "bootstrap"
+
+msgctxt "OrderRestrictions|"
+msgid "Huber-White correction for heteroskedasticity"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC0"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC2"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC3"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4m"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC5"
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "Model Terms"
+msgstr "Ketentuan Model"
+
+msgctxt "OrderRestrictions|"
+msgid "Restricted Marginal Means"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Restricted Models"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Plot Restricted Marginal Means"
+msgstr ""

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-10-02 02:42\n"
-"PO-Revision-Date: 2021-10-29 10:43+0000\n"
-"Last-Translator: Sophie Berkhout <s.w.berkhout@uu.nl>\n"
+"PO-Revision-Date: 2021-10-30 02:41+0000\n"
+"Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "nl/>\n"
 "Language: nl\n"
@@ -126,74 +126,77 @@ msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Contrast Coëfficiënten - %2$s"
 
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Orderbeperkingen"
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "Er zijn fouten in de beperkings syntax voor %s."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "Syntaxisfout: %1$s%2$s."
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "Model Vergelijking"
+msgstr "Modelvergelijkingstabel"
 
 msgid "Model"
 msgstr "Model"
 
 msgid "LL"
-msgstr ""
+msgstr "LL"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Straf"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Gewicht"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Verhouding"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid ""
 "Ratios indicate the relative weight for each model against the %1$s model "
 "%2$s. %3$s"
 msgstr ""
+"De verhoudingen geven het relatieve gewicht aan van elk model ten opzichte "
+"van het %1$s model %2$s. %3$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Onbeperkt"
 
 msgid "Complement"
-msgstr ""
+msgstr "Complement"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "Tabel met modelcoëfficiënten"
 
 msgid "Estimates"
 msgstr "Schattingen"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Coëfficiënt"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Coëfficiënten verschillen van het model zonder beperkingen."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "Bootstrapping Marginale Gemiddelden"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -202,51 +205,48 @@ msgstr ""
 "Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
 "mogelijk te weinig bootstrap replicaties."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "Bootstrapping Marginale Gemiddelden"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden: %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "Geïnformeerde Hypothesetoets"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "Samenvatting van beperkingen"
 
 msgid "Restriction"
-msgstr ""
+msgstr "Beperking"
 
 msgid "Reduction Summary"
-msgstr ""
+msgstr "Vermindering Samenvatting"
 
 msgid "Unrestricted R%s"
-msgstr ""
+msgstr "Onbeperkte R%s"
 
 msgid "Restricted R%s"
-msgstr ""
+msgstr "Beperkte R%s"
 
 msgid "Test Type"
-msgstr ""
+msgstr "Test Type"
 
 msgid "F̅"
-msgstr ""
+msgstr "F̅"
 
 msgid "Residual df"
-msgstr ""
+msgstr "Residuele df"
 
 msgid "Classical Test"
-msgstr ""
+msgstr "Klassieke Test"
 
-#, fuzzy
 msgid "Model Summaries"
-msgstr "Model Vergelijking"
+msgstr "Model Samenvattingen"
 
 msgid "%.0f%% CI"
-msgstr ""
+msgstr "%.0f%% CI"
 
 msgid "Marginal Means -"
 msgstr "Marginale Gemiddeldes -"
 
-#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few successful "
 "bootstrap replicates."
@@ -257,13 +257,11 @@ msgstr ""
 msgid "Marginal Mean"
 msgstr "Marginaal Gemiddelde"
 
-#, fuzzy
 msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "Bootstrapping gebaseerd op %s herhalingen."
+msgstr "Bootstrapped SE en CI gebaseerd op %s herhalingen."
 
-#, fuzzy
 msgid "Marginal Means Plots"
-msgstr "Marginale Gemiddeldes -"
+msgstr "Marginale Gemiddelden Grafieken"
 
 msgid "Post Hoc Tests"
 msgstr "Post-Hoc Toetsen"
@@ -524,13 +522,11 @@ msgstr ""
 "niveaus bevat of omdat de SSP-matrix singulier is."
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Coëfficiënten"
 
-#, fuzzy
 msgid "Between Subjects"
 msgstr "Tussen-proefpersoon Effecten"
 
-#, fuzzy
 msgid "Within Subjects"
 msgstr "Binnen-proefpersoon Effecten"
 
@@ -568,7 +564,7 @@ msgid "bias"
 msgstr "onzuiverheid"
 
 msgid "Cohen's d"
-msgstr "Cohens d"
+msgstr "Cohen's d"
 
 msgid "p<sub>scheffe</sub>"
 msgstr "p<sub>scheffe</sub>"
@@ -887,7 +883,7 @@ msgid "Descriptives plots"
 msgstr "Beschrijvende diagrammen"
 
 msgid "Descriptives Plot"
-msgstr "Beschrijvend Diagram"
+msgstr "Beschrijvende Diagram"
 
 msgid "Raincloud plots"
 msgstr "Raincloud Plots"

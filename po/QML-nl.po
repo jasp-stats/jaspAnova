@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-29 15:08+0000\n"
+"PO-Revision-Date: 2021-10-30 02:41+0000\n"
 "Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-qml/"
 "nl/>\n"
@@ -1463,7 +1463,6 @@ msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
 msgstr "Klik om meer te leren over de syntax voor de orderbeperkingen."
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
 msgstr "Voeg intercept toe"
@@ -1480,7 +1479,6 @@ msgctxt "OrderRestrictions|"
 msgid "Unconstrained"
 msgstr "Onbeperkt"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Geen"
@@ -1567,4 +1565,4 @@ msgstr "Beperkte Modellen"
 
 msgctxt "OrderRestrictions|"
 msgid "Plot Restricted Marginal Means"
-msgstr ""
+msgstr "Grafiek van Beperkte Marginale Gemiddelden"

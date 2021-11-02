@@ -30,7 +30,7 @@ Section
 	
 	Text
 	{
-		text: qsTr("Place each restriction on a new line. For example: 'factorLow == factorHigh',\nwhere 'factor' is the factor name and 'Low'/'High' are the factor level names.")
+		text: qsTr("Enter each restriction on a new line, e.g., factorLow == factorHigh, \nwhere 'factor' is the factor name and 'Low'/'High' are the factor level names. \nClick the information icon for more examples.")
 	}
 
 	HelpButton

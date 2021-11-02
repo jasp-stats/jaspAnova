@@ -801,16 +801,21 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
   if (!ready) return()
+  if (is.null(anovaContainer[["ordinalRestrictions"]])) {
+    ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"), dependencies = "restrictedModels")
+    anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
+  } else {
+    ordinalRestrictionsContainer <- anovaContainer[["ordinalRestrictions"]]
+  }
 
   restrictedModels <- options[["restrictedModels"]]
   restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
   if (length(restrictedModels) == 0L) return()
 
-  ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"))
-  anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
 
   baseModel <- .anovaOrdinalRestrictionsCalcBaseModel(ordinalRestrictionsContainer, dataset, options)
 
+  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
   modelList  <- lapply(restrictedModels,
                        .anovaOrdinalRestrictionsComputeModel,
                        baseModel = baseModel$fit,
@@ -831,8 +836,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
     modelSummaryList <- .anovaOrdinalRestrictionsCalcModelSummaries(modelList, modelNames, baseModel, dataset, ordinalRestrictionsContainer, options)
-    .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "goric", options)
+  } else {
+    modelSummaryList <- NULL
   }
+  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "goric", options)
 
   if (any(sapply(restrictedModels, function(mod) mod[["informedHypothesisTest"]])))
     .anovaOrdinalRestrictionsCreateInformedHypothesisTestTables(modelList, modelNames, ordinalRestrictionsContainer, options)
@@ -844,7 +851,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCalcBaseModel <- function(ordinalRestrictionsContainer, dataset, options) {
-  if (!is.null(ordinalRestrictionsContainer[["baseModel"]])) return()
+  if (!is.null(ordinalRestrictionsContainer[["baseModel"]])) return(ordinalRestrictionsContainer[["baseModel"]]$object)
 
   baseModel <- createJaspState()
   baseModel$dependOn(c("includeIntercept"))
@@ -884,11 +891,40 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   names(fit[["coefficients"]]) <- vapply(terms, paste, collapse = ":", FUN.VALUE = character(1))
 
-  baseModel$object <- fit
+  result <- list(fit = fit, modelFormula = modelFormula)
+  baseModel$object <- result
 
-  return(list(fit = fit, modelFormula = modelFormula))
+  return(result)
 }
 
+.anovaOrdinalRestrictionsCustomCheckSyntax <- function(restrictedModels, ordinalRestrictionsContainer) {
+  # restriktor package does not handle multiple constraints on a single line (https://github.com/LeonardV/restriktor/issues/3)
+  # so we need to check for this and ask the user to split constraints on separate lines
+  for (model in restrictedModels) {
+    lines <- strsplit(model[["restrictionSyntax"]], "\n")[[1]]
+    for (line in lines) {
+      terms <- strsplit(line, "<|>|==")[[1]]
+
+      if(length(terms) > 2) {
+        ordinalRestrictionsContainer$setError(gettextf("Syntax error found in model %1$s, line: %2$s.\n\nMultiple restrictions on one line.\n\nPlease use one restriction per line!", model[["modelName"]], line))
+        return()
+      }
+    }
+  }
+
+  # check duplication of order restrictions
+  for (model in restrictedModels) {
+    lines <- strsplit(model[["restrictionSyntax"]], "\n")[[1]]
+    lines <- trimws(lines)
+    lines <- gsub(" ", "", lines)
+    lines <- lines[lines != ""]
+
+    if(length(lines) != length(unique(lines))) {
+      ordinalRestrictionsContainer$setError(gettextf("Syntax error found in model %1$s.\n\nSome restrictions are duplicate!", model[["modelName"]]))
+      return()
+    }
+  }
+}
 # the following two functions should not be necessary if the QML component
 # for the restrictions encodes the column names
 .anovaOrdinalRestrictionsGetUsedVars <- function(syntax, availablevars) {
@@ -911,7 +947,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
 .anovaOrdinalRestrictionsComputeModel <- function(model, baseModel, container, dataset, options) {
   modelName <- model[["modelName"]]
-  if (!is.null(container[[modelName]]) || model[["restrictionSyntax"]] == "") return()
+  if (model[["restrictionSyntax"]] == "") return()
+  if (!is.null(container[[modelName]])) return(container[[modelName]]$object)
 
   translatedSyntax <- .anovaOrdinalRestrictionsTranslateSyntax(model[["restrictionSyntax"]], dataset)
 
@@ -952,7 +989,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCompareModels <- function(modelList, ordinalRestrictionsContainer, options) {
-  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]]) || ordinalRestrictionsContainer$getError()) return()
+  if (ordinalRestrictionsContainer$getError()) return()
+  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]])) return(ordinalRestrictionsContainer[["modelComparison"]]$object)
 
   modelComparison <- createJaspState()
   modelComparison$dependOn(c("restrictedModelComparison"))
@@ -987,7 +1025,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                        goric = gettext("GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."),
                                gettext("GORICA = Generalized Order-Restricted Information Criterion Approximation.")
                        )
-  comparisonTable$addFootnote(gettextf("Ratios indicate the relative weight for each model against the %1$s model %2$s. %3$s", comparison, reference, abbrev))
+  comparisonTable$addFootnote(gettextf('Ratios indicate the relative weight for each model against the "%1$s" model. %2$s', reference, abbrev))
   comparisonTable$addCitation(c("Kuiper, R. M., Hoijtink, H., Silvapulle, M. J. (2011). An Akaike-type information criterion for model selection under equality constarints. Biometrika, 98(2), 495-501.",
                                 "Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a theory-based hypothesis against its complement using an AIC-type information criterion with an application to facial burn injury. Psychological Methods, 25(2), 129-142."))
 
@@ -1015,8 +1053,12 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   else
     weights <- compareDf[["gorica.weights"]]
 
-  ratio <- weights/weights[nms == reference]
-  compareDf[["ratio"]] <- ratio
+  if (reference %in% nms) {
+    ratio <- weights/weights[nms == reference]
+    compareDf[["ratio"]] <- ratio
+  } else {
+    comparisonTable$addFootnote(colNames = "ratio", message = gettextf("Model '%s' cannot be a reference model as it is empty!", reference))
+  }
 
   if (length(nms) == 1)
     comparisonTable$addRows(as.list(compareDf))
@@ -1414,7 +1456,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
             newTest <- ihtObject[[type]]
 
             newTestTable <- createJaspTable(paste0(gettext("Test Type "), type))
-            newTestTable$addColumnInfo(name = "stat", title = gettext("F\u0305"), type = "number")
+            newTestTable$addColumnInfo(name = "stat", title = gettext("F"), type = "number")
             newTestTable$addColumnInfo(name = "df", title = gettext("df"), type = "integer")
             newTestTable$addColumnInfo(name = "dfresid", title = gettext("Residual df"), type = "integer")
             newTestTable$addColumnInfo(name = "pval", title = gettext("p"), type = "pvalue")
@@ -1519,6 +1561,16 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   ordinalRestrictionsContainer[["modelSummaryTables"]] <- summaryContainer
 
   whichModels <- sapply(options[["restrictedModels"]], function(mod) mod[["modelSummary"]])
+
+  if(length(options[["restrictedModelMarginalMeansTerm"]]) == 0L && sum(whichModels) > 0L) {
+    table <- createJaspTable(title = gettext("Marginal means"))
+    summaryContainer[["table"]] <- table
+    summaryContainer$setError(gettextf("Please, select a model term to summarise in the 'Restricted Marginal Means' section."))
+    return()
+  } else if(sum(whichModels) == 0L) {
+    return()
+  }
+
   ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
   isBoot <- options[["restrictedConfidenceIntervalBootstrap"]]
   nBoot  <- options[["restrictedConfidenceIntervalBootstrapSamples"]]

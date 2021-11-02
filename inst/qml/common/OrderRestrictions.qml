@@ -30,7 +30,19 @@ Section
 	
 	Text
 	{
-		text: qsTr("Place each restriction on a new line. For example:\n\nfactorLow = factorMed = factorHigh\nfactorLow < factorMed < factorHigh\n\nwhere factor is the factor name and Low/Med/High are the factor level names.")
+		text: qsTr("Place each restriction on a new line. For example:\n\nfactorLow == factorMed\nfactorMed < factorHigh\n\nwhere factor is the factor name and Low/Med/High are the factor level names.")
+	}
+
+	Text
+	{
+		text: qsTr("In case that the intercept is included,\nthe reference level of the first factor in the model is replaced by the .Intercept. keyword.\nThe corresponding syntax for the above equality restriction would be:\n\n.Intercept. == .Intercept. + factorMed\nfactorMed < factorHigh")
+		visible: type !== "RM-Anova"
+	}
+
+	HelpButton
+	{
+		toolTip: qsTr("Click to learn more about the syntax for order restrictions.")
+		helpPage: "goric/restriktorSyntax"
 	}
 	
 	Form
@@ -96,12 +108,6 @@ Section
 								checked: true
 							}
 						}
-					}
-					
-					HelpButton
-					{
-						toolTip: qsTr("Click to learn more about the syntax for order restrictions.")
-						helpPage: "goric/restriktorSyntax"
 					}
 				}
 			}
@@ -200,6 +206,7 @@ Section
 				{
 					name: "restrictedConfidenceIntervalBootstrapSamples"
 					defaultValue: 1000
+					min: 100
 					afterLabel: qsTr("bootstraps")
 				}
 			}

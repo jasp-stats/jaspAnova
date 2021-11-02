@@ -864,6 +864,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   modelNames <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
 
+  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
   compareGoric <- .rmAnovaOrdinalRestrictionsCompareModels(baseModel, restrictedModels, ordinalRestrictionsContainer, longData, options)
   .rmAnovaOrdinalRestrictionsGetSyntaxErrors(compareGoric, ordinalRestrictionsContainer)
   .ordinalRestrictionsCreateComparisonTable(compareGoric, modelNames, ordinalRestrictionsContainer, type = "gorica", options)
@@ -873,8 +874,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
     modelSummaryList <- .rmAnovaOrdinalRestrictionsCalcModelSummaries(compareGoric, modelNames, baseModel, wideData, ordinalRestrictionsContainer, options)
-    .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
+  } else {
+    modelSummaryList <- NULL
   }
+  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
 
   if (length(options[["plotRestrictedModels"]]) > 0L && length(options[["restrictedModelMarginalMeansTerm"]]) > 0L)
     .ordinalRestrictionsCreateMarginalMeansPlot(modelSummaryList, modelNames, ordinalRestrictionsContainer, options)
@@ -988,7 +991,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   restrictionSyntax <- vapply(restrictedModels, "[[", "restrictionSyntax", FUN.VALUE = character(1))
   translatedSyntax  <- vapply(restrictionSyntax, .rmAnovaOrdinalRestrictionsTranslateSyntax, dataset = dataset, options = options, FUN.VALUE = character(1))
-
+  names(translatedSyntax) <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
   if (any(sapply(translatedSyntax, isTryError))) {
     modelNames       <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
     modelHasErrors   <- modelNames[sapply(translatedSyntax, isTryError)]

@@ -15,6 +15,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# This is a temporary fix
+# TODO: remove it when R will solve this problem!
+gettextf <- function(fmt, ..., domain = NULL)  {
+  return(sprintf(gettext(fmt, domain = domain), ...))
+}
+
 Ancova <- function(jaspResults, dataset = NULL, options) {
 
   numericVariables <- c(unlist(options$dependent),unlist(options$covariates),unlist(options$wlsWeight))

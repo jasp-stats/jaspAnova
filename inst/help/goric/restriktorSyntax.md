@@ -19,26 +19,35 @@ To specify an order constraint, the (in-) equality between two coefficients must
 
 indicates that the coefficient (effect) for `variable1` is equal to the coefficient for `variable2`. Coefficients can also be constrained to a constant, e.g., `variable1 == 0`.
 
+The constraints are set up as relations between two coefficients and each relation is written on a new line. Alternatively, they can also be put on the same line and separated with a semicolon (i.e., `;`).
+
 #### Factors
 Factor variables can have several coeffcients (usually k-1, with k being the number of levels). They can be accessed by the factor variable name immediately followed by the respective level:  
 
 `factorLow == factorHigh`.  
 
 #### Intercept
-The intercept can be accessed using `.Intercept.`.
+
+When the intercept is included in the model, it can be accessed using the `.Intercept.` keyword. The reference level of the first factor in the model would then correspond to this `.Intercept.` coefficient.
 
 #### Example
-If dummy coding was used, the syntax for the inequality constraint shown in the beginning could look like:  
+
+If the intercept is included in the model, the syntax for the inequality constraint shown in the beginning could look like:  
 
 `.Intercept. < .Intercept. + factorMed`  
 `.Intercept. + factorMed < .Intercept. + factorHigh`.  
 
-The constraint is split up in relations between two coefficients and each relation is written on a new line. Alternatively, they can also be put on the same line and separated with a semicolon (i.e., `;`).
 The above equality constraint could be simplified as:  
 
-`factor2 == 0; factor3 == 0`,  
+`factorMed > 0`  
+`factorHigh > factorMed`,
 
-which means that level `Med` and `High` do not differ from level `Low` (the intercept).
+which means that level `Med` is larger than `.Intercept.` (`Low` level) and `High` is larger than `Med`. 
+
+In case that the intercept is not included in the model, the following syntax would yield the same results:
+
+`factorLow < factorMed`  
+`factorMed < factorHigh`.
 
 ### Advanced Syntax
 #### Interactions

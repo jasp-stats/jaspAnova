@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: 2021-10-08 12:34+0000\n"
 "Last-Translator: Peng Li <P.Lee2008@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -118,6 +118,20 @@ msgstr "%1$s 对比度系数 - %2$s"
 msgid "Order Restrictions"
 msgstr ""
 
+msgid ""
+"Syntax error found in model %1$s, line: %2$s.\n"
+"\n"
+"Multiple restrictions on one line.\n"
+"\n"
+"Please use one restriction per line!"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr ""
 
@@ -160,14 +174,17 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Ratios indicate the relative weight for each model against the %1$s model "
-"%2$s. %3$s"
+"Ratios indicate the relative weight for each model against the \"%1$s\" "
+"model. %2$s"
 msgstr ""
 
 msgid "Unconstrained"
 msgstr ""
 
 msgid "Complement"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
 
 msgid "Model Coefficients Table"
@@ -216,9 +233,6 @@ msgstr ""
 msgid "Test Type"
 msgstr ""
 
-msgid "F̅"
-msgstr ""
-
 msgid "Residual df"
 msgstr ""
 
@@ -228,6 +242,15 @@ msgstr "经典检验法"
 #, fuzzy
 msgid "Model Summaries"
 msgstr "模型比较"
+
+#, fuzzy
+msgid "Marginal means"
+msgstr "边缘均值"
+
+msgid ""
+"Please, select a model term to summarise in the 'Restricted Marginal Means' "
+"section."
+msgstr ""
 
 msgid "%.0f%% CI"
 msgstr ""

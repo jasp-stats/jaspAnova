@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: 2021-10-31 14:36+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -128,6 +128,20 @@ msgstr "%1$s Coeficientes de Contraste -%2$s"
 msgid "Order Restrictions"
 msgstr "Restricciones de Orden"
 
+msgid ""
+"Syntax error found in model %1$s, line: %2$s.\n"
+"\n"
+"Multiple restrictions on one line.\n"
+"\n"
+"Please use one restriction per line!"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr "Hay errores en la sintaxis de las restricciones para %s."
 
@@ -171,9 +185,10 @@ msgstr ""
 "GORICA = Aproximación al Criterio de Información Generalizado de Orden "
 "Restrinxido."
 
+#, fuzzy
 msgid ""
-"Ratios indicate the relative weight for each model against the %1$s model "
-"%2$s. %3$s"
+"Ratios indicate the relative weight for each model against the \"%1$s\" "
+"model. %2$s"
 msgstr ""
 "Los ratios indican la ponderación relativa de cada modelo frente al %1$s "
 "modelo %2$s. %3$s"
@@ -183,6 +198,9 @@ msgstr "No restringido"
 
 msgid "Complement"
 msgstr "Complemento"
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
 
 msgid "Model Coefficients Table"
 msgstr "Tabla de Coeficientes del Modelo"
@@ -230,9 +248,6 @@ msgstr "R%s restringido"
 msgid "Test Type"
 msgstr "Tipo de Contraste"
 
-msgid "F̅"
-msgstr "F̅"
-
 msgid "Residual df"
 msgstr "GL de los residuos"
 
@@ -241,6 +256,15 @@ msgstr "Contraste Clásico"
 
 msgid "Model Summaries"
 msgstr "Resúmenes de Modelos"
+
+#, fuzzy
+msgid "Marginal means"
+msgstr "Medias marginales"
+
+msgid ""
+"Please, select a model term to summarise in the 'Restricted Marginal Means' "
+"section."
+msgstr ""
 
 msgid "%.0f%% CI"
 msgstr "IC del %.0f%%"
@@ -953,6 +977,9 @@ msgid ""
 msgstr ""
 "La matriz de diseño no es invertible. Esto puede deberse a variables "
 "dependientes colineales."
+
+#~ msgid "F̅"
+#~ msgstr "F̅"
 
 #~ msgid "dfSphericity"
 #~ msgstr "glEsfericidad"

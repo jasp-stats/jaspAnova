@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,6 +106,12 @@ msgstr ""
 msgid "Order Restrictions"
 msgstr ""
 
+msgid "Syntax error found in model %1$s, line: %2$s.\n\nMultiple restrictions on one line.\n\nPlease use one restriction per line!"
+msgstr ""
+
+msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr ""
 
@@ -142,13 +148,16 @@ msgstr ""
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
 
-msgid "Ratios indicate the relative weight for each model against the %1$s model %2$s. %3$s"
+msgid "Ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
 
 msgid "Unconstrained"
 msgstr ""
 
 msgid "Complement"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
 
 msgid "Model Coefficients Table"
@@ -193,9 +202,6 @@ msgstr ""
 msgid "Test Type"
 msgstr ""
 
-msgid "F̅"
-msgstr ""
-
 msgid "Residual df"
 msgstr ""
 
@@ -203,6 +209,12 @@ msgid "Classical Test"
 msgstr ""
 
 msgid "Model Summaries"
+msgstr ""
+
+msgid "Marginal means"
+msgstr ""
+
+msgid "Please, select a model term to summarise in the 'Restricted Marginal Means' section."
 msgstr ""
 
 msgid "%.0f%% CI"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: 2021-10-30 02:41+0000\n"
 "Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -128,6 +128,20 @@ msgstr "%1$s Contrast Coëfficiënten - %2$s"
 msgid "Order Restrictions"
 msgstr "Orderbeperkingen"
 
+msgid ""
+"Syntax error found in model %1$s, line: %2$s.\n"
+"\n"
+"Multiple restrictions on one line.\n"
+"\n"
+"Please use one restriction per line!"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr "Er zijn fouten in de beperkings syntax voor %s."
 
@@ -170,9 +184,10 @@ msgid ""
 msgstr ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
+#, fuzzy
 msgid ""
-"Ratios indicate the relative weight for each model against the %1$s model "
-"%2$s. %3$s"
+"Ratios indicate the relative weight for each model against the \"%1$s\" "
+"model. %2$s"
 msgstr ""
 "De verhoudingen geven het relatieve gewicht aan van elk model ten opzichte "
 "van het %1$s model %2$s. %3$s"
@@ -182,6 +197,9 @@ msgstr "Onbeperkt"
 
 msgid "Complement"
 msgstr "Complement"
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
 
 msgid "Model Coefficients Table"
 msgstr "Tabel met modelcoëfficiënten"
@@ -229,9 +247,6 @@ msgstr "Beperkte R%s"
 msgid "Test Type"
 msgstr "Test Type"
 
-msgid "F̅"
-msgstr "F̅"
-
 msgid "Residual df"
 msgstr "Residuele df"
 
@@ -240,6 +255,15 @@ msgstr "Klassieke Test"
 
 msgid "Model Summaries"
 msgstr "Model Samenvattingen"
+
+#, fuzzy
+msgid "Marginal means"
+msgstr "Marginale Gemiddeldes"
+
+msgid ""
+"Please, select a model term to summarise in the 'Restricted Marginal Means' "
+"section."
+msgstr ""
 
 msgid "%.0f%% CI"
 msgstr "%.0f%% CI"
@@ -943,6 +967,9 @@ msgid ""
 msgstr ""
 "De ontwerpmatrix is niet inverteerbaar. Dit kan het gevolg zijn van "
 "collineaire afhankelijke variabelen."
+
+#~ msgid "F̅"
+#~ msgstr "F̅"
 
 #~ msgid "dfSphericity"
 #~ msgstr "dfSfericiteit"

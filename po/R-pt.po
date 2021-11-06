@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: 2021-09-15 11:48+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -132,6 +132,20 @@ msgstr "%1$s Coeficientes de contraste - %2$s"
 msgid "Order Restrictions"
 msgstr ""
 
+msgid ""
+"Syntax error found in model %1$s, line: %2$s.\n"
+"\n"
+"Multiple restrictions on one line.\n"
+"\n"
+"Please use one restriction per line!"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr ""
 
@@ -174,14 +188,17 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Ratios indicate the relative weight for each model against the %1$s model "
-"%2$s. %3$s"
+"Ratios indicate the relative weight for each model against the \"%1$s\" "
+"model. %2$s"
 msgstr ""
 
 msgid "Unconstrained"
 msgstr ""
 
 msgid "Complement"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
 
 msgid "Model Coefficients Table"
@@ -233,9 +250,6 @@ msgstr ""
 msgid "Test Type"
 msgstr ""
 
-msgid "F̅"
-msgstr ""
-
 msgid "Residual df"
 msgstr ""
 
@@ -245,6 +259,15 @@ msgstr ""
 #, fuzzy
 msgid "Model Summaries"
 msgstr "Comparação de Modelo"
+
+#, fuzzy
+msgid "Marginal means"
+msgstr "Médias marginais"
+
+msgid ""
+"Please, select a model term to summarise in the 'Restricted Marginal Means' "
+"section."
+msgstr ""
 
 msgid "%.0f%% CI"
 msgstr ""

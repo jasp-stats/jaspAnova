@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-10-02 02:42\n"
+"POT-Creation-Date: 2021-11-06 02:43\n"
 "PO-Revision-Date: 2021-10-19 12:48+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,6 +136,20 @@ msgstr "%1$s Coeficientes de Proba - %2$s"
 msgid "Order Restrictions"
 msgstr "Restricións de Orde"
 
+msgid ""
+"Syntax error found in model %1$s, line: %2$s.\n"
+"\n"
+"Multiple restrictions on one line.\n"
+"\n"
+"Please use one restriction per line!"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
 msgid "There are errors in the restriction syntax for %s."
 msgstr "Hai erros na sintaxe das restricións para %s."
 
@@ -179,9 +193,10 @@ msgstr ""
 "GORICA = Aproximación ao Criterio de Información Xeneralizado de Orde "
 "Restrinxida."
 
+#, fuzzy
 msgid ""
-"Ratios indicate the relative weight for each model against the %1$s model "
-"%2$s. %3$s"
+"Ratios indicate the relative weight for each model against the \"%1$s\" "
+"model. %2$s"
 msgstr ""
 "As proporcións indican o peso relativo de cada modelo contra o %1$s modelo "
 "%2$s. %3$s"
@@ -191,6 +206,9 @@ msgstr "Non restrinxido"
 
 msgid "Complement"
 msgstr "Complemento"
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
 
 msgid "Model Coefficients Table"
 msgstr "Táboa de Coeficientes do Modelo"
@@ -238,9 +256,6 @@ msgstr "R%s restrinxido"
 msgid "Test Type"
 msgstr "Tipo de Proba"
 
-msgid "F̅"
-msgstr "F̅"
-
 msgid "Residual df"
 msgstr "GL dos erros"
 
@@ -249,6 +264,15 @@ msgstr "Proba Clásica"
 
 msgid "Model Summaries"
 msgstr "Resumos dos Modelos"
+
+#, fuzzy
+msgid "Marginal means"
+msgstr "Medias marxinais"
+
+msgid ""
+"Please, select a model term to summarise in the 'Restricted Marginal Means' "
+"section."
+msgstr ""
 
 msgid "%.0f%% CI"
 msgstr "IC do %.0f%%"
@@ -869,8 +893,8 @@ msgstr ""
 "Corrixíronse as probabilidades posteriores para probas múltiples, fixando en "
 "0.5 a probabilidade previa de que a hipótese nula se mantén en tódalas "
 "comparacións. (Westfall, Johnson e Utts, 1997). As comparacións individuais "
-"baséanse na proba t predeterminada cunha previa de Cauchy (0, r = 1/sqrt(2))"
-". O \"U\" no factor de Bayes indica que non está corrixido."
+"baséanse na proba t predeterminada cunha previa de Cauchy (0, r = 1/"
+"sqrt(2)). O \"U\" no factor de Bayes indica que non está corrixido."
 
 msgid "Prior Odds"
 msgstr "Probabilidades Previas"
@@ -953,6 +977,9 @@ msgid ""
 msgstr ""
 "A matriz da proposta non é invertible. Isto pode deberse a que hai variables "
 "dependentes colineares."
+
+#~ msgid "F̅"
+#~ msgstr "F̅"
 
 #~ msgid "dfSphericity"
 #~ msgstr "glEsfericidade"

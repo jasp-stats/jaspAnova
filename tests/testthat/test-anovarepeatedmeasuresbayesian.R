@@ -10,6 +10,8 @@ initOpts <- function() {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasuresBayesian")
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
+  options$modelType <- "type 2"
+  options$legacy <- TRUE
   return(options)
 }
 
@@ -202,11 +204,11 @@ test_that("Analysis fails gracefully if some models error", {
          0.1, 0.0758665733156897, 7.12638585019384, 0.0858219117860418,
          0.196779369864607, "RM_FACTOR_1 + contBinom", 0.1, 0.046888185563816,
          8.86956002564671, 0.0330766173520163, 0.0736149993547432, "RM_FACTOR_1 + contBinom + RM_FACTOR_1<unicode><unicode><unicode>contBinom",
-         0.1, 0.0180711725006913, 17.6010066976745, 1, 1, 1, "NaN", "NaN",
-         "contNormal", 0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "RM_FACTOR_1 + contNormal",
-         0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "contBinom + contNormal",
-         0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal",
-         0.1, "NaN", "", 1, 1, 1, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal + RM_FACTOR_1<unicode><unicode><unicode>contBinom",
+         0.1, 0.0180711725006913, 17.6010066976745, 2, 2, 2, "NaN", "NaN",
+         "contNormal", 0.1, "NaN", "", 2, 2, 2, "NaN", "NaN", "RM_FACTOR_1 + contNormal",
+         0.1, "NaN", "", 2, 2, 2, "NaN", "NaN", "contBinom + contNormal",
+         0.1, "NaN", "", 2, 2, 2, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal",
+         0.1, "NaN", "", 2, 2, 2, "NaN", "NaN", "RM_FACTOR_1 + contBinom + contNormal + RM_FACTOR_1<unicode><unicode><unicode>contBinom",
          0.1, "NaN", ""),
     label = "Table where some BFs are NaN")
 

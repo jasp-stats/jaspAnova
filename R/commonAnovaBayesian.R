@@ -381,7 +381,9 @@
 
       if (m > 1L) {
         # we need to use .BANOVAreorderTerms as terms() also changes the sorting of terms.
-        model.title <- model.effects[!(.BANOVAreorderTerms(model.effects) %in% .BANOVAreorderTerms(nuisance))]
+        model.title <- if (is.null(nuisance)) model.effects
+          else model.effects[!(.BANOVAreorderTerms(model.effects) %in% .BANOVAreorderTerms(nuisance))]
+
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
@@ -498,7 +500,7 @@
                paste0(.BANOVAdecodeNuisance(setdiff(nuisance, nuisanceRandomSlopes)), collapse = ", "))
 
     } else {
-      modelTable$addFootnote(message = gettext("Warning: Random slopes for repeated measures factors are excluded."), symbol = .BANOVAGetWarningSymbol())
+      modelTable$addFootnote(message = gettext("Random slopes for repeated measures factors are excluded."), symbol = .BANOVAGetWarningSymbol())
       message <- gettextf("All models include %s.", paste0(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
     }
     modelTable$addFootnote(message = message)

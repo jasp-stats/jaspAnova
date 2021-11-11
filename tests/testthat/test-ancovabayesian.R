@@ -10,6 +10,7 @@ initOpts <- function() {
   options <- jaspTools::analysisOptions("AncovaBayesian")
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
+  options$modelType <- "type 2"
   return(options)
 }
 

@@ -27,7 +27,7 @@ Form
 	VariablesForm
 	{
 		preferredHeight: 520 * preferencesModel.uiScale
-		AvailableVariablesList { name: "allVariablesList" }		
+		AvailableVariablesList { name: "allVariablesList" }
 		FactorLevelList
 		{
 			name: "repeatedMeasuresFactors"
@@ -118,8 +118,20 @@ Form
 			ModelTermsList {}
 
 		}
+
+		DropDown
+		{
+			name: "modelType"
+			indexDefaultValue: 0
+			label: qsTr("Sum of squares")
+			values: [
+				{ label: qsTr("Type \u2161"),				value: "type 2"		},
+				{ label: qsTr("Type \u2162"),				value: "type 3"		},
+				{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2+3"	}
+			]
+		}
 	}
-	
+
 	Section
 	{
 		title: qsTr("Single Model Inference")
@@ -263,6 +275,13 @@ Form
 					max: 1e7
 				}
 			}
+		}
+
+		CheckBox
+		{
+			name:	"legacy"
+			label:	qsTr("Legacy results")
+			info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")
 		}
 
 		SetSeed{}

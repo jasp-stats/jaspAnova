@@ -24,7 +24,7 @@ import "./common" as ANOVA
 
 Form
 {
-	
+
 	VariablesForm
 	{
 		AvailableVariablesList { name: "allVariablesList" }
@@ -32,7 +32,7 @@ Form
 		AssignedVariablesList { name: "fixedFactors";	title: qsTr("Fixed Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 		AssignedVariablesList { name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 	}
-	
+
 	BayesFactorType { }
 
 	Group
@@ -81,13 +81,25 @@ Form
 	Section
 	{
 		title: qsTr("Model")
-		
+
 		VariablesForm
 		{
 			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-			
+
 			AvailableVariablesList { name: "components"; title: qsTr("Components"); source: ["fixedFactors", "randomFactors"]}
 			ModelTermsList {}
+		}
+
+		DropDown
+		{
+			name: "modelType"
+			indexDefaultValue: 0
+			label: qsTr("Sum of squares")
+			values: [
+				{ label: qsTr("Type \u2161"),				value: "type 2"		},
+				{ label: qsTr("Type \u2162"),				value: "type 3"		},
+				{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2+3"	}
+			]
 		}
 	}
 
@@ -138,25 +150,25 @@ Form
 	Section
 	{
 		title: qsTr("Post Hoc Tests")
-		
+
 		VariablesForm
 		{
 			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
 			AvailableVariablesList { name: "postHocTestsAvailable"; source: "fixedFactors" }
 			AssignedVariablesList {  name: "postHocTestsVariables" }
 		}
-		
+
 		Group
 		{
 			title: qsTr("Correction")
 			CheckBox { name: "postHocTestsNullControl"; label: qsTr("Null control"); checked: true }
 		}
 	}
-	
+
 	Section
 	{
 		title: qsTr("Descriptives Plots")
-		
+
 		VariablesForm
 		{
 
@@ -165,7 +177,7 @@ Form
 			AssignedVariablesList { name: "plotSeparateLines";				title: qsTr("Separate Lines");	singleVariable: true }
 			AssignedVariablesList { name: "plotSeparatePlots";				title: qsTr("Separate Plots");	singleVariable: true }
 		}
-		
+
 		Group
 		{
 			title: qsTr("Display")
@@ -182,11 +194,11 @@ Form
 	{
 		availableVariableSource: ["fixedFactors", "randomFactors"]
 	}
-	
+
 	Section
 	{
 		title: qsTr("Additional Options")
-		
+
 		Group
 		{
 			title: qsTr("Prior")

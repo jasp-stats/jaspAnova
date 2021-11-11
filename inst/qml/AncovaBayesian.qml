@@ -24,16 +24,16 @@ import "./common" as ANOVA
 
 Form
 {
-	
+
 	VariablesForm
 	{
-		AvailableVariablesList { name: "allVariablesList" }		
+		AvailableVariablesList { name: "allVariablesList" }
 		AssignedVariablesList { name: "dependent";		title: qsTr("Dependent Variable");	suggestedColumns: ["scale"];  singleVariable: true	}
 		AssignedVariablesList { name: "fixedFactors";	title: qsTr("Fixed Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 		AssignedVariablesList { name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 		AssignedVariablesList { name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"]							}
 	}
-	
+
 	BayesFactorType { }
 
 	Group
@@ -54,7 +54,7 @@ Form
 		CheckBox { name: "descriptives";	   label: qsTr("Descriptives") }
 		CIField { name: "credibleInterval";	label: qsTr("Credible interval") }
 	}
-		
+
 	RadioButtonGroup
 	{
 		title: qsTr("Order")
@@ -79,15 +79,15 @@ Form
 		CheckBox { label: qsTr("Q-Q plot of residuals") ;	name: "qqPlot" }
 		CheckBox { label: qsTr("Posterior R\u00B2") ;		name: "rsqPlot"}
 	}
-	
+
 	Section
 	{
 		title: qsTr("Model")
-		
+
 		VariablesForm
 		{
 			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-			
+
 			AvailableVariablesList
 			{
 				name: "components"
@@ -98,8 +98,20 @@ Form
 			ModelTermsList {}
 
 		}
+
+		DropDown
+		{
+			name: "modelType"
+			indexDefaultValue: 0
+			label: qsTr("Sum of squares")
+			values: [
+				{ label: qsTr("Type \u2161"),				value: "type 2"		},
+				{ label: qsTr("Type \u2162"),				value: "type 3"		},
+				{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2+3"	}
+			]
+		}
 	}
-	
+
 	Section
 	{
 		title: qsTr("Single Model Inference")
@@ -166,7 +178,7 @@ Form
 	Section
 	{
 		title: qsTr("Descriptives Plots")
-		
+
 		VariablesForm
 		{
 			AvailableVariablesList { name: "descriptivePlotsVariables";	source: ["fixedFactors", "covariates"] }
@@ -174,7 +186,7 @@ Form
 			AssignedVariablesList { name: "plotSeparateLines";			title: qsTr("Separate Lines")	; singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
 			AssignedVariablesList { name: "plotSeparatePlots";			title: qsTr("Separate Plots")   ; singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
 		}
-		
+
 		Group
 		{
 			title: qsTr("Display")
@@ -191,11 +203,11 @@ Form
 	{
 		availableVariableSource: ["fixedFactors", "covariates"]
 	}
-	
+
 	Section
 	{
 		title: qsTr("Additional Options")
-		
+
 		Group
 		{
 			title: qsTr("Prior")

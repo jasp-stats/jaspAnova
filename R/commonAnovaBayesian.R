@@ -295,8 +295,32 @@
   model.formula <- tmp$model.formula
   nuisance      <- tmp$nuisance
   effects       <- tmp$effects
+
+  if (analysisType == "RM-ANOVA") {
+    legacy    <- options[["legacy"]]
+    rmFactors <- vapply(options[["repeatedMeasuresFactors"]], `[[`, character(1L), "name")
+  } else {
+    legacy    <- FALSE
+    rmFactors <- NULL
+  }
+
   #Make a list of models to compare
-  model.list <- .BANOVAgenerateAllModelFormulas(model.formula, nuisance)
+  model.list <- .BANOVAgenerateAllModelFormulas(
+    formula        = model.formula,
+    nuisance       = nuisance,
+    analysisType   = analysisType,
+    modelSpaceType = options[["modelSpaceType"]],
+    rmFactors      = rmFactors,
+    legacy         = legacy
+  )
+
+  if (analysisType == "RM-ANOVA" && !legacy) {
+    # adjust the nuisance to include the random slopes, only done here because BayesFactor::enumerateGeneralModels
+    # does not handle this properly
+    nuisanceRandomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
+    nuisance <- c(nuisance, nuisanceRandomSlopes)
+
+  }
 
   if (length(model.list) == 1L) {
     modelTable <- .BANOVAinitModelComparisonTable(options)
@@ -316,7 +340,6 @@
   if (nmodels > 0L && neffects > 0L) {
     effects.matrix <- matrix(data = FALSE, nrow = nmodels, ncol = neffects,
                              dimnames = list(c("Null model", paste("Model", seq_len(nmodels - 1L))), effects))
-    # effects <- stringr::str_trim(effects)
 
     interactions.matrix <- matrix(FALSE, nrow = neffects, ncol = neffects)
     rownames(interactions.matrix) <- colnames(interactions.matrix) <- effects
@@ -338,7 +361,16 @@
           modelObject[[m]]$title <- gettext("Null model")
           next # all effects are FALSE anyway
         } else {
-          modelObject[[m]]$title <- gettextf("Null model (incl. %s)", paste(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
+          if (analysisType == "RM-ANOVA" && !legacy) {
+            tempNuisance <- setdiff(nuisance, nuisanceRandomSlopes)
+            modelObject[[m]]$title <- sprintf(ngettext(
+              length(tempNuisance),
+              "Null model (incl. %s and random slopes)",
+              "Null model (incl. %s, and random slopes)"
+            ), paste(.BANOVAdecodeNuisance(tempNuisance), collapse = ", "))
+          } else {
+            modelObject[[m]]$title <- gettextf("Null model (incl. %s)", paste(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
+          }
         }
       }
       model.effects <- .BANOVAgetFormulaComponents(model.list[[m]])
@@ -348,7 +380,8 @@
       effects.matrix[m, idx] <- TRUE
 
       if (m > 1L) {
-        model.title <- setdiff(model.effects, nuisance)
+        # we need to use .BANOVAreorderTerms as terms() also changes the sorting of terms.
+        model.title <- model.effects[!(.BANOVAreorderTerms(model.effects) %in% .BANOVAreorderTerms(nuisance))]
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
@@ -460,8 +493,16 @@
   }
 
   if (anyNuisance) {
-    message <- gettextf("All models include %s", paste0(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
+    if (analysisType == "RM-ANOVA" && !options[["legacy"]]) {
+      message <- gettextf("All models include %s, and random slopes for all repeated measures factors.",
+               paste0(.BANOVAdecodeNuisance(setdiff(nuisance, nuisanceRandomSlopes)), collapse = ", "))
+
+    } else {
+      modelTable$addFootnote(message = gettext("Warning: Random slopes for repeated measures factors are excluded."), symbol = .BANOVAGetWarningSymbol())
+      message <- gettextf("All models include %s.", paste0(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
+    }
     modelTable$addFootnote(message = message)
+
   }
 
   model <- list(
@@ -2581,23 +2622,55 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 }
 
-.BANOVAgenerateAllModelFormulas <- function(formula, nuisance = NULL) {
+.BANOVAgenerateAllModelFormulas <- function(formula, nuisance = NULL, analysisType = "RM-ANOVA",
+                                            modelSpaceType = c("type 2", "type 3", "type 2 + 3"),
+                                            rmFactors = NULL, legacy = FALSE
+                                            ) {
 
-  neverExclude <- paste("^", nuisance, "$", sep = "")
-  out <- try(
-    BayesFactor::enumerateGeneralModels(formula, whichModels = "withmain", neverExclude = neverExclude),
-    silent = TRUE)
+  modelSpaceType <- match.arg(modelSpaceType)
+  neverExclude <- paste0("^", nuisance, "$")
+  if (!legacy && analysisType == "RM-ANOVA" && is.null(rmFactors))
+    stop(".BANOVAgenerateAllModelFormulas called with invalid arguments: analysisType = \"RM-ANOVA\", legacy = FALSE, rmFactors = NULL", domain = NA)
 
-  if (isTryError(out))
-    .quitAnalysis(gettextf("The following error occured in BayesFactor::enumerateGeneralModels: %s",
-                        .extractErrorMessage(out)))
+  if (modelSpaceType == "type 2" || modelSpaceType == "type 2 + 3") {
+    modelSpace <- try(BayesFactor::enumerateGeneralModels(formula, whichModels = "withmain", neverExclude = neverExclude))
+
+    if (isTryError(modelSpace))
+      .quitAnalysis(gettextf("The following error occured in BayesFactor::enumerateGeneralModels: %s",
+                             .extractErrorMessage(modelSpace)))
+
+    if (modelSpaceType == "type 2 + 3") {
+      modelSpaceType3 <- .BANOVAmodelSpaceType3(formula, nuisance)
+
+      type3Ordered <- sapply(modelSpaceType3, function(x) .BANOVAas.character.formula(.BANOVAreorderFormulas(x)))
+      type2Ordered <- sapply(modelSpace,      function(x) .BANOVAas.character.formula(.BANOVAreorderFormulas(x)))
+      idx <- which(!type3Ordered %in% type2Ordered)
+      modelSpace <- append(modelSpace, modelSpaceType3[idx], after = length(modelSpace) - 1L)
+    }
+
+  } else {
+
+    modelSpace <- .BANOVAmodelSpaceType3(formula, nuisance)
+
+  }
+
+  if (!legacy && analysisType == "RM-ANOVA") {
+    # add random effects of RM factors per https://github.com/jasp-stats/INTERNAL-jasp/issues/1550
+
+    nuisanceRandomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
+    termsToAdd <- as.formula(paste("~ . +", paste0(nuisanceRandomSlopes, collapse = " + ")))
+    modelSpace <- lapply(modelSpace, update.formula, new = termsToAdd)
+    # for the reordering done below
+    formula    <- update.formula(formula, new = termsToAdd)
+
+  }
 
   if (is.null(nuisance)) {
-    return(c(list(NULL), out))
+    return(c(list(NULL), modelSpace))
   } else {
     # put the null-model first
-    i <- length(out)
-    out <- c(out[[i]], out[-i])
+    i <- length(modelSpace)
+    modelSpace <- c(modelSpace[[i]], modelSpace[-i])
 
     # BayesFactor has the nasty habit of changing the order of interactions whenever one of the components is
     # a nuisance variable. Here we ensure the order matches that of the input formula (which matches the order a user entered the factors).
@@ -2610,11 +2683,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     originalLabelsPieces <- strsplit(originalLabels[originalOrd > 1L], ":")
     originalLabelsPiecesSorted <- lapply(originalLabelsPieces, sort)
 
-    dependent <- all.vars(out[[1]])[1L]
+    dependent <- all.vars(modelSpace[[1]])[1L]
 
-    for (i in seq_along(out)) {
+    for (i in seq_along(modelSpace)) {
 
-      term <- terms(out[[i]])
+      term <- terms(modelSpace[[i]])
       ord  <- attr(term, "order") # interaction order
       idxNonInteraction <- which(ord == 1L)
 
@@ -2628,15 +2701,31 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
             termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
       }
 
-      out[[i]] <- as.formula(paste(dependent, "~", paste(termLabels, collapse = " + ")))
+      modelSpace[[i]] <- as.formula(paste(dependent, "~", paste(termLabels, collapse = " + ")))
 
     }
 
-    return(out)
+    return(modelSpace)
   }
 }
 
-.BANOVAcreateModelFormula <- function(dependent, modelTerms) {
+.BANOVAmodelSpaceType3 <- function(formula, nuisance) {
+  formulaTerms <- terms(formula)
+  termLabels   <- attr(formulaTerms, "term.labels")
+  termFactors  <- attr(formulaTerms, "factors")
+  labelsToDrop <- Filter(function(label) sum(termFactors[nuisance, label]) == 0, termLabels)
+  labelsToDropIdx <- match(labelsToDrop, termLabels)
+
+  nModels <- length(labelsToDropIdx) + 1L
+  modelSpace <- vector("list", nModels)
+  for (i in seq_along(labelsToDropIdx)) {
+    modelSpace[[i]] <- formula(stats::drop.terms(formulaTerms, dropx = labelsToDropIdx[i], keep.response = TRUE))
+  }
+  modelSpace[[nModels]] <- formula
+  return(modelSpace)
+}
+
+.BANOVAcreateModelFormula <- function(dependent, modelTerms) {#, isRMANOVA = FALSE, rmFactors = NULL, legacy = FALSE) {
 
   model.formula <- paste(dependent, " ~ ", sep = "")
   nuisance <- NULL
@@ -2657,6 +2746,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     }
   }
   model.formula <- formula(model.formula)
+
+  # this would be cleaner ideal if BayesFactor::enumerateGeneralModels would handle the nuisance properly.
+  # if (isRMANOVA && !legacy) {
+  #   randomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
+  #   termsToAdd <- as.formula(paste("~ . +", paste0(randomSlopes, collapse = " + ")))
+  #   model.formula <- update.formula(model.formula, termsToAdd)
+  #   nuisance <- c(nuisance, randomSlopes)
+  # }
+
   return(list(model.formula = model.formula, nuisance = nuisance, effects = effects))
 }
 

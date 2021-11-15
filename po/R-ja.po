@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2021-11-06 02:43\n"
-"PO-Revision-Date: 2021-11-15 19:53+0000\n"
+"PO-Revision-Date: 2021-11-16 04:40+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -60,7 +60,7 @@ msgid "df"
 msgstr "df"
 
 msgid "Mean Square"
-msgstr "平均二乗"
+msgstr "平均平方"
 
 msgid "F"
 msgstr "F"
@@ -122,7 +122,7 @@ msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s コントラスト係数 - %2$s"
 
 msgid "Order Restrictions"
-msgstr ""
+msgstr "順序制約"
 
 msgid ""
 "Syntax error found in model %1$s, line: %2$s.\n"
@@ -131,84 +131,92 @@ msgid ""
 "\n"
 "Please use one restriction per line!"
 msgstr ""
+"モデル %1$s, 行: %2$s でシンタックスにエラーが見つかりました.\n"
+"\n"
+"1 行に複数の制約があります.\n"
+"\n"
+"1行ごとに一つの制約を指定してください!"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
 "\n"
 "Some restrictions are duplicate!"
 msgstr ""
+"モデル %1$s でシンタックスエラーが見つかりました.\n"
+"\n"
+"いくつかの制約が重複しています!"
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "%sの制約シンタックスにエラーがあります."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "シンタックスエラー: %1$s%2$s."
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "モデル比較"
+msgstr "モデル比較表"
 
-#, fuzzy
 msgid "Model"
 msgstr "モデル"
 
 msgid "LL"
-msgstr ""
+msgstr "LL"
 
 msgid "Penalty"
-msgstr ""
+msgstr "ペナルティ"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "重み"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "比"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (一般化順序制約情報量規準) ("
+"Kuiper, Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation "
+"(一般化順序制約情報量規準近似)."
 
 msgid ""
 "Ratios indicate the relative weight for each model against the \"%1$s\" "
 "model. %2$s"
-msgstr ""
+msgstr "比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "制約なし"
 
 msgid "Complement"
-msgstr ""
+msgstr "補完"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "モデル '%s' は空なので、参照モデルにはできません!"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "モデル係数表"
 
-#, fuzzy
 msgid "Estimates"
-msgstr "推定"
+msgstr "推定値"
 
 msgid "Coefficient"
 msgstr "係数"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "係数は、制約のないモデルとは異なります."
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "ブートストラップ周辺平均"
+msgstr "ブートストラップ制約周辺平均:"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -217,74 +225,66 @@ msgstr ""
 "いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
 "る可能性があります。"
 
-#, fuzzy
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "ブートストラップ周辺平均"
+msgstr "ブートストラップ制約あり周辺平均: %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "情報仮説検定"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "制約の概要"
 
 msgid "Restriction"
-msgstr ""
+msgstr "制約"
 
 msgid "Reduction Summary"
-msgstr ""
+msgstr "削減の概要"
 
 msgid "Unrestricted R%s"
-msgstr ""
+msgstr "制約なし R%s"
 
 msgid "Restricted R%s"
-msgstr ""
+msgstr "制約あり R%s"
 
 msgid "Test Type"
-msgstr ""
+msgstr "検定のタイプ"
 
 msgid "Residual df"
-msgstr ""
+msgstr "残差 df"
 
 msgid "Classical Test"
-msgstr ""
+msgstr "古典的テスト"
 
-#, fuzzy
 msgid "Model Summaries"
-msgstr "モデル比較"
+msgstr "モデル要約"
 
-#, fuzzy
 msgid "Marginal means"
 msgstr "周辺平均"
 
 msgid ""
 "Please, select a model term to summarise in the 'Restricted Marginal Means' "
 "section."
-msgstr ""
+msgstr "'制約あり周辺平均'のセクションで要約するモデル項を選択してください."
 
 msgid "%.0f%% CI"
-msgstr ""
+msgstr "%.0f%% CI"
 
 msgid "Marginal Means -"
 msgstr "周辺平均 -"
 
-#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few successful "
 "bootstrap replicates."
-msgstr ""
-"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
-"る可能性があります。"
+msgstr "いくつかの信頼区間が計算できませんでした。ブートストラップの複製数が少なすぎる可能性があります."
 
 msgid "Marginal Mean"
 msgstr "周辺平均"
 
-#, fuzzy
 msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "%s の再標本に基づくブートストラップ。"
+msgstr "%i サンプルに基づいて SE と CI をブートストラップしました."
 
-#, fuzzy
 msgid "Marginal Means Plots"
-msgstr "周辺平均 -"
+msgstr "周辺平均 プロット"
 
 msgid "Post Hoc Tests"
 msgstr "事後検定"
@@ -385,10 +385,10 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr "等分散性の検定（ルビーン）"
 
 msgid "df1"
-msgstr "自由度１"
+msgstr "df1"
 
 msgid "df2"
-msgstr "自由度２"
+msgstr "df2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -425,7 +425,7 @@ msgid "Factor"
 msgstr "要因"
 
 msgid "Statistic"
-msgstr "統計"
+msgstr "統計量"
 
 msgid "Q-Q Plot"
 msgstr "Q-Qプロット"
@@ -537,15 +537,13 @@ msgstr ""
 "せん。"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "係数"
 
-#, fuzzy
 msgid "Between Subjects"
-msgstr "参加者間効果"
+msgstr "参加者間"
 
-#, fuzzy
 msgid "Within Subjects"
-msgstr "参加者内効果"
+msgstr "参加者内"
 
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"

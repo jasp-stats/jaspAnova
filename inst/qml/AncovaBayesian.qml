@@ -82,7 +82,7 @@ Form
 
 	ANOVA.ModelTerms
 	{
-		source: ["fixedFactors", "randomFactors", "covariates"]
+		variablesSource: ["fixedFactors", "randomFactors", "covariates"]
 	}
 
 	Section

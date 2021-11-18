@@ -24,15 +24,15 @@ import JASP				1.0
 Section
 {
 	// defaults follow ANOVA + ANCOVA
-	property	string	title : qsTr("Model")
-	property	var		source: ["fixedFactors", "randomFactors"]
+	property	string	sectionTitle : qsTr("Model")
+	property	var		variablesSource: ["fixedFactors", "randomFactors"]
 
-	title: title
+	title: sectionTitle
 
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "components"; title: qsTr("Components"); source: source}
+		AvailableVariablesList { name: "components"; title: qsTr("Components"); source: variablesSource}
 		ModelTermsList {}
 	}
 
@@ -44,7 +44,7 @@ Section
 		values: [
 			{ label: qsTr("Type \u2161"),				value: "type 2"		},
 			{ label: qsTr("Type \u2162"),				value: "type 3"		},
-			{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2+3"	}
+			{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2 + 3"	}
 		]
 	}
 

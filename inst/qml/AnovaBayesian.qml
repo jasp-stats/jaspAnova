@@ -78,10 +78,7 @@ Form
 		CheckBox { label: qsTr("Posterior R\u00B2") ;			name: "rsqPlot"}
 		}
 
-		ANOVA.ModelTerms
-		{
-			source: ["fixedFactors", "randomFactors"]
-		}
+		ANOVA.ModelTerms{}
 
 		Section
 		{

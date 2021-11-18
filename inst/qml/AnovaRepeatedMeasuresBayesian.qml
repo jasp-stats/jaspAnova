@@ -102,7 +102,7 @@ Form
 
 	ANOVA.ModelTerms
 	{
-		source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]
+		variablesSource: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]
 	}
 
 	Section

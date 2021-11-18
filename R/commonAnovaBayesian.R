@@ -524,7 +524,7 @@
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
     "dependent", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc", "fixedNumAcc", "repeatedMeasuresCells",
-    "seed", "setSeed"
+    "seed", "setSeed", "modelSpaceType"
   ))
   jaspResults[["tableModelComparisonState"]] <- stateObj
 
@@ -548,7 +548,7 @@
   effectsTable$dependOn(c(
     "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
     "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
-    "repeatedMeasuresCells"
+    "repeatedMeasuresCells", "modelSpaceType"
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -692,7 +692,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$dependOn(c(
     "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc",
     "fixedNumAcc", "bayesFactorType", "bayesFactorOrder", "modelTerms", "fixedFactors", "betweenSubjectFactors",
-    "repeatedMeasuresFactors", "repeatedMeasuresCells"
+    "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelSpaceType"
   ))
 
   switch(options$bayesFactorType,

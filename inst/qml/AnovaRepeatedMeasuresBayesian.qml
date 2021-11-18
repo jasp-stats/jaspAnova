@@ -100,36 +100,9 @@ Form
 		CheckBox { label: qsTr("Posterior R\u00B2");		name: "rsqPlot"}
 	}
 
-	Section
+	ANOVA.ModelTerms
 	{
-		title: qsTr("Model")
-
-		VariablesForm
-		{
-			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-
-			AvailableVariablesList
-			{
-				name: "components"
-				title: qsTr("Components")
-				source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]
-			}
-
-			ModelTermsList {}
-
-		}
-
-		DropDown
-		{
-			name: "modelType"
-			indexDefaultValue: 0
-			label: qsTr("Sum of squares")
-			values: [
-				{ label: qsTr("Type \u2161"),				value: "type 2"		},
-				{ label: qsTr("Type \u2162"),				value: "type 3"		},
-				{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2+3"	}
-			]
-		}
+		source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]
 	}
 
 	Section

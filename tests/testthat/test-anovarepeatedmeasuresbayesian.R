@@ -10,7 +10,7 @@ initOpts <- function() {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasuresBayesian")
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
-  options$modelType <- "type 2"
+  options$modelSpaceType <- "type 2"
   options$legacy <- TRUE
   return(options)
 }
@@ -105,6 +105,8 @@ test_that("Post-hoc Comparisons table results match", {
   )
   options$postHocTestsNullControl <- TRUE
   options$postHocTestsVariables <- "RM_FACTOR_1"
+  options$modelSpaceType <- "type 2"
+
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
   table <- results[["results"]][["collectionPosthoc"]][["collection"]][["collectionPosthoc_postHoc_RM_FACTOR_1"]][["data"]]
   jaspTools::expect_equal_tables(table,

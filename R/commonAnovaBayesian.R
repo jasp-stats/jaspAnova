@@ -338,25 +338,19 @@
   nmodels <- length(model.list)
   modelObject <- vector("list", nmodels)
   if (nmodels > 0L && neffects > 0L) {
-    effects.matrix <- matrix(data = FALSE, nrow = nmodels, ncol = neffects,
-                             dimnames = list(c("Null model", paste("Model", seq_len(nmodels - 1L))), effects))
 
-    interactions.matrix <- matrix(FALSE, nrow = neffects, ncol = neffects)
-    rownames(interactions.matrix) <- colnames(interactions.matrix) <- effects
-    if (neffects > 1L) {
-      effect.components <- sapply(effects, strsplit, split = ":", fixed = TRUE)
+    # effects.matrix contains for each row (model), which predictors (columns) are in the model
+    # interactions.matrix contains for each predictor (column) what predictors (rows) is it composed of
 
-      for (e in seq_len(neffects)) {
-        interactions.matrix[e, ] <- sapply(1:neffects, function(ee) {
-          (sum(effect.components[[e]] %in% effect.components[[ee]]) == length(effect.components[[e]]))
-        })
-      }
-      diag(interactions.matrix) <- FALSE
-    }
+    interactions.matrix <- .BANOVAcomputeInteractionsMatrix(effects)
+
+    effects.matrix <- matrix(data = FALSE, nrow = nmodels, ncol = neffects)
+    colnames(effects.matrix) <- effects
 
     for (m in seq_len(nmodels)) {
       modelObject[[m]] <- list(ready = TRUE)
-      if (m == 1L) {
+      # only do this if m refers to a null model
+      if (m == 1L && options[["modelSpaceType"]] %in% c("type 2", "type 2 + 3")) {
         if (is.null(nuisance)) { # intercept only
           modelObject[[m]]$title <- gettext("Null model")
           next # all effects are FALSE anyway
@@ -379,7 +373,8 @@
       idx <- idx[!is.na(idx)]
       effects.matrix[m, idx] <- TRUE
 
-      if (m > 1L) {
+      # only do this if m does not refer to the null model
+      if (m > 1L || options[["modelSpaceType"]] == "type 3") {
         # we need to use .BANOVAreorderTerms as terms() also changes the sorting of terms.
         model.title <- if (is.null(nuisance)) model.effects
           else model.effects[!(.BANOVAreorderTerms(model.effects) %in% .BANOVAreorderTerms(nuisance))]
@@ -387,6 +382,8 @@
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
+
+    rownames(effects.matrix) <- sapply(modelObject, `[[`, "title")
   }
 
   modelTable <- .BANOVAinitModelComparisonTable(options)
@@ -2613,6 +2610,23 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(newChains)
 }
 
+.BANOVAcomputeInteractionsMatrix <- function(effects) {
+  # TODO: refactor this by using options$modelTerms directly
+  neffects <- length(effects)
+  interactions.matrix <- matrix(FALSE, nrow = neffects, ncol = neffects)
+  rownames(interactions.matrix) <- colnames(interactions.matrix) <- effects
+  if (neffects > 1L) {
+    effect.components <- sapply(effects, strsplit, split = ":", fixed = TRUE)
+
+    for (e in seq_len(neffects)) {
+      interactions.matrix[e, ] <- sapply(1:neffects, function(ee) {
+        (sum(effect.components[[e]] %in% effect.components[[ee]]) == length(effect.components[[e]]))
+      })
+    }
+    diag(interactions.matrix) <- FALSE
+  }
+  return(interactions.matrix)
+}
 
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {
@@ -2650,7 +2664,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       modelSpace <- append(modelSpace, modelSpaceType3[idx], after = length(modelSpace) - 1L)
     }
 
-  } else {
+  } else { # type 3
 
     modelSpace <- .BANOVAmodelSpaceType3(formula, nuisance)
 
@@ -2668,7 +2682,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 
   if (is.null(nuisance)) {
-    return(c(list(NULL), modelSpace))
+    if (modelSpaceType != "type 3")
+      modelSpace <- c(list(NULL), modelSpace)
+    return(modelSpace)
   } else {
     # put the null-model first
     i <- length(modelSpace)

@@ -497,7 +497,10 @@
                paste0(.BANOVAdecodeNuisance(setdiff(nuisance, nuisanceRandomSlopes)), collapse = ", "))
 
     } else {
-      modelTable$addFootnote(message = gettext("Random slopes for repeated measures factors are excluded."), symbol = .BANOVAGetWarningSymbol())
+
+      if (analysisType == "RM-ANOVA")
+        modelTable$addFootnote(message = gettext("Random slopes for repeated measures factors are excluded."), symbol = .BANOVAGetWarningSymbol())
+
       message <- gettextf("All models include %s.", paste0(.BANOVAdecodeNuisance(nuisance), collapse = ", "))
     }
     modelTable$addFootnote(message = message)
@@ -776,8 +779,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   o <- order(table[["BF10"]], decreasing = TRUE)
   table <- table[o, ]
-  idxNull <- which(o == 1L)
-  if (options[["bayesFactorOrder"]] == "nullModelTop") {
+  idxNull <- if (options[["modelSpaceType"]] != "type 2") which(o == 1L) else NA
+  if (options[["bayesFactorOrder"]] == "nullModelTop" && options[["modelSpaceType"]] != "type 2") {
     table[idxNull, "error %"] <- NA
     table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
   } else {
@@ -2731,7 +2734,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   formulaTerms <- terms(formula)
   termLabels   <- attr(formulaTerms, "term.labels")
   termFactors  <- attr(formulaTerms, "factors")
-  labelsToDrop <- Filter(function(label) sum(termFactors[nuisance, label]) == 0, termLabels)
+  # drop predictors where the number of nuisance terms equals the total number of terms
+  # TODO: can't we have labelsToDrop == nuisance? Check this in the RM-BANOVA!
+  labelsToDrop <- Filter(function(label) sum(termFactors[, label]) - sum(termFactors[nuisance, label]) > 0, termLabels)
+  # labelsToDrop <- Filter(function(label) sum(termFactors[nuisance, label]) == sum(termFactors[, label]), termLabels)
   labelsToDropIdx <- match(labelsToDrop, termLabels)
 
   nModels <- length(labelsToDropIdx) + 1L

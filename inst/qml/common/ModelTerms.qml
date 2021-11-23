@@ -26,6 +26,7 @@ Section
 	// defaults follow ANOVA + ANCOVA
 	property	string	sectionTitle : qsTr("Model")
 	property	var		variablesSource: ["fixedFactors", "randomFactors"]
+	property	alias	modelSpaceType: modelSpaceType.value
 
 	title: sectionTitle
 
@@ -38,6 +39,7 @@ Section
 
 	DropDown
 	{
+		id: modelSpaceType
 		name: "modelSpaceType"
 		indexDefaultValue: 0
 		label: qsTr("Model space type")

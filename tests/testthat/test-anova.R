@@ -388,10 +388,10 @@ test_that("Post Hoc table results match", {
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_contBinom$data
   jaspTools::expect_equal_tables(table,
-                      list(0, 1, 0.163364220743842, 0.214904085649005, 0.760172707980337,
-                           0.15401876311258, 0.448976320466697, 0.448976320466697, 0.448976320466697,
-                           0.448976320466697, 0.448976320466697, -0.263105943067511, 0.589834384555196,
-                           "TRUE")
+                                 list("TRUE", 0.214904085649005, 0.448976320466698, 0.15401876311258,
+                                      -0.24864690950018, 0.55668443572534, 0, 1, 0.163364220743842,
+                                      0.448976320466698, -0.263105943067512, 0.448976320466698, 0.448976320466698,
+                                      0.760172707980336, 0.448976320466698, 0.589834384555196)
     )
 })
 

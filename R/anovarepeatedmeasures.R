@@ -1343,6 +1343,15 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc <- summary(pairs(referenceGrid[[var]], adjust="bonferroni"),
                           infer = TRUE, level = options$confidenceIntervalIntervalPostHoc)
 
+    numberOfLevels <- nrow(as.data.frame(referenceGrid[[var]]))
+    bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
+                                                      numberOfLevels = numberOfLevels)
+    
+    effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[var]], 
+                                                        sigma = sqrt(mean(sigma(fullModel$lm)^2)), 
+                                                        edf = df.residual(fullModel$lm),
+                                                        level = bonfAdjustCIlevel))
+    
     resultPostHoc[["bonferroni"]] <- resultPostHoc[["p.value"]]
 
     resultPostHoc[["tukey"]] <-  summary(pairs(referenceGrid[[var]], adjust="tukey"))[["p.value"]]
@@ -1351,6 +1360,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
     resultPostHoc[["holm"]] <-  summary(pairs(referenceGrid[[var]], adjust="holm"))[["p.value"]]
 
+    resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+    resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+    resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    
     comparisons <- strsplit(as.character(resultPostHoc$contrast), " - ")
 
     orderOfTerms <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name))
@@ -1360,11 +1373,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
       if (!options$postHocTestPooledError && balancedDesign) {
 
-        numberOfLevels <- length(levels(longData[[var]]))
-
-        # Loop over all the levels within factor and do pairwise t.tests on them
-        bonfAdjustCIlevel <- 1-((1-options$confidenceIntervalIntervalPostHoc)/choose(numberOfLevels, 2))
-
+       # Loop over all the levels within factor and do pairwise t.tests on them
         for (compIndex in seq_along(comparisons)) {
 
           levelANoDots <- gsub(.unv(comparisons[[compIndex]][1]), pattern = "\\.", replacement = " ")
@@ -1400,9 +1409,6 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
         postHocContainer[[var]]$addFootnote(gettextf("%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012).", cors))
       }
     }
-
-    if (!grepl(var, pattern = ":"))
-      resultPostHoc[['cohenD']] <- resultPostHoc[['t.ratio']] / sqrt(nrow(dataset))
 
     resultPostHoc[["contrast_A"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[1]], "[ ,]")[[1]]),
                                                                            collapse = ", "))
@@ -1451,6 +1457,13 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   return(correctionFootnote)
 }
 
+.computeBonferroniConfidence <- function(confidenceLevel, numberOfLevels) {
+  
+  bonfAdjustCIlevel <- 1 - ((1-confidenceLevel) /
+                              choose(numberOfLevels, 2))
+  return(bonfAdjustCIlevel)
+}
+
 .createPostHocStandardTable <- function(myTitle, interactionTerm, options, makeBootstrapTable = FALSE) {
 
   preTitle <- if (!makeBootstrapTable) gettext("Post Hoc Comparisons - ") else gettext("Bootstrapped Post Hoc Comparisons - ")
@@ -1481,9 +1494,17 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   postHocTable$addColumnInfo(name="t.ratio", title=gettext("t"), type="number")
 
-  if (options$postHocTestEffectSize && !interactionTerm) {
+  if (options$postHocTestEffectSize) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
-    postHocTable$addFootnote(gettext("Cohen's d does not correct for multiple comparisons."))
+    
+    if (isFALSE(options$postHocTestPooledError))
+      postHocTable$addFootnote(gettext("Computation of Cohen's d based on pooled error."))
+    
+    if (options$confidenceIntervalsPostHoc) {
+      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$confidenceIntervalIntervalPostHoc * 100)
+      postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
+      postHocTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
+    }
   }
 
   if (options$postHocTestsTukey)

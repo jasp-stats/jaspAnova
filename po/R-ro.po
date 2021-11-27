@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-11-06 02:43\n"
+"POT-Creation-Date: 2021-11-27 02:44\n"
 "PO-Revision-Date: 2021-10-29 06:00+0000\n"
 "Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -276,9 +276,6 @@ msgstr ""
 msgid "Results are averaged over the levels of: %s"
 msgstr ""
 
-msgid "Cohen's d does not correct for multiple comparisons."
-msgstr ""
-
 msgid "Bootstrapping based on %s successful replicates."
 msgstr ""
 
@@ -543,6 +540,12 @@ msgid "bias"
 msgstr ""
 
 msgid "Cohen's d"
+msgstr ""
+
+msgid "Computation of Cohen's d based on pooled error."
+msgstr ""
+
+msgid "%s%% CI for Cohen's d"
 msgstr ""
 
 msgid "p<sub>scheffe</sub>"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-11-06 02:43\n"
+"POT-Creation-Date: 2021-11-27 02:44\n"
 "PO-Revision-Date: 2021-11-12 03:52+0000\n"
 "Last-Translator: shun wang <yootell@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -284,9 +284,6 @@ msgstr "标准(Standard)"
 msgid "Results are averaged over the levels of: %s"
 msgstr "结果在以下水平上取平均值：%s"
 
-msgid "Cohen's d does not correct for multiple comparisons."
-msgstr "Cohen's d 不能校正多重比较。"
-
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "基于 %s 次样本的Bootstrap抽样已成功复刻。"
 
@@ -559,6 +556,13 @@ msgstr "偏差"
 
 msgid "Cohen's d"
 msgstr "Cohen's d"
+
+msgid "Computation of Cohen's d based on pooled error."
+msgstr ""
+
+#, fuzzy
+msgid "%s%% CI for Cohen's d"
+msgstr "%s%% 平均差的置信区间"
 
 msgid "p<sub>scheffe</sub>"
 msgstr "p<sub>scheffe</sub>"
@@ -913,6 +917,9 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造成的。"
+
+#~ msgid "Cohen's d does not correct for multiple comparisons."
+#~ msgstr "Cohen's d 不能校正多重比较。"
 
 #~ msgid "dfSphericity"
 #~ msgstr "dfSphericity"

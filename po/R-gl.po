@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-11-06 02:43\n"
+"POT-Creation-Date: 2021-11-27 02:44\n"
 "PO-Revision-Date: 2021-11-10 11:47+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -215,7 +215,8 @@ msgid "Complement"
 msgstr "Complemento"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr "O modelo '%s' non pode ser un modelo de referencia xa que está baleiro!"
+msgstr ""
+"O modelo '%s' non pode ser un modelo de referencia xa que está baleiro!"
 
 msgid "Model Coefficients Table"
 msgstr "Táboa de Coeficientes do Modelo"
@@ -312,9 +313,6 @@ msgstr "Típico"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Calculáronse as medias dos resultados sobre os niveis de: %s"
-
-msgid "Cohen's d does not correct for multiple comparisons."
-msgstr "A d de Cohen non corrixe comparacións múltiples."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping baseado en %s réplicas acertadas."
@@ -608,6 +606,13 @@ msgstr "nesgo"
 
 msgid "Cohen's d"
 msgstr "D de Cohen"
+
+msgid "Computation of Cohen's d based on pooled error."
+msgstr ""
+
+#, fuzzy
+msgid "%s%% CI for Cohen's d"
+msgstr "IC do %s%% para a Diferenza de Medias"
 
 msgid "p<sub>scheffe</sub>"
 msgstr "p<sub>Scheffe</sub>"
@@ -985,6 +990,9 @@ msgid ""
 msgstr ""
 "A matriz da proposta non é invertible. Isto pode deberse a que hai variables "
 "dependentes colineares."
+
+#~ msgid "Cohen's d does not correct for multiple comparisons."
+#~ msgstr "A d de Cohen non corrixe comparacións múltiples."
 
 #~ msgid "F̅"
 #~ msgstr "F̅"

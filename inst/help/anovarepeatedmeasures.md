@@ -45,7 +45,7 @@ The repeated Measures ANOVA allows the user to analyze the differences between m
   - None: No correction is performed.
   - Greenhouse-Geisser: This correction varies between 1/(k − 1), where k is the number of repeated-measures conditions, and 1.
   - Huyn-Feldt: Another common method to correct the degrees of freedom is Huynh-Feldt correction.
-- Homogeneity tests: By selecting this option, it will be checked whether the variance of the dependent variable is equal between the groups by performing Levene's test of equal variances.  
+- Homogeneity tests: By selecting this option, it will be checked whether the variance of the dependent variable is equal between the groups by performing Levene's test of equal variances. This test is only suitable for assessing equal variance for between subjects factors. For repeated measures, the sphericity test is more suitable. 
 
 ### Contrasts
 For each repeated measures factor, a specific contrast can be selected by clicking on `none` in the right column. Contrasts specified here only apply to the contrast table, not to the main analysis.  

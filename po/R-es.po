@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
 "POT-Creation-Date: 2021-11-27 02:44\n"
-"PO-Revision-Date: 2021-11-21 19:40+0000\n"
+"PO-Revision-Date: 2021-12-02 10:53+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "es/>\n"
@@ -599,50 +599,49 @@ msgid "Cohen's d"
 msgstr "D de Cohen"
 
 msgid "Computation of Cohen's d based on pooled error."
-msgstr ""
+msgstr "Cálculo de la D de Cohen basado en el error combinado."
 
-#, fuzzy
 msgid "%s%% CI for Cohen's d"
-msgstr "%s%% IC para la diferencia de medias"
+msgstr "IC del %s%% para la D de Cohen"
 
 msgid "p<sub>scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
+msgstr "p<sub>Scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr "p<sub>sidak</sub>"
+msgstr "p<sub>Sidak</sub>"
 
 msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
-"La desigualdad de las varianzas solo están disponibles para los efectos "
+"La desigualdad de las varianzas solo está disponible para los efectos "
 "principales de los factores dentro de los sujetos"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr "Bootstrapped de Medias Marginales-"
+msgstr "Medias Marginales con Bootstrapp-"
 
 msgid "95%% bca%s CI"
-msgstr "95%% bca%s IC"
+msgstr "IC del 95%% para bca%s"
 
 msgid ""
 "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
-"La estimación de las medias marginales se basa en la mediana de la "
-"distribución de Bootstrap."
+"La estimación de las Medias Marginales se basa en la mediana de la "
+"distribución con Bootstrap."
 
 msgid "95%% CI for Mean Difference"
-msgstr "95%% IC para la Diferencia de Medias"
+msgstr "IC del 95%% para la Diferencia de Medias"
 
 msgid "Bonferroni CI adjustment"
-msgstr "Ajuste del IC Bonferroni"
+msgstr "Ajuste del IC de Bonferroni"
 
 msgid "Sidak CI adjustment"
-msgstr "Ajuste del IC Sidak"
+msgstr "Ajuste del IC de Sidak"
 
 msgid "Nonparametrics"
 msgstr "No paramétricos"
 
 msgid "Friedman Test"
-msgstr "Prueba de Friedman"
+msgstr "Contraste de Friedman"
 
 msgid "Chi-Squared"
 msgstr "Chi-cuadrado"
@@ -652,11 +651,11 @@ msgstr "W de Kendall"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
-"Por favor especifique los términos adecuados para la prueba de Friedman/"
+"Por favor, especifique los términos adecuados para el contraste de Friedman/"
 "Durbin."
 
 msgid "Durbin Test"
-msgstr "Prueba de Durbin"
+msgstr "Contraste de Durbin"
 
 msgid "df num"
 msgstr "gl num"
@@ -668,33 +667,33 @@ msgid "p<sub>F</sub>"
 msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr "Prueba de Conover"
+msgstr "Contraste de Conover"
 
 msgid "Conover's Post Hoc Comparisons - %s"
 msgstr "Comparaciones Post Hoc de Conover - %s"
 
 msgid "T-Stat"
-msgstr "Estadística-T"
+msgstr "Estadístico-T"
 
 msgid "Grouped by %s."
-msgstr "Agrupados por %s."
+msgstr "Agrupado según %s."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
-"Los factores de moderación deben aparecer también en los elementos del "
+"¡Los factores de moderación deben aparecer también en los elementos del "
 "modelo!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr "Infinito encontrado en celdas de medidas repetidas."
+msgstr "Encontrado el infinito en celdas de medidas repetidas."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr "El número de observaciones es < %s en medidas de celdas repetidas"
+msgstr "El número de observaciones es < %s en las celdas de medidas repetidas"
 
 msgid "The variance in the repeated measures cells is 0."
 msgstr "La varianza en las celdas de medidas repetidas es 0."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr "Variables duplicadas encontradas en celdas de medidas repetidas, %s"
+msgstr "Se encontraron variables duplicadas en celdas de medidas repetidas, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Se encontraron variables duplicadas en %s"
@@ -729,23 +728,23 @@ msgid "Null model (incl. %s)"
 msgstr "Modelo nulo (incl. %s)"
 
 msgid "Computing Bayes factors"
-msgstr "Calcular factores de Bayesianos"
+msgstr "Calculando los factores de Bayes"
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
 "The error message was: %2$s."
 msgstr ""
-"No se pudo calcular el factor bayesiano para el modelo: %1$s.\n"
-"El mensaje de error fue: %2$s."
+"No se pudo calcular el factor de Bayes para el modelo: %1$s.\n"
+"El mensaje de fallo fue: %2$s."
 
 msgid "All models include %s"
 msgstr "Todos los modelos incluyen %s"
 
 msgid "Analysis of Effects - %s"
-msgstr "Análisis de efectos - %s"
+msgstr "Análisis de los Efectos - %s"
 
 msgid "Analysis of Effects"
-msgstr "Análisis de efectos"
+msgstr "Análisis de los Efectos"
 
 msgid "Log(BF<sub>incl</sub>)"
 msgstr "Log(FB<sub>incl</sub>)"

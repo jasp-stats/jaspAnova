@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-11-27 02:44\n"
-"PO-Revision-Date: 2021-11-10 11:47+0000\n"
+"PO-Revision-Date: 2021-12-08 21:09+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -554,11 +554,9 @@ msgstr ""
 msgid "Coefficients"
 msgstr "Koeffizienten"
 
-#, fuzzy
 msgid "Between Subjects"
 msgstr "Zwischensubjekt"
 
-#, fuzzy
 msgid "Within Subjects"
 msgstr "Innersubjekt"
 
@@ -599,11 +597,10 @@ msgid "Cohen's d"
 msgstr "Cohens d"
 
 msgid "Computation of Cohen's d based on pooled error."
-msgstr ""
+msgstr "Berechnung von Cohens d basiert auf gepooltem Fehler."
 
-#, fuzzy
 msgid "%s%% CI for Cohen's d"
-msgstr "%s%% KI für Mittelwertdifferenz"
+msgstr "%s%% KI für Cohens d"
 
 msgid "p<sub>scheffe</sub>"
 msgstr "p<sub>Scheffe</sub>"

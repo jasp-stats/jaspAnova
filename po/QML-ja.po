@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-12-13 08:52+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10-dev\n"
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
@@ -1401,149 +1407,145 @@ msgstr "Y軸のラベル"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restrictions"
-msgstr ""
+msgstr "順序制約"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "モデル1"
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button below for help on the "
 "restriction syntax"
-msgstr ""
+msgstr "Ctrl + Enter で適用されます。制約シンタックスのヘルプについては、下の青いボタンをクリックしてください"
 
 msgctxt "OrderRestrictions|"
 msgid "Summary for "
-msgstr ""
+msgstr "概要: "
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis test for "
-msgstr ""
+msgstr "情報仮説検定 "
 
 msgctxt "OrderRestrictions|"
 msgid "Type global"
-msgstr ""
+msgstr "グローバル型"
 
 msgctxt "OrderRestrictions|"
 msgid "Type A"
-msgstr ""
+msgstr "タイプA"
 
 msgctxt "OrderRestrictions|"
 msgid "Type B"
-msgstr ""
+msgstr "タイプB"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
+msgstr "順序制約におけるシンタックスの詳細については、ここをクリックしてください."
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
 msgstr "切片を含む"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "モデル比較"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement"
-msgstr ""
+msgstr "補完"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained"
-msgstr ""
+msgstr "制約なし"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "なし"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare against"
-msgstr ""
+msgstr "比較"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model for weight ratios"
-msgstr ""
+msgstr "重量比の参照モデル"
 
 msgctxt "OrderRestrictions|"
 msgid "Show model coefficients"
-msgstr ""
+msgstr "モデル係数を表示する"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight coefficients"
-msgstr ""
+msgstr "係数をハイライト表示する"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty"
-msgstr ""
+msgstr "不確実性"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals based on"
-msgstr ""
+msgstr "に基づく%信頼区間"
 
 msgctxt "OrderRestrictions|"
 msgid "% confidence intervals"
-msgstr ""
+msgstr "%信頼区間"
 
 msgctxt "OrderRestrictions|"
 msgid "based on"
-msgstr ""
+msgstr "に基づく"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "bootstraps"
 msgstr "ブートス トラップ"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr ""
+msgstr "分散不均一性に対するHuber-White補正"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Model Terms"
 msgstr "モデル項"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "制約付き周辺平均"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Models"
-msgstr ""
+msgstr "制約ありモデル"
 
 msgctxt "OrderRestrictions|"
 msgid "Plot Restricted Marginal Means"
-msgstr ""
+msgstr "制約あり周辺平均のプロット"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -1552,3 +1554,6 @@ msgid ""
 "names. \n"
 "Click the information icon for more examples."
 msgstr ""
+"新しい行に各制約を入力します e.g., factorLow == factorHigh, \n"
+"ここで'factor'は因子名、'Low'/'High'は因子水準名です. \n"
+"その他の例については、情報アイコンをクリックしてください."

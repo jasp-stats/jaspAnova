@@ -21,33 +21,10 @@ import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
 
-Section
+RadioButtonGroup
 {
-	// defaults follow ANOVA + ANCOVA
-	property	string	sectionTitle : qsTr("Model")
-	property	var		variablesSource: ["fixedFactors", "randomFactors"]
-	property	alias	modelSpaceType: modelSpaceType.value
-
-	title: sectionTitle
-
-	VariablesForm
-	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "components"; title: qsTr("Components"); source: variablesSource}
-		ModelTermsList {}
-	}
-
-	DropDown
-	{
-		id: modelSpaceType
-		name: "modelSpaceType"
-		indexDefaultValue: 0
-		label: qsTr("Model space type")
-		values: [
-			{ label: qsTr("Type \u2161"),				value: "type 2"		},
-			{ label: qsTr("Type \u2162"),				value: "type 3"		},
-			{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2 + 3"	}
-		]
-	}
-
+	title: qsTr("Order")
+	name: "bayesFactorOrder"
+	RadioButton { value: "bestModelTop"; label: qsTr("Compare to best model"); checked: true}
+	RadioButton { value: "nullModelTop"; label: qsTr("Compare to null model")				}
 }

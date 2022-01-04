@@ -76,13 +76,8 @@ Form
 		CheckBox { name: "descriptives";		label: qsTr("Descriptives") }
 		CIField {  name: "credibleInterval";	label: qsTr("Credible interval") }
 	}
-	RadioButtonGroup
-	{
-		title: qsTr("Order")
-		name: "bayesFactorOrder"
-		RadioButton { value: "bestModelTop"; label: qsTr("Compare to best model"); checked: true}
-		RadioButton { value: "nullModelTop"; label: qsTr("Compare to null model")				}
-	}
+
+	ANOVA.BayesFactorOrder { enabled: modelTerms.modelSpaceType !== "type 2" }
 
 	GroupBox
 	{
@@ -102,6 +97,7 @@ Form
 
 	ANOVA.ModelTerms
 	{
+		id: modelTerms
 		variablesSource: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]
 	}
 

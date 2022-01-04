@@ -777,20 +777,24 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     table[["BFM"]]  <- exp(internalTable[, "BFM"])
   }
 
-  o <- order(table[["BF10"]], decreasing = TRUE)
-  table <- table[o, ]
-  idxNull <- if (options[["modelSpaceType"]] != "type 2") which(o == 1L) else NA
-  if (options[["bayesFactorOrder"]] == "nullModelTop" && options[["modelSpaceType"]] != "type 2") {
-    table[idxNull, "error %"] <- NA
-    table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
-  } else {
+  if (options[["modelSpaceType"]] != "type 2") {
 
-    table[["BF10"]] <- table[["BF10"]] - table[1L, "BF10"]
+    o <- order(table[["BF10"]], decreasing = TRUE)
+    table <- table[o, ]
+    idxNull <- if (options[["modelSpaceType"]] != "type 2") which(o == 1L) else NA
 
-    # recompute error (see BayesFactor:::`.__T__/:base`$`BFBayesFactor#BFBayesFactor`)
-    table[idxNull, "error %"] <- 0
-    table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][1L]^2)
-    table[1L, "error %"] <- NA
+    if (options[["bayesFactorOrder"]] == "nullModelTop") {
+      table[idxNull, "error %"] <- NA
+      table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
+    } else {
+
+      table[["BF10"]] <- table[["BF10"]] - table[1L, "BF10"]
+
+      # recompute error (see BayesFactor:::`.__T__/:base`$`BFBayesFactor#BFBayesFactor`)
+      table[idxNull, "error %"] <- 0
+      table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][1L]^2)
+      table[1L, "error %"] <- NA
+    }
   }
 
   table[["BF10"]] <- .recodeBFtype(table[["BF10"]], newBFtype = options[["bayesFactorType"]], oldBFtype = "LogBF10")

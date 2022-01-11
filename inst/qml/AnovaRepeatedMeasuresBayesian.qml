@@ -77,7 +77,7 @@ Form
 		CIField {  name: "credibleInterval";	label: qsTr("Credible interval") }
 	}
 
-	ANOVA.BayesFactorOrder { enabled: modelTerms.modelSpaceType !== "type 2" }
+	ANOVA.BayesFactorOrder { modelSpaceType: modelTerms.modelSpaceType }
 
 	GroupBox
 	{

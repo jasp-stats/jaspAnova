@@ -11,6 +11,7 @@ initOpts <- function() {
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
   options$modelSpaceType <- "type 2"
+  options$bayesFactorOrder <- "bestModelTop"
   return(options)
 }
 
@@ -94,6 +95,8 @@ test_that("Post-hoc Comparisons table results match", {
   options$postHocTestsNullControl <- TRUE
   options$postHocTestsVariables <- "facFive"
   options$modelSpaceType <- "type 2"
+  options$bayesFactorOrder <- "bestModelTop"
+
   results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
   table <- results[["results"]][["collectionPosthoc"]][["collection"]][["collectionPosthoc_postHoc_facFive"]][["data"]]
   jaspTools::expect_equal_tables(table,

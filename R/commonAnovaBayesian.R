@@ -247,7 +247,23 @@
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
   } else if (!is.null(stateObj)) {
-    if ((identical(stateObj$fixedFactors, options$fixedFactors) &&
+
+    if (!identical(stateObj[.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
+
+      # only the model prior changed
+      priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
+      stateObj$priorProbs  <- priorProbs
+      internalTableObj     <- priorProbs
+      modelTable[["P(M)"]] <- priorProbs
+
+      internalTableObj <- .BANOVAfinalizeInternalTable(options, stateObj$internalTableObj$internalTable)
+      modelTable$setData(internalTableObj$table)
+      jaspResults[["tableModelComparison"]] <- modelTable
+
+      stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
+      return(stateObj)
+
+    } else if ((identical(stateObj$fixedFactors, options$fixedFactors) &&
          identical(stateObj$modelTerms,   options$modelTerms)   &&
          identical(stateObj$covariates,   options$covariates)   &&
          identical(stateObj$seed,         options$seed)         &&
@@ -259,7 +275,7 @@
       modelTable <- .BANOVAinitModelComparisonTable(options)
       modelTable[["Models"]] <- c("Null model", sapply(stateObj$models, `[[`, "title"))
       nmodels <- length(stateObj$models)
-      modelTable[["P(M)"]]   <- rep(1 / (nmodels + 1), nmodels + 1L)
+      modelTable[["P(M)"]]   <- stateObj$priorProbs # TODO: is this line not redundant due to .BANOVAfinalizeInternalTable + setData?
       internalTableObj <- .BANOVAfinalizeInternalTable(options, stateObj$internalTableObj$internalTable)
       modelTable$setData(internalTableObj$table)
       jaspResults[["tableModelComparison"]] <- modelTable
@@ -395,7 +411,7 @@
   internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("P(M)", "P(M|data)", "BFM", "BF10", "error %")))
   # set BF null model and p(M)
   internalTable[1L, 4L] <- 0
-  internalTable[, 1L] <- 1 / nmodels
+  internalTable[, 1L] <- .BANOVAcomputePriorModelProbs(model.list, options)
 
   #Now compute Bayes Factors for each model in the list, and populate the tables accordingly
   startProgressbar(nmodels, gettext("Computing Bayes factors"))
@@ -510,6 +526,7 @@
   model <- list(
     models              = modelObject,
     postProbs           = internalTableObj$internalTable[, "P(M|data)"],
+    priorProbs          = internalTableObj$internalTable[, "P(M)"],
     internalTableObj    = internalTableObj,
     effects             = effects.matrix,
     interactions.matrix = interactions.matrix,
@@ -551,7 +568,8 @@
   effectsTable$dependOn(c(
     "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
     "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
-    "repeatedMeasuresCells", "modelSpaceType"
+    "repeatedMeasuresCells", "modelSpaceType",
+    .BANOVAmodelSpaceDependencies
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -587,7 +605,8 @@
   if (options$effectsType == "allModels") {
 
     # note that the postInclProb is equivalent to model$posteriors$weights[-1] * (1 - model$postProbs[1])
-    priorInclProb <- colMeans(effects.matrix[idxNotNan, , drop = FALSE])
+    # TODO: verify this!
+    priorInclProb <- crossprod(effects.matrix, model$priorProbs)
 
     postInclProb  <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model$postProbs[idxNotNan])
 
@@ -603,8 +622,7 @@
 
     tmp <- BANOVAcomputMatchedInclusion(
       effectNames, effects.matrix, model$interactions.matrix,
-      rep(1 / nrow(effects.matrix), nrow(effects.matrix)),
-      model$postProbs
+      model$priorProbs, model$postProbs
     )
     priorInclProb <- tmp[["priorInclProb"]]
     postInclProb  <- tmp[["postInclProb"]]
@@ -695,7 +713,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$dependOn(c(
     "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc",
     "fixedNumAcc", "bayesFactorType", "bayesFactorOrder", "modelTerms", "fixedFactors", "betweenSubjectFactors",
-    "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelSpaceType"
+    "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelSpaceType",
+    .BANOVAmodelSpaceDependencies
   ))
 
   switch(options$bayesFactorType,
@@ -777,25 +796,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     table[["BFM"]]  <- exp(internalTable[, "BFM"])
   }
 
-  if (options[["modelSpaceType"]] != "type 2") {
+  # sort the table ascendingly
+  o <- order(table[["BF10"]], decreasing = TRUE)
+  table <- table[o, ]
 
-    o <- order(table[["BF10"]], decreasing = TRUE)
-    table <- table[o, ]
-    idxNull <- if (options[["modelSpaceType"]] != "type 2") which(o == 1L) else NA
-
-    if (options[["bayesFactorOrder"]] == "nullModelTop") {
-      table[idxNull, "error %"] <- NA
-      table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
-    } else {
-
-      table[["BF10"]] <- table[["BF10"]] - table[1L, "BF10"]
-
-      # recompute error (see BayesFactor:::`.__T__/:base`$`BFBayesFactor#BFBayesFactor`)
-      table[idxNull, "error %"] <- 0
-      table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][1L]^2)
-      table[1L, "error %"] <- NA
-    }
+  # sorting via 'nullModelTop' makes no sense for type 3 since there is no null model
+  # instead this implies we sort via 'fullModelTop'.
+  if (options[["modelSpaceType"]] != "type 3") {
+    # TODO: should finding the null model be done in a more robust manner?
+    idxNull <- which(o == 1L)
+  } else {
+    # NOTE: in this branch, 'nullModelTop' actually means 'fullModelTop', so idxNull refers to the full model
+    # this could also be done in a slightly more robust manner
+    idxNull <- which.max(lengths(strsplit(table[["Models"]], " + ", fixed = TRUE)))
   }
+
+  if (options[["bayesFactorOrder"]] == "nullModelTop") {
+
+    if (options[["modelSpaceType"]] == "type 3") {
+      # if we're in type 3, the default denominator is not the null model so we need to subtract the BF of the full model
+      # and also recompute the error
+      table[["BF10"]] <- table[["BF10"]] - table[idxNull, "BF10"]
+      table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][idxNull]^2)
+    }
+
+    table[idxNull, "error %"] <- NA
+    table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
+  } else {
+
+    table[["BF10"]] <- table[["BF10"]] - table[1L, "BF10"]
+
+    # recompute error (see BayesFactor:::`.__T__/:base`$`BFBayesFactor#BFBayesFactor`)
+    table[idxNull, "error %"] <- 0
+    table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][1L]^2)
+    table[1L, "error %"] <- NA
+  }
+
 
   table[["BF10"]] <- .recodeBFtype(table[["BF10"]], newBFtype = options[["bayesFactorType"]], oldBFtype = "LogBF10")
   table[["error %"]] <- 100 * table[["error %"]]
@@ -837,7 +873,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     posteriorsCRI <- .BANOVAcomputePosteriorCRI(dataset, options, model, posteriors)
 
     statePosteriors <- createJaspState(object = posteriors)
-    statePosteriors$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
+    statePosteriors$dependOn(.BANOVAmodelSpaceDependencies, optionsFromObject = jaspResults[["tableModelComparisonState"]])
     jaspResults[["statePosteriors"]] <- statePosteriors
 
     statePosteriorsCRI <- createJaspState(object = posteriorsCRI)
@@ -862,7 +898,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   estsTable$dependOn(c(
     "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects", "sampleModeMCMC",
     "fixedMCMCSamples", "modelTerms", "fixedFactors", "posteriorEstimates",
-    "repeatedMeasuresFactors", "credibleInterval", "repeatedMeasuresCells", "seed", "setSeed"
+    "repeatedMeasuresFactors", "credibleInterval", "repeatedMeasuresCells", "seed", "setSeed",
+    .BANOVAmodelSpaceDependencies
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -2635,6 +2672,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(interactions.matrix)
 }
 
+.BANOVAcomputePriorModelProbs <- function(models, options) {
+  if (options[["modelPrior"]] == "uniform") {
+    return(rep(1 / length(models), length(models)))
+  } else {
+
+    totalNoPredictors <- length(options[["modelTerms"]])
+    noPredictorsPerModel <- sapply(models, function(x) if(is.null(x)) 0L else length(attr(terms(x), "term.labels")))
+
+    if (options[["modelPrior"]] %in% c("beta.binomial", "Wilson", "Castillo")) {
+
+      switch (options[["modelPrior"]],
+              "beta.binomial" = {alpha = options[["betaBinomialParamA"]]; beta = options[["betaBinomialParamB"]]                    },
+              "Wilson"        = {alpha = 1.0;                             beta = totalNoPredictors * options[["wilsonParamLambda"]] },
+              "Castillo"      = {alpha = 1.0;                             beta = totalNoPredictors ^ options[["castilloParamU"]]    }
+      )
+
+      modelprobs <- dbetabinomial(noPredictorsPerModel, totalNoPredictors, alpha, beta)
+
+    # } else if (options[["modelPrior"]] == "Bernoulli") {
+    #   modelprobs <- dbinom(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParam"]])
+    #   modelprobs <- modelprobs / sum(modelprobs)
+    }
+  }
+}
+
+
+dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
+  # NOTE: this is not the pdf of the betabinomial, but the pdf divided by choose(n, k), so that it's the probabiltiy of a particular model
+  logprobability <- lbeta(k + alpha, n - k + beta) - lbeta(alpha, beta)
+  if (log)
+    return(logprobability)
+  return(exp(logprobability))
+}
+
+.BANOVAmodelSpaceDependencies <- c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU")
+
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {
   what <- match.arg(what)
@@ -2738,6 +2811,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   formulaTerms <- terms(formula)
   termLabels   <- attr(formulaTerms, "term.labels")
   termFactors  <- attr(formulaTerms, "factors")
+  #
+  nuisanceWithoutInteractions <- nuisance[grep(":", nuisance, fixed = TRUE, invert = TRUE)]
   # drop predictors where the number of nuisance terms equals the total number of terms
   # TODO: can't we have labelsToDrop == nuisance? Check this in the RM-BANOVA!
   labelsToDrop <- Filter(function(label) sum(termFactors[, label]) - sum(termFactors[nuisance, label]) > 0, termLabels)

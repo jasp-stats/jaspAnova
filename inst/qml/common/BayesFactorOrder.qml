@@ -23,8 +23,10 @@ import JASP				1.0
 
 RadioButtonGroup
 {
+	property string		modelSpaceType: "type 2"
+
 	title: qsTr("Order")
 	name: "bayesFactorOrder"
-	RadioButton { value: "bestModelTop"; label: qsTr("Compare to best model"); checked: true}
-	RadioButton { value: "nullModelTop"; label: qsTr("Compare to null model")				}
+	RadioButton { value: "bestModelTop"; label: qsTr("Compare to best model"); checked: true }
+	RadioButton { value: "nullModelTop"; label: modelSpaceType === "type 3" ? qsTr("Compare to full model") : qsTr("Compare to null model")	}
 }

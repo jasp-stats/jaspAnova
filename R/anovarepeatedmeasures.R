@@ -2094,8 +2094,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   rmAnovaContainer[["simpleEffectsContainer"]][["simpleEffectsTable"]] <- simpleEffectsTable
 
   # the simple factor must appear in the model terms, but the moderator factors may be missing.
-  modelTerms <- unique(unlist(lapply(options[["withinModelTerms"]], `[[`, "components"), use.names = FALSE))
-  if (!(options[["simpleFactor"]] %in% modelTerms)) {
+  withinModelTerms <- unique(unlist(lapply(options[["withinModelTerms"]], `[[`, "components"), use.names = FALSE))
+  betweenModelTerms <- unique(unlist(lapply(options[["betweenModelTerms"]], `[[`, "components"), use.names = FALSE))
+  
+  if (!(options[["simpleFactor"]] %in% c(withinModelTerms, betweenModelTerms))) {
     rmAnovaContainer[["simpleEffectsContainer"]]$setError(gettext("Moderator factors must also appear in the model terms!"))
     return()
   }

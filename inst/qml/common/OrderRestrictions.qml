@@ -39,68 +39,65 @@ Section
 		helpPage: "goric/restriktorSyntax"
 	}
 	
-	Form
+	TabView
 	{
-		TabView
+		id: models
+		name: "restrictedModels"
+		maximumItems: 8
+		newItemName: qsTr("Model 1")
+		optionKey: "modelName"
+
+		content: Group
 		{
-			id: models
-			name: "restrictedModels"
-			maximumItems: 8
-			newItemName: qsTr("Model 1")
-			optionKey: "modelName"
-			
-			content: Group 
+			TextArea
 			{
-				TextArea
-				{
-					name: "restrictionSyntax"
-					width: models.width
-					textType: JASP.TextTypeModel
-					trim: true
-					applyScriptInfo: qsTr("Ctrl + Enter to apply. Click on the blue button below for help on the restriction syntax")
-				}
-				
+				name: "restrictionSyntax"
+				width: models.width
+				textType: JASP.TextTypeModel
+				trim: true
+				applyScriptInfo: qsTr("Ctrl + Enter to apply. Click on the blue button below for help on the restriction syntax")
+			}
+
+			Group
+			{
+				columns: 2
+
 				Group
 				{
-					columns: 2
-					
-					Group
+					columns: 1
+
+					CheckBox
 					{
-						columns: 1
-						
+						name: "modelSummary"
+						label: qsTr("Summary for ") + rowValue
+						checked: false
+					}
+
+					CheckBox
+					{
+						name: "informedHypothesisTest"
+						label: qsTr("Informed hypothesis test for ") + rowValue
+						checked: false
+						visible: type !== "RM-Anova"
+						columns: 3
+
 						CheckBox
 						{
-							name: "modelSummary"
-							label: qsTr("Summary for ") + rowValue
-							checked: false
+							name: "informedHypothesisTestGlobal"
+							label: qsTr("Type global")
 						}
-						
+
 						CheckBox
 						{
-							name: "informedHypothesisTest"
-							label: qsTr("Informed hypothesis test for ") + rowValue
-							checked: false
-							visible: type !== "RM-Anova"
-							columns: 3
-							
-							CheckBox
-							{
-								name: "informedHypothesisTestGlobal"
-								label: qsTr("Type global")
-							}
-							
-							CheckBox
-							{
-								name: "informedHypothesisTestA"
-								label: qsTr("Type A")
-							}
-							
-							CheckBox
-							{
-								name: "informedHypothesisTestB"
-								label: qsTr("Type B")
-								checked: true
-							}
+							name: "informedHypothesisTestA"
+							label: qsTr("Type A")
+						}
+
+						CheckBox
+						{
+							name: "informedHypothesisTestB"
+							label: qsTr("Type B")
+							checked: true
 						}
 					}
 				}

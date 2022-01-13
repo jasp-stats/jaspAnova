@@ -55,7 +55,7 @@ Form
 		CIField { name: "credibleInterval";	label: qsTr("Credible interval") }
 	}
 
-	ANOVA.BayesFactorOrder { modelSpaceType: modelTerms.modelSpaceType }
+	ANOVA.BayesFactorOrder {}
 
 	GroupBox
 	{
@@ -73,11 +73,7 @@ Form
 		CheckBox { label: qsTr("Posterior R\u00B2") ;		name: "rsqPlot"}
 	}
 
-	ANOVA.ModelTerms
-	{
-		id: modelTerms
-		variablesSource: ["fixedFactors", "randomFactors", "covariates"]
-	}
+	ANOVA.ModelTerms { variablesSource: ["fixedFactors", "randomFactors", "covariates"]	}
 
 	Section
 	{

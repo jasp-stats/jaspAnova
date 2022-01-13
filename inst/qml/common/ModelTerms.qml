@@ -26,7 +26,6 @@ Section
 	// defaults follow ANOVA + ANCOVA
 	property	string	sectionTitle : qsTr("Model")
 	property	var		variablesSource: ["fixedFactors", "randomFactors"]
-	property	alias	modelSpaceType: modelSpaceType.value
 
 	title: sectionTitle
 
@@ -37,19 +36,6 @@ Section
 		ModelTermsList {}
 	}
 
-	CheckBox	{	name: "principleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
-
-	DropDown
-	{
-		id: modelSpaceType
-		name: "modelSpaceType"
-		indexDefaultValue: 0
-		label: qsTr("Model space type")
-		values: [
-			{ label: qsTr("Type \u2161"),				value: "type 2"		},
-			{ label: qsTr("Type \u2162"),				value: "type 3"		},
-			{ label: qsTr("Type \u2161 + \u2162"),		value: "type 2 + 3"	}
-		]
-	}
+	CheckBox	{	name: "enforcePrincipleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
 
 }

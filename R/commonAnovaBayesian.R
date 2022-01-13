@@ -248,11 +248,11 @@
     return(list(analysisType = analysisType))
   } else if (!is.null(stateObj)) {
 
-    if (!identical(stateObj[["priorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
+    if (!identical(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
 
       print("only the prior changed!")
       print("state")
-      print(stateObj[["priorOptions"]][.BANOVAmodelSpaceDependencies])
+      print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
       print("options")
       print(options[.BANOVAmodelSpaceDependencies])
       # only the model prior changed
@@ -328,12 +328,12 @@
 
   #Make a list of models to compare
   model.list <- .BANOVAgenerateAllModelFormulas(
-    formula        = model.formula,
-    nuisance       = nuisance,
-    analysisType   = analysisType,
-    modelSpaceType = options[["modelSpaceType"]],
-    rmFactors      = rmFactors,
-    legacy         = legacy
+    formula                       = model.formula,
+    nuisance                      = nuisance,
+    analysisType                  = analysisType,
+    enforcePrincipleOfMarginality = options[["enforcePrincipleOfMarginality"]],
+    rmFactors                     = rmFactors,
+    legacy                        = legacy
   )
 
   if (analysisType == "RM-ANOVA" && !legacy) {
@@ -371,8 +371,7 @@
 
     for (m in seq_len(nmodels)) {
       modelObject[[m]] <- list(ready = TRUE)
-      # only do this if m refers to a null model
-      if (m == 1L && options[["modelSpaceType"]] %in% c("type 2", "type 2 + 3")) {
+      if (m == 1L) {
         if (is.null(nuisance)) { # intercept only
           modelObject[[m]]$title <- gettext("Null model")
           next # all effects are FALSE anyway
@@ -395,12 +394,8 @@
       idx <- idx[!is.na(idx)]
       effects.matrix[m, idx] <- TRUE
 
-      # only do this if m does not refer to the null model
-      if (m > 1L || options[["modelSpaceType"]] == "type 3") {
-        # we need to use .BANOVAreorderTerms as terms() also changes the sorting of terms.
-        model.title <- if (is.null(nuisance)) model.effects
-          else model.effects[!(.BANOVAreorderTerms(model.effects) %in% .BANOVAreorderTerms(nuisance))]
-
+      if (m > 1L) {
+        model.title <- setdiff(model.effects, nuisance)
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
@@ -545,13 +540,13 @@
     modelTerms          = modelTerms,
     reuseable           = reuseable,
     RMFactors           = options[["repeatedMeasuresFactors"]],
-    priorOptions        = options[.BANOVAmodelSpaceDependencies]
+    modelPriorOptions   = options[.BANOVAmodelSpaceDependencies]
   )
 
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
     "dependent", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc", "fixedNumAcc", "repeatedMeasuresCells",
-    "seed", "setSeed", "modelSpaceType"
+    "seed", "setSeed", "enforcePrincipleOfMarginality"
   ))
   jaspResults[["tableModelComparisonState"]] <- stateObj
 
@@ -575,7 +570,7 @@
   effectsTable$dependOn(c(
     "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
     "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
-    "repeatedMeasuresCells", "modelSpaceType",
+    "repeatedMeasuresCells", "enforcePrincipleOfMarginality",
     .BANOVAmodelSpaceDependencies
   ))
 
@@ -720,7 +715,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$dependOn(c(
     "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc",
     "fixedNumAcc", "bayesFactorType", "bayesFactorOrder", "modelTerms", "fixedFactors", "betweenSubjectFactors",
-    "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelSpaceType",
+    "repeatedMeasuresFactors", "repeatedMeasuresCells", "enforcePrincipleOfMarginality",
     .BANOVAmodelSpaceDependencies
   ))
 
@@ -803,30 +798,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     table[["BFM"]]  <- exp(internalTable[, "BFM"])
   }
 
-  # sort the table ascendingly
   o <- order(table[["BF10"]], decreasing = TRUE)
   table <- table[o, ]
-
-  # sorting via 'nullModelTop' makes no sense for type 3 since there is no null model
-  # instead this implies we sort via 'fullModelTop'.
-  if (options[["modelSpaceType"]] != "type 3") {
-    # TODO: should finding the null model be done in a more robust manner?
-    idxNull <- which(o == 1L)
-  } else {
-    # NOTE: in this branch, 'nullModelTop' actually means 'fullModelTop', so idxNull refers to the full model
-    # this could also be done in a slightly more robust manner
-    idxNull <- which.max(lengths(strsplit(table[["Models"]], " + ", fixed = TRUE)))
-  }
-
+  idxNull <- which(o == 1L)
   if (options[["bayesFactorOrder"]] == "nullModelTop") {
-
-    if (options[["modelSpaceType"]] == "type 3") {
-      # if we're in type 3, the default denominator is not the null model so we need to subtract the BF of the full model
-      # and also recompute the error
-      table[["BF10"]] <- table[["BF10"]] - table[idxNull, "BF10"]
-      table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][idxNull]^2)
-    }
-
     table[idxNull, "error %"] <- NA
     table <- table[c(idxNull, seq_len(nrow(table))[-idxNull]), ]
   } else {
@@ -838,7 +813,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     table[["error %"]] <- sqrt(table[["error %"]]^2 + table[["error %"]][1L]^2)
     table[1L, "error %"] <- NA
   }
-
 
   table[["BF10"]] <- .recodeBFtype(table[["BF10"]], newBFtype = options[["bayesFactorType"]], oldBFtype = "LogBF10")
   table[["error %"]] <- 100 * table[["error %"]]
@@ -2726,40 +2700,23 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
 }
 
 .BANOVAgenerateAllModelFormulas <- function(formula, nuisance = NULL, analysisType = "RM-ANOVA",
-                                            # enforcePrincipleOfMarginality = TRUE
-                                            modelSpaceType = c("type 2", "type 3", "type 2 + 3"),
+                                            enforcePrincipleOfMarginality = TRUE,
                                             rmFactors = NULL, legacy = FALSE
                                             ) {
 
-  # for an explanation of type 2, type 3, and type 2 + 3, see
-  # https://github.com/jasp-stats/INTERNAL-jasp/issues/1550#issuecomment-966254919
-
-  modelSpaceType <- match.arg(modelSpaceType)
   neverExclude <- paste0("^", nuisance, "$")
   if (!legacy && analysisType == "RM-ANOVA" && is.null(rmFactors))
     stop(".BANOVAgenerateAllModelFormulas called with invalid arguments: analysisType = \"RM-ANOVA\", legacy = FALSE, rmFactors = NULL", domain = NA)
 
-  if (modelSpaceType == "type 2" || modelSpaceType == "type 2 + 3") {
-    modelSpace <- try(BayesFactor::enumerateGeneralModels(formula, whichModels = "withmain", neverExclude = neverExclude))
+  modelSpace <- try(BayesFactor::enumerateGeneralModels(
+    formula,
+    whichModels  = if (enforcePrincipleOfMarginality) "withmain" else "all",
+    neverExclude = neverExclude)
+  )
 
-    if (isTryError(modelSpace))
-      .quitAnalysis(gettextf("The following error occured in BayesFactor::enumerateGeneralModels: %s",
-                             .extractErrorMessage(modelSpace)))
-
-    if (modelSpaceType == "type 2 + 3") {
-      modelSpaceType3 <- .BANOVAmodelSpaceType3(formula, nuisance)
-
-      type3Ordered <- sapply(modelSpaceType3, function(x) .BANOVAas.character.formula(.BANOVAreorderFormulas(x)))
-      type2Ordered <- sapply(modelSpace,      function(x) .BANOVAas.character.formula(.BANOVAreorderFormulas(x)))
-      idx <- which(!type3Ordered %in% type2Ordered)
-      modelSpace <- append(modelSpace, modelSpaceType3[idx], after = length(modelSpace) - 1L)
-    }
-
-  } else { # type 3
-
-    modelSpace <- .BANOVAmodelSpaceType3(formula, nuisance)
-
-  }
+  if (isTryError(modelSpace))
+    .quitAnalysis(gettextf("The following error occured in BayesFactor::enumerateGeneralModels: %s",
+                           .extractErrorMessage(modelSpace)))
 
   if (!legacy && analysisType == "RM-ANOVA") {
     # add random effects of RM factors per https://github.com/jasp-stats/INTERNAL-jasp/issues/1550
@@ -2773,9 +2730,7 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
   }
 
   if (is.null(nuisance)) {
-    if (modelSpaceType != "type 3")
-      modelSpace <- c(list(NULL), modelSpace)
-    return(modelSpace)
+    return(c(list(NULL), modelSpace))
   } else {
     # put the null-model first
     i <- length(modelSpace)
@@ -2818,28 +2773,7 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
   }
 }
 
-.BANOVAmodelSpaceType3 <- function(formula, nuisance) {
-  formulaTerms <- terms(formula)
-  termLabels   <- attr(formulaTerms, "term.labels")
-  termFactors  <- attr(formulaTerms, "factors")
-  #
-  nuisanceWithoutInteractions <- nuisance[grep(":", nuisance, fixed = TRUE, invert = TRUE)]
-  # drop predictors where the number of nuisance terms equals the total number of terms
-  # TODO: can't we have labelsToDrop == nuisance? Check this in the RM-BANOVA!
-  labelsToDrop <- Filter(function(label) sum(termFactors[, label]) - sum(termFactors[nuisance, label]) > 0, termLabels)
-  # labelsToDrop <- Filter(function(label) sum(termFactors[nuisance, label]) == sum(termFactors[, label]), termLabels)
-  labelsToDropIdx <- match(labelsToDrop, termLabels)
-
-  nModels <- length(labelsToDropIdx) + 1L
-  modelSpace <- vector("list", nModels)
-  for (i in seq_along(labelsToDropIdx)) {
-    modelSpace[[i]] <- formula(stats::drop.terms(formulaTerms, dropx = labelsToDropIdx[i], keep.response = TRUE))
-  }
-  modelSpace[[nModels]] <- formula
-  return(modelSpace)
-}
-
-.BANOVAcreateModelFormula <- function(dependent, modelTerms) {#, isRMANOVA = FALSE, rmFactors = NULL, legacy = FALSE) {
+.BANOVAcreateModelFormula <- function(dependent, modelTerms) {
 
   model.formula <- paste(dependent, " ~ ", sep = "")
   nuisance <- NULL

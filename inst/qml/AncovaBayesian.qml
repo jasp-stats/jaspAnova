@@ -167,61 +167,6 @@ Form
 		availableVariableSource: ["fixedFactors", "covariates"]
 	}
 
-	Section
-	{
-		title: qsTr("Additional Options")
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AdditionalOptions.AnalysisType.BANCOVA }
 
-		Group
-		{
-			title: qsTr("Prior")
-			DoubleField { name: "priorFixedEffects";		label: qsTr("r scale fixed effects");	defaultValue: 0.5;	 max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField { name: "priorRandomEffects";		label: qsTr("r scale random effects");	defaultValue: 1;	 max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField { name: "priorCovariates";			label: qsTr("r scale covariates");		defaultValue: 0.354; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-		}
-
-		RadioButtonGroup
-		{
-			name: "sampleModeNumAcc"
-			title: qsTr("Numerical Accuracy")
-			RadioButton { value: "auto";	label: qsTr("Auto"); checked: true }
-			RadioButton
-			{
-				value: "manual";	label: qsTr("Manual")
-				IntegerField
-				{
-					name: "fixedNumAcc"
-					label: qsTr("No. samples")
-					defaultValue: 1e4
-					fieldWidth: 50
-					min: 100
-					max: 1e7
-				}
-			}
-		}
-
-		RadioButtonGroup
-		{
-			name: "sampleModeMCMC"
-			title: qsTr("Posterior Samples")
-			RadioButton { value: "auto";	label: qsTr("Auto"); checked: true }
-			RadioButton
-			{
-				value: "manual";	label: qsTr("Manual")
-				IntegerField
-				{
-					name: "fixedMCMCSamples"
-					label: qsTr("No. samples")
-					defaultValue: 1e3
-					fieldWidth: 50
-					min: 100
-					max: 1e7
-				}
-			}
-		}
-
-		SetSeed{}
-
-		ANOVA.ModelPriors{}
-
-	}
 }

@@ -246,50 +246,68 @@
     modelTable <- .BANOVAinitModelComparisonTable(options)
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
-  } else if (!is.null(stateObj)) {
+  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
 
-    if (!identical(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
-
-      print("only the prior changed!")
-      print("state")
-      print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
-      print("options")
-      print(options[.BANOVAmodelSpaceDependencies])
-      # only the model prior changed
-      modelTable <- .BANOVAinitModelComparisonTable(options)
-      priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
-      stateObj$priorProbs  <- priorProbs
-      internalTableObj     <- priorProbs
-      modelTable[["P(M)"]] <- priorProbs
-
-      internalTableObj <- .BANOVAfinalizeInternalTable(options, stateObj$internalTableObj$internalTable)
-      modelTable$setData(internalTableObj$table)
-      jaspResults[["tableModelComparison"]] <- modelTable
-
-      stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
-      return(stateObj)
-
-    } else if ((identical(stateObj$fixedFactors, options$fixedFactors) &&
-         identical(stateObj$modelTerms,   options$modelTerms)   &&
-         identical(stateObj$covariates,   options$covariates)   &&
-         identical(stateObj$seed,         options$seed)         &&
-         identical(stateObj$setSeed,      options$setSeed)
-    )) {
+    # if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
+    #
+    #   print("only the prior changed!")
+    #   print("state")
+    #   print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
+    #   print("options")
+    #   print(options[.BANOVAmodelSpaceDependencies])
+    #   # only the model prior changed
+    #   modelTable <- .BANOVAinitModelComparisonTable(options)
+    #
+    #   priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
+    #   stateObj$priorProbs  <- priorProbs
+    #   internalTable <- stateObj$internalTableObj$internalTable
+    #   internalTableObj[["P(M)"]] <- priorProbs
+    #
+    #   internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTableObj)
+    #   modelTable$setData(internalTableObj$table)
+    #   jaspResults[["tableModelComparison"]] <- modelTable
+    #
+    #   stateObj$internalTableObj <- internalTableObj
+    #   stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
+    #   return(stateObj)
+    #
+    # } else if (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
 
       # if the statement above is TRUE then no new variables were added (or seed changed)
       # and the only change is in the Bayes factor type or the ordering
       modelTable <- .BANOVAinitModelComparisonTable(options)
       modelTable[["Models"]] <- c("Null model", sapply(stateObj$models, `[[`, "title"))
-      nmodels <- length(stateObj$models)
-      modelTable[["P(M)"]]   <- stateObj$priorProbs # TODO: is this line not redundant due to .BANOVAfinalizeInternalTable + setData?
-      internalTableObj <- .BANOVAfinalizeInternalTable(options, stateObj$internalTableObj$internalTable)
+
+      if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
+
+        print("only the prior changed!")
+        print("state")
+        print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
+        print("options")
+        print(options[.BANOVAmodelSpaceDependencies])
+
+        priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
+        internalTable <- stateObj$internalTableObj$internalTable
+        internalTable[["P(M)"]] <- priorProbs
+        stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
+
+      } else {
+
+        internalTable <- stateObj$internalTableObj$internalTable
+        stateObj$completelyReused <- TRUE # model-averaged posteriors do not need to be resampled
+
+      }
+
+      # modelTable[["P(M)"]]   <- stateObj$priorProbs # TODO: is this line not redundant due to .BANOVAfinalizeInternalTable + setData?
+      # .BANOVAfinalizeInternalTable handles changes in Bayes factor type + ordering
+      internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
+      stateObj$internalTableObj <- internalTableObj
       modelTable$setData(internalTableObj$table)
       jaspResults[["tableModelComparison"]] <- modelTable
 
-      stateObj$completelyReused <- TRUE # means that posteriors won't need to be resampled
       return(stateObj)
 
-    }
+    # }
   }
 
   rscaleFixed   <- options$priorFixedEffects
@@ -2685,6 +2703,18 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
   if (log)
     return(logprobability)
   return(exp(logprobability))
+}
+
+.BANOVAmodelPriorOptionsChanged <- function(state, options) {
+  !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])
+}
+
+.BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
+  identical(state$fixedFactors, options$fixedFactors) &&
+  identical(state$modelTerms,   options$modelTerms)   &&
+  identical(state$covariates,   options$covariates)   &&
+  identical(state$seed,         options$seed)         &&
+  identical(state$setSeed,      options$setSeed)
 }
 
 .BANOVAmodelSpaceDependencies <- c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU")

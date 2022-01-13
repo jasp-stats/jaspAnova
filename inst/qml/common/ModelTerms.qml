@@ -26,6 +26,7 @@ Section
 	// defaults follow ANOVA + ANCOVA
 	property	string	sectionTitle : qsTr("Model")
 	property	var		variablesSource: ["fixedFactors", "randomFactors"]
+	property    alias   modelTermsList: modelTermsList
 
 	title: sectionTitle
 
@@ -33,7 +34,7 @@ Section
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
 		AvailableVariablesList { name: "components"; title: qsTr("Components"); source: variablesSource}
-		ModelTermsList {}
+		ModelTermsList { id: modelTermsList}
 	}
 
 	CheckBox	{	name: "enforcePrincipleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}

@@ -6,18 +6,9 @@ context("Bayesian ANOVA")
 # - raincloud plot (code is from regular ANOVA)
 # - bftype (01, 10)
 
-initOpts <- function() {
-  options <- jaspTools::analysisOptions("AnovaBayesian")
-  options$sampleModeNumAcc <- "manual"
-  options$fixedNumAcc <- 50
-  options$modelSpaceType <- "type 2"
-  options$bayesFactorOrder <- "bestModelTop"
-  return(options)
-}
-
 test_that("Main table results match", {
   set.seed(0)
-  options <- initOpts()
+  options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
   options$randomFactors <- "facExperim"
@@ -58,7 +49,7 @@ test_that("Main table results match", {
 
 test_that("Effects table results match", {
   set.seed(0)
-  options <- initOpts()
+  options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- list("facFive", "contBinom")
   options$effects <- TRUE
@@ -96,8 +87,7 @@ test_that("Post-hoc Comparisons table results match", {
   )
   options$postHocTestsNullControl <- TRUE
   options$postHocTestsVariables <- "facFive"
-  options$modelSpaceType <- "type 2"
-  options$bayesFactorOrder <- "bestModelTop"
+  options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   table <- results[["results"]][["collectionPosthoc"]][["collection"]][["collectionPosthoc_postHoc_facFive"]][["data"]]
@@ -120,7 +110,7 @@ test_that("Post-hoc Comparisons table results match", {
 })
 
 test_that("Analysis handles errors", {
-  options <- initOpts()
+  options <- initOpts("AnovaBayesian")
   options$dependent <- "debInf"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components="facFive", isNuisance=FALSE))

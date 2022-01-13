@@ -6,19 +6,9 @@ context("Bayesian Repeated Measures ANOVA")
 # - raincloud plot (code is from regular ANOVA)
 # - bftype (01, 10)
 
-initOpts <- function() {
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasuresBayesian")
-  options$sampleModeNumAcc <- "manual"
-  options$fixedNumAcc <- 50
-  options$modelSpaceType <- "type 2"
-  options$bayesFactorOrder <- "bestModelTop"
-  options$legacy <- TRUE
-  return(options)
-}
-
 test_that("Main table and Effects table results match", {
   set.seed(0)
-  options <- initOpts()
+  options <- initOpts("AnovaRepeatedMeasuresBayesian")
   options$repeatedMeasuresCells <- c("contNormal", "contGamma")
   options$repeatedMeasuresFactors <- list(
     list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
@@ -106,8 +96,7 @@ test_that("Post-hoc Comparisons table results match", {
   )
   options$postHocTestsNullControl <- TRUE
   options$postHocTestsVariables <- "RM_FACTOR_1"
-  options$modelSpaceType <- "type 2"
-  options$bayesFactorOrder <- "bestModelTop"
+  options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
   table <- results[["results"]][["collectionPosthoc"]][["collection"]][["collectionPosthoc_postHoc_RM_FACTOR_1"]][["data"]]
@@ -123,7 +112,7 @@ test_that("Post-hoc Comparisons table results match", {
 test_that("Analysis handles errors", {
   # NOTE: only errors that are not handled in test-anovabayesian or test-ancovabayesian are tested
 
-  options <- initOpts()
+  options <- initOpts("AnovaRepeatedMeasuresBayesian")
   options$repeatedMeasuresFactors <- list(
     list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
   )
@@ -178,7 +167,7 @@ test_that("Analysis handles errors", {
 
 test_that("Analysis fails gracefully if some models error", {
 
-  options <- initOpts()
+  options <- initOpts("AnovaRepeatedMeasuresBayesian")
   options$covariates = list("contNormal")
   options$betweenSubjectFactors = list("contBinom")
   options$effects <- TRUE
@@ -228,7 +217,7 @@ test_that("Analysis fails gracefully if some models error", {
 })
 
 # Single model inference
-options <- initOpts()
+options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$modelTerms <- list(list(components = "RM.Factor.1", isNuisance = FALSE))
 options$repeatedMeasuresCells <- c("Stick Insect", "Kangaroo Testicle")
 options$repeatedMeasuresFactors <- list(list(levels = c("Level 1", "Level 2"), name = "RM.Factor.1"))
@@ -264,7 +253,7 @@ test_that("Model Comparison table results match", {
 })
 
 # test whether sampling parameters with interactions effects works
-options <- initOpts()
+options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$repeatedMeasuresCells <- c("contNormal", "contGamma")
 options$repeatedMeasuresFactors <- list(list(levels = c("Level 1", "Level 2"), name = "RM_Factor_1"))
 options$betweenSubjectFactors <- "facGender"
@@ -334,7 +323,7 @@ test_that("Model Averaged Posterior Summary table results with interactions matc
 })
 
 
-options <- initOpts()
+options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$plotHorizontalAxis <- "Drink"
 options$plotSeparateLines <- "Imagery"
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
@@ -363,7 +352,7 @@ test_that("Model Comparison table results matches for beer data", {
          0.25, 2.55512286903585e-29, 10.5326335209382))
 })
 
-options <- initOpts()
+options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$repeatedMeasuresCells <- c("contNormal", "contGamma")
 options$repeatedMeasuresFactors <- list(
   list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")

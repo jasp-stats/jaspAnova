@@ -255,5 +255,7 @@ Form
 
 		SetSeed{}
 
+		ANOVA.ModelPriors{}
+
 	}
 }

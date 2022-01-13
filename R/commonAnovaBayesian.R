@@ -248,9 +248,15 @@
     return(list(analysisType = analysisType))
   } else if (!is.null(stateObj)) {
 
-    if (!identical(stateObj[.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
+    if (!identical(stateObj[["priorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])) {
 
+      print("only the prior changed!")
+      print("state")
+      print(stateObj[["priorOptions"]][.BANOVAmodelSpaceDependencies])
+      print("options")
+      print(options[.BANOVAmodelSpaceDependencies])
       # only the model prior changed
+      modelTable <- .BANOVAinitModelComparisonTable(options)
       priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
       stateObj$priorProbs  <- priorProbs
       internalTableObj     <- priorProbs
@@ -538,7 +544,8 @@
     randomFactors       = randomFactors, # stored because they are modified in RM-ANOVA
     modelTerms          = modelTerms,
     reuseable           = reuseable,
-    RMFactors           = options[["repeatedMeasuresFactors"]]
+    RMFactors           = options[["repeatedMeasuresFactors"]],
+    priorOptions        = options[.BANOVAmodelSpaceDependencies]
   )
 
   # save state
@@ -605,8 +612,8 @@
   if (options$effectsType == "allModels") {
 
     # note that the postInclProb is equivalent to model$posteriors$weights[-1] * (1 - model$postProbs[1])
-    # TODO: verify this!
-    priorInclProb <- crossprod(effects.matrix, model$priorProbs)
+    # TODO: verify this! see that the RM ANOVA test passes!
+    priorInclProb <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model$priorProbs[idxNotNan])
 
     postInclProb  <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model$postProbs[idxNotNan])
 
@@ -2719,9 +2726,13 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
 }
 
 .BANOVAgenerateAllModelFormulas <- function(formula, nuisance = NULL, analysisType = "RM-ANOVA",
+                                            # enforcePrincipleOfMarginality = TRUE
                                             modelSpaceType = c("type 2", "type 3", "type 2 + 3"),
                                             rmFactors = NULL, legacy = FALSE
                                             ) {
+
+  # for an explanation of type 2, type 3, and type 2 + 3, see
+  # https://github.com/jasp-stats/INTERNAL-jasp/issues/1550#issuecomment-966254919
 
   modelSpaceType <- match.arg(modelSpaceType)
   neverExclude <- paste0("^", nuisance, "$")

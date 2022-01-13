@@ -37,6 +37,8 @@ Section
 		ModelTermsList {}
 	}
 
+	CheckBox	{	name: "principleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
+
 	DropDown
 	{
 		id: modelSpaceType

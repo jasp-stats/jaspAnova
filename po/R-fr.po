@@ -2,13 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-11-27 02:44\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-01-14 09:52+0000\n"
+"Last-Translator: Jordy STEFAN <jordy.stefan@askoria.eu>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
@@ -26,151 +29,170 @@ msgid "Your design contains empty cells. Please try a different type of sum of s
 msgstr ""
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Correction de l'homogénéité"
 
 msgid "Cases"
-msgstr ""
+msgstr "Cas"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Somme des carrés"
 
 msgid "df"
-msgstr ""
+msgstr "ddl"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Moyenne des carrés"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Somme des carrés de type I"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Somme des carrés de type II"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Somme des carrés de type III"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"Les corrections Brown-Forsythe et Welch ne sont disponibles que pour l'ANOVA "
+"à un facteur"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Tables de contraste"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Contraste - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Veuillez spécifier un contraste supplémentaire."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Nombre incorrect de lignes de matrice de contraste personnalisée."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Veuillez spécifier des poids de contraste non nuls."
 
 msgid "Estimate"
-msgstr ""
+msgstr "Estimation"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% IC pour la différence de moyenne"
 
 msgid "Lower"
-msgstr ""
+msgstr "Inférieur"
 
 msgid "Upper"
-msgstr ""
+msgstr "Supérieur"
 
 msgid "SE"
-msgstr ""
+msgstr "ES"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
+#, fuzzy
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Coefficients de contraste - %2$s"
 
 msgid "Order Restrictions"
-msgstr ""
+msgstr "Restrictions de commande"
 
 msgid "Syntax error found in model %1$s, line: %2$s.\n\nMultiple restrictions on one line.\n\nPlease use one restriction per line!"
 msgstr ""
+"Erreur de syntaxe trouvée dans le modèle %1$s, ligne : %2$s.\n"
+"\n"
+"Plusieurs restrictions sur une même ligne.\n"
+"\n"
+"Veuillez utiliser une restriction par ligne !"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"Erreur de syntaxe trouvée dans le modèle %1$s.\n"
+"\n"
+"Certaines restrictions sont en double !"
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "Il y a des erreurs dans la syntaxe de restriction pour %s."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "Erreur de syntaxe : %1$s%2$s."
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "Tableau de comparaison des modèles"
 
 msgid "Model"
-msgstr ""
+msgstr "Modèle"
 
 msgid "LL"
-msgstr ""
+msgstr "LL"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Pénalité"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Poids"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Ratio"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
+#, fuzzy
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid "Ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"Les ratios indiquent le poids relatif de chaque modèle par rapport au modèle "
+"\"%1$s\" ;. %2$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Sans contrainte"
 
 msgid "Complement"
-msgstr ""
+msgstr "Complément"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
+"Le modèle '%s' ; ne peut pas être un modèle de référence car il est vide !"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "Tableau des coefficients du modèle"
 
 msgid "Estimates"
-msgstr ""
+msgstr "Estimations"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Coefficient"
 
+#, fuzzy
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Les coefficients diffèrent du modèle sans contrainte."
 
 msgid "Bootstrapping Restricted Marginal Means:"
 msgstr ""
@@ -308,16 +330,16 @@ msgid "Confidence interval is too narrow, please select a different confidence l
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Moyenne"
 
 msgid "SD"
-msgstr ""
+msgstr "ET"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Vérifications des présupposés"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
@@ -359,13 +381,13 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
-msgstr ""
+msgstr "Statistique"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Diagramme Q-Q"
 
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "Quantiles Théoriques"
 
 msgid "Standardized Residuals"
 msgstr ""
@@ -575,7 +597,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Variables en double trouvées dans %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
@@ -626,49 +648,58 @@ msgid "P(excl)"
 msgstr ""
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|donnée)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(excl|donnée)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"Compare les modèles qui contiennent l'effet à des modèles équivalents "
+"dépouillés de l'effet. Les interactions d'ordre supérieur sont exclues. "
+"Analyse suggérée par Sebastiaan Mathôt."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"Certains facteurs de Bayes n'ont pas pu être calculés. Les probabilités "
+"d'inclusion et les facteurs de Bayes sont calculés en excluant ces modèles. "
+"Les résultats peuvent être ininterprétables!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Comparaison de modèle"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Modèle"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|donnée)"
 
 msgid "error %"
-msgstr ""
+msgstr "% erreur"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b><em> Avertissement. </em></b> Certains facteurs de Bayes n'ont pas pu "
+"être calculés. L'inférence multi-modèles est effectuée en excluant ces "
+"modèles. Les résultats peuvent être ininterprétables !"
 
 msgid "Model Averaged Posterior Summary"
 msgstr ""
@@ -681,6 +712,7 @@ msgstr ""
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
 msgstr ""
+"<b> <em> Attention : problèmes d’échantillonnage rencontrés ! </em> </b>"
 
 msgid "Affected model"
 msgstr ""
@@ -698,7 +730,7 @@ msgid "For some affected models, more than 75%% of the posterior samples failed,
 msgstr ""
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Avertissement.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr ""
@@ -708,12 +740,14 @@ msgstr ""
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"Impossible de tracer la distribution postérieure. Vérifiez si une erreur "
+"s'est produite pour les modèles incluant ce paramètre."
 
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 msgid "Density"
-msgstr ""
+msgstr "Densité"
 
 msgid "Model Averaged Q-Q Plot"
 msgstr ""
@@ -731,10 +765,10 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Descriptives"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Descriptives - %s"
 
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
 msgstr ""
@@ -773,7 +807,7 @@ msgid "Single Model Posterior Summary"
 msgstr ""
 
 msgid "Variable"
-msgstr ""
+msgstr "Variable"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""
@@ -785,7 +819,9 @@ msgid "Single Model R%s"
 msgstr ""
 
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"La matrice de conception n'est pas inversible. Cela peut être dû à des "
+"variables dépendantes colinéaires."

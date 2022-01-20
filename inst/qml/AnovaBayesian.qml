@@ -72,7 +72,7 @@ Form
 		CheckBox { label: qsTr("Posterior R\u00B2") ;			name: "rsqPlot"}
 		}
 
-		ANOVA.ModelTerms { id: modelTerms }
+		ANOVA.ModelTerms { }
 
 		Section
 		{
@@ -166,6 +166,6 @@ Form
 		availableVariableSource: ["fixedFactors", "randomFactors"]
 	}
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AdditionalOptions.AnalysisType.BANOVA}
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AdditionalOptions.AnalysisType.BANOVA }
 
 }

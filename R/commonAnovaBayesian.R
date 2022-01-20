@@ -286,7 +286,7 @@
         print("options")
         print(options[.BANOVAmodelSpaceDependencies])
 
-        priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
+        priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
         internalTable <- stateObj$internalTableObj$internalTable
         internalTable[["P(M)"]] <- priorProbs
         stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
@@ -357,6 +357,8 @@
   if (analysisType == "RM-ANOVA" && !legacy) {
     # adjust the nuisance to include the random slopes, only done here because BayesFactor::enumerateGeneralModels
     # does not handle this properly
+    # TODO: should also include all interactions except for the highest order (so 3-way interaction -> 2-way interaction random effects)
+    # TODO: add checkbox whether -> all random effects of all orders (but see above) are included OR random effects are only included if the main effect is also included
     nuisanceRandomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
     nuisance <- c(nuisance, nuisanceRandomSlopes)
 
@@ -377,6 +379,8 @@
   neffects <- length(effects)
   nmodels <- length(model.list)
   modelObject <- vector("list", nmodels)
+  reorderedEffects  <- .BANOVAreorderTerms(effects)
+  reorderedNuisance <- if (is.null(nuisance)) NULL else .BANOVAreorderTerms(nuisance)
   if (nmodels > 0L && neffects > 0L) {
 
     # effects.matrix contains for each row (model), which predictors (columns) are in the model
@@ -408,12 +412,14 @@
       }
       model.effects <- .BANOVAgetFormulaComponents(model.list[[m]])
 
-      idx <- match(.BANOVAreorderTerms(model.effects), .BANOVAreorderTerms(effects), nomatch = 0L)
+      reorderedModelEffects <- .BANOVAreorderTerms(model.effects)
+      idx <- match(reorderedModelEffects, reorderedEffects, nomatch = 0L)
       idx <- idx[!is.na(idx)]
       effects.matrix[m, idx] <- TRUE
 
       if (m > 1L) {
-        model.title <- setdiff(model.effects, nuisance)
+        model.title <- model.effects[match(reorderedModelEffects, reorderedNuisance, 0L) == 0L]
+        # model.title <- setdiff(model.effects, nuisance)
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
@@ -430,7 +436,7 @@
   internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("P(M)", "P(M|data)", "BFM", "BF10", "error %")))
   # set BF null model and p(M)
   internalTable[1L, 4L] <- 0
-  internalTable[, 1L] <- .BANOVAcomputePriorModelProbs(model.list, options)
+  internalTable[, 1L] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
 
   #Now compute Bayes Factors for each model in the list, and populate the tables accordingly
   startProgressbar(nmodels, gettext("Computing Bayes factors"))
@@ -2671,13 +2677,22 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(interactions.matrix)
 }
 
-.BANOVAcomputePriorModelProbs <- function(models, options) {
+# Model prior ----
+.BANOVAcomputePriorModelProbs <- function(models, nuisance, options) {
   if (options[["modelPrior"]] == "uniform") {
-    return(rep(1 / length(models), length(models)))
+    modelprobs <- rep(1 / length(models), length(models))
+  } else if (options[["modelPrior"]] == "custom") {
+
+    # TODO: fix this
+    inclusionProbabilities <- vapply(options[["modelTermsCustomPrior"]], `[[`, FUN.VALUE = numeric(1L), "modelTermsCustomPrior2")
+    modelprobs <- .BANOVAcustomInclusionProbabilitiesToModelProbabilities(models, nuisance, inclusionProbabilities, enforceMarginality = options[["enforcePrincipleOfMarginality"]])
+
   } else {
 
-    totalNoPredictors <- length(options[["modelTerms"]])
     noPredictorsPerModel <- sapply(models, function(x) if(is.null(x)) 0L else length(attr(terms(x), "term.labels")))
+    noNuisancePredictors <- noPredictorsPerModel[1L]
+    noPredictorsPerModel <- noPredictorsPerModel - noNuisancePredictors
+    totalNoPredictors    <- noPredictorsPerModel[length(noPredictorsPerModel)]
 
     if (options[["modelPrior"]] %in% c("beta.binomial", "Wilson", "Castillo")) {
 
@@ -2687,17 +2702,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
               "Castillo"      = {alpha = 1.0;                             beta = totalNoPredictors ^ options[["castilloParamU"]]    }
       )
 
-      modelprobs <- dbetabinomial(noPredictorsPerModel, totalNoPredictors, alpha, beta)
+      modelprobs <- dBetaBinomialModelPrior(noPredictorsPerModel, totalNoPredictors, alpha, beta)
 
-    # } else if (options[["modelPrior"]] == "Bernoulli") {
-    #   modelprobs <- dbinom(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParam"]])
-    #   modelprobs <- modelprobs / sum(modelprobs)
+    } else if (options[["modelPrior"]] == "Bernoulli") {
+      modelprobs <- dBernoulliModelPrior(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParam"]])
     }
+
+    # both the betabinomial and bernoulli model priors do not sum to 1 when marginality is respected
+    modelprobs <- modelprobs / sum(modelprobs)
   }
+  return(modelprobs)
 }
 
-
-dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
+dBetaBinomialModelPrior <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
   # NOTE: this is not the pdf of the betabinomial, but the pdf divided by choose(n, k), so that it's the probabiltiy of a particular model
   logprobability <- lbeta(k + alpha, n - k + beta) - lbeta(alpha, beta)
   if (log)
@@ -2705,6 +2722,123 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
   return(exp(logprobability))
 }
 
+dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
+  logprobability <- k * log(prob) + (n - k) * log(1 - prob)
+  if (log)
+    return(logprobability)
+  return(exp(logprobability))
+}
+
+.BANOVAcustomInclusionProbabilitiesToModelProbabilities <- function(modelList, nuisance, inclusionProbabilities, enforceMarginality = TRUE) {
+
+  # TODO: when marginality is enforced, how should the prior on interaction effects be interpreted when a user wants matched models?
+
+  formulaFullModel <- modelList[[length(modelList)]]
+  termsFullModel <- terms(formulaFullModel)
+  termLabels <- attr(termsFullModel, "term.labels")
+  fullNonNuisance <- !(termLabels %in% nuisance)
+  termLabels  <- termLabels[fullNonNuisance]
+
+  # the principle of marginality is enforced (or not) through the function getPresentInteractions
+  if (enforceMarginality) {
+    # in this case, interaction effects do not appear without the main effects, so the user provided probability
+    # is interpreted as a conditional probability given that the main effects are included.
+    # thus, p(interaction) = 0 if the main effects are missing, and the user provided probability otherwise.
+    #
+    # for example, consider p(A) = P(B) = .5, P(A:B) = .2
+    #
+    # model        P(model)
+    # A            P(A) * (1 - P(B))                # <- here we do NOT do '* (1 - P(A:B))'
+    # A, B         p(A) * P(B)       * (1 - P(A:B))
+    # A, B, A:B    p(A) * P(B)       * P(A:B)
+
+    termFactors <- attr(termsFullModel, "factors")[, termLabels]
+    termFactors <- termFactors[rownames(termFactors) %in% termLabels, ]
+    rnmsTermFactors <- rownames(termFactors)
+    termOrders  <- attr(termsFullModel, "order")[fullNonNuisance]
+
+    # create a list where the names refer to the interactions and the elements refer to all children of that interaction
+    listOfDescendants <- setNames(lapply(termLabels, function(x) {
+      idx <- which(termFactors[, x] == 1L)
+      rnmsTermFactors[idx]
+    }), termLabels)
+    termIsNotInteraction <- termOrders == 1L
+
+    getPresentInteractions <- function(currentTermLabels) {
+      vapply(listOfDescendants, function(descendants, currentTermLabels) {
+        all(descendants %in% currentTermLabels)
+      }, logical(1L), currentTermLabels) | termIsNotInteraction
+    }
+
+    # TODO: the loop below fails in some combinations, but I can see how this behavior is desirable
+    # the users provide the raw p(interaction) however, the code below assumes that this is
+    # p(interaction | main effects), so to compensate we divide each interaction by the product of the components.
+    # for (i in which(!termIsNotInteraction)) { # loop over all interaction terms
+    #   idxSubterms <- which(termLabels %in% listOfDescendants[[termLabels[i]]])
+    #   inclusionProbabilities[i] <- inclusionProbabilities[i] / prod(inclusionProbabilities[idxSubterms])
+    # }
+
+  } else {
+    # in this case, interaction effects do appear without the main effects, so the user provided probability
+    # is interpreted in the same way for interaction effects and fixed effects.
+    # it's interpreted as an unconditional inclusion probability
+    getPresentInteractions <- function(...) {
+      rep(TRUE, length(termLabels))
+    }
+  }
+
+  exclusionProbabilties <- 1 - inclusionProbabilities
+
+  # so terms(y ~ b + a:b) reorders a:b to b:a but terms(y ~ a + a:b) does not...
+  termLabelOrder <- strsplit(termLabels, ":", fixed = TRUE)
+
+  modelProbs <- numeric(length(modelList))
+  for (i in seq_along(modelList)) {
+    if (is.null(modelList[[i]])) {
+
+      excludedTerms <- rep(TRUE, length(termLabels))
+      excludedTerms <- excludedTerms & getPresentInteractions(NULL)
+      modelProbs[i] <- prod(exclusionProbabilties)
+
+    } else {
+
+      currentTerms <- terms(modelList[[i]])
+      currentTermLabels <- setdiff(labels(currentTerms), nuisance)
+
+      # TODO: this might be useful elsewhere so it should be a function.
+      # It may even be useful to overwrite the terms function so that this always happens.
+      currentFactors <- attr(currentTerms, "factors")
+      if (any(currentFactors > 1L)) { # TRUE implies may need to reorder some terms according to termLabelOrder
+        for (j in grep(":", currentTermLabels, fixed = TRUE)) {
+          tmp <- strsplit(currentTermLabels[j], ":", fixed = TRUE)[[1L]]
+
+          for (order in termLabelOrder) {
+            if (all(tmp %in% order) && length(tmp) == length(order)) {
+              currentTermLabels[j] <- paste(order, collapse = ":")
+              break
+            }
+          }
+        }
+      }
+
+      presentInteractions <- getPresentInteractions(currentTermLabels)
+
+      includedTerms <- termLabels %in% currentTermLabels
+      excludedTerms <- !includedTerms
+
+      includedTerms <- includedTerms & presentInteractions
+      excludedTerms <- excludedTerms & presentInteractions
+
+      modelProbs[i] <- prod(inclusionProbabilities[includedTerms], exclusionProbabilties[excludedTerms])
+
+    }
+  }
+
+  return(modelProbs)
+
+}
+
+# Other ----
 .BANOVAmodelPriorOptionsChanged <- function(state, options) {
   !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])
 }
@@ -2733,6 +2867,11 @@ dbetabinomial <- function(k, n, alpha = 1.0, beta = 1.0, log = FALSE) {
                                             enforcePrincipleOfMarginality = TRUE,
                                             rmFactors = NULL, legacy = FALSE
                                             ) {
+
+  # TODO: it might be nicer to represent the NULL model as
+  # y ~ 1, rather than NULL. Right now the null model is a formula
+  # when there are nuisance variables and otherwise NULL, which leads to a bunch
+  # of annoying if (is.null(model[i])) exceptions.
 
   neverExclude <- paste0("^", nuisance, "$")
   if (!legacy && analysisType == "RM-ANOVA" && is.null(rmFactors))

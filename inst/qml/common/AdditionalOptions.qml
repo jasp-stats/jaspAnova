@@ -145,36 +145,11 @@ Section
 		}
 	}
 
-	ComponentsList
+	VariablesList
 	{
 		name				: "modelTermsCustomPrior"
 		optionKey			: "components"
-		source				: "modelTerms"
-		visible				: customPriorModelProbabilities.checked
-		title				: qsTr("Model Term")
-		width				: parent.width
-		rowSpacing			: 1.5
-
-		rowComponent		: RowLayout
-		{
-			width:		parent.width
-			Label		{ text: qsTr("p(%1)").arg(rowValue);					width: parent.width / 2; onTextChanged: {
-					console.log("rowValue: " + rowValue);
-				} }
-
-			DoubleField
-			{
-				name: "modelTermsCustomPrior"
-				min:0;max:1;defaultValue:0.5
-			}
-		}
-	}
-
-	VariablesList
-	{
-		name				: "modelTermsCustomPrior2"
-		optionKey			: "components"
-		source				: "modelTerms"
+		source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
 		visible				: customPriorModelProbabilities.checked
 		title				: qsTr("Model Term")
 		rowComponentTitle	: qsTr("Prior inclusion probability")
@@ -183,8 +158,11 @@ Section
 
 		rowComponent		: DoubleField
 		{
-			name: "modelTermsCustomPrior2"
-			min:0;max:1;defaultValue:0.5
+			name:			"modelTermsCustomPrior2"
+			min:			0
+			max:			1
+			defaultValue:	0.5
+			inclusive:		JASP.None
 		}
 	}
 

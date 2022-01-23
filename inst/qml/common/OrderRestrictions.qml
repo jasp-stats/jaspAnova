@@ -55,7 +55,7 @@ Section
 				width: models.width
 				textType: JASP.TextTypeModel
 				trim: true
-				applyScriptInfo: qsTr("Ctrl + Enter to apply. Click on the blue button below for help on the restriction syntax")
+				applyScriptInfo: qsTr("Ctrl + Enter to apply. Click on the blue button above for help on the restriction syntax")
 			}
 
 			Group

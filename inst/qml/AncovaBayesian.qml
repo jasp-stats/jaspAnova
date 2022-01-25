@@ -34,139 +34,18 @@ Form
 		AssignedVariablesList { name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"]							}
 	}
 
-	BayesFactorType { }
+	ANOVA.DefaultOptions {}
 
-	Group
-	{
-		title: qsTr("Tables")
-		CheckBox
-		{
-			name: "effects"; label: qsTr("Effects");
-			RadioButtonGroup
-			{
-				name: "effectsType"
-				RadioButton { value: "allModels";		label: qsTr("Across all models"); checked: true	}
-				RadioButton { value: "matchedModels";	label: qsTr("Across matched models")			}
-			}
-		}
-		CheckBox { name: "posteriorEstimates"; label: qsTr("Estimates") }
-		CheckBox { name: "criTable";		   label: qsTr("Model averaged R\u00B2") }
-		CheckBox { name: "descriptives";	   label: qsTr("Descriptives") }
-		CIField { name: "credibleInterval";	label: qsTr("Credible interval") }
-	}
+	ANOVA.ModelTerms { source: ["fixedFactors", "randomFactors", "covariates"]	}
 
-	ANOVA.BayesFactorOrder {}
+	ANOVA.SingleModelInference { source: ["fixedFactors", "randomFactors", "covariates"] }
 
-	GroupBox
-	{
-		title: qsTr("Plots")
-		CheckBox {
-			label: qsTr("Model averaged posteriors");	name: "posteriorPlot"
-			RadioButtonGroup
-			{
-				name: "groupPosterior"
-				RadioButton { value: "grouped";		label: qsTr("Group levels in single plot"); checked: true}
-				RadioButton { value: "individual";	label: qsTr("Individual plot per level")				 }
-			}
-		}
-		CheckBox { label: qsTr("Q-Q plot of residuals") ;	name: "qqPlot" }
-		CheckBox { label: qsTr("Posterior R\u00B2") ;		name: "rsqPlot"}
-	}
+	ANOVA.PostHocTests { source: "fixedFactors" }
 
-	ANOVA.ModelTerms { variablesSource: ["fixedFactors", "randomFactors", "covariates"]	}
+	ANOVA.DescriptivesPlots { source: ["fixedFactors", "covariates"] }
 
-	Section
-	{
-		title: qsTr("Single Model Inference")
+	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "covariates"] }
 
-		VariablesForm
-		{
-			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-
-			AvailableVariablesList { name: "components2"; title: qsTr("Components"); source: ["fixedFactors", "randomFactors", 'covariates'] }
-			AssignedVariablesList
-			{
-				title: qsTr("Specific Model Terms")
-				name: "singleModelTerms"
-				listViewType: JASP.Interaction
-			}
-		}
-
-		GridLayout
-		{
-
-			GroupBox
-			{
-				title: qsTr("Tables")
-				CheckBox { label: qsTr("Estimates"); name: "singleModelEstimates"}
-				CheckBox { label: qsTr("R\u00B2");   name: "singleModelCriTable" }
-			}
-
-			GroupBox
-			{
-				title: qsTr("Plots")
-				CheckBox {
-					label: qsTr("Marginal posteriors");	name: "singleModelPosteriorPlot"
-					RadioButtonGroup
-					{
-						name: "singleModelGroupPosterior"
-						RadioButton { value: "grouped";		label: qsTr("Group levels in single plot"); checked: true}
-						RadioButton { value: "individual";	label: qsTr("Individual plot per level")				 }
-					}
-				}
-				CheckBox { label: qsTr("Q-Q plot of residuals");  name: "singleModelqqPlot" }
-				CheckBox { label: qsTr("Posterior R\u00B2") ;	 name: "singleModelrsqPlot"}
-			}
-		}
-	}
-
-	Section
-	{
-		title: qsTr("Post Hoc Tests")
-
-		VariablesForm
-		{
-			preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-			AvailableVariablesList { name: "postHocTestsAvailable"; source: "fixedFactors" }
-			AssignedVariablesList {  name: "postHocTestsVariables" }
-		}
-
-		Group
-		{
-			title: qsTr("Correction")
-			CheckBox { name: "postHocTestsNullControl"; label: qsTr("Null control"); checked: true }
-		}
-	}
-
-	Section
-	{
-		title: qsTr("Descriptives Plots")
-
-		VariablesForm
-		{
-			AvailableVariablesList { name: "descriptivePlotsVariables";	source: ["fixedFactors", "covariates"] }
-			AssignedVariablesList { name: "plotHorizontalAxis";			title: qsTr("Horizontal Axis")  ; singleVariable: true}
-			AssignedVariablesList { name: "plotSeparateLines";			title: qsTr("Separate Lines")	; singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
-			AssignedVariablesList { name: "plotSeparatePlots";			title: qsTr("Separate Plots")   ; singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
-		}
-
-		Group
-		{
-			title: qsTr("Display")
-			CheckBox
-			{
-				name: "plotCredibleInterval"; label: qsTr("Credible interval")
-				childrenOnSameRow: true
-				CIField { name: "plotCredibleIntervalInterval" }
-			}
-		}
-	}
-
-	ANOVA.RainCloudPlots
-	{
-		availableVariableSource: ["fixedFactors", "covariates"]
-	}
-
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AdditionalOptions.AnalysisType.BANCOVA }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA }
 
 }

@@ -16,27 +16,13 @@
 // <http://www.gnu.org/licenses/>.
 //
 
-import QtQuick			2.12
-import JASP.Controls	1.0
-import JASP.Widgets		1.0
-import JASP				1.0
-
-Section
+import QtQuick	2.15
+Item
 {
-	// defaults follow ANOVA + ANCOVA
-	property	string	sectionTitle : qsTr("Model")
-	property	alias	source: components.source
-	property    alias   modelTermsList: modelTermsList
-
-	title: sectionTitle
-
-	VariablesForm
+	enum AnalysisType
 	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { id: components; name: "components"; title: qsTr("Components")}
-		ModelTermsList { id: modelTermsList}
+		BANOVA,
+		BANCOVA,
+		BRMANOVA
 	}
-
-	CheckBox	{	name: "enforcePrincipleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
-
 }

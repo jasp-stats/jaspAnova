@@ -248,66 +248,38 @@
     return(list(analysisType = analysisType))
   } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
 
-    # if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
-    #
-    #   print("only the prior changed!")
-    #   print("state")
-    #   print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
-    #   print("options")
-    #   print(options[.BANOVAmodelSpaceDependencies])
-    #   # only the model prior changed
-    #   modelTable <- .BANOVAinitModelComparisonTable(options)
-    #
-    #   priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, options)
-    #   stateObj$priorProbs  <- priorProbs
-    #   internalTable <- stateObj$internalTableObj$internalTable
-    #   internalTableObj[["P(M)"]] <- priorProbs
-    #
-    #   internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTableObj)
-    #   modelTable$setData(internalTableObj$table)
-    #   jaspResults[["tableModelComparison"]] <- modelTable
-    #
-    #   stateObj$internalTableObj <- internalTableObj
-    #   stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
-    #   return(stateObj)
-    #
-    # } else if (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
+    # if the statement above is TRUE then no new variables were added (or seed changed)
+    # and the only change is in the Bayes factor type or the ordering
+    modelTable <- .BANOVAinitModelComparisonTable(options)
+    modelTable[["Models"]] <- c("Null model", sapply(stateObj$models, `[[`, "title"))
 
-      # if the statement above is TRUE then no new variables were added (or seed changed)
-      # and the only change is in the Bayes factor type or the ordering
-      modelTable <- .BANOVAinitModelComparisonTable(options)
-      modelTable[["Models"]] <- c("Null model", sapply(stateObj$models, `[[`, "title"))
+    if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
-      if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
+      print("only the prior changed!")
+      print("state")
+      print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
+      print("options")
+      print(options[.BANOVAmodelSpaceDependencies])
 
-        print("only the prior changed!")
-        print("state")
-        print(stateObj[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies])
-        print("options")
-        print(options[.BANOVAmodelSpaceDependencies])
+      priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
+      internalTable <- stateObj$internalTableObj$internalTable
+      internalTable[["P(M)"]] <- priorProbs
+      stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
 
-        priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
-        internalTable <- stateObj$internalTableObj$internalTable
-        internalTable[["P(M)"]] <- priorProbs
-        stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
+    } else {
 
-      } else {
+      internalTable <- stateObj$internalTableObj$internalTable
+      stateObj$completelyReused <- TRUE # model-averaged posteriors do not need to be resampled
 
-        internalTable <- stateObj$internalTableObj$internalTable
-        stateObj$completelyReused <- TRUE # model-averaged posteriors do not need to be resampled
+    }
 
-      }
+    internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
+    stateObj$internalTableObj <- internalTableObj
+    modelTable$setData(internalTableObj$table)
+    jaspResults[["tableModelComparison"]] <- modelTable
 
-      # modelTable[["P(M)"]]   <- stateObj$priorProbs # TODO: is this line not redundant due to .BANOVAfinalizeInternalTable + setData?
-      # .BANOVAfinalizeInternalTable handles changes in Bayes factor type + ordering
-      internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
-      stateObj$internalTableObj <- internalTableObj
-      modelTable$setData(internalTableObj$table)
-      jaspResults[["tableModelComparison"]] <- modelTable
+    return(stateObj)
 
-      return(stateObj)
-
-    # }
   }
 
   rscaleFixed   <- options$priorFixedEffects

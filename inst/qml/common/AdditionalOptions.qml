@@ -21,19 +21,10 @@ import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
 
-
 Section
 {
 
-	// TODO: consider a string instead of this ultra verbose enum nonsense
-	enum AnalysisType
-	{
-		BANOVA,
-		BANCOVA,
-		BRMANOVA
-	}
-
-	property int analysisType: AnalysisType.BANOVA
+	property int analysisType
 
 	title: qsTr("Additional Options")
 	columns: 1
@@ -45,9 +36,9 @@ Section
 		{
 			columns: 1
 			title: qsTr("Prior")
-			DoubleField {																	name: "priorFixedEffects";	label: qsTr("r scale fixed effects");  defaultValue: 0.5; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField {																	name: "priorRandomEffects";	label: qsTr("r scale random effects"); defaultValue: 1;   max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField { visible: analysisType !== AdditionalOptions.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");     defaultValue: 0.354; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
+			DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");  defaultValue: 0.5; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
+			DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects"); defaultValue: 1;   max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
+			DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");     defaultValue: 0.354; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
 		}
 
 		RadioButtonGroup
@@ -92,7 +83,7 @@ Section
 
 		CheckBox
 		{
-			visible: analysisType === AdditionalOptions.AnalysisType.BRMANOVA
+			visible: analysisType === AnalysisType.AnalysisType.BRMANOVA
 			name:	"legacy"
 			label:	qsTr("Legacy results")
 			info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")

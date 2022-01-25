@@ -23,20 +23,19 @@ import JASP				1.0
 
 Section
 {
-	// defaults follow ANOVA + ANCOVA
-	property	string	sectionTitle : qsTr("Model")
-	property	alias	source: components.source
-	property    alias   modelTermsList: modelTermsList
-
-	title: sectionTitle
+	title: qsTr("Post Hoc Tests")
+	property alias source: postHocTestsAvailable.source
 
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { id: components; name: "components"; title: qsTr("Components")}
-		ModelTermsList { id: modelTermsList}
+		AvailableVariablesList { name: "postHocTestsAvailable"; id: postHocTestsAvailable }
+		AssignedVariablesList {  name: "postHocTestsVariables" }
 	}
 
-	CheckBox	{	name: "enforcePrincipleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
-
+	Group
+	{
+		title: qsTr("Correction")
+		CheckBox { name: "postHocTestsNullControl"; label: qsTr("Null control"); checked: true }
+	}
 }

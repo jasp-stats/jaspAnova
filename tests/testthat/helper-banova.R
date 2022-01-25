@@ -1,7 +1,8 @@
 
 initOpts <- function(analysisName) {
   options <- jaspTools::analysisOptions(analysisName)
-  addCommonQMLoptions(options)
+  options <- addCommonQMLoptions(options)
+
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
   if (analysisName == "AnovaRepeatedMeasuresBayesian")
@@ -10,6 +11,16 @@ initOpts <- function(analysisName) {
 
 addCommonQMLoptions <- function(options) {
   # jaspTools doesn't recognize common QML elements so this function adds the defaults manually
+  findRoot <-
+  c(
+    options,
+    jaspTools:::readQML(file.path(root, "inst/qml/common/DefaultOptions.qml")),
+    jaspTools:::readQML(file.path(root, "inst/qml/common/ModelTerms.qml")),
+    jaspTools:::readQML(file.path(root, "inst/qml/common/SingleModelInference.qml")),
+    jaspTools:::readQML(file.path(root, "inst/qml/common/DescriptivesPlots.qml")),
+    jaspTools:::readQML(file.path(root, "inst/qml/common/AdditionalOptions.qml")
+  )
+
   options$bayesFactorOrder <- "bestModelTop"
   options$enforcePrincipleOfMarginality <- TRUE
   options$modelPrior <- "uniform"

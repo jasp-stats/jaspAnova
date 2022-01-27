@@ -197,7 +197,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       dataset              = dataset,
       type                 = c("observations", "variance"),
       all.target           = c(options$dependent, options$covariates),
-      all.grouping         = componentsToGroupBy,
+      observations.grouping= componentsToGroupBy,
       observations.amount  = observations.amount,
       exitAnalysisIfErrors = TRUE
     )
@@ -472,6 +472,33 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                                                 VovkSellkeMPR(na.omit(welchResult[["Pr(>F)"]])), NA)
     }
 
+    welchFootnote <- NULL
+    if (is.na(tempResult[["statistic"]]) && length(options[["fixedFactors"]]) == 1L) {
+
+      # we only do this when length(options[["fixedFactors"]]) == 1L because the table function throws an error when
+      # length(options[["fixedFactors"]]) > 1L anyway
+      # if the welch correction ever supports more than one fixed factor, the code below already does the 'right thing'
+      # by computing the variance for all fixed factors and only the error message needs to be adjusted for multiple
+      # factors and levels
+
+      groupVariances <- lapply(options[["fixedFactors"]], function(fixedFactor) {
+        vars <- tapply(model[["model"]][[options[["dependent"]]]], model[["model"]][[fixedFactor]], var)
+        badLevelNames <- names(vars)[vars == 0]
+        if (length(badLevelNames) == 0)
+          return(NULL)
+        return(badLevelNames)
+      })
+      names(groupVariances) <- options[["fixedFactors"]]
+      groupVariances <- groupVariances[lengths(groupVariances) > 0L]
+
+      welchFootnote <- gettextf(
+        "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s",
+        options[["dependent"]], options[["fixedFactors"]], paste(groupVariances[[1L]], collapse = ", ")
+      )
+
+    }
+    anovaResult[["welchFootnote"]] <- welchFootnote
+
     anovaResult[['welchResult']] <- welchResult
   }
 
@@ -560,7 +587,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     return()
 
   model <- anovaContainer[["anovaResult"]]$object
-  anovaTable$setData(do.call("rbind", model))
+  anovaTable$setData(do.call(rbind, model[setdiff(names(model), "welchFootnote")]))
+
+  if (!is.null(model[["welchFootnote"]]))
+    anovaTable$addFootnote(model[["welchFootnote"]])
 
   return()
 }
@@ -1801,14 +1831,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
     bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
                                                       numberOfLevels = numberOfLevels)
-    
-    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]], 
-                                                        sigma = sqrt(mean(sigma(model)^2)), 
+
+    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
+                                                        sigma = sqrt(mean(sigma(model)^2)),
                                                         edf = df.residual(model),
                                                         level = bonfAdjustCIlevel))
-    
+
     allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
-    
+
     if (nrow(resultPostHoc[[1]]) > 1)
       postHocStandardContainer[[thisVarName]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
                                                                                       options$confidenceIntervalsPostHoc))
@@ -1830,7 +1860,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
     resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
     resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
-    
+
     if (options$postHocTestsBootstrapping) {
 
       postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTestsBootstrappingReplicates']])))

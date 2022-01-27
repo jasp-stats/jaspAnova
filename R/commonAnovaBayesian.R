@@ -604,9 +604,15 @@
 
     # note that the postInclProb is equivalent to model$posteriors$weights[-1] * (1 - model$postProbs[1])
     # TODO: verify this! see that the RM ANOVA test passes!
-    priorInclProb <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model$priorProbs[idxNotNan])
-
-    postInclProb  <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model$postProbs[idxNotNan])
+    if (any(!idxNotNan)) {
+      # renormalize the prior and posterior probabilities
+      priorInclProb <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model[["priorProbs"]][idxNotNan] / sum(model[["priorProbs"]][idxNotNan]))
+      postInclProb  <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model[["postProbs"]][idxNotNan]  / sum(model[["postProbs"]][idxNotNan]))
+    } else {
+      # do not renormalize
+      priorInclProb <- crossprod(effects.matrix, model[["priorProbs"]])
+      postInclProb  <- crossprod(effects.matrix, model[["postProbs"]])
+    }
 
     # deal with numerical error
     postInclProb[postInclProb > 1] <- 1

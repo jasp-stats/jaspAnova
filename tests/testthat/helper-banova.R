@@ -7,31 +7,18 @@ initOpts <- function(analysisName) {
   options$fixedNumAcc <- 50
   if (analysisName == "AnovaRepeatedMeasuresBayesian")
     options$legacy <- TRUE
+  options
 }
 
 addCommonQMLoptions <- function(options) {
   # jaspTools doesn't recognize common QML elements so this function adds the defaults manually
-  findRoot <-
+  root <- testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
   c(
     options,
-    jaspTools:::readQML(file.path(root, "inst/qml/common/DefaultOptions.qml")),
-    jaspTools:::readQML(file.path(root, "inst/qml/common/ModelTerms.qml")),
-    jaspTools:::readQML(file.path(root, "inst/qml/common/SingleModelInference.qml")),
-    jaspTools:::readQML(file.path(root, "inst/qml/common/DescriptivesPlots.qml")),
-    jaspTools:::readQML(file.path(root, "inst/qml/common/AdditionalOptions.qml")
+    jaspTools:::readQML(file.path(root, "DefaultOptions.qml")),
+    jaspTools:::readQML(file.path(root, "ModelTerms.qml")),
+    jaspTools:::readQML(file.path(root, "SingleModelInference.qml")),
+    jaspTools:::readQML(file.path(root, "DescriptivesPlots.qml")),
+    jaspTools:::readQML(file.path(root, "AdditionalOptions.qml"))
   )
-
-  options$bayesFactorOrder <- "bestModelTop"
-  options$enforcePrincipleOfMarginality <- TRUE
-  options$modelPrior <- "uniform"
-  options$betaBinomialParamA <- options$betaBinomialParamB <- options$wilsonParamLambda <- options$castilloPAramU <- 1
-
-  options$sampleModeNumAcc <- "auto"
-  options$sampleModeMCMC   <- "auto"
-
-  options$priorFixedEffects  <- 0.5
-  options$priorRandomEffects <- 1.0
-  options$priorCovariates    <- 0.354
-
-  options
 }

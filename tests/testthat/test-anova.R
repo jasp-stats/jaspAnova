@@ -137,7 +137,7 @@ test_that("Model Comparison Table results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
       modelSummary = FALSE, informedHypothesisTest = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparisonCoefficients <- FALSE
@@ -168,7 +168,7 @@ test_that("Model Coefficients Table results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
       modelSummary = FALSE, informedHypothesisTest = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparisonCoefficients <- TRUE
@@ -205,7 +205,7 @@ test_that("Model Summary Tables results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
       modelSummary = TRUE, informedHypothesisTest = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparison <- "complement"
@@ -244,7 +244,7 @@ test_that("Model Summary Tables results match (bootstrap)", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
       modelSummary = TRUE, informedHypothesisTest = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparison <- "complement"
@@ -274,8 +274,8 @@ test_that("Informed Hypothesis Tables results match (equality restriction)", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE, 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
+      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE,
       informedHypothesisTestA = FALSE, informedHypothesisTestB = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparison <- "complement"
@@ -308,8 +308,8 @@ test_that("Informed Hypothesis Tables results match (inequality restriction)", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 < facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE, 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 < facFive3", modelName = "Model 1",
+      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE,
       informedHypothesisTestA = TRUE, informedHypothesisTestB = TRUE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparison <- "complement"
@@ -352,7 +352,7 @@ test_that("Restricted Marginal Means Plot matches", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
+  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1",
       modelSummary = TRUE, informedHypothesisTest = FALSE))
   options$includeIntercept <- TRUE
   options$restrictedModelComparison <- "complement"
@@ -795,4 +795,33 @@ test_that("Field - Chapter 7 results match", {
                            0.395829403830131, 0.0118089133089123, 5.4, 6.14285714285714,
                            7))
 
+})
+
+test_that("ANOVA - factor level with zero variance works and Welch homogeneity correction shows a footnote", {
+  options <- analysisOptions("Anova")
+  options$dependent <- "value"
+  options$fixedFactors <- "group"
+  options$homogeneityWelch <- TRUE
+  options$modelTerms <- list(list(components = "group"))
+
+  dataset <- data.frame(
+    group = rep(c("A","B","C","D"), c(3, 4, 3, 5)),
+    value = c(2.3, 2.1, 2.8, rep(3, 4), c(4, 3, 5, 4, 2), 3.6, 4.5, 5.1)
+  )
+
+  set.seed(1)
+  results <- runAnalysis("Anova", dataset, options)
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list("TRUE", 3, 2.67905056759546, 1.888, 0.0985227092069956, 5.664,
+                                      "group", "None", "TRUE", 11, "", 0.704727272727272, "", 7.752,
+                                      "Residuals", "", "TRUE", 3, "NaN", 1.888, "NaN", 5.664, "group",
+                                      "Welch", "FALSE", "NaN", "", "NaN", "", 7.752, "Residuals",
+                                      ""))
+
+  footnote <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["footnotes"]][[1L]][["text"]]
+  testthat::expect_identical(
+    footnote,
+    "The Welch correction could not be computed because 'value' has zero variance after grouping on the following levels of 'group': B"
+  )
 })

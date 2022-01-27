@@ -81,19 +81,23 @@ Section
 			}
 		}
 
-		CheckBox
+		Group
 		{
-			visible: analysisType === AnalysisType.AnalysisType.BRMANOVA
-			name:	"legacy"
-			label:	qsTr("Legacy results")
-			info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")
-		}
+			CheckBox
+			{
+				visible: analysisType === AnalysisType.AnalysisType.BRMANOVA
+				name:	"legacy"
+				label:	qsTr("Legacy results")
+				info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")
+			}
 
-		CheckBox
-		{
-			name:	"showNuisanceEffects"
-			label:	qsTr("Hide nuisance in model")
-			info:	qsTr("When checked, the nuisance parameters common to all models are omitted from the model specification.")
+			CheckBox
+			{
+				name:		"hideNuisanceEffects"
+				checked:	true
+				label:		qsTr("Hide nuisance in model")
+				info:		qsTr("When checked, the nuisance parameters common to all models are omitted from the model specification.")
+			}
 		}
 
 		SetSeed{}

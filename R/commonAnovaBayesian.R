@@ -317,24 +317,17 @@
   }
 
   #Make a list of models to compare
-  model.list <- .BANOVAgenerateAllModelFormulas(
-    formula                       = model.formula,
-    nuisance                      = nuisance,
-    analysisType                  = analysisType,
-    enforcePrincipleOfMarginality = options[["enforcePrincipleOfMarginality"]],
-    rmFactors                     = rmFactors,
-    legacy                        = legacy
+  temp <- .BANOVAgenerateAllModelFormulas(
+    formula                                   = model.formula,
+    nuisance                                  = nuisance,
+    analysisType                              = analysisType,
+    enforcePrincipleOfMarginalityFixedEffects = options[["enforcePrincipleOfMarginalityFixedEffects"]],
+    enforcePrincipleOfMarginalityRandomSlopes = options[["enforcePrincipleOfMarginalityRandomSlopes"]],
+    rmFactors                                 = rmFactors,
+    legacy                                    = legacy
   )
-
-  if (analysisType == "RM-ANOVA" && !legacy) {
-    # adjust the nuisance to include the random slopes, only done here because BayesFactor::enumerateGeneralModels
-    # does not handle this properly
-    # TODO: should also include all interactions except for the highest order (so 3-way interaction -> 2-way interaction random effects)
-    # TODO: add checkbox whether -> all random effects of all orders (but see above) are included OR random effects are only included if the main effect is also included
-    nuisanceRandomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
-    nuisance <- c(nuisance, nuisanceRandomSlopes)
-
-  }
+  model.list <- temp$modelList
+  nuisance   <- temp$nuisance
 
   if (length(model.list) == 1L) {
     modelTable <- .BANOVAinitModelComparisonTable(options)
@@ -352,7 +345,7 @@
   nmodels <- length(model.list)
   modelObject <- vector("list", nmodels)
   reorderedEffects  <- .BANOVAreorderTerms(effects)
-  reorderedNuisance <- if (is.null(nuisance)) NULL else .BANOVAreorderTerms(nuisance)
+  reorderedNuisance <- if (is.null(nuisance) || !options[["hideNuisanceEffects"]]) NULL else .BANOVAreorderTerms(nuisance)
   if (nmodels > 0L && neffects > 0L) {
 
     # effects.matrix contains for each row (model), which predictors (columns) are in the model
@@ -371,7 +364,7 @@
           next # all effects are FALSE anyway
         } else {
           if (analysisType == "RM-ANOVA" && !legacy) {
-            tempNuisance <- setdiff(nuisance, nuisanceRandomSlopes)
+            tempNuisance <- if (options[["hideNuisanceEffects"]]) setdiff(nuisance, nuisanceRandomSlopes) else nuisance
             modelObject[[m]]$title <- sprintf(ngettext(
               length(tempNuisance),
               "Null model (incl. %s and random slopes)",
@@ -391,7 +384,6 @@
 
       if (m > 1L) {
         model.title <- model.effects[match(reorderedModelEffects, reorderedNuisance, 0L) == 0L]
-        # model.title <- setdiff(model.effects, nuisance)
         modelObject[[m]]$title <- jaspBase::gsubInteractionSymbol(paste(model.title, collapse = " + "))
       }
     }
@@ -602,8 +594,6 @@
   idxNotNan <- c(TRUE, !is.nan(model$postProbs[-1L]))
   if (options$effectsType == "allModels") {
 
-    # note that the postInclProb is equivalent to model$posteriors$weights[-1] * (1 - model$postProbs[1])
-    # TODO: verify this! see that the RM ANOVA test passes!
     if (any(!idxNotNan)) {
       # renormalize the prior and posterior probabilities
       priorInclProb <- crossprod(effects.matrix[idxNotNan, , drop = FALSE], model[["priorProbs"]][idxNotNan] / sum(model[["priorProbs"]][idxNotNan]))
@@ -2842,7 +2832,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 }
 
 .BANOVAgenerateAllModelFormulas <- function(formula, nuisance = NULL, analysisType = "RM-ANOVA",
-                                            enforcePrincipleOfMarginality = TRUE,
+                                            enforcePrincipleOfMarginalityFixedEffects = TRUE,
+                                            enforcePrincipleOfMarginalityRandomSlopes = FALSE,
                                             rmFactors = NULL, legacy = FALSE
                                             ) {
 
@@ -2857,7 +2848,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
   modelSpace <- try(BayesFactor::enumerateGeneralModels(
     formula,
-    whichModels  = if (enforcePrincipleOfMarginality) "withmain" else "all",
+    whichModels  = if (enforcePrincipleOfMarginalityFixedEffects) "withmain" else "all",
     neverExclude = neverExclude)
   )
 
@@ -2865,19 +2856,45 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     .quitAnalysis(gettextf("The following error occured in BayesFactor::enumerateGeneralModels: %s",
                            .extractErrorMessage(modelSpace)))
 
-  if (!legacy && analysisType == "RM-ANOVA") {
-    # add random effects of RM factors per https://github.com/jasp-stats/INTERNAL-jasp/issues/1550
+    if (analysisType == "RM-ANOVA" && !legacy) {
+    # adjust the nuisance to include the random slopes, only done here because BayesFactor::enumerateGeneralModels
+    # does not handle this properly
+    # TODO: should also include all interactions except for the highest order (so 3-way interaction -> 2-way interaction random effects)
+    # TODO: add checkbox whether -> all random effects of all orders (but see above) are included OR random effects are only included if the main effect is also included
 
-    nuisanceRandomSlopes <- paste0(rmFactors, ":", .BANOVAsubjectName)
-    termsToAdd <- as.formula(paste("~ . +", paste0(nuisanceRandomSlopes, collapse = " + ")))
-    modelSpace <- lapply(modelSpace, update.formula, new = termsToAdd)
-    # for the reordering done below
+    allPossibleSlopes <- labels(stats::terms(stats::as.formula(paste("y~", paste(rmFactors, collapse = "*")))))
+    # drop the most complex interaction
+    allPossibleSlopes <- allPossibleSlopes[-length(allPossibleSlopes)]
+    # add interaction with subject
+    nuisanceRandomSlopes <- paste0(allPossibleSlopes, ":", .BANOVAsubjectName)
+
+    if (enforcePrincipleOfMarginalityOnRandomSlopes) {
+
+      for (i in seq_along(modelSpace)) {
+        presentLabels <- labels(stats::terms(modelSpace[[i]]))
+        termsToAddChar <- intersect(allPossibleSlopes, presentLabels)
+        if (length(termsToAddChar) > 0L) {
+          termsToAddChar <- paste0(termsToAddChar, ":", .BANOVAsubjectName)
+          termsToAdd <- as.formula(paste("~ . +", paste0(termsToAddChar, collapse = " + ")))
+          modelSpace[[i]] <- update.formula(modelSpace[[i]], new = termsToAdd)
+        }
+      }
+
+    } else {
+
+      termsToAdd <- as.formula(paste("~ . +", paste0(nuisanceRandomSlopes, collapse = " + ")))
+      modelSpace <- lapply(modelSpace, update.formula, new = termsToAdd)
+    }
+
+    # for the reordering done below. termsToAdd always contains the most complex random effects
     formula    <- update.formula(formula, new = termsToAdd)
 
+    # update nuisance
+    nuisance <- c(nuisance, nuisanceRandomSlopes)
   }
 
   if (is.null(nuisance)) {
-    return(c(list(NULL), modelSpace))
+    return(list(modelList = c(list(NULL), modelSpace), nuisance = nuisance))
   } else {
     # put the null-model first
     i <- length(modelSpace)
@@ -2916,7 +2933,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
     }
 
-    return(modelSpace)
+    return(list(modelList = modelSpace, nuisance = nuisance))
   }
 }
 

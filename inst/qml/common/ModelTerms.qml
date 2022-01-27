@@ -37,6 +37,4 @@ Section
 		ModelTermsList { id: modelTermsList}
 	}
 
-	CheckBox	{	name: "enforcePrincipleOfMarginality";	label: qsTr("Enforce the principle of marginality"); checked: true	}
-
 }

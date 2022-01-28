@@ -174,7 +174,7 @@
         },
         redundantParticipantColumn = function() {
           
-          if (nlevels(dataset[.BANOVAsubjectName]) == nlevels(dataset[target])) {
+          if (nlevels(dataset[[.BANOVAsubjectName]]) == nlevels(dataset[[target]])) {
             return(gettextf("Duplicate participant column added to model terms, %s", target))
           } else {
             return()

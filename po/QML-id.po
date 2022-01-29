@@ -1414,12 +1414,6 @@ msgid "Model 1"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
-msgid ""
-"Ctrl + Enter to apply. Click on the blue button below for help on the "
-"restriction syntax"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
 msgid "Summary for "
 msgstr ""
 
@@ -1557,4 +1551,10 @@ msgid ""
 "where 'factor' is the factor name and 'Low'/'High' are the factor level "
 "names. \n"
 "Click the information icon for more examples."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Ctrl + Enter to apply. Click on the blue button above for help on the "
+"restriction syntax"
 msgstr ""

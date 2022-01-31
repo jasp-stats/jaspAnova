@@ -1924,7 +1924,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     # check if the state is reuseable and if it's not NULL, which means it didn't crash
     if (is.na(reuseable[i]) || is.null(state$statistics[[reuseable[i]]])) {
 
-      if (i == 1L && is.null(model$models[[i]]$bf)) {
+      if (i == 1L && is.null(model[["models"]][[i]][["bf"]])) {
 
         # NULL model only contains an intercept, use custom sampler
         # NOTE: RM-ANOVA never enters here (and would crash if it did)
@@ -1937,7 +1937,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         # NOTE: we have to sample the random effects, otherwise we cant make predictions (needed for residuals and R^2)
         # put the dataset back in
         .setSeedJASP(options)
-        bfObj <- model$models[[i]][[3L]]
+        bfObj <- model[["models"]][[i]][["bf"]]
         bfObj@data <- dataset
         samples <- try(BayesFactor::posterior(bfObj, iterations = nIter))
         if (isTryError(samples)) {
@@ -2875,32 +2875,38 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     allPossibleSlopes <- labels(stats::terms(stats::as.formula(paste("y~", paste(rmFactors, collapse = "*")))))
     # drop the most complex interaction
     allPossibleSlopes <- allPossibleSlopes[-length(allPossibleSlopes)]
-    # add interaction with subject
-    nuisanceRandomSlopes <- paste0(allPossibleSlopes, ":", .BANOVAsubjectName)
 
-    if (enforcePrincipleOfMarginalityRandomSlopes) {
+    # if at least one interaction among the repeated measures is considered
+    if (length(allPossibleSlopes) > 0L) {
 
-      for (i in seq_along(modelSpace)) {
-        presentLabels <- labels(stats::terms(modelSpace[[i]]))
-        termsToAddChar <- intersect(allPossibleSlopes, presentLabels)
-        if (length(termsToAddChar) > 0L) {
-          termsToAddChar <- paste0(termsToAddChar, ":", .BANOVAsubjectName)
-          termsToAdd <- as.formula(paste("~ . +", paste0(termsToAddChar, collapse = " + ")))
-          modelSpace[[i]] <- update.formula(modelSpace[[i]], new = termsToAdd)
+      # add interaction with subject
+      nuisanceRandomSlopes <- paste0(allPossibleSlopes, ":", .BANOVAsubjectName)
+
+      if (enforcePrincipleOfMarginalityRandomSlopes) {
+
+        for (i in seq_along(modelSpace)) {
+          presentLabels <- labels(stats::terms(modelSpace[[i]]))
+          termsToAddChar <- intersect(allPossibleSlopes, presentLabels)
+          if (length(termsToAddChar) > 0L) {
+            termsToAddChar <- paste0(termsToAddChar, ":", .BANOVAsubjectName)
+            termsToAdd <- as.formula(paste("~ . +", paste0(termsToAddChar, collapse = " + ")))
+            modelSpace[[i]] <- update.formula(modelSpace[[i]], new = termsToAdd)
+          }
         }
+
+      } else {
+
+        termsToAdd <- as.formula(paste("~ . +", paste0(nuisanceRandomSlopes, collapse = " + ")))
+        modelSpace <- lapply(modelSpace, update.formula, new = termsToAdd)
       }
 
-    } else {
+      # for the reordering done below. termsToAdd always contains the most complex random effects
+      formula    <- update.formula(formula, new = termsToAdd)
 
-      termsToAdd <- as.formula(paste("~ . +", paste0(nuisanceRandomSlopes, collapse = " + ")))
-      modelSpace <- lapply(modelSpace, update.formula, new = termsToAdd)
+      # update nuisance
+      nuisance <- c(nuisance, nuisanceRandomSlopes)
+
     }
-
-    # for the reordering done below. termsToAdd always contains the most complex random effects
-    formula    <- update.formula(formula, new = termsToAdd)
-
-    # update nuisance
-    nuisance <- c(nuisance, nuisanceRandomSlopes)
   }
 
   if (is.null(nuisance)) {

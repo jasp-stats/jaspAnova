@@ -1156,7 +1156,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCalcModelSummaries <- function(modelList, modelNames, baseModel, dataset, container, options) {
-  if (!is.null(container[["modelSummaries"]]) || container$getError()) return()
+  if (container$getError()) return()
+  if (!is.null(container[["modelSummaries"]])) return(container[["modelSummaries"]]$object)
 
   modelSummaryContainer <- createJaspContainer()
   modelSummaryContainer$dependOn(c("restrictedConfidenceIntervalLevel",
@@ -1801,14 +1802,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
     bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
                                                       numberOfLevels = numberOfLevels)
-    
-    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]], 
-                                                        sigma = sqrt(mean(sigma(model)^2)), 
+
+    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
+                                                        sigma = sqrt(mean(sigma(model)^2)),
                                                         edf = df.residual(model),
                                                         level = bonfAdjustCIlevel))
-    
+
     allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
-    
+
     if (nrow(resultPostHoc[[1]]) > 1)
       postHocStandardContainer[[thisVarName]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
                                                                                       options$confidenceIntervalsPostHoc))
@@ -1830,7 +1831,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
     resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
     resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
-    
+
     if (options$postHocTestsBootstrapping) {
 
       postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTestsBootstrappingReplicates']])))

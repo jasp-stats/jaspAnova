@@ -79,4 +79,5 @@ Form
 
 	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA }
 
+
 }

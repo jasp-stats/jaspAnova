@@ -17,6 +17,7 @@
 //
 
 import QtQuick			2.12
+import QtQuick.Layouts	1.3
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
@@ -34,11 +35,22 @@ Section
 		columns: 2
 		Group
 		{
-			columns: 1
-			title: qsTr("Prior")
-			DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");  defaultValue: 0.5; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects"); defaultValue: 1;   max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
-			DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");     defaultValue: 0.354; max: 2; inclusive: JASP.MaxOnly; decimals: 3 }
+			RadioButtonGroup
+			{
+				title: qsTr("Specify prior on coefficients")
+				name: "coefficientsPrior"
+				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("for all parameters");			checked: true;	id: rscalesAcrossParameters	}
+				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("individually for each term");												}
+			}
+			Group
+			{
+				enabled: rscalesAcrossParameters.checked
+				columns: 1
+				title: qsTr("Prior")
+				DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
+				DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
+				DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
+			}
 		}
 
 		RadioButtonGroup
@@ -100,6 +112,14 @@ Section
 			}
 		}
 
+		Group
+		{
+			title: qsTr("Enforce the principle of marginality for")
+			CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("Fixed effects");	checked: true	}
+			CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("Random slopes");	checked: false	}
+		}
+
+
 		SetSeed{}
 
 		RadioButtonGroup
@@ -147,33 +167,187 @@ Section
 		}
 	}
 
-	Group
-	{
-		title: qsTr("Enforce the principle of marginality for")
-		CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("Fixed effects");	checked: true	}
-		CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("Random slopes");	checked: false	}
-	}
 
-	VariablesList
+	ColumnLayout
 	{
-		name				: "modelTermsCustomPrior"
-		optionKey			: "components"
-		source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
-		visible				: customPriorModelProbabilities.checked
-		title				: qsTr("Model Term")
-		rowComponentTitle	: qsTr("Prior inclusion probability")
-		listViewType		: JASP.AssignedVariables
-		draggable			: false
-
-		rowComponent		: DoubleField
+		spacing:				0
+		Layout.preferredWidth:	parent.width
+		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+		RowLayout
 		{
-			name:			"modelTermsCustomPrior2"
-			min:			0
-			max:			1
-			defaultValue:	0.5
-			inclusive:		JASP.None
+			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 200 * preferencesModel.uiScale	}
+			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 140 * preferencesModel.uiScale	}
+			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 140 * preferencesModel.uiScale	}
+			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked && analysisType !== AnalysisType.AnalysisType.BANOVA;																														}
+		}
+		VariablesList
+		{
+			name				: "modelTermsCustomPrior"
+			optionKey			: "components"
+			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
+//			visible				: customPriorModelProbabilities.checked
+//			title				: qsTr("Model Term")
+//			rowComponentTitle	: qsTr("Prior inclusion probability")
+			listViewType		: JASP.AssignedVariables
+			draggable			: false
+
+//			rowComponent		: 			DoubleField
+//			{
+//				name:			"modelTermsCustomPrior2"
+//				min:			0
+//				max:			1
+//				defaultValue:	0.5
+//				inclusive:		JASP.None
+//			}
+	//		This needs separate titles for each field
+			rowComponent: RowLayout
+			{
+				id: modelTermsCustomPriorItem
+				property int space:		  4 * preferencesModel.uiScale
+				property int prefWidth:	110 * preferencesModel.uiScale
+
+				Row
+				{
+					spacing:				modelTermsCustomPriorItem.space
+					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
+					DoubleField
+					{
+						name:			"modelTermsCustomPrior2"
+						min:			0
+						max:			100
+						defaultValue:	0.5
+						inclusive:		JASP.None
+						visible:		customPriorModelProbabilities.checked
+					}
+				}
+				Row
+				{
+					spacing:				modelTermsCustomPriorItem.space
+					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
+					DoubleField
+					{
+						name:			"priorTermsFixed"
+						min:			0
+						max:			100
+						defaultValue:	0.5
+						inclusive:		JASP.None
+						visible:		!rscalesAcrossParameters.checked
+					}
+				}
+				Row
+				{
+					spacing:				modelTermsCustomPriorItem.space
+					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
+					DoubleField
+					{
+						name:			"priorTermsRandom"
+						min:			0
+						max:			100
+						defaultValue:	1
+						inclusive:		JASP.None
+						visible:		!rscalesAcrossParameters.checked
+					}
+				}
+			}
 		}
 	}
+
+	ColumnLayout
+	{
+		spacing:				0
+		Layout.preferredWidth:	parent.width
+		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+		RowLayout
+		{
+			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 148 * preferencesModel.uiScale	}
+			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth:  80 * preferencesModel.uiScale	}
+			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked && analysisType !== AnalysisType.AnalysisType.BANOVA;																														}
+		}
+
+		ComponentsList
+		{
+			name				: "modelTermsCustomPrior22"
+			optionKey			: "components22"
+			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
+//			visible				: customPriorModelProbabilities.checked
+//			title				: qsTr("Model Term")
+//			rowComponentTitle	: qsTr("Prior inclusion probability")
+//			listViewType		: JASP.AssignedVariables
+//			draggable			: false
+
+//			rowComponent		: 			DoubleField
+//			{
+//				name:			"modelTermsCustomPrior2"
+//				min:			0
+//				max:			1
+//				defaultValue:	0.5
+//				inclusive:		JASP.None
+//			}
+	//		This needs separate titles for each field
+			rowComponent: RowLayout
+			{
+				Row
+				{
+					spacing:				4 * preferencesModel.uiScale
+					Layout.preferredWidth:	210 * preferencesModel.uiScale
+					TextField
+					{
+						label: 				""
+						name: 				"name"
+						startValue:			rowValue
+						fieldWidth:			160 * preferencesModel.uiScale
+						useExternalBorder:	false
+						showBorder:			true
+						editable:			false
+					}
+				}
+				Row
+				{
+					visible:				customPriorModelProbabilities.checked
+					spacing:				4 * preferencesModel.uiScale
+					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					DoubleField
+					{
+						name:			"modelTermsCustomPrior33"
+						min:			0
+						max:			100
+						defaultValue:	0.5
+						inclusive:		JASP.None
+					}
+				}
+				Row
+				{
+					visible:				!rscalesAcrossParameters.checked
+					spacing:				4 * preferencesModel.uiScale
+					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					DoubleField
+					{
+						name:			"priorTermsFixed33"
+						min:			0
+						max:			100
+						defaultValue:	0.5
+						inclusive:		JASP.None
+					}
+				}
+				Row
+				{
+					visible:				!rscalesAcrossParameters.checked
+					spacing:				4 * preferencesModel.uiScale
+					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					DoubleField
+					{
+						name:			"priorTermsRandom33"
+						min:			0
+						max:			100
+						defaultValue:	1
+						inclusive:		JASP.None
+					}
+				}
+			}
+		}
+	}
+
 
 
 }

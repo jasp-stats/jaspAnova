@@ -1156,8 +1156,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictionsCalcModelSummaries <- function(modelList, modelNames, baseModel, dataset, container, options) {
+  # TODO: This function needs to be rewritten, the structure of the container and dependencies is redundant and too convoluted.
   if (container$getError()) return()
-  if (!is.null(container[["modelSummaries"]])) return(container[["modelSummaries"]]$object)
+  if (!is.null(container[["modelSummaries"]])) return(container[["modelSummaries"]][["modelSummaryList"]]$object)
 
   modelSummaryContainer <- createJaspContainer()
   modelSummaryContainer$dependOn(c("restrictedConfidenceIntervalLevel",
@@ -1347,6 +1348,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     complementState$object <- complementEmmSummary
   }
 
+  modelSummaryContainer[["modelSummaryList"]] <- createJaspState(object = modelSummaryList)
   container[["modelSummaries"]] <- modelSummaryContainer
 
   return(modelSummaryList)

@@ -1164,7 +1164,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                                    "restrictedModelMarginalMeansTerm",
                                    "restrictedModelHeteroskedasticity",
                                    "restrictedConfidenceIntervalBootstrap",
-                                   "restrictedConfidenceIntervalBootstrapSamples"))
+                                   "restrictedConfidenceIntervalBootstrapSamples",
+                                   "restrictedModelComparison",
+                                   "restrictedModelComparisonReference"))
 
   ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
 
@@ -1564,7 +1566,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
                               "restrictedModelMarginalMeansTerm",
                               "restrictedModelHeteroskedasticity",
                               "restrictedConfidenceIntervalBootstrap",
-                              "restrictedConfidenceIntervalBootstrapSamples"))
+                              "restrictedConfidenceIntervalBootstrapSamples",
+                              "restrictedModelComparison",
+                              "restrictedModelComparisonReference"))
+
   ordinalRestrictionsContainer[["modelSummaryTables"]] <- summaryContainer
 
   whichModels <- sapply(options[["restrictedModels"]], function(mod) mod[["modelSummary"]])

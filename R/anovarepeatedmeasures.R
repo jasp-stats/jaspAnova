@@ -1125,7 +1125,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
                                    "restrictedModelMarginalMeansTerm",
                                    "restrictedModelHeteroskedasticity",
                                    "restrictedConfidenceIntervalBootstrap",
-                                   "restrictedConfidenceIntervalBootstrapSamples"))
+                                   "restrictedConfidenceIntervalBootstrapSamples",
+                                   "restrictedModelComparison",
+                                   "restrictedModelComparisonReference"))
 
   ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
 

@@ -1764,7 +1764,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (options$rainCloudPlotsSeparatePlots != "") {
     for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
       subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
-      thisPlotName <- paste0(options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
+      thisPlotName <- paste0(dependentV, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot
       p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
@@ -1774,7 +1774,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         subPlot$plotObject <- p
     }
   } else {
-    singlePlot <- createJaspPlot(title = "", width = 480, height = 320)
+    singlePlot <- createJaspPlot(title = dependentV, width = 480, height = 320)
     rainCloudPlotsContainer[["rainCloudPlotSingle"]] <- singlePlot
     p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(dataset, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
     if(isTryError(p))

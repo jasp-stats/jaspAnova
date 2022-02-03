@@ -2,103 +2,113 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2021-11-27 02:44\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-04 03:58+0000\n"
+"Last-Translator: Harris Abd Hamid <harris75@gmail.com>\n"
+"Language-Team: Malay <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"Pemberat-pemberat WLS mempunyai nilai negatif dan/atau sifar. <br><br>(hanya "
+"pemberat-pemberat WLS yang positif dibenarkan)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"Padanan tunggal ditemui; satu atau lebih pemboleh ubah peramal adalah "
+"gabungan linear pemboleh ubah lain"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"Kuasa dua jumlah baki ialah 0; ini mungkin disebabkan varians yang sangat "
+"rendah bagi pemboleh ubah bersandar"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Keralatan berlaku semasa pengiraan ANOVA: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
 msgstr ""
+"Rekabentuk anda ada sel kosong. Sila cuba jenis jumlah kuasa dua yang lain."
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Pembetulan kehomogenan"
 
 msgid "Cases"
-msgstr ""
+msgstr "Kes-kes"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Jumlah Kuasa Dua"
 
 msgid "df"
-msgstr ""
+msgstr "dk"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Min Kuasa Dua"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "k"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Jumlah Kuasa Dua Jenis I"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Jumlah Kuasa Dua Jenis II"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Jumlah Kuasa Dua Jenis III"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
-msgstr ""
+msgstr "Pembetulan Brown-Forsythe dan Welch tersedia hanya untuk ANOVA sehala"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Jadual-jadual Kontras"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Kontras - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Sila tentukan kontras tambahan."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Bilangan yang salah bagi baris-baris kontras matrik tersuai."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Sila tentukan pemberat-pemberat kontras yang bukan sifar."
 
 msgid "Estimate"
-msgstr ""
+msgstr "Anggaran"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% JK untuk Perbezaan Min"
 
 msgid "Lower"
-msgstr ""
+msgstr "Bawah"
 
 msgid "Upper"
-msgstr ""
+msgstr "Atas"
 
 msgid "SE"
-msgstr ""
+msgstr "RP"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr ""
@@ -113,82 +123,89 @@ msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
 
 msgid "There are errors in the restriction syntax for %s."
-msgstr ""
+msgstr "Ada ralat dalam sintaks sekatan %s."
 
 msgid "Syntax error: %1$s%2$s."
-msgstr ""
+msgstr "Ralat sintaks: %1$s%2$s."
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "Jadual Perbandingan Model"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "LL"
-msgstr ""
+msgstr "HB"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Penalti"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Pemberat"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Nisbah"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid "Ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"Nisbah menandakan pemberat relatif bagi setiap model berbanding model \"%1$"
+"s\". %2$s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Tidak Terkekang"
 
 msgid "Complement"
-msgstr ""
+msgstr "Pelengkap"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "Model '%s' bukan model rujukan kerana ia kosong!"
 
 msgid "Model Coefficients Table"
-msgstr ""
+msgstr "Jadual Pekali Model"
 
 msgid "Estimates"
-msgstr ""
+msgstr "Anggaran"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Pekali"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Pekali berbeza daripada model tidak terkekang."
 
 msgid "Bootstrapping Restricted Marginal Means:"
-msgstr ""
+msgstr "Min Marginal Terhad Butstrap:"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"Beberapa jeda keyakinan tidak dapat dikira. Kemungkinan bilangan replika "
+"butstrap terlalu sedikit."
 
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr ""
+msgstr "Min Marginal Terhad Butstrap: %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "Ujian-Ujian Hipotesis Berpengetahuan"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "Ringkasan Had-had"
 
 msgid "Restriction"
-msgstr ""
+msgstr "Sekatan"
 
 msgid "Reduction Summary"
 msgstr ""
@@ -260,7 +277,7 @@ msgid "Some confidence intervals could not be computed.\nPossibly too few bootst
 msgstr ""
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
@@ -296,7 +313,7 @@ msgid "p<sub>tukey</sub>"
 msgstr ""
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
@@ -308,16 +325,16 @@ msgid "Confidence interval is too narrow, please select a different confidence l
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Min"
 
 msgid "SD"
-msgstr ""
+msgstr "SP"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Semakan Andaian"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
@@ -398,10 +415,10 @@ msgid "Some parameters are not estimable, most likely due to empty cells of the 
 msgstr ""
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
 msgstr ""
@@ -485,7 +502,7 @@ msgid "bias"
 msgstr ""
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d Cohen"
 
 msgid "Computation of Cohen's d based on pooled error."
 msgstr ""
@@ -731,7 +748,7 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskriptif"
 
 msgid "Descriptives - %s"
 msgstr ""

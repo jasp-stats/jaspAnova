@@ -1117,14 +1117,17 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 }
 
 .rmAnovaOrdinalRestrictionsCalcModelSummaries <- function(compareGoric, modelNames, baseModel, wideData, container, options) {
-  if (!is.null(container[["modelSummaries"]]) || container$getError()) return()
+  if (container$getError()) return()
+  if (!is.null(container[["modelSummaries"]])) return(container[["modelSummaries"]]$object)
 
   modelSummaryContainer <- createJaspContainer()
   modelSummaryContainer$dependOn(c("restrictedConfidenceIntervalLevel",
                                    "restrictedModelMarginalMeansTerm",
                                    "restrictedModelHeteroskedasticity",
                                    "restrictedConfidenceIntervalBootstrap",
-                                   "restrictedConfidenceIntervalBootstrapSamples"))
+                                   "restrictedConfidenceIntervalBootstrapSamples",
+                                   "restrictedModelComparison",
+                                   "restrictedModelComparisonReference"))
 
   ciLvl  <- options[["restrictedConfidenceIntervalLevel"]]
 
@@ -1346,12 +1349,12 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     numberOfLevels <- nrow(as.data.frame(referenceGrid[[var]]))
     bonfAdjustCIlevel <- .computeBonferroniConfidence(options$confidenceIntervalIntervalPostHoc,
                                                       numberOfLevels = numberOfLevels)
-    
-    effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[var]], 
-                                                        sigma = sqrt(mean(sigma(fullModel$lm)^2)), 
+
+    effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[var]],
+                                                        sigma = sqrt(mean(sigma(fullModel$lm)^2)),
                                                         edf = df.residual(fullModel$lm),
                                                         level = bonfAdjustCIlevel))
-    
+
     resultPostHoc[["bonferroni"]] <- resultPostHoc[["p.value"]]
 
     resultPostHoc[["tukey"]] <-  summary(pairs(referenceGrid[[var]], adjust="tukey"))[["p.value"]]
@@ -1363,7 +1366,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
     resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
     resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
-    
+
     comparisons <- strsplit(as.character(resultPostHoc$contrast), " - ")
 
     orderOfTerms <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name))
@@ -1458,7 +1461,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 }
 
 .computeBonferroniConfidence <- function(confidenceLevel, numberOfLevels) {
-  
+
   bonfAdjustCIlevel <- 1 - ((1-confidenceLevel) /
                               choose(numberOfLevels, 2))
   return(bonfAdjustCIlevel)
@@ -1496,10 +1499,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   if (options$postHocTestEffectSize) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
-    
+
     if (isFALSE(options$postHocTestPooledError))
       postHocTable$addFootnote(gettext("Computation of Cohen's d based on pooled error."))
-    
+
     if (options$confidenceIntervalsPostHoc) {
       thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$confidenceIntervalIntervalPostHoc * 100)
       postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
@@ -1919,12 +1922,12 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       # Kendall W, from descTools https://github.com/cran/DescTools/blob/513a58f635798dacf49982c396e2af9a81f3491d/R/StatsAndCIs.r#L5553-L5625
       ratings <- t(do.call(cbind, tapply(y, groups, cbind)))
       ratings <- as.matrix(na.omit(ratings))
-      
+
       ns <- nrow(ratings)
       nr <- ncol(ratings)
-      
+
       ratings.rank <- apply(ratings, 2, rank)
-      
+
       tieAdjust <- 0
       for (i in 1:nr) {
         rater <- table(ratings.rank[,i])
@@ -1932,7 +1935,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
         l 	  <- as.numeric(ties)
         tieAdjust	  <- tieAdjust + sum(l^3-l)
       }
-      kendallWcor <- (12 * var(apply(ratings.rank, 1, sum)) * (ns - 1)) / 
+      kendallWcor <- (12 * var(apply(ratings.rank, 1, sum)) * (ns - 1)) /
         (nr^2 * (ns^3 - ns) - nr * tieAdjust)
 
       row <- list()
@@ -2096,7 +2099,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   # the simple factor must appear in the model terms, but the moderator factors may be missing.
   withinModelTerms <- unique(unlist(lapply(options[["withinModelTerms"]], `[[`, "components"), use.names = FALSE))
   betweenModelTerms <- unique(unlist(lapply(options[["betweenModelTerms"]], `[[`, "components"), use.names = FALSE))
-  
+
   if (!(options[["simpleFactor"]] %in% c(withinModelTerms, betweenModelTerms))) {
     rmAnovaContainer[["simpleEffectsContainer"]]$setError(gettext("Moderator factors must also appear in the model terms!"))
     return()

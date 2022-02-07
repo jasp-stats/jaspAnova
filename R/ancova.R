@@ -836,18 +836,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
-  if (!ready) return()
-  if (is.null(anovaContainer[["ordinalRestrictions"]])) {
-    ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"), dependencies = "restrictedModels")
-    anovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
-  } else {
-    ordinalRestrictionsContainer <- anovaContainer[["ordinalRestrictions"]]
-  }
+  if (!ready || !.isAnovaOrdinalRestrictionsReady(options)) return()
 
-  restrictedModels <- options[["restrictedModels"]]
-  restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
-  if (length(restrictedModels) == 0L) return()
+  container <- .getAnovaOrdinalRestrictionsContainer
 
+  .anovaOrdinalRestrictionsModelSummary      (container, dataset, options)
+  .anovaOrdinalRestrictionsModelComparison   (container, dataset, options)
+
+  return()
 
   baseModel <- .anovaOrdinalRestrictionsCalcBaseModel(ordinalRestrictionsContainer, dataset, options)
 
@@ -960,25 +956,6 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       return()
     }
   }
-}
-# the following two functions should not be necessary if the QML component
-# for the restrictions encodes the column names
-.anovaOrdinalRestrictionsGetUsedVars <- function(syntax, availablevars) {
-  allVars <- decodeColNames(availablevars)
-  inSyntax <- stringr::str_detect(syntax, pattern = allVars)
-  return(allVars[inSyntax])
-}
-
-.anovaOrdinalRestrictionsTranslateSyntax <- function(syntax, dataset, options) {
-  usedvars <- .anovaOrdinalRestrictionsGetUsedVars(syntax, colnames(dataset))
-
-  new.names <- encodeColNames(usedvars)
-
-  for (i in seq_along(usedvars)) {
-    syntax <- try(gsub(usedvars[i], new.names[i], syntax))
-  }
-
-  return(syntax)
 }
 
 .anovaOrdinalRestrictionsComputeModel <- function(model, baseModel, container, dataset, options) {

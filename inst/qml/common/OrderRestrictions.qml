@@ -123,44 +123,58 @@ Section
 		{
 			property var comparisonValuesInclComplement: 
 			[
-				{ label: qsTr("Complement"), value: "complement"},
-				{ label: qsTr("Unconstrained"), value: "unconstrained" },
+				{ label: qsTr("Complement model"), value: "complement"},
+				{ label: qsTr("Unconstrained model"), value: "unconstrained" },
 				{ label: qsTr("None"), value: "none" }
 			]
 			property var comparisonValuesExclComplement: 
 			[
-				{ label: qsTr("Unconstrained"), value: "unconstrained" },
+				{ label: qsTr("Unconstrained model"), value: "unconstrained" },
 				{ label: qsTr("None"), value: "none" }
 			]
 			property var comparisonValues: (models.count > 1) ? comparisonValuesExclComplement : comparisonValuesInclComplement
 			
-			name: "restrictedModelComparison"
-			label: qsTr("Compare against")
-			indexDefaultValue: 0
-			values: comparisonValues
-			id: modelComparison
+			name:				"restrictedModelComparison"
+			label:				qsTr("Add to comparison")
+			indexDefaultValue:	0
+			values:				comparisonValues
+			id:					modelComparison
 		}
 		
-		DropDown
+		CheckBox
 		{
-			property var modelsToReference: (modelComparison.value === "none") ? [] : [ { label: modelComparison.currentLabel, value: modelComparison.value } ]
-			
-			name: "restrictedModelComparisonReference"
-			label: qsTr("Reference model for weight ratios")
-			indexDefaultValue: 0
-			source:  [ models, { values: modelsToReference } ]
+			name:				"restrictedModelComparisonWeights"
+			label:				qsTr("Add weight ratios")
+			checked:			true
+			childrenOnSameRow:	false
+
+			DropDown
+			{
+				property var modelsToReference: (modelComparison.value === "none") ? [] : [ { label: modelComparison.currentLabel, value: modelComparison.value } ]
+
+				name:				"restrictedModelComparisonReference"
+				label:				qsTr("Reference model")
+				indexDefaultValue:	0
+				source:				[ models, { values: modelsToReference } ]
+			}
+		}
+
+		CheckBox
+		{
+			name:	"restrictedModelComparisonMatrix"
+			label:	qsTr("Relative weights matrix")
 		}
 		
 		CheckBox
 		{
 			name: "restrictedModelComparisonCoefficients"
-			label: qsTr("Show model coefficients")
-			childrenOnSameRow: true
+			label: qsTr("Compare model coefficients")
+			childrenOnSameRow: false
 			
 			CheckBox
 			{
 				name: "highlightEstimates"
-				label: qsTr("Highlight coefficients")
+				label: qsTr("Highlight differences with the unconstrained model")
 				checked: true
 			}
 		}

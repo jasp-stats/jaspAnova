@@ -188,8 +188,9 @@
     message <- .extractErrorMessage(modelComparison)
     modelComparisonContainer$setError(gettext("Could not compute model comparison! Error message: %", message))
   } else {
-    .aorModelComparisonTable (modelComparisonContainer, options, modelComparison)
-    .aorModelComparisonMatrix(modelComparisonContainer, options, modelComparison)
+    .aorModelComparisonTable              (modelComparisonContainer, options, modelComparison)
+    .aorModelComparisonMatrix             (modelComparisonContainer, options, modelComparison)
+    .aorModelComparisonCompareCoefficients(modelComparisonContainer, options, modelComparison, models)
   }
 }
 
@@ -258,7 +259,7 @@
   if(!is.null(container[["comparisonMatrix"]]) || !options[["restrictedModelComparisonMatrix"]]) return()
 
   # define
-  comparisonMatrix <- createJaspTable(title        = gettextf("Relative %s-weights", toupper(modelComparison[["type"]])),
+  comparisonMatrix <- createJaspTable(title        = gettextf("Relative %s-Weights", toupper(modelComparison[["type"]])),
                                       position     = 2,
                                       dependencies = c("restrictedModelComparisonMatrix")
                                       )
@@ -281,6 +282,61 @@
       comparisonMatrix$addColumnInfo(name = colName, title = colName, type = "number", overtitle = gettext("vs."))
 
     comparisonMatrix$setData(df)
+  }
+}
+
+.aorModelComparisonCompareCoefficients <- function(container, options, modelComparison, models) {
+  if(!is.null(container[["coefficientsTable"]]) || !options[["restrictedModelComparisonCoefficients"]]) return()
+
+  coefficientsTable <- createJaspTable(title        = gettext("Coefficients Comparison"),
+                                       position     = 3,
+                                       dependencies = c("restrictedModelComparisonCoefficients", "highlightEstimates")
+                                       )
+  coefficientsTable$showSpecifiedColumnsOnly <- TRUE
+  coefficientsTable$addColumnInfo(name = "coef", title = gettext("Coefficient"), type = "string")
+
+
+  container[["coefficientsTable"]] <- coefficientsTable
+
+  # fill
+  result <- modelComparison[["result"]]
+  df <- t(coefficients(modelComparison))
+  df <- as.data.frame(df)
+  colnames(df) <- result[["model"]]
+  df[["coef"]] <- rownames(df)
+
+  # bug in restriktor cannot handle user-defined parameters, so we will remove them
+  basicParameters <- names(coefficients(models[["unrestricted"]][["fit"]]))
+  df <- subset(df, subset = coef %in% basicParameters)
+
+  for(index in seq_len(nrow(result)))
+    coefficientsTable$addColumnInfo(name = result[["model"]][[index]], title = result[["modelNames"]][[index]], type = "number")
+
+  coefficientsTable$setData(df)
+
+  if(options[["highlightEstimates"]])
+    .aorModelComparisonHighlightCoefficients(coefficientsTable, coefficients(models[["unrestricted"]][["fit"]]), df)
+}
+
+.aorModelComparisonHighlightCoefficients <- function(table, unrestricted, df) {
+  for(row in seq_len(nrow(df))) {
+    coef <- df[["coef"]][[row]]
+    table$setRowName(rowIndex = row, newName = coef)
+
+    for(col in seq_len(ncol(df))) {
+      model <- colnames(df)[[col]]
+
+      cell <- df[row, col]
+      ref  <- unrestricted[[coef]]
+      if(is.numeric(cell) && !isTRUE(all.equal(cell, ref))) {
+        table$addFootnote(
+          message  = gettext("Coefficients differ from unconstrained model."),
+          symbol   = "\u2020",
+          colNames = model,
+          rowNames = coef
+          )
+      }
+    }
   }
 }
 

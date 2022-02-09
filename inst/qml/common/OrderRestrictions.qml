@@ -143,7 +143,7 @@ Section
 		
 		DropDown
 		{
-			property var modelsToReference: (modelComparison.value === "none") ? [] : [ modelComparison.currentLabel ]
+			property var modelsToReference: (modelComparison.value === "none") ? [] : [ { label: modelComparison.currentLabel, value: modelComparison.value } ]
 			
 			name: "restrictedModelComparisonReference"
 			label: qsTr("Reference model for weight ratios")

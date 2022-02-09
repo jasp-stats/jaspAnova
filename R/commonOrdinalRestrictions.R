@@ -176,7 +176,7 @@
 
   if(is.null(container[["modelComparison"]])) {
     modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 2)
-    modelComparisonContainer$dependOn(c("restrictedModelComparison", "restrictedModelComparisonReference"))
+    modelComparisonContainer$dependOn(c("restrictedModelComparison"))
     container[["modelComparison"]] <- modelComparisonContainer
   } else {
     modelComparisonContainer <- container[["modelComparison"]]
@@ -198,13 +198,17 @@
 
   type       <- modelComparison[["type"]]
   comparison <- modelComparison[["comparison"]]
-  reference  <- modelComparison[["reference"]]
+  reference  <- options[["restrictedModelComparisonReference"]]
 
   # define
-  comparisonTable <- createJaspTable(title = gettext("Model Comparison Table"), position = 1)
-  comparisonTable$addColumnInfo(name = "model",   title = gettext("Model"),   type = "string")
-  comparisonTable$addColumnInfo(name = "loglik",  title = gettext("LL"),      type = "number")
-  comparisonTable$addColumnInfo(name = "penalty", title = gettext("Penalty"), type = "number")
+  comparisonTable <- createJaspTable(title        = gettext("Model Comparison Table"),
+                                     position     = 1,
+                                     dependencies = c("restrictedModelComparisonWeights", "restrictedModelComparisonReference")
+                                     )
+  comparisonTable$showSpecifiedColumnsOnly <- TRUE
+  comparisonTable$addColumnInfo(name = "modelNames", title = gettext("Model"),   type = "string")
+  comparisonTable$addColumnInfo(name = "loglik",     title = gettext("LL"),      type = "number")
+  comparisonTable$addColumnInfo(name = "penalty",    title = gettext("Penalty"), type = "number")
   if (type == "goric") {
     comparisonTable$addColumnInfo(name = "goric",         title = gettext("GORIC"),  type = "number")
     comparisonTable$addColumnInfo(name = "goric.weights", title = gettext("Weight"), type = "number")
@@ -212,34 +216,52 @@
     comparisonTable$addColumnInfo(name = "gorica",         title = gettext("GORICA"), type = "number")
     comparisonTable$addColumnInfo(name = "gorica.weights", title = gettext("Weight"), type = "number")
   }
-  comparisonTable$addColumnInfo(name = "ratio", title = gettext("Ratio"), type = "number")
+
+  if(options[["restrictedModelComparisonWeights"]])
+    comparisonTable$addColumnInfo(name = "ratio", title = gettext("Weights ratio"), type = "number")
 
   abbrev     <- switch(type,
                        goric = gettext("GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."),
                        gettext("GORICA = Generalized Order-Restricted Information Criterion Approximation.")
   )
-  comparisonTable$addFootnote(gettextf('Ratios indicate the relative weight for each model against the "%1$s" model. %2$s', reference, abbrev))
+  comparisonTable$addFootnote(gettextf('Weights ratios indicate the relative weight for each model against the "%1$s" model. %2$s', reference, abbrev))
   comparisonTable$addCitation(c("Kuiper, R. M., Hoijtink, H., Silvapulle, M. J. (2011). An Akaike-type information criterion for model selection under equality constarints. Biometrika, 98(2), 495-501.",
                                 "Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a theory-based hypothesis against its complement using an AIC-type information criterion with an application to facial burn injury. Psychological Methods, 25(2), 129-142."))
 
   container[["comparisonTable"]] <- comparisonTable
 
   # fill
-  comparisonTable$setData(modelComparison[["result"]])
+  if(options[["restrictedModelComparisonWeights"]]) {
+    result  <- modelComparison[["result"]]
+    weights <- modelComparison[["relative.gw"]]
 
-  if(all(is.na(modelComparison[["result"]][["ratio"]])))
-    comparisonTable$addFootnote(colNames = "ratio", message = gettextf("Model '%s' cannot be a reference model as it is empty!", reference))
+    if(nrow(result) == 1) {
+      modelComparison[["result"]][["ratio"]] <- 1
+    } else if (is.na(weights)) {
+      modelComparison[["result"]][["ratio"]] <- NA
+      comparisonTable$addFootnote(colNames = "ratio", message = gettext("Could not compute weights!"))
+    } else if (! reference %in% result[["model"]]) {
+      modelComparison[["result"]][["ratio"]] <- NA
+      comparisonTable$addFootnote(colNames = "ratio", message = gettextf("Model '%s' cannot be a reference model as it is empty!", reference))
+    } else {
+      modelComparison[["result"]][["ratio"]] <- weights[, result[["model"]] == reference]
+    }
+  }
+
+  comparisonTable$setData(modelComparison[["result"]])
 
   return()
 }
 
 
 .aorModelComparisonMatrix <- function(container, options, modelComparison) {
-  if(!is.null(container[["comparisonMatrix"]])) return()
+  if(!is.null(container[["comparisonMatrix"]]) || !options[["restrictedModelComparisonMatrix"]]) return()
 
   # define
-  comparisonMatrix <- createJaspTable(title    = gettextf("Relative %s-weights", toupper(modelComparison[["type"]])),
-                                      position = 2)
+  comparisonMatrix <- createJaspTable(title        = gettextf("Relative %s-weights", toupper(modelComparison[["type"]])),
+                                      position     = 2,
+                                      dependencies = c("restrictedModelComparisonMatrix")
+                                      )
   comparisonMatrix$addColumnInfo(name = "model", title = gettext("Model"))
   container[["comparisonMatrix"]] <- comparisonMatrix
 
@@ -292,15 +314,9 @@
       rownames(modelComparison[["relative.gw"]]) <- colnames(modelComparison[["relative.gw"]]) <- modelNames
     }
 
-    modelComparison[["result"]][["model"]] <- modelNames
+    modelComparison[["result"]][["modelNames"]] <- modelNames
+    modelComparison[["result"]][["model"]]      <- names(modelNames)
 
-    if(reference %in% names(modelNames) && !is.null(modelComparison[["relative.gw"]])) {
-      modelComparison[["result"]][["ratio"]] <- modelComparison[["relative.gw"]][, modelNames[reference]]
-    } else {
-      modelComparison[["result"]][["ratio"]] <- NA
-    }
-
-    modelComparison[["reference"]] <- reference
   }
 
   container[["modelComparison"]] <- createJaspState(object = modelComparison)

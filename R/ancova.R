@@ -806,12 +806,12 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
-  if (!ready || !.isAnovaOrdinalRestrictionsReady(options)) return()
+  if (!ready || !.aorIsReady(options)) return()
 
-  container <- .getAnovaOrdinalRestrictionsContainer
+  container <- .aorGetContainer(anovaContainer)
 
-  .anovaOrdinalRestrictionsModelSummary      (container, dataset, options)
-  .anovaOrdinalRestrictionsModelComparison   (container, dataset, options)
+  .aorModelSummary      (container, dataset, options)
+  .aorModelComparison   (container, dataset, options)
 
   return()
 
@@ -971,19 +971,19 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaOrdinalRestrictionsCompareModels <- function(modelList, ordinalRestrictionsContainer, options) {
-  if (ordinalRestrictionsContainer$getError()) return()
-  if (!is.null(ordinalRestrictionsContainer[["modelComparison"]])) return(ordinalRestrictionsContainer[["modelComparison"]]$object)
-
-  modelComparison <- createJaspState()
-  modelComparison$dependOn(c("restrictedModelComparison"))
-  names(modelList)[1] <- "object"
-  compareGoric <- do.call(restriktor::goric, c(modelList, comparison = options[["restrictedModelComparison"]]))
-  modelComparison$object <- compareGoric
-  ordinalRestrictionsContainer[["modelComparison"]] <- modelComparison
-
-  return(compareGoric)
-}
+# .anovaOrdinalRestrictionsCompareModels <- function(modelList, ordinalRestrictionsContainer, options) {
+#   if (ordinalRestrictionsContainer$getError()) return()
+#   if (!is.null(ordinalRestrictionsContainer[["modelComparison"]])) return(ordinalRestrictionsContainer[["modelComparison"]]$object)
+#
+#   modelComparison <- createJaspState()
+#   modelComparison$dependOn(c("restrictedModelComparison"))
+#   names(modelList)[1] <- "object"
+#   compareGoric <- do.call(restriktor::goric, c(modelList, comparison = options[["restrictedModelComparison"]]))
+#   modelComparison$object <- compareGoric
+#   ordinalRestrictionsContainer[["modelComparison"]] <- modelComparison
+#
+#   return(compareGoric)
+# }
 
 .ordinalRestrictionsCreateComparisonTable <- function(compareGoric, modelNames, ordinalRestrictionsContainer, type, options) {
   if (!is.null(ordinalRestrictionsContainer[["comparisonTable"]])) return()

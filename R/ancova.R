@@ -836,11 +836,16 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
-  if (!ready || !.aorIsReady(options)) return()
+  if (!ready) return()
+
+  options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
 
   container <- .aorGetContainer(anovaContainer)
 
   .aorBasicInfo         (container, dataset, options)
+
+  if(length(options[["restrictedModels"]]) == 0) return()
+
   .aorModelSummary      (container, dataset, options)
   .aorModelComparison   (container, dataset, options)
 

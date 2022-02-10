@@ -1,3 +1,4 @@
+# Getters ----
 .aorGetContainer <- function(container) {
   if (is.null(container[["ordinalRestrictions"]])) {
     ordinalRestrictionsContainer <- createJaspContainer(title        = gettext("Order Restrictions"),
@@ -10,20 +11,30 @@
   return(ordinalRestrictionsContainer)
 }
 
-.aorGetModelSyntax <- function(options, prune = TRUE) {
-  restrictedModels <- options[["restrictedModels"]]
-
-  if(prune)
-    restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
-
-  return(restrictedModels)
+.aorGetModelSyntax <- function(model) {
+  return(model[["restrictionSyntax"]])
 }
 
-.aorIsReady <- function(options) {
-  restrictedModels <- .aorGetModelSyntax(options)
-  return(length(restrictedModels) != 0L)
+.aorGetModelSyntaxes <- function(models) {
+  return(vapply(models, .aorGetModelSyntax, character(1)))
 }
 
+.aorGetModelName <- function(model) {
+  return(model[["modelName"]])
+}
+
+.aorGetModelNames <- function(models) {
+  return(vapply(models, .aorGetModelName, character(1)))
+}
+
+.aorPruneEmptyModels <- function(restrictedModels) {
+  syntaxes <- .aorGetModelSyntaxes(restrictedModels)
+  syntaxes <- trimws(syntaxes)
+
+  return(restrictedModels[syntaxes != ""])
+}
+
+# Syntax checks and converters ----
 .aorCheckSyntax <- function(modelName, modelSyntax) {
   # restriktor package does not handle multiple constraints on a single line (https://github.com/LeonardV/restriktor/issues/3)
   # so we need to check for this and ask the user to split constraints on separate lines
@@ -73,6 +84,7 @@
   return(syntax)
 }
 
+# Fitting ----
 .aorGetUnrestrictedModel <- function(dataset, options) {
   reorderModelTerms <- .reorderModelTerms(options)
   modelTerms        <- reorderModelTerms$modelTerms
@@ -114,28 +126,43 @@
   return(model)
 }
 
-.aorGetRestrictedModel <- function(restrictedModel, dataset, options, unrestrictedModel) {
-  modelName           <- restrictedModel[["modelName"]]
-  modelSyntaxOriginal <- restrictedModel[["restrictionSyntax"]]
-  modelSyntax         <- .aorTranslateSyntax(modelSyntaxOriginal, dataset, options, modelName)
+.aorGetRestrictedModel <- function(restrictedModelOption, dataset, options, unrestrictedModel) {
+  modelName                 <- .aorGetModelName   (restrictedModelOption)
+  restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
+  restrictionSyntax         <- try(.aorTranslateSyntax(restrictionSyntaxOriginal, dataset, options, modelName))
 
-  .aorCheckSyntax(modelName, modelSyntax)
+  if(isTryError(restrictionSyntax)) {
+    message <- .aorExtractErrorMessageSoft(restrictionSyntax)
+    stop(gettextf("Error in %1$s - Could not encode the model syntax! Error message %2$s", modelName, message))
+  }
 
-  fit <- restriktor::restriktor(unrestrictedModel[["fit"]], constraints = modelSyntax)
+  syntaxCheck <- try(.aorCheckSyntax(modelName, restrictionSyntax))
+
+  if(isTryError(syntaxCheck)) {
+    message <- .aorExtractErrorMessageSoft(syntaxCheck)
+    stop(gettextf("Error in %1$s - Syntax error in the model! Error message %2$s", modelName, message))
+  }
+
+  fit <- try(restriktor::restriktor(unrestrictedModel[["fit"]], constraints = restrictionSyntax))
+
+  if(isTryError(fit)) {
+    message <- .aorExtractErrorMessageSoft(fit)
+    stop(gettextf("Error in %1$s - Could not estimate the model! Error message %2$s", modelName, message))
+  }
 
   model <- list(
-    fit         = fit,
-    modelName   = modelName,
-    modelSyntax = modelSyntax
+    fit                       = fit,
+    modelName                 = modelName,
+    restrictionSyntax         = restrictionSyntax,
+    restrictionSyntaxOriginal = restrictionSyntaxOriginal
   )
 
   return(model)
 }
 
 .aorGetRestrictedModels <- function(dataset, options, unrestrictedModel) {
-  modelSyntaxes <- .aorGetModelSyntax(options = options)
 
-  restrictedModels <- lapply(modelSyntaxes, function(x) try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel)))
+  restrictedModels <- lapply(options[["restrictedModels"]], function(x) try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel)))
 
   return(restrictedModels)
 }
@@ -147,25 +174,39 @@
 
   models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(dataset, options))
   if(isTryError(models[["unrestricted"]])) {
-    message <- .extractErrorMessage(models[["unrestricted"]])
+    message <- .aorExtractErrorMessageSoft(models[["unrestricted"]])
     container$setError(gettextf("Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s.\n"), message)
     return()
   }
 
   models[["restricted"]] <- .aorGetRestrictedModels(dataset, options, models[["unrestricted"]])
 
-  container[["modelState"]] <- createJaspState(
-    object = models,
-    dependencies = c("includeIntercept")
-  )
+  if(isTryError(models[["restricted"]])) {
+    modelFailed            <- vapply(models[["restricted"]], isTryError, logical(1))
+    models[["failed"]]     <- models[["restricted"]][ modelFailed]
+    models[["restricted"]] <- models[["restricted"]][!modelFailed]
+  } else {
+    models[["failed"]] <- list()
+  }
+
+  if(length(models[["failed"]]) > 0 && length(models[["restricted"]]) == 0) {
+    save(models, file = "~/Downloads/errors.Rdata")
+    errors <- vapply(models[["failed"]], .aorExtractErrorMessageSoft, character(1))
+    errors <- sprintf("<li>%s</li>", errors)
+    errors <- paste(errors, collapse = "\n")
+    errors <- sprintf("<ul>%s</ul>", errors)
+    message <- gettextf("Could not fit any of the specified restricted models. Reason(s): %s", errors)
+    container$setError(message)
+  }
+
+  container[["modelState"]] <- createJaspState(object = models)
 
   return(models)
 }
 
+# Syntax info ----
 .aorBasicInfo <- function(container, dataset, options) {
   models <- .aorGetFittedModels(container, dataset, options)
-
-  if(container$getError()) return()
 
   if(is.null(container[["basicInfoContainer"]])) {
     basicInfoContainer <- createJaspContainer(title = gettext("Syntax information"), position = 1)
@@ -194,6 +235,7 @@
   availableParameters$text <- sprintf("<ul>%s</ul>", paste(pars, collapse = "\n"))
 }
 
+# Model summary ----
 .aorModelSummary <- function(container, dataset, options) {
   models <- .aorGetFittedModels(container, dataset, options)
 
@@ -208,11 +250,8 @@
 
 }
 
+# Model Comparison ----
 .aorModelComparison <- function(container, dataset, options) {
-  models <- .aorGetFittedModels(container, dataset, options)
-
-  if(container$getError()) return()
-
   if(is.null(container[["modelComparison"]])) {
     modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 3)
     modelComparisonContainer$dependOn(c("restrictedModelComparison"))
@@ -221,23 +260,35 @@
     modelComparisonContainer <- container[["modelComparison"]]
   }
 
-  modelComparison <- .aorGetModelComparison(modelComparisonContainer, options, models)
+  models          <- .aorGetFittedModels   (container, dataset, options)
+  ready <- !container$getError() && length(models[["restricted"]]) > 0
+
+  if(ready) {
+    modelComparison <- try(.aorGetModelComparison(modelComparisonContainer, options, models))
+  } else {
+    modelComparison <- NULL
+  }
 
   if(isTryError(modelComparison)) {
     message <- .extractErrorMessage(modelComparison)
     modelComparisonContainer$setError(gettext("Could not compute model comparison! Error message: %", message))
-  } else {
-    .aorModelComparisonTable              (modelComparisonContainer, options, modelComparison)
-    .aorModelComparisonMatrix             (modelComparisonContainer, options, modelComparison)
-    .aorModelComparisonCompareCoefficients(modelComparisonContainer, options, modelComparison, models)
+    ready <- FALSE
   }
+
+  .aorModelComparisonTable              (modelComparisonContainer, options, modelComparison, ready)
+  .aorModelComparisonMatrix             (modelComparisonContainer, options, modelComparison, ready)
+  .aorModelComparisonCompareCoefficients(modelComparisonContainer, options, modelComparison, models, ready)
 }
 
-.aorModelComparisonTable <- function(container, options, modelComparison) {
+.aorModelComparisonTable <- function(container, options, modelComparison, ready) {
   if(!is.null(container[["comparisonTable"]])) return()
 
-  type       <- modelComparison[["type"]]
-  comparison <- modelComparison[["comparison"]]
+  if(ready) {
+    type <- modelComparison[["type"]]
+  } else {
+    type <- "none"
+  }
+  comparison <- options[["restrictedModelComparison"]]
   reference  <- options[["restrictedModelComparisonReference"]]
 
   # define
@@ -252,7 +303,7 @@
   if (type == "goric") {
     comparisonTable$addColumnInfo(name = "goric",         title = gettext("GORIC"),  type = "number")
     comparisonTable$addColumnInfo(name = "goric.weights", title = gettext("Weight"), type = "number")
-  } else {
+  } else if (type == "gorica"){
     comparisonTable$addColumnInfo(name = "gorica",         title = gettext("GORICA"), type = "number")
     comparisonTable$addColumnInfo(name = "gorica.weights", title = gettext("Weight"), type = "number")
   }
@@ -270,6 +321,7 @@
 
   container[["comparisonTable"]] <- comparisonTable
 
+  if(!ready) return()
   # fill
   if(options[["restrictedModelComparisonWeights"]]) {
     result  <- modelComparison[["result"]]
@@ -294,17 +346,24 @@
 }
 
 
-.aorModelComparisonMatrix <- function(container, options, modelComparison) {
+.aorModelComparisonMatrix <- function(container, options, modelComparison, ready) {
   if(!is.null(container[["comparisonMatrix"]]) || !options[["restrictedModelComparisonMatrix"]]) return()
 
+
+  if(ready) {
+    type <- modelComparison[["type"]]
+  } else {
+    type <- ""
+  }
   # define
-  comparisonMatrix <- createJaspTable(title        = gettextf("Relative %s-Weights", toupper(modelComparison[["type"]])),
+  comparisonMatrix <- createJaspTable(title        = gettextf("Relative %s-Weights", toupper(type)),
                                       position     = 2,
                                       dependencies = c("restrictedModelComparisonMatrix")
                                       )
   comparisonMatrix$addColumnInfo(name = "model", title = gettext("Model"))
   container[["comparisonMatrix"]] <- comparisonMatrix
 
+  if(!ready) return()
   # fill
   if(is.null(modelComparison[["relative.gw"]])) {
     # only one model in the comparison leads to empty relative weight matrix
@@ -324,7 +383,7 @@
   }
 }
 
-.aorModelComparisonCompareCoefficients <- function(container, options, modelComparison, models) {
+.aorModelComparisonCompareCoefficients <- function(container, options, modelComparison, models, ready) {
   if(!is.null(container[["coefficientsTable"]]) || !options[["restrictedModelComparisonCoefficients"]]) return()
 
   coefficientsTable <- createJaspTable(title        = gettext("Coefficients Comparison"),
@@ -337,6 +396,7 @@
 
   container[["coefficientsTable"]] <- coefficientsTable
 
+  if(!ready) return()
   # fill
   result <- modelComparison[["result"]]
   df <- t(coefficients(modelComparison))
@@ -380,14 +440,7 @@
 }
 
 .aorGetModelComparison <- function(container, options, models) {
-  if (!is.null(container[["modelComparison"]])) return(container[["modelComparison"]]$object)
-
-  # fail early
-  if(isTryError(models[["restricted"]])) {
-    modelComparison <- gettext("Model comparison can be computed only when all models can be computed.")
-    class(modelComparison) <- "try-error"
-    return(modelComparison)
-  }
+  if (!is.null(container[["modelComparisonState"]])) return(container[["modelComparisonState"]]$object)
 
   comparison <- options[["restrictedModelComparison"]]
   reference  <- options[["restrictedModelComparisonReference"]]
@@ -414,7 +467,7 @@
 
   }
 
-  container[["modelComparison"]] <- createJaspState(object = modelComparison)
+  container[["modelComparisonState"]] <- createJaspState(object = modelComparison)
 
   return(modelComparison)
 }
@@ -422,33 +475,10 @@
 
 # Utilities ----
 
-# The following function is an adaptation of stats::contr.sum2
-# which removes colnames, which leads to dropping the level names
-# from the coefficients if sum contrasts are used in a lm()
-# which is important to keep for restriktor syntax.
-# Example:
-# df <- data.frame(y = rnorm(10), group = rep(c("experimental", "control"), each = 5), home = rep(c("city", "rural"), times = 5))
-# lm(y ~ group*home, df, contrasts = list(group = "contr.sum", home = "contr.sum"))
-# lm(y ~ group*home, df, contrasts = list(group = "contr.sum2", home = "contr.sum2"))
-# compare with:
-# lm(y ~ group*home, df, contrasts = list(group = "contr.treatment", home = "contr.treatment"))
-#
-# Original code taken from: https://svn.r-project.org/R/trunk/src/library/stats/R/contrast.R
-# R - Revision 81690
-contr.sum2 <- function (n, contrasts = TRUE, sparse = FALSE) {
-  if (length(n) <= 1L) {
-    if (is.numeric(n) && length(n) == 1L && n > 1L)
-      levels <- seq_len(n)
-    else stop("not enough degrees of freedom to define contrasts")
-  } else levels <- n
-
-  levels <- as.character(levels)
-  cont <- stats:::.Diag(levels, sparse=sparse)
-  if (contrasts) {
-    cont <- cont[, -length(levels), drop = FALSE]
-    cont[length(levels), ] <- -1
-    # this is the line that caused problems
-    # colnames(cont) <- NULL
-  }
-  cont
+.aorExtractErrorMessageSoft <- function(error) {
+  split <- base::strsplit(as.character(error), ":")[[1]]
+  message <- split[2:length(split)]
+  message <- unlist(message)
+  message <- paste(message, collapse = ":")
+  trimws(message)
 }

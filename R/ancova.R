@@ -810,6 +810,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   container <- .aorGetContainer(anovaContainer)
 
+  .aorBasicInfo         (container, dataset, options)
   .aorModelSummary      (container, dataset, options)
   .aorModelComparison   (container, dataset, options)
 

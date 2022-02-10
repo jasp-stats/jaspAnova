@@ -1,6 +1,7 @@
 .aorGetContainer <- function(container) {
   if (is.null(container[["ordinalRestrictions"]])) {
-    ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"), dependencies = "restrictedModels")
+    ordinalRestrictionsContainer <- createJaspContainer(title        = gettext("Order Restrictions"),
+                                                        dependencies = c("restrictedModels", "includeIntercept"))
     container[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
   } else {
     ordinalRestrictionsContainer <- container[["ordinalRestrictions"]]
@@ -89,13 +90,18 @@
     weights <- dataset[[options[["wlsWeights"]]]]
   }
 
-  modelMatrix <- model.matrix(modelFormula, dataset)
+  allFactors <- c(unlist(options$fixedFactors), unlist(options$randomFactors))
+  factorsInFormula <- allFactors[allFactors %in% modelDef[["terms.base64"]]]
+  contrasts <- replicate(length(factorsInFormula), "contr.treatment", simplify = FALSE)
+  names(contrasts) <- factorsInFormula
+
+  modelMatrix <- model.matrix(modelFormula, dataset, contrasts.arg = contrasts)
 
   fit <- lm(
     formula   = modelFormula,
     data      = dataset,
     weights   = weights,
-    contrasts = modelMatrix
+    contrasts = contrasts
     )
 
   model <- list(
@@ -103,6 +109,7 @@
     modelMatrix  = modelMatrix,
     modelFormula = modelFormula
   )
+
 
   return(model)
 }
@@ -155,13 +162,45 @@
   return(models)
 }
 
+.aorBasicInfo <- function(container, dataset, options) {
+  models <- .aorGetFittedModels(container, dataset, options)
+
+  if(container$getError()) return()
+
+  if(is.null(container[["basicInfoContainer"]])) {
+    basicInfoContainer <- createJaspContainer(title = gettext("Syntax information"), position = 1)
+    container[["basicInfoContainer"]] <- basicInfoContainer
+  } else {
+    basicInfoContainer <- container[["basicInfoContainer"]]
+  }
+
+  .aorBasicInfoAvailableParameters(basicInfoContainer, options, models)
+
+}
+
+.aorBasicInfoAvailableParameters <- function(container, options, models) {
+  if(!is.null(container[["availableParameters"]]) || !options[["restrictedModelShowAvailableCoefficients"]]) return()
+
+  availableParameters <- createJaspHtml(title        = gettext("Available coefficients for restriction syntax"),
+                                        position     = 1,
+                                        dependencies = c("restrictedModelShowAvailableCoefficients")
+                                        )
+  container[["availableParameters"]] <- availableParameters
+
+  pars <- names(coefficients(models[["unrestricted"]][["fit"]]))
+  pars <- gsub("\\(Intercept\\)", ".Intercept.",  pars)
+  pars <- gsub(":JaspColumn_",    ".JaspColumn_", pars)
+  pars <- sprintf("<li><div class='jasp-code'>%s</div></li>", pars)
+  availableParameters$text <- sprintf("<ul>%s</ul>", paste(pars, collapse = "\n"))
+}
+
 .aorModelSummary <- function(container, dataset, options) {
   models <- .aorGetFittedModels(container, dataset, options)
 
   if(container$getError()) return()
 
   if(is.null(container[["modelSummary"]])) {
-    modelSummaryContainer <- createJaspContainer(title = gettext("Model Summary"), position = 1)
+    modelSummaryContainer <- createJaspContainer(title = gettext("Model Summary"), position = 2)
     container[["modelSummary"]] <- modelSummaryContainer
   } else {
     modelSummaryContainer <- container[["modelSummary"]]
@@ -175,7 +214,7 @@
   if(container$getError()) return()
 
   if(is.null(container[["modelComparison"]])) {
-    modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 2)
+    modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 3)
     modelComparisonContainer$dependOn(c("restrictedModelComparison"))
     container[["modelComparison"]] <- modelComparisonContainer
   } else {
@@ -344,7 +383,7 @@
   if (!is.null(container[["modelComparison"]])) return(container[["modelComparison"]]$object)
 
   # fail early
-  if(isTryError(models)) {
+  if(isTryError(models[["restricted"]])) {
     modelComparison <- gettext("Model comparison can be computed only when all models can be computed.")
     class(modelComparison) <- "try-error"
     return(modelComparison)
@@ -380,3 +419,36 @@
   return(modelComparison)
 }
 
+
+# Utilities ----
+
+# The following function is an adaptation of stats::contr.sum2
+# which removes colnames, which leads to dropping the level names
+# from the coefficients if sum contrasts are used in a lm()
+# which is important to keep for restriktor syntax.
+# Example:
+# df <- data.frame(y = rnorm(10), group = rep(c("experimental", "control"), each = 5), home = rep(c("city", "rural"), times = 5))
+# lm(y ~ group*home, df, contrasts = list(group = "contr.sum", home = "contr.sum"))
+# lm(y ~ group*home, df, contrasts = list(group = "contr.sum2", home = "contr.sum2"))
+# compare with:
+# lm(y ~ group*home, df, contrasts = list(group = "contr.treatment", home = "contr.treatment"))
+#
+# Original code taken from: https://svn.r-project.org/R/trunk/src/library/stats/R/contrast.R
+# R - Revision 81690
+contr.sum2 <- function (n, contrasts = TRUE, sparse = FALSE) {
+  if (length(n) <= 1L) {
+    if (is.numeric(n) && length(n) == 1L && n > 1L)
+      levels <- seq_len(n)
+    else stop("not enough degrees of freedom to define contrasts")
+  } else levels <- n
+
+  levels <- as.character(levels)
+  cont <- stats:::.Diag(levels, sparse=sparse)
+  if (contrasts) {
+    cont <- cont[, -length(levels), drop = FALSE]
+    cont[length(levels), ] <- -1
+    # this is the line that caused problems
+    # colnames(cont) <- NULL
+  }
+  cont
+}

@@ -39,6 +39,27 @@ Section
 		helpPage: "goric/restriktorSyntax"
 	}
 	
+	Group
+	{
+		title: qsTr("Syntax settings")
+
+		CheckBox
+		{
+			name: "includeIntercept"
+			id: incInt
+			label: qsTr("Include intercept")
+			visible: type !== "RM-Anova"
+			checked: true
+		}
+
+		CheckBox
+		{
+			name:	"restrictedModelShowAvailableCoefficients"
+			label:	qsTr("Show coefficients available in the syntax")
+		}
+
+	}
+
 	TabView
 	{
 		id: models
@@ -103,15 +124,6 @@ Section
 				}
 			}
 		}
-	}
-	
-	CheckBox
-	{
-		name: "includeIntercept"
-		id: incInt
-		label: qsTr("Include intercept")
-		visible: type !== "RM-Anova"
-		checked: true
 	}
 	
 	Group

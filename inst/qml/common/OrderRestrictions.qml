@@ -49,7 +49,6 @@ Section
 			id: incInt
 			label: qsTr("Include intercept")
 			visible: type !== "RM-Anova"
-			checked: true
 		}
 
 		CheckBox

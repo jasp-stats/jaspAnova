@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -354,6 +354,9 @@ msgstr "平均値差の%.0f%% 信頼区間"
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>テューキー</sub>"
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr "ダネット(Dunnett)"
 
@@ -671,6 +674,9 @@ msgstr "反復測定セルで重複する変数が %s検出されました"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "%s に重複した変数が見つかりました"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "

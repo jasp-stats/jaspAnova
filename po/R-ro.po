@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: 2021-10-29 06:00+0000\n"
 "Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -331,6 +331,9 @@ msgstr ""
 msgid "p<sub>tukey</sub>"
 msgstr ""
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr ""
 
@@ -633,6 +636,9 @@ msgstr ""
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Variabile de tip dubluri întâlnite în %s"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: 2021-12-02 10:53+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -365,6 +365,9 @@ msgstr "%.0f %% IC para la diferencia de medias"
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr "Dunnett"
 
@@ -697,6 +700,9 @@ msgstr "Se encontraron variables duplicadas en celdas de medidas repetidas, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Se encontraron variables duplicadas en %s"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "

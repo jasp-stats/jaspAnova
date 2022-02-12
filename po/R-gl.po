@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: 2021-12-22 18:23+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -373,6 +373,9 @@ msgstr "IC do %.0f%% para a Diferenza de Medias"
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>Tukey</sub>"
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr "Dunnett"
 
@@ -702,6 +705,9 @@ msgstr "Atopáronse variables duplicadas en celas de medidas repetidas, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Atopáronse variables duplicadas en %s"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "

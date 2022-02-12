@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,6 +295,9 @@ msgstr ""
 msgid "p<sub>tukey</sub>"
 msgstr ""
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr ""
 
@@ -575,6 +578,9 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
+msgstr ""
+
+msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"

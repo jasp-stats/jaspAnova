@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-11-27 02:44\n"
+"POT-Creation-Date: 2022-02-12 02:46\n"
 "PO-Revision-Date: 2022-01-27 16:20+0000\n"
 "Last-Translator: Thomas Langkamp <thomas.lassdiesonnerein@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -364,6 +364,9 @@ msgstr "%.0f%% KI für Mittelwertsdifferenz"
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>Tukey</sub>"
 
+msgid "Results based on uncorrected means."
+msgstr ""
+
 msgid "Dunnett"
 msgstr "Dunnett"
 
@@ -690,6 +693,9 @@ msgstr "Doppelte Variablen in Zellen der Messwiederholung entdeckt, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Doppelte Variablen entdeckt in %s"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "

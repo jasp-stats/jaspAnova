@@ -41,7 +41,7 @@ Section
 	
 	Group
 	{
-		title: qsTr("Syntax settings")
+		title: qsTr("Global settings")
 
 		CheckBox
 		{
@@ -55,6 +55,13 @@ Section
 		{
 			name:	"restrictedModelShowAvailableCoefficients"
 			label:	qsTr("Show coefficients available in the syntax")
+		}
+
+		CheckBox
+		{
+			name:	"restrictedModelModelSummaryByDefault"
+			id:	modelSummaryByDefault
+			label:	qsTr("Model summary by default")
 		}
 
 	}
@@ -90,8 +97,9 @@ Section
 					{
 						name: "modelSummary"
 						label: qsTr("Summary for ") + rowValue
-						checked: false
+						checked: modelSummaryByDefault.checked
 					}
+
 
 					CheckBox
 					{
@@ -124,7 +132,7 @@ Section
 			}
 		}
 	}
-	
+
 	Group
 	{
 		title: qsTr("Model comparison")

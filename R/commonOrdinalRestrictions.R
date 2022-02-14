@@ -1,12 +1,27 @@
 # Getters ----
-.aorGetContainer <- function(container) {
-  if (is.null(container[["ordinalRestrictions"]])) {
-    ordinalRestrictionsContainer <- createJaspContainer(title        = gettext("Order Restrictions"),
-                                                        dependencies = c("restrictedModels", "includeIntercept"))
-    container[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
+.aorGetContainer <- function(container, name, title, dependencies = NULL, position = 1, initCollapsed = FALSE) {
+  if(is.null(container[[name]])) {
+    newContainer <- createJaspContainer(
+      title         = title,
+      dependencies  = dependencies,
+      position      = position,
+      initCollapsed = initCollapsed
+    )
+    container[[name]] <- newContainer
   } else {
-    ordinalRestrictionsContainer <- container[["ordinalRestrictions"]]
+    newContainer <- container[[name]]
   }
+
+  return(newContainer)
+}
+
+.aorGetMainContainer <- function(container) {
+  ordinalRestrictionsContainer <- .aorGetContainer(
+    container    = container,
+    name         = "ordinalRestrictions",
+    title        = gettext("Order Restrictions"),
+    dependencies = c("restrictedModels", "includeIntercept")
+    )
 
   return(ordinalRestrictionsContainer)
 }
@@ -84,6 +99,12 @@
   return(syntax)
 }
 
+.aorRenameInterceptRemoveColon <- function(coefs) {
+  coefs <- gsub("\\(Intercept\\)", ".Intercept.",  coefs)
+  coefs <- gsub(":JaspColumn_",    ".JaspColumn_", coefs)
+  return(coefs)
+}
+
 # Fitting ----
 .aorGetUnrestrictedModel <- function(dataset, options) {
   reorderModelTerms <- .reorderModelTerms(options)
@@ -153,6 +174,7 @@
   model <- list(
     fit                       = fit,
     modelName                 = modelName,
+    modelSummary              = restrictedModelOption[["modelSummary"]],
     restrictionSyntax         = restrictionSyntax,
     restrictionSyntaxOriginal = restrictionSyntaxOriginal
   )
@@ -162,7 +184,10 @@
 
 .aorGetRestrictedModels <- function(dataset, options, unrestrictedModel) {
 
-  restrictedModels <- lapply(options[["restrictedModels"]], function(x) try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel)))
+  restrictedModels        <- lapply(options[["restrictedModels"]],
+                                    function(x) try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel)))
+  modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
+  names(restrictedModels) <- modelNames
 
   return(restrictedModels)
 }
@@ -190,7 +215,6 @@
   }
 
   if(length(models[["failed"]]) > 0 && length(models[["restricted"]]) == 0) {
-    save(models, file = "~/Downloads/errors.Rdata")
     errors <- vapply(models[["failed"]], .aorExtractErrorMessageSoft, character(1))
     errors <- sprintf("<li>%s</li>", errors)
     errors <- paste(errors, collapse = "\n")
@@ -228,32 +252,17 @@
                                         )
   container[["availableParameters"]] <- availableParameters
 
-  pars <- names(coefficients(models[["unrestricted"]][["fit"]]))
-  pars <- gsub("\\(Intercept\\)", ".Intercept.",  pars)
-  pars <- gsub(":JaspColumn_",    ".JaspColumn_", pars)
-  pars <- sprintf("<li><div class='jasp-code'>%s</div></li>", pars)
-  availableParameters$text <- sprintf("<ul>%s</ul>", paste(pars, collapse = "\n"))
-}
+  coefs <- names(coefficients(models[["unrestricted"]][["fit"]]))
+  coefs <- .aorRenameInterceptRemoveColon(coefs)
+  coefs <- sprintf("<li><div class='jasp-code'>%s</div></li>", coefs)
 
-# Model summary ----
-.aorModelSummary <- function(container, dataset, options) {
-  models <- .aorGetFittedModels(container, dataset, options)
-
-  if(container$getError()) return()
-
-  if(is.null(container[["modelSummary"]])) {
-    modelSummaryContainer <- createJaspContainer(title = gettext("Model Summary"), position = 2)
-    container[["modelSummary"]] <- modelSummaryContainer
-  } else {
-    modelSummaryContainer <- container[["modelSummary"]]
-  }
-
+  availableParameters$text <- sprintf("<ul>%s</ul>", paste(coefs, collapse = "\n"))
 }
 
 # Model Comparison ----
 .aorModelComparison <- function(container, dataset, options) {
   if(is.null(container[["modelComparison"]])) {
-    modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 3)
+    modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 2)
     modelComparisonContainer$dependOn(c("restrictedModelComparison"))
     container[["modelComparison"]] <- modelComparisonContainer
   } else {
@@ -298,7 +307,7 @@
                                      )
   comparisonTable$showSpecifiedColumnsOnly <- TRUE
   comparisonTable$addColumnInfo(name = "modelNames", title = gettext("Model"),   type = "string")
-  comparisonTable$addColumnInfo(name = "loglik",     title = gettext("LL"),      type = "number")
+  comparisonTable$addColumnInfo(name = "loglik",     title = gettext("Log-likelihood"),      type = "number")
   comparisonTable$addColumnInfo(name = "penalty",    title = gettext("Penalty"), type = "number")
   if (type == "goric") {
     comparisonTable$addColumnInfo(name = "goric",         title = gettext("GORIC"),  type = "number")
@@ -315,6 +324,7 @@
                        goric = gettext("GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."),
                        gettext("GORICA = Generalized Order-Restricted Information Criterion Approximation.")
   )
+
   comparisonTable$addFootnote(gettextf('Weights ratios indicate the relative weight for each model against the "%1$s" model. %2$s', reference, abbrev))
   comparisonTable$addCitation(c("Kuiper, R. M., Hoijtink, H., Silvapulle, M. J. (2011). An Akaike-type information criterion for model selection under equality constarints. Biometrika, 98(2), 495-501.",
                                 "Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a theory-based hypothesis against its complement using an AIC-type information criterion with an application to facial burn injury. Psychological Methods, 25(2), 129-142."))
@@ -338,6 +348,12 @@
     } else {
       modelComparison[["result"]][["ratio"]] <- weights[, result[["model"]] == reference]
     }
+  }
+
+  if(!is.null(modelComparison[["excludedModels"]])) {
+    comparisonTable$addFootnote(
+      message = gettextf("The following models were excluded: %s.", paste(modelComparison[["excludedModels"]], collapse = ", "))
+      )
   }
 
   comparisonTable$setData(modelComparison[["result"]])
@@ -467,9 +483,97 @@
 
   }
 
+  if(length(models[["failed"]]) != 0) {
+    modelComparison[["excludedModels"]] <- names(models[["failed"]])
+  }
+
   container[["modelComparisonState"]] <- createJaspState(object = modelComparison)
 
   return(modelComparison)
+}
+
+# Model Summary ----
+.aorSingleModelsInference <- function(container, dataset, options) {
+  models <- .aorGetFittedModels(container, dataset, options)
+
+  if(container$getError()) return()
+
+  if(is.null(container[["singleModelsInference"]])) {
+    singleModelsContainer <- createJaspContainer(title = gettext("Single Model Inference"), position = 3)
+    container[["singleModelsInference"]] <- singleModelsContainer
+  } else {
+    singleModelsContainer <- container[["singleModelsInference"]]
+  }
+
+  allModelNames    <- .aorGetModelNames(options[["restrictedModels"]])
+  fittedModelNames <- .aorGetModelNames(models[["restricted"]])
+
+  for(modelName in allModelNames) {
+
+    modelContainer <- .aorGetContainer(
+      container     = singleModelsContainer,
+      name          = modelName,
+      title         = modelName,
+      initCollapsed = TRUE
+    )
+    singleModelsContainer[[modelName]] <- modelContainer
+
+    if(modelName %in% fittedModelNames) {
+      model <- models[["restricted"]][[which(modelName == fittedModelNames)]]
+      .aorModelSummary(modelContainer, options, model)
+    } else {
+      model <- models[["failed"]][[modelName]]
+      .aorDisplayModelError(modelContainer, model)
+    }
+  }
+}
+
+.aorModelSummary <- function(container, options, model) {
+  if(!model[["modelSummary"]]) return()
+
+  modelSummaryContainer <- .aorGetContainer(
+    container = container,
+    name      = "modelSummary",
+    title     = gettext("Model Summary"),
+    position  = 1
+  )
+
+  .aorModelRestrictionMatrix(modelSummaryContainer, model)
+}
+
+.aorModelRestrictionMatrix <- function(container, model) {
+  restrictionMatrix <- createJaspTable(title = gettext("Restriction Matrix"))
+  container[["restrictionMatrix"]] <- restrictionMatrix
+
+  coefs <- names(coefficients(model[["fit"]]))
+  coefs <- .aorRenameInterceptRemoveColon(coefs)
+  coefNames <- character(length(coefs))
+  for(i in seq_along(coefs)) {
+    coef <- paste0("coef", i)
+    restrictionMatrix$addColumnInfo(name = coef, title = coefs[i], type = "number", overtitle = gettext("Left-hand side (lhs)"))
+    coefNames[i] <- coef
+  }
+
+  restrictionMatrix$addColumnInfo(name = "rhs", title = gettext("Right-hand side (rhs)"), type = "number")
+
+
+  # fill
+  df <- as.data.frame(model[["fit"]][["constraints"]])
+  colnames(df) <- coefNames
+
+  df[["rhs"]] <- model[["fit"]][["rhs"]]
+
+  restrictionMatrix$setData(df)
+}
+
+
+.aorDisplayModelError <- function(container, model) {
+  # settting an error on empty container does not show up, so we will make an
+  # empty table
+  container[["restrictionMatrix"]] <- createJaspTable(title = gettext("Restriction Matrix"))
+
+  message <- .aorExtractErrorMessageSoft(model)
+  container$setError(message)
 }
 
 

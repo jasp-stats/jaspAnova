@@ -1756,7 +1756,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   groupVar <- options[["rainCloudPlotsHorizontalAxis"]]
   if (analysisType == "RM-ANOVA") {
-    addLines   <- TRUE
+    addLines   <- groupVar %in% unlist(options[["withinModelTerms"]])
     dependentV <- .BANOVAdependentName
     yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
   } else {

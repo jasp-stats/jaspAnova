@@ -154,21 +154,21 @@
 
   if(isTryError(restrictionSyntax)) {
     message <- .aorExtractErrorMessageSoft(restrictionSyntax)
-    stop(gettextf("Error in %1$s - Could not encode the model syntax! Error message %2$s", modelName, message))
+    stop(gettextf("Error in %1$s - Could not encode the model syntax! Error message: %2$s", modelName, message))
   }
 
   syntaxCheck <- try(.aorCheckSyntax(modelName, restrictionSyntax))
 
   if(isTryError(syntaxCheck)) {
     message <- .aorExtractErrorMessageSoft(syntaxCheck)
-    stop(gettextf("Error in %1$s - Syntax error in the model! Error message %2$s", modelName, message))
+    stop(gettextf("Error in %1$s - Syntax error in the model! Error message: %2$s", modelName, message))
   }
 
   fit <- try(restriktor::restriktor(unrestrictedModel[["fit"]], constraints = restrictionSyntax))
 
   if(isTryError(fit)) {
     message <- .aorExtractErrorMessageSoft(fit)
-    stop(gettextf("Error in %1$s - Could not estimate the model! Error message %2$s", modelName, message))
+    stop(gettextf("Error in %1$s - Could not estimate the model! Error message: %2$s", modelName, message))
   }
 
   model <- list(
@@ -520,7 +520,8 @@
 
     if(modelName %in% fittedModelNames) {
       model <- models[["restricted"]][[which(modelName == fittedModelNames)]]
-      .aorModelSummary(modelContainer, options, model)
+      .aorModelSummary             (modelContainer, options, model)
+      .aorInformativeHypothesisTest(modelContainer, options, model)
     } else {
       model <- models[["failed"]][[modelName]]
       .aorDisplayModelError(modelContainer, model)
@@ -539,13 +540,14 @@
   )
 
   .aorModelRestrictionMatrix(modelSummaryContainer, model)
+  .aorModelCoefficients     (modelSummaryContainer, model)
 }
 
 .aorModelRestrictionMatrix <- function(container, model) {
   restrictionMatrix <- createJaspTable(title = gettext("Restriction Matrix"))
   container[["restrictionMatrix"]] <- restrictionMatrix
 
-  coefs <- names(coefficients(model[["fit"]]))
+  coefs <- names(model[["fit"]][["b.restr"]])
   coefs <- .aorRenameInterceptRemoveColon(coefs)
   coefNames <- character(length(coefs))
   for(i in seq_along(coefs)) {
@@ -566,6 +568,44 @@
   restrictionMatrix$setData(df)
 }
 
+.aorModelCoefficients <- function(container, model) {
+  coefficientsTable <- createJaspTable(title = gettext("Coefficients"))
+  container[["coefficientsTable"]] <- coefficientsTable
+
+  coefs <- try(coefficients(summary(model[["fit"]])))
+
+  if(!isTryError(coefs)) {
+    coefs <- as.data.frame(coefs)
+    coefs[["name"]] <- rownames(coefs)
+
+    coefficientsTable$addColumnInfo(name = "name", title = gettext("Coefficient"), type = "string")
+    coefficientsTable$addColumnInfo(name = "Estimate", title = gettext("Estimate"), type = "number")
+    coefficientsTable$addColumnInfo(name = "Std. Error", title = gettext("S.E."), type = "number")
+    coefficientsTable$addColumnInfo(name = "t value", title = gettext("t"), type = "number")
+    coefficientsTable$addColumnInfo(name = "Pr(>|t|)", title = gettext("p"), type = "pvalue")
+
+    coefficientsTable$setData(coefs)
+  }
+}
+
+.aorInformativeHypothesisTest <- function(container, options, model) {
+  ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"))
+  container[["ihtTable"]] <- ihtTable
+
+  ihtTable$addColumnInfo(name = "type",   title = gettext("Hypothesis Type"), type = "string")
+  ihtTable$addColumnInfo(name = "test",   title = gettext("Test Type"),       type = "string")
+  ihtTable$addColumnInfo(name = "stat",   title = gettext("Test Statistic"),  type = "number")
+  ihtTable$addColumnInfo(name = "pvalue", title = gettext("p"),               type = "pvalue")
+
+  result <- try(.aorCalculateIHT(model[["fit"]]))
+
+  if(!isTryError(result)) {
+    ihtTable$setData(result)
+  } else {
+    message <- .aorExtractErrorMessageSoft(result)
+    ihtTable$setError(gettextf("Could not compute the informative hypothesis tests. Error message: %s", message))
+  }
+}
 
 .aorDisplayModelError <- function(container, model) {
   # settting an error on empty container does not show up, so we will make an
@@ -585,4 +625,45 @@
   message <- unlist(message)
   message <- paste(message, collapse = ":")
   trimws(message)
+}
+
+.aorCalculateIHT <- function(model) {
+  nconst <- nrow(model[["constraints"]])
+  neq    <- model[["neq"]]
+
+  if(nconst == neq) { # only equality constraints
+    types <- "classical"
+    tests <- c("F", "Wald", "score")
+  } else if(neq > 0) { # some equality constraints
+    types <- c("global", "A", "B")
+    tests <- c("F", "LRT", "score")
+  } else { # no equality constraints
+    types = c("global", "A", "B", "C")
+    tests <- c("F", "LRT", "score")
+  }
+
+  results <- list()
+  for(type in types) {
+    results[[type]] <- list()
+    for(test in tests) {
+      if(type == "classical") {
+        res <- restriktor::conTest_ceq(model, test = test)
+      } else {
+        if(type == "C" && test != "F") next # type C is only done with t-test (which can be called by test = "F")
+
+        res <- restriktor::conTest(model, type = type, test = test)
+      }
+      results[[type]][[test]] <- data.frame(
+        type   = type,
+        test   = res[["test"]],
+        stat   = res[["Ts"]],
+        pvalue = res[["pvalue"]]
+      )
+    }
+
+    results[[type]] <- data.frame(do.call(rbind, results[[type]]))
+  }
+  results <- data.frame(do.call(rbind, results))
+
+  return(results)
 }

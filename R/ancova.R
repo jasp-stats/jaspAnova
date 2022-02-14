@@ -810,14 +810,14 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
 
-  container <- .aorGetContainer(anovaContainer)
+  container <- .aorGetMainContainer(anovaContainer)
 
   .aorBasicInfo         (container, dataset, options)
 
   if(length(options[["restrictedModels"]]) == 0) return()
 
-  .aorModelSummary      (container, dataset, options)
-  .aorModelComparison   (container, dataset, options)
+  .aorModelComparison      (container, dataset, options)
+  .aorSingleModelsInference(container, dataset, options)
 
   return()
 

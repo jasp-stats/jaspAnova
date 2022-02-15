@@ -25,7 +25,7 @@ Section
 {
 	property var type
 	
-	title: qsTr("Order Restrictions")
+	title: qsTr("Order Restricted Hypotheses")
 	columns: 1
 	
 	Text

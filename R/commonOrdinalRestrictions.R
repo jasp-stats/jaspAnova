@@ -19,7 +19,7 @@
   ordinalRestrictionsContainer <- .aorGetContainer(
     container    = container,
     name         = "ordinalRestrictions",
-    title        = gettext("Order Restrictions"),
+    title        = gettext("Order Restricted Hypotheses"),
     dependencies = c("restrictedModels", "includeIntercept")
     )
 

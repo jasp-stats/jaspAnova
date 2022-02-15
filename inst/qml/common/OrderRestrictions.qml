@@ -41,7 +41,8 @@ Section
 	
 	Group
 	{
-		title: qsTr("Global settings")
+		title:		qsTr("Global settings")
+		columns:	2
 
 		CheckBox
 		{
@@ -61,7 +62,14 @@ Section
 		{
 			name:	"restrictedModelModelSummaryByDefault"
 			id:	modelSummaryByDefault
-			label:	qsTr("Model summary by default")
+			label:	qsTr("Model summary for all models")
+		}
+
+		CheckBox
+		{
+			name:	"restrictedModelInformedHypothesisTestByDefault"
+			id:	informedHypothesisTestByDefault
+			label:	qsTr("Informed hypothesis tests for all models")
 		}
 
 	}
@@ -96,7 +104,7 @@ Section
 					CheckBox
 					{
 						name: "modelSummary"
-						label: qsTr("Summary for ") + rowValue
+						label: qsTr("Summary for %1").arg(rowValue)
 						checked: modelSummaryByDefault.checked
 					}
 
@@ -104,29 +112,9 @@ Section
 					CheckBox
 					{
 						name: "informedHypothesisTest"
-						label: qsTr("Informed hypothesis test for ") + rowValue
-						checked: false
+						label: qsTr("Informed hypothesis test for %1").arg(rowValue)
+						checked: informedHypothesisTestByDefault.checked
 						visible: type !== "RM-Anova"
-						columns: 3
-
-						CheckBox
-						{
-							name: "informedHypothesisTestGlobal"
-							label: qsTr("Type global")
-						}
-
-						CheckBox
-						{
-							name: "informedHypothesisTestA"
-							label: qsTr("Type A")
-						}
-
-						CheckBox
-						{
-							name: "informedHypothesisTestB"
-							label: qsTr("Type B")
-							checked: true
-						}
 					}
 				}
 			}

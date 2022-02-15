@@ -175,6 +175,7 @@
     fit                       = fit,
     modelName                 = modelName,
     modelSummary              = restrictedModelOption[["modelSummary"]],
+    informedHypothesisTest    = restrictedModelOption[["informedHypothesisTest"]],
     restrictionSyntax         = restrictionSyntax,
     restrictionSyntaxOriginal = restrictionSyntaxOriginal
   )
@@ -530,11 +531,11 @@
 }
 
 .aorModelSummary <- function(container, options, model) {
-  if(!model[["modelSummary"]]) return()
+  if(!is.null(container[["modelSummaryContainer"]]) || !model[["modelSummary"]]) return()
 
   modelSummaryContainer <- .aorGetContainer(
     container = container,
-    name      = "modelSummary",
+    name      = "modelSummaryContainer",
     title     = gettext("Model Summary"),
     position  = 1
   )
@@ -589,21 +590,81 @@
 }
 
 .aorInformativeHypothesisTest <- function(container, options, model) {
+  if(!is.null(container[["ihtTable"]]) || !model[["informedHypothesisTest"]]) return()
+
   ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"))
+  ihtTable$showSpecifiedColumnsOnly <- TRUE
   container[["ihtTable"]] <- ihtTable
 
-  ihtTable$addColumnInfo(name = "type",   title = gettext("Hypothesis Type"), type = "string")
-  ihtTable$addColumnInfo(name = "test",   title = gettext("Test Type"),       type = "string")
-  ihtTable$addColumnInfo(name = "stat",   title = gettext("Test Statistic"),  type = "number")
-  ihtTable$addColumnInfo(name = "pvalue", title = gettext("p"),               type = "pvalue")
+  ihtTable$addColumnInfo(name = "typeName", title = gettext("Hypothesis"),      type = "string")
+  ihtTable$addColumnInfo(name = "test",     title = gettext("Test"),            type = "string")
+  ihtTable$addColumnInfo(name = "stat",     title = gettext("Test Statistic"),  type = "number")
+  ihtTable$addColumnInfo(name = "pvalue",   title = gettext("p"),               type = "pvalue")
 
   result <- try(.aorCalculateIHT(model[["fit"]]))
 
   if(!isTryError(result)) {
+    result[["typeName"]] <- gettextf("Type %s", result[["type"]])
     ihtTable$setData(result)
+
+    .aorAddInformativeHypothesisTestFootnotes(ihtTable, result)
   } else {
     message <- .aorExtractErrorMessageSoft(result)
     ihtTable$setError(gettextf("Could not compute the informative hypothesis tests. Error message: %s", message))
+  }
+}
+
+.aorAddInformativeHypothesisTestFootnotes <- function(table, result) {
+  for(i in seq_len(nrow(result)))
+    table$setRowName(rowIndex = i, newName = sprintf("row%s", i))
+
+  # hypothesis types
+  .aorInformativeHypothesisTestFootnoteHelper(
+    table   = table,
+    rows    = result[["type"]] == "classical",
+    colName = "typeName",
+    message = gettextf("H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated.", "\u2080", "\u2081")
+    )
+
+  .aorInformativeHypothesisTestFootnoteHelper(
+    table   = table,
+    rows    = result[["type"]] == "global",
+    colName = "typeName",
+    message = gettextf("H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
+  )
+
+  .aorInformativeHypothesisTestFootnoteHelper(
+    table   = table,
+    rows    = result[["type"]] == "A",
+    colName = "typeName",
+    message = gettextf("H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
+  )
+
+  .aorInformativeHypothesisTestFootnoteHelper(
+    table   = table,
+    rows    = result[["type"]] == "B",
+    colName = "typeName",
+    message = gettextf("H%1$s: All restrictions hold, H%2$s: At least one restriction is violated.", "\u2080", "\u2081")
+  )
+
+  .aorInformativeHypothesisTestFootnoteHelper(
+    table   = table,
+    rows    = result[["type"]] == "C",
+    colName = "typeName",
+    message = gettextf("H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>).", "\u2080", "\u2081")
+  )
+
+}
+
+.aorInformativeHypothesisTestFootnoteHelper <- function(table, rows, colName, message) {
+  if(is.logical(rows)) rows <- which(rows)
+
+  for(row in rows) {
+    table$addFootnote(
+      message  = message,
+      colNames = colName,
+      rowNames = table$getRowName(rowIndex = row)
+    )
   }
 }
 

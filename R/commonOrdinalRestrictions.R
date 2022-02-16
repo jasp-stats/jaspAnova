@@ -176,6 +176,7 @@
     modelName                 = modelName,
     modelSummary              = restrictedModelOption[["modelSummary"]],
     informedHypothesisTest    = restrictedModelOption[["informedHypothesisTest"]],
+    marginalMeans             = restrictedModelOption[["marginalMeans"]],
     restrictionSyntax         = restrictionSyntax,
     restrictionSyntaxOriginal = restrictionSyntaxOriginal
   )
@@ -493,7 +494,7 @@
   return(modelComparison)
 }
 
-# Model Summary ----
+# Single Model inference ----
 .aorSingleModelsInference <- function(container, dataset, options) {
   models <- .aorGetFittedModels(container, dataset, options)
 
@@ -523,6 +524,7 @@
       model <- models[["restricted"]][[which(modelName == fittedModelNames)]]
       .aorModelSummary             (modelContainer, options, model)
       .aorInformativeHypothesisTest(modelContainer, options, model)
+      .aorMarginalMeans            (modelContainer, options, model, dataset)
     } else {
       model <- models[["failed"]][[modelName]]
       .aorDisplayModelError(modelContainer, model)
@@ -530,6 +532,7 @@
   }
 }
 
+## Model Summary ----
 .aorModelSummary <- function(container, options, model) {
   if(!is.null(container[["modelSummaryContainer"]]) || !model[["modelSummary"]]) return()
 
@@ -589,10 +592,11 @@
   }
 }
 
+## Informative Hypothesis tests ----
 .aorInformativeHypothesisTest <- function(container, options, model) {
   if(!is.null(container[["ihtTable"]]) || !model[["informedHypothesisTest"]]) return()
 
-  ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"))
+  ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"), position = 2)
   ihtTable$showSpecifiedColumnsOnly <- TRUE
   container[["ihtTable"]] <- ihtTable
 
@@ -668,6 +672,61 @@
   }
 }
 
+## Marginal means ----
+.aorMarginalMeans <- function(container, options, model, dataset) {
+  if(!model[["marginalMeans"]]) return()
+
+  marginalMeansContainer <- .aorGetContainer(
+    container    = container,
+    name         = "marginalMeansContainer",
+    title        = gettext("Marginal Means"),
+    position     = 3,
+    dependencies = c("restrictedMarginalMeansModelSE",
+                     "restrictedMarginalMeansBootstrappingReplicates",
+                     "restrictedModelMarginalMeansTerms",
+                     "restrictedConfidenceIntervalLevel")
+  )
+
+  if(length(options[["restrictedModelMarginalMeansTerms"]]) == 0 || options[["restrictedModelMarginalMeansTerms"]] == "") {
+    # settting an error on empty container does not show up, so we will make an empty table
+    marginalMeansContainer[["table"]] <- createJaspTable(title = gettext("Marginal Means"))
+    marginalMeansContainer$setError(gettext("No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."))
+  } else {
+    terms <- options[["restrictedModelMarginalMeansTerms"]]
+    for(i in seq_along(terms))
+      .aorMarginalMeansTerm(marginalMeansContainer, dataset, options, model, terms[[i]][["variable"]], i)
+  }
+}
+
+.aorMarginalMeansTerm <- function(container, dataset, options, model, variables, position) {
+  tableName <- paste(variables, collapse="_")
+  if(!is.null(container[[tableName]])) return()
+
+  marginalMeansTable <- createJaspTable(title    = paste(variables, collapse=" \u273B "),
+                                        position = position)
+  container[[tableName]] <- marginalMeansTable
+
+  marginalMeansTable$showSpecifiedColumnsOnly <- TRUE
+  for(var in variables)
+    marginalMeansTable$addColumnInfo(name = var, title = var, type = "string", combine = TRUE)
+
+  marginalMeansTable$addColumnInfo(name="lsmean",   title = gettext("Marginal Mean"), type="number")
+  marginalMeansTable$addColumnInfo(name="SE",       title = gettext("SE"),            type="number")
+  marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options$restrictedConfidenceIntervalLevel))
+  marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options$restrictedConfidenceIntervalLevel))
+
+  # fill
+  result <- try(.aorCalculateMarginalMeans(dataset, model, variables))
+
+  if(isTryError(result)) {
+    message <- .extractErrorMessage(result)
+    marginalMeansTable$setError(gettextf("Could not compute the marginal means. Error message: %s", message))
+  } else {
+    marginalMeansTable$setData(result)
+  }
+}
+
+## Model Error ----
 .aorDisplayModelError <- function(container, model) {
   # settting an error on empty container does not show up, so we will make an
   # empty table
@@ -727,4 +786,18 @@
   results <- data.frame(do.call(rbind, results))
 
   return(results)
+}
+
+.aorCalculateMarginalMeans <- function(dataset, model, variables) {
+  refGrid <- emmeans::qdrg(
+    formula = formula(model[["fit"]][["model.org"]]),
+    data    = dataset,
+    coef    = model[["fit"]][["b.restr"]],
+    vcov    = attr(model[["fit"]][["information"]], "inverted"),
+    df      = model[["fit"]][["df.residual"]]
+  )
+
+
+  means <- emmeans::lsmeans(refGrid, variables, infer=c(TRUE, FALSE), level = 0.95)
+  return(summary(means))
 }

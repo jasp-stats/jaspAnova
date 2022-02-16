@@ -20,7 +20,8 @@
     container    = container,
     name         = "ordinalRestrictions",
     title        = gettext("Order Restricted Hypotheses"),
-    dependencies = c("restrictedModels", "includeIntercept")
+    dependencies = c("restrictedModels", "includeIntercept", "restrictedSE",
+                     "restrictedBootstrapping", "restrictedBootstrappingReplicates")
     )
 
   return(ordinalRestrictionsContainer)
@@ -112,9 +113,9 @@
   modelDef          <- .modelFormula(modelTerms, options)
 
   if (options[["includeIntercept"]]) {
-    modelFormula <- as.formula(modelDef[["model.def"]])
+    formula <- as.formula(modelDef[["model.def"]])
   } else {
-    modelFormula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
+    formula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
   }
 
   if(options[["wlsWeights"]] == "" || is.na(options[["wlsWeights"]])) {
@@ -128,26 +129,28 @@
   contrasts <- replicate(length(factorsInFormula), "contr.treatment", simplify = FALSE)
   names(contrasts) <- factorsInFormula
 
-  modelMatrix <- model.matrix(modelFormula, dataset, contrasts.arg = contrasts)
+  modelMatrix <- model.matrix(formula, dataset, contrasts.arg = contrasts)
 
   fit <- lm(
-    formula   = modelFormula,
+    formula   = formula,
     data      = dataset,
     weights   = weights,
     contrasts = contrasts
     )
 
   model <- list(
-    fit          = fit,
-    modelMatrix  = modelMatrix,
-    modelFormula = modelFormula
+    fit         = fit,
+    formula     = formula,
+    modelMatrix = modelMatrix,
+    weights     = weights,
+    contrasts   = contrasts
   )
 
 
   return(model)
 }
 
-.aorGetRestrictedModel <- function(restrictedModelOption, dataset, options, unrestrictedModel) {
+.aorGetRestrictedModel <- function(restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
   modelName                 <- .aorGetModelName   (restrictedModelOption)
   restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
   restrictionSyntax         <- try(.aorTranslateSyntax(restrictionSyntaxOriginal, dataset, options, modelName))
@@ -164,11 +167,18 @@
     stop(gettextf("Error in %1$s - Syntax error in the model! Error message: %2$s", modelName, message))
   }
 
-  fit <- try(restriktor::restriktor(unrestrictedModel[["fit"]], constraints = restrictionSyntax))
+  unrestricted <- unrestrictedModel[["fit"]]
+  fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax))
 
   if(isTryError(fit)) {
     message <- .aorExtractErrorMessageSoft(fit)
     stop(gettextf("Error in %1$s - Could not estimate the model! Error message: %2$s", modelName, message))
+  }
+
+  if(length(unrestrictedBootstrap) > 0) {
+    bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, restrictionSyntax))
+  } else {
+    bootstraps <- NULL
   }
 
   model <- list(
@@ -178,16 +188,22 @@
     informedHypothesisTest    = restrictedModelOption[["informedHypothesisTest"]],
     marginalMeans             = restrictedModelOption[["marginalMeans"]],
     restrictionSyntax         = restrictionSyntax,
-    restrictionSyntaxOriginal = restrictionSyntaxOriginal
+    restrictionSyntaxOriginal = restrictionSyntaxOriginal,
+    bootstraps                = bootstraps
   )
 
   return(model)
 }
 
-.aorGetRestrictedModels <- function(dataset, options, unrestrictedModel) {
+.aorGetRestrictedModels <- function(dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
 
-  restrictedModels        <- lapply(options[["restrictedModels"]],
-                                    function(x) try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel)))
+  restrictedModels <- lapply(X   = options[["restrictedModels"]],
+                             FUN = function(x) {
+                               out <- try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel, unrestrictedBootstrap))
+                               progressbarTick()
+                               return(out)
+                               }
+                             )
   modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
   names(restrictedModels) <- modelNames
 
@@ -197,6 +213,8 @@
 .aorGetFittedModels <- function(container, dataset, options) {
   if(!is.null(container[["modelState"]])) return(container[["modelState"]]$object)
 
+  startProgressbar(expectedTicks = length(options[["restrictedModels"]]) + 1,
+                   label = gettext("Estimating restricted models"))
   models <- list()
 
   models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(dataset, options))
@@ -206,7 +224,33 @@
     return()
   }
 
-  models[["restricted"]] <- .aorGetRestrictedModels(dataset, options, models[["unrestricted"]])
+  if(options[["restrictedBootstrapping"]]) {
+    unrestricted <- models[["unrestricted"]][["fit"]]
+    contrasts    <- unrestricted[["contrasts"]]
+    weights      <- unrestricted[["weights"]]
+    formula      <- formula(unrestricted)
+
+    unrestrictedBootstrap <- replicate(
+      n    = options[["restrictedBootstrappingReplicates"]],
+      expr = {
+        n <- nrow(dataset)
+        idx <- sample.int(n = n, size = n, replace = TRUE)
+        resamples <- dataset[idx,,drop=FALSE]
+
+
+        try(
+          update(unrestricted, data = resamples)
+        )
+      },
+      simplify = FALSE
+    )
+    unrestrictedBootstrap[vapply(unrestrictedBootstrap, isTryError, logical(1))] <- NULL
+  } else {
+    unrestrictedBootstrap <- list()
+  }
+  progressbarTick()
+
+  models[["restricted"]] <- .aorGetRestrictedModels(dataset, options, models[["unrestricted"]], unrestrictedBootstrap)
 
   if(isTryError(models[["restricted"]])) {
     modelFailed            <- vapply(models[["restricted"]], isTryError, logical(1))
@@ -226,7 +270,6 @@
   }
 
   container[["modelState"]] <- createJaspState(object = models)
-
   return(models)
 }
 
@@ -600,8 +643,8 @@
   ihtTable$showSpecifiedColumnsOnly <- TRUE
   container[["ihtTable"]] <- ihtTable
 
-  ihtTable$addColumnInfo(name = "typeName", title = gettext("Hypothesis"),      type = "string")
-  ihtTable$addColumnInfo(name = "test",     title = gettext("Test"),            type = "string")
+  ihtTable$addColumnInfo(name = "typeName", title = gettext("Hypothesis"),      type = "string", combine = TRUE)
+  ihtTable$addColumnInfo(name = "test",     title = gettext("Test"),            type = "string", combine = TRUE)
   ihtTable$addColumnInfo(name = "stat",     title = gettext("Test Statistic"),  type = "number")
   ihtTable$addColumnInfo(name = "pvalue",   title = gettext("p"),               type = "pvalue")
 
@@ -681,10 +724,8 @@
     name         = "marginalMeansContainer",
     title        = gettext("Marginal Means"),
     position     = 3,
-    dependencies = c("restrictedMarginalMeansModelSE",
-                     "restrictedMarginalMeansBootstrappingReplicates",
-                     "restrictedModelMarginalMeansTerms",
-                     "restrictedConfidenceIntervalLevel")
+    dependencies = c("restrictedModelMarginalMeansTerms",
+                     "restrictedBootstrappingConfidenceIntervalLevel")
   )
 
   if(length(options[["restrictedModelMarginalMeansTerms"]]) == 0 || options[["restrictedModelMarginalMeansTerms"]] == "") {
@@ -712,11 +753,16 @@
 
   marginalMeansTable$addColumnInfo(name="lsmean",   title = gettext("Marginal Mean"), type="number")
   marginalMeansTable$addColumnInfo(name="SE",       title = gettext("SE"),            type="number")
-  marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options$restrictedConfidenceIntervalLevel))
-  marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options$restrictedConfidenceIntervalLevel))
+
+  if(!is.null(model[["bootstraps"]])) {
+    marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
+    marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
+
+    marginalMeansTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", nrow(model[["bootstraps"]])))
+  }
 
   # fill
-  result <- try(.aorCalculateMarginalMeans(dataset, model, variables))
+  result <- try(.aorCalculateMarginalMeans(dataset, model, variables, options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
 
   if(isTryError(result)) {
     message <- .extractErrorMessage(result)
@@ -745,6 +791,23 @@
   message <- unlist(message)
   message <- paste(message, collapse = ":")
   trimws(message)
+}
+
+.aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, restrictionSyntax) {
+  ncoefs     <- length(coefficients(fit))
+  bootstraps <- matrix(nrow = length(unrestrictedBootstrap), ncol = ncoefs)
+
+  for(i in seq_along(unrestrictedBootstrap)) {
+    unconstrained <- unrestrictedBootstrap[[i]]
+    boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax))
+    if(!isTryError(boot)) {
+      bootstraps[i, ] <- coefficients(boot)
+    }
+  }
+
+  colnames(bootstraps) <- names(coefficients(fit))
+
+  return(bootstraps)
 }
 
 .aorCalculateIHT <- function(model) {
@@ -788,17 +851,38 @@
   return(results)
 }
 
-.aorCalculateMarginalMeans <- function(dataset, model, variables) {
-  refGrid <- emmeans::qdrg(
-    formula   = formula(model[["fit"]][["model.org"]]),
-    data      = dataset,
-    coef      = model[["fit"]][["b.restr"]],
-    vcov      = attr(model[["fit"]][["information"]], "inverted"),
-    df        = model[["fit"]][["df.residual"]],
-    contrasts = model[["fit"]][["model.org"]][["contrasts"]]
-  )
+.aorCalculateMarginalMeans <- function(dataset, model, variables, ciLevel = 0.95) {
+  if(is.null(model[["bootstraps"]])) {
+    refGrid <- emmeans::qdrg(
+      formula   = formula(model[["fit"]][["model.org"]]),
+      data      = dataset,
+      coef      = model[["fit"]][["b.restr"]],
+      vcov      = attr(model[["fit"]][["information"]], "inverted"),
+      df        = model[["fit"]][["df.residual"]],
+      contrasts = model[["fit"]][["model.org"]][["contrasts"]]
+    )
 
+    means <- emmeans::lsmeans(refGrid, variables, infer=c(FALSE, FALSE))
+    means <- summary(means)
+  } else {
+    refGrid <- emmeans::qdrg(
+      formula   = formula(model[["fit"]][["model.org"]]),
+      data      = dataset,
+      mcmc      = model[["bootstraps"]][, names(model[["fit"]][["b.restr"]])],
+      contrasts = model[["fit"]][["model.org"]][["contrasts"]]
+    )
 
-  means <- emmeans::lsmeans(refGrid, variables, infer=c(TRUE, FALSE), level = 0.95)
-  return(summary(means))
+    means <- emmeans::lsmeans(refGrid, variables)
+    boots <- emmeans::as.mcmc.emmGrid(means)
+    boots <- as.data.frame(boots)
+
+    alpha <- 1-ciLevel
+    means <- summary(means)
+    means[["lsmean"]]   <- apply(boots, 2, median,                      na.rm = TRUE)
+    means[["SE"]]       <- apply(boots, 2, sd,                          na.rm = TRUE)
+    means[["lower.CL"]] <- apply(boots, 2, quantile, probs =   alpha/2, na.rm = TRUE)
+    means[["upper.CL"]] <- apply(boots, 2, quantile, probs = 1-alpha/2, na.rm = TRUE)
+  }
+
+  return(means)
 }

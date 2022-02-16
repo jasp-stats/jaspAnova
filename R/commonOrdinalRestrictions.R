@@ -790,11 +790,12 @@
 
 .aorCalculateMarginalMeans <- function(dataset, model, variables) {
   refGrid <- emmeans::qdrg(
-    formula = formula(model[["fit"]][["model.org"]]),
-    data    = dataset,
-    coef    = model[["fit"]][["b.restr"]],
-    vcov    = attr(model[["fit"]][["information"]], "inverted"),
-    df      = model[["fit"]][["df.residual"]]
+    formula   = formula(model[["fit"]][["model.org"]]),
+    data      = dataset,
+    coef      = model[["fit"]][["b.restr"]],
+    vcov      = attr(model[["fit"]][["information"]], "inverted"),
+    df        = model[["fit"]][["df.residual"]],
+    contrasts = model[["fit"]][["model.org"]][["contrasts"]]
   )
 
 

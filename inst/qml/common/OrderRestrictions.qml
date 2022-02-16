@@ -58,19 +58,32 @@ Section
 			label:	qsTr("Show coefficients available in the syntax")
 		}
 
-		CheckBox
+		Group
 		{
-			name:	"restrictedModelModelSummaryByDefault"
-			id:	modelSummaryByDefault
-			label:	qsTr("Model summary for all models")
+			columns: 3
+			title: qsTr("Set for all models")
+			CheckBox
+			{
+				name:	"restrictedModelSummaryByDefault"
+				id:	modelSummaryByDefault
+				label:	qsTr("Model summary")
+			}
+
+			CheckBox
+			{
+				name:	"restrictedInformedHypothesisTestByDefault"
+				id:	informedHypothesisTestByDefault
+				label:	qsTr("Informed hypothesis tests")
+			}
+
+			CheckBox
+			{
+				name:	"restrictedMarginalMeansByDefault"
+				id:		marginalMeansByDefault
+				label: qsTr("Marginal means")
+			}
 		}
 
-		CheckBox
-		{
-			name:	"restrictedModelInformedHypothesisTestByDefault"
-			id:	informedHypothesisTestByDefault
-			label:	qsTr("Informed hypothesis tests for all models")
-		}
 
 	}
 
@@ -95,27 +108,28 @@ Section
 
 			Group
 			{
-				columns: 2
-
-				Group
+				columns: 3
+				CheckBox
 				{
-					columns: 1
-
-					CheckBox
-					{
-						name: "modelSummary"
-						label: qsTr("Summary for %1").arg(rowValue)
-						checked: modelSummaryByDefault.checked
-					}
+					name: "modelSummary"
+					label: qsTr("Summary for %1").arg(rowValue)
+					checked: modelSummaryByDefault.checked
+				}
 
 
-					CheckBox
-					{
-						name: "informedHypothesisTest"
-						label: qsTr("Informed hypothesis test for %1").arg(rowValue)
-						checked: informedHypothesisTestByDefault.checked
-						visible: type !== "RM-Anova"
-					}
+				CheckBox
+				{
+					name: "informedHypothesisTest"
+					label: qsTr("Informed hypothesis tests for %1").arg(rowValue)
+					checked: informedHypothesisTestByDefault.checked
+					visible: type !== "RM-Anova"
+				}
+
+				CheckBox
+				{
+					name: "marginalMeans"
+					label:	qsTr("Marginal means for %1").arg(rowValue)
+					checked: marginalMeansByDefault.checked
 				}
 			}
 		}
@@ -186,92 +200,65 @@ Section
 			}
 		}
 	}
-	
+
+
+	VariablesForm
+	{
+		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight * 0.5
+		implicitWidth: jaspTheme.formWidth - 50
+		AvailableVariablesList
+		{
+			name: "restrictedModelTerms"
+			label: qsTr("Restricted Marginal Means")
+			source: (type === "Ancova" ? [ { name: "modelTerms", discard: "covariates" } ] :
+										 type === "RM-Anova" ? [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ] :
+															   "modelTerms")
+		}
+
+		AssignedVariablesList { name: "restrictedModelMarginalMeansTerms"; label: qsTr("Terms") }
+	}
+
 	Group
 	{
-		title: qsTr("Uncertainty")
-		columns: 1
-		
-		Group
+		title: qsTr("Uncertainty quantification")
+
+		CIField
 		{
-			columns: 2
-			
-			CIField
-			{
-				name: "restrictedConfidenceIntervalLevel"
-				afterLabel: type === "RM-Anova" ? qsTr("% confidence intervals based on") : qsTr("% confidence intervals")
-			}
-			
-			Group
-			{
-				columns: 2
-				
-				CheckBox
-				{
-					name: "restrictedConfidenceIntervalBootstrap"
-					label: qsTr("based on")
-					id: restrictedModelsBootstrap
-					visible: type !== "RM-Anova"
-				}
-				
-				IntegerField
-				{
-					name: "restrictedConfidenceIntervalBootstrapSamples"
-					defaultValue: 1000
-					min: 100
-					afterLabel: qsTr("bootstraps")
-				}
-			}
+			name:	"restrictedConfidenceIntervalLevel"
+			label:	qsTr("Confidence intervals")
 		}
-		
+
 		DropDown
 		{
-			name: "restrictedModelHeteroskedasticity"
-			label: qsTr("Huber-White correction for heteroskedasticity")
-			indexDefaultValue: 0
-			visible: type !== "RM-Anova"
-			enabled: !restrictedModelsBootstrap.checked
+			name:				"restrictedMarginalMeansModelSE"
+			id:					restrictedMarginalMeansModelSE
+			label:				qsTr("Error calculation")
+			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("None"), value: "none" },
+				{ label: qsTr("Standard"), value: "standard" },
+				{ label: qsTr("Bootstrap"), value: "bootstrap"},
 				{ label: qsTr("HC0"), value: "HC0" },
 				{ label: qsTr("HC1"), value: "HC1" },
 				{ label: qsTr("HC2"), value: "HC2" },
 				{ label: qsTr("HC3"), value: "HC3" },
 				{ label: qsTr("HC4"), value: "HC4" },
 				{ label: qsTr("HC4m"), value: "HC4m" },
-				{ label: qsTr("HC5"), value: "HC5" },
+				{ label: qsTr("HC5"), value: "HC5" }
 			]
 		}
-	}
-	
-	VariablesForm
-	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight * 0.5
-		AvailableVariablesList
+
+		IntegerField
 		{
-			name: "restrictedModelTerms"
-			title: qsTr("Model Terms")
-			source: (type === "Ancova" ? [ { name: "modelTerms", discard: "covariates" } ] :
-										 type === "RM-Anova" ? [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ] :
-															   "modelTerms")
+			name: "restrictedMarginalMeansBootstrappingReplicates"
+			visible: restrictedMarginalMeansModelSE.value === "bootstrap"
+			defaultValue: 1000
+			fieldWidth: 50
+			min: 100
+			label: qsTr("From")
+			afterLabel: qsTr("bootstraps")
 		}
-		
-		AssignedVariablesList { name: "restrictedModelMarginalMeansTerm"; title: qsTr("Restricted Marginal Means"); singleVariable: true }
 	}
-	
-	VariablesForm
-	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight * 0.5
-		AvailableVariablesList
-		{
-			property var modelsToPlot: (modelComparison.value === "none") ? [] : [ modelComparison.currentLabel ]
-			
-			name: "availableRestrictedModels"
-			title: qsTr("Restricted Models")
-			source: [ models, { values: modelsToPlot }]
-		}
-		
-		AssignedVariablesList { name: "plotRestrictedModels"; title: qsTr("Plot Restricted Marginal Means") }
-	}
+
+
 }

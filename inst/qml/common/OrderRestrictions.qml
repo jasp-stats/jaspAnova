@@ -32,7 +32,7 @@ Section
 	Text
 	{
 		Layout.columnSpan:	2
-		text:				qsTr("Enter each restriction on a new line, e.g., 'factorLow == factorMid', or 'factorMid < factorHigh', \nwhere 'factor' is the factor name and 'Low'/'Mid'/'High' are the factor level names. \nClick the information icon for more examples.")
+		text:				qsTr("Enter each restriction of one hypothesis on a new line, e.g., \nfactorLow == factorMid\nfactorMid < factorHigh\nwhere 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are the factor level names.\nClick on the 'plus' icon to add more hypotheses. \nClick the information icon for more examples.")
 	}
 
 	HelpButton

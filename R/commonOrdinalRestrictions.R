@@ -543,25 +543,19 @@
 
   if(container$getError()) return()
 
-  if(is.null(container[["singleModelsInference"]])) {
-    singleModelsContainer <- createJaspContainer(title = gettext("Single Model Inference"), position = 3)
-    container[["singleModelsInference"]] <- singleModelsContainer
-  } else {
-    singleModelsContainer <- container[["singleModelsInference"]]
-  }
-
   allModelNames    <- .aorGetModelNames(options[["restrictedModels"]])
   fittedModelNames <- .aorGetModelNames(models[["restricted"]])
 
   for(modelName in allModelNames) {
 
     modelContainer <- .aorGetContainer(
-      container     = singleModelsContainer,
+      container     = container,
       name          = modelName,
       title         = modelName,
-      initCollapsed = TRUE
+      initCollapsed = TRUE,
+      position      = which(modelName == allModelNames) + 3
     )
-    singleModelsContainer[[modelName]] <- modelContainer
+    container[[modelName]] <- modelContainer
 
     if(modelName %in% fittedModelNames) {
       model <- models[["restricted"]][[which(modelName == fittedModelNames)]]

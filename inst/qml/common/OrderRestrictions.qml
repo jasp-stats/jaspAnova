@@ -32,7 +32,7 @@ Section
 	Text
 	{
 		Layout.columnSpan:	2
-		text:				qsTr("Enter each restriction on a new line, e.g., factorLow == factorHigh, \nwhere 'factor' is the factor name and 'Low'/'High' are the factor level names. \nClick the information icon for more examples.")
+		text:				qsTr("Enter each restriction on a new line, e.g., 'factorLow == factorMid', or 'factorMid < factorHigh', \nwhere 'factor' is the factor name and 'Low'/'Mid'/'High' are the factor level names. \nClick the information icon for more examples.")
 	}
 
 	HelpButton

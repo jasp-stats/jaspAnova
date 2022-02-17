@@ -769,6 +769,20 @@
     marginalMeansTable$setError(gettextf("Could not compute the marginal means. Error message: %s", message))
   } else {
     marginalMeansTable$setData(result)
+
+    # add footnotes
+    if(!is.null(attr(result, "avgd.over")))
+      marginalMeansTable$addFootnote(
+        message = gettextf("Results are averaged over the levels of: %s.",
+                          paste(attr(result, "avgd.over"), collapse = ", ")
+                          )
+        )
+    if(!is.null(options[["covariates"]]) && length(options[["covariates"]]) != 0) {
+      activeCovariates <- options[["covariates"]][options[["covariates"]] %in% unique(unlist(options[["modelTerms"]]))]
+      marginalMeansTable$addFootnote(
+        message = gettextf("Covariates (%s) held fixed at their mean values.", paste(activeCovariates, collapse = ", "))
+      )
+    }
   }
 }
 
@@ -796,15 +810,16 @@
 .aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, restrictionSyntax) {
   ncoefs     <- length(coefficients(fit))
   bootstraps <- matrix(nrow = length(unrestrictedBootstrap), ncol = ncoefs)
-
+  keep       <- c()
   for(i in seq_along(unrestrictedBootstrap)) {
     unconstrained <- unrestrictedBootstrap[[i]]
     boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax))
     if(!isTryError(boot)) {
       bootstraps[i, ] <- coefficients(boot)
+      keep <- c(keep, i)
     }
   }
-
+  bootstraps <- bootstraps[keep,,drop=FALSE]
   colnames(bootstraps) <- names(coefficients(fit))
 
   return(bootstraps)
@@ -863,16 +878,18 @@
     )
 
     means <- emmeans::lsmeans(refGrid, variables, infer=c(FALSE, FALSE))
+    avgd.over <- slot(means, "misc")[["avgd.over"]]
     means <- summary(means)
   } else {
     refGrid <- emmeans::qdrg(
       formula   = formula(model[["fit"]][["model.org"]]),
       data      = dataset,
-      mcmc      = model[["bootstraps"]][, names(model[["fit"]][["b.restr"]])],
+      mcmc      = model[["bootstraps"]][, names(model[["fit"]][["b.restr"]]), drop = FALSE],
       contrasts = model[["fit"]][["model.org"]][["contrasts"]]
     )
 
     means <- emmeans::lsmeans(refGrid, variables)
+    avgd.over <- slot(means, "misc")[["avgd.over"]]
     boots <- emmeans::as.mcmc.emmGrid(means)
     boots <- as.data.frame(boots)
 
@@ -883,6 +900,9 @@
     means[["lower.CL"]] <- apply(boots, 2, quantile, probs =   alpha/2, na.rm = TRUE)
     means[["upper.CL"]] <- apply(boots, 2, quantile, probs = 1-alpha/2, na.rm = TRUE)
   }
+
+  if(!is.null(avgd.over) && length(avgd.over))
+    attr(means, "avgd.over") <- avgd.over
 
   return(means)
 }

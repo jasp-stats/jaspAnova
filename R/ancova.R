@@ -850,42 +850,6 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   .aorSingleModelsInference(container, dataset, options)
 
   return()
-
-  baseModel <- .anovaOrdinalRestrictionsCalcBaseModel(ordinalRestrictionsContainer, dataset, options)
-
-  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
-  modelList  <- lapply(restrictedModels,
-                       .anovaOrdinalRestrictionsComputeModel,
-                       baseModel = baseModel$fit,
-                       container = ordinalRestrictionsContainer,
-                       dataset   = dataset,
-                       options   = options)
-
-  .anovaOrdinalRestrictionsGetSyntaxErrors(modelList, ordinalRestrictionsContainer)
-
-  modelNames <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
-  names(modelList) <- modelNames
-
-  compareGoric <- .anovaOrdinalRestrictionsCompareModels(modelList, ordinalRestrictionsContainer, options)
-  .ordinalRestrictionsCreateComparisonTable(compareGoric, modelNames, ordinalRestrictionsContainer, type = "goric", options)
-
-  if (options[["restrictedModelComparisonCoefficients"]])
-    .anovaOrdinalRestrictionsCreateCoefficientsTable(compareGoric, modelNames, ordinalRestrictionsContainer, options)
-
-  if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
-    modelSummaryList <- .anovaOrdinalRestrictionsCalcModelSummaries(modelList, modelNames, baseModel, dataset, ordinalRestrictionsContainer, options)
-  } else {
-    modelSummaryList <- NULL
-  }
-  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "goric", options)
-
-  if (any(sapply(restrictedModels, function(mod) mod[["informedHypothesisTest"]])))
-    .anovaOrdinalRestrictionsCreateInformedHypothesisTestTables(modelList, modelNames, ordinalRestrictionsContainer, options)
-
-  if (length(options[["plotRestrictedModels"]]) > 0L && length(options[["restrictedModelMarginalMeansTerm"]]) > 0L)
-    .ordinalRestrictionsCreateMarginalMeansPlot(modelSummaryList, modelNames, ordinalRestrictionsContainer, options)
-
-  return()
 }
 
 .anovaOrdinalRestrictionsCalcBaseModel <- function(ordinalRestrictionsContainer, dataset, options) {

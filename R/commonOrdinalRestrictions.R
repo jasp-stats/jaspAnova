@@ -20,8 +20,7 @@
     container    = container,
     name         = "ordinalRestrictions",
     title        = gettext("Order Restricted Hypotheses"),
-    dependencies = c("restrictedModels", "includeIntercept", "restrictedSE",
-                     "restrictedBootstrapping", "restrictedBootstrappingReplicates")
+    dependencies = c("includeIntercept", "restrictedSE")
     )
 
   return(ordinalRestrictionsContainer)
@@ -107,7 +106,9 @@
 }
 
 # Fitting ----
-.aorGetUnrestrictedModel <- function(dataset, options) {
+.aorGetUnrestrictedModel <- function(container, dataset, options) {
+  if(!is.null(container[["stateUnrestricted"]])) return(container[["stateUnrestricted"]]$object)
+
   reorderModelTerms <- .reorderModelTerms(options)
   modelTerms        <- reorderModelTerms$modelTerms
   modelDef          <- .modelFormula(modelTerms, options)
@@ -146,12 +147,47 @@
     contrasts   = contrasts
   )
 
+  container[["stateUnrestricted"]] <- createJaspState(object = model)
 
   return(model)
 }
 
-.aorGetRestrictedModel <- function(restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
-  modelName                 <- .aorGetModelName   (restrictedModelOption)
+.aorGetUnrestrictedBoostrap <- function(container, dataset, unrestricted, samples){
+  if(!is.null(container[["stateUnrestrictedBootstrap"]])) return(container[["stateUnrestrictedBootstrap"]]$object)
+
+  contrasts <- unrestricted[["contrasts"]]
+  weights   <- unrestricted[["weights"]]
+  formula   <- formula(unrestricted)
+
+  unrestrictedBootstrap <- replicate(
+    n    = samples,
+    expr = {
+      n <- nrow(dataset)
+      idx <- sample.int(n = n, size = n, replace = TRUE)
+      resamples <- dataset[idx,,drop=FALSE]
+
+
+      try(
+        update(unrestricted, data = resamples, contrasts = contrasts, weights = weights, formula = formula)
+      )
+    },
+    simplify = FALSE
+  )
+  unrestrictedBootstrap[vapply(unrestrictedBootstrap, isTryError, logical(1))] <- NULL
+
+  container[["stateUnrestrictedBootstrap"]] <- createJaspState(
+    object = unrestrictedBootstrap, dependencies = c("restrictedBootstrapping", "restrictedBootstrappingReplicates")
+  )
+
+  return(unrestrictedBootstrap)
+}
+
+.aorGetRestrictedModel <- function(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
+  modelName <- .aorGetModelName   (restrictedModelOption)
+  stateName <- sprintf("state_%s", modelName)
+
+  if(!is.null(container[[stateName]])) return(container[[stateName]]$object)
+
   restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
   restrictionSyntax         <- try(.aorTranslateSyntax(restrictionSyntaxOriginal, dataset, options, modelName))
 
@@ -168,7 +204,7 @@
   }
 
   unrestricted <- unrestrictedModel[["fit"]]
-  fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax))
+  fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax, se = options[["restrictedSE"]]))
 
   if(isTryError(fit)) {
     message <- .aorExtractErrorMessageSoft(fit)
@@ -177,6 +213,7 @@
 
   if(length(unrestrictedBootstrap) > 0) {
     bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, restrictionSyntax))
+    progressbarTick()
   } else {
     bootstraps <- NULL
   }
@@ -192,15 +229,20 @@
     bootstraps                = bootstraps
   )
 
+  container[[stateName]] <- createJaspState(object = model)
+  container[[stateName]]$dependOn(
+    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates"),
+    optionContainsValue = list(restrictedModels = restrictedModelOption)
+  )
+
   return(model)
 }
 
-.aorGetRestrictedModels <- function(dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
+.aorGetRestrictedModels <- function(container, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
 
-  restrictedModels <- lapply(X   = options[["restrictedModels"]],
-                             FUN = function(x) {
-                               out <- try(.aorGetRestrictedModel(x, dataset, options, unrestrictedModel, unrestrictedBootstrap))
-                               progressbarTick()
+  restrictedModels <- lapply(options[["restrictedModels"]],
+                             function(x) {
+                               out <- try(.aorGetRestrictedModel(container, x, dataset, options, unrestrictedModel, unrestrictedBootstrap))
                                return(out)
                                }
                              )
@@ -211,46 +253,39 @@
 }
 
 .aorGetFittedModels <- function(container, dataset, options) {
-  if(!is.null(container[["modelState"]])) return(container[["modelState"]]$object)
-
-  startProgressbar(expectedTicks = length(options[["restrictedModels"]]) + 1,
-                   label = gettext("Estimating restricted models"))
   models <- list()
 
-  models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(dataset, options))
+  models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(container, dataset, options))
   if(isTryError(models[["unrestricted"]])) {
     message <- .aorExtractErrorMessageSoft(models[["unrestricted"]])
-    container$setError(gettextf("Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s.\n"), message)
+    container$setError(gettextf("Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s.", message))
     return()
   }
 
   if(options[["restrictedBootstrapping"]]) {
-    unrestricted <- models[["unrestricted"]][["fit"]]
-    contrasts    <- unrestricted[["contrasts"]]
-    weights      <- unrestricted[["weights"]]
-    formula      <- formula(unrestricted)
-
-    unrestrictedBootstrap <- replicate(
-      n    = options[["restrictedBootstrappingReplicates"]],
-      expr = {
-        n <- nrow(dataset)
-        idx <- sample.int(n = n, size = n, replace = TRUE)
-        resamples <- dataset[idx,,drop=FALSE]
-
-
-        try(
-          update(unrestricted, data = resamples)
-        )
-      },
-      simplify = FALSE
+    startProgressbar(
+      expectedTicks = length(options[["restrictedModels"]]) + 1,
+      label         = gettext("Bootstrapping order restricted hypotheses")
     )
-    unrestrictedBootstrap[vapply(unrestrictedBootstrap, isTryError, logical(1))] <- NULL
+
+    unrestrictedBootstrap <- try(.aorGetUnrestrictedBoostrap(
+      container    = container,
+      dataset      = dataset,
+      unrestricted = models[["unrestricted"]][["fit"]],
+      samples      = options[["restrictedBootstrappingReplicates"]]
+      ))
+
+    if(isTryError(unrestrictedBootstrap)) {
+      message <- .aorExtractErrorMessageSoft(unrestrictedBootstrap)
+      container$setError(gettextf("Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s.", message))
+    }
+
+    progressbarTick()
   } else {
     unrestrictedBootstrap <- list()
   }
-  progressbarTick()
 
-  models[["restricted"]] <- .aorGetRestrictedModels(dataset, options, models[["unrestricted"]], unrestrictedBootstrap)
+  models[["restricted"]] <- .aorGetRestrictedModels(container, dataset, options, models[["unrestricted"]], unrestrictedBootstrap)
 
   if(isTryError(models[["restricted"]])) {
     modelFailed            <- vapply(models[["restricted"]], isTryError, logical(1))
@@ -269,13 +304,12 @@
     container$setError(message)
   }
 
-  container[["modelState"]] <- createJaspState(object = models)
   return(models)
 }
 
 # Syntax info ----
 .aorBasicInfo <- function(container, dataset, options) {
-  models <- .aorGetFittedModels(container, dataset, options)
+  unrestricted <- .aorGetUnrestrictedModel(container, dataset, options)
 
   if(is.null(container[["basicInfoContainer"]])) {
     basicInfoContainer <- createJaspContainer(title = gettext("Syntax information"), position = 1)
@@ -284,11 +318,11 @@
     basicInfoContainer <- container[["basicInfoContainer"]]
   }
 
-  .aorBasicInfoAvailableParameters(basicInfoContainer, options, models)
+  .aorBasicInfoAvailableParameters(basicInfoContainer, options, unrestricted)
 
 }
 
-.aorBasicInfoAvailableParameters <- function(container, options, models) {
+.aorBasicInfoAvailableParameters <- function(container, options, unrestricted) {
   if(!is.null(container[["availableParameters"]]) || !options[["restrictedModelShowAvailableCoefficients"]]) return()
 
   availableParameters <- createJaspHtml(title        = gettext("Available coefficients for restriction syntax"),
@@ -297,7 +331,7 @@
                                         )
   container[["availableParameters"]] <- availableParameters
 
-  coefs <- names(coefficients(models[["unrestricted"]][["fit"]]))
+  coefs <- names(coefficients(unrestricted[["fit"]]))
   coefs <- .aorRenameInterceptRemoveColon(coefs)
   coefs <- sprintf("<li><div class='jasp-code'>%s</div></li>", coefs)
 
@@ -308,7 +342,7 @@
 .aorModelComparison <- function(container, dataset, options) {
   if(is.null(container[["modelComparison"]])) {
     modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 2)
-    modelComparisonContainer$dependOn(c("restrictedModelComparison"))
+    modelComparisonContainer$dependOn(c("restrictedModels", "restrictedModelComparison"))
     container[["modelComparison"]] <- modelComparisonContainer
   } else {
     modelComparisonContainer <- container[["modelComparison"]]
@@ -555,6 +589,7 @@
       initCollapsed = TRUE,
       position      = which(modelName == allModelNames) + 3
     )
+    modelContainer$dependOn(optionsFromObject = container[[sprintf("state_%s", modelName)]])
     container[[modelName]] <- modelContainer
 
     if(modelName %in% fittedModelNames) {
@@ -648,7 +683,8 @@
     result[["typeName"]] <- gettextf("Type %s", result[["type"]])
     ihtTable$setData(result)
 
-    .aorAddInformativeHypothesisTestFootnotes(ihtTable, result)
+    # for some reason, this takes forever
+    # .aorAddInformativeHypothesisTestFootnotes(ihtTable, result)
   } else {
     message <- .aorExtractErrorMessageSoft(result)
     ihtTable$setError(gettextf("Could not compute the informative hypothesis tests. Error message: %s", message))
@@ -807,7 +843,7 @@
   keep       <- c()
   for(i in seq_along(unrestrictedBootstrap)) {
     unconstrained <- unrestrictedBootstrap[[i]]
-    boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax))
+    boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax, se = fit[["se"]]))
     if(!isTryError(boot)) {
       bootstraps[i, ] <- coefficients(boot)
       keep <- c(keep, i)

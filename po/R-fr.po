@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-02-12 02:46\n"
-"PO-Revision-Date: 2022-02-17 15:13+0000\n"
+"PO-Revision-Date: 2022-02-18 13:05+0000\n"
 "Last-Translator: Jordy STEFAN <jordy.stefan@askoria.eu>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
@@ -228,61 +228,67 @@ msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
 "replicates."
 msgstr ""
+"Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
+"peu de répliques bootstrap."
 
 msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr ""
+msgstr "Bootstrapping des moyennes marginales restreintes : %s"
 
 msgid "Informed Hypothesis Tests"
-msgstr ""
+msgstr "Tests d'hypothèses éclairés"
 
 msgid "Restriction Summary"
-msgstr ""
+msgstr "Résumé de la restriction"
 
 msgid "Restriction"
-msgstr ""
+msgstr "Restriction"
 
 msgid "Reduction Summary"
-msgstr ""
+msgstr "Résumé de la réduction"
 
 msgid "Unrestricted R%s"
-msgstr ""
+msgstr "R%s non restreints"
 
 msgid "Restricted R%s"
-msgstr ""
+msgstr "R%s restreints"
 
 msgid "Test Type"
-msgstr ""
+msgstr "Type de test"
 
 msgid "Residual df"
-msgstr ""
+msgstr "dl résiduel"
 
 msgid "Classical Test"
-msgstr ""
+msgstr "Test classique"
 
 msgid "Model Summaries"
-msgstr ""
+msgstr "Résumés des modèles"
 
 msgid "Marginal means"
-msgstr ""
+msgstr "Moyennes marginales"
 
 msgid ""
 "Please, select a model term to summarise in the 'Restricted Marginal Means' "
 "section."
 msgstr ""
+"Veuillez sélectionner un terme du modèle à résumer dans la section 'Moyennes "
+"marginales restreintes' ;."
 
 msgid "%.0f%% CI"
-msgstr ""
+msgstr "%.0f%% IC"
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Moyennes marginales"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few successful "
 "bootstrap replicates."
 msgstr ""
+"Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
+"peu de répliques bootstrap réussies."
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Moyenne marginale"
 
 msgid "Bootstrapped SE and CI based on %i samples."
 msgstr ""

@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-02-16 19:10+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/gl/>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 "X-Language: gl_ES\n"
 "X-Source-Language: C\n"
 "X-Qt-Contexts: true\n"
@@ -18,7 +24,7 @@ msgstr "Dunn"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
-msgstr "Desde"
+msgstr "De"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
@@ -50,7 +56,7 @@ msgstr "Gráficas Descritivas"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr "Comprobación da independencia de factores covariantes"
+msgstr "Comprobación da independencia de covariantes de factores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
@@ -86,7 +92,7 @@ msgstr "Contrastes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
-msgstr "Medias marxinais"
+msgstr "Medias Marxinais"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
@@ -154,11 +160,11 @@ msgstr "Estimacións da magnitude do efecto"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
-msgstr "Eixe horizontal"
+msgstr "Eixe Horizontal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Effect Factor"
-msgstr "Factor de efecto simple"
+msgstr "Factor de Efecto Simple"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Šidák"
@@ -170,7 +176,7 @@ msgstr "Gráfica Q-Q dos erros"
 
 msgctxt "Anova|"
 msgid "Homogeneity corrections"
-msgstr "Correccións de homoxeneidade"
+msgstr "Correccións de Homoxeneidade"
 
 msgctxt "Anova|"
 msgid "Brown-Forsythe"
@@ -202,7 +208,7 @@ msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr "ANOVA con medidas repetidas"
+msgstr "ANOVA de medidas repetidas"
 
 msgctxt "Description|"
 msgid "Classical"
@@ -222,7 +228,7 @@ msgstr "ANCOVA baiesiana"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "ANOVA baiesiana de medidas repetidas"
+msgstr "ANOVA baiesiana de Medidas Repetidas"
 
 msgctxt "Manova|"
 msgid "Roy"
@@ -262,11 +268,11 @@ msgstr "Efectos aleatorios de escala r"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior Samples"
-msgstr "Mostras posteriores"
+msgstr "Mostras Posteriores"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Single Model Inference"
-msgstr "Inferencia do modelo único"
+msgstr "Inferencia do Modelo Único"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Group levels in single plot"
@@ -290,7 +296,7 @@ msgstr "Control nulo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Posteriores medios do modelo"
+msgstr "Posteriores medias do modelo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "r scale fixed effects"
@@ -346,7 +352,7 @@ msgstr "Greenhouse-Geisser"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr "Probas de esfericidade"
+msgstr "Probas de Esfericidade"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
@@ -374,7 +380,7 @@ msgstr "Utilizar o modelo multivariante para as probas seguintes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr "Correccións de esfericidade"
+msgstr "Correccións de Esfericidade"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
@@ -482,11 +488,11 @@ msgstr "Tipo"
 
 msgctxt "Ancova|"
 msgid "Standard"
-msgstr "Típico"
+msgstr "Estándar"
 
 msgctxt "Ancova|"
 msgid "From"
-msgstr "Desde"
+msgstr "De"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
@@ -534,7 +540,7 @@ msgstr "Šidák"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar as Comparacións Significativas"
+msgstr "Marcar as comparacións significativas"
 
 msgctxt "Ancova|"
 msgid "Descriptives Plots"
@@ -674,7 +680,7 @@ msgstr "Gráficas"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Posteriores medios do modelo"
+msgstr "Posteriores medias do modelo"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
@@ -786,7 +792,7 @@ msgstr "Número de mostras"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior Samples"
-msgstr "Mostras posteriores"
+msgstr "Mostras Posteriores"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
@@ -854,7 +860,7 @@ msgstr "Probas de Homoxeneidade"
 
 msgctxt "Anova|"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 msgctxt "Anova|"
 msgid "Welch"
@@ -886,7 +892,7 @@ msgstr "Típico"
 
 msgctxt "Anova|"
 msgid "From"
-msgstr "Desde"
+msgstr "De"
 
 msgctxt "Anova|"
 msgid "bootstraps"
@@ -922,7 +928,7 @@ msgstr "Šidák"
 
 msgctxt "Anova|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar as Comparacións Significativas"
+msgstr "Marcar as comparacións significativas"
 
 msgctxt "Anova|"
 msgid "Descriptives Plots"
@@ -1046,7 +1052,7 @@ msgstr "Gráficas"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Posteriores medios do modelo"
+msgstr "Posteriores medias do modelo"
 
 msgctxt "AnovaBayesian|"
 msgid "Group levels in single plot"
@@ -1086,7 +1092,7 @@ msgstr "R²"
 
 msgctxt "AnovaBayesian|"
 msgid "Marginal posteriors"
-msgstr "Posteriores Marxinais"
+msgstr "Posteriores marxinais"
 
 msgctxt "AnovaBayesian|"
 msgid "Post Hoc Tests"
@@ -1158,7 +1164,7 @@ msgstr "Número de mostras"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior Samples"
-msgstr "Mostras posteriores"
+msgstr "Mostras Posteriores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
@@ -1194,7 +1200,7 @@ msgstr "Comprobacións de Supostos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
@@ -1450,7 +1456,7 @@ msgstr "Non restrinxido"
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare against"
@@ -1490,7 +1496,7 @@ msgstr "bootstraps"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr "Corrección de Huber-White para a heterocedasticidade"
+msgstr "Corrección de Huber-White para a Heterocedasticidade"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"

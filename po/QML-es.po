@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-02-16 19:10+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -38,11 +44,11 @@ msgstr "ANOVA bayesiano"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "ANOVA de medidas repetidas bayesianas"
+msgstr "ANOVA bayesiano de Medidas Repetidas"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr "ANCOVA Bayesiano"
+msgstr "ANCOVA bayesiano"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
@@ -114,11 +120,11 @@ msgstr "Verificaciones de Supuestos"
 
 msgctxt "Ancova|"
 msgid "Homogeneity tests"
-msgstr "Pruebas de homogeneidad"
+msgstr "Contrastes de Homogeneidad"
 
 msgctxt "Ancova|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de residuos"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
@@ -134,7 +140,7 @@ msgstr "Intervalos de confianza"
 
 msgctxt "Ancova|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas post hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "Ancova|"
 msgid "Type"
@@ -154,7 +160,7 @@ msgstr "bootstraps"
 
 msgctxt "Ancova|"
 msgid "Effect size"
-msgstr "Tamaño del efecto"
+msgstr "Magnitud del efecto"
 
 msgctxt "Ancova|"
 msgid "Games-Howell"
@@ -190,19 +196,19 @@ msgstr "Šidák"
 
 msgctxt "Ancova|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar Comparaciones significativas"
+msgstr "Marcar las comparaciones significativas"
 
 msgctxt "Ancova|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "Ancova|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "Ancova|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "Ancova|"
 msgid "Separate Plots"
@@ -230,11 +236,11 @@ msgstr "Ajuste del intervalo de confianza"
 
 msgctxt "Ancova|"
 msgid "None"
-msgstr "Ninguna"
+msgstr "Ninguno"
 
 msgctxt "Ancova|"
 msgid "Simple Main Effects"
-msgstr "Efectos principales simples"
+msgstr "Efectos Principales Simples"
 
 msgctxt "Ancova|"
 msgid "Factors"
@@ -242,23 +248,23 @@ msgstr "Factores"
 
 msgctxt "Ancova|"
 msgid "Simple Effect Factor"
-msgstr "Factor de efecto simple"
+msgstr "Factor de Efecto Simple"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 1"
-msgstr "Factor moderador 1"
+msgstr "Factor Moderador 1"
 
 msgctxt "Ancova|"
 msgid "Moderator Factor 2"
-msgstr "Factor moderador 2"
+msgstr "Factor Moderador 2"
 
 msgctxt "Ancova|"
 msgid "Nonparametrics"
-msgstr "No paramétricos"
+msgstr "No Paramétricos"
 
 msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
-msgstr "Prueba de Kruskal-Wallis"
+msgstr "Contraste de Kruskal-Wallis"
 
 msgctxt "Ancova|"
 msgid " "
@@ -290,11 +296,11 @@ msgstr "Efectos"
 
 msgctxt "AncovaBayesian|"
 msgid "Across all models"
-msgstr "En todos los modelos"
+msgstr "A través de todos los modelos"
 
 msgctxt "AncovaBayesian|"
 msgid "Across matched models"
-msgstr "En los modelos combinados"
+msgstr "A través de los modelos emparejados"
 
 msgctxt "AncovaBayesian|"
 msgid "Estimates"
@@ -302,7 +308,7 @@ msgstr "Estimaciones"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged R²"
-msgstr "Modelo promedio R²"
+msgstr "R² medio del modelo"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives"
@@ -330,11 +336,11 @@ msgstr "Gráficos"
 
 msgctxt "AncovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Modelos promediados posteriores"
+msgstr "Posteriores medias del modelo"
 
 msgctxt "AncovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "Niveles de grupo en un solo gráfico"
+msgstr "Niveles de grupo en un único gráfico"
 
 msgctxt "AncovaBayesian|"
 msgid "Individual plot per level"
@@ -342,7 +348,7 @@ msgstr "Gráfico individual por nivel"
 
 msgctxt "AncovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de residuos"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "AncovaBayesian|"
 msgid "Posterior R²"
@@ -358,11 +364,11 @@ msgstr "Componentes"
 
 msgctxt "AncovaBayesian|"
 msgid "Single Model Inference"
-msgstr "Inferencia de modelo único"
+msgstr "Inferencia del Modelo Único"
 
 msgctxt "AncovaBayesian|"
 msgid "Specific Model Terms"
-msgstr "Términos específicos del modelo"
+msgstr "Términos Específicos del Modelo"
 
 msgctxt "AncovaBayesian|"
 msgid "R²"
@@ -374,7 +380,7 @@ msgstr "Posteriores marginales"
 
 msgctxt "AncovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas post hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "AncovaBayesian|"
 msgid "Correction"
@@ -386,15 +392,15 @@ msgstr "Control nulo"
 
 msgctxt "AncovaBayesian|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "AncovaBayesian|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "AncovaBayesian|"
 msgid "Separate Plots"
@@ -410,7 +416,7 @@ msgstr "Opciones Adicionales"
 
 msgctxt "AncovaBayesian|"
 msgid "Prior"
-msgstr "Anterior"
+msgstr "Previo"
 
 msgctxt "AncovaBayesian|"
 msgid "r scale fixed effects"
@@ -510,11 +516,11 @@ msgstr "Verificaciones de Supuestos"
 
 msgctxt "Anova|"
 msgid "Homogeneity tests"
-msgstr "Pruebas de homogeneidad"
+msgstr "Contrastes de Homogeneidad"
 
 msgctxt "Anova|"
 msgid "Homogeneity corrections"
-msgstr "Correcciones de homogeneidad"
+msgstr "Correcciones de Homogeneidad"
 
 msgctxt "Anova|"
 msgid "None"
@@ -530,7 +536,7 @@ msgstr "Welch"
 
 msgctxt "Anova|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de residuos"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "Anova|"
 msgid "Contrasts"
@@ -542,7 +548,7 @@ msgstr "Intervalos de confianza"
 
 msgctxt "Anova|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas post hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "Anova|"
 msgid "Type"
@@ -562,7 +568,7 @@ msgstr "bootstraps"
 
 msgctxt "Anova|"
 msgid "Effect size"
-msgstr "Tamaño del efecto"
+msgstr "Magnitud del efecto"
 
 msgctxt "Anova|"
 msgid "Games-Howell"
@@ -598,11 +604,11 @@ msgstr "Šidák"
 
 msgctxt "Anova|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar Comparaciones Significativas"
+msgstr "Marcar las comparaciones significativas"
 
 msgctxt "Anova|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "Anova|"
 msgid "Factors"
@@ -610,11 +616,11 @@ msgstr "Factores"
 
 msgctxt "Anova|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "Anova|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "Anova|"
 msgid "Separate Plots"
@@ -646,7 +652,7 @@ msgstr "Ajuste del intervalo de confianza"
 
 msgctxt "Anova|"
 msgid "Simple Main Effects"
-msgstr "Efectos principales simples"
+msgstr "Efectos Principales Simples"
 
 msgctxt "Anova|"
 msgid "Simple Effect Factor"
@@ -662,11 +668,11 @@ msgstr "Factor Moderador 2"
 
 msgctxt "Anova|"
 msgid "Nonparametrics"
-msgstr "No paramétricos"
+msgstr "No Paramétricos"
 
 msgctxt "Anova|"
 msgid "Kruskal-Wallis Test"
-msgstr "Prueba de Kruskal-Wallis"
+msgstr "Contraste de Kruskal-Wallis"
 
 msgctxt "Anova|"
 msgid " "
@@ -694,11 +700,11 @@ msgstr "Efectos"
 
 msgctxt "AnovaBayesian|"
 msgid "Across all models"
-msgstr "En todos los modelos"
+msgstr "A través de todos los modelos"
 
 msgctxt "AnovaBayesian|"
 msgid "Across matched models"
-msgstr "En los modelos combinados"
+msgstr "A través de los modelos emparejados"
 
 msgctxt "AnovaBayesian|"
 msgid "Estimates"
@@ -706,7 +712,7 @@ msgstr "Estimaciones"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged R²"
-msgstr "Modelo R² promedio"
+msgstr "R² medio del modelo"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives"
@@ -734,11 +740,11 @@ msgstr "Gráficos"
 
 msgctxt "AnovaBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Modelos promediados posteriores"
+msgstr "Posteriores medias del modelo"
 
 msgctxt "AnovaBayesian|"
 msgid "Group levels in single plot"
-msgstr "Niveles de grupo en un solo gráfico"
+msgstr "Niveles de grupo en un único gráfico"
 
 msgctxt "AnovaBayesian|"
 msgid "Individual plot per level"
@@ -746,7 +752,7 @@ msgstr "Gráfico individual por nivel"
 
 msgctxt "AnovaBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de residuos"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "AnovaBayesian|"
 msgid "Posterior R²"
@@ -762,11 +768,11 @@ msgstr "Componentes"
 
 msgctxt "AnovaBayesian|"
 msgid "Single Model Inference"
-msgstr "Inferencia de modelo único"
+msgstr "Inferencia del Modelo Único"
 
 msgctxt "AnovaBayesian|"
 msgid "Specific Model Terms"
-msgstr "Términos específicos del modelo"
+msgstr "Términos Específicos del Modelo"
 
 msgctxt "AnovaBayesian|"
 msgid "R²"
@@ -774,11 +780,11 @@ msgstr "R²"
 
 msgctxt "AnovaBayesian|"
 msgid "Marginal posteriors"
-msgstr "Posteriores Marginales"
+msgstr "Posteriores marginales"
 
 msgctxt "AnovaBayesian|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas Post Hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "AnovaBayesian|"
 msgid "Correction"
@@ -790,7 +796,7 @@ msgstr "Control nulo"
 
 msgctxt "AnovaBayesian|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "AnovaBayesian|"
 msgid "Factors"
@@ -798,11 +804,11 @@ msgstr "Factores"
 
 msgctxt "AnovaBayesian|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "AnovaBayesian|"
 msgid "Separate Plots"
@@ -818,7 +824,7 @@ msgstr "Opciones Adicionales"
 
 msgctxt "AnovaBayesian|"
 msgid "Prior"
-msgstr "Anterior"
+msgstr "Previo"
 
 msgctxt "AnovaBayesian|"
 msgid "r scale fixed effects"
@@ -922,7 +928,7 @@ msgstr "Suma de cuadrados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr "Utilice el modelo multivariante para los siguientes contrastes"
+msgstr "Utilizar el modelo multivariante para los siguientes contrastes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
@@ -930,11 +936,11 @@ msgstr "Verificaciones de Supuestos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr "Contrastes de esfericidad"
+msgstr "Contrastes de Esfericidad"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr "Correcciones de esfericidad"
+msgstr "Correcciones de Esfericidad"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
@@ -950,7 +956,7 @@ msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr "Pruebas de homogeneidad"
+msgstr "Contrastes de Homogeneidad"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Contrasts"
@@ -958,7 +964,7 @@ msgstr "Contrastes"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assume equal variances"
-msgstr "Asuma varianzas iguales"
+msgstr "Suponer varianzas iguales"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Confidence intervals"
@@ -966,15 +972,15 @@ msgstr "Intervalos de confianza"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas Post Hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr "Tamaño del efecto"
+msgstr "Magnitud del efecto"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
-msgstr "Término de error de grupo para factores de RM"
+msgstr "Combinar términos de error para factores de RM"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -994,11 +1000,11 @@ msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar Comparaciones Significativas"
+msgstr "Marcar las comparaciones significativas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
@@ -1006,11 +1012,11 @@ msgstr "Factores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Separate Plots"
@@ -1034,7 +1040,7 @@ msgstr "Error típico"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "Promedio de los factores de RM no utilizados"
+msgstr "Promedio de los factores RM no utilizados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Marginal Means"
@@ -1062,11 +1068,11 @@ msgstr "Šidák"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Main Effects"
-msgstr "Efectos principales simples"
+msgstr "Efectos Principales Simples"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Simple Effect Factor"
-msgstr "Factor de efecto simple"
+msgstr "Factor de Efecto Simple"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Moderator Factor 1"
@@ -1078,15 +1084,15 @@ msgstr "Factor Moderador 2"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr "Términos de error de grupo"
+msgstr "Combinar términos de error"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr "No paramétricos"
+msgstr "No Paramétricos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr "Factor RM"
+msgstr "Factor de MR"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
@@ -1094,7 +1100,7 @@ msgstr "Factor de Agrupación Opcional"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr "Pruebas post hoc de Conover"
+msgstr "Contrastes post-hoc de Conover"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
@@ -1122,11 +1128,11 @@ msgstr "Efectos"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across all models"
-msgstr "En todos los modelos"
+msgstr "A través de todos los modelos"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Across matched models"
-msgstr "En los modelos combinados"
+msgstr "A través de los modelos emparejados"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Estimates"
@@ -1134,7 +1140,7 @@ msgstr "Estimaciones"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged R²"
-msgstr "Modelo R² promedio"
+msgstr "R² medio del modelo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives"
@@ -1162,11 +1168,11 @@ msgstr "Gráficos"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Model averaged posteriors"
-msgstr "Modelos posteriores promediados"
+msgstr "Posteriores medias del modelo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Group levels in single plot"
-msgstr "Agrupar niveles en un solo gráfico"
+msgstr "Niveles de grupo en un único gráfico"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Individual plot per level"
@@ -1174,7 +1180,7 @@ msgstr "Gráfico individual por nivel"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de residuos"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Posterior R²"
@@ -1190,11 +1196,11 @@ msgstr "Componentes"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Single Model Inference"
-msgstr "Inferencia de modelo único"
+msgstr "Inferencia del Modelo Único"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Specific Model Terms"
-msgstr "Términos específicos del modelo"
+msgstr "Términos Específicos del Modelo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "R²"
@@ -1202,11 +1208,11 @@ msgstr "R²"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Marginal posteriors"
-msgstr "Marginales Posteriores"
+msgstr "Posteriores marginales"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Post Hoc Tests"
-msgstr "Pruebas post hoc"
+msgstr "Contrastes Post-hoc"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Correction"
@@ -1218,7 +1224,7 @@ msgstr "Control nulo"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Descriptives Plots"
-msgstr "Gráficos descriptivos"
+msgstr "Gráficos Descriptivos"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Factors"
@@ -1226,11 +1232,11 @@ msgstr "Factores"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Lines"
-msgstr "Líneas separadas"
+msgstr "Líneas Separadas"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Separate Plots"
@@ -1314,7 +1320,7 @@ msgstr "Opciones Adicionales"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr "Contrastar"
+msgstr "Contraste"
 
 msgctxt "Manova|"
 msgid "Pillai"
@@ -1338,7 +1344,7 @@ msgstr "Verificaciones de Supuestos"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr "Homogeneidad de matrices de covarianzas"
+msgstr "Homogeneidad de las matrices de covarianzas"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
@@ -1350,7 +1356,7 @@ msgstr "Mostrar"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr "Tablas de ANOVA"
+msgstr "Tablas ANOVA"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
@@ -1358,7 +1364,7 @@ msgstr "Relación p máxima de Vovk-Sellke"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr "Gráficos Raincloud"
+msgstr "Gráficos de tipo Nube con lluvia"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
@@ -1366,7 +1372,7 @@ msgstr "Factores"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr "Eje horizontal"
+msgstr "Eje Horizontal"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
@@ -1374,7 +1380,7 @@ msgstr "Gráficos Separados"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr "Mostrar Horizontal"
+msgstr "Presentación horizontal"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
@@ -1382,7 +1388,7 @@ msgstr "Etiqueta del eje y"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr "Evaluar la diferencia entre múltiples medias"
+msgstr "Evaluar la diferencia entre varias medias"
 
 msgctxt "Ancova|"
 msgid "Scheffé"
@@ -1398,7 +1404,7 @@ msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr "Factor RM"
+msgstr "Factor de MR"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restrictions"
@@ -1491,7 +1497,7 @@ msgstr "bootstraps"
 
 msgctxt "OrderRestrictions|"
 msgid "Huber-White correction for heteroskedasticity"
-msgstr "Corrección de heterocedasticidad de Huber-White"
+msgstr "Corrección de Huber-White para Heterocedasticidad"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
@@ -1548,12 +1554,12 @@ msgstr ""
 "factorMayor, \n"
 "donde 'factor' es el nombre del factor, y 'Menor'/'Mayor' son los nombres de "
 "los niveles de los factores. \n"
-"Haz click en el icono de información para tener más ejemplos."
+"Haga click en el icono de información para tener más ejemplos."
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
 msgstr ""
-"Ctrl + Intro para aplicar. Haz click en el botón azul de arriba para obtener "
-"ayuda sobre la sintaxis de las restricciones"
+"Ctrl + Intro para aplicar. Haga click en el botón azul de arriba para "
+"obtener ayuda sobre la sintaxis de las restricciones"

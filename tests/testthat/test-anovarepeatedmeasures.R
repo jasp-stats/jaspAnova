@@ -618,6 +618,20 @@ test_that("Raincloud Plots match", {
   jaspTools::expect_equal_plots(testPlot, "raincloud-plots")
 })
 
+test_that("Raincloud Plots match for between subjects", {
+  options <- initOpts()
+  options$sphericityCorrections <- TRUE
+  options$sphericityTests <- TRUE
+  options$rainCloudPlotsHorizontalAxis <- "gender"
+  options$rainCloudPlotsSeparatePlots <- "Charisma"
+  set.seed(1)
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv", options = options)
+  testPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(testPlot, "raincloud-plots-between-subjects")
+})
+
+
 test_that("Effect Size Calculation correct", {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
 

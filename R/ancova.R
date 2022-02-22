@@ -806,6 +806,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
+  t1 <- Sys.time()
   if (!ready) return()
 
   options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
@@ -816,8 +817,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   if(length(options[["restrictedModels"]]) == 0) return()
 
-  .aorModelComparison      (container, dataset, options)
-  .aorSingleModelsInference(container, dataset, options)
+  models <- .aorGetFittedModels(container, dataset, options)
+
+  .aorModelComparison      (container, dataset, options, models)
+  .aorSingleModelsInference(container, dataset, options, models)
 
   return()
 }

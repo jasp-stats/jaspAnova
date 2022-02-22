@@ -152,27 +152,30 @@
   return(model)
 }
 
-.aorGetUnrestrictedBoostrap <- function(container, dataset, unrestricted, samples){
+.aorGetUnrestrictedBootstrap <- function(container, dataset, unrestricted, samples){
   if(!is.null(container[["stateUnrestrictedBootstrap"]])) return(container[["stateUnrestrictedBootstrap"]]$object)
+  startProgressbar(
+    expectedTicks = samples %/% 100,
+    label         = gettext("Bootstrapping unrestricted model")
+  )
 
   contrasts <- unrestricted[["contrasts"]]
   weights   <- unrestricted[["weights"]]
   formula   <- formula(unrestricted)
 
-  unrestrictedBootstrap <- replicate(
-    n    = samples,
-    expr = {
-      n <- nrow(dataset)
-      idx <- sample.int(n = n, size = n, replace = TRUE)
-      resamples <- dataset[idx,,drop=FALSE]
+  unrestrictedBootstrap <- vector("list", samples)
+  for(i in seq_len(samples)) {
+    n <- nrow(dataset)
+    idx <- sample.int(n = n, size = n, replace = TRUE)
+    resamples <- dataset[idx,,drop=FALSE]
 
-
+    unrestrictedBootstrap[[i]] <-
       try(
         update(unrestricted, data = resamples, contrasts = contrasts, weights = weights, formula = formula)
       )
-    },
-    simplify = FALSE
-  )
+
+    if(i %% 100 == 0) progressbarTick()
+  }
   unrestrictedBootstrap[vapply(unrestrictedBootstrap, isTryError, logical(1))] <- NULL
 
   container[["stateUnrestrictedBootstrap"]] <- createJaspState(
@@ -186,7 +189,12 @@
   modelName <- .aorGetModelName   (restrictedModelOption)
   stateName <- sprintf("state_%s", modelName)
 
-  if(!is.null(container[[stateName]])) return(container[[stateName]]$object)
+  if(!is.null(container[[stateName]])) {
+    if(length(unrestrictedBootstrap) > 0)
+      progressbarTick()
+
+    return(container[[stateName]]$object)
+  }
 
   restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
   restrictionSyntax         <- try(.aorTranslateSyntax(restrictionSyntaxOriginal, dataset, options, modelName))
@@ -212,7 +220,7 @@
   }
 
   if(length(unrestrictedBootstrap) > 0) {
-    bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, restrictionSyntax))
+    bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, restrictionSyntax, modelName))
     progressbarTick()
   } else {
     bootstraps <- NULL
@@ -239,13 +247,16 @@
 }
 
 .aorGetRestrictedModels <- function(container, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
+  if(length(unrestrictedBootstrap) > 0)
+    startProgressbar(expectedTicks = length(options[["restrictedModels"]]),
+                     label         = gettext("Bootstrapping restricted models"))
 
-  restrictedModels <- lapply(options[["restrictedModels"]],
-                             function(x) {
-                               out <- try(.aorGetRestrictedModel(container, x, dataset, options, unrestrictedModel, unrestrictedBootstrap))
-                               return(out)
-                               }
-                             )
+
+  restrictedModels <- vector("list", length(options[["restrictedModels"]]))
+  for(i in seq_along(restrictedModels)) {
+    restrictedModelOption <- options[["restrictedModels"]][[i]]
+    restrictedModels[[i]] <- try(.aorGetRestrictedModel(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap))
+  }
   modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
   names(restrictedModels) <- modelNames
 
@@ -263,12 +274,7 @@
   }
 
   if(options[["restrictedBootstrapping"]]) {
-    startProgressbar(
-      expectedTicks = length(options[["restrictedModels"]]) + 1,
-      label         = gettext("Bootstrapping order restricted hypotheses")
-    )
-
-    unrestrictedBootstrap <- try(.aorGetUnrestrictedBoostrap(
+    unrestrictedBootstrap <- try(.aorGetUnrestrictedBootstrap(
       container    = container,
       dataset      = dataset,
       unrestricted = models[["unrestricted"]][["fit"]],
@@ -279,8 +285,6 @@
       message <- .aorExtractErrorMessageSoft(unrestrictedBootstrap)
       container$setError(gettextf("Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s.", message))
     }
-
-    progressbarTick()
   } else {
     unrestrictedBootstrap <- list()
   }
@@ -339,16 +343,15 @@
 }
 
 # Model Comparison ----
-.aorModelComparison <- function(container, dataset, options) {
-  if(is.null(container[["modelComparison"]])) {
-    modelComparisonContainer <- createJaspContainer(title = gettext("Model Comparison"), position = 2)
-    modelComparisonContainer$dependOn(c("restrictedModels", "restrictedModelComparison"))
-    container[["modelComparison"]] <- modelComparisonContainer
-  } else {
-    modelComparisonContainer <- container[["modelComparison"]]
-  }
+.aorModelComparison <- function(container, dataset, options, models) {
+  modelComparisonContainer <- .aorGetContainer(
+    container    = container,
+    name         = "modelComparison",
+    title        = gettext("Model Comparison"),
+    dependencies = c("restrictedModels", "restrictedModelComparison"),
+    position     = 2
+  )
 
-  models          <- .aorGetFittedModels   (container, dataset, options)
   ready <- !container$getError() && length(models[["restricted"]]) > 0
 
   if(ready) {
@@ -572,9 +575,7 @@
 }
 
 # Single Model inference ----
-.aorSingleModelsInference <- function(container, dataset, options) {
-  models <- .aorGetFittedModels(container, dataset, options)
-
+.aorSingleModelsInference <- function(container, dataset, options, models) {
   if(container$getError()) return()
 
   allModelNames    <- .aorGetModelNames(options[["restrictedModels"]])
@@ -654,13 +655,16 @@
     coefs <- as.data.frame(coefs)
     coefs[["name"]] <- rownames(coefs)
 
-    coefficientsTable$addColumnInfo(name = "name", title = gettext("Coefficient"), type = "string")
-    coefficientsTable$addColumnInfo(name = "Estimate", title = gettext("Estimate"), type = "number")
-    coefficientsTable$addColumnInfo(name = "Std. Error", title = gettext("S.E."), type = "number")
-    coefficientsTable$addColumnInfo(name = "t value", title = gettext("t"), type = "number")
-    coefficientsTable$addColumnInfo(name = "Pr(>|t|)", title = gettext("p"), type = "pvalue")
+    coefficientsTable$addColumnInfo(name = "name",       title = gettext("Coefficient"), type = "string")
+    coefficientsTable$addColumnInfo(name = "Estimate",   title = gettext("Estimate"),    type = "number")
+    coefficientsTable$addColumnInfo(name = "Std. Error", title = gettext("SE"),          type = "number")
+    coefficientsTable$addColumnInfo(name = "t value",    title = gettext("t"),           type = "number")
+    coefficientsTable$addColumnInfo(name = "Pr(>|t|)",   title = gettext("p"),           type = "pvalue")
 
     coefficientsTable$setData(coefs)
+  } else {
+    message <- .aorExtractErrorMessageSoft(coefs)
+    coefficientsTable$setError(gettextf("Could not compute table of coefficients. Error message: %s", message))
   }
 }
 
@@ -837,17 +841,20 @@
   trimws(message)
 }
 
-.aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, restrictionSyntax) {
+.aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, restrictionSyntax, modelName) {
+  samples    <- length(unrestrictedBootstrap)
   ncoefs     <- length(coefficients(fit))
-  bootstraps <- matrix(nrow = length(unrestrictedBootstrap), ncol = ncoefs)
+  bootstraps <- matrix(nrow = samples, ncol = ncoefs)
   keep       <- c()
-  for(i in seq_along(unrestrictedBootstrap)) {
+
+  for(i in seq_len(samples)) {
     unconstrained <- unrestrictedBootstrap[[i]]
     boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax, se = fit[["se"]]))
     if(!isTryError(boot)) {
       bootstraps[i, ] <- coefficients(boot)
       keep <- c(keep, i)
     }
+
   }
   bootstraps <- bootstraps[keep,,drop=FALSE]
   colnames(bootstraps) <- names(coefficients(fit))

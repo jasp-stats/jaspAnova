@@ -225,6 +225,7 @@
   } else {
     bootstraps <- NULL
   }
+  coefficients <- try(.aorCalculateCoefficients(fit, bootstraps, options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
 
   model <- list(
     fit                       = fit,
@@ -234,12 +235,14 @@
     marginalMeans             = restrictedModelOption[["marginalMeans"]],
     restrictionSyntax         = restrictionSyntax,
     restrictionSyntaxOriginal = restrictionSyntaxOriginal,
-    bootstraps                = bootstraps
+    bootstraps                = bootstraps,
+    bootstrapSamples          = nrow(bootstraps),
+    coefficients              = coefficients
   )
 
   container[[stateName]] <- createJaspState(object = model)
   container[[stateName]]$dependOn(
-    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates"),
+    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
     optionContainsValue = list(restrictedModels = restrictedModelOption)
   )
 
@@ -617,7 +620,7 @@
   )
 
   .aorModelRestrictionMatrix(modelSummaryContainer, model)
-  .aorModelCoefficients     (modelSummaryContainer, model)
+  .aorModelCoefficients     (modelSummaryContainer, model, options)
 }
 
 .aorModelRestrictionMatrix <- function(container, model) {
@@ -645,21 +648,26 @@
   restrictionMatrix$setData(df)
 }
 
-.aorModelCoefficients <- function(container, model) {
+.aorModelCoefficients <- function(container, model, options) {
   coefficientsTable <- createJaspTable(title = gettext("Coefficients"))
   container[["coefficientsTable"]] <- coefficientsTable
 
-  coefs <- try(coefficients(summary(model[["fit"]])))
+  coefs <- model[["coefficients"]]
 
   if(!isTryError(coefs)) {
-    coefs <- as.data.frame(coefs)
-    coefs[["name"]] <- rownames(coefs)
 
-    coefficientsTable$addColumnInfo(name = "name",       title = gettext("Coefficient"), type = "string")
-    coefficientsTable$addColumnInfo(name = "Estimate",   title = gettext("Estimate"),    type = "number")
-    coefficientsTable$addColumnInfo(name = "Std. Error", title = gettext("SE"),          type = "number")
-    coefficientsTable$addColumnInfo(name = "t value",    title = gettext("t"),           type = "number")
-    coefficientsTable$addColumnInfo(name = "Pr(>|t|)",   title = gettext("p"),           type = "pvalue")
+    coefficientsTable$addColumnInfo(name = "coef",     title = gettext("Coefficient"), type = "string")
+    coefficientsTable$addColumnInfo(name = "estimate", title = gettext("Estimate"),    type = "number")
+    coefficientsTable$addColumnInfo(name = "se",       title = gettext("SE"),          type = "number")
+    if(!is.null(model[["bootstrapSamples"]])) {
+      overtitle <- gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]])
+      coefficientsTable$addColumnInfo(name = "lower",    title = gettext("Lower"),       type = "number", overtitle = overtitle)
+      coefficientsTable$addColumnInfo(name = "upper",    title = gettext("Upper"),       type = "number", overtitle = overtitle)
+      coefficientsTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", model[["bootstrapSamples"]]))
+    } else {
+      coefficientsTable$addColumnInfo(name = "t",        title = gettext("t"),           type = "number")
+      coefficientsTable$addColumnInfo(name = "p",        title = gettext("p"),           type = "pvalue")
+    }
 
     coefficientsTable$setData(coefs)
   } else {
@@ -942,4 +950,28 @@
     attr(means, "avgd.over") <- avgd.over
 
   return(means)
+}
+
+.aorCalculateCoefficients <- function(fit, bootstraps, ciLevel) {
+  if(is.null(bootstraps)) {
+    result <- coefficients(summary(fit))
+    result <- as.data.frame(result)
+    result[["coef"]] <- rownames(result)
+    colnames(result) <- c("estimate", "se", "t", "p", "coef")
+  } else {
+    alpha <- 1-ciLevel
+    result <- data.frame(
+      coef     = colnames(bootstraps),
+      estimate = apply(bootstraps, 2, median,                      na.rm = TRUE),
+      se       = apply(bootstraps, 2, sd    ,                      na.rm = TRUE),
+      lower    = apply(bootstraps, 2, quantile, probs =   alpha/2, na.rm = TRUE),
+      upper    = apply(bootstraps, 2, quantile, probs = 1-alpha/2, na.rm = TRUE)
+    )
+  }
+
+  return(result)
+}
+
+.aorCalculateVCOV <- function(fit) {
+
 }

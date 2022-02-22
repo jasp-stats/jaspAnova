@@ -225,7 +225,10 @@
   } else {
     bootstraps <- NULL
   }
-  coefficients <- try(.aorCalculateCoefficients(fit, bootstraps, options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
+
+  ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
+  coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
+  marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, options[["modelTerms"]], dataset)
 
   model <- list(
     fit                       = fit,
@@ -235,9 +238,9 @@
     marginalMeans             = restrictedModelOption[["marginalMeans"]],
     restrictionSyntax         = restrictionSyntax,
     restrictionSyntaxOriginal = restrictionSyntaxOriginal,
-    bootstraps                = bootstraps,
     bootstrapSamples          = nrow(bootstraps),
-    coefficients              = coefficients
+    coefficients              = coefficients,
+    marginalMeansResult       = marginalMeans
   )
 
   container[[stateName]] <- createJaspState(object = model)
@@ -796,15 +799,15 @@
   marginalMeansTable$addColumnInfo(name="lsmean",   title = gettext("Marginal Mean"), type="number")
   marginalMeansTable$addColumnInfo(name="SE",       title = gettext("SE"),            type="number")
 
-  if(!is.null(model[["bootstraps"]])) {
+  if(!is.null(model[["bootstrapSamples"]])) {
     marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
     marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
 
-    marginalMeansTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", nrow(model[["bootstraps"]])))
+    marginalMeansTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", model[["bootstrapSamples"]]))
   }
 
   # fill
-  result <- try(.aorCalculateMarginalMeans(dataset, model, variables, options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
+  result <- model[["marginalMeansResult"]][[paste0(variables, collapse = "_")]]
 
   if(isTryError(result)) {
     message <- .extractErrorMessage(result)
@@ -911,16 +914,26 @@
   return(results)
 }
 
-.aorCalculateMarginalMeans <- function(dataset, model, variables, ciLevel = 0.95) {
-  if(is.null(model[["bootstraps"]])) {
-    vcov   <- summary(model[["fit"]])[["V"]]
+.aorCalculateMarginalMeans <- function(fit, bootstraps = NULL, ciLevel, terms, dataset) {
+  results <- list()
+  for(i in seq_along(terms)) {
+    variables <- terms[[i]][["components"]]
+    results[[paste0(variables, collapse = "_")]] <- try(.aorCalculateMarginalMeansTerm(fit, bootstraps, ciLevel, variables, dataset))
+  }
+
+  return(results)
+}
+
+.aorCalculateMarginalMeansTerm <- function(fit, bootstraps, ciLevel, variables, dataset) {
+  if(is.null(bootstraps)) {
+    vcov    <- summary(fit)[["V"]]
     refGrid <- emmeans::qdrg(
-      formula   = formula(model[["fit"]][["model.org"]]),
+      formula   = formula(fit[["model.org"]]),
       data      = dataset,
-      coef      = model[["fit"]][["b.restr"]],
+      coef      = fit[["b.restr"]],
       vcov      = vcov,
-      df        = model[["fit"]][["df.residual"]],
-      contrasts = model[["fit"]][["model.org"]][["contrasts"]]
+      df        = fit[["df.residual"]],
+      contrasts = fit[["model.org"]][["contrasts"]]
     )
 
     means <- emmeans::lsmeans(refGrid, variables, infer=c(FALSE, FALSE))
@@ -928,10 +941,10 @@
     means <- summary(means)
   } else {
     refGrid <- emmeans::qdrg(
-      formula   = formula(model[["fit"]][["model.org"]]),
+      formula   = formula(fit[["model.org"]]),
       data      = dataset,
-      mcmc      = model[["bootstraps"]][, names(model[["fit"]][["b.restr"]]), drop = FALSE],
-      contrasts = model[["fit"]][["model.org"]][["contrasts"]]
+      mcmc      = bootstraps[, names(fit[["b.restr"]]), drop = FALSE],
+      contrasts = fit[["model.org"]][["contrasts"]]
     )
 
     means <- emmeans::lsmeans(refGrid, variables)

@@ -3,8 +3,8 @@ import JASP.Module 	1.0
 
 Description
 {
-	name		: "jaspAnova2"
-	title		: qsTr("ANOVA2")
+	name		: "jaspAnova"
+	title		: qsTr("ANOVA")
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("Evaluate the difference between multiple means")
 	version		: "0.15"

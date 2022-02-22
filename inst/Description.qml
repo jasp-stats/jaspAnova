@@ -3,8 +3,8 @@ import JASP.Module 	1.0
 
 Description
 {
-	name		: "jaspAnova"
-	title		: qsTr("ANOVA")
+	name		: "jaspAnova2"
+	title		: qsTr("ANOVA2")
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("Evaluate the difference between multiple means")
 	version		: "0.15"
@@ -13,7 +13,7 @@ Description
 	website		: "jasp-stats.org"
 	license		: "GPL (>= 2)"
 
-	
+
 	GroupTitle
 	{
 		title:  qsTr("Classical");

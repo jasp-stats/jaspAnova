@@ -913,11 +913,12 @@
 
 .aorCalculateMarginalMeans <- function(dataset, model, variables, ciLevel = 0.95) {
   if(is.null(model[["bootstraps"]])) {
+    vcov   <- summary(model[["fit"]])[["V"]]
     refGrid <- emmeans::qdrg(
       formula   = formula(model[["fit"]][["model.org"]]),
       data      = dataset,
       coef      = model[["fit"]][["b.restr"]],
-      vcov      = attr(model[["fit"]][["information"]], "inverted"),
+      vcov      = vcov,
       df        = model[["fit"]][["df.residual"]],
       contrasts = model[["fit"]][["model.org"]][["contrasts"]]
     )
@@ -970,8 +971,4 @@
   }
 
   return(result)
-}
-
-.aorCalculateVCOV <- function(fit) {
-
 }

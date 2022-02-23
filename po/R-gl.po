@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2022-02-12 02:46\n"
-"PO-Revision-Date: 2022-02-16 17:04+0000\n"
+"PO-Revision-Date: 2022-02-23 19:15+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/gl/>\n"
@@ -300,7 +300,7 @@ msgid "Marginal Mean"
 msgstr "Media Marxinal"
 
 msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "ET e IC con Bootstrapping baseados en %i mostras."
+msgstr "EP e IC con Bootstrapping baseados en %i mostras."
 
 msgid "Marginal Means Plots"
 msgstr "Gráficas das Medias Marxinais"
@@ -421,7 +421,7 @@ msgstr ""
 "Levene sobre un axuste esencialmente perfecto non son fiables)"
 
 msgid "Marginal Means"
-msgstr "Medias marxinais"
+msgstr "Medias Marxinais"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "Medias Marxinais con Bootstrapping"
@@ -430,7 +430,7 @@ msgid "Bootstrapping based on %s replicates."
 msgstr "Bootstrapping baseado en %s repeticións."
 
 msgid "Simple Main Effects"
-msgstr "Efectos principais simples"
+msgstr "Efectos Principais Simples"
 
 msgid "Simple Main Effects - %s"
 msgstr "Efectos Principais Simples - %s"
@@ -504,7 +504,7 @@ msgid "Huynh-Feldt"
 msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 msgid "Between Subjects Effects"
 msgstr "Efectos Entre Elementos"
@@ -650,7 +650,7 @@ msgid "Sidak CI adjustment"
 msgstr "Axuste do IC de Sidak"
 
 msgid "Nonparametrics"
-msgstr "Probas non paramétricas"
+msgstr "Non Paramétricos"
 
 msgid "Friedman Test"
 msgstr "Proba de Friedman"
@@ -671,7 +671,7 @@ msgid "df num"
 msgstr "gl num"
 
 msgid "df den"
-msgstr "gl den"
+msgstr "gl denom"
 
 msgid "p<sub>F</sub>"
 msgstr "p<sub>F</sub>"
@@ -946,7 +946,7 @@ msgid "Sampling posteriors"
 msgstr "Mostraxe de posteriores"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr "o longo das mostras debe ser igual ao longo das ponderacións!"
+msgstr "O longo das mostras debe ser igual ao longo das ponderacións!"
 
 msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr "!Todo (names(isNuisance) %in% colnames(posterior)) é incorrecto."
@@ -962,7 +962,7 @@ msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr "Aconteceu o seguinte fallo en BayesFactor::enumerateGeneralModels: %s"
 
 msgid "Single Model Inference"
-msgstr "Inferencia do modelo único"
+msgstr "Inferencia do Modelo Único"
 
 msgid ""
 "Error in single model inference:\n"

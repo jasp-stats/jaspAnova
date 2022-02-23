@@ -1128,3 +1128,10 @@
   modelComparison <- do.call(restriktor::goric, args)
   return(modelComparison)
 }
+
+# Citations ----
+
+.anovaOrdinalRestrictionsInformedHypothesisTestsCitations <- c(
+  "Silvapulle, M. J. & Sen, P. K. (2005). Constrained statistical inference: Order, inequality, and shape constraints. Hoboken, NJ: Wiley.",
+  "Vanbrabant, L. & Rosseel, Y. (2020). Restricted statistical estimation and inference for linear models. http://restriktor.org"
+)

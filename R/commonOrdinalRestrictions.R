@@ -1,3 +1,25 @@
+# Main function  ----
+.anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready, analysis = c("anova", "rmanova")) {
+  if (!ready) return()
+  analysis <- match.arg(analysis)
+
+  options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
+
+  container <- .aorGetMainContainer(anovaContainer)
+
+  .aorBasicInfo(container, dataset, options, analysis)
+
+  if(length(options[["restrictedModels"]]) == 0) return()
+
+  models <- .aorGetFittedModels(container, dataset, options, analysis)
+
+  .aorModelComparison      (container, dataset, options, models, analysis)
+  return()
+  .aorSingleModelsInference(container, dataset, options, models)
+
+  return()
+}
+
 # Getters ----
 .aorGetContainer <- function(container, name, title, dependencies = NULL, position = 1, initCollapsed = FALSE) {
   if(is.null(container[[name]])) {
@@ -100,52 +122,21 @@
 }
 
 .aorRenameInterceptRemoveColon <- function(coefs) {
-  coefs <- gsub("\\(Intercept\\)", ".Intercept.",  coefs)
-  coefs <- gsub(":JaspColumn_",    ".JaspColumn_", coefs)
+  coefs <- gsub(":\\(Intercept\\)", "..Intercept.", coefs)
+  coefs <- gsub("\\(Intercept\\)",  ".Intercept.",  coefs)
+  coefs <- gsub(":JaspColumn_",     ".JaspColumn_", coefs)
   return(coefs)
 }
 
 # Fitting ----
-.aorGetUnrestrictedModel <- function(container, dataset, options) {
+.aorGetUnrestrictedModel <- function(container, dataset, options, analysis) {
   if(!is.null(container[["stateUnrestricted"]])) return(container[["stateUnrestricted"]]$object)
 
-  reorderModelTerms <- .reorderModelTerms(options)
-  modelTerms        <- reorderModelTerms$modelTerms
-  modelDef          <- .modelFormula(modelTerms, options)
-
-  if (options[["includeIntercept"]]) {
-    formula <- as.formula(modelDef[["model.def"]])
+  if(analysis == "anova") {
+    model <- .aorCalculateUnrestrictedModel(dataset, options)
   } else {
-    formula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
+    model <- .rmaorCalculateUnrestrictedModel(dataset, options)
   }
-
-  if(options[["wlsWeights"]] == "" || is.na(options[["wlsWeights"]])) {
-    weights <- NULL
-  } else {
-    weights <- dataset[[options[["wlsWeights"]]]]
-  }
-
-  allFactors <- c(unlist(options$fixedFactors), unlist(options$randomFactors))
-  factorsInFormula <- allFactors[allFactors %in% modelDef[["terms.base64"]]]
-  contrasts <- replicate(length(factorsInFormula), "contr.treatment", simplify = FALSE)
-  names(contrasts) <- factorsInFormula
-
-  modelMatrix <- model.matrix(formula, dataset, contrasts.arg = contrasts)
-
-  fit <- lm(
-    formula   = formula,
-    data      = dataset,
-    weights   = weights,
-    contrasts = contrasts
-    )
-
-  model <- list(
-    fit         = fit,
-    formula     = formula,
-    modelMatrix = modelMatrix,
-    weights     = weights,
-    contrasts   = contrasts
-  )
 
   container[["stateUnrestricted"]] <- createJaspState(object = model)
 
@@ -185,7 +176,7 @@
   return(unrestrictedBootstrap)
 }
 
-.aorGetRestrictedModel <- function(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
+.aorGetRestrictedModel <- function(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap = list(), analysis) {
   modelName <- .aorGetModelName   (restrictedModelOption)
   stateName <- sprintf("state_%s", modelName)
 
@@ -211,8 +202,20 @@
     stop(gettextf("Error in %1$s - Syntax error in the model! Error message: %2$s", modelName, message))
   }
 
-  unrestricted <- unrestrictedModel[["fit"]]
-  fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax, se = options[["restrictedSE"]]))
+  if(analysis == "anova") {
+    unrestricted <- unrestrictedModel[["fit"]]
+    fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax, se = options[["restrictedSE"]]))
+  } else {
+    args <- list(
+      object      = unrestrictedModel[["parsForGorica"]][["coef"]],
+      VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
+      constraints = restrictionSyntax,
+      comparison  = "none",
+      type        = "gorica"
+    )
+    fit <- do.call(restriktor::goric, args)
+    fit <- fit[["objectList"]][[1]]
+  }
 
   if(isTryError(fit)) {
     message <- .aorExtractErrorMessageSoft(fit)
@@ -226,9 +229,14 @@
     bootstraps <- NULL
   }
 
-  ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
-  coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
-  marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, options[["modelTerms"]], dataset)
+  if(analysis == "anova") {
+    ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
+    coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
+    marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, options[["modelTerms"]], dataset)
+  } else {
+    coefficients <- NULL
+    marginalMeans <- NULL
+  }
 
   model <- list(
     fit                       = fit,
@@ -245,14 +253,14 @@
 
   container[[stateName]] <- createJaspState(object = model)
   container[[stateName]]$dependOn(
-    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
-    optionContainsValue = list(restrictedModels = restrictedModelOption)
+    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel")#,
+    #optionContainsValue = list(restrictedModels = restrictedModelOption)
   )
 
   return(model)
 }
 
-.aorGetRestrictedModels <- function(container, dataset, options, unrestrictedModel, unrestrictedBootstrap = list()) {
+.aorGetRestrictedModels <- function(container, dataset, options, unrestrictedModel, unrestrictedBootstrap = list(), analysis) {
   if(length(unrestrictedBootstrap) > 0)
     startProgressbar(expectedTicks = length(options[["restrictedModels"]]),
                      label         = gettext("Bootstrapping restricted models"))
@@ -261,7 +269,7 @@
   restrictedModels <- vector("list", length(options[["restrictedModels"]]))
   for(i in seq_along(restrictedModels)) {
     restrictedModelOption <- options[["restrictedModels"]][[i]]
-    restrictedModels[[i]] <- try(.aorGetRestrictedModel(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap))
+    restrictedModels[[i]] <- try(.aorGetRestrictedModel(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap, analysis))
   }
   modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
   names(restrictedModels) <- modelNames
@@ -269,10 +277,10 @@
   return(restrictedModels)
 }
 
-.aorGetFittedModels <- function(container, dataset, options) {
+.aorGetFittedModels <- function(container, dataset, options, analysis) {
   models <- list()
 
-  models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(container, dataset, options))
+  models[["unrestricted"]] <- try(.aorGetUnrestrictedModel(container, dataset, options, analysis))
   if(isTryError(models[["unrestricted"]])) {
     message <- .aorExtractErrorMessageSoft(models[["unrestricted"]])
     container$setError(gettextf("Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s.", message))
@@ -295,7 +303,7 @@
     unrestrictedBootstrap <- list()
   }
 
-  models[["restricted"]] <- .aorGetRestrictedModels(container, dataset, options, models[["unrestricted"]], unrestrictedBootstrap)
+  models[["restricted"]] <- .aorGetRestrictedModels(container, dataset, options, models[["unrestricted"]], unrestrictedBootstrap, analysis)
 
   if(isTryError(models[["restricted"]])) {
     modelFailed            <- vapply(models[["restricted"]], isTryError, logical(1))
@@ -317,9 +325,48 @@
   return(models)
 }
 
+.aorGetModelComparison <- function(container, options, models, analysis) {
+  if (!is.null(container[["modelComparisonState"]])) return(container[["modelComparisonState"]]$object)
+
+  comparison <- options[["restrictedModelComparison"]]
+  reference  <- options[["restrictedModelComparisonReference"]]
+
+  if(analysis == "anova") {
+    modelComparison <- try(.aorCalculateModelComparison(options, models, comparison))
+  } else {
+    modelComparison <- try(.rmaorCalculateModelComparison(options, models, comparison))
+  }
+
+  if(!isTryError(modelComparison)) {
+    modelNames <- vapply(models[["restricted"]], "[[", character(1), "modelName")
+    names(modelNames) <- modelNames
+    modelNames <- switch(comparison,
+                         unconstrained = c(modelNames, unconstrained = gettext("Unconstrained")),
+                         complement    = c(modelNames, complement    = gettext("Complement")),
+                         modelNames
+    )
+
+    if(!is.null(modelComparison[["ratio.gw"]])) {
+      rownames(modelComparison[["ratio.gw"]]) <- colnames(modelComparison[["ratio.gw"]]) <- modelNames
+    }
+
+    modelComparison[["result"]][["modelNames"]] <- modelNames
+    modelComparison[["result"]][["model"]]      <- names(modelNames)
+
+  }
+
+  if(length(models[["failed"]]) != 0) {
+    modelComparison[["excludedModels"]] <- names(models[["failed"]])
+  }
+
+  container[["modelComparisonState"]] <- createJaspState(object = modelComparison)
+
+  return(modelComparison)
+}
+
 # Syntax info ----
-.aorBasicInfo <- function(container, dataset, options) {
-  unrestricted <- .aorGetUnrestrictedModel(container, dataset, options)
+.aorBasicInfo <- function(container, dataset, options, analysis) {
+  unrestricted <- .aorGetUnrestrictedModel(container, dataset, options, analysis)
 
   if(is.null(container[["basicInfoContainer"]])) {
     basicInfoContainer <- createJaspContainer(title = gettext("Syntax information"), position = 1)
@@ -328,11 +375,11 @@
     basicInfoContainer <- container[["basicInfoContainer"]]
   }
 
-  .aorBasicInfoAvailableParameters(basicInfoContainer, options, unrestricted)
+  .aorBasicInfoAvailableParameters(basicInfoContainer, options, unrestricted, analysis)
 
 }
 
-.aorBasicInfoAvailableParameters <- function(container, options, unrestricted) {
+.aorBasicInfoAvailableParameters <- function(container, options, unrestricted, analysis) {
   if(!is.null(container[["availableParameters"]]) || !options[["restrictedModelShowAvailableCoefficients"]]) return()
 
   availableParameters <- createJaspHtml(title        = gettext("Available coefficients for restriction syntax"),
@@ -341,7 +388,11 @@
                                         )
   container[["availableParameters"]] <- availableParameters
 
-  coefs <- names(coefficients(unrestricted[["fit"]]))
+  if(analysis == "anova") {
+    coefs <- names(coefficients(unrestricted[["fit"]]))
+  } else {
+    coefs <- names(unrestricted[["parsForGorica"]][["coef"]])
+  }
   coefs <- .aorRenameInterceptRemoveColon(coefs)
   coefs <- sprintf("<li><div class='jasp-code'>%s</div></li>", coefs)
 
@@ -349,7 +400,7 @@
 }
 
 # Model Comparison ----
-.aorModelComparison <- function(container, dataset, options, models) {
+.aorModelComparison <- function(container, dataset, options, models, analysis) {
   modelComparisonContainer <- .aorGetContainer(
     container    = container,
     name         = "modelComparison",
@@ -361,14 +412,14 @@
   ready <- !container$getError() && length(models[["restricted"]]) > 0
 
   if(ready) {
-    modelComparison <- try(.aorGetModelComparison(modelComparisonContainer, options, models))
+    modelComparison <- try(.aorGetModelComparison(modelComparisonContainer, options, models, analysis))
   } else {
     modelComparison <- NULL
   }
 
   if(isTryError(modelComparison)) {
     message <- .extractErrorMessage(modelComparison)
-    modelComparisonContainer$setError(gettext("Could not compute model comparison! Error message: %", message))
+    modelComparisonContainer$setError(gettextf("Could not compute model comparison! Error message: %s", message))
     ready <- FALSE
   }
 
@@ -423,11 +474,11 @@
   # fill
   if(options[["restrictedModelComparisonWeights"]]) {
     result  <- modelComparison[["result"]]
-    weights <- modelComparison[["relative.gw"]]
+    weights <- modelComparison[["ratio.gw"]]
 
     if(nrow(result) == 1) {
       modelComparison[["result"]][["ratio"]] <- 1
-    } else if (is.na(weights)) {
+    } else if (is.null(weights)) {
       modelComparison[["result"]][["ratio"]] <- NA
       comparisonTable$addFootnote(colNames = "ratio", message = gettext("Could not compute weights!"))
     } else if (! reference %in% result[["model"]]) {
@@ -469,12 +520,12 @@
 
   if(!ready) return()
   # fill
-  if(is.null(modelComparison[["relative.gw"]])) {
+  if(is.null(modelComparison[["ratio.gw"]])) {
     # only one model in the comparison leads to empty relative weight matrix
     comparisonMatrix$setError(gettext("Only one model in the comparison: Cannot compute relative weights matrix"))
   } else {
-    modelNames <- rownames(modelComparison[["relative.gw"]])
-    df <- as.data.frame(modelComparison[["relative.gw"]])
+    modelNames <- rownames(modelComparison[["ratio.gw"]])
+    df <- as.data.frame(modelComparison[["ratio.gw"]])
     vsModelNames <- colnames(df)
     rownames(df) <- NULL
 
@@ -509,8 +560,17 @@
   df[["coef"]] <- rownames(df)
 
   # bug in restriktor cannot handle user-defined parameters, so we will remove them
-  basicParameters <- names(coefficients(models[["unrestricted"]][["fit"]]))
+  if(is.null(models[["unrestricted"]][["parsForGorica"]])) {
+    unrestrictedCoefficients <- coefficients(models[["unrestricted"]][["fit"]])
+  } else {
+    unrestrictedCoefficients <- models[["unrestricted"]][["parsForGorica"]][["coef"]]
+  }
+  basicParameters <- names(unrestrictedCoefficients)
   df <- subset(df, subset = coef %in% basicParameters)
+
+  # make sure to return coefficients formatted in the restriktor way
+  df[["coef"]] <- .aorRenameInterceptRemoveColon(df[["coef"]])
+  names(unrestrictedCoefficients) <- .aorRenameInterceptRemoveColon(basicParameters)
 
   for(index in seq_len(nrow(result)))
     coefficientsTable$addColumnInfo(name = result[["model"]][[index]], title = result[["modelNames"]][[index]], type = "number")
@@ -518,7 +578,7 @@
   coefficientsTable$setData(df)
 
   if(options[["highlightEstimates"]])
-    .aorModelComparisonHighlightCoefficients(coefficientsTable, coefficients(models[["unrestricted"]][["fit"]]), df)
+    .aorModelComparisonHighlightCoefficients(coefficientsTable, unrestrictedCoefficients, df)
 }
 
 .aorModelComparisonHighlightCoefficients <- function(table, unrestricted, df) {
@@ -541,43 +601,6 @@
       }
     }
   }
-}
-
-.aorGetModelComparison <- function(container, options, models) {
-  if (!is.null(container[["modelComparisonState"]])) return(container[["modelComparisonState"]]$object)
-
-  comparison <- options[["restrictedModelComparison"]]
-  reference  <- options[["restrictedModelComparisonReference"]]
-
-  modelList <- lapply(models[["restricted"]], "[[", "fit")
-  names(modelList)[1] <- "object"
-  modelComparison <- try(do.call(restriktor::goric, c(modelList, comparison = comparison)))
-
-  if(!isTryError(modelComparison)) {
-    modelNames <- vapply(models[["restricted"]], "[[", character(1), "modelName")
-    names(modelNames) <- modelNames
-    modelNames <- switch(comparison,
-                         unconstrained = c(modelNames, unconstrained = gettext("Unconstrained")),
-                         complement    = c(modelNames, complement    = gettext("Complement")),
-                         modelNames
-                         )
-
-    if(!is.null(modelComparison[["relative.gw"]])) {
-      rownames(modelComparison[["relative.gw"]]) <- colnames(modelComparison[["relative.gw"]]) <- modelNames
-    }
-
-    modelComparison[["result"]][["modelNames"]] <- modelNames
-    modelComparison[["result"]][["model"]]      <- names(modelNames)
-
-  }
-
-  if(length(models[["failed"]]) != 0) {
-    modelComparison[["excludedModels"]] <- names(models[["failed"]])
-  }
-
-  container[["modelComparisonState"]] <- createJaspState(object = modelComparison)
-
-  return(modelComparison)
 }
 
 # Single Model inference ----
@@ -984,4 +1007,124 @@
   }
 
   return(result)
+}
+
+.aorCalculateUnrestrictedModel <- function(dataset, options) {
+  reorderModelTerms <- .reorderModelTerms(options)
+  modelTerms        <- reorderModelTerms$modelTerms
+  modelDef          <- .modelFormula(modelTerms, options)
+
+  if (options[["includeIntercept"]]) {
+    formula <- as.formula(modelDef[["model.def"]])
+  } else {
+    formula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
+  }
+
+  if(options[["wlsWeights"]] == "" || is.na(options[["wlsWeights"]])) {
+    weights <- NULL
+  } else {
+    weights <- dataset[[options[["wlsWeights"]]]]
+  }
+
+  allFactors <- c(unlist(options$fixedFactors), unlist(options$randomFactors))
+  factorsInFormula <- allFactors[allFactors %in% modelDef[["terms.base64"]]]
+  contrasts <- replicate(length(factorsInFormula), "contr.treatment", simplify = FALSE)
+  names(contrasts) <- factorsInFormula
+
+  modelMatrix <- model.matrix(formula, dataset, contrasts.arg = contrasts)
+
+  fit <- lm(
+    formula   = formula,
+    data      = dataset,
+    weights   = weights,
+    contrasts = contrasts
+  )
+
+  model <- list(
+    fit         = fit,
+    formula     = formula,
+    modelMatrix = modelMatrix,
+    weights     = weights,
+    contrasts   = contrasts
+  )
+
+  return(model)
+}
+
+.aorCalculateModelComparison <- function(options, models, comparison) {
+  modelList <- lapply(models[["restricted"]], "[[", "fit")
+  names(modelList)[1] <- "object"
+  modelComparison <- try(do.call(restriktor::goric, c(modelList, comparison = comparison)))
+  return(modelComparison)
+}
+
+.rmaorCalculateUnrestrictedModel <- function(dataset, options) {
+  # get formula for a lm fit
+  lhs <- sprintf("cbind(%s)", paste(options[["repeatedMeasuresCells"]], collapse = ","))
+
+  if(!options[["includeIntercept"]] && length(options[["betweenModelTerms"]]) > 0) {
+    rhs <- "0"
+  } else {
+    rhs <- "1"
+  }
+
+  for(term in options[["betweenModelTerms"]]) {
+    components <- term[["components"]]
+    rhs <- c(rhs, paste(components, collapse = ":"))
+  }
+
+  rhs <- paste(rhs, collapse = "+")
+
+  formula <- as.formula(sprintf("%s~%s", lhs, rhs))
+
+  # weights (are none for rm anova)
+  weights <- NULL
+
+  # get dummy coding contrasts for between subject factors
+  allFactors <- options[["betweenSubjectFactors"]]
+  factorsInFormula <- allFactors[allFactors %in% all.vars(formula)]
+  contrasts <- replicate(length(factorsInFormula), "contr.treatment", simplify = FALSE)
+  names(contrasts) <- factorsInFormula
+
+  fit <- lm(
+    formula   = formula,
+    data      = dataset,
+    weights   = weights,
+    contrasts = contrasts
+  )
+
+  model <- list(
+    fit       = fit,
+    formula   = formula,
+    weights   = weights,
+    contrasts = contrasts,
+    parsForGorica = .rmaorExtractPars(fit)
+  )
+
+  return(model)
+}
+
+.rmaorExtractPars <- function(fit) {
+  vcov <- vcov(fit)
+  names <- colnames(vcov)
+
+  coef <- as.vector(coefficients(fit))
+  names(coef) <- names
+
+  return(list(
+    coef = coef,
+    vcov = vcov
+  ))
+}
+
+
+.rmaorCalculateModelComparison <- function(options, models, comparison) {
+  args <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
+  args[["object"]]     <- models[["unrestricted"]][["parsForGorica"]][["coef"]]
+  args[["VCOV"]]       <- models[["unrestricted"]][["parsForGorica"]][["vcov"]]
+  args[["comparison"]] <- comparison
+  args[["type"]]       <- "gorica"
+
+  modelComparison <- do.call(restriktor::goric, args)
+  return(modelComparison)
 }

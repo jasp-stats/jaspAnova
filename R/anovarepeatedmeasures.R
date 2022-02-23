@@ -45,7 +45,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   .rmAnovaAssumptionsContainer(rmAnovaContainer, dataset, options, ready)
 
-  .rmAnovaOrdinalRestrictions(rmAnovaContainer, dataset, longData, options, ready)
+  .anovaOrdinalRestrictions(rmAnovaContainer, dataset, options, ready, analysis = "rmanova")
 
   .rmAnovaPostHocTable(rmAnovaContainer, dataset, longData, options, ready)
 
@@ -846,41 +846,6 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   rmAnovaContainer[["referenceGrid"]] <- createJaspState(object = referenceGridList,
                                                          dependencies = c("withinModelTerms",
                                                                           "betweenModelterms"))
-
-  return()
-}
-
-.rmAnovaOrdinalRestrictions <- function(rmAnovaContainer, wideData, longData, options, ready) {
-  if (!ready) return()
-
-  restrictedModels <- options[["restrictedModels"]]
-  restrictedModels <- restrictedModels[vapply(restrictedModels, function(mod) mod[["restrictionSyntax"]] != "", logical(1))]
-  if (length(restrictedModels) == 0L) return()
-
-  ordinalRestrictionsContainer <- createJaspContainer(title = gettext("Order Restrictions"))
-  rmAnovaContainer[["ordinalRestrictions"]] <- ordinalRestrictionsContainer
-
-  baseModel <- rmAnovaContainer[["anovaResult"]]$object[["fullModel"]]
-
-  modelNames <- vapply(restrictedModels, "[[", "modelName", FUN.VALUE = character(1))
-
-  .anovaOrdinalRestrictionsCustomCheckSyntax(restrictedModels, ordinalRestrictionsContainer)
-  compareGoric <- .rmAnovaOrdinalRestrictionsCompareModels(baseModel, restrictedModels, ordinalRestrictionsContainer, longData, options)
-  .rmAnovaOrdinalRestrictionsGetSyntaxErrors(compareGoric, ordinalRestrictionsContainer)
-  .ordinalRestrictionsCreateComparisonTable(compareGoric, modelNames, ordinalRestrictionsContainer, type = "gorica", options)
-
-  if (options[["restrictedModelComparisonCoefficients"]])
-    .rmAnovaOrdinalRestrictionsCreateCoefficientsTable(compareGoric, modelNames, baseModel, ordinalRestrictionsContainer, options)
-
-  if (length(options[["restrictedModelMarginalMeansTerm"]]) > 0L) {
-    modelSummaryList <- .rmAnovaOrdinalRestrictionsCalcModelSummaries(compareGoric, modelNames, baseModel, wideData, ordinalRestrictionsContainer, options)
-  } else {
-    modelSummaryList <- NULL
-  }
-  .ordinalRestrictionsCreateModelSummaryTables(modelSummaryList, ordinalRestrictionsContainer, type = "gorica", options)
-
-  if (length(options[["plotRestrictedModels"]]) > 0L && length(options[["restrictedModelMarginalMeansTerm"]]) > 0L)
-    .ordinalRestrictionsCreateMarginalMeansPlot(modelSummaryList, modelNames, ordinalRestrictionsContainer, options)
 
   return()
 }

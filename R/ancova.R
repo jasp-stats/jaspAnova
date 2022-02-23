@@ -58,7 +58,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   .anovaContrastsTable(anovaContainer, dataset, options, ready)
 
-  .anovaOrdinalRestrictions(anovaContainer, dataset, options, ready)
+  .anovaOrdinalRestrictions(anovaContainer, dataset, options, ready, analysis = "anova")
 
   .anovaPostHocTableCollection(anovaContainer, dataset, options, ready)
 
@@ -803,26 +803,6 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   coefTable$setData(contrCoef)
 
   return(coefTable)
-}
-
-.anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready) {
-  t1 <- Sys.time()
-  if (!ready) return()
-
-  options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
-
-  container <- .aorGetMainContainer(anovaContainer)
-
-  .aorBasicInfo         (container, dataset, options)
-
-  if(length(options[["restrictedModels"]]) == 0) return()
-
-  models <- .aorGetFittedModels(container, dataset, options)
-
-  .aorModelComparison      (container, dataset, options, models)
-  .aorSingleModelsInference(container, dataset, options, models)
-
-  return()
 }
 
 .anovaOrdinalRestrictionsCalcBaseModel <- function(ordinalRestrictionsContainer, dataset, options) {
@@ -2042,7 +2022,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     postHocTable$showSpecifiedColumnsOnly <- TRUE
     postHocTable$addFootnote(message = gettext("Results based on uncorrected means."))
-    
+
     return(postHocTable)
   }
 

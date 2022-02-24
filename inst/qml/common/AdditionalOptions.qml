@@ -170,41 +170,33 @@ Section
 
 	ColumnLayout
 	{
+
 		spacing:				0
 		Layout.preferredWidth:	parent.width
 		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
 		RowLayout
 		{
-			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 200 * preferencesModel.uiScale	}
-			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 140 * preferencesModel.uiScale	}
-			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 140 * preferencesModel.uiScale	}
-			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked && analysisType !== AnalysisType.AnalysisType.BANOVA;																														}
+			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 210 * preferencesModel.uiScale	} //modelTermsCustomPrior.itemGridView.width		}
+			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+			Label { text: qsTr("fixed r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+			Label { text: qsTr("random r-scale");		visible: !rscalesAcrossParameters.checked;																													}
 		}
+
 		VariablesList
 		{
+			id					: modelTermsCustomPrior
 			name				: "modelTermsCustomPrior"
 			optionKey			: "components"
 			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
-//			visible				: customPriorModelProbabilities.checked
-//			title				: qsTr("Model Term")
-//			rowComponentTitle	: qsTr("Prior inclusion probability")
 			listViewType		: JASP.AssignedVariables
 			draggable			: false
+//			cellWidth			: 200 * preferencesModel.uiScale
 
-//			rowComponent		: 			DoubleField
-//			{
-//				name:			"modelTermsCustomPrior2"
-//				min:			0
-//				max:			1
-//				defaultValue:	0.5
-//				inclusive:		JASP.None
-//			}
-	//		This needs separate titles for each field
 			rowComponent: RowLayout
 			{
 				id: modelTermsCustomPriorItem
 				property int space:		  4 * preferencesModel.uiScale
-				property int prefWidth:	110 * preferencesModel.uiScale
+				property int prefWidth:	100 * preferencesModel.uiScale
 
 				Row
 				{
@@ -257,58 +249,67 @@ Section
 		spacing:				0
 		Layout.preferredWidth:	parent.width
 		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+//		RowLayout
+//		{
+//			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 160 * preferencesModel.uiScale	}
+//			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+//			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+//			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked;																																											}
+//		}
 		RowLayout
 		{
-			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 148 * preferencesModel.uiScale	}
-			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth:  80 * preferencesModel.uiScale	}
-			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked && analysisType !== AnalysisType.AnalysisType.BANOVA;																														}
+			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 200 * preferencesModel.uiScale	}
+			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+			Label { text: qsTr("fixed r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+			Label { text: qsTr("random r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
 		}
+
 
 		ComponentsList
 		{
 			name				: "modelTermsCustomPrior22"
 			optionKey			: "components22"
 			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
-//			visible				: customPriorModelProbabilities.checked
-//			title				: qsTr("Model Term")
-//			rowComponentTitle	: qsTr("Prior inclusion probability")
-//			listViewType		: JASP.AssignedVariables
-//			draggable			: false
-
-//			rowComponent		: 			DoubleField
-//			{
-//				name:			"modelTermsCustomPrior2"
-//				min:			0
-//				max:			1
-//				defaultValue:	0.5
-//				inclusive:		JASP.None
-//			}
-	//		This needs separate titles for each field
 			rowComponent: RowLayout
 			{
 				Row
 				{
 					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	210 * preferencesModel.uiScale
-					TextField
+					Layout.preferredWidth:	200 * preferencesModel.uiScale
+//					TextField
+//					{
+//						label: 				""
+//						name: 				"name"
+//						startValue:			rowValue
+//						fieldWidth:			200 * preferencesModel.uiScale
+//						useExternalBorder:	false
+//						showBorder:			true
+//						editable:			false
+//						enabled:			false
+//					}
+					Text
 					{
-						label: 				""
-						name: 				"name"
-						startValue:			rowValue
-						fieldWidth:			160 * preferencesModel.uiScale
-						useExternalBorder:	false
-						showBorder:			true
-						editable:			false
+						text:				rowValue
+						anchors.leftMargin: jaspTheme.generalAnchorMargin
+						width:				200 * preferencesModel.uiScale
+						elide:				Text.ElideRight
 					}
+//					MouseArea
+//					{
+//						anchors.fill:	parent
+//						hoverEnabled:	true
+//						cursorShape:	Qt.PointingHandCursor
+//					}
 				}
 				Row
 				{
+//					id:						rowCustomPriorProbs
 					visible:				customPriorModelProbabilities.checked
 					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					Layout.preferredWidth:	100 * preferencesModel.uiScale
 					DoubleField
 					{
+//						fieldWidth:		rowCustomPriorProbs.width
 						name:			"modelTermsCustomPrior33"
 						min:			0
 						max:			100
@@ -318,11 +319,13 @@ Section
 				}
 				Row
 				{
+//					id:						rowFixedProbs
 					visible:				!rscalesAcrossParameters.checked
 					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					Layout.preferredWidth:	100 * preferencesModel.uiScale
 					DoubleField
 					{
+//						fieldWidth:		rowFixedProbs.width
 						name:			"priorTermsFixed33"
 						min:			0
 						max:			100
@@ -332,11 +335,13 @@ Section
 				}
 				Row
 				{
+//					id:						rowRandomProbs
 					visible:				!rscalesAcrossParameters.checked
 					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	150 * preferencesModel.uiScale
+					Layout.preferredWidth:	100 * preferencesModel.uiScale
 					DoubleField
 					{
+//						fieldWidth:		rowRandomProbs.width
 						name:			"priorTermsRandom33"
 						min:			0
 						max:			100

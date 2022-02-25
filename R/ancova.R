@@ -2369,34 +2369,26 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   terms <- options$marginalMeansTerms
 
   marginalVariables <- unlist(options$marginalMeansTerms, recursive = FALSE)
-  marginalVariablesListV <- unname(lapply(marginalVariables, .v))
 
   for (i in seq_along(marginalVariables)) {
-    thisVarName <- paste(marginalVariables[[i]], collapse = " \u273B ")
+    thisVarName <- paste(marginalVariables[[i]], collapse = ":")
     individualTerms <- marginalVariables[[i]]
     marginalMeansContainer[[thisVarName]] <- .createMarginalMeansTableAnova(thisVarName, options, individualTerms,
                                                                             options[["marginalMeansBootstrapping"]])
   }
 
-
-  terms.base64 <- c()
-  terms.normal <- c()
-
+  termsNormal <- c()
   for (term in terms) {
 
     components <- unlist(term)
-    term.base64 <- paste(.v(components), collapse=":", sep="")
-    term.normal <- paste(components, collapse=" \u273B ", sep="")
+    termNormal <- paste0(components, collapse = ":")
+    termsNormal <- c(termsNormal, termNormal)
 
-    terms.base64 <- c(terms.base64, term.base64)
-    terms.normal <- c(terms.normal, term.normal)
   }
-
 
   for (i in seq_along(marginalVariables)) {
 
-    thisVarName <- paste(marginalVariables[[i]], collapse = " \u273B ")
-    thisTermNameV <- paste(marginalVariablesListV[[i]], collapse = ":")
+    thisVarName <- paste(marginalVariables[[i]], collapse = ":")
 
     individualTerms <- marginalVariables[[i]]
 
@@ -2405,7 +2397,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     for (variable in individualTerms) {
 
-      factor <- dataset[[ .v(variable) ]]
+      factor <- dataset[[variable]]
       factors[[length(factors) + 1]] <- factor
       lvls[[variable]] <- levels(factor)
 
@@ -2414,10 +2406,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     cases <- rev(expand.grid(rev(lvls)))
     cases <- as.data.frame(apply(cases, 2, as.character))
 
-    nRows <- dim(cases)[1]
-    nCol <- dim(cases)[2]
+    nRows <- nrow(cases)
+    nCol  <- ncol(cases)
 
-    formula <- as.formula(paste("~", thisTermNameV))
+    formula <- as.formula(paste("~", thisVarName))
+
+    # change : to the pretty interaction symbol
+    thisVarName <- jaspBase::gsubInteractionSymbol(thisVarName)
 
     if(options$marginalMeansCIAdjustment == "bonferroni") {
       adjMethod <- "bonferroni"
@@ -2443,7 +2438,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
       startProgressbar(options[["marginalMeansBootstrappingReplicates"]],
                        label = gettext("Bootstrapping Marginal Means"))
 
-      anovaFormula <- as.formula(paste("~", terms.base64[i]))
+      anovaFormula <- as.formula(paste("~", termsNormal[i]))
       bootstrapMarginalMeans <- try(boot::boot(data = dataset, statistic = .bootstrapMarginalMeans,
                                                R = options[["marginalMeansBootstrappingReplicates"]],
                                                options = options, nRows = nRows,

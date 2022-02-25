@@ -2411,9 +2411,6 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     formula <- as.formula(paste("~", thisVarName))
 
-    # change : to the pretty interaction symbol
-    thisVarName <- jaspBase::gsubInteractionSymbol(thisVarName)
-
     if(options$marginalMeansCIAdjustment == "bonferroni") {
       adjMethod <- "bonferroni"
     } else if(options$marginalMeansCIAdjustment == "sidak") {

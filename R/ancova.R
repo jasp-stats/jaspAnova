@@ -2432,7 +2432,11 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     marginalResult[[".isNewGroup"]] <- FALSE
     marginalResult[[".isNewGroup"]][which(marginalResult[, 1] == marginalResult[1, 1])] <- TRUE
 
-    names(marginalResult)[1:length(individualTerms)] <- individualTerms
+    names(marginalResult)[seq_along(individualTerms)] <- individualTerms
+    # this probably doesn't do anything anymore after R has UTF-8 support on windows, use https://github.com/jasp-stats/jasp-issues/issues/1618 to test if this is still necessary.
+    # ensure the level names come from the levels of the dataset and not from the emmeans model
+    for (j in seq_along(individualTerms))
+      marginalResult[[individualTerms[j]]] <- levels(dataset[[individualTerms[j]]])[marginalResult[[individualTerms[j]]]]
 
     if (options$marginalMeansBootstrapping) {
 

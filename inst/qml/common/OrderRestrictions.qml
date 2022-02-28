@@ -211,6 +211,7 @@ Section
 		{
 			name:				"restrictedSE"
 			label:				qsTr("Heterogeneity correction")
+			visible:			type !== "RM-Anova"
 			indexDefaultValue:	0
 			values:
 			[

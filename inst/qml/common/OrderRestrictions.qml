@@ -41,29 +41,29 @@ Section
 		helpPage:			"goric/restriktorSyntax"
 		Layout.columnSpan:	2
 	}
-	
+
 	Group
 	{
-		title:				qsTr("Global settings")
 		columns:			2
 		Layout.columnSpan:	2
-
-		CheckBox
+		Group
 		{
-			name:		"includeIntercept"
-			id:			incInt
-			label:		qsTr("Include intercept")
-		}
+			title:	qsTr("Syntax settings")
+			CheckBox
+			{
+				name:	"includeIntercept"
+				label:	qsTr("Include intercept")
+			}
 
-		CheckBox
-		{
-			name:	"restrictedModelShowAvailableCoefficients"
-			label:	qsTr("Show coefficients available in the syntax")
+			CheckBox
+			{
+				name:	"restrictedModelShowAvailableCoefficients"
+				label:	qsTr("Show available coefficients")
+			}
 		}
 
 		Group
 		{
-			columns:	3
 			title:		qsTr("Set for all models")
 			CheckBox
 			{
@@ -74,20 +74,19 @@ Section
 
 			CheckBox
 			{
-				name:	"restrictedInformedHypothesisTestByDefault"
-				id:		informedHypothesisTestByDefault
-				label:	qsTr("Informed hypothesis tests")
-			}
-
-			CheckBox
-			{
 				name:	"restrictedMarginalMeansByDefault"
 				id:		marginalMeansByDefault
 				label:	qsTr("Marginal means")
 			}
+
+			CheckBox
+			{
+				name:		"restrictedInformedHypothesisTestByDefault"
+				id:			informedHypothesisTestByDefault
+				label:		qsTr("Informed hypothesis tests")
+				visible:	type !== "RM-Anova"
+			}
 		}
-
-
 	}
 
 	TabView
@@ -120,6 +119,12 @@ Section
 					checked:	modelSummaryByDefault.checked
 				}
 
+				CheckBox
+				{
+					name:		"marginalMeans"
+					label:		qsTr("Marginal means for %1").arg(rowValue)
+					checked:	marginalMeansByDefault.checked
+				}
 
 				CheckBox
 				{
@@ -127,13 +132,6 @@ Section
 					label:		qsTr("Informed hypothesis tests for %1").arg(rowValue)
 					checked:	informedHypothesisTestByDefault.checked
 					visible:	type !== "RM-Anova"
-				}
-
-				CheckBox
-				{
-					name:		"marginalMeans"
-					label:		qsTr("Marginal means for %1").arg(rowValue)
-					checked:	marginalMeansByDefault.checked
 				}
 			}
 		}

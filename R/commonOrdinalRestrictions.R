@@ -1140,11 +1140,17 @@
 }
 
 .rmaorExtractPars <- function(fit) {
+  coef <- coefficients(fit)
   vcov <- vcov(fit)
-  names <- colnames(vcov)
 
-  coef <- as.vector(coefficients(fit))
-  names(coef) <- names
+  if(nrow(coef) == 1) { # there is no between subjects factor or a covariate, so we do not need to include the intercept in the syntax
+    names <- colnames(coef)
+  } else { # we need to combine row and col names as in vcov
+    names <- colnames(vcov)
+  }
+
+  coef <- as.vector(coef)
+  colnames(vcov) <- rownames(vcov) <- names(coef) <- names
 
   return(list(
     coef = coef,

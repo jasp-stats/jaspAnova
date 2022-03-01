@@ -173,13 +173,13 @@
           return(NULL)
         },
         redundantParticipantColumn = function() {
-          
+
           if (nlevels(dataset[[.BANOVAsubjectName]]) == nlevels(dataset[[target]])) {
             return(gettextf("Duplicate participant column added to model terms, %s", target))
           } else {
             return()
           }
-          
+
         }
       )
 
@@ -276,25 +276,21 @@
 
   }
 
-  rscaleFixed   <- options$priorFixedEffects
-  rscaleRandom  <- options$priorRandomEffects
   modelTerms    <- options$modelTerms
   dependent     <- options$dependent
+  if (analysisType == "RM-ANOVA") {
+    modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)
+    dependent <- .BANOVAdependentName
+  }
+  fixedFactors  <- options$fixedFactors
   randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
 
-  fixedFactors  <- options$fixedFactors
+  tempRScale    <- .BANOVAgetRScale(options, analysisType)
+  rscaleFixed   <- tempRScale[["rscaleFixed"]]
+  rscaleRandom  <- tempRScale[["rscaleRandom"]]
+  rscaleCont    <- tempRScale[["rscaleCont"]]
+  rscaleEffects <- tempRScale[["rscaleEffects"]]
 
-  if (analysisType == "RM-ANOVA") {
-    rscaleCont <- options[["priorCovariates"]]
-    modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)
-
-    dependent     <- .BANOVAdependentName
-
-  } else if (analysisType == "ANCOVA") {
-    rscaleCont <- options[["priorCovariates"]]
-  } else {
-    rscaleCont <- "medium" # sqrt(2)/4
-  }
   iter <- NA
 
   tmp <- .BANOVAcreateModelFormula(dependent, modelTerms)
@@ -2818,6 +2814,37 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAmodelSpaceDependencies <- c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU")
 
+.BANOVAgetRScale <- function(options, analysisType) {
+
+  if (options[["coefficientsPrior"]] == "rscalesAcrossParameters") {
+
+    rscaleFixed   <- options[["priorFixedEffects"]]
+    rscaleRandom  <- options[["priorRandomEffects"]]
+    rscaleEffects <- NULL
+
+    if (analysisType == "ANOVA") {
+      rscaleCont <- "medium" # sqrt(2)/4, default value of BayesFactor
+    } else {
+      rscaleCont <- options[["priorCovariates"]]
+    }
+
+  } else {
+
+    rscaleFixed   <- NULL
+    rscaleRandom  <- NULL
+    rscaleCont    <- NULL
+
+    rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), FUN = function(x) {
+      paste(x[["components"]], collapse = ":")
+    })
+    rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), FUN = `[[`, "rscaleFixed")
+
+    names(rscaleEffects) <- rscaleEffectsNames
+
+  }
+  return(list(rscaleFixed = rscaleFixed, rscaleRandom = rscaleRandom, rscaleCont = rscaleCont, rscaleEffects = rscaleEffects))
+}
+
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {
   what <- match.arg(what)
@@ -3146,20 +3173,18 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e3L else options[["fixedMCMCSamples"]]
   modelTerms <- options$singleModelTerms
 
+  modelTerms    <- options$modelTerms
   dependent     <- options$dependent
-  randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
-  rscaleFixed   <- options$priorFixedEffects
-  rscaleRandom  <- options$priorRandomEffects
-
   if (analysisType == "RM-ANOVA") {
-    dependent <- .BANOVAdependentName
-    rscaleCont <- options[["priorCovariates"]]
     modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)
-  } else if (analysisType == "ANCOVA") {
-    rscaleCont <- options[["priorCovariates"]]
-  } else {
-    rscaleCont <- "medium" # sqrt(2)/4
+    dependent <- .BANOVAdependentName
   }
+
+  tempRScale    <- .BANOVAgetRScale(options, analysisType)
+  rscaleFixed   <- tempRScale[["rscaleFixed"]]
+  rscaleRandom  <- tempRScale[["rscaleRandom"]]
+  rscaleCont    <- tempRScale[["rscaleCont"]]
+  rscaleEffects <- tempRScale[["rscaleEffects"]]
 
   formula <- .BANOVAcreateModelFormula(dependent, modelTerms)$model.formula
   randomFactors <- .BANOVAgetRandomFactors(options, analysisType)

@@ -39,8 +39,8 @@ Section
 			{
 				title: qsTr("Specify prior on coefficients")
 				name: "coefficientsPrior"
-				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("for all parameters");			checked: true;	id: rscalesAcrossParameters	}
-				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("individually for each term");												}
+				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("for fixed and random terms");			checked: true;	id: rscalesAcrossParameters	}
+				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("for each term individually");														}
 			}
 			Group
 			{
@@ -176,10 +176,23 @@ Section
 		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
 		RowLayout
 		{
-			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 210 * preferencesModel.uiScale	} //modelTermsCustomPrior.itemGridView.width		}
-			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-			Label { text: qsTr("fixed r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-			Label { text: qsTr("random r-scale");		visible: !rscalesAcrossParameters.checked;																													}
+			Row
+			{
+				Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 330 * preferencesModel.uiScale
+				Label { text: qsTr("Term")} //modelTermsCustomPrior.itemGridView.width		}
+			}
+			Row
+			{
+				Layout.preferredWidth: 122 * preferencesModel.uiScale
+				spacing:				 4 * preferencesModel.uiScale
+				Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked}
+			}
+			Row
+			{
+				Layout.preferredWidth: 100 * preferencesModel.uiScale
+				spacing:				 4 * preferencesModel.uiScale
+				Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked}
+			}
 		}
 
 		VariablesList
@@ -204,7 +217,7 @@ Section
 					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
 					DoubleField
 					{
-						name:			"modelTermsCustomPrior2"
+						name:			"priorIncl"
 						min:			0
 						max:			100
 						defaultValue:	0.5
@@ -218,24 +231,10 @@ Section
 					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
 					DoubleField
 					{
-						name:			"priorTermsFixed"
+						name:			"rscaleFixed"
 						min:			0
 						max:			100
 						defaultValue:	0.5
-						inclusive:		JASP.None
-						visible:		!rscalesAcrossParameters.checked
-					}
-				}
-				Row
-				{
-					spacing:				modelTermsCustomPriorItem.space
-					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
-					DoubleField
-					{
-						name:			"priorTermsRandom"
-						min:			0
-						max:			100
-						defaultValue:	1
 						inclusive:		JASP.None
 						visible:		!rscalesAcrossParameters.checked
 					}
@@ -244,114 +243,102 @@ Section
 		}
 	}
 
-	ColumnLayout
-	{
-		spacing:				0
-		Layout.preferredWidth:	parent.width
-		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+//	ColumnLayout
+//	{
+//		spacing:				0
+//		Layout.preferredWidth:	parent.width
+//		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+////		RowLayout
+////		{
+////			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 160 * preferencesModel.uiScale	}
+////			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+////			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+////			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked;																																											}
+////		}
 //		RowLayout
 //		{
-//			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 160 * preferencesModel.uiScale	}
-//			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-//			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-//			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked;																																											}
+//			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 200 * preferencesModel.uiScale	}
+//			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
+//			Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
 //		}
-		RowLayout
-		{
-			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 200 * preferencesModel.uiScale	}
-			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-			Label { text: qsTr("fixed r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-			Label { text: qsTr("random r-scale");		visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-		}
 
 
-		ComponentsList
-		{
-			name				: "modelTermsCustomPrior22"
-			optionKey			: "components22"
-			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
-			rowComponent: RowLayout
-			{
-				Row
-				{
-					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	200 * preferencesModel.uiScale
-//					TextField
+//		ComponentsList
+//		{
+//			name				: "modelTermsCustomPrior22"
+//			optionKey			: "components"
+//			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
+//			rowComponent: RowLayout
+
+//			{
+//				Row
+//				{
+//					spacing:				4 * preferencesModel.uiScale
+//					Layout.preferredWidth:	200 * preferencesModel.uiScale
+////					TextField
+////					{
+////						label: 				""
+////						name: 				"name"
+////						startValue:			rowValue
+////						fieldWidth:			200 * preferencesModel.uiScale
+////						useExternalBorder:	false
+////						showBorder:			true
+////						editable:			false
+////						enabled:			false
+////					}
+//					Text
 //					{
-//						label: 				""
-//						name: 				"name"
-//						startValue:			rowValue
-//						fieldWidth:			200 * preferencesModel.uiScale
-//						useExternalBorder:	false
-//						showBorder:			true
-//						editable:			false
-//						enabled:			false
+//						id:					colName
+//						text:				rowValue
+//						anchors.leftMargin: jaspTheme.generalAnchorMargin
+//						width:				200 * preferencesModel.uiScale
+//						elide:				Text.ElideRight
 //					}
-					Text
-					{
-						text:				rowValue
-						anchors.leftMargin: jaspTheme.generalAnchorMargin
-						width:				200 * preferencesModel.uiScale
-						elide:				Text.ElideRight
-					}
 //					MouseArea
 //					{
+//						id:				mouseArea
 //						anchors.fill:	parent
 //						hoverEnabled:	true
-//						cursorShape:	Qt.PointingHandCursor
 //					}
-				}
-				Row
-				{
-//					id:						rowCustomPriorProbs
-					visible:				customPriorModelProbabilities.checked
-					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	100 * preferencesModel.uiScale
-					DoubleField
-					{
-//						fieldWidth:		rowCustomPriorProbs.width
-						name:			"modelTermsCustomPrior33"
-						min:			0
-						max:			100
-						defaultValue:	0.5
-						inclusive:		JASP.None
-					}
-				}
-				Row
-				{
-//					id:						rowFixedProbs
-					visible:				!rscalesAcrossParameters.checked
-					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	100 * preferencesModel.uiScale
-					DoubleField
-					{
-//						fieldWidth:		rowFixedProbs.width
-						name:			"priorTermsFixed33"
-						min:			0
-						max:			100
-						defaultValue:	0.5
-						inclusive:		JASP.None
-					}
-				}
-				Row
-				{
-//					id:						rowRandomProbs
-					visible:				!rscalesAcrossParameters.checked
-					spacing:				4 * preferencesModel.uiScale
-					Layout.preferredWidth:	100 * preferencesModel.uiScale
-					DoubleField
-					{
-//						fieldWidth:		rowRandomProbs.width
-						name:			"priorTermsRandom33"
-						min:			0
-						max:			100
-						defaultValue:	1
-						inclusive:		JASP.None
-					}
-				}
-			}
-		}
-	}
+//					QTCONTROLS.ToolTip.visible: mouseArea.containsMouse && colName && colName.truncated
+//					QTCONTROLS.ToolTip.delay: 300
+//					QTCONTROLS.ToolTip.text: rowValue
+//				}
+//				Row
+//				{
+////					id:						rowCustomPriorProbs
+//					visible:				customPriorModelProbabilities.checked
+//					spacing:				4 * preferencesModel.uiScale
+//					Layout.preferredWidth:	100 * preferencesModel.uiScale
+//					DoubleField
+//					{
+////						fieldWidth:		rowCustomPriorProbs.width
+//						name:			"priorIncl"
+//						min:			0
+//						max:			100
+//						defaultValue:	0.5
+//						inclusive:		JASP.None
+//					}
+//				}
+//				Row
+//				{
+////					id:						rowFixedProbs
+//					visible:				!rscalesAcrossParameters.checked
+//					spacing:				4 * preferencesModel.uiScale
+//					Layout.preferredWidth:	100 * preferencesModel.uiScale
+//					DoubleField
+//					{
+////						fieldWidth:		rowFixedProbs.width
+//						name:			"rscaleFixed"
+//						min:			0
+//						max:			100
+//						defaultValue:	0.5
+//						inclusive:		JASP.None
+//					}
+//				}
+//			}
+//		}
+//	}
 
 
 

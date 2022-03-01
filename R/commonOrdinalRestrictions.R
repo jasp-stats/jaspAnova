@@ -817,7 +817,7 @@
   marginalMeansTable$addColumnInfo(name="lsmean",   title = gettext("Marginal Mean"), type="number")
 
   # analytic SEs are only available for ANOVAs, not RM anovas
-  if(inherits(model[["fit"]], "restriktor") && !is.null(model[["bootstrapSamples"]]))
+  if(inherits(model[["fit"]], "restriktor") || !is.null(model[["bootstrapSamples"]]))
     marginalMeansTable$addColumnInfo(name="SE",     title = gettext("SE"),            type="number")
 
   if(!is.null(model[["bootstrapSamples"]])) {

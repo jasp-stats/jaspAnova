@@ -996,9 +996,10 @@
     result[["coef"]] <- rownames(result)
     colnames(result) <- c("estimate", "se", "t", "p", "coef")
   } else if(is.null(bootstraps)) { # rm anova
+    result <- coefficients(fit)
     result <- data.frame(
-      coef     = .aorRenameInterceptRemoveColon(names(fit$b.restr)),
-      estimate = fit$b.restr
+      coef     = .aorRenameInterceptRemoveColon(names(result)),
+      estimate = result
     )
   } else {
     alpha <- 1-ciLevel
@@ -1147,6 +1148,7 @@
   return(modelComparison)
 }
 
+coef.gorica_est <- restriktor::coef.restriktor
 
 # Citations ----
 

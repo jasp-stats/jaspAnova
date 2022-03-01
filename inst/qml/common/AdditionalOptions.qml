@@ -183,7 +183,7 @@ Section
 			}
 			Row
 			{
-				Layout.preferredWidth: 122 * preferencesModel.uiScale
+				Layout.preferredWidth: 121 * preferencesModel.uiScale
 				spacing:				 4 * preferencesModel.uiScale
 				Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked}
 			}

@@ -222,11 +222,7 @@
 
   ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
   coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
-  if(analysis == "anova") {
-    marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, options[["modelTerms"]], dataset)
-  } else {
-    marginalMeans <- NULL
-  }
+  marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, c(options[["modelTerms"]], options[["withinModelTerms"]], options[["betweenModelTerms"]]), dataset)
 
   model <- list(
     fit                       = fit,
@@ -619,7 +615,6 @@
     if(modelName %in% fittedModelNames) {
       model <- models[["restricted"]][[which(modelName == fittedModelNames)]]
       .aorModelSummary (modelContainer, options, model)
-      if(analysis == "rmanova") return()
       .aorMarginalMeans(modelContainer, options, model, dataset)
       if(analysis == "anova")
         .aorInformativeHypothesisTest(modelContainer, options, model)
@@ -820,7 +815,10 @@
     marginalMeansTable$addColumnInfo(name = var, title = var, type = "string", combine = TRUE)
 
   marginalMeansTable$addColumnInfo(name="lsmean",   title = gettext("Marginal Mean"), type="number")
-  marginalMeansTable$addColumnInfo(name="SE",       title = gettext("SE"),            type="number")
+
+  # analytic SEs are only available for ANOVAs, not RM anovas
+  if(inherits(model[["fit"]], "restriktor") && !is.null(model[["bootstrapSamples"]]))
+    marginalMeansTable$addColumnInfo(name="SE",     title = gettext("SE"),            type="number")
 
   if(!is.null(model[["bootstrapSamples"]])) {
     marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
@@ -955,31 +953,48 @@
 
 .aorCalculateMarginalMeansTerm <- function(fit, bootstraps, ciLevel, variables, dataset) {
   if(is.null(bootstraps)) {
-    vcov    <- summary(fit)[["V"]]
-    refGrid <- emmeans::qdrg(
-      formula   = formula(fit[["model.org"]]),
-      data      = dataset,
-      coef      = fit[["b.restr"]],
-      vcov      = vcov,
-      df        = fit[["df.residual"]],
-      contrasts = fit[["model.org"]][["contrasts"]]
-    )
+    if(inherits(fit, "restriktor")) { # an(c)ova
+      vcov    <- summary(fit)[["V"]]
+      refGrid <- emmeans::qdrg(
+        formula   = formula(fit[["model.org"]]),
+        data      = dataset,
+        coef      = fit[["b.restr"]],
+        vcov      = vcov,
+        df        = fit[["df.residual"]],
+        contrasts = fit[["model.org"]][["contrasts"]]
+      )
+    } else { # rmanova
+      refGrid <- emmeans::ref_grid(fit[["model.org"]], mult.levs = fit[["rmFactors"]])
+      refGrid@bhat <- fit[["b.restr"]]
+    }
 
     means <- emmeans::lsmeans(refGrid, variables, infer=c(FALSE, FALSE))
     avgd.over <- slot(means, "misc")[["avgd.over"]]
     means <- summary(means)
   } else {
-    refGrid <- emmeans::qdrg(
-      formula   = formula(fit[["model.org"]]),
-      data      = dataset,
-      mcmc      = bootstraps[, names(fit[["b.restr"]]), drop = FALSE],
-      contrasts = fit[["model.org"]][["contrasts"]]
-    )
-
-    means <- emmeans::lsmeans(refGrid, variables)
-    avgd.over <- slot(means, "misc")[["avgd.over"]]
-    boots <- emmeans::as.mcmc.emmGrid(means)
-    boots <- as.data.frame(boots)
+    if(inherits(fit, "restriktor")) { # an(c)ova
+      refGrid <- emmeans::qdrg(
+        formula   = formula(fit[["model.org"]]),
+        data      = dataset,
+        mcmc      = bootstraps[, names(fit[["b.restr"]]), drop = FALSE],
+        contrasts = fit[["model.org"]][["contrasts"]]
+      )
+      means <- emmeans::lsmeans(refGrid, variables)
+      avgd.over <- slot(means, "misc")[["avgd.over"]]
+      boots <- emmeans::as.mcmc.emmGrid(means)
+      boots <- as.data.frame(boots)
+    } else { # rm anova
+      refGrid <- emmeans::ref_grid(fit[["model.org"]], mult.levs = fit[["rmFactors"]])
+      res <- list()
+      for(i in seq_len(nrow(bootstraps))) {
+        b.restr <- bootstraps[i, names(fit[["b.restr"]]), drop = TRUE]
+        refGrid@bhat <- b.restr
+        means <- emmeans::lsmeans(refGrid, variables, infer=c(FALSE, FALSE))
+        res[[i]] <- summary(means)[["lsmean"]]
+      }
+      avgd.over <- slot(means, "misc")[["avgd.over"]]
+      boots <- do.call(rbind, res)
+    }
 
     alpha <- 1-ciLevel
     means <- summary(means)
@@ -1105,12 +1120,20 @@
     contrasts = contrasts
   )
 
+  # this is needed later for marginal means (to create a refgrid object)
+  rmFactors        <- lapply(options[["repeatedMeasuresFactors"]], "[[", "levels")
+  names(rmFactors) <- sapply(options[["repeatedMeasuresFactors"]], "[[", "name"  )
+  # ref_grid argument mult.levs combines the levels according to expand.grid()
+  # but repeated measured cells are in the reversed order -> we reverse the list of factors here
+  rmFactors        <- rev(rmFactors)
+
   model <- list(
-    fit       = fit,
-    formula   = formula,
-    weights   = weights,
-    contrasts = contrasts,
-    parsForGorica = .rmaorExtractPars(fit)
+    fit           = fit,
+    formula       = formula,
+    weights       = weights,
+    contrasts     = contrasts,
+    parsForGorica = .rmaorExtractPars(fit),
+    rmFactors     = rmFactors
   )
 
   return(model)
@@ -1139,6 +1162,14 @@
   )
   fit <- do.call(restriktor::goric, args)
   fit <- fit[["objectList"]][[1]]
+
+  if(!is.null(unrestrictedModel[["fit"]])) {
+    fit[["model.org"]] <- unrestrictedModel[["fit"]]
+  }
+
+  if(!is.null(unrestrictedModel[["rmFactors"]])) {
+    fit[["rmFactors"]] <- unrestrictedModel[["rmFactors"]]
+  }
 
   return(fit)
 }

@@ -883,7 +883,13 @@
 
   for(i in seq_len(samples)) {
     unconstrained <- unrestrictedBootstrap[[i]]
-    boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax, se = fit[["se"]]))
+    if(inherits(fit, "restriktor")) { # an(c)ova
+      boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax, se = fit[["se"]]))
+    } else { # rm anova
+      model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
+      boot <- try(.rmaorCalculateRestrictedModel(model, restrictionSyntax))
+    }
+
     if(!isTryError(boot)) {
       bootstraps[i, ] <- coefficients(boot)
       keep <- c(keep, i)
@@ -993,7 +999,7 @@
   if(is.null(bootstraps) && inherits(fit, "restriktor")) { #an(c)ova
     result <- coefficients(summary(fit))
     result <- as.data.frame(result)
-    result[["coef"]] <- rownames(result)
+    result[["coef"]] <- .aorRenameInterceptRemoveColon(rownames(result))
     colnames(result) <- c("estimate", "se", "t", "p", "coef")
   } else if(is.null(bootstraps)) { # rm anova
     result <- coefficients(fit)
@@ -1004,7 +1010,7 @@
   } else {
     alpha <- 1-ciLevel
     result <- data.frame(
-      coef     = colnames(bootstraps),
+      coef     = .aorRenameInterceptRemoveColon(colnames(bootstraps)),
       estimate = apply(bootstraps, 2, median,                      na.rm = TRUE),
       se       = apply(bootstraps, 2, sd    ,                      na.rm = TRUE),
       lower    = apply(bootstraps, 2, quantile, probs =   alpha/2, na.rm = TRUE),

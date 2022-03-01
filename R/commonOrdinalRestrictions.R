@@ -14,8 +14,7 @@
   models <- .aorGetFittedModels(container, dataset, options, analysis)
 
   .aorModelComparison      (container, dataset, options, models, analysis)
-  return()
-  .aorSingleModelsInference(container, dataset, options, models)
+  .aorSingleModelsInference(container, dataset, options, models, analysis)
 
   return()
 }
@@ -206,15 +205,7 @@
     unrestricted <- unrestrictedModel[["fit"]]
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax, se = options[["restrictedSE"]]))
   } else {
-    args <- list(
-      object      = unrestrictedModel[["parsForGorica"]][["coef"]],
-      VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-      constraints = restrictionSyntax,
-      comparison  = "none",
-      type        = "gorica"
-    )
-    fit <- do.call(restriktor::goric, args)
-    fit <- fit[["objectList"]][[1]]
+    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, restrictionSyntax))
   }
 
   if(isTryError(fit)) {
@@ -229,12 +220,11 @@
     bootstraps <- NULL
   }
 
+  ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
+  coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
   if(analysis == "anova") {
-    ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
-    coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
     marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, options[["modelTerms"]], dataset)
   } else {
-    coefficients <- NULL
     marginalMeans <- NULL
   }
 
@@ -256,6 +246,10 @@
     options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel")#,
     #optionContainsValue = list(restrictedModels = restrictedModelOption)
   )
+  if(analysis == "anova")
+    container[[stateName]]$dependOn(
+      optionContainsValue = list(restrictedModels = restrictedModelOption)
+    )
 
   return(model)
 }
@@ -604,7 +598,7 @@
 }
 
 # Single Model inference ----
-.aorSingleModelsInference <- function(container, dataset, options, models) {
+.aorSingleModelsInference <- function(container, dataset, options, models, analysis) {
   if(container$getError()) return()
 
   allModelNames    <- .aorGetModelNames(options[["restrictedModels"]])
@@ -624,9 +618,11 @@
 
     if(modelName %in% fittedModelNames) {
       model <- models[["restricted"]][[which(modelName == fittedModelNames)]]
-      .aorModelSummary             (modelContainer, options, model)
-      .aorInformativeHypothesisTest(modelContainer, options, model)
-      .aorMarginalMeans            (modelContainer, options, model, dataset)
+      .aorModelSummary (modelContainer, options, model)
+      if(analysis == "rmanova") return()
+      .aorMarginalMeans(modelContainer, options, model, dataset)
+      if(analysis == "anova")
+        .aorInformativeHypothesisTest(modelContainer, options, model)
     } else {
       model <- models[["failed"]][[modelName]]
       .aorDisplayModelError(modelContainer, model)
@@ -684,15 +680,19 @@
 
     coefficientsTable$addColumnInfo(name = "coef",     title = gettext("Coefficient"), type = "string")
     coefficientsTable$addColumnInfo(name = "estimate", title = gettext("Estimate"),    type = "number")
-    coefficientsTable$addColumnInfo(name = "se",       title = gettext("SE"),          type = "number")
+    if(!is.null(coefs[["se"]]))
+      coefficientsTable$addColumnInfo(name = "se",     title = gettext("SE"),          type = "number")
+    if(!is.null(coefs[["t"]]))
+      coefficientsTable$addColumnInfo(name = "t",      title = gettext("t"),           type = "number")
+    if(!is.null(coefs[["p"]]))
+      coefficientsTable$addColumnInfo(name = "p",      title = gettext("p"),           type = "pvalue")
+
+
     if(!is.null(model[["bootstrapSamples"]])) {
       overtitle <- gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]])
       coefficientsTable$addColumnInfo(name = "lower",    title = gettext("Lower"),       type = "number", overtitle = overtitle)
       coefficientsTable$addColumnInfo(name = "upper",    title = gettext("Upper"),       type = "number", overtitle = overtitle)
       coefficientsTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", model[["bootstrapSamples"]]))
-    } else {
-      coefficientsTable$addColumnInfo(name = "t",        title = gettext("t"),           type = "number")
-      coefficientsTable$addColumnInfo(name = "p",        title = gettext("p"),           type = "pvalue")
     }
 
     coefficientsTable$setData(coefs)
@@ -706,7 +706,7 @@
 .aorInformativeHypothesisTest <- function(container, options, model) {
   if(!is.null(container[["ihtTable"]]) || !model[["informedHypothesisTest"]]) return()
 
-  ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"), position = 2)
+  ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"), position = 3)
   ihtTable$showSpecifiedColumnsOnly <- TRUE
   container[["ihtTable"]] <- ihtTable
 
@@ -791,7 +791,7 @@
     container    = container,
     name         = "marginalMeansContainer",
     title        = gettext("Marginal Means"),
-    position     = 3,
+    position     = 2,
     dependencies = c("restrictedModelMarginalMeansTerms",
                      "restrictedBootstrappingConfidenceIntervalLevel")
   )
@@ -990,11 +990,16 @@
 }
 
 .aorCalculateCoefficients <- function(fit, bootstraps, ciLevel) {
-  if(is.null(bootstraps)) {
+  if(is.null(bootstraps) && inherits(fit, "restriktor")) { #an(c)ova
     result <- coefficients(summary(fit))
     result <- as.data.frame(result)
     result[["coef"]] <- rownames(result)
     colnames(result) <- c("estimate", "se", "t", "p", "coef")
+  } else if(is.null(bootstraps)) { # rm anova
+    result <- data.frame(
+      coef     = .aorRenameInterceptRemoveColon(names(fit$b.restr)),
+      estimate = fit$b.restr
+    )
   } else {
     alpha <- 1-ciLevel
     result <- data.frame(
@@ -1117,6 +1122,19 @@
   ))
 }
 
+.rmaorCalculateRestrictedModel <- function(unrestrictedModel, restrictionSyntax) {
+  args <- list(
+    object      = unrestrictedModel[["parsForGorica"]][["coef"]],
+    VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
+    constraints = restrictionSyntax,
+    comparison  = "none",
+    type        = "gorica"
+  )
+  fit <- do.call(restriktor::goric, args)
+  fit <- fit[["objectList"]][[1]]
+
+  return(fit)
+}
 
 .rmaorCalculateModelComparison <- function(options, models, comparison) {
   args <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
@@ -1128,6 +1146,7 @@
   modelComparison <- do.call(restriktor::goric, args)
   return(modelComparison)
 }
+
 
 # Citations ----
 

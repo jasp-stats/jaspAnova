@@ -20,7 +20,7 @@
 }
 
 # Getters ----
-.aorGetContainer <- function(container, name, title, dependencies = NULL, position = 1, initCollapsed = FALSE) {
+.aorGetContainer <- function(container, name, title, dependencies = NULL, position = NULL, initCollapsed = FALSE) {
   if(is.null(container[[name]])) {
     newContainer <- createJaspContainer(
       title         = title,

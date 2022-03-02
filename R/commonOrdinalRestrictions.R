@@ -41,7 +41,7 @@
     container    = container,
     name         = "ordinalRestrictions",
     title        = gettext("Order Restricted Hypotheses"),
-    dependencies = c("includeIntercept", "restrictedSE")
+    dependencies = c("restrictedIncludeIntercept", "restrictedSE")
     )
 
   return(ordinalRestrictionsContainer)
@@ -533,7 +533,7 @@
 
   coefficientsTable <- createJaspTable(title        = gettext("Coefficients Comparison"),
                                        position     = 3,
-                                       dependencies = c("restrictedModelComparisonCoefficients", "highlightEstimates")
+                                       dependencies = c("restrictedModelComparisonCoefficients", "restrictedModelComparisonHighlightCoefficients")
                                        )
   coefficientsTable$showSpecifiedColumnsOnly <- TRUE
   coefficientsTable$addColumnInfo(name = "coef", title = gettext("Coefficient"), type = "string")
@@ -567,7 +567,7 @@
 
   coefficientsTable$setData(df)
 
-  if(options[["highlightEstimates"]])
+  if(options[["restrictedModelComparisonHighlightCoefficients"]])
     .aorModelComparisonHighlightCoefficients(coefficientsTable, unrestrictedCoefficients, df)
 }
 
@@ -1041,7 +1041,7 @@
   modelTerms        <- reorderModelTerms$modelTerms
   modelDef          <- .modelFormula(modelTerms, options)
 
-  if (options[["includeIntercept"]]) {
+  if (options[["restrictedIncludeIntercept"]]) {
     formula <- as.formula(modelDef[["model.def"]])
   } else {
     formula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
@@ -1089,7 +1089,7 @@
   # get formula for a lm fit
   lhs <- sprintf("cbind(%s)", paste(options[["repeatedMeasuresCells"]], collapse = ","))
 
-  if(!options[["includeIntercept"]] && length(options[["betweenModelTerms"]]) > 0) {
+  if(!options[["restrictedIncludeIntercept"]] && length(options[["betweenModelTerms"]]) > 0) {
     rhs <- "0"
   } else {
     rhs <- "1"

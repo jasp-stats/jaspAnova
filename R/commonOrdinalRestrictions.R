@@ -82,17 +82,6 @@
 
 # Syntax checks and converters ----
 .aorCheckSyntax <- function(modelName, modelSyntax) {
-  # restriktor package does not handle multiple constraints on a single line (https://github.com/LeonardV/restriktor/issues/3)
-  # so we need to check for this and ask the user to split constraints on separate lines
-  lines <- strsplit(modelSyntax, "\n")[[1]]
-  for (line in lines) {
-    terms <- strsplit(line, "<|>|==")[[1]]
-
-    if(length(terms) > 2) {
-      stop(gettext("Syntax error found in model %1$s, line: %2$s.\n\nMultiple restrictions on one line.\n\nPlease use one restriction per line!", modelName, line))
-    }
-  }
-
   # check duplication of order restrictions
   lines <- strsplit(modelSyntax, "\n")[[1]]
   lines <- trimws(lines)

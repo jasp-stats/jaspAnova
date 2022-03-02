@@ -51,7 +51,7 @@ Section
 			title:	qsTr("Syntax settings")
 			CheckBox
 			{
-				name:	"includeIntercept"
+				name:	"restrictedIncludeIntercept"
 				label:	qsTr("Include intercept")
 			}
 
@@ -196,7 +196,7 @@ Section
 			
 			CheckBox
 			{
-				name:		"highlightEstimates"
+				name:		"restrictedModelComparisonHighlightCoefficients"
 				label:		qsTr("Highlight active restrictions")
 				checked:	true
 			}

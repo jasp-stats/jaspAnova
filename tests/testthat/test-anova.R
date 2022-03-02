@@ -131,7 +131,6 @@ test_that("Contrasts table results match", {
 })
 
 # Order restrictions
-
 test_that("Model Comparison Table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"

@@ -1,6 +1,14 @@
 # Main function  ----
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready, analysis = c("anova", "rmanova")) {
   if (!ready) return()
+  # currently '.aorBasicInfo' shows only available coefficients
+  # this can be displayed in JASP before any restricted model is defined (i.e., when length(options[["restrictedModels"]]) == 0)
+  # however, unit tests for other parts of the analysis could fail because
+  # analysisOptions does not bring default options from OrderedRestrictions.qml
+  # so we will simply jump out if one of the restricted options is NULL
+  # to avoid people specifying default 'restricted options' in the options list manually for unit tests
+  if(is.null(options[["restrictedModels"]])) return()
+
   analysis <- match.arg(analysis)
 
   options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])

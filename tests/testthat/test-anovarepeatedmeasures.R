@@ -613,8 +613,8 @@ test_that("Conover table match", {
   jaspTools::expect_equal_tables(table, refTable)
 })
 
-### Andy Field tests ---
-
+# Andy Field tests ----
+# should we put this in verification?
 test_that("Field - Chapter 8 results match", {
   options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
 
@@ -899,4 +899,139 @@ test_that("No interaction: Within Subjects Effects table results match", {
 			 "Greenhouse-Geisser", 28.4027474808338, "", 0, "", 110.729129193702,
 			 3352.87777777778, "Residuals", "Huynh-Feldt", 30.2799977042398,
 			 ""))
+})
+
+
+# Ordinal restrictions ----
+options <- analysisOptions("AnovaRepeatedMeasures")
+options$.meta <- list(betweenModelTerms = list(shouldEncode = TRUE), betweenSubjectFactors = list(
+  shouldEncode = TRUE), contrasts = list(shouldEncode = TRUE),
+  covariates = list(shouldEncode = TRUE), customContrasts = list(
+    shouldEncode = TRUE), friedmanBetweenFactor = list(shouldEncode = TRUE),
+  friedmanWithinFactor = list(shouldEncode = TRUE), marginalMeansTerms = list(
+    shouldEncode = TRUE), moderatorFactorOne = list(shouldEncode = TRUE),
+  moderatorFactorTwo = list(shouldEncode = TRUE), plotHorizontalAxis = list(
+    shouldEncode = TRUE), plotSeparateLines = list(shouldEncode = TRUE),
+  plotSeparatePlots = list(shouldEncode = TRUE), postHocTestsVariables = list(
+    shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
+      shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
+        shouldEncode = TRUE), repeatedMeasuresCells = list(shouldEncode = TRUE),
+  repeatedMeasuresFactors = list(encodeThis = c("fac1", "l1",
+                                                "l2", "fac2", "a", "b"), shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
+                                                  shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
+  withinModelTerms = list(shouldEncode = TRUE))
+options$betweenModelTerms <- list(list(components = "facGender"), list(components = "facExperim"),
+                                  list(components = c("facGender", "facExperim")))
+options$betweenSubjectFactors <- c("facGender", "facExperim")
+options$contrasts <- list(list(contrast = "none", variable = "fac1"), list(contrast = "none",
+                                                                           variable = "fac2"), list(contrast = "none", variable = c("fac1",
+                                                                                                                                    "fac2")), list(contrast = "none", variable = "facGender"), list(
+                                                                                                                                      contrast = "none", variable = "facExperim"), list(contrast = "none",
+                                                                                                                                                                                        variable = c("facGender", "facExperim")), list(contrast = "none",
+                                                                                                                                                                                                                                       variable = c("facGender", "fac1")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                variable = c("facGender", "fac2")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                         variable = c("facGender", "fac1", "fac2")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                          variable = c("facExperim", "fac1")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                                                                    variable = c("facExperim", "fac2")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              variable = c("facExperim", "fac1", "fac2")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                variable = c("facGender", "facExperim", "fac1")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       variable = c("facGender", "facExperim", "fac2")), list(contrast = "none",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              variable = c("facGender", "facExperim", "fac1", "fac2")))
+options$customContrasts <- list()
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$repeatedMeasuresCells <- c("contNormal", "contGamma", "contcor1", "contcor2")
+options$repeatedMeasuresFactors <- list(list(levels = c("l1", "l2"), name = "fac1"), list(levels = c("a",
+                                                                                                     "b"), name = "fac2"))
+options$restrictedBootstrapping <- TRUE
+options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
+options$restrictedBootstrappingReplicates <- 100
+options$restrictedIncludeIntercept <- TRUE
+options$restrictedInformedHypothesisTestByDefault <- FALSE
+options$restrictedMarginalMeansByDefault <- TRUE
+options$restrictedModelComparison <- "complement"
+options$restrictedModelComparisonCoefficients <- FALSE
+options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonMatrix <- FALSE
+options$restrictedModelComparisonReference <- "complement"
+options$restrictedModelComparisonWeights <- TRUE
+options$restrictedModelMarginalMeansTerms <- list(list(variable = c("fac1", "fac2")), list(variable = c("facGender",
+                                                                                                        "facExperim")))
+options$restrictedModelShowAvailableCoefficients <- TRUE
+options$restrictedModelSummaryByDefault <- TRUE
+options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMeans = TRUE,
+                                      modelName = "Model 1", modelSummary = TRUE, restrictionSyntax = "contNormal..Intercept. < 0\ncontcor2.facGenderm.facExperimexperimental > 0"))
+options$restrictedSE <- "standard"
+options$withinModelTerms <- list(list(components = "fac1"), list(components = "fac2"), list(
+  components = c("fac1", "fac2")))
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasures", "test.csv", options)
+
+
+test_that("Ordinal restrictions: Within factor marginal means table results match", {
+  table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_fac1_fac2"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.111192059436893, "l1", "a", -0.348433940610132, -0.193021696619891,
+                                      0.063157376558472, 0.0991694646477927, "l2", "a", -0.117008378664137,
+                                      0.0623965782769017, 0.238451181290795, 0.150936928904207, "l1",
+                                      "b", 1.78929345522918, 2.06675525153415, 2.36426645338382, 0.0930601642018357,
+                                      "l2", "b", -0.117820277971269, 0.0739325926937613, 0.219009692466684
+                                 ))
+})
+
+test_that("Ordinal restrictions: Between factor marginal means table results match", {
+  table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_facGender_facExperim"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.116320641523988, "control", "f", 0.206795573859205, 0.421218273543759,
+                                      0.645706227994994, 0.1391233133912, "control", "m", 0.377076198054344,
+                                      0.6620015604446, 0.931755102677303, 0.115680273869516, "experimental",
+                                      "f", 0.205479564635142, 0.432494923921876, 0.627514748263424,
+                                      0.0972146860548308, "experimental", "m", 0.3445931803434, 0.488458932735193,
+                                      0.689501306286302))
+})
+
+test_that("Ordinal restrictions: Coefficients table results match", {
+  table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_coefficientsTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list("contNormal..Intercept.", -0.441571745227907, -0.81244949558875,
+                                      0.193448313939833, -0.0554231431302942, "contNormal:facGenderm",
+                                      0.58164309673504, -0.0826348336172975, 0.381269716912694, 1.08935760753205,
+                                      "contNormal:facExperimexperimental", 0.099527455577631, -0.357946798142768,
+                                      0.272849532129813, 0.607116934811138, "contNormal:facGenderm:facExperimexperimental",
+                                      -0.264268801066169, -0.960286428404513, 0.455638999017653, 0.633938720194386,
+                                      "contGamma..Intercept.", 1.64709667642169, 1.25665112180151,
+                                      0.236609950348413, 2.08804679977783, "contGamma:facGenderm",
+                                      0.686014101318584, -0.163539673627095, 0.493777273938826, 1.71124935227611,
+                                      "contGamma:facExperimexperimental", 0.40757499005641, -0.140772516021531,
+                                      0.323351644438931, 1.05780465183572, "contGamma:facGenderm:facExperimexperimental",
+                                      -0.465122633957602, -1.6697324704635, 0.576741635866038, 0.550201288145503,
+                                      "contcor1..Intercept.", 0.199270271857154, -0.122081713914664,
+                                      0.177136020618645, 0.474399684943018, "contcor1:facGenderm",
+                                      -0.07033744997919, -0.49683689022239, 0.250317102817171, 0.448604752069799,
+                                      "contcor1:facExperimexperimental", -0.246127834791597, -0.711623183730042,
+                                      0.244875440504839, 0.213464906637517, "contcor1:facGenderm:facExperimexperimental",
+                                      0.0765935743857436, -0.495992960371517, 0.294930934246959, 0.559167142166626,
+                                      "contcor2..Intercept.", 0.332326331880421, 0.00317549214264327,
+                                      0.172359202440059, 0.612071705312522, "contcor2:facGenderm",
+                                      -0.212893461529658, -0.606617240416401, 0.201191759979036, 0.182078001714229,
+                                      "contcor2:facExperimexperimental", -0.273596296677489, -0.587464000214955,
+                                      0.185437062955922, 0.125504776318483, "contcor2:facGenderm:facExperimexperimental",
+                                      0, 0, 0.0682869041725479, 0.271108272580777))
+})
+
+test_that("Ordinal restrictions: Restriction Matrix table results match", {
+  table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_restrictionMatrix"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                      0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+})
+
+test_that("Ordinal restrictions: Model Comparison Table results match", {
+  table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_modelComparison"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_modelComparison_comparisonTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(11.3366660265192, 0.400261631091091, 9.32382290342566, "Model 1",
+                                      14.9921559166853, 0.667393736737701, 10.5279158319605, 0.599738368908909,
+                                      10.2438861673345, "Complement", 15.5078440833147, 1))
 })

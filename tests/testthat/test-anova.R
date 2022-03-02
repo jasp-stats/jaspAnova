@@ -3,6 +3,7 @@ context("ANOVA")
 # does not test
 # - if analysis handles too few observations
 
+# Main results ----
 test_that("Main table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -61,6 +62,7 @@ test_that("Main table results match", {
   }
 })
 
+# Additional results ----
 test_that("Homogeneity of Variances table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -74,6 +76,7 @@ test_that("Homogeneity of Variances table results match", {
 })
 
 # Contrasts verified with SPSS
+# should we put this in verification project???
 test_that("Contrasts table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -544,6 +547,7 @@ test_that("Nonparametric table results match", {
   )
 })
 
+# Error handling ----
 test_that("Analysis handles errors", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "debInf"
@@ -630,9 +634,10 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
 })
 
 
-#### Andy Field Tests ----
+# Andy Field Tests ----
+# should we put this in verification project?
 
-#### Chapter 4 -----
+## Chapter 4 -----
 test_that("Field - Chapter 4 results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "Happiness"
@@ -658,7 +663,7 @@ test_that("Field - Chapter 4 results match", {
                            "", 2.97102918244598, "", 23.6, "Residuals", ""))
 })
 
-#### Chapter 5 ----
+## Chapter 5 ----
 
 test_that("Field - Chapter 5 results match", {
   options <- jaspTools::analysisOptions("Anova")
@@ -712,7 +717,7 @@ test_that("Field - Chapter 5 results match", {
                            0.886942313043338, 0.0152377020148067, 0.580364886004677, 5.01963511399532))
 })
 
-#### Chapter 7 ----
+## Chapter 7 ----
 
 test_that("Field - Chapter 7 results match", {
   options <- jaspTools::analysisOptions("Anova")

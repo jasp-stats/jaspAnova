@@ -238,14 +238,9 @@
 
   container[[stateName]] <- createJaspState(object = model)
   container[[stateName]]$dependOn(
-    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel")#,
-    #optionContainsValue = list(restrictedModels = restrictedModelOption)
+    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
+    optionContainsValue = list(restrictedModels = restrictedModelOption)
   )
-  if(analysis == "anova")
-    container[[stateName]]$dependOn(
-      optionContainsValue = list(restrictedModels = restrictedModelOption)
-    )
-
   return(model)
 }
 
@@ -701,8 +696,8 @@
   if(!is.null(container[["ihtTable"]]) || !model[["informedHypothesisTest"]]) return()
 
   ihtTable <- createJaspTable(title = gettext("Informative Hypothesis Tests"), position = 3)
-  ihtTable$showSpecifiedColumnsOnly <- TRUE
   container[["ihtTable"]] <- ihtTable
+  ihtTable$showSpecifiedColumnsOnly <- TRUE
 
   ihtTable$addColumnInfo(name = "typeName", title = gettext("Hypothesis"),      type = "string", combine = TRUE)
   ihtTable$addColumnInfo(name = "test",     title = gettext("Test"),            type = "string", combine = TRUE)
@@ -714,13 +709,17 @@
   if(!isTryError(result)) {
     result[["typeName"]] <- gettextf("Type %s", result[["type"]])
     ihtTable$setData(result)
-
+    ihtTable$addCitation(c(
+      "Silvapulle, M. J. & Sen, P. K. (2005). Constrained statistical inference: Order, inequality, and shape constraints. Hoboken, NJ: Wiley.",
+      "Vanbrabant, L. & Rosseel, Y. (2020). Restricted statistical estimation and inference for linear models. http://restriktor.org"
+    ))
     # for some reason, this takes forever
     # .aorAddInformativeHypothesisTestFootnotes(ihtTable, result)
   } else {
     message <- .aorExtractErrorMessageSoft(result)
     ihtTable$setError(gettextf("Could not compute the informative hypothesis tests. Error message: %s", message))
   }
+
 }
 
 .aorAddInformativeHypothesisTestFootnotes <- function(table, result) {
@@ -730,35 +729,35 @@
   # hypothesis types
   .aorInformativeHypothesisTestFootnoteHelper(
     table   = table,
-    rows    = result[["type"]] == "classical",
+    rows    = which.min(result[["type"]] == "classical"),
     colName = "typeName",
     message = gettextf("H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated.", "\u2080", "\u2081")
     )
 
   .aorInformativeHypothesisTestFootnoteHelper(
     table   = table,
-    rows    = result[["type"]] == "global",
+    rows    = which.min(result[["type"]] == "global"),
     colName = "typeName",
     message = gettextf("H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
     table   = table,
-    rows    = result[["type"]] == "A",
+    rows    = which.min(result[["type"]] == "A"),
     colName = "typeName",
     message = gettextf("H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
     table   = table,
-    rows    = result[["type"]] == "B",
+    rows    = which.min(result[["type"]] == "B"),
     colName = "typeName",
     message = gettextf("H%1$s: All restrictions hold, H%2$s: At least one restriction is violated.", "\u2080", "\u2081")
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
     table   = table,
-    rows    = result[["type"]] == "C",
+    rows    = which.min(result[["type"]] == "C"),
     colName = "typeName",
     message = gettextf("H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>).", "\u2080", "\u2081")
   )
@@ -766,8 +765,6 @@
 }
 
 .aorInformativeHypothesisTestFootnoteHelper <- function(table, rows, colName, message) {
-  if(is.logical(rows)) rows <- which(rows)
-
   for(row in rows) {
     table$addFootnote(
       message  = message,
@@ -1191,10 +1188,3 @@
 }
 
 coef.gorica_est <- restriktor::coef.restriktor
-
-# Citations ----
-
-.anovaOrdinalRestrictionsInformedHypothesisTestsCitations <- c(
-  "Silvapulle, M. J. & Sen, P. K. (2005). Constrained statistical inference: Order, inequality, and shape constraints. Hoboken, NJ: Wiley.",
-  "Vanbrabant, L. & Rosseel, Y. (2020). Restricted statistical estimation and inference for linear models. http://restriktor.org"
-)

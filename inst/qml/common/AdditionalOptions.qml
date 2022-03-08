@@ -170,6 +170,9 @@ Section
 
 	ColumnLayout
 	{
+		id: customPriorLayout
+		property int space:		  4 * preferencesModel.uiScale
+		property int prefWidth:	100 * preferencesModel.uiScale
 
 		spacing:				0
 		Layout.preferredWidth:	parent.width
@@ -178,19 +181,20 @@ Section
 		{
 			Row
 			{
-				Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 330 * preferencesModel.uiScale
-				Label { text: qsTr("Term")} //modelTermsCustomPrior.itemGridView.width		}
+				Layout.leftMargin:		5   * preferencesModel.uiScale
+				Layout.preferredWidth:	332 * preferencesModel.uiScale
+				Label { text: qsTr("Term")}
 			}
 			Row
 			{
-				Layout.preferredWidth: 121 * preferencesModel.uiScale
-				spacing:				 4 * preferencesModel.uiScale
+				spacing:				customPriorLayout.space
+				Layout.preferredWidth:	121 * preferencesModel.uiScale
 				Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked}
 			}
 			Row
 			{
-				Layout.preferredWidth: 100 * preferencesModel.uiScale
-				spacing:				 4 * preferencesModel.uiScale
+				spacing:				customPriorLayout.space
+				Layout.preferredWidth:	customPriorLayout.prefWidth
 				Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked}
 			}
 		}
@@ -203,18 +207,14 @@ Section
 			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
 			listViewType		: JASP.AssignedVariables
 			draggable			: false
-//			cellWidth			: 200 * preferencesModel.uiScale
+			preferredHeight		: jaspTheme.smallDefaultVariablesFormHeight
 
 			rowComponent: RowLayout
 			{
-				id: modelTermsCustomPriorItem
-				property int space:		  4 * preferencesModel.uiScale
-				property int prefWidth:	100 * preferencesModel.uiScale
-
 				Row
 				{
-					spacing:				modelTermsCustomPriorItem.space
-					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
+					spacing:				customPriorLayout.space
+					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
 						name:			"priorIncl"
@@ -227,8 +227,8 @@ Section
 				}
 				Row
 				{
-					spacing:				modelTermsCustomPriorItem.space
-					Layout.preferredWidth:	modelTermsCustomPriorItem.prefWidth
+					spacing:				customPriorLayout.space
+					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
 						name:			"rscaleFixed"
@@ -242,105 +242,5 @@ Section
 			}
 		}
 	}
-
-//	ColumnLayout
-//	{
-//		spacing:				0
-//		Layout.preferredWidth:	parent.width
-//		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
-////		RowLayout
-////		{
-////			Label { text: qsTr("Term");																																Layout.leftMargin: 5 * preferencesModel.uiScale;		Layout.preferredWidth: 160 * preferencesModel.uiScale	}
-////			Label { text: qsTr("Prior inclusion probability");	visible: customPriorModelProbabilities.checked;																												Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-////			Label { text: qsTr("fixed r-scale");				visible: !rscalesAcrossParameters.checked;																													Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-////			Label { text: qsTr("random r-scale");				visible: !rscalesAcrossParameters.checked;																																											}
-////		}
-//		RowLayout
-//		{
-//			Label { text: qsTr("Term");																	Layout.leftMargin: 5 * preferencesModel.uiScale;	Layout.preferredWidth: 200 * preferencesModel.uiScale	}
-//			Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked;														Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-//			Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked;															Layout.preferredWidth: 100 * preferencesModel.uiScale	}
-//		}
-
-
-//		ComponentsList
-//		{
-//			name				: "modelTermsCustomPrior22"
-//			optionKey			: "components"
-//			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
-//			rowComponent: RowLayout
-
-//			{
-//				Row
-//				{
-//					spacing:				4 * preferencesModel.uiScale
-//					Layout.preferredWidth:	200 * preferencesModel.uiScale
-////					TextField
-////					{
-////						label: 				""
-////						name: 				"name"
-////						startValue:			rowValue
-////						fieldWidth:			200 * preferencesModel.uiScale
-////						useExternalBorder:	false
-////						showBorder:			true
-////						editable:			false
-////						enabled:			false
-////					}
-//					Text
-//					{
-//						id:					colName
-//						text:				rowValue
-//						anchors.leftMargin: jaspTheme.generalAnchorMargin
-//						width:				200 * preferencesModel.uiScale
-//						elide:				Text.ElideRight
-//					}
-//					MouseArea
-//					{
-//						id:				mouseArea
-//						anchors.fill:	parent
-//						hoverEnabled:	true
-//					}
-//					QTCONTROLS.ToolTip.visible: mouseArea.containsMouse && colName && colName.truncated
-//					QTCONTROLS.ToolTip.delay: 300
-//					QTCONTROLS.ToolTip.text: rowValue
-//				}
-//				Row
-//				{
-////					id:						rowCustomPriorProbs
-//					visible:				customPriorModelProbabilities.checked
-//					spacing:				4 * preferencesModel.uiScale
-//					Layout.preferredWidth:	100 * preferencesModel.uiScale
-//					DoubleField
-//					{
-////						fieldWidth:		rowCustomPriorProbs.width
-//						name:			"priorIncl"
-//						min:			0
-//						max:			100
-//						defaultValue:	0.5
-//						inclusive:		JASP.None
-//					}
-//				}
-//				Row
-//				{
-////					id:						rowFixedProbs
-//					visible:				!rscalesAcrossParameters.checked
-//					spacing:				4 * preferencesModel.uiScale
-//					Layout.preferredWidth:	100 * preferencesModel.uiScale
-//					DoubleField
-//					{
-////						fieldWidth:		rowFixedProbs.width
-//						name:			"rscaleFixed"
-//						min:			0
-//						max:			100
-//						defaultValue:	0.5
-//						inclusive:		JASP.None
-//					}
-//				}
-//			}
-//		}
-//	}
-
-
-
 }
 

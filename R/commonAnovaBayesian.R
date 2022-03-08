@@ -419,22 +419,26 @@
   # without these there is no error
   bfIterations <- if (options[["sampleModeNumAcc"]] == "auto") 1e4L else options[["fixedNumAcc"]]
 
+  save(nmodels, model.list, options, dataset, randomFactors, rscaleFixed, rscaleRandom,
+       rscaleCont, rscaleEffects, bfIterations,
+       file = "~/jaspDeletable/robjects/banovaModelSpaceFitter.RData")
+  #load("~/jaspDeletable/robjects/banovaModelSpaceFitter.RData")
   for (m in seq_len(nmodels)) {
     # loop over all models, where the first is the null-model and the last the most complex model
     if (is.na(reuseable[m])) {
       if (!is.null(model.list[[m]])) {
         .setSeedJASP(options)
         bf <- try(BayesFactor::lmBF(
-          formula      = model.list[[m]],
-          data         = dataset,
-          whichRandom  = randomFactors,
-          progress     = FALSE,
-          posterior    = FALSE,
-          # callback     = .callbackBFpackage,
-          rscaleFixed  = rscaleFixed,
-          rscaleRandom = rscaleRandom,
-          rscaleCont   = rscaleCont,
-          iterations   = bfIterations))
+          formula       = model.list[[m]],
+          data          = dataset,
+          whichRandom   = randomFactors,
+          progress      = FALSE,
+          posterior     = FALSE,
+          rscaleFixed   = rscaleFixed,
+          rscaleRandom  = rscaleRandom,
+          rscaleCont    = rscaleCont,
+          rscaleEffects = rscaleEffects,
+          iterations    = bfIterations))
         if (isTryError(bf)) {
           modelName <- strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L]
           .quitAnalysis(gettextf("Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s.",
@@ -525,9 +529,12 @@
 
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
-    "dependent", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc", "fixedNumAcc", "repeatedMeasuresCells",
-    "seed", "setSeed", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes"
+    "dependent", "priorFixedEffects", "priorRandomEffects", "priorCovariates", "sampleModeNumAcc", "fixedNumAcc", "repeatedMeasuresCells",
+    "seed", "setSeed", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
+    "coefficientsPrior",
+    if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
   ))
+
   jaspResults[["tableModelComparisonState"]] <- stateObj
 
   return(model)
@@ -550,8 +557,9 @@
   effectsTable$dependOn(c(
     "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
     "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
-    "repeatedMeasuresCells", "enforcePrincipleOfMarginalityFixedEffects",
-    .BANOVAmodelSpaceDependencies
+    "repeatedMeasuresCells", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
+    .BANOVAmodelSpaceDependencies,
+    if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -697,10 +705,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$position <- 1L
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
-    "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "sampleModeNumAcc",
+    "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "priorCovariates", "sampleModeNumAcc",
     "fixedNumAcc", "bayesFactorType", "bayesFactorOrder", "modelTerms", "fixedFactors", "betweenSubjectFactors",
     "repeatedMeasuresFactors", "repeatedMeasuresCells", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    "hideNuisanceEffects", "legacy",
+    "hideNuisanceEffects", "legacy", "coefficientsPrior", "modelTermsCustomPrior",
     .BANOVAmodelSpaceDependencies
   ))
 
@@ -865,6 +873,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects", "sampleModeMCMC",
     "fixedMCMCSamples", "modelTerms", "fixedFactors", "posteriorEstimates",
     "repeatedMeasuresFactors", "credibleInterval", "repeatedMeasuresCells", "seed", "setSeed",
+    "hideNuisanceEffects",
     .BANOVAmodelSpaceDependencies
   ))
 
@@ -2640,16 +2649,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 # Model prior ----
 .BANOVAcomputePriorModelProbs <- function(models, nuisance, options) {
+
   if (options[["modelPrior"]] == "uniform") {
     modelprobs <- rep(1 / length(models), length(models))
   } else if (options[["modelPrior"]] == "custom") {
 
-    inclusionProbabilities <- vapply(options[["modelTermsCustomPrior"]], `[[`, FUN.VALUE = numeric(1L), "modelTermsCustomPrior2")
+    inclusionProbabilities <- vapply(options[["modelTermsCustomPrior"]], `[[`, FUN.VALUE = numeric(1L), "priorIncl")
     modelprobs <- .BANOVAcustomInclusionProbabilitiesToModelProbabilities(models, nuisance, inclusionProbabilities, enforceMarginality = options[["enforcePrincipleOfMarginalityFixedEffects"]])
 
   } else {
 
-    noPredictorsPerModel <- sapply(models, function(x) if(is.null(x)) 0L else length(attr(terms(x), "term.labels")))
+    noPredictorsPerModel <- vapply(models, function(x) if (is.null(x)) 0L else length(attr(terms(x), "term.labels")), FUN.VALUE = integer(1L))
     noNuisancePredictors <- noPredictorsPerModel[1L]
     noPredictorsPerModel <- noPredictorsPerModel - noNuisancePredictors
     totalNoPredictors    <- noPredictorsPerModel[length(noPredictorsPerModel)]
@@ -2671,6 +2681,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     # both the betabinomial and bernoulli model priors do not sum to 1 when marginality is respected
     modelprobs <- modelprobs / sum(modelprobs)
   }
+
   return(modelprobs)
 }
 
@@ -2816,6 +2827,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAgetRScale <- function(options, analysisType) {
 
+  save(options, analysisType, file = "~/jaspDeletable/robjects/banovaModelSpaceRscale.RData")
+  # load("~/jaspDeletable/robjects/banovaModelSpaceRscale.RData")
+
   if (options[["coefficientsPrior"]] == "rscalesAcrossParameters") {
 
     rscaleFixed   <- options[["priorFixedEffects"]]
@@ -2830,9 +2844,11 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
   } else {
 
-    rscaleFixed   <- NULL
-    rscaleRandom  <- NULL
-    rscaleCont    <- NULL
+    # NOTE: this still need a value otherwise BayesFactor returns NA for the bf
+    # default values of lmBF
+    rscaleFixed   <- "medium"
+    rscaleRandom  <- "nuisance"
+    rscaleCont    <- "medium"
 
     rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), FUN = function(x) {
       paste(x[["components"]], collapse = ":")
@@ -3137,9 +3153,13 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
     singleModelContainer$dependOn(c(
-      "singleModelTerms", "dependent", "sampleModeMCMC", "fixedMCMCSamples", "priorCovariates",
-      "priorFixedEffects", "priorRandomEffects", "repeatedMeasuresCells", "seed", "setSeed"
+      "singleModelTerms", "dependent", "sampleModeMCMC", "fixedMCMCSamples",
+      "repeatedMeasuresCells", "seed", "setSeed",
+      "priorFixedEffects", "priorRandomEffects", "priorCovariates",
+      "rscalesPerTerm",
+      if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
     ))
+
     jaspResults[["containerSingleModel"]] <- singleModelContainer
     singleModelContainer$position <- 7
   }
@@ -3194,15 +3214,16 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
   .setSeedJASP(options)
   samples <- BayesFactor::lmBF(
-    formula      = formula,
-    data         = dataset,
-    whichRandom  = unlist(randomFactors),
-    progress     = TRUE,
-    posterior    = TRUE,
-    rscaleFixed  = rscaleFixed,
-    rscaleRandom = rscaleRandom,
-    rscaleCont   = rscaleCont,
-    iterations   = nIter
+    formula       = formula,
+    data          = dataset,
+    whichRandom   = unlist(randomFactors),
+    progress      = TRUE,
+    posterior     = TRUE,
+    rscaleFixed   = rscaleFixed,
+    rscaleRandom  = rscaleRandom,
+    rscaleCont    = rscaleCont,
+    rscaleEffects = rscaleEffects,
+    iterations    = nIter
   )
 
   types <- samples@model@dataTypes

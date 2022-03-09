@@ -904,22 +904,6 @@ test_that("No interaction: Within Subjects Effects table results match", {
 
 # Ordinal restrictions ----
 options <- analysisOptions("AnovaRepeatedMeasures")
-options$.meta <- list(betweenModelTerms = list(shouldEncode = TRUE), betweenSubjectFactors = list(
-  shouldEncode = TRUE), contrasts = list(shouldEncode = TRUE),
-  covariates = list(shouldEncode = TRUE), customContrasts = list(
-    shouldEncode = TRUE), friedmanBetweenFactor = list(shouldEncode = TRUE),
-  friedmanWithinFactor = list(shouldEncode = TRUE), marginalMeansTerms = list(
-    shouldEncode = TRUE), moderatorFactorOne = list(shouldEncode = TRUE),
-  moderatorFactorTwo = list(shouldEncode = TRUE), plotHorizontalAxis = list(
-    shouldEncode = TRUE), plotSeparateLines = list(shouldEncode = TRUE),
-  plotSeparatePlots = list(shouldEncode = TRUE), postHocTestsVariables = list(
-    shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-      shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-        shouldEncode = TRUE), repeatedMeasuresCells = list(shouldEncode = TRUE),
-  repeatedMeasuresFactors = list(encodeThis = c("fac1", "l1",
-                                                "l2", "fac2", "a", "b"), shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-                                                  shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  withinModelTerms = list(shouldEncode = TRUE))
 options$betweenModelTerms <- list(list(components = "facGender"), list(components = "facExperim"),
                                   list(components = c("facGender", "facExperim")))
 options$betweenSubjectFactors <- c("facGender", "facExperim")

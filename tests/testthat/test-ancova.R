@@ -404,20 +404,6 @@ test_that("Field - Chapter 6 results match", {
 # Ordinal Restrictions ----
 # this test also tests anova restrictions
 options <- analysisOptions("Ancova")
-options$.meta <- list(contrasts = list(shouldEncode = TRUE), covariates = list(
-  shouldEncode = TRUE), customContrasts = list(shouldEncode = TRUE),
-  dependent = list(shouldEncode = TRUE), fixedFactors = list(
-    shouldEncode = TRUE), kruskalVariablesAssigned = list(
-      shouldEncode = TRUE), marginalMeansTerms = list(shouldEncode = TRUE),
-  modelTerms = list(shouldEncode = TRUE), moderatorFactorOne = list(
-    shouldEncode = TRUE), moderatorFactorTwo = list(shouldEncode = TRUE),
-  plotHorizontalAxis = list(shouldEncode = TRUE), plotSeparateLines = list(
-    shouldEncode = TRUE), plotSeparatePlots = list(shouldEncode = TRUE),
-  postHocTestsVariables = list(shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-    shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-      shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-        shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  wlsWeights = list(shouldEncode = TRUE))
 options$contrasts <- list(list(contrast = "none", variable = "contBinom"))
 options$covariates <- "contcor1"
 options$customContrasts <- list()
@@ -590,20 +576,6 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
 
 ## see https://restriktor.org/tutorial/example2.html for comparison ----
 options <- analysisOptions("Ancova")
-options$.meta <- list(contrasts = list(shouldEncode = TRUE), covariates = list(
-  shouldEncode = TRUE), customContrasts = list(shouldEncode = TRUE),
-  dependent = list(shouldEncode = TRUE), fixedFactors = list(
-    shouldEncode = TRUE), kruskalVariablesAssigned = list(
-      shouldEncode = TRUE), marginalMeansTerms = list(shouldEncode = TRUE),
-  modelTerms = list(shouldEncode = TRUE), moderatorFactorOne = list(
-    shouldEncode = TRUE), moderatorFactorTwo = list(shouldEncode = TRUE),
-  plotHorizontalAxis = list(shouldEncode = TRUE), plotSeparateLines = list(
-    shouldEncode = TRUE), plotSeparatePlots = list(shouldEncode = TRUE),
-  postHocTestsVariables = list(shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-    shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-      shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-        shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  wlsWeights = list(shouldEncode = TRUE))
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$covariates <- "Age"
 options$customContrasts <- list()

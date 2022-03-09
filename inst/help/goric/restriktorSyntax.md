@@ -4,11 +4,11 @@
 
 A special syntax is necessary to specify order restrictions in the General Linear Model. Order restrictions mean that effects in a model are required to be equal or unequal. For example, when performing an ANOVA with three groups, the following order constraint could be applied:
 
-μ<sub>Low</sub> \< μ<sub>Med</sub> \< μ<sub>High</sub>.
+&mu;<sub>Low</sub> \< &mu;<sub>Med</sub> \< &mu;<sub>High</sub>.
 
 This is an example for an *inequality constraint* and restricts the mean of the first group to be smaller than the mean of the second group, which must be smaller than the mean of the third group. The null-model for the ANOVA could also be expressed as an *equality constraint*:
 
-μ<sub>Low</sub> = μ<sub>Med</sub> = μ<sub>High</sub>,
+&mu;<sub>Low</sub> = &mu;<sub>Med</sub> = &mu;<sub>High</sub>,
 
 which means that all three groups must have the same mean.
 
@@ -44,7 +44,7 @@ When the intercept is included in the model, it can be accessed using the `.Inte
 
 #### Example
 
-Consider a factor called `factor` with three levels: `Low`, `Med`, `High`. We will construct the inequality constraint μ<sub>Low</sub> \< μ<sub>Med</sub> \< μ<sub>High</sub>.
+Consider a factor called `factor` with three levels: `Low`, `Med`, `High`. We will construct the inequality constraint &mu;<sub>Low</sub> \< &mu;<sub>Med</sub> \< &mu;<sub>High</sub>.
 
 If the intercept is included in the model, the reference category (`Low`) is estimated as the `.Intercept.`. The factors are dummy coded, so the mean of the `Med` category is equal to `.Intercept. + factorMed`, and the mean of the `High` category is equal to `.Intercept. + factorHigh`. That is, `factorMed` and `factorHigh` here refer to the difference between the respective category and the reference category. The restriction could be implemented as follows:
 

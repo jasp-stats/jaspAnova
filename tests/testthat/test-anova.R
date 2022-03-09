@@ -827,19 +827,6 @@ test_that("ANOVA - factor level with zero variance works and Welch homogeneity c
 
 ## Basic model ----
 options <- analysisOptions("Anova")
-options$.meta <- list(contrasts = list(shouldEncode = TRUE), customContrasts = list(
-  shouldEncode = TRUE), dependent = list(shouldEncode = TRUE),
-  fixedFactors = list(shouldEncode = TRUE), kruskalVariablesAssigned = list(
-    shouldEncode = TRUE), marginalMeansTerms = list(shouldEncode = TRUE),
-  modelTerms = list(shouldEncode = TRUE), moderatorFactorOne = list(
-    shouldEncode = TRUE), moderatorFactorTwo = list(shouldEncode = TRUE),
-  plotHorizontalAxis = list(shouldEncode = TRUE), plotSeparateLines = list(
-    shouldEncode = TRUE), plotSeparatePlots = list(shouldEncode = TRUE),
-  postHocTestsVariables = list(shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-    shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-      shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-        shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  wlsWeights = list(shouldEncode = TRUE))
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
@@ -914,19 +901,6 @@ test_that("Ordinal restrictions: Restriction Matrix table results match", {
 ## Ordered means and with effect sizes ----
 
 options <- analysisOptions("Anova")
-options$.meta <- list(contrasts = list(shouldEncode = TRUE), customContrasts = list(
-  shouldEncode = TRUE), dependent = list(shouldEncode = TRUE),
-  fixedFactors = list(shouldEncode = TRUE), kruskalVariablesAssigned = list(
-    shouldEncode = TRUE), marginalMeansTerms = list(shouldEncode = TRUE),
-  modelTerms = list(shouldEncode = TRUE), moderatorFactorOne = list(
-    shouldEncode = TRUE), moderatorFactorTwo = list(shouldEncode = TRUE),
-  plotHorizontalAxis = list(shouldEncode = TRUE), plotSeparateLines = list(
-    shouldEncode = TRUE), plotSeparatePlots = list(shouldEncode = TRUE),
-  postHocTestsVariables = list(shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-    shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-      shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-        shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  wlsWeights = list(shouldEncode = TRUE))
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
@@ -1023,19 +997,6 @@ test_that("Ordinal restrictions: Restriction Matrix table results match", {
 
 ### see https://restriktor.org/tutorial/example6.html for comparison ----
 options <- analysisOptions("Anova")
-options$.meta <- list(contrasts = list(shouldEncode = TRUE), customContrasts = list(
-  shouldEncode = TRUE), dependent = list(shouldEncode = TRUE),
-  fixedFactors = list(shouldEncode = TRUE), kruskalVariablesAssigned = list(
-    shouldEncode = TRUE), marginalMeansTerms = list(shouldEncode = TRUE),
-  modelTerms = list(shouldEncode = TRUE), moderatorFactorOne = list(
-    shouldEncode = TRUE), moderatorFactorTwo = list(shouldEncode = TRUE),
-  plotHorizontalAxis = list(shouldEncode = TRUE), plotSeparateLines = list(
-    shouldEncode = TRUE), plotSeparatePlots = list(shouldEncode = TRUE),
-  postHocTestsVariables = list(shouldEncode = TRUE), rainCloudPlotsHorizontalAxis = list(
-    shouldEncode = TRUE), rainCloudPlotsSeparatePlots = list(
-      shouldEncode = TRUE), restrictedModelMarginalMeansTerms = list(
-        shouldEncode = TRUE), simpleFactor = list(shouldEncode = TRUE),
-  wlsWeights = list(shouldEncode = TRUE))
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Anger"

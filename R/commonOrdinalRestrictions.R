@@ -83,7 +83,7 @@
 # Syntax checks and converters ----
 .aorCheckSyntax <- function(modelName, modelSyntax) {
   # check duplication of order restrictions
-  lines <- strsplit(modelSyntax, "\n")[[1]]
+  lines <- strsplit(modelSyntax, "\n", fixed = TRUE)[[1]]
   lines <- trimws(lines)
   lines <- gsub(" ", "", lines)
   lines <- lines[lines != ""]

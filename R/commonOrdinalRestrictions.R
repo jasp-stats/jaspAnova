@@ -708,6 +708,7 @@
 
   if(!isTryError(result)) {
     result[["typeName"]] <- gettextf("Type %s", result[["type"]])
+    rownames(result) <- sprintf("row%s", seq_len(nrow(result)))
     ihtTable$setData(result)
     ihtTable$addCitation(c(
       "Silvapulle, M. J. & Sen, P. K. (2005). Constrained statistical inference: Order, inequality, and shape constraints. Hoboken, NJ: Wiley.",
@@ -723,53 +724,52 @@
 }
 
 .aorAddInformativeHypothesisTestFootnotes <- function(table, result) {
-  for(i in seq_len(nrow(result)))
-    table$setRowName(rowIndex = i, newName = sprintf("row%s", i))
+  rownames <- rownames(result)
 
-  # hypothesis types
   .aorInformativeHypothesisTestFootnoteHelper(
-    table   = table,
-    rows    = which.min(result[["type"]] == "classical"),
-    colName = "typeName",
-    message = gettextf("H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated.", "\u2080", "\u2081")
+    table     = table,
+    message   = gettextf("H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated.", "\u2080", "\u2081"),
+    condition = result[["type"]] == "classical",
+    rownames  = rownames
     )
 
   .aorInformativeHypothesisTestFootnoteHelper(
-    table   = table,
-    rows    = which.min(result[["type"]] == "global"),
-    colName = "typeName",
-    message = gettextf("H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
+    table     = table,
+    message   = gettextf("H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081"),
+    condition = result[["type"]] == "global",
+    rownames  = rownames
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
-    table   = table,
-    rows    = which.min(result[["type"]] == "A"),
-    colName = "typeName",
-    message = gettextf("H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081")
+    table     = table,
+    message   = gettextf("H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>).", "\u2080", "\u2081"),
+    condition = result[["type"]] == "A",
+    rownames  = rownames
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
-    table   = table,
-    rows    = which.min(result[["type"]] == "B"),
-    colName = "typeName",
-    message = gettextf("H%1$s: All restrictions hold, H%2$s: At least one restriction is violated.", "\u2080", "\u2081")
+    table     = table,
+    message   = gettextf("H%1$s: All restrictions hold, H%2$s: At least one restriction is violated.", "\u2080", "\u2081"),
+    condition = result[["type"]] == "B",
+    rownames  = rownames
   )
 
   .aorInformativeHypothesisTestFootnoteHelper(
-    table   = table,
-    rows    = which.min(result[["type"]] == "C"),
-    colName = "typeName",
-    message = gettextf("H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>).", "\u2080", "\u2081")
+    table     = table,
+    message   = gettextf("H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>).", "\u2080", "\u2081"),
+    condition = result[["type"]] == "C",
+    rownames  = rownames
   )
 
+  return()
 }
 
-.aorInformativeHypothesisTestFootnoteHelper <- function(table, rows, colName, message) {
-  for(row in rows) {
+.aorInformativeHypothesisTestFootnoteHelper <- function(table, message, condition, rownames) {
+  if(any(condition)) {
     table$addFootnote(
       message  = message,
-      colNames = colName,
-      rowNames = table$getRowName(rowIndex = row)
+      rowNames = rownames[min(which(condition))],
+      colName  = "typeName"
     )
   }
 }

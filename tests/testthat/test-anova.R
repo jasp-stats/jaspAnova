@@ -3,6 +3,7 @@ context("ANOVA")
 # does not test
 # - if analysis handles too few observations
 
+# Main results ----
 test_that("Main table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -61,6 +62,7 @@ test_that("Main table results match", {
   }
 })
 
+# Additional results ----
 test_that("Homogeneity of Variances table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -74,6 +76,7 @@ test_that("Homogeneity of Variances table results match", {
 })
 
 # Contrasts verified with SPSS
+# should we put this in verification project???
 test_that("Contrasts table results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "contNormal"
@@ -128,248 +131,6 @@ test_that("Contrasts table results match", {
     # table <- results[["results"]][["contrasts"]][["collection"]][[1]][["data"]]
     jaspTools::expect_equal_tables(table, refTables[[contrast]], label=paste("Table with contrast", contrast))
   }
-})
-
-# Order restrictions
-
-test_that("Model Comparison Table results match", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = FALSE, informedHypothesisTest = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-
-  comparison <- c("none", "complement", "unconstrained")
-
-  refTables <- list(none = list(299.876218374723, 1, -144.938109187361, "Model 1", 5, 1),
-                    complement = list(299.876218374723, 0.729151752769625, -144.938109187361, "Model 1",
-                                       5, 1, 301.85686474531, 0.270848247230375, -144.928432372655,
-                                       "Complement", 6, 0.371456622303355),
-                    unconstrained = list(299.876218374723, 0.729151752769625, -144.938109187361, "Model 1",
-                                         5, 1, 301.85686474531, 0.270848247230375, -144.928432372655,
-                                         "Unconstrained", 6, 0.371456622303355)
-  )
-
-  for (comp in comparison) {
-    options$restrictedModelComparison <- comp
-    options$restrictedModelComparisonReference <- "Model 1"
-    results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_comparisonTable"]][["data"]]
-    jaspTools::expect_equal_tables(table, refTables[[comp]])
-  }
-})
-
-test_that("Model Coefficients Table results match", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = FALSE, informedHypothesisTest = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparisonCoefficients <- TRUE
-  options$highlightEstimates <- TRUE
-
-  comparison <- c("none", "complement", "unconstrained")
-
-  refTables <- list(none = list(-0.18874858754, "(Intercept)", -0.18874858754, 0, -0.17246392881,
-                                "facFive (1)", -0.149788723010001, 0, -0.17246392881, "facFive (2)",
-                                -0.19513913461, 0.33149855864, "facFive (3)", 0.33149855864,
-                                -0.16911442746, "facFive (4)", -0.16911442746),
-                    complement = list(-0.18874858754, "(Intercept)", -0.18874858754, -0.18874858754,
-                                      0, -0.17246392881, "facFive (1)", -0.149788723010001, -0.149788723010001,
-                                      0, -0.17246392881, "facFive (2)", -0.19513913461, -0.19513913461,
-                                      0.33149855864, "facFive (3)", 0.33149855864, 0.33149855864,
-                                      -0.16911442746, "facFive (4)", -0.16911442746, -0.16911442746),
-                    unconstrained = list(-0.18874858754, "(Intercept)", -0.18874858754, 0, -0.17246392881,
-                                         "facFive (1)", -0.149788723010001, 0, -0.17246392881, "facFive (2)",
-                                         -0.19513913461, 0.33149855864, "facFive (3)", 0.33149855864,
-                                         -0.16911442746, "facFive (4)", -0.16911442746)
-  )
-
-  for (comp in comparison) {
-    options$restrictedModelComparison <- comp
-    options$restrictedModelComparisonReference <- "Model 1"
-    results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_coefficientsTable"]][["data"]]
-    jaspTools::expect_equal_tables(table, refTables[[comp]])
-  }
-})
-
-test_that("Model Summary Tables results match", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparison <- "complement"
-  options$restrictedModelComparisonReference <- "Complement"
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-  options$restrictedModelHeteroskedasticity <- "none"
-  options$restrictedModelMarginalMeansTerm <- "facFive"
-  options$restrictedConfidenceIntervalLevel <- 0.95
-  options$restrictedConfidenceIntervalBootstrap <- FALSE
-  options$restrictedConfidenceIntervalBootstrapSamples <- 100
-  set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Model 1"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(0.166362494250772, 1, -0.691483825007023, -0.36121251635, -0.0309412076929767,
-       0.166362494250772, 2, -0.691483825007023, -0.36121251635, -0.0309412076929769,
-       0.235272095639658, 3, -0.324324192865472, 0.1427499711, 0.609824135065473,
-       0.235272095639658, 4, -0.824937178965473, -0.357863015, 0.109211148965473,
-       0.235272095639658, 5, -0.473279025065472, -0.00620486109999993,
-       0.460869302865473))
-
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Complement"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(0.152881329939938, 1, -0.64388018755408, -0.338537310550001, -0.00354379466403432,
-       0.192169660443263, 2, -0.758505931989504, -0.38388772215, -0.0116615107877175,
-       0.255248521349526, 3, -0.54994009460931, 0.1427499711, 0.648064239566305,
-       0.221213425775123, 4, -0.869736239522443, -0.357863015, 0.0670782536979813,
-       0.287877496012916, 5, -0.634812151493361, -0.00620486110000035,
-       0.579110209876577))
-})
-
-test_that("Model Summary Tables results match (bootstrap)", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparison <- "complement"
-  options$restrictedModelComparisonReference <- "Complement"
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-  options$restrictedModelHeteroskedasticity <- "none"
-  options$restrictedModelMarginalMeansTerm <- "facFive"
-  options$restrictedConfidenceIntervalLevel <- 0.95
-  options$restrictedConfidenceIntervalBootstrap <- TRUE
-  options$restrictedConfidenceIntervalBootstrapSamples <- 100
-  set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables"]][["collection"]][["anovaContainer_ordinalRestrictions_modelSummaryTables_Model 1"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(0.132159439299099, 1, -0.580876057728091, -0.36121251635, -0.0663723194372581,
-        0.132159439299099, 2, -0.580876057728091, -0.36121251635, -0.0663723194372581,
-        0.255248521349526, 3, -0.54994009460931, 0.1427499711, 0.648064239566305,
-        0.221213425775123, 4, -0.869736239522443, -0.357863015, 0.0670782536979812,
-        0.287877496012916, 5, -0.634812151493361, -0.00620486109999993,
-        0.579110209876577))
-})
-
-test_that("Informed Hypothesis Tables results match (equality restriction)", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE, 
-      informedHypothesisTestA = FALSE, informedHypothesisTestB = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparison <- "complement"
-  options$restrictedModelComparisonReference <- "Complement"
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-  options$restrictedConfidenceIntervalBootstrap <- FALSE
-  options$restrictedModelHeteroskedasticity <- "none"
-
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-
-  # Test table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_classical"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(1, 95, 0.892423350599015, 0.0183877272312399))
-
-  # Constraint table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_constraintTable"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list("facFive2 = facFive3"))
-
-  # Reduction summary table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_reductionTable"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(0.041712010479224, 0.041897456039623))
-})
-
-test_that("Informed Hypothesis Tables results match (inequality restriction)", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 < facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = TRUE, informedHypothesisTestGlobal = TRUE, 
-      informedHypothesisTestA = TRUE, informedHypothesisTestB = TRUE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparison <- "complement"
-  options$restrictedModelComparisonReference <- "Complement"
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-  options$restrictedConfidenceIntervalBootstrap <- FALSE
-  options$restrictedModelHeteroskedasticity <- "none"
-
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-
-  # Test type A table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_A"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(1, 95, 1, 0))
-
-  # Text type B table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_B"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(1, 95, 0.446211675299507, 0.0183877272312399))
-
-  # Test type global table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_global"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(1, 95, 0.323962094057912, 4.13592576338067))
-
-  # Constraint table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_constraintTable"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list("facFive2 &lt; facFive3"))
-
-  # Reduction summary table
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_informedHypothesisTests_Model 1_reductionTable"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-    list(0.041712010479224, 0.041897456039623))
-})
-
-test_that("Restricted Marginal Means Plot matches", {
-  options <- jaspTools::analysisOptions("Anova")
-  options$dependent <- "contNormal"
-  options$fixedFactors <- "facFive"
-  options$modelTerms <- list(list(components = "facFive"))
-  options$restrictedModels <- list(list(restrictionSyntax = "facFive2 == facFive3", modelName = "Model 1", 
-      modelSummary = TRUE, informedHypothesisTest = FALSE))
-  options$includeIntercept <- TRUE
-  options$restrictedModelComparison <- "complement"
-  options$restrictedModelComparisonReference <- "Complement"
-  options$restrictedModelComparisonCoefficients <- FALSE
-  options$highlightEstimates <- FALSE
-  options$restrictedConfidenceIntervalLevel <- 0.95
-  options$restrictedConfidenceIntervalBootstrap <- FALSE
-  options$restrictedConfidenceIntervalBootstrapSamples <- 100
-  options$restrictedModelHeteroskedasticity <- "none"
-  options$restrictedModelMarginalMeansTerm <- "facFive"
-  options$plotRestrictedModels <- c("Model 1", "Complement")
-  set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_marginalMeansPlotContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_marginalMeansPlotContainer_marginalMeansPlotSingle"]][["data"]]
-  testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "restricted-marginal-means")
 })
 
 test_that("Post Hoc table results match", {
@@ -545,6 +306,7 @@ test_that("Nonparametric table results match", {
   )
 })
 
+# Error handling ----
 test_that("Analysis handles errors", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "debInf"
@@ -639,9 +401,10 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
 })
 
 
-#### Andy Field Tests ----
+# Andy Field Tests ----
+# should we put this in verification project?
 
-#### Chapter 4 -----
+## Chapter 4 -----
 test_that("Field - Chapter 4 results match", {
   options <- jaspTools::analysisOptions("Anova")
   options$dependent <- "Happiness"
@@ -667,7 +430,7 @@ test_that("Field - Chapter 4 results match", {
                            "", 2.97102918244598, "", 23.6, "Residuals", ""))
 })
 
-#### Chapter 5 ----
+## Chapter 5 ----
 
 test_that("Field - Chapter 5 results match", {
   options <- jaspTools::analysisOptions("Anova")
@@ -721,7 +484,7 @@ test_that("Field - Chapter 5 results match", {
                            0.886942313043338, 0.0152377020148067, 0.580364886004677, 5.01963511399532))
 })
 
-#### Chapter 7 ----
+## Chapter 7 ----
 
 test_that("Field - Chapter 7 results match", {
   options <- jaspTools::analysisOptions("Anova")
@@ -795,4 +558,224 @@ test_that("Field - Chapter 7 results match", {
                            0.395829403830131, 0.0118089133089123, 5.4, 6.14285714285714,
                            7))
 
+})
+
+
+# Ordinal restrictions ----
+# Tests from https://restriktor.org
+
+## Basic model ----
+options <- analysisOptions("Anova")
+options$contrasts <- list(list(contrast = "none", variable = "Group"))
+options$customContrasts <- list()
+options$dependent <- "Age"
+options$fixedFactors <- "Group"
+options$modelTerms <- list(list(components = "Group"))
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$restrictedBootstrapping <- FALSE
+options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
+options$restrictedBootstrappingReplicates <- 1000
+options$restrictedIncludeIntercept <- FALSE
+options$restrictedInformedHypothesisTestByDefault <- FALSE
+options$restrictedMarginalMeansByDefault <- FALSE
+options$restrictedModelComparison <- "none"
+options$restrictedModelComparisonCoefficients <- FALSE
+options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonMatrix <- FALSE
+options$restrictedModelComparisonReference <- "Model 1"
+options$restrictedModelComparisonWeights <- FALSE
+options$restrictedModelMarginalMeansTerms <- list()
+options$restrictedModelShowAvailableCoefficients <- TRUE
+options$restrictedModelSummaryByDefault <- FALSE
+options$restrictedModels <- list(list(informedHypothesisTest = TRUE, marginalMeans = FALSE,
+                                      modelName = "Model 1", modelSummary = TRUE, restrictionSyntax = "GroupActive < GroupPassive\nGroupPassive < GroupNo"))
+options$restrictedSE <- "standard"
+set.seed(1)
+dataset <- read.csv("ZelazoKolb1972.csv")
+dataset <- subset(dataset, Group != "Control")
+results <- runAnalysis("Anova", dataset, options)
+
+
+### see https://restriktor.org/tutorial/restriktor.html for comparison ----
+test_that("Ordinal restrictions: Likelihood, penalty and GORIC match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelComparison"]][["collection"]][["anovaContainer_ordinalRestrictions_modelComparison_comparisonTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(64.7533269649054, 1, -29.5348420070337, "Model 1", 2.84182147541904
+                                 ))
+})
+
+
+test_that("Ordinal restrictions: Coefficients table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_coefficientsTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list("GroupActive", 10.125, 1.59384623700347e-10, 0.618538022852505,
+                                      16.3692442920593, "GroupNo", 12.35, 3.77071859965597e-11, 0.677574455581925,
+                                      18.2267792096639, "GroupPassive", 11.375, 3.34358875477653e-11,
+                                      0.618538022852504, 18.3901386491037))
+})
+
+### see https://restriktor.org/tutorial/contest.html for comparison ----
+test_that("Ordinal restrictions: Informative Hypothesis Tests table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_ihtTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.028341275692807, 5.97803555494542, "F", "Type global", 0.0276478338044095,
+                                      6.04479400936707, "LRT", "Type global", 0.044864172884687, 4.78768638768638,
+                                      "Score", "Type global", 0.028341275692807, 5.97803555494542,
+                                      "F", "Type A", 0.0276478338044095, 6.04479400936707, "LRT",
+                                      "Type A", 0.044864172884687, 4.78768638768638, "Score", "Type A",
+                                      1, 0, "F", "Type B", 1, -7.105427357601e-15, "LRT", "Type B",
+                                      1, 0, "Score", "Type B", 0.152944344084674, 1.0627396241062,
+                                      "t", "Type C"))
+})
+
+test_that("Ordinal restrictions: Restriction Matrix table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_restrictionMatrix"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(-1, 0, 1, 0, 0, 1, -1, 0))
+})
+
+## Ordered means and with effect sizes ----
+
+options <- analysisOptions("Anova")
+options$contrasts <- list(list(contrast = "none", variable = "Group"))
+options$customContrasts <- list()
+options$dependent <- "Age"
+options$fixedFactors <- "Group"
+options$modelTerms <- list(list(components = "Group"))
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$restrictedBootstrapping <- FALSE
+options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
+options$restrictedBootstrappingReplicates <- 1000
+options$restrictedIncludeIntercept <- FALSE
+options$restrictedInformedHypothesisTestByDefault <- FALSE
+options$restrictedMarginalMeansByDefault <- FALSE
+options$restrictedModelComparison <- "none"
+options$restrictedModelComparisonCoefficients <- FALSE
+options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonMatrix <- FALSE
+options$restrictedModelComparisonReference <- "Model 1"
+options$restrictedModelComparisonWeights <- FALSE
+options$restrictedModelMarginalMeansTerms <- list()
+options$restrictedModelShowAvailableCoefficients <- FALSE
+options$restrictedModelSummaryByDefault <- FALSE
+options$restrictedModels <- list(list(informedHypothesisTest = TRUE, marginalMeans = FALSE,
+                                      modelName = "Model 1", modelSummary = TRUE, restrictionSyntax = "GroupActive  < GroupPassive\nGroupPassive < GroupControl\nGroupControl < GroupNo"),
+                                 list(informedHypothesisTest = TRUE, marginalMeans = FALSE,
+                                      modelName = "Model 2", modelSummary = TRUE, restrictionSyntax = "(GroupPassive - GroupActive)  / 1.516 > 0.2\n(GroupControl - GroupPassive) / 1.516 > 0.2\n(GroupNo      - GroupControl) / 1.516 > 0.2"))
+options$restrictedSE <- "standard"
+set.seed(1)
+results <- runAnalysis("Anova", "ZelazoKolb1972.csv", options)
+
+
+### see https://restriktor.org/tutorial/example1.html for comparison ----
+test_that("Ordinal restrictions: Informative Hypothesis Tests table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_ihtTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.0308475934292769, 6.42666580972066, "F", "Type global", 0.0278151519017313,
+                                      6.70126802148546, "LRT", "Type global", 0.0431126887497895,
+                                      5.56056578050442, "Score", "Type global", 0.0308475934292769,
+                                      6.42666580972066, "F", "Type A", 0.0278151519017313, 6.70126802148546,
+                                      "LRT", "Type A", 0.0431126887497895, 5.56056578050442, "Score",
+                                      "Type A", 1, 0, "F", "Type B", 1, 0, "LRT", "Type B", 1, 0,
+                                      "Score", "Type B", 0.35381027878063, 0.380738874434879, "t",
+                                      "Type C"))
+})
+
+test_that("Ordinal restrictions: Coefficients table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_coefficientsTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list("GroupActive", 10.125, 1.19077449127484e-12, 0.619065391589877,
+                                      16.3552996784348, "GroupControl", 11.7083333333333, 8.7743489822692e-14,
+                                      0.619065391589877, 18.91291855819, "GroupNo", 12.35, 1.73632870169313e-13,
+                                      0.678152159089088, 18.2112522012594, "GroupPassive", 11.375,
+                                      1.4783390885313e-13, 0.619065391589877, 18.3744724782415))
+})
+
+test_that("Ordinal restrictions: Restriction Matrix table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_restrictionMatrix"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(-1, 0, 0, 1, 0, 0, 1, 0, -1, 0, 0, -1, 1, 0, 0))
+})
+
+### see https://restriktor.org/tutorial/example3.html for comparison
+test_that("Ordinal restrictions: Informative Hypothesis Tests table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_ihtTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.168856977319199, 2.38400146304897, "F", "Type global", 0.144342629920537,
+                                      2.71869356602637, "LRT", "Type global", 0.163454084273826, 2.45267623450673,
+                                      "Score", "Type global", 0.168856977319199, 2.38400146304897,
+                                      "F", "Type A", 0.144342629920537, 2.71869356602637, "LRT", "Type A",
+                                      0.163454084273826, 2.45267623450673, "Score", "Type A", 1, 0,
+                                      "F", "Type B", 1, 0, "LRT", "Type B", 1, 0, "Score", "Type B",
+                                      0.48645111069787, 0.0344187942489155, "t", "Type C"))
+})
+
+test_that("Ordinal restrictions: Coefficients table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer_coefficientsTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list("GroupActive", 10.125, 1.19077449127485e-12, 0.619065391589877,
+                                      16.3552996784348, "GroupControl", 11.7083333333333, 8.77434898226892e-14,
+                                      0.619065391589876, 18.91291855819, "GroupNo", 12.35, 1.73632870169313e-13,
+                                      0.678152159089088, 18.2112522012594, "GroupPassive", 11.375,
+                                      1.47833908853122e-13, 0.619065391589875, 18.3744724782416))
+})
+
+test_that("Ordinal restrictions: Restriction Matrix table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer_restrictionMatrix"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(-0.659630606860158, 0, 0, 0.659630606860158, 0.2, 0, 0.659630606860158,
+                                      0, -0.659630606860158, 0.2, 0, -0.659630606860158, 0.659630606860158,
+                                      0, 0.2))
+})
+
+### see https://restriktor.org/tutorial/example6.html for comparison ----
+options <- analysisOptions("Anova")
+options$contrasts <- list(list(contrast = "none", variable = "Group"))
+options$customContrasts <- list()
+options$dependent <- "Anger"
+options$fixedFactors <- "Group"
+options$modelTerms <- list(list(components = "Group"))
+options$rainCloudPlotsHorizontalAxis <- ""
+options$rainCloudPlotsHorizontalDisplay <- FALSE
+options$rainCloudPlotsLabelYAxis <- ""
+options$rainCloudPlotsSeparatePlots <- ""
+options$restrictedBootstrapping <- FALSE
+options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
+options$restrictedBootstrappingReplicates <- 1000
+options$restrictedIncludeIntercept <- FALSE
+options$restrictedInformedHypothesisTestByDefault <- FALSE
+options$restrictedMarginalMeansByDefault <- FALSE
+options$restrictedModelComparison <- "unconstrained"
+options$restrictedModelComparisonCoefficients <- FALSE
+options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonMatrix <- FALSE
+options$restrictedModelComparisonReference <- "Model 2"
+options$restrictedModelComparisonWeights <- FALSE
+options$restrictedModelMarginalMeansTerms <- list()
+options$restrictedModelShowAvailableCoefficients <- FALSE
+options$restrictedModelSummaryByDefault <- FALSE
+options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMeans = FALSE,
+                                      modelName = "Model 1", modelSummary = FALSE, restrictionSyntax = "GroupNo = GroupPhysical\nGroupPhysical = GroupBehavioral\nGroupBehavioral = GroupBoth"),
+                                 list(informedHypothesisTest = FALSE, marginalMeans = FALSE,
+                                      modelName = "Model 2", modelSummary = FALSE, restrictionSyntax = "GroupNo < GroupPhysical\nGroupPhysical = GroupBehavioral\nGroupBehavioral < GroupBoth"),
+                                 list(informedHypothesisTest = FALSE, marginalMeans = FALSE,
+                                      modelName = "Model 3", modelSummary = FALSE, restrictionSyntax = "GroupNo < GroupPhysical\nGroupPhysical < GroupBehavioral\nGroupBehavioral < GroupBoth"))
+options$restrictedSE <- "standard"
+set.seed(1)
+results <- runAnalysis("Anova", "AngerManagement.csv", options)
+
+test_that("Ordinal restrictions: Model Comparison Table results match", {
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_modelComparison"]][["collection"]][["anovaContainer_ordinalRestrictions_modelComparison_comparisonTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(190.802338005453, 6.15799536281089e-06, -93.4011690027263, "Model 1",
+                                      2, 174.107875497759, 0.025977408886342, -84.1621111968489, "Model 2",
+                                      2.89182655203061, 167.133864718034, 0.849147292951048, -80.4838987099312,
+                                      "Model 3", 3.08303364908579, 170.967797419862, 0.124869140167247,
+                                      -80.4838987099312, "Unconstrained", 5))
 })

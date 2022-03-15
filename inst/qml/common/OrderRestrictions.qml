@@ -17,6 +17,7 @@
 //
 
 import QtQuick			2.12
+import QtQuick.Layouts	1.3
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
@@ -25,95 +26,117 @@ Section
 {
 	property var type
 	
-	title: qsTr("Order Restrictions")
-	columns: 1
+	title:		qsTr("Order Restricted Hypotheses")
+	columns:	2
 	
 	Text
 	{
-		text: qsTr("Enter each restriction on a new line, e.g., factorLow == factorHigh, \nwhere 'factor' is the factor name and 'Low'/'High' are the factor level names. \nClick the information icon for more examples.")
+		Layout.columnSpan:	2
+		text:				qsTr("Enter each restriction of one hypothesis on a new line, e.g., \nfactorLow == factorMid\nfactorMid < factorHigh\nwhere 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are the factor level names.\nClick on the 'plus' icon to add more hypotheses. \nClick the information icon for more examples.")
 	}
 
 	HelpButton
 	{
-		toolTip: qsTr("Click to learn more about the syntax for order restrictions.")
-		helpPage: "goric/restriktorSyntax"
+		toolTip:			qsTr("Click to learn more about the syntax for order restrictions.")
+		helpPage:			"goric/restriktorSyntax"
+		Layout.columnSpan:	2
 	}
-	
+
+	Group
+	{
+		columns:			2
+		Layout.columnSpan:	2
+		Group
+		{
+			title:	qsTr("Syntax settings")
+			CheckBox
+			{
+				name:	"restrictedIncludeIntercept"
+				label:	qsTr("Include intercept")
+			}
+
+			CheckBox
+			{
+				name:	"restrictedModelShowAvailableCoefficients"
+				label:	qsTr("Show available coefficients")
+			}
+		}
+
+		Group
+		{
+			title:		qsTr("Set for all models")
+			CheckBox
+			{
+				name:	"restrictedModelSummaryByDefault"
+				id:		modelSummaryByDefault
+				label:	qsTr("Model summary")
+			}
+
+			CheckBox
+			{
+				name:	"restrictedMarginalMeansByDefault"
+				id:		marginalMeansByDefault
+				label:	qsTr("Marginal means")
+			}
+
+			CheckBox
+			{
+				name:		"restrictedInformedHypothesisTestByDefault"
+				id:			informedHypothesisTestByDefault
+				label:		qsTr("Informed hypothesis tests")
+				visible:	type !== "RM-Anova"
+			}
+		}
+	}
+
 	TabView
 	{
-		id: models
-		name: "restrictedModels"
-		maximumItems: 8
-		newItemName: qsTr("Model 1")
-		optionKey: "modelName"
+		id:					models
+		name:				"restrictedModels"
+		maximumItems:		10
+		newItemName:		qsTr("Model 1")
+		optionKey:			"modelName"
+		Layout.columnSpan:	2
 
 		content: Group
 		{
 			TextArea
 			{
-				name: "restrictionSyntax"
-				width: models.width
-				textType: JASP.TextTypeModel
-				trim: true
-				applyScriptInfo: qsTr("Ctrl + Enter to apply. Click on the blue button above for help on the restriction syntax")
+				name:				"restrictionSyntax"
+				width:				models.width
+				textType:			JASP.TextTypeModel
+				trim:				true
+				applyScriptInfo:	qsTr("Ctrl + Enter to apply. Click on the blue button above for help on the restriction syntax")
 			}
 
 			Group
 			{
-				columns: 2
-
-				Group
+				columns: 3
+				CheckBox
 				{
-					columns: 1
+					name:		"modelSummary"
+					label:		qsTr("Summary for %1").arg(rowValue)
+					checked:	modelSummaryByDefault.checked
+				}
 
-					CheckBox
-					{
-						name: "modelSummary"
-						label: qsTr("Summary for ") + rowValue
-						checked: false
-					}
+				CheckBox
+				{
+					name:		"marginalMeans"
+					label:		qsTr("Marginal means for %1").arg(rowValue)
+					checked:	marginalMeansByDefault.checked
+				}
 
-					CheckBox
-					{
-						name: "informedHypothesisTest"
-						label: qsTr("Informed hypothesis test for ") + rowValue
-						checked: false
-						visible: type !== "RM-Anova"
-						columns: 3
-
-						CheckBox
-						{
-							name: "informedHypothesisTestGlobal"
-							label: qsTr("Type global")
-						}
-
-						CheckBox
-						{
-							name: "informedHypothesisTestA"
-							label: qsTr("Type A")
-						}
-
-						CheckBox
-						{
-							name: "informedHypothesisTestB"
-							label: qsTr("Type B")
-							checked: true
-						}
-					}
+				CheckBox
+				{
+					name:		"informedHypothesisTest"
+					label:		qsTr("Informed hypothesis tests for %1").arg(rowValue)
+					checked:	informedHypothesisTestByDefault.checked
+					visible:	type !== "RM-Anova"
 				}
 			}
 		}
 	}
-	
-	CheckBox
-	{
-		name: "includeIntercept"
-		id: incInt
-		label: qsTr("Include intercept")
-		visible: type !== "RM-Anova"
-		checked: true
-	}
-	
+
 	Group
 	{
 		title: qsTr("Model comparison")
@@ -123,134 +146,125 @@ Section
 		{
 			property var comparisonValuesInclComplement: 
 			[
-				{ label: qsTr("Complement"), value: "complement"},
-				{ label: qsTr("Unconstrained"), value: "unconstrained" },
-				{ label: qsTr("None"), value: "none" }
+				{ label: qsTr("Complement model"),		value: "complement"		},
+				{ label: qsTr("Unconstrained model"),	value: "unconstrained"	},
+				{ label: qsTr("None"),					value: "none"			}
 			]
 			property var comparisonValuesExclComplement: 
 			[
-				{ label: qsTr("Unconstrained"), value: "unconstrained" },
-				{ label: qsTr("None"), value: "none" }
+				{ label: qsTr("Unconstrained model"),	value: "unconstrained"	},
+				{ label: qsTr("None"),					value:"none"			}
 			]
 			property var comparisonValues: (models.count > 1) ? comparisonValuesExclComplement : comparisonValuesInclComplement
 			
-			name: "restrictedModelComparison"
-			label: qsTr("Compare against")
-			indexDefaultValue: 0
-			values: comparisonValues
-			id: modelComparison
-		}
-		
-		DropDown
-		{
-			property var modelsToReference: (modelComparison.value === "none") ? [] : [ modelComparison.currentLabel ]
-			
-			name: "restrictedModelComparisonReference"
-			label: qsTr("Reference model for weight ratios")
-			indexDefaultValue: 0
-			source:  [ models, { values: modelsToReference } ]
+			name:				"restrictedModelComparison"
+			label:				qsTr("Add to comparison")
+			indexDefaultValue:	0
+			values:				comparisonValues
+			id:					modelComparison
 		}
 		
 		CheckBox
 		{
-			name: "restrictedModelComparisonCoefficients"
-			label: qsTr("Show model coefficients")
-			childrenOnSameRow: true
+			name:				"restrictedModelComparisonWeights"
+			label:				qsTr("Add weight ratios")
+			checked:			true
+			childrenOnSameRow:	false
+
+			DropDown
+			{
+				property var modelsToReference: (modelComparison.value === "none") ? [] : [ { label: modelComparison.currentLabel, value: modelComparison.value } ]
+
+				name:				"restrictedModelComparisonReference"
+				label:				qsTr("Reference model")
+				indexDefaultValue:	0
+				source:				[ models, { values: modelsToReference } ]
+			}
+		}
+
+		CheckBox
+		{
+			name:	"restrictedModelComparisonMatrix"
+			label:	qsTr("Relative weights matrix")
+		}
+		
+		CheckBox
+		{
+			name:				"restrictedModelComparisonCoefficients"
+			label:				qsTr("Compare model coefficients")
+			childrenOnSameRow:	false
 			
 			CheckBox
 			{
-				name: "highlightEstimates"
-				label: qsTr("Highlight coefficients")
-				checked: true
+				name:		"restrictedModelComparisonHighlightCoefficients"
+				label:		qsTr("Highlight active restrictions")
+				checked:	true
 			}
 		}
 	}
-	
+
 	Group
 	{
-		title: qsTr("Uncertainty")
-		columns: 1
-		
-		Group
-		{
-			columns: 2
-			
-			CIField
-			{
-				name: "restrictedConfidenceIntervalLevel"
-				afterLabel: type === "RM-Anova" ? qsTr("% confidence intervals based on") : qsTr("% confidence intervals")
-			}
-			
-			Group
-			{
-				columns: 2
-				
-				CheckBox
-				{
-					name: "restrictedConfidenceIntervalBootstrap"
-					label: qsTr("based on")
-					id: restrictedModelsBootstrap
-					visible: type !== "RM-Anova"
-				}
-				
-				IntegerField
-				{
-					name: "restrictedConfidenceIntervalBootstrapSamples"
-					defaultValue: 1000
-					min: 100
-					afterLabel: qsTr("bootstraps")
-				}
-			}
-		}
-		
+		title: qsTr("Uncertainty quantification")
+
 		DropDown
 		{
-			name: "restrictedModelHeteroskedasticity"
-			label: qsTr("Huber-White correction for heteroskedasticity")
-			indexDefaultValue: 0
-			visible: type !== "RM-Anova"
-			enabled: !restrictedModelsBootstrap.checked
+			name:				"restrictedSE"
+			label:				qsTr("Heterogeneity correction")
+			visible:			type !== "RM-Anova"
+			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("None"), value: "none" },
-				{ label: qsTr("HC0"), value: "HC0" },
-				{ label: qsTr("HC1"), value: "HC1" },
-				{ label: qsTr("HC2"), value: "HC2" },
-				{ label: qsTr("HC3"), value: "HC3" },
-				{ label: qsTr("HC4"), value: "HC4" },
-				{ label: qsTr("HC4m"), value: "HC4m" },
-				{ label: qsTr("HC5"), value: "HC5" },
+				{ label: qsTr("None"),	value: "standard"	},
+				{ label: qsTr("HC0"),	value: "HC0"		},
+				{ label: qsTr("HC1"),	value: "HC1"		},
+				{ label: qsTr("HC2"),	value: "HC2"		},
+				{ label: qsTr("HC3"),	value: "HC3"		},
+				{ label: qsTr("HC4"),	value: "HC4"		},
+				{ label: qsTr("HC4m"),	value: "HC4m"		},
+				{ label: qsTr("HC5"),	value: "HC5"		}
 			]
 		}
+
+
+		CheckBox
+		{
+			name:	"restrictedBootstrapping"
+			label:	qsTr("Bootstrapping")
+
+			IntegerField
+			{
+				name:			"restrictedBootstrappingReplicates"
+				defaultValue:	1000
+				fieldWidth:		50
+				min:			100
+				label:			qsTr("Samples")
+			}
+
+			CIField
+			{
+				name:	"restrictedBootstrappingConfidenceIntervalLevel"
+				label:	qsTr("Confidence intervals")
+			}
+		}
 	}
-	
+
+
 	VariablesForm
 	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight * 0.5
+		preferredHeight:	jaspTheme.smallDefaultVariablesFormHeight
+		Layout.columnSpan:	2
 		AvailableVariablesList
 		{
 			name: "restrictedModelTerms"
-			title: qsTr("Model Terms")
+			label: qsTr("Restricted Marginal Means")
 			source: (type === "Ancova" ? [ { name: "modelTerms", discard: "covariates" } ] :
 										 type === "RM-Anova" ? [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ] :
 															   "modelTerms")
 		}
-		
-		AssignedVariablesList { name: "restrictedModelMarginalMeansTerm"; title: qsTr("Restricted Marginal Means"); singleVariable: true }
+
+		AssignedVariablesList { name: "restrictedModelMarginalMeansTerms"; label: qsTr("Terms") }
 	}
-	
-	VariablesForm
-	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight * 0.5
-		AvailableVariablesList
-		{
-			property var modelsToPlot: (modelComparison.value === "none") ? [] : [ modelComparison.currentLabel ]
-			
-			name: "availableRestrictedModels"
-			title: qsTr("Restricted Models")
-			source: [ models, { values: modelsToPlot }]
-		}
-		
-		AssignedVariablesList { name: "plotRestrictedModels"; title: qsTr("Plot Restricted Marginal Means") }
-	}
+
+
 }

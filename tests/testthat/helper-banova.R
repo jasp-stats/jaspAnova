@@ -3,6 +3,9 @@ initOpts <- function(analysisName) {
   options <- jaspTools::analysisOptions(analysisName)
   options <- addCommonQMLoptions(options)
 
+  # avoid that BayesFactor shows progress bars
+  options("BFprogress" = FALSE)
+
   options$sampleModeNumAcc <- "manual"
   options$fixedNumAcc <- 50
   if (analysisName == "AnovaRepeatedMeasuresBayesian")

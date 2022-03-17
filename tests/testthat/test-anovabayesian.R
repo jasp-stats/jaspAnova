@@ -150,3 +150,29 @@ test_that("Analysis handles errors", {
   expect_true(results[["results"]][["error"]], label = "Missing interaction cells check")
 
 })
+
+test_that("Model Comparison table results match", {
+  options <- initOpts("AnovaBayesian")
+
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("contBinom", "facGender")
+  options$modelTerms <- list(
+    list(components = c("contBinom", "facGender"), isNuisance = FALSE),
+    list(components = "facGender", isNuisance = FALSE),
+    list(components = "contBinom", isNuisance = FALSE)
+  )
+
+  set.seed(1)
+  results <- runAnalysis("AnovaBayesian", "debug.csv", options)
+  table <- results[["results"]][["tableModelComparison"]][["data"]]
+  jaspTools::expect_equal_tables(
+    table,
+    list(1, 4.05523792179671, "facGender", 0.2, 0.503428695858085, "",
+         0.523794362759307, 1.43251743302446, "Null model", 0.2, 0.263693112941734,
+         0.00991710759730765, 0.244285054612465, 0.560899963009699, "facGender + contBinom",
+         0.2, 0.122980106461174, 13.5725526116466, 0.144306160515237,
+         0.313356099503816, "contBinom", 0.2, 0.072647862192473, 0.0243234777699117,
+         0.0739930457937864, 0.15476595650871, "facGender + contBinom + facGender<unicode><unicode><unicode>contBinom",
+         0.2, 0.0372502225465335, 20.2487932367166)
+  )
+})

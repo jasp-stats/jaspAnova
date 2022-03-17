@@ -2998,25 +2998,23 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAcreateModelFormula <- function(dependent, modelTerms) {
 
-  model.formula <- paste(dependent, " ~ ", sep = "")
+  rhs <- "" # right hand side of the formula
   nuisance <- NULL
   effects <- NULL
   for (term in modelTerms) {
 
-    comp <- term$component
+    comp <- term[["components"]]
+    newValue <- paste(comp, collapse = ":")
 
-    if (is.null(effects) & is.null(nuisance)) {
-      model.formula <- paste0(model.formula, comp, collapse = ":")
+    rhs <- if (rhs != "") paste0(rhs, " + ", newValue) else newValue
+
+    if (!is.null(term[["isNuisance"]]) && term[["isNuisance"]]) {
+      nuisance <- c(nuisance, newValue)
     } else {
-      model.formula <- paste0(model.formula, " + ", paste(comp, collapse = ":"))
-    }
-    if (!is.null(term$isNuisance) && term$isNuisance) {
-      nuisance <- c(nuisance, paste(comp, collapse = ":"))
-    } else {
-      effects <- c(effects, paste(comp, collapse = ":"))
+      effects <- c(effects, newValue)
     }
   }
-  model.formula <- formula(model.formula)
+  model.formula <- formula(paste(dependent, "~", rhs))
 
   # this would be cleaner ideal if BayesFactor::enumerateGeneralModels would handle the nuisance properly.
   # if (isRMANOVA && !legacy) {

@@ -37,10 +37,10 @@ Section
 		{
 			RadioButtonGroup
 			{
-				title: qsTr("Specify prior on coefficients")
+				title: qsTr("Specify Prior on Coefficients")
 				name: "coefficientsPrior"
-				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("for fixed and random terms");			checked: true;	id: rscalesAcrossParameters	}
-				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("for each term individually");														}
+				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("For fixed and random terms");			checked: true;	id: rscalesAcrossParameters	}
+				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("For each term individually");														}
 			}
 			Group
 			{
@@ -114,11 +114,10 @@ Section
 
 		Group
 		{
-			title: qsTr("Enforce the principle of marginality for")
-			CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("Fixed effects");	checked: true	}
-			CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("Random slopes");	checked: false	}
+			title: qsTr("Enforce the Principle of Marginality")
+			CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("For fixed effects");	checked: true	}
+			CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("For random slopes");	checked: false	}
 		}
-
 
 		SetSeed{}
 
@@ -182,13 +181,13 @@ Section
 			Row
 			{
 				Layout.leftMargin:		5   * preferencesModel.uiScale
-				Layout.preferredWidth:	332 * preferencesModel.uiScale
+				Layout.preferredWidth:	332 * preferencesModel.uiScale // perhaps @boutinb knows a better way to determine this value
 				Label { text: qsTr("Term")}
 			}
 			Row
 			{
 				spacing:				customPriorLayout.space
-				Layout.preferredWidth:	121 * preferencesModel.uiScale
+				Layout.preferredWidth:	121 * preferencesModel.uiScale // perhaps @boutinb knows a better way to determine this value
 				Label { text: qsTr("Prior incl. prob.");	visible: customPriorModelProbabilities.checked}
 			}
 			Row

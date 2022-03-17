@@ -2876,10 +2876,11 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   if (hideNuisance)
     return(vapply(modelObjects, FUN = `[[`, FUN.VALUE = character(1L), "title"))
 
-  res <- gsub("(.*)~\\s+", "", vapply(modelList, .BANOVAas.character.formula, character(1L)))
+  nullModelName <- gettext("Null model")
+  res <- gsub("(.*)~\\s+", "", vapply(modelList, function(x) if (is.null(x)) nullModelName else .BANOVAas.character.formula(x), character(1L)))
   if (analysisType == "RM-ANOVA")
     res <- gsub(.BANOVAsubjectName, "subject", res)
-  res[res == ""] <- gettext("Null model")
+  res[res == ""] <- nullModelName
   return(jaspBase::gsubInteractionSymbol(res))
 }
 

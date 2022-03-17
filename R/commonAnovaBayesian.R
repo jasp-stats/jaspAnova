@@ -521,18 +521,20 @@
     fixedFactors         = fixedFactors,
     randomFactors        = randomFactors, # stored because they are modified in RM-ANOVA
     modelTerms           = modelTerms,
+    covariates           = options[["covariates"]],
+    seed                 = options[["seed"]],
+    setSeed              = options[["setSeed"]],
     reuseable            = reuseable,
     RMFactors            = options[["repeatedMeasuresFactors"]],
-    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies],
+    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies()],
     hideNuisanceEffects  = options[["hideNuisanceEffects"]]
   )
 
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
-    "dependent", "priorFixedEffects", "priorRandomEffects", "priorCovariates", "sampleModeNumAcc", "fixedNumAcc", "repeatedMeasuresCells",
-    "seed", "setSeed", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    "coefficientsPrior",
-    if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
+    # does NOT depend on any factors or covariates, to facilitate reusing previous models
+    "dependent", "repeatedMeasuresCells", "sampleModeNumAcc", "fixedNumAcc", "seed", "setSeed",
+    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
   jaspResults[["tableModelComparisonState"]] <- stateObj
@@ -555,11 +557,11 @@
   effectsTable <- createJaspTable(title = title)
   effectsTable$position <- 2
   effectsTable$dependOn(c(
-    "effects", "effectsType", "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "modelTerms", "fixedFactors", "seed", "setSeed",
-    "repeatedMeasuresCells", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    .BANOVAmodelSpaceDependencies,
-    if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
+    .BANOVAdataDependencies(),
+    "effects", "effectsType",
+    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType",
+    .BANOVAmodelSpaceDependencies(),
+    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -705,11 +707,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$position <- 1L
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
-    "dependent", "randomFactors", "covariates", "priorFixedEffects", "priorRandomEffects", "priorCovariates", "sampleModeNumAcc",
-    "fixedNumAcc", "bayesFactorType", "bayesFactorOrder", "modelTerms", "fixedFactors", "betweenSubjectFactors",
-    "repeatedMeasuresFactors", "repeatedMeasuresCells", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    "hideNuisanceEffects", "legacy", "coefficientsPrior", "modelTermsCustomPrior",
-    .BANOVAmodelSpaceDependencies
+    .BANOVAdataDependencies(),
+    "sampleModeNumAcc", "fixedNumAcc",
+    "bayesFactorType", "bayesFactorOrder",
+    "hideNuisanceEffects", "legacy",
+    .BANOVAmodelSpaceDependencies(),
+    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
   switch(options$bayesFactorType,
@@ -847,12 +850,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     posteriorsCRI <- .BANOVAcomputePosteriorCRI(dataset, options, model, posteriors)
 
     statePosteriors <- createJaspState(object = posteriors)
-    statePosteriors$dependOn(.BANOVAmodelSpaceDependencies, optionsFromObject = jaspResults[["tableModelComparisonState"]])
+    statePosteriors$dependOn(
+      c(.BANOVAmodelSpaceDependencies(), "sampleModeMCMC", "fixedMCMCSamples"),
+      optionsFromObject = jaspResults[["tableModelComparisonState"]]
+    )
     jaspResults[["statePosteriors"]] <- statePosteriors
 
     statePosteriorsCRI <- createJaspState(object = posteriorsCRI)
     statePosteriorsCRI$dependOn(options = "credibleInterval",
-                                optionsFromObject = jaspResults[["tableModelComparisonState"]])
+                                optionsFromObject = jaspResults[["statePosteriors"]])
     jaspResults[["statePosteriorCRI"]] <- statePosteriorsCRI
 
   }
@@ -870,11 +876,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   estsTable <- createJaspTable(title = gettext("Model Averaged Posterior Summary"))
   estsTable$position <- 3
   estsTable$dependOn(c(
-    "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects", "sampleModeMCMC",
-    "fixedMCMCSamples", "modelTerms", "fixedFactors", "posteriorEstimates",
-    "repeatedMeasuresFactors", "credibleInterval", "repeatedMeasuresCells", "seed", "setSeed",
-    "hideNuisanceEffects",
-    .BANOVAmodelSpaceDependencies
+    .BANOVAdataDependencies(),
+    "posteriorEstimates",
+    "sampleModeMCMC", "fixedMCMCSamples", "credibleInterval",
+    .BANOVAmodelSpaceDependencies(),
+    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -938,9 +944,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   criTable <- createJaspTable(title = gettextf("Model Averaged R%s", "\u00B2"))
   criTable$position <- 3.5
   criTable$dependOn(c(
-    "dependent", "randomFactors", "priorFixedEffects", "priorRandomEffects", "sampleModeMCMC",
-    "fixedMCMCSamples", "bayesFactorType", "modelTerms", "fixedFactors", "criTable",
-    "repeatedMeasuresFactors", "credibleInterval", "seed", "setSeed"
+    .BANOVAdataDependencies(),
+    "criTable",
+    "sampleModeMCMC", "fixedMCMCSamples", "bayesFactorType", "credibleInterval",
+    .BANOVAmodelSpaceDependencies(),
+    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -2811,24 +2819,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 }
 
 # Other ----
-.BANOVAmodelPriorOptionsChanged <- function(state, options) {
-  !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies], options[.BANOVAmodelSpaceDependencies])
-}
-
-.BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
-  identical(state$fixedFactors, options$fixedFactors) &&
-  identical(state$modelTerms,   options$modelTerms)   &&
-  identical(state$covariates,   options$covariates)   &&
-  identical(state$seed,         options$seed)         &&
-  identical(state$setSeed,      options$setSeed)
-}
-
-.BANOVAmodelSpaceDependencies <- c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU")
-
 .BANOVAgetRScale <- function(options, analysisType) {
-
-  save(options, analysisType, file = "~/jaspDeletable/robjects/banovaModelSpaceRscale.RData")
-  # load("~/jaspDeletable/robjects/banovaModelSpaceRscale.RData")
 
   if (options[["coefficientsPrior"]] == "rscalesAcrossParameters") {
 
@@ -2850,16 +2841,41 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     rscaleRandom  <- "nuisance"
     rscaleCont    <- "medium"
 
-    rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), FUN = function(x) {
+    rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), function(x) {
       paste(x[["components"]], collapse = ":")
     })
-    rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), FUN = `[[`, "rscaleFixed")
+    rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), `[[`, "rscaleFixed")
 
     names(rscaleEffects) <- rscaleEffectsNames
 
   }
   return(list(rscaleFixed = rscaleFixed, rscaleRandom = rscaleRandom, rscaleCont = rscaleCont, rscaleEffects = rscaleEffects))
 }
+
+# Dependencies ----
+.BANOVAdataDependencies <- function() {
+  # seed is in here because basically everything depends on the seed
+  c("dependent", "randomFactors", "covariates", "fixedFactors", "betweenSubjectFactors", "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelTerms",
+    "seed", "setSeed")
+}
+.BANOVAmodelSpaceDependencies <- function() {
+  c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes")
+}
+.BANOVArscaleDependencies <- function(coefficientsPrior) {
+  c("priorFixedEffects", "priorRandomEffects", "priorCovariates", "coefficientsPrior",
+    if (coefficientsPrior == "rscalesPerTerm") "modelTermsCustomPrior"
+  )
+}
+
+.BANOVAmodelPriorOptionsChanged <- function(state, options) {
+  !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies()], options[.BANOVAmodelSpaceDependencies()])
+}
+
+.BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
+  nms <- c("fixedFactors", "modelTerms", "randomFactors", "covariates", "seed", "setSeed")
+  identical(state[nms], options[nms])
+}
+
 
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {
@@ -3154,9 +3170,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     singleModelContainer$dependOn(c(
       "singleModelTerms", "dependent", "sampleModeMCMC", "fixedMCMCSamples",
       "repeatedMeasuresCells", "seed", "setSeed",
-      "priorFixedEffects", "priorRandomEffects", "priorCovariates",
-      "rscalesPerTerm",
-      if (options[["coefficientsPrior"]] == "rscalesPerTerm") "modelTermsCustomPrior"
+      .BANOVArscaleDependencies(options[["coefficientsPrior"]])
     ))
 
     jaspResults[["containerSingleModel"]] <- singleModelContainer

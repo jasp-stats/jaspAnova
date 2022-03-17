@@ -419,10 +419,6 @@
   # without these there is no error
   bfIterations <- if (options[["sampleModeNumAcc"]] == "auto") 1e4L else options[["fixedNumAcc"]]
 
-  save(nmodels, model.list, options, dataset, randomFactors, rscaleFixed, rscaleRandom,
-       rscaleCont, rscaleEffects, bfIterations,
-       file = "~/jaspDeletable/robjects/banovaModelSpaceFitter.RData")
-  #load("~/jaspDeletable/robjects/banovaModelSpaceFitter.RData")
   for (m in seq_len(nmodels)) {
     # loop over all models, where the first is the null-model and the last the most complex model
     if (is.na(reuseable[m])) {

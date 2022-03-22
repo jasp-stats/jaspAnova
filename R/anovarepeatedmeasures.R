@@ -251,7 +251,10 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   rmAnovaResult <- .rmAnovaComputeResults(longData, options)
 
-  if (rmAnovaResult[["tryResult"]] == "try-error") {
+  if (rmAnovaResult[["tryResult"]] == "try-error" && grepl(as.character(rmAnovaResult[["tryMessage"]]), pattern = "allocate vector")) {
+    rmAnovaContainer$setError(gettext('Data set too big for univariate follow-up test. Try selecting "Use multivariate model for follow-up tests" in the Model tab.'))
+    return()
+  } else if (rmAnovaResult[["tryResult"]] == "try-error") {
     rmAnovaContainer$setError(gettext("Some parameters are not estimable, most likely due to empty cells of the design."))
     return()
   }
@@ -283,7 +286,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       result <- stats::aov(model.formula, data=dataset)
       summaryResultOne <- summary(result, expand.split = FALSE)
 
-      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, include_aov = TRUE)
+      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, 
+                              include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
 
       # Reformat the results to make it consistent with types 2 and 3
@@ -305,7 +309,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     } else if (options$sumOfSquares == "type2") {
 
     tryResult <- try({
-      result <- afex::aov_car(model.formula, data=dataset, type= 2, factorize = FALSE, include_aov = TRUE)
+      result <- afex::aov_car(model.formula, data=dataset, type= 2, factorize = FALSE, 
+                              include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
     })
@@ -313,7 +318,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   } else {
 
     tryResult <- try({
-      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, include_aov = TRUE)
+      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, 
+                              include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
     })
@@ -321,7 +327,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   }
 
   if (class(tryResult) == "try-error") {
-    return(list(tryResult = "try-error"))
+    return(list(tryResult = "try-error", tryMessage = as.character(tryResult)))
   }
 
   if (returnResultsEarly)

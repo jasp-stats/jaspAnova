@@ -1532,7 +1532,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       row[["Mean"]] <- mean(data[[dependent]])
       row[["SD"]]   <- stats::sd(data[[dependent]])
       row[["SE"]]   <- stats::sd(data[[dependent]]) / sqrt(N)
-      row[["coefOfVariation"]] <- stats::sd(data[[dependent]]) / abs(mean(data[[dependent]]))
+      row[["coefOfVariation"]] <- stats::sd(data[[dependent]]) / mean(data[[dependent]])
+
 
       tmp <- jaspTTests::.posteriorSummaryGroupMean(data[[dependent]], cri)
       row[["Lower"]] <- tmp[["ciLower"]]

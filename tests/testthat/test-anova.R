@@ -199,9 +199,9 @@ test_that("Descriptives table results match", {
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   # removed new group booleans
   jaspTools::expect_equal_tables(table,
-        list(-0.120135614827586, 58, 1.10575982846952, 0.145193378675912, 9.20426328242848,
+        list(-0.120135614827586, 58, 1.10575982846952, 0.145193378675912, -9.20426328242848,
              0, -0.283499835571429, 42, 0.994612407217046, 0.15347202634745,
-             3.50833504087324, 1))
+             -3.50833504087324, 1))
 })
 
 test_that("Q-Q plot matches", {

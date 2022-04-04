@@ -1369,9 +1369,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   }
 
+  descriptivesTable$addColumnInfo(name = "N",    title=gettext("N"),    type = "integer")
   descriptivesTable$addColumnInfo(name = "Mean", title=gettext("Mean"), type = "number")
   descriptivesTable$addColumnInfo(name = "SD",   title=gettext("SD"),   type = "number")
-  descriptivesTable$addColumnInfo(name = "N",    title=gettext("N"),    type = "integer")
+  descriptivesTable$addColumnInfo(name = "SE",   title=gettext("SE"),   type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation",
+                                                 title=gettext("coefOfVariation"),
+                                                                        type = "number")
 
   lvls <- list()
   factors <- list()
@@ -1410,6 +1414,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   descriptiveResult[["Mean"]] <- ifelse(is.nan(allMeans), NA, allMeans)
   descriptiveResult[["N"]]    <- sapply(allSubsets, length)
   descriptiveResult[["SD"]]   <- sapply(allSubsets, sd)
+  descriptiveResult[["SE"]]   <- descriptiveResult[["SD"]] / sqrt(descriptiveResult[["N"]])
+  descriptiveResult[["coefOfVariation"]]  <- descriptiveResult[["SD"]] / abs(descriptiveResult[["Mean"]])
 
   colnames(descriptiveResult)[1:nSubsetVars] <- columnNames
 

@@ -1484,9 +1484,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesTable$addColumnInfo(name = fixedDot[i], type = "string", title = fixed[i], combine = TRUE)
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
-  descriptivesTable$addColumnInfo(name = "Mean", title = gettext("Mean"),  type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",   title = gettext("SD"),    type = "number")
-  descriptivesTable$addColumnInfo(name = "N",    title = gettext("N"),     type = "integer")
+  descriptivesTable$addColumnInfo(name = "N",    title=gettext("N"),    type = "integer")
+  descriptivesTable$addColumnInfo(name = "Mean", title=gettext("Mean"), type = "number")
+  descriptivesTable$addColumnInfo(name = "SD",   title=gettext("SD"),   type = "number")
+  descriptivesTable$addColumnInfo(name = "SE",   title=gettext("SE"),   type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation",
+                                  title=gettext("Coefficient of variation"),
+                                  type = "number")
   if (is.null(options$confidenceIntervalInterval)) {
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
@@ -1516,17 +1520,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     if (N == 0L) {
 
-      row[["Mean"]] <- row[["SD"]] <- NA
+      row[["Mean"]] <- row[["SD"]] <- row[["SE"]] <- row[["coefOfVariation"]] <- NA
 
     } else if (N == 1L) {
 
       row[["Mean"]] <- data[[dependent]]
-      row[["SD"]] <- row[["Lower"]] <- row[["Upper"]] <- NA
+      row[["SD"]] <- row[["SE"]] <- row[["coefOfVariation"]] <- row[["Lower"]] <- row[["Upper"]] <- NA
 
     } else {
 
       row[["Mean"]] <- mean(data[[dependent]])
       row[["SD"]]   <- stats::sd(data[[dependent]])
+      row[["SE"]]   <- stats::sd(data[[dependent]]) / sqrt(N)
+      row[["coefOfVariation"]] <- stats::sd(data[[dependent]]) / abs(mean(data[[dependent]]))
 
       tmp <- jaspTTests::.posteriorSummaryGroupMean(data[[dependent]], cri)
       row[["Lower"]] <- tmp[["ciLower"]]

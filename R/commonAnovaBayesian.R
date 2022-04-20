@@ -2634,7 +2634,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 }
 
 .BANOVAcomputeInteractionsMatrix <- function(effects) {
-  # TODO: refactor this by using options$modelTerms directly
+
   neffects <- length(effects)
   interactions.matrix <- matrix(FALSE, nrow = neffects, ncol = neffects)
   rownames(interactions.matrix) <- colnames(interactions.matrix) <- effects
@@ -2706,7 +2706,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAcustomInclusionProbabilitiesToModelProbabilities <- function(modelList, nuisance, inclusionProbabilities, enforceMarginality = TRUE) {
 
-  # TODO: when marginality is enforced, how should the prior on interaction effects be interpreted when a user wants matched models?
+  # TODO: discuss with the team:
+  # when marginality is enforced, how should the prior on interaction effects be interpreted when a user wants matched models?
 
   formulaFullModel <- modelList[[length(modelList)]]
   termsFullModel <- terms(formulaFullModel)
@@ -2745,9 +2746,11 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
       }, logical(1L), currentTermLabels) | termIsNotInteraction
     }
 
-    # TODO: the loop below fails in some combinations, but I can see how this behavior is desirable
+    # NOTE: the loop below fails for some combinations of user priors, but I can see how this behavior is desirable
     # the users provide the raw p(interaction) however, the code below assumes that this is
     # p(interaction | main effects), so to compensate we divide each interaction by the product of the components.
+    # however, for some inclusion probabilities of the main effects you get impossible values, for example:
+    # p(A_) = 0.1, p(B) = 0.1, P(A*B) = 0.9 => 0.9 / 0.1^2 = 90, which is bigger than 1 and should be impossible.
     # for (i in which(!termIsNotInteraction)) { # loop over all interaction terms
     #   idxSubterms <- which(termLabels %in% listOfDescendants[[termLabels[i]]])
     #   inclusionProbabilities[i] <- inclusionProbabilities[i] / prod(inclusionProbabilities[idxSubterms])
@@ -2780,22 +2783,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
       currentTerms <- terms(modelList[[i]])
       currentTermLabels <- setdiff(labels(currentTerms), nuisance)
 
-      # TODO: this might be useful elsewhere so it should be a function.
-      # It may even be useful to overwrite the terms function so that this always happens.
-      # the code below reorders term.labels returned by terms()
-      currentFactors <- attr(currentTerms, "factors")
-      if (any(currentFactors > 1L)) { # TRUE implies may need to reorder some terms according to termLabelOrder
-        for (j in grep(":", currentTermLabels, fixed = TRUE)) {
-          tmp <- strsplit(currentTermLabels[j], ":", fixed = TRUE)[[1L]]
-
-          for (order in termLabelOrder) {
-            if (all(tmp %in% order) && length(tmp) == length(order)) {
-              currentTermLabels[j] <- paste(order, collapse = ":")
-              break
-            }
-          }
-        }
-      }
+      currentTermLabels <- .BANOVAorderTermsByKnownOrder(currentTerms, currentTermLabels, termLabelOrder)
 
       presentInteractions <- getPresentInteractions(currentTermLabels)
 
@@ -2925,8 +2913,6 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     if (analysisType == "RM-ANOVA" && !legacy) {
     # adjust the nuisance to include the random slopes, only done here because BayesFactor::enumerateGeneralModels
     # does not handle this properly
-    # TODO: should also include all interactions except for the highest order (so 3-way interaction -> 2-way interaction random effects)
-    # TODO: add checkbox whether -> all random effects of all orders (but see above) are included OR random effects are only included if the main effect is also included
 
     allPossibleSlopes <- labels(stats::terms(stats::as.formula(paste("y~", paste(rmFactors, collapse = "*")))))
     # drop the most complex interaction
@@ -3148,6 +3134,29 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   for (i in which(lengths(s) > 1L))
     s[[i]] <- paste0(sort(s[[i]]), collapse = ":")
   return(unlist(s))
+}
+
+.BANOVAorderTermsByKnownOrder <- function(currentTerms, currentTermLabels, termLabelOrder) {
+
+  # This function reorders the terms of a formula such that they follow the order of termLabelOrder
+  # currentTerms:      output of stats::terms(formula)
+  # currentTermLabels: output of labels(stats::formula(formula)), possibly after filtering out nuisance
+  # termLabelOrder:    character vector of term labels in the desired order
+
+  currentFactors <- attr(currentTerms, "factors")
+  if (any(currentFactors > 1L)) { # TRUE implies may need to reorder some terms according to termLabelOrder
+    for (j in grep(":", currentTermLabels, fixed = TRUE)) {
+      tmp <- strsplit(currentTermLabels[j], ":", fixed = TRUE)[[1L]]
+
+      for (order in termLabelOrder) {
+        if (all(tmp %in% order) && length(tmp) == length(order)) {
+          currentTermLabels[j] <- paste(order, collapse = ":")
+          break
+        }
+      }
+    }
+  }
+  return(currentTermLabels)
 }
 
 # Single Model Inference (SMI) ----

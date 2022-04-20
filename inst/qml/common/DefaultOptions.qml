@@ -23,6 +23,7 @@ import JASP				1.0
 
 Group
 {
+	property bool matchedModelsEnabled: true
 	columns: 2
 
 	BayesFactorType { }
@@ -36,8 +37,8 @@ Group
 			RadioButtonGroup
 			{
 				name: "effectsType"
-				RadioButton { value: "allModels";		label: qsTr("Across all models"); checked: true	}
-				RadioButton { value: "matchedModels";	label: qsTr("Across matched models")			}
+				RadioButton { value: "allModels";		label: qsTr("Across all models");		checked: true					}
+				RadioButton { value: "matchedModels";	label: qsTr("Across matched models");	enabled: matchedModelsEnabled	}
 			}
 		}
 		CheckBox { name: "posteriorEstimates";	label: qsTr("Estimates") }

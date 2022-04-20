@@ -34,7 +34,7 @@ Form
 		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"]							}
 	}
 
-	ANOVA.DefaultOptions {}
+	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
 	ANOVA.ModelTerms { source: ["fixedFactors", "randomFactors", "covariates"]	}
 
@@ -46,6 +46,6 @@ Form
 
 	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "covariates"] }
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions }
 
 }

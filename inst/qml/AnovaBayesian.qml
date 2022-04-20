@@ -33,7 +33,7 @@ Form
 		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 	}
 
-	ANOVA.DefaultOptions {}
+	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
 	ANOVA.ModelTerms { source: ["fixedFactors", "randomFactors"] }
 
@@ -45,6 +45,6 @@ Form
 
 	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "randomFactors"] }
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANOVA }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANOVA; id: additionalOptions }
 
 }

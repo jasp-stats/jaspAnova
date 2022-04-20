@@ -257,7 +257,7 @@
 
       priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
       internalTable <- stateObj$internalTableObj$internalTable
-      internalTable[["P(M)"]] <- priorProbs
+      internalTable[, "P(M)"] <- priorProbs
       stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
 
     } else {
@@ -2809,13 +2809,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
     rscaleFixed   <- options[["priorFixedEffects"]]
     rscaleRandom  <- options[["priorRandomEffects"]]
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
     rscaleEffects <- NULL
-
-    if (analysisType == "ANOVA") {
-      rscaleCont <- "medium" # sqrt(2)/4, default value of BayesFactor
-    } else {
-      rscaleCont <- options[["priorCovariates"]]
-    }
 
   } else {
 
@@ -2823,18 +2818,88 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     # default values of lmBF
     rscaleFixed   <- "medium"
     rscaleRandom  <- "nuisance"
-    rscaleCont    <- "medium"
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
 
     rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), function(x) {
       paste(x[["components"]], collapse = ":")
     })
     rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), `[[`, "rscaleFixed")
 
-    names(rscaleEffects) <- rscaleEffectsNames
+    rscaleEffectsKeep <- if (analysisType == "ANOVA") {
+      rep(TRUE, length(rscaleEffects))
+    } else {
+      vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = logical(1L), function(x) {
+        is.null(options[["covariates"]]) || !(x[["components"]] %in% options[["covariates"]])
+      })
+    }
+
+    rscaleEffects <- rscaleEffects[rscaleEffectsKeep]
+    names(rscaleEffects) <- rscaleEffectsNames[rscaleEffectsKeep]
 
   }
   return(list(rscaleFixed = rscaleFixed, rscaleRandom = rscaleRandom, rscaleCont = rscaleCont, rscaleEffects = rscaleEffects))
 }
+
+# # .BANOVAupdateRscales <- function() {
+#
+#   # for some reason, BayesFactor supports custom rscales for but throws a error if you try to set them for continuous parameters
+#   # this temporarily overwrite the stop call in this BayesFactor:::createRscales
+#   # the function will throw an error if BayesFactor:::createRscales is updated
+#
+#   # originalCreateRscales <- BayesFactor:::createRscales
+#   # originalBody <- body(originalCreateRscales)
+#   # if (!identical(originalBody[[17]][[3]][[2]][[1]], quote(invisible))) {
+#   #   if (!identical(originalBody[[17]][[3]][[2]][[1]], quote(stop)))
+#   #     stop("Bayesfactor got an update, and createRscales/ .BANOVAupdateRscales needs to be fixed!", domain = NA)
+#   #   originalBody[[17L]][[3L]][[2L]][[1L]] <- substitute(invisible)
+#   #   newCreateRscales <- originalCreateRscales
+#   #   body(newCreateRscales) <- originalBody
+#   #
+#   #   jaspBase::assignFunctionInPackage(newCreateRscales, "createRscales", "BayesFactor")
+#   # }
+#   #
+#   # tmp <- methods::getMethod(BayesFactor::compare, list(numerator="BFlinearModel", denominator="missing", data="data.frame"))
+#   # fun <- tmp@.Data
+#   # newfun <- fun
+#   # body <- body(fun)
+#   # if (!identical(body[[19L]][[2L]][[2L]][[4L]][[2L]], quote(FALSE))) {
+#   #   if (!identical(body[[19L]][[2L]][[2L]][[4L]][[2L]], quote(all(relevantDataTypes == "continuous"))))
+#   #     stop("Bayesfactor got an update, and BayesFactor::`.__T__compare:BayesFactor`$`BFlinearModel#missing#data.frame`/ .BANOVAupdateRscales needs to be fixed!", domain = NA)
+#   #   body[[19L]][[2L]][[2L]][[4L]][[2L]] <- substitute(FALSE) # do not take the fast path
+#   #   body(newfun) <- body
+#   #
+#   #   # horrible but necessary
+#   #   env <- environment()#getNamespace(jaspAnova)
+#   #   assign("compare", BayesFactor::compare, envir = env)
+#   #   setMethod("compare", signature(numerator = "BFlinearModel", denominator = "missing", data = "data.frame"), newfun, where = env)
+#
+#     # env <- getNamespace("BayesFactor")
+#     # unlockBinding("compare", env)
+#
+#     # debugonce(setMethod)
+#     # setMethod("compare", signature(numerator = "BFlinearModel", denominator = "missing", data = "data.frame"), newfun, where = env)
+#
+#     # tmp@.Data <- newfun
+#     # s4env <- BayesFactor:::`.__T__compare:BayesFactor`
+#     # unlockBinding("BFlinearModel#missing#data.frame", s4env)
+#     # s4env$`BFlinearModel#missing#data.frame` <- tmp
+#     # lockBinding("BFlinearModel#missing#data.frame", s4env)
+#     # jaspBase::assignFunctionInPackage(s4env, ".__T__compare:BayesFactor", "BayesFactor")
+#   # }
+#
+#   # return()
+#
+#   # we could reset the changes with on.exit, but I'm not sure if it's necessary and doing that cleanly requires withr::defer and adds a dependency
+#   # do.call(on.exit({
+#   #   jaspBase::assignFunctionInPackage(tempRscales[["originalCreateRscales"]], "createRscales", "BayesFactor")
+#   #
+#   #   s4env <- BayesFactor:::`.__T__compare:BayesFactor`
+#   #   unlockBinding("BFlinearModel#missing#data.frame", s4env)
+#   #   s4env$`BFlinearModel#missing#data.frame` <- newfun
+#   #   lockBinding("BFlinearModel#missing#data.frame", s4env)
+#   #   jaspBase::assignFunctionInPackage(s4env, ".__T__compare:BayesFactor", "BayesFactor")
+#   # }, add = TRUE, after = FALSE)
+# }
 
 # Dependencies ----
 .BANOVAdataDependencies <- function() {

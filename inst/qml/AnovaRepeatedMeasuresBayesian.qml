@@ -56,7 +56,7 @@ Form
 		}
 	}
 
-	ANOVA.DefaultOptions {}
+	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
 	ANOVA.ModelTerms { source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]	}
 
@@ -77,7 +77,7 @@ Form
 		enableYAxisLabel: true
 	}
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions }
 
 
 }

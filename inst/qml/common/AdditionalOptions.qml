@@ -25,7 +25,8 @@ import JASP				1.0
 Section
 {
 
-	property int analysisType
+				property int	analysisType
+	readonly	property alias	marginalityEnforced:	fixedMarginality.checked
 
 	title: qsTr("Additional Options")
 	columns: 1
@@ -44,12 +45,11 @@ Section
 			}
 			Group
 			{
-				enabled: rscalesAcrossParameters.checked
 				columns: 1
 				title: qsTr("Prior")
-				DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
-				DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
-				DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3		}
+				DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
+				DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
+				DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;												}
 			}
 		}
 
@@ -115,8 +115,8 @@ Section
 		Group
 		{
 			title: qsTr("Enforce the Principle of Marginality")
-			CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("For fixed effects");	checked: true	}
-			CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("For random slopes");	checked: false	}
+			CheckBox	{	name: "enforcePrincipleOfMarginalityFixedEffects";	label: qsTr("For fixed effects");	checked: true;	id: fixedMarginality	}
+			CheckBox	{	name: "enforcePrincipleOfMarginalityRandomSlopes";	label: qsTr("For random slopes");	checked: false							}
 		}
 
 		SetSeed{}
@@ -235,7 +235,7 @@ Section
 						max:			100
 						defaultValue:	0.5
 						inclusive:		JASP.None
-						visible:		!rscalesAcrossParameters.checked
+						visible:		!rscalesAcrossParameters.checked// && (fixedFactors === null || fixedFactors.model.searchTermWith(rowValue) !== -1) && (randomFactors === null || randomFactors.model.searchTermWith(rowValue) !== -1)
 					}
 				}
 			}

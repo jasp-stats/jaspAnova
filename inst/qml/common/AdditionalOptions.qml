@@ -26,6 +26,7 @@ Section
 {
 
 				property int	analysisType
+				property var	covariates:				null
 	readonly	property alias	marginalityEnforced:	fixedMarginality.checked
 
 	title: qsTr("Additional Options")
@@ -235,7 +236,7 @@ Section
 						max:			100
 						defaultValue:	0.5
 						inclusive:		JASP.None
-						visible:		!rscalesAcrossParameters.checked// && (fixedFactors === null || fixedFactors.model.searchTermWith(rowValue) !== -1) && (randomFactors === null || randomFactors.model.searchTermWith(rowValue) !== -1)
+						visible:		!rscalesAcrossParameters.checked && (covariates === null || !rowValue.split(INTERACTION_SEPARATOR).some(elt => { return covariates.columnsNames.includes(elt.trim())}))
 					}
 				}
 			}

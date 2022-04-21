@@ -53,6 +53,7 @@ Form
 			name: "covariates"
 			title: qsTr("Covariates")
 			suggestedColumns: ["scale"]
+			id: covariates
 		}
 	}
 
@@ -77,7 +78,7 @@ Form
 		enableYAxisLabel: true
 	}
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions; covariates: covariates }
 
 
 }

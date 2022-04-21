@@ -31,7 +31,7 @@ Form
 		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	suggestedColumns: ["scale"];  singleVariable: true	}
 		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
-		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"]							}
+		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"];	id: covariates		}
 	}
 
 	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
@@ -46,6 +46,6 @@ Form
 
 	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "covariates"] }
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions }
+	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions; covariates: covariates }
 
 }

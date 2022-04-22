@@ -1560,7 +1560,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return()
 }
 
-.BANOVAdescriptivesPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
+.BANOVAdescriptivesPlotsO <- function(jaspContainer, dataset, options, errors, analysisType) {
 
   if (length(options[["plotHorizontalAxis"]]) == 0L
       || options[["plotHorizontalAxis"]] == ""
@@ -1798,6 +1798,232 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
   return()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.BANOVAdescriptivesPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
+
+  if (length(options[["plotHorizontalAxis"]]) == 0L
+      || options[["plotHorizontalAxis"]] == ""
+      || !is.null(jaspContainer[["containerDescriptivesPlots"]]))
+    return()
+
+  descriptivesPlotContainer <- createJaspContainer(title = gettext("Descriptives plots"))
+  descriptivesPlotContainer$position <- 2
+  jaspContainer[["containerDescriptivesPlots"]] <- descriptivesPlotContainer
+
+  # either Bayesian or Frequentist anova
+  if (is.null(options$confidenceIntervalInterval)) { # TRUE implies Bayesian
+    plotErrorBars <- options$plotCredibleInterval
+    errorBarType  <- "confidenceInterval"
+    conf.interval <- options$plotCredibleIntervalInterval
+    descriptivesPlotContainer$dependOn(c("dependent", "plotCredibleInterval", "plotCredibleIntervalInterval"))
+
+  } else {
+    plotErrorBars <- options$plotErrorBars
+    errorBarType  <- options$errorBarType
+    conf.interval <- options$confidenceIntervalInterval
+    descriptivesPlotContainer$dependOn(c("dependent", "plotErrorBars", "errorBarType", "confidenceIntervalInterval",
+                                         "usePooledStandErrorCI"))
+
+  }
+  usePooledSE <- if (is.null(options[["usePooledStandErrorCI"]])) FALSE else options[["usePooledStandErrorCI"]]
+
+  descriptivesPlotContainer$dependOn(c("plotHorizontalAxis", "plotSeparatePlots", "labelYAxis"))
+
+  if (errors$noVariables) {
+    descriptivesPlotContainer[["dummyplot"]] <- createJaspPlot(title = gettext("Descriptives Plot"))
+    return()
+  }
+
+  groupVars <- c(options$plotHorizontalAxis, options$plotSeparatePlots)
+  groupVars <- groupVars[groupVars != ""]
+  if (analysisType == "RM-ANOVA") {
+    dependent <- .BANOVAdependentName
+    yLabel <- options[["labelYAxis"]]
+  } else {
+    dependent<- options$dependent
+    yLabel <- options[["dependent"]]
+  }
+
+  betweenSubjectFactors <- groupVars[groupVars %in% options$betweenSubjectFactors]
+  repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
+
+  if (length(repeatedMeasuresFactors) == 0) {
+    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+                                         conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
+                                         errorBarType = errorBarType, dependentName = .BANOVAdependentName,
+                                         subjectName = .BANOVAsubjectName)
+  } else {
+    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
+                                               betweenvars = betweenSubjectFactors,
+                                               withinvars = repeatedMeasuresFactors,
+                                               idvar = .BANOVAsubjectName,
+                                               conf.interval = conf.interval,
+                                               na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
+                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               subjectName = .BANOVAsubjectName)
+  }
+
+  if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+    splitScatterOptions <- options
+    splitScatterOptions[["colorPalette"]] <- "ggplot2"
+    splitScatterOptions[["showLegend"]] <- TRUE
+    splitScatterOptions[["addSmooth"]] <- TRUE
+    splitScatterOptions[["addSmoothCI"]] <- plotErrorBars
+    splitScatterOptions[["addSmoothCIValue"]] <- TRUE
+    splitScatterOptions[["regressionType"]] <- "linear"
+    splitScatterOptions[["graphTypeAbove"]] <- "none"
+    splitScatterOptions[["graphTypeRight"]] <- "none"
+    splitScatterOptions[["addSmoothCIValue"]] <- if (is.null(options[["confidenceIntervalInterval"]]))
+      options[["plotCredibleIntervalInterval"]]
+    else options[["confidenceIntervalInterval"]]
+
+    if (options$plotSeparatePlots != "") {
+
+      for (thisLevel in levels(dataset[[options[["plotSeparatePlots"]]]])) {
+
+        subData <- dataset[dataset[[options[["plotSeparatePlots"]]]] == thisLevel, ]
+        thisPlotName <- paste0(options[["plotHorizontalAxis"]], " - ", options[["dependent"]], ": ",
+                               options[["plotSeparatePlots"]], " = ", thisLevel)
+        jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, subData, c(options[["plotHorizontalAxis"]], options[["dependent"]]),
+                                                    split = "", options = splitScatterOptions, name = thisPlotName, dependOnVariables = FALSE)
+      }
+
+    } else {
+      jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, dataset, c(options[["plotHorizontalAxis"]], options[["dependent"]]),
+                                                  split = "", options = splitScatterOptions, dependOnVariables = FALSE)
+    }
+
+    return()
+
+  }
+
+  colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
+
+  if (options$plotHorizontalAxis != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options$plotHorizontalAxis] <- "plotHorizontalAxis"
+  }
+
+  if (options$plotSeparatePlots != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options$plotSeparatePlots] <- "plotSeparatePlots"
+  }
+
+  if (options$plotSeparatePlots != "") {
+    subsetPlots <- levels(summaryStat[,"plotSeparatePlots"])
+    nPlots <- length(subsetPlots)
+  } else {
+    nPlots <- 1
+  }
+
+  for (i in seq_len(nPlots)) {
+
+    if (nPlots > 1L) {
+      title <- paste(options$plotSeparatePlots,": ",subsetPlots[i], sep = "")
+    } else {
+      title <- ""
+    }
+    descriptivesPlot <- createJaspPlot(title = title)
+    descriptivesPlotContainer[[title]] <- descriptivesPlot
+
+    descriptivesPlot$height <- 500
+    descriptivesPlot$width <- 500
+
+    if (options$plotSeparatePlots != "") {
+      summaryStatSubset <- subset(summaryStat,summaryStat[,"plotSeparatePlots"] == subsetPlots[i])
+    } else {
+      summaryStatSubset <- summaryStat
+    }
+
+    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = plotHorizontalAxis,
+                                                         y = dependent, group = 1))
+
+    if (plotErrorBars){ #&& !(options[["plotHorizontalAxis"]] %in% options[["covariates"]])) {
+
+      pd <- ggplot2::position_dodge(.2)
+      p = p + ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
+                                     colour = "black", width = .2, position = pd)
+
+    }# else {
+
+      #pd <- ggplot2::position_dodge(0)
+
+    #}
+
+    guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(NULL)), keywidth = 0.1,
+                                         keyheight = 0.3, default.unit = "inch")
+
+    #if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+    #  line <- ggplot2::geom_smooth(method = "lm", size = .7, color = "black", se = FALSE)
+    #  addHorizontalVar <- summaryStatSubset[,"plotHorizontalAxis"]
+    #} else {
+    #  line <- ggplot2::geom_line(position=pd, size = .7)
+    #}
+
+    pd2 <- ggplot2::position_dodge2(preserve = "single")
+
+    if (plotErrorBars) {
+      ci.pos <- c(summaryStatSubset[,"dependent"],
+                  summaryStatSubset[,"dependent"]-summaryStatSubset[,"ci"],
+                  summaryStatSubset[,"dependent"]+summaryStatSubset[,"ci"],
+                  min(summaryStatSubset[,"dependent"])*1.1,
+                  max(summaryStatSubset[,"dependent"])*1.1)
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ci.pos)
+    } else {
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"],
+                                                   min(summaryStatSubset[,"dependent"])*1.1,
+                                                   max(summaryStatSubset[,"dependent"])*1.1))
+    }
+
+    if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+    } else {
+      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+    }
+
+    p <- p + ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .2, position = pd2) +
+      #ggplot2::geom_point(position=pd, size=4) +
+      ggplot2::labs(y = yLabel, x = options[["plotHorizontalAxis"]]) +
+      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
+      ggXaxis +
+      jaspGraphs::geom_rangeframe() +
+      jaspGraphs::themeJaspRaw(legend.position = "right")
+      #ggplot2::scale_fill_manual(values = c(rep(c("white", "black"), 5), rep("grey", 100)), guide = guideLegend) +
+      #ggplot2::scale_shape_manual(values = c(rep(c(21:25), each = 2), 21:25, 7:14, 33:112), guide = guideLegend) +
+      #ggplot2::scale_color_manual(values = rep("black",200), guide = guideLegend) +
+
+
+    descriptivesPlot$plotObject <- p
+  }
+  return()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .BANOVArainCloudPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
 

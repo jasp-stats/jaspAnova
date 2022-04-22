@@ -39,6 +39,42 @@ Form
 		AssignedVariablesList	{	name:	"randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"];	debug:	true				}
 		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");			suggestedColumns: ["scale"];				singleVariable: true		}
 	}
+	
+	Section
+	{
+		title: qsTr("Bar Plots")
+		columns: 1
+		
+		VariablesForm
+		{
+			preferredHeight: 150 * preferencesModel.uiScale
+			AvailableVariablesList { name: "descriptivePlotsTwoVariables"; title: qsTr("Factors"); source: ["fixedFactors", "randomFactors"] }
+			AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); singleVariable: true }
+			AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
+		}
+		
+		Group
+		{
+			title: qsTr("Display")
+			columns: 2
+			CheckBox
+			{
+				name: "plotTwoErrorBars"; label: qsTr("Display error bars")
+				RadioButtonGroup
+				{
+					name: "errorBarTypeTwo"
+					RadioButton
+					{
+						value: "confidenceIntervalTwo";		label: qsTr("Confidence interval"); checked: true
+						childrenOnSameRow: true
+						CIField { name: "confidenceIntervalIntervalTwo" }
+					}
+					RadioButton { value: "standardErrorTwo";	label: qsTr("Standard error") }
+				}
+			}
+			CheckBox { name: "zeroFix";		label: qsTr("Fix y-axis to 0")							 }
+		}
+	}
 
 	Classical.Display
 	{

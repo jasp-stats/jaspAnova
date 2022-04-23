@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-02-12 02:46\n"
+"POT-Creation-Date: 2022-04-23 02:55\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,9 @@ msgid "An error occurred while computing the ANOVA: %s"
 msgstr ""
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
+msgstr ""
+
+msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
 
 msgid "ANOVA"

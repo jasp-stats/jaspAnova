@@ -1950,14 +1950,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     if (plotErrorBars){ #&& !(options[["plotHorizontalAxis"]] %in% options[["covariates"]])) {
 
       pd <- ggplot2::position_dodge(.2)
-      p = p + ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
-                                     colour = "black", width = .2, position = pd)
+      error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
+                                      colour = "black", width = .2, position = pd)
 
-    }# else {
+    } else {
 
+      error <- NULL
       #pd <- ggplot2::position_dodge(0)
 
-    #}
+    }
 
     guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(NULL)), keywidth = 0.1,
                                          keyheight = 0.3, default.unit = "inch")
@@ -1983,6 +1984,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                    min(summaryStatSubset[,"dependent"])*1.1,
                                                    max(summaryStatSubset[,"dependent"])*1.1))
     }
+    ylim <- c(min(yBreaks), max(yBreaks))
 
     if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
       ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
@@ -1990,13 +1992,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
     }
 
-    p <- p + ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .2, position = pd2) +
-      #ggplot2::geom_point(position=pd, size=4) +
+    p <- p + ggplot2::geom_hline(yintercept = 0) +
+      ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) + #ggplot2::geom_point(position=pd, size=4) +
+      error +
       ggplot2::labs(y = yLabel, x = options[["plotHorizontalAxis"]]) +
-      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
+      ggplot2::scale_y_continuous(breaks = yBreaks) +
+      ggplot2::coord_cartesian(ylim = ylim) +
       ggXaxis +
-      jaspGraphs::geom_rangeframe() +
-      jaspGraphs::themeJaspRaw(legend.position = "right")
+      jaspGraphs::geom_rangeframe(sides = "l") +
+      jaspGraphs::themeJaspRaw()#legend.position = "right")
       #ggplot2::scale_fill_manual(values = c(rep(c("white", "black"), 5), rep("grey", 100)), guide = guideLegend) +
       #ggplot2::scale_shape_manual(values = c(rep(c(21:25), each = 2), 21:25, 7:14, 33:112), guide = guideLegend) +
       #ggplot2::scale_color_manual(values = rep("black",200), guide = guideLegend) +

@@ -164,7 +164,7 @@ Form
 					name: "errorBarTypeTwo"
 					RadioButton
 					{
-						value: "confidenceIntervalTwo";		label: qsTr("Confidence interval"); checked: true
+						value: "confidenceInterval";		label: qsTr("Confidence interval"); checked: true
 						childrenOnSameRow: true
 						CIField { name: "confidenceIntervalIntervalTwo" }
 					}

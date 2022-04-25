@@ -126,7 +126,7 @@ Form
 					name: "errorBarTypeTwo"
 					RadioButton
 					{
-						value: "plotTwoCredibleInterval";		label: qsTr("Credible interval"); checked: true
+						value: "confidenceInterval";		label: qsTr("Credible interval"); checked: true
 						childrenOnSameRow: true
 						CIField { name: "plotTwoCredibleIntervalInterval" }
 					}

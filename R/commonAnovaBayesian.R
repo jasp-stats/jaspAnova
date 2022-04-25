@@ -1816,18 +1816,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plotErrorBars <- options$plotTwoErrorBars
     errorBarType  <- options$errorBarTypeTwo
     confInterval <- options$plotTwoCredibleIntervalInterval
-    descriptivesPlotTwoContainer$dependOn(c("dependent", "plotTwoErrorBars", "errorBarTypeTwo", "plotTwoCredibleIntervalInterval"))
+    descriptivesPlotTwoContainer$dependOn(c("dependent", "plotTwoErrorBars", "errorBarTypeTwo", "zeroFix",
+                                            "plotTwoCredibleIntervalInterval"))
 
   } else {
     plotErrorBars <- options$plotTwoErrorBars
     errorBarType  <- options$errorBarTypeTwo
     confInterval <- options$confidenceIntervalIntervalTwo
-    descriptivesPlotTwoContainer$dependOn(c("dependent", "plotTwoErrorBars", "errorBarTypeTwo", "confidenceIntervalIntervalTwo",
-                                            "usePooledStandErrorCITwo"))
+    descriptivesPlotTwoContainer$dependOn(c("dependent", "plotTwoErrorBars", "errorBarTypeTwo", "zeroFix",
+                                            "confidenceIntervalIntervalTwo", "usePooledStandErrorCITwo"))
 
   }
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
-
+  zeroFix <- options$zeroFix
   descriptivesPlotTwoContainer$dependOn(c("plotTwoHorizontalAxis", "plotTwoSeparatePlots", "labelYAxisTwo"))
 
   if (errors$noVariables) {
@@ -1864,40 +1865,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                subjectName = .BANOVAsubjectName)
   }
 
-  if (options[["plotTwoHorizontalAxis"]] %in% options[["covariates"]]) {
-    splitScatterOptions <- options
-    splitScatterOptions[["colorPalette"]] <- "ggplot2"
-    splitScatterOptions[["showLegend"]] <- TRUE
-    splitScatterOptions[["addSmooth"]] <- TRUE
-    splitScatterOptions[["addSmoothCI"]] <- plotErrorBars
-    splitScatterOptions[["addSmoothCIValue"]] <- TRUE
-    splitScatterOptions[["regressionType"]] <- "linear"
-    splitScatterOptions[["graphTypeAbove"]] <- "none"
-    splitScatterOptions[["graphTypeRight"]] <- "none"
-    splitScatterOptions[["addSmoothCIValue"]] <- if (is.null(options[["confidenceIntervalIntervalTwo"]]))
-      options[["plotTwoCredibleIntervalInterval"]]
-    else options[["confidenceIntervalIntervalTwo"]]
-
-    if (options$plotTwoSeparatePlots != "") {
-
-      for (thisLevel in levels(dataset[[options[["plotTwoSeparatePlots"]]]])) {
-
-        subData <- dataset[dataset[[options[["plotTwoSeparatePlots"]]]] == thisLevel, ]
-        thisPlotName <- paste0(options[["plotTwoHorizontalAxis"]], " - ", options[["dependent"]], ": ",
-                               options[["plotTwoSeparatePlots"]], " = ", thisLevel)
-        jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotTwoContainer, subData, c(options[["plotTwoHorizontalAxis"]], options[["dependent"]]),
-                                                    split = "", options = splitScatterOptions, name = thisPlotName, dependOnVariables = FALSE)
-      }
-
-    } else {
-      jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotTwoContainer, dataset, c(options[["plotTwoHorizontalAxis"]], options[["dependent"]]),
-                                                  split = "", options = splitScatterOptions, dependOnVariables = FALSE)
-    }
-
-    return()
-
-  }
-
   colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
 
   if (options$plotTwoHorizontalAxis != "") {
@@ -1906,9 +1873,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (options$plotTwoSeparatePlots != "") {
     colnames(summaryStat)[colnames(summaryStat) == options$plotTwoSeparatePlots] <- "plotTwoSeparatePlots"
-  }
-
-  if (options$plotTwoSeparatePlots != "") {
     subsetPlots <- levels(summaryStat[,"plotTwoSeparatePlots"])
     nPlots <- length(subsetPlots)
   } else {
@@ -1929,15 +1893,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesPlot$width <- 500
 
     if (options$plotTwoSeparatePlots != "") {
-      summaryStatSubset <- subset(summaryStat,summaryStat[,"plotTwoSeparatePlots"] == subsetPlots[i])
+      summaryStatSubset <- subset(summaryStat, summaryStat[,"plotTwoSeparatePlots"] == subsetPlots[i])
     } else {
       summaryStatSubset <- summaryStat
     }
 
-    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = plotTwoHorizontalAxis,
-                                                         y = dependent, group = 1))
-
-    if (plotErrorBars){ #&& !(options[["plotTwoHorizontalAxis"]] %in% options[["covariates"]])) {
+    if (plotErrorBars){
       pd <- ggplot2::position_dodge(.2)
       error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
                                       colour = "black", width = .2, position = pd)
@@ -1945,51 +1906,35 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       error <- NULL
     }
 
-    guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(NULL)), keywidth = 0.1,
-                                         keyheight = 0.3, default.unit = "inch")
-
-    #if (options[["plotTwoHorizontalAxis"]] %in% options[["covariates"]]) {
-    #  line <- ggplot2::geom_smooth(method = "lm", size = .7, color = "black", se = FALSE)
-    #  addHorizontalVar <- summaryStatSubset[,"plotTwoHorizontalAxis"]
-    #} else {
-    #  line <- ggplot2::geom_line(position=pd, size = .7)
-    #}
-
-    pd2 <- ggplot2::position_dodge2(preserve = "single")
-
-    if (plotErrorBars) {
-      ci.pos <- c(summaryStatSubset[,"dependent"],
-                  summaryStatSubset[,"dependent"]-summaryStatSubset[,"ci"],
-                  summaryStatSubset[,"dependent"]+summaryStatSubset[,"ci"],
+    if(zeroFix){
+      values <- c(0, summaryStatSubset[,"dependent"],
+                  min(summaryStatSubset[,"dependent"])*1.1, #do we need those extensions?
+                  max(summaryStatSubset[,"dependent"])*1.1)
+    } else{
+      values <- c(summaryStatSubset[,"dependent"],
                   min(summaryStatSubset[,"dependent"])*1.1,
                   max(summaryStatSubset[,"dependent"])*1.1)
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ci.pos)
+    }
+
+    if (plotErrorBars) {
+      ciPos <- c(values, summaryStatSubset$ciLower, summaryStatSubset$ciUpper)
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ciPos)
     } else {
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"],
-                                                   min(summaryStatSubset[,"dependent"])*1.1,
-                                                   max(summaryStatSubset[,"dependent"])*1.1))
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)
     }
     ylim <- c(min(yBreaks), max(yBreaks))
+    pd2 <- ggplot2::position_dodge2(preserve = "single")
 
-    if (options[["plotTwoHorizontalAxis"]] %in% options[["covariates"]]) {
-      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotTwoHorizontalAxis"]))
-    } else {
-      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotTwoHorizontalAxis"]))
-    }
-
-    p <- p + ggplot2::geom_hline(yintercept = 0) +
-      ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) + #ggplot2::geom_point(position=pd, size=4) +
+    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = plotTwoHorizontalAxis, y = dependent, group = 1)) +
+      ggplot2::geom_hline(yintercept = 0) +
+      ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) +
       error +
       ggplot2::labs(y = yLabel, x = options[["plotTwoHorizontalAxis"]]) +
       ggplot2::scale_y_continuous(breaks = yBreaks) +
       ggplot2::coord_cartesian(ylim = ylim) +
-      ggXaxis +
+      ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotTwoHorizontalAxis"])) +
       jaspGraphs::geom_rangeframe(sides = "l") +
-      jaspGraphs::themeJaspRaw()#legend.position = "right")
-      #ggplot2::scale_fill_manual(values = c(rep(c("white", "black"), 5), rep("grey", 100)), guide = guideLegend) +
-      #ggplot2::scale_shape_manual(values = c(rep(c(21:25), each = 2), 21:25, 7:14, 33:112), guide = guideLegend) +
-      #ggplot2::scale_color_manual(values = rep("black",200), guide = guideLegend) +
-
+      jaspGraphs::themeJaspRaw()
 
     descriptivesPlot$plotObject <- p
   }

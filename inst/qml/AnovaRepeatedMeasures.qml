@@ -172,7 +172,7 @@ Form
 				}
 			}
 			CheckBox { name: "usePooledStandErrorCITwo";	label: qsTr("Average across unused RM factors")	}
-			CheckBox { name: "zeroFix";		label: qsTr("Fix y-axis to 0")							 }
+			CheckBox { name: "zeroFix";		label: qsTr("Fix Horizontal Axis to 0")							 }
 		}
 	}
 

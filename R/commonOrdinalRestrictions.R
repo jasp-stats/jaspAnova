@@ -178,11 +178,17 @@
   modelName <- .aorGetModelName   (restrictedModelOption)
   stateName <- sprintf("state_%s", modelName)
 
-  if(!is.null(container[[stateName]])) {
+  if(!is.null(container[[stateName]]$object)) {
     if(length(unrestrictedBootstrap) > 0)
       progressbarTick()
 
     return(container[[stateName]]$object)
+  } else {
+    container[[stateName]] <- createJaspState()
+    container[[stateName]]$dependOn(
+      options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
+      optionContainsValue = list(restrictedModels = restrictedModelOption)
+    )
   }
 
   restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
@@ -236,11 +242,7 @@
     marginalMeansResult       = marginalMeans
   )
 
-  container[[stateName]] <- createJaspState(object = model)
-  container[[stateName]]$dependOn(
-    options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
-    optionContainsValue = list(restrictedModels = restrictedModelOption)
-  )
+  container[[stateName]]$object <- model
   return(model)
 }
 

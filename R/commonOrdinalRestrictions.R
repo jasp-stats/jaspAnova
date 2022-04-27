@@ -306,6 +306,8 @@
     errors <- sprintf("<ul>%s</ul>", errors)
     message <- gettextf("Could not fit any of the specified restricted models. Reason(s): %s", errors)
     container$setError(message)
+    # if all models fail, we want to rerun the restricted models if any model changes
+    container$dependOn(options = "restrictedModels")
   }
 
   return(models)

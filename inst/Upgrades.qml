@@ -7,7 +7,7 @@ Upgrades
 	{
 		functionName: 		"Anova"
 		fromVersion:		"0.16.2"
-		toVersion:			"0.17"
+		toVersion:			"0.16.3"
 
 		// Changes for better consistency within restrictions (every option is preceded by 'restricted') + between analyses (e.g. naming of bootstrapping options)
 		ChangeRename {	from: "includeIntercept";								to: "restrictedIncludeIntercept"							}

@@ -99,6 +99,17 @@ ANOVA allows the user to analyze the difference between multiple group means.
         - Confidence interval: This option is selected by default. With this option, the error bars will represent confidence intervals of the mean of each level combination of the independent variables. By default, the confidence interval is set to 95%, but this can be changed into the desired percentage.  
         - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the independent variables. 
 
+### Bar Plots
+- To create a bar plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.
+  - Factors: The independent variables included in the analysis.
+  - Horizontal axis: Select the independent variable that should be displayed on the horizontal axis of the plot.
+  - Separate plots: By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.
+- Display:
+    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can represent either confidence intervals or standard errors. 
+        - Confidence interval: This option is selected by default. With this option, the error bars will represent confidence intervals of the mean of each level combination of the independent variables. By default, the confidence interval is set to 95%, but this can be changed into the desired percentage.  
+        - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the independent variables.
+    - Fix horizontal axis to 0: Forces the graphs to show the default x-axis at y = 0.
+
 ### Marginal Means
 - Marginal means: When this option is selected, the mean for each level of the independent variable, adjusted for all the other variables in the model, is calculated. 
 - Compare marginal means to 0: By selecting this option, the adjusted means are compared to 0 and the confidence intervals of the adjusted means are calculated.  
@@ -273,6 +284,9 @@ Descriptives - dependent variable:
 
 #### Descriptives Plot 
 Independent variable on the x-axis and dependent variable on the y-axis. If other independent variables are included, either different lines representing different values of the other independent variable are displayed in the same plot, or different plots representing different values of the other independent variable are displayed. 
+
+#### Bar Plot 
+Independent variable on the x-axis and dependent variable on the y-axis. If other independent variables are included, different plots representing different values of the other independent variable are displayed.
 
 ### References 
 --- 

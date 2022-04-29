@@ -13,7 +13,7 @@ Description
 	website		: "jasp-stats.org"
 	license		: "GPL (>= 2)"
 
-	
+
 	GroupTitle
 	{
 		title:  qsTr("Classical");

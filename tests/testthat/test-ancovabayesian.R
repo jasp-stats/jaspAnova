@@ -6,16 +6,10 @@ context("Bayesian ANCOVA")
 # - raincloud plot (code is from regular ANOVA)
 # - bftype (01, 10)
 
-initOpts <- function() {
-  options <- jaspTools::analysisOptions("AncovaBayesian")
-  options$sampleModeNumAcc <- "manual"
-  options$fixedNumAcc <- 50
-  return(options)
-}
 
 test_that("Main table results match", {
   set.seed(0)
-  options <- initOpts()
+  options <- initOpts("AncovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facGender"
   options$randomFactors <- "facFive"
@@ -53,7 +47,7 @@ test_that("Main table results match", {
 
 test_that("Effects table results match", {
   set.seed(0)
-  options <- initOpts()
+  options <- initOpts("AncovaBayesian")
   options$dependent <- "contNormal"
   options$covariates <- "contGamma"
   options$fixedFactors <- "contBinom"
@@ -92,6 +86,8 @@ test_that("Post-hoc Comparisons table results match", {
   )
   options$postHocTestsNullControl <- TRUE
   options$postHocTestsVariables <- "facFive"
+  options <- addCommonQMLoptions(options)
+
   results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
   table <- results[["results"]][["collectionPosthoc"]][["collection"]][["collectionPosthoc_postHoc_facFive"]][["data"]]
   jaspTools::expect_equal_tables(table,
@@ -115,7 +111,7 @@ test_that("Post-hoc Comparisons table results match", {
 test_that("Analysis handles errors", {
   # NOTE: only errors that are not handled in test-anovabayesian are tested
 
-  options <- initOpts()
+  options <- initOpts("AncovaBayesian")
 
   options$dependent <- "contNormal"
   options$fixedFactors <- list()
@@ -133,7 +129,7 @@ test_that("Analysis handles errors", {
 })
 
 
-options <- initOpts()
+options <- initOpts("AncovaBayesian")
 options$covariates <- "contcor1"
 options$dependent <- "contNormal"
 options$fixedFactors <- "facGender"
@@ -164,7 +160,7 @@ test_that("Model Comparison table results match", {
 })
 
 # test whether sampling parameters with interactions effects works
-options <- initOpts()
+options <- initOpts("AncovaBayesian")
 options$covariates <- "contcor1"
 options$dependent <- "contcor2"
 options$fixedFactors <- "facGender"

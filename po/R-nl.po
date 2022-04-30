@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-04-23 02:55\n"
+"POT-Creation-Date: 2022-04-30 03:07\n"
 "PO-Revision-Date: 2022-02-04 14:01+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -130,176 +130,6 @@ msgstr "t"
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Contrast Coëfficiënten - %2$s"
 
-msgid "Order Restrictions"
-msgstr "Orderbeperkingen"
-
-msgid ""
-"Syntax error found in model %1$s, line: %2$s.\n"
-"\n"
-"Multiple restrictions on one line.\n"
-"\n"
-"Please use one restriction per line!"
-msgstr ""
-"Syntaxfout gevonden in model %1$s, regel: %2$s.\n"
-"\n"
-"Meerdere beperkingen op één regel.\n"
-"\n"
-"Gelieve één beperking per lijn te gebruiken!"
-
-msgid ""
-"Syntax error found in model %1$s.\n"
-"\n"
-"Some restrictions are duplicate!"
-msgstr ""
-"Syntaxfout gevonden in model %1$s.\n"
-"\n"
-"Sommige beperkingen zijn dubbel!"
-
-msgid "There are errors in the restriction syntax for %s."
-msgstr "Er zijn fouten in de beperkings syntax voor %s."
-
-msgid "Syntax error: %1$s%2$s."
-msgstr "Syntaxisfout: %1$s%2$s."
-
-msgid "Model Comparison Table"
-msgstr "Modelvergelijkingstabel"
-
-msgid "Model"
-msgstr "Model"
-
-msgid "LL"
-msgstr "LL"
-
-msgid "Penalty"
-msgstr "Straf"
-
-msgid "GORIC"
-msgstr "GORIC"
-
-msgid "Weight"
-msgstr "Gewicht"
-
-msgid "GORICA"
-msgstr "GORICA"
-
-msgid "Ratio"
-msgstr "Verhouding"
-
-msgid ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-msgstr ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-
-msgid ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-
-msgid ""
-"Ratios indicate the relative weight for each model against the \"%1$s\" "
-"model. %2$s"
-msgstr ""
-"De verhoudingen geven het relatieve gewicht aan van elk model ten opzichte "
-"van het %1$s model. %2$s"
-
-msgid "Unconstrained"
-msgstr "Onbeperkt"
-
-msgid "Complement"
-msgstr "Complement"
-
-msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr "Model '%s' kan geen referentiemodel zijn, want het is leeg!"
-
-msgid "Model Coefficients Table"
-msgstr "Tabel met modelcoëfficiënten"
-
-msgid "Estimates"
-msgstr "Schattingen"
-
-msgid "Coefficient"
-msgstr "Coëfficiënt"
-
-msgid "Coefficients differ from unconstrained model."
-msgstr "Coëfficiënten verschillen van het model zonder beperkingen."
-
-msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr ""
-"Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
-"mogelijk te weinig bootstrap replicaties."
-
-msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden: %s"
-
-msgid "Informed Hypothesis Tests"
-msgstr "Geïnformeerde Hypothesetoets"
-
-msgid "Restriction Summary"
-msgstr "Samenvatting van beperkingen"
-
-msgid "Restriction"
-msgstr "Beperking"
-
-msgid "Reduction Summary"
-msgstr "Vermindering Samenvatting"
-
-msgid "Unrestricted R%s"
-msgstr "Onbeperkte R%s"
-
-msgid "Restricted R%s"
-msgstr "Beperkte R%s"
-
-msgid "Test Type"
-msgstr "Test Type"
-
-msgid "Residual df"
-msgstr "Residuele df"
-
-msgid "Classical Test"
-msgstr "Klassieke Test"
-
-msgid "Model Summaries"
-msgstr "Model Samenvattingen"
-
-msgid "Marginal means"
-msgstr "Marginale Gemiddeldes"
-
-msgid ""
-"Please, select a model term to summarise in the 'Restricted Marginal Means' "
-"section."
-msgstr ""
-"Selecteer een modelterm om samen te vatten in de 'Beperkte Marginale "
-"Middelen' sectie."
-
-msgid "%.0f%% CI"
-msgstr "%.0f%% CI"
-
-msgid "Marginal Means -"
-msgstr "Marginale Gemiddeldes -"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few successful "
-"bootstrap replicates."
-msgstr ""
-"Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
-"mogelijk te weinig bootstrap replicaties."
-
-msgid "Marginal Mean"
-msgstr "Marginaal Gemiddelde"
-
-msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "Bootstrapped SE en CI gebaseerd op %i herhalingen."
-
-msgid "Marginal Means Plots"
-msgstr "Marginale Gemiddelden Grafieken"
-
 msgid "Post Hoc Tests"
 msgstr "Post-Hoc Toetsen"
 
@@ -419,6 +249,13 @@ msgstr "Marginale Gemiddeldes"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "Bootstrapping Marginale Gemiddelden"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
+"mogelijk te weinig bootstrap replicaties."
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "Bootstrapping gebaseerd op %s herhalingen."
@@ -558,15 +395,6 @@ msgstr ""
 "Kan geen sfericiteitstoetsen uitvoeren omdat de BP-factor slechts twee "
 "niveaus bevat of omdat de SSP-matrix singulier is."
 
-msgid "Coefficients"
-msgstr "Coëfficiënten"
-
-msgid "Between Subjects"
-msgstr "Tussen-proefpersoon Effecten"
-
-msgid "Within Subjects"
-msgstr "Binnen-proefpersoon Effecten"
-
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "Aparte fout term enkel toegestaan bij gebalanceerde designs."
 
@@ -621,8 +449,14 @@ msgstr ""
 "Ongelijke varianties alleen beschikbaar voor hoofdeffecten van binnen-"
 "proefpersoon factoren"
 
+msgid "Marginal Means -"
+msgstr "Marginale Gemiddeldes -"
+
 msgid "Bootstrapped Marginal Means -"
 msgstr "Gebootstrapte Marginale Gemiddeldes -"
+
+msgid "Marginal Mean"
+msgstr "Marginaal Gemiddelde"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s BI"
@@ -740,7 +574,15 @@ msgstr ""
 "Bayes factor kon niet worden berekend voor model: %1$s.\n"
 "Foutbericht: %2$s."
 
-msgid "All models include %s"
+msgid ""
+"All models include %s, and random slopes for all repeated measures factors."
+msgstr ""
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr ""
+
+#, fuzzy
+msgid "All models include %s."
 msgstr "Alle modellen bevatten %s"
 
 msgid "Analysis of Effects - %s"
@@ -980,6 +822,240 @@ msgstr "Posterior R%s"
 msgid "Single Model R%s"
 msgstr "Enkel Model R%s"
 
+#, fuzzy
+msgid "Order Restricted Hypotheses"
+msgstr "Orderbeperkingen"
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+"Syntaxfout gevonden in model %1$s.\n"
+"\n"
+"Sommige beperkingen zijn dubbel!"
+
+#, fuzzy
+msgid ""
+"There are errors in the restriction syntax for %s. The syntax could not be "
+"decoded!"
+msgstr "Er zijn fouten in de beperkings syntax voor %s."
+
+#, fuzzy
+msgid "Bootstrapping unrestricted model"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping restricted models"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
+
+msgid ""
+"Could not fit the unrestricted model. As a result, none of the restricted "
+"models could be estimated. Error message: %s."
+msgstr ""
+
+msgid ""
+"Could not obtain bootstrapping for the unrestricted model. As a result, "
+"bootstrapping for the restricted models could not be performed. Error "
+"message: %s."
+msgstr ""
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr "Onbeperkt"
+
+msgid "Complement"
+msgstr "Complement"
+
+msgid "Syntax information"
+msgstr ""
+
+msgid "Available coefficients for restriction syntax"
+msgstr ""
+
+#, fuzzy
+msgid "Could not compute model comparison! Error message: %s"
+msgstr ""
+"Bayes factor kon niet worden berekend voor model: %1$s.\n"
+"Foutbericht: %2$s."
+
+msgid "Model Comparison Table"
+msgstr "Modelvergelijkingstabel"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Log-likelihood"
+msgstr ""
+
+msgid "Penalty"
+msgstr "Straf"
+
+msgid "GORIC"
+msgstr "GORIC"
+
+msgid "Weight"
+msgstr "Gewicht"
+
+msgid "GORICA"
+msgstr "GORICA"
+
+#, fuzzy
+msgid "Weights ratio"
+msgstr "Gewicht"
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+
+#, fuzzy
+msgid ""
+"Weights ratios indicate the relative weight for each model against the \"%1$s"
+"\" model. %2$s"
+msgstr ""
+"De verhoudingen geven het relatieve gewicht aan van elk model ten opzichte "
+"van het %1$s model. %2$s"
+
+msgid "Could not compute weights!"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr "Model '%s' kan geen referentiemodel zijn, want het is leeg!"
+
+#, fuzzy
+msgid "The following models were excluded: %s."
+msgstr "Alle modellen bevatten %s"
+
+msgid "Relative %s-Weights"
+msgstr ""
+
+msgid ""
+"Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr ""
+
+msgid "vs."
+msgstr ""
+
+#, fuzzy
+msgid "Coefficients Comparison"
+msgstr "Coëfficiënten"
+
+msgid "Coefficient"
+msgstr "Coëfficiënt"
+
+msgid "Coefficients differ from unconstrained model."
+msgstr "Coëfficiënten verschillen van het model zonder beperkingen."
+
+#, fuzzy
+msgid "Model Summary"
+msgstr "Model Samenvattingen"
+
+#, fuzzy
+msgid "Restriction Matrix"
+msgstr "Beperking"
+
+msgid "Left-hand side (lhs)"
+msgstr ""
+
+msgid "Right-hand side (rhs)"
+msgstr ""
+
+msgid "Coefficients"
+msgstr "Coëfficiënten"
+
+#, fuzzy
+msgid "%s%% CI"
+msgstr "%.0f%% CI"
+
+#, fuzzy
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr "Bootstrapping gebaseerd op %s succesvolle replicaties."
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Informative Hypothesis Tests"
+msgstr "Geïnformeerde Hypothesetoets"
+
+msgid "Hypothesis"
+msgstr ""
+
+#, fuzzy
+msgid "Test"
+msgstr "Test Type"
+
+#, fuzzy
+msgid "Test Statistic"
+msgstr "Statistiek"
+
+msgid "Type %s"
+msgstr ""
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr ""
+
+msgid ""
+"H%1$s: All equality restrictions are active (==), H%2$s: At least one "
+"equality restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
+"inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
+"restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: At least one restriction is false or active (==), H%2$s: All "
+"restrictions are strictly true (>)."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"No marginal means terms specified. Please, select model terms in the "
+"'Restricted Marginal Means' section."
+msgstr ""
+"Selecteer een modelterm om samen te vatten in de 'Beperkte Marginale "
+"Middelen' sectie."
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Results are averaged over the levels of: %s."
+msgstr "Resultaten zijn gemiddeld over de levels van: %s"
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr ""
+
 msgid "MANOVA"
 msgstr "MANOVA"
 
@@ -989,6 +1065,83 @@ msgid ""
 msgstr ""
 "De ontwerpmatrix is niet inverteerbaar. Dit kan het gevolg zijn van "
 "collineaire afhankelijke variabelen."
+
+#, fuzzy
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] "Nulmodel (incl. %s)"
+msgstr[1] "Nulmodel (incl. %s)"
+
+#~ msgid ""
+#~ "Syntax error found in model %1$s, line: %2$s.\n"
+#~ "\n"
+#~ "Multiple restrictions on one line.\n"
+#~ "\n"
+#~ "Please use one restriction per line!"
+#~ msgstr ""
+#~ "Syntaxfout gevonden in model %1$s, regel: %2$s.\n"
+#~ "\n"
+#~ "Meerdere beperkingen op één regel.\n"
+#~ "\n"
+#~ "Gelieve één beperking per lijn te gebruiken!"
+
+#~ msgid "Syntax error: %1$s%2$s."
+#~ msgstr "Syntaxisfout: %1$s%2$s."
+
+#~ msgid "LL"
+#~ msgstr "LL"
+
+#~ msgid "Ratio"
+#~ msgstr "Verhouding"
+
+#~ msgid "Model Coefficients Table"
+#~ msgstr "Tabel met modelcoëfficiënten"
+
+#~ msgid "Estimates"
+#~ msgstr "Schattingen"
+
+#~ msgid "Bootstrapping Restricted Marginal Means: %s"
+#~ msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden: %s"
+
+#~ msgid "Restriction Summary"
+#~ msgstr "Samenvatting van beperkingen"
+
+#~ msgid "Reduction Summary"
+#~ msgstr "Vermindering Samenvatting"
+
+#~ msgid "Unrestricted R%s"
+#~ msgstr "Onbeperkte R%s"
+
+#~ msgid "Restricted R%s"
+#~ msgstr "Beperkte R%s"
+
+#~ msgid "Residual df"
+#~ msgstr "Residuele df"
+
+#~ msgid "Classical Test"
+#~ msgstr "Klassieke Test"
+
+#~ msgid "Marginal means"
+#~ msgstr "Marginale Gemiddeldes"
+
+#~ msgid ""
+#~ "Some confidence intervals could not be computed. Possibly too few "
+#~ "successful bootstrap replicates."
+#~ msgstr ""
+#~ "Sommige betrouwbaarheidsintervallen konden niet worden berekend. Er zijn "
+#~ "mogelijk te weinig bootstrap replicaties."
+
+#~ msgid "Bootstrapped SE and CI based on %i samples."
+#~ msgstr "Bootstrapped SE en CI gebaseerd op %i herhalingen."
+
+#~ msgid "Marginal Means Plots"
+#~ msgstr "Marginale Gemiddelden Grafieken"
+
+#~ msgid "Between Subjects"
+#~ msgstr "Tussen-proefpersoon Effecten"
+
+#~ msgid "Within Subjects"
+#~ msgstr "Binnen-proefpersoon Effecten"
 
 #~ msgid "Cohen's d does not correct for multiple comparisons."
 #~ msgstr "Cohen's d corrigeert niet voor meerdere vergelijkingen."

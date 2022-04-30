@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-04-23 02:55\n"
+"POT-Creation-Date: 2022-04-30 03:07\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -126,173 +126,6 @@ msgstr "t"
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s コントラスト係数 - %2$s"
 
-msgid "Order Restrictions"
-msgstr "順序制約"
-
-msgid ""
-"Syntax error found in model %1$s, line: %2$s.\n"
-"\n"
-"Multiple restrictions on one line.\n"
-"\n"
-"Please use one restriction per line!"
-msgstr ""
-"モデル %1$s, 行: %2$s でシンタックスにエラーが見つかりました.\n"
-"\n"
-"1 行に複数の制約があります.\n"
-"\n"
-"1行ごとに一つの制約を指定してください!"
-
-msgid ""
-"Syntax error found in model %1$s.\n"
-"\n"
-"Some restrictions are duplicate!"
-msgstr ""
-"モデル %1$s でシンタックスエラーが見つかりました.\n"
-"\n"
-"いくつかの制約が重複しています!"
-
-msgid "There are errors in the restriction syntax for %s."
-msgstr "%sの制約シンタックスにエラーがあります."
-
-msgid "Syntax error: %1$s%2$s."
-msgstr "シンタックスエラー: %1$s%2$s."
-
-msgid "Model Comparison Table"
-msgstr "モデル比較表"
-
-msgid "Model"
-msgstr "モデル"
-
-msgid "LL"
-msgstr "LL"
-
-msgid "Penalty"
-msgstr "ペナルティ"
-
-msgid "GORIC"
-msgstr "GORIC"
-
-msgid "Weight"
-msgstr "重み"
-
-msgid "GORICA"
-msgstr "GORICA"
-
-msgid "Ratio"
-msgstr "比"
-
-msgid ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-msgstr ""
-"GORIC = Generalized Order-Restricted Information Criterion (一般化順序制約情"
-"報量規準) (Kuiper, Hoijtink, & Silvapulle, 2011)."
-
-msgid ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation (一"
-"般化順序制約情報量規準近似)."
-
-msgid ""
-"Ratios indicate the relative weight for each model against the \"%1$s\" "
-"model. %2$s"
-msgstr "比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
-
-msgid "Unconstrained"
-msgstr "制約なし"
-
-msgid "Complement"
-msgstr "補完"
-
-msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr "モデル '%s' は空なので、参照モデルにはできません!"
-
-msgid "Model Coefficients Table"
-msgstr "モデル係数表"
-
-msgid "Estimates"
-msgstr "推定値"
-
-msgid "Coefficient"
-msgstr "係数"
-
-msgid "Coefficients differ from unconstrained model."
-msgstr "係数は、制約のないモデルとは異なります."
-
-msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "ブートストラップ制約周辺平均:"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr ""
-"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
-"る可能性があります。"
-
-msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "ブートストラップ制約あり周辺平均: %s"
-
-msgid "Informed Hypothesis Tests"
-msgstr "情報仮説検定"
-
-msgid "Restriction Summary"
-msgstr "制約の概要"
-
-msgid "Restriction"
-msgstr "制約"
-
-msgid "Reduction Summary"
-msgstr "削減の概要"
-
-msgid "Unrestricted R%s"
-msgstr "制約なし R%s"
-
-msgid "Restricted R%s"
-msgstr "制約あり R%s"
-
-msgid "Test Type"
-msgstr "検定のタイプ"
-
-msgid "Residual df"
-msgstr "残差 df"
-
-msgid "Classical Test"
-msgstr "古典的テスト"
-
-msgid "Model Summaries"
-msgstr "モデル要約"
-
-msgid "Marginal means"
-msgstr "周辺平均"
-
-msgid ""
-"Please, select a model term to summarise in the 'Restricted Marginal Means' "
-"section."
-msgstr "'制約あり周辺平均'のセクションで要約するモデル項を選択してください."
-
-msgid "%.0f%% CI"
-msgstr "%.0f%% CI"
-
-msgid "Marginal Means -"
-msgstr "周辺平均 -"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few successful "
-"bootstrap replicates."
-msgstr ""
-"いくつかの信頼区間が計算できませんでした。ブートストラップの複製数が少なすぎ"
-"る可能性があります."
-
-msgid "Marginal Mean"
-msgstr "周辺平均"
-
-msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "%i サンプルに基づいて SE と CI をブートストラップしました."
-
-msgid "Marginal Means Plots"
-msgstr "周辺平均 プロット"
-
 msgid "Post Hoc Tests"
 msgstr "事後検定"
 
@@ -409,6 +242,13 @@ msgstr "周辺平均"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "ブートストラップ周辺平均"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"いくつかの信頼区間が計算できませんでした。ブートストラップの再標本が少なすぎ"
+"る可能性があります。"
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "%s の再標本に基づくブートストラップ。"
@@ -543,15 +383,6 @@ msgstr ""
 "反復測定因子が２水準だけか，SSP行列が特異であるため，球面性の検定は実行できま"
 "せん。"
 
-msgid "Coefficients"
-msgstr "係数"
-
-msgid "Between Subjects"
-msgstr "参加者間"
-
-msgid "Within Subjects"
-msgstr "参加者内"
-
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"
 
@@ -603,8 +434,14 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr "参加者内要因の主効果に対してのみ利用可能な不等分散"
 
+msgid "Marginal Means -"
+msgstr "周辺平均 -"
+
 msgid "Bootstrapped Marginal Means -"
 msgstr "ブートストラップ周辺平均 -"
+
+msgid "Marginal Mean"
+msgstr "周辺平均"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s 信頼区間"
@@ -718,7 +555,15 @@ msgstr ""
 "ベイズファクターはモデルで計算できませんでした: %1$s。\n"
 "エラー・メッセージは%2$sです。"
 
-msgid "All models include %s"
+msgid ""
+"All models include %s, and random slopes for all repeated measures factors."
+msgstr ""
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr ""
+
+#, fuzzy
+msgid "All models include %s."
 msgstr "すべてのモデルには%sが含まれます"
 
 msgid "Analysis of Effects - %s"
@@ -955,6 +800,237 @@ msgstr "事後分布 R%s"
 msgid "Single Model R%s"
 msgstr "単一モデル R%s"
 
+#, fuzzy
+msgid "Order Restricted Hypotheses"
+msgstr "順序制約"
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+"モデル %1$s でシンタックスエラーが見つかりました.\n"
+"\n"
+"いくつかの制約が重複しています!"
+
+#, fuzzy
+msgid ""
+"There are errors in the restriction syntax for %s. The syntax could not be "
+"decoded!"
+msgstr "%sの制約シンタックスにエラーがあります."
+
+#, fuzzy
+msgid "Bootstrapping unrestricted model"
+msgstr "ブートストラップ制約周辺平均:"
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping restricted models"
+msgstr "ブートストラップ制約周辺平均:"
+
+msgid ""
+"Could not fit the unrestricted model. As a result, none of the restricted "
+"models could be estimated. Error message: %s."
+msgstr ""
+
+msgid ""
+"Could not obtain bootstrapping for the unrestricted model. As a result, "
+"bootstrapping for the restricted models could not be performed. Error "
+"message: %s."
+msgstr ""
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr "制約なし"
+
+msgid "Complement"
+msgstr "補完"
+
+msgid "Syntax information"
+msgstr ""
+
+msgid "Available coefficients for restriction syntax"
+msgstr ""
+
+#, fuzzy
+msgid "Could not compute model comparison! Error message: %s"
+msgstr ""
+"ベイズファクターはモデルで計算できませんでした: %1$s。\n"
+"エラー・メッセージは%2$sです。"
+
+msgid "Model Comparison Table"
+msgstr "モデル比較表"
+
+msgid "Model"
+msgstr "モデル"
+
+msgid "Log-likelihood"
+msgstr ""
+
+msgid "Penalty"
+msgstr "ペナルティ"
+
+msgid "GORIC"
+msgstr "GORIC"
+
+msgid "Weight"
+msgstr "重み"
+
+msgid "GORICA"
+msgstr "GORICA"
+
+#, fuzzy
+msgid "Weights ratio"
+msgstr "重み"
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (一般化順序制約情"
+"報量規準) (Kuiper, Hoijtink, & Silvapulle, 2011)."
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation (一"
+"般化順序制約情報量規準近似)."
+
+#, fuzzy
+msgid ""
+"Weights ratios indicate the relative weight for each model against the \"%1$s"
+"\" model. %2$s"
+msgstr "比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
+
+msgid "Could not compute weights!"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr "モデル '%s' は空なので、参照モデルにはできません!"
+
+#, fuzzy
+msgid "The following models were excluded: %s."
+msgstr "すべてのモデルには%sが含まれます"
+
+msgid "Relative %s-Weights"
+msgstr ""
+
+msgid ""
+"Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr ""
+
+msgid "vs."
+msgstr ""
+
+#, fuzzy
+msgid "Coefficients Comparison"
+msgstr "係数"
+
+msgid "Coefficient"
+msgstr "係数"
+
+msgid "Coefficients differ from unconstrained model."
+msgstr "係数は、制約のないモデルとは異なります."
+
+#, fuzzy
+msgid "Model Summary"
+msgstr "モデル要約"
+
+#, fuzzy
+msgid "Restriction Matrix"
+msgstr "制約"
+
+msgid "Left-hand side (lhs)"
+msgstr ""
+
+msgid "Right-hand side (rhs)"
+msgstr ""
+
+msgid "Coefficients"
+msgstr "係数"
+
+#, fuzzy
+msgid "%s%% CI"
+msgstr "%.0f%% CI"
+
+#, fuzzy
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Informative Hypothesis Tests"
+msgstr "情報仮説検定"
+
+msgid "Hypothesis"
+msgstr ""
+
+#, fuzzy
+msgid "Test"
+msgstr "検定のタイプ"
+
+#, fuzzy
+msgid "Test Statistic"
+msgstr "統計量"
+
+msgid "Type %s"
+msgstr ""
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr ""
+
+msgid ""
+"H%1$s: All equality restrictions are active (==), H%2$s: At least one "
+"equality restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
+"inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
+"restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: At least one restriction is false or active (==), H%2$s: All "
+"restrictions are strictly true (>)."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"No marginal means terms specified. Please, select model terms in the "
+"'Restricted Marginal Means' section."
+msgstr "'制約あり周辺平均'のセクションで要約するモデル項を選択してください."
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Results are averaged over the levels of: %s."
+msgstr "結果は次のレベルで平均化されています: %s"
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr ""
+
 msgid "MANOVA"
 msgstr "多変量分散分析"
 
@@ -964,6 +1040,82 @@ msgid ""
 msgstr ""
 "デザイン行列が正則ではありません。これは，共線従属変数が原因である可能性があ"
 "ります。"
+
+#, fuzzy
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] "帰無モデル (%s含む)"
+
+#~ msgid ""
+#~ "Syntax error found in model %1$s, line: %2$s.\n"
+#~ "\n"
+#~ "Multiple restrictions on one line.\n"
+#~ "\n"
+#~ "Please use one restriction per line!"
+#~ msgstr ""
+#~ "モデル %1$s, 行: %2$s でシンタックスにエラーが見つかりました.\n"
+#~ "\n"
+#~ "1 行に複数の制約があります.\n"
+#~ "\n"
+#~ "1行ごとに一つの制約を指定してください!"
+
+#~ msgid "Syntax error: %1$s%2$s."
+#~ msgstr "シンタックスエラー: %1$s%2$s."
+
+#~ msgid "LL"
+#~ msgstr "LL"
+
+#~ msgid "Ratio"
+#~ msgstr "比"
+
+#~ msgid "Model Coefficients Table"
+#~ msgstr "モデル係数表"
+
+#~ msgid "Estimates"
+#~ msgstr "推定値"
+
+#~ msgid "Bootstrapping Restricted Marginal Means: %s"
+#~ msgstr "ブートストラップ制約あり周辺平均: %s"
+
+#~ msgid "Restriction Summary"
+#~ msgstr "制約の概要"
+
+#~ msgid "Reduction Summary"
+#~ msgstr "削減の概要"
+
+#~ msgid "Unrestricted R%s"
+#~ msgstr "制約なし R%s"
+
+#~ msgid "Restricted R%s"
+#~ msgstr "制約あり R%s"
+
+#~ msgid "Residual df"
+#~ msgstr "残差 df"
+
+#~ msgid "Classical Test"
+#~ msgstr "古典的テスト"
+
+#~ msgid "Marginal means"
+#~ msgstr "周辺平均"
+
+#~ msgid ""
+#~ "Some confidence intervals could not be computed. Possibly too few "
+#~ "successful bootstrap replicates."
+#~ msgstr ""
+#~ "いくつかの信頼区間が計算できませんでした。ブートストラップの複製数が少なす"
+#~ "ぎる可能性があります."
+
+#~ msgid "Bootstrapped SE and CI based on %i samples."
+#~ msgstr "%i サンプルに基づいて SE と CI をブートストラップしました."
+
+#~ msgid "Marginal Means Plots"
+#~ msgstr "周辺平均 プロット"
+
+#~ msgid "Between Subjects"
+#~ msgstr "参加者間"
+
+#~ msgid "Within Subjects"
+#~ msgstr "参加者内"
 
 #~ msgid "Cohen's d does not correct for multiple comparisons."
 #~ msgstr "Cohenのdは，多重比較の補正をしない。"

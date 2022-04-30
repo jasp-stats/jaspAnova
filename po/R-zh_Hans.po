@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-04-23 02:55\n"
+"POT-Creation-Date: 2022-04-30 03:07\n"
 "PO-Revision-Date: 2022-02-04 13:48+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -120,166 +120,6 @@ msgstr "t"
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s 对比度系数 - %2$s"
 
-msgid "Order Restrictions"
-msgstr ""
-
-msgid ""
-"Syntax error found in model %1$s, line: %2$s.\n"
-"\n"
-"Multiple restrictions on one line.\n"
-"\n"
-"Please use one restriction per line!"
-msgstr ""
-
-msgid ""
-"Syntax error found in model %1$s.\n"
-"\n"
-"Some restrictions are duplicate!"
-msgstr ""
-
-msgid "There are errors in the restriction syntax for %s."
-msgstr ""
-
-msgid "Syntax error: %1$s%2$s."
-msgstr ""
-
-#, fuzzy
-msgid "Model Comparison Table"
-msgstr "模型比较"
-
-#, fuzzy
-msgid "Model"
-msgstr "模型"
-
-msgid "LL"
-msgstr ""
-
-msgid "Penalty"
-msgstr ""
-
-msgid "GORIC"
-msgstr ""
-
-msgid "Weight"
-msgstr "权重"
-
-msgid "GORICA"
-msgstr ""
-
-msgid "Ratio"
-msgstr ""
-
-msgid ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-msgstr ""
-
-msgid ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
-
-msgid ""
-"Ratios indicate the relative weight for each model against the \"%1$s\" "
-"model. %2$s"
-msgstr ""
-
-msgid "Unconstrained"
-msgstr ""
-
-msgid "Complement"
-msgstr ""
-
-msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
-
-msgid "Model Coefficients Table"
-msgstr "模型系数表"
-
-#, fuzzy
-msgid "Estimates"
-msgstr "估计"
-
-msgid "Coefficient"
-msgstr "系数"
-
-msgid "Coefficients differ from unconstrained model."
-msgstr ""
-
-msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "自举(Bootstrap)边缘均值："
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
-
-#, fuzzy
-msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "自举(Bootstrap)边缘均值"
-
-msgid "Informed Hypothesis Tests"
-msgstr ""
-
-msgid "Restriction Summary"
-msgstr ""
-
-msgid "Restriction"
-msgstr ""
-
-msgid "Reduction Summary"
-msgstr ""
-
-msgid "Unrestricted R%s"
-msgstr ""
-
-msgid "Restricted R%s"
-msgstr ""
-
-msgid "Test Type"
-msgstr ""
-
-msgid "Residual df"
-msgstr ""
-
-msgid "Classical Test"
-msgstr "经典检验法"
-
-#, fuzzy
-msgid "Model Summaries"
-msgstr "模型比较"
-
-#, fuzzy
-msgid "Marginal means"
-msgstr "边缘均值"
-
-msgid ""
-"Please, select a model term to summarise in the 'Restricted Marginal Means' "
-"section."
-msgstr ""
-
-msgid "%.0f%% CI"
-msgstr ""
-
-msgid "Marginal Means -"
-msgstr "边际均值 -"
-
-#, fuzzy
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few successful "
-"bootstrap replicates."
-msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
-
-msgid "Marginal Mean"
-msgstr "边际均值"
-
-#, fuzzy
-msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "基于%s 次重复的Bootstrap抽样。"
-
-#, fuzzy
-msgid "Marginal Means Plots"
-msgstr "边际均值 -"
-
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
 
@@ -394,6 +234,11 @@ msgstr "边缘均值"
 
 msgid "Bootstrapping Marginal Means"
 msgstr "自举(Bootstrap)边缘均值"
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
 
 msgid "Bootstrapping based on %s replicates."
 msgstr "基于%s 次重复的Bootstrap抽样。"
@@ -521,17 +366,6 @@ msgid ""
 msgstr ""
 "无法执行球形检验，因为 RM 因子只有两个水平，或者因为 SSP 矩阵是畸形的。"
 
-msgid "Coefficients"
-msgstr ""
-
-#, fuzzy
-msgid "Between Subjects"
-msgstr "组间(被试间)效应"
-
-#, fuzzy
-msgid "Within Subjects"
-msgstr "组内(被试内)效应"
-
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr "未合并误差项仅在平衡设计中允许。"
 
@@ -582,8 +416,14 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr "不等方差仅适用于组内(被试内)因子的主效应"
 
+msgid "Marginal Means -"
+msgstr "边际均值 -"
+
 msgid "Bootstrapped Marginal Means -"
 msgstr "自举(Bootstrap)的边际均值 -"
+
+msgid "Marginal Mean"
+msgstr "边际均值"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s CI"
@@ -695,7 +535,15 @@ msgstr ""
 "无法为模型：%1$s 计算贝叶斯因子。\n"
 "错误消息是：%2$s。"
 
-msgid "All models include %s"
+msgid ""
+"All models include %s, and random slopes for all repeated measures factors."
+msgstr ""
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr ""
+
+#, fuzzy
+msgid "All models include %s."
 msgstr "所有型号都包括 %s"
 
 msgid "Analysis of Effects - %s"
@@ -921,6 +769,224 @@ msgstr "后验 R%s"
 msgid "Single Model R%s"
 msgstr "单一模型 R%s"
 
+msgid "Order Restricted Hypotheses"
+msgstr ""
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+
+msgid ""
+"There are errors in the restriction syntax for %s. The syntax could not be "
+"decoded!"
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping unrestricted model"
+msgstr "自举(Bootstrap)边缘均值："
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping restricted models"
+msgstr "自举(Bootstrap)边缘均值："
+
+msgid ""
+"Could not fit the unrestricted model. As a result, none of the restricted "
+"models could be estimated. Error message: %s."
+msgstr ""
+
+msgid ""
+"Could not obtain bootstrapping for the unrestricted model. As a result, "
+"bootstrapping for the restricted models could not be performed. Error "
+"message: %s."
+msgstr ""
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Syntax information"
+msgstr ""
+
+msgid "Available coefficients for restriction syntax"
+msgstr ""
+
+#, fuzzy
+msgid "Could not compute model comparison! Error message: %s"
+msgstr ""
+"无法为模型：%1$s 计算贝叶斯因子。\n"
+"错误消息是：%2$s。"
+
+#, fuzzy
+msgid "Model Comparison Table"
+msgstr "模型比较"
+
+#, fuzzy
+msgid "Model"
+msgstr "模型"
+
+msgid "Log-likelihood"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr "权重"
+
+msgid "GORICA"
+msgstr ""
+
+#, fuzzy
+msgid "Weights ratio"
+msgstr "权重"
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid ""
+"Weights ratios indicate the relative weight for each model against the \"%1$s"
+"\" model. %2$s"
+msgstr ""
+
+msgid "Could not compute weights!"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
+
+#, fuzzy
+msgid "The following models were excluded: %s."
+msgstr "所有型号都包括 %s"
+
+msgid "Relative %s-Weights"
+msgstr ""
+
+msgid ""
+"Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr ""
+
+msgid "vs."
+msgstr ""
+
+#, fuzzy
+msgid "Coefficients Comparison"
+msgstr "模型比较"
+
+msgid "Coefficient"
+msgstr "系数"
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+#, fuzzy
+msgid "Model Summary"
+msgstr "模型比较"
+
+msgid "Restriction Matrix"
+msgstr ""
+
+msgid "Left-hand side (lhs)"
+msgstr ""
+
+msgid "Right-hand side (rhs)"
+msgstr ""
+
+msgid "Coefficients"
+msgstr ""
+
+msgid "%s%% CI"
+msgstr ""
+
+#, fuzzy
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr "基于 %s 次样本的Bootstrap抽样已成功复刻。"
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr ""
+
+msgid "Informative Hypothesis Tests"
+msgstr ""
+
+msgid "Hypothesis"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+#, fuzzy
+msgid "Test Statistic"
+msgstr "统计"
+
+msgid "Type %s"
+msgstr ""
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr ""
+
+msgid ""
+"H%1$s: All equality restrictions are active (==), H%2$s: At least one "
+"equality restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
+"inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
+"restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: At least one restriction is false or active (==), H%2$s: All "
+"restrictions are strictly true (>)."
+msgstr ""
+
+msgid ""
+"No marginal means terms specified. Please, select model terms in the "
+"'Restricted Marginal Means' section."
+msgstr ""
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Results are averaged over the levels of: %s."
+msgstr "结果在以下水平上取平均值：%s"
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr ""
+
 msgid "MANOVA"
 msgstr "多变量方差分析(MANOVA)"
 
@@ -928,6 +994,51 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造成的。"
+
+#, fuzzy
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "Model Coefficients Table"
+#~ msgstr "模型系数表"
+
+#, fuzzy
+#~ msgid "Estimates"
+#~ msgstr "估计"
+
+#, fuzzy
+#~ msgid "Bootstrapping Restricted Marginal Means: %s"
+#~ msgstr "自举(Bootstrap)边缘均值"
+
+#~ msgid "Classical Test"
+#~ msgstr "经典检验法"
+
+#, fuzzy
+#~ msgid "Marginal means"
+#~ msgstr "边缘均值"
+
+#, fuzzy
+#~ msgid ""
+#~ "Some confidence intervals could not be computed. Possibly too few "
+#~ "successful bootstrap replicates."
+#~ msgstr "某些置信区间无法计算。可能是自助抽样(bootstrap)重复次数太少。"
+
+#, fuzzy
+#~ msgid "Bootstrapped SE and CI based on %i samples."
+#~ msgstr "基于%s 次重复的Bootstrap抽样。"
+
+#, fuzzy
+#~ msgid "Marginal Means Plots"
+#~ msgstr "边际均值 -"
+
+#, fuzzy
+#~ msgid "Between Subjects"
+#~ msgstr "组间(被试间)效应"
+
+#, fuzzy
+#~ msgid "Within Subjects"
+#~ msgstr "组内(被试内)效应"
 
 #~ msgid "Cohen's d does not correct for multiple comparisons."
 #~ msgstr "Cohen's d 不能校正多重比较。"

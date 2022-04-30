@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-04-23 02:55\n"
+"POT-Creation-Date: 2022-04-30 03:07\n"
 "PO-Revision-Date: 2022-02-26 02:43+0000\n"
 "Last-Translator: Jordy STEFAN <jordy.stefan@askoria.eu>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -130,177 +130,6 @@ msgstr "t"
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coefficients de contraste - %2$s"
 
-msgid "Order Restrictions"
-msgstr "Restrictions de commande"
-
-msgid ""
-"Syntax error found in model %1$s, line: %2$s.\n"
-"\n"
-"Multiple restrictions on one line.\n"
-"\n"
-"Please use one restriction per line!"
-msgstr ""
-"Erreur de syntaxe trouvée dans le modèle %1$s, ligne : %2$s.\n"
-"\n"
-"Plusieurs restrictions sur une même ligne.\n"
-"\n"
-"Veuillez utiliser une restriction par ligne !"
-
-msgid ""
-"Syntax error found in model %1$s.\n"
-"\n"
-"Some restrictions are duplicate!"
-msgstr ""
-"Erreur de syntaxe trouvée dans le modèle %1$s.\n"
-"\n"
-"Certaines restrictions sont en double !"
-
-msgid "There are errors in the restriction syntax for %s."
-msgstr "Il y a des erreurs dans la syntaxe de restriction pour %s."
-
-msgid "Syntax error: %1$s%2$s."
-msgstr "Erreur de syntaxe : %1$s%2$s."
-
-msgid "Model Comparison Table"
-msgstr "Tableau de comparaison des modèles"
-
-msgid "Model"
-msgstr "Modèle"
-
-msgid "LL"
-msgstr "LL"
-
-msgid "Penalty"
-msgstr "Pénalité"
-
-msgid "GORIC"
-msgstr "GORIC"
-
-msgid "Weight"
-msgstr "Poids"
-
-msgid "GORICA"
-msgstr "GORICA"
-
-msgid "Ratio"
-msgstr "Ratio"
-
-msgid ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-msgstr ""
-"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
-"Hoijtink, & Silvapulle, 2011)."
-
-msgid ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
-"GORICA = Generalized Order-Restricted Information Criterion Approximation."
-
-msgid ""
-"Ratios indicate the relative weight for each model against the \"%1$s\" "
-"model. %2$s"
-msgstr ""
-"Les ratios indiquent le poids relatif de chaque modèle par rapport au modèle "
-"\"%1$s\" ;. %2$s"
-
-msgid "Unconstrained"
-msgstr "Sans contrainte"
-
-msgid "Complement"
-msgstr "Complément"
-
-msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
-"Le modèle '%s' ; ne peut pas être un modèle de référence car il est vide !"
-
-msgid "Model Coefficients Table"
-msgstr "Tableau des coefficients du modèle"
-
-msgid "Estimates"
-msgstr "Estimations"
-
-msgid "Coefficient"
-msgstr "Coefficient"
-
-msgid "Coefficients differ from unconstrained model."
-msgstr "Les coefficients diffèrent du modèle sans contrainte."
-
-msgid "Bootstrapping Restricted Marginal Means:"
-msgstr "Bootstrapping des moyennes marginales restreintes :"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few bootstrap "
-"replicates."
-msgstr ""
-"Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
-"peu de répliques bootstrap."
-
-msgid "Bootstrapping Restricted Marginal Means: %s"
-msgstr "Bootstrapping des moyennes marginales restreintes : %s"
-
-msgid "Informed Hypothesis Tests"
-msgstr "Tests d'hypothèses éclairés"
-
-msgid "Restriction Summary"
-msgstr "Résumé de la restriction"
-
-msgid "Restriction"
-msgstr "Restriction"
-
-msgid "Reduction Summary"
-msgstr "Résumé de la réduction"
-
-msgid "Unrestricted R%s"
-msgstr "R%s non restreints"
-
-msgid "Restricted R%s"
-msgstr "R%s restreints"
-
-msgid "Test Type"
-msgstr "Type de test"
-
-msgid "Residual df"
-msgstr "dl résiduel"
-
-msgid "Classical Test"
-msgstr "Test classique"
-
-msgid "Model Summaries"
-msgstr "Résumés des modèles"
-
-msgid "Marginal means"
-msgstr "Moyennes marginales"
-
-msgid ""
-"Please, select a model term to summarise in the 'Restricted Marginal Means' "
-"section."
-msgstr ""
-"Veuillez sélectionner un terme du modèle à résumer dans la section 'Moyennes "
-"marginales restreintes' ;."
-
-msgid "%.0f%% CI"
-msgstr "%.0f%% IC"
-
-msgid "Marginal Means -"
-msgstr "Moyennes marginales"
-
-msgid ""
-"Some confidence intervals could not be computed. Possibly too few successful "
-"bootstrap replicates."
-msgstr ""
-"Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
-"peu de répliques bootstrap réussies."
-
-msgid "Marginal Mean"
-msgstr "Moyenne marginale"
-
-msgid "Bootstrapped SE and CI based on %i samples."
-msgstr "SE et IC bootstrappés basés sur %i d'échantillons."
-
-msgid "Marginal Means Plots"
-msgstr "Graphiques des moyennes marginales"
-
 msgid "Post Hoc Tests"
 msgstr "Tests post-hoc"
 
@@ -413,6 +242,13 @@ msgstr ""
 
 msgid "Bootstrapping Marginal Means"
 msgstr ""
+
+msgid ""
+"Some confidence intervals could not be computed. Possibly too few bootstrap "
+"replicates."
+msgstr ""
+"Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
+"peu de répliques bootstrap."
 
 msgid "Bootstrapping based on %s replicates."
 msgstr ""
@@ -541,15 +377,6 @@ msgstr ""
 "Impossible d'effectuer des tests de sphéricité parce qu'il n'y a que deux "
 "niveaux du facteur RM, ou parce que la matrice SSP est singulière."
 
-msgid "Coefficients"
-msgstr "Coefficients"
-
-msgid "Between Subjects"
-msgstr "Entre les sujets"
-
-msgid "Within Subjects"
-msgstr ""
-
 msgid "Unpooled error term only allowed in balanced designs."
 msgstr ""
 
@@ -597,8 +424,14 @@ msgid ""
 "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
 
+msgid "Marginal Means -"
+msgstr "Moyennes marginales"
+
 msgid "Bootstrapped Marginal Means -"
 msgstr ""
+
+msgid "Marginal Mean"
+msgstr "Moyenne marginale"
 
 msgid "95%% bca%s CI"
 msgstr ""
@@ -704,7 +537,14 @@ msgid ""
 "The error message was: %2$s."
 msgstr ""
 
-msgid "All models include %s"
+msgid ""
+"All models include %s, and random slopes for all repeated measures factors."
+msgstr ""
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr ""
+
+msgid "All models include %s."
 msgstr ""
 
 msgid "Analysis of Effects - %s"
@@ -928,6 +768,237 @@ msgstr ""
 msgid "Single Model R%s"
 msgstr ""
 
+#, fuzzy
+msgid "Order Restricted Hypotheses"
+msgstr "Restrictions de commande"
+
+msgid ""
+"Syntax error found in model %1$s.\n"
+"\n"
+"Some restrictions are duplicate!"
+msgstr ""
+"Erreur de syntaxe trouvée dans le modèle %1$s.\n"
+"\n"
+"Certaines restrictions sont en double !"
+
+#, fuzzy
+msgid ""
+"There are errors in the restriction syntax for %s. The syntax could not be "
+"decoded!"
+msgstr "Il y a des erreurs dans la syntaxe de restriction pour %s."
+
+#, fuzzy
+msgid "Bootstrapping unrestricted model"
+msgstr "Bootstrapping des moyennes marginales restreintes :"
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr ""
+
+#, fuzzy
+msgid "Bootstrapping restricted models"
+msgstr "Bootstrapping des moyennes marginales restreintes :"
+
+msgid ""
+"Could not fit the unrestricted model. As a result, none of the restricted "
+"models could be estimated. Error message: %s."
+msgstr ""
+
+msgid ""
+"Could not obtain bootstrapping for the unrestricted model. As a result, "
+"bootstrapping for the restricted models could not be performed. Error "
+"message: %s."
+msgstr ""
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr "Sans contrainte"
+
+msgid "Complement"
+msgstr "Complément"
+
+msgid "Syntax information"
+msgstr ""
+
+msgid "Available coefficients for restriction syntax"
+msgstr ""
+
+msgid "Could not compute model comparison! Error message: %s"
+msgstr ""
+
+msgid "Model Comparison Table"
+msgstr "Tableau de comparaison des modèles"
+
+msgid "Model"
+msgstr "Modèle"
+
+msgid "Log-likelihood"
+msgstr ""
+
+msgid "Penalty"
+msgstr "Pénalité"
+
+msgid "GORIC"
+msgstr "GORIC"
+
+msgid "Weight"
+msgstr "Poids"
+
+msgid "GORICA"
+msgstr "GORICA"
+
+#, fuzzy
+msgid "Weights ratio"
+msgstr "Poids"
+
+msgid ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
+
+msgid ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
+
+#, fuzzy
+msgid ""
+"Weights ratios indicate the relative weight for each model against the \"%1$s"
+"\" model. %2$s"
+msgstr ""
+"Les ratios indiquent le poids relatif de chaque modèle par rapport au modèle "
+"\"%1$s\" ;. %2$s"
+
+msgid "Could not compute weights!"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
+"Le modèle '%s' ; ne peut pas être un modèle de référence car il est vide !"
+
+msgid "The following models were excluded: %s."
+msgstr ""
+
+msgid "Relative %s-Weights"
+msgstr ""
+
+msgid ""
+"Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr ""
+
+msgid "vs."
+msgstr ""
+
+#, fuzzy
+msgid "Coefficients Comparison"
+msgstr "Coefficients"
+
+msgid "Coefficient"
+msgstr "Coefficient"
+
+msgid "Coefficients differ from unconstrained model."
+msgstr "Les coefficients diffèrent du modèle sans contrainte."
+
+#, fuzzy
+msgid "Model Summary"
+msgstr "Résumés des modèles"
+
+#, fuzzy
+msgid "Restriction Matrix"
+msgstr "Restriction"
+
+msgid "Left-hand side (lhs)"
+msgstr ""
+
+msgid "Right-hand side (rhs)"
+msgstr ""
+
+msgid "Coefficients"
+msgstr "Coefficients"
+
+#, fuzzy
+msgid "%s%% CI"
+msgstr "%.0f%% IC"
+
+#, fuzzy
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr "Bootstrapping basé sur%s de répliques réussies."
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Informative Hypothesis Tests"
+msgstr "Tests d'hypothèses éclairés"
+
+msgid "Hypothesis"
+msgstr ""
+
+#, fuzzy
+msgid "Test"
+msgstr "Type de test"
+
+#, fuzzy
+msgid "Test Statistic"
+msgstr "Statistique"
+
+msgid "Type %s"
+msgstr ""
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr ""
+
+msgid ""
+"H%1$s: All equality restrictions are active (==), H%2$s: At least one "
+"equality restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
+"inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
+"restriction is strictly true (>)."
+msgstr ""
+
+msgid ""
+"H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr ""
+
+msgid ""
+"H%1$s: At least one restriction is false or active (==), H%2$s: All "
+"restrictions are strictly true (>)."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"No marginal means terms specified. Please, select model terms in the "
+"'Restricted Marginal Means' section."
+msgstr ""
+"Veuillez sélectionner un terme du modèle à résumer dans la section 'Moyennes "
+"marginales restreintes' ;."
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr ""
+
+#, fuzzy
+msgid "Results are averaged over the levels of: %s."
+msgstr "Les résultats sont moyennés sur les niveaux de:%s"
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr ""
+
 msgid "MANOVA"
 msgstr "MANOVA"
 
@@ -937,3 +1008,76 @@ msgid ""
 msgstr ""
 "La matrice de conception n'est pas inversible. Cela peut être dû à des "
 "variables dépendantes colinéaires."
+
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] ""
+msgstr[1] ""
+
+#~ msgid ""
+#~ "Syntax error found in model %1$s, line: %2$s.\n"
+#~ "\n"
+#~ "Multiple restrictions on one line.\n"
+#~ "\n"
+#~ "Please use one restriction per line!"
+#~ msgstr ""
+#~ "Erreur de syntaxe trouvée dans le modèle %1$s, ligne : %2$s.\n"
+#~ "\n"
+#~ "Plusieurs restrictions sur une même ligne.\n"
+#~ "\n"
+#~ "Veuillez utiliser une restriction par ligne !"
+
+#~ msgid "Syntax error: %1$s%2$s."
+#~ msgstr "Erreur de syntaxe : %1$s%2$s."
+
+#~ msgid "LL"
+#~ msgstr "LL"
+
+#~ msgid "Ratio"
+#~ msgstr "Ratio"
+
+#~ msgid "Model Coefficients Table"
+#~ msgstr "Tableau des coefficients du modèle"
+
+#~ msgid "Estimates"
+#~ msgstr "Estimations"
+
+#~ msgid "Bootstrapping Restricted Marginal Means: %s"
+#~ msgstr "Bootstrapping des moyennes marginales restreintes : %s"
+
+#~ msgid "Restriction Summary"
+#~ msgstr "Résumé de la restriction"
+
+#~ msgid "Reduction Summary"
+#~ msgstr "Résumé de la réduction"
+
+#~ msgid "Unrestricted R%s"
+#~ msgstr "R%s non restreints"
+
+#~ msgid "Restricted R%s"
+#~ msgstr "R%s restreints"
+
+#~ msgid "Residual df"
+#~ msgstr "dl résiduel"
+
+#~ msgid "Classical Test"
+#~ msgstr "Test classique"
+
+#~ msgid "Marginal means"
+#~ msgstr "Moyennes marginales"
+
+#~ msgid ""
+#~ "Some confidence intervals could not be computed. Possibly too few "
+#~ "successful bootstrap replicates."
+#~ msgstr ""
+#~ "Certains intervalles de confiance n'ont pas pu être calculés. Peut-être "
+#~ "trop peu de répliques bootstrap réussies."
+
+#~ msgid "Bootstrapped SE and CI based on %i samples."
+#~ msgstr "SE et IC bootstrappés basés sur %i d'échantillons."
+
+#~ msgid "Marginal Means Plots"
+#~ msgstr "Graphiques des moyennes marginales"
+
+#~ msgid "Between Subjects"
+#~ msgstr "Entre les sujets"

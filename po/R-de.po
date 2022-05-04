@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2022-04-30 03:07\n"
-"PO-Revision-Date: 2022-04-28 11:09+0000\n"
+"PO-Revision-Date: 2022-05-04 10:17+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.12.1-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -580,13 +580,15 @@ msgstr ""
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Alle Modelle enthalten %s und zufällige Steigungen für alle Faktoren mit "
+"Messwiederholung."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
+"Zufällige Steigungen für Faktoren mit Messwiederholung sind ausgeschlossen."
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "Alle Modelle beinhalten %s"
+msgstr "Alle Modelle beinhalten %s."
 
 msgid "Analysis of Effects - %s"
 msgstr "Analyse der Effekte - %s"
@@ -827,9 +829,8 @@ msgstr "Posterior R%s"
 msgid "Single Model R%s"
 msgstr "Einzelmodell R%s"
 
-#, fuzzy
 msgid "Order Restricted Hypotheses"
-msgstr "Reihenfolgebeschränkungen"
+msgstr "Reihenfolgebeschränkungs-Hypothesen"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
@@ -840,42 +841,52 @@ msgstr ""
 "\n"
 "Einige Beschränkungen sind doppelt vorhanden!"
 
-#, fuzzy
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
-msgstr "Die Einschränkungssyntax für %s enthält Fehler."
+msgstr ""
+"Die Beschränkungssyntax für %s ist fehlerhaft. Die Syntax konnte nicht "
+"dekodiert werden!"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "Bootstrapping Beschränkter Randmittelwerte:"
+msgstr "Bootstrapping unbeschränktes Modell"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Fehler in %1$s - Die Modellsyntax konnte nicht kodiert werden! Fehlermeldung:"
+" %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Fehler in %1$s - Syntaxfehler im Modell! Fehlermeldung: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
 msgstr ""
+"Fehler in %1$s - Das Modell konnte nicht geschätzt werden! Fehlermeldung: "
+"%2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "Bootstrapping Beschränkter Randmittelwerte:"
+msgstr "Bootstrapping beschränkter Modelle"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+"Das unbeschränkte Modell konnte nicht angepasst werden. Infolgedessen konnte "
+"keines der beschränkten Modelle geschätzt werden. Fehlermeldung: %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+"Es konnte kein Bootstrapping für das unbeschränkte Modell durchgeführt "
+"werden. Infolgedessen konnte das Bootstrapping für die beschränkten Modelle "
+"nicht durchgeführt werden. Fehlermeldung: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"Keines der angegebenen beschränkten Modelle konnte angepasst werden. Grund: "
+"%s"
 
 msgid "Unconstrained"
 msgstr "Unbeschränkt"
@@ -884,16 +895,13 @@ msgid "Complement"
 msgstr "Komplement"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Syntaxinformationen"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Verfügbare Koeffizienten für die Beschränkungssyntax"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"Bayesfaktor konnte nicht berechnet werden für Modell: %1$s.\n"
-"Die Fehlermeldung war: %2$s."
+msgstr "Der Modellvergleich konnte nicht berechnet werden! Fehlermeldung: %s"
 
 msgid "Model Comparison Table"
 msgstr "Modellvergleichstabelle"
@@ -902,7 +910,7 @@ msgid "Model"
 msgstr "Modell"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-Likelihood"
 
 msgid "Penalty"
 msgstr "Strafterm"
@@ -916,9 +924,8 @@ msgstr "Gewichtung"
 msgid "GORICA"
 msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
-msgstr "Gewichtung"
+msgstr "Gewichtungsverhältnis"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
@@ -932,37 +939,36 @@ msgid ""
 msgstr ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
-#, fuzzy
 msgid ""
 "Weights ratios indicate the relative weight for each model against the \"%1$s"
 "\" model. %2$s"
 msgstr ""
-"Verhältnisse geben die relative Gewichtung für jedes Modells gegenüber dem "
-"Modell \"%1$s\" an. %2$s"
+"Gewichtungsverhältnisse geben das relative Gewicht jedes Modells gegenüber "
+"dem \"%1$s\" Modell an. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Gewichte konnten nicht berechnet werden!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr "Modell '%s' kann kein Referenzmodell sein, da es leer ist!"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "Alle Modelle beinhalten %s"
+msgstr "Die folgenden Modelle wurden ausgeschlossen: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Relative %s-Gewichtungen"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Nur ein Modell im Vergleich: Relative Gewichtungsmatrix kann nicht berechnet "
+"werden"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "Koeffizienten"
+msgstr "Koeffizientenvergleich"
 
 msgid "Coefficient"
 msgstr "Koeffizient"
@@ -970,33 +976,31 @@ msgstr "Koeffizient"
 msgid "Coefficients differ from unconstrained model."
 msgstr "Koeffizienten unterscheiden sich vom unbeschränkten Modell."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Modellvergleiche"
+msgstr "Modellzusammenfassung"
 
-#, fuzzy
 msgid "Restriction Matrix"
-msgstr "Beschränkung"
+msgstr "Beschränkungsmatrix"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Linke Seite (links)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Rechte Seite (rechts)"
 
 msgid "Coefficients"
 msgstr "Koeffizienten"
 
-#, fuzzy
 msgid "%s%% CI"
-msgstr "%.0f%% KI"
+msgstr "%s%% KI"
 
-#, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr "Bootstrapping basierend auf %s erfolgreichen Wiederholungen."
+msgstr "Die Schätzungen basieren auf %s erfolgreichen Bootstrap-Wiederholungen."
 
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr ""
+"Die Tabelle der Koeffizienten konnte nicht berechnet werden. Fehlermeldung: "
+"%s"
 
 #, fuzzy
 msgid "Informative Hypothesis Tests"

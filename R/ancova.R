@@ -22,6 +22,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 }
 
 Ancova <- function(jaspResults, dataset = NULL, options) {
+  initialGlobalOptions <- options()
+  on.exit(options(initialGlobalOptions), add = TRUE)
 
   numericVariables <- c(unlist(options$dependent),unlist(options$covariates),unlist(options$wlsWeight))
   numericVariables <- numericVariables[numericVariables != ""]

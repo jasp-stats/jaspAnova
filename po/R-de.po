@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2022-04-30 03:07\n"
-"PO-Revision-Date: 2022-05-04 10:18+0000\n"
+"PO-Revision-Date: 2022-05-05 11:10+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -1002,7 +1002,6 @@ msgstr ""
 "Die Tabelle der Koeffizienten konnte nicht berechnet werden. Fehlermeldung: "
 "%s"
 
-#, fuzzy
 msgid "Informative Hypothesis Tests"
 msgstr "Informierte Hypothesentests"
 
@@ -1020,48 +1019,58 @@ msgstr "Typ %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
+"Die informativen Hypothesentests konnten nicht berechnet werden. "
+"Fehlermeldung: %s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
 msgstr ""
+"H%1$s: Alle Gleichheitsbeschränkungen sind aktiv (==), H%2$s: Mindestens "
+"eine Gleichheitsbeschränkung wird verletzt."
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Alle Parameter sind auf Gleichheit beschränkt (==), H%2$s: Mindestens "
+"eine Ungleichheitsbeschränkung ist streng wahr (>)."
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Alle Beschränkungen sind Gleichheiten (==), H%2$s: Mindestens eine "
+"Ungleichheitsbeschränkung ist streng wahr (>)."
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Alle Beschränkungen gelten, H%2$s: Mindestens eine Beschränkung ist "
+"verletzt."
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Mindestens eine Beschränkung ist falsch oder aktiv (==), H%2$s: Alle "
+"Beschränkungen sind streng wahr (>)."
 
-#, fuzzy
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
 msgstr ""
-"Bitte wählen Sie einen Modellterm zur Zusammenfassung im Abschnitt "
+"Keine Randmittelwerte angegeben. Bitte wählen Sie Modellterme im Abschnitt "
 "'Beschränkte Randmittelwerte' aus."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Die Randmittelwerte konnten nicht berechnet werden. Fehlermeldung: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Ergebnisse sind gemittelt über die Stufen von: %s"
+msgstr "Ergebnisse sind gemittelt über die Stufen von: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "Kovariaten (%s) sind auf ihre Mittelwerte fixiert."
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -1073,11 +1082,10 @@ msgstr ""
 "Die Designmatrix ist nicht invertierbar. Ein möglicher Grund sind kollineare "
 "abhängige Variablen."
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] "Nullmodell (inkl. %s)"
-msgstr[1] "Nullmodell (inkl. %s)"
+msgstr[0] "Nullmodell (inkl. %s und zufällige Steigungen)"
+msgstr[1] "Nullmodell (inkl. %s, und zufällige Steigungen)"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

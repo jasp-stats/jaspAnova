@@ -1007,15 +1007,13 @@ msgid "Informative Hypothesis Tests"
 msgstr "Informierte Hypothesentests"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hypothese"
 
-#, fuzzy
 msgid "Test"
-msgstr "Test-Typ"
+msgstr "Test"
 
-#, fuzzy
 msgid "Test Statistic"
-msgstr "Statistik"
+msgstr "Teststatistik"
 
 msgid "Type %s"
 msgstr ""

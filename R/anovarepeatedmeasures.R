@@ -15,6 +15,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
+  initialGlobalOptions <- options()
+  on.exit(options(initialGlobalOptions), add = TRUE)
 
   numericVariables <- c(unlist(options$repeatedMeasuresCells),unlist(options$covariates))
   numericVariables <- numericVariables[numericVariables != ""]

@@ -1922,7 +1922,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     } else {
       yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)
     }
-    ylim <- c(min(yBreaks), max(yBreaks))
     pd2 <- ggplot2::position_dodge2(preserve = "single")
 
     p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = plotTwoHorizontalAxis, y = dependent, group = 1)) +
@@ -1930,8 +1929,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) +
       error +
       ggplot2::labs(y = yLabel, x = options[["plotTwoHorizontalAxis"]]) +
-      ggplot2::scale_y_continuous(breaks = yBreaks) +
-      ggplot2::coord_cartesian(ylim = ylim) +
+      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks), oob = scales::rescale_none) +
       ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotTwoHorizontalAxis"])) +
       jaspGraphs::geom_rangeframe(sides = "l") +
       jaspGraphs::themeJaspRaw()

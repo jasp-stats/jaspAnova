@@ -27,9 +27,7 @@ Form
 	// The following part is used for spawning upgrade notifications about multigroup analysis
 	Rectangle
 	{
-		visible:		{
-			myAnalysis !== null && myAnalysis.needsRefresh && (repeatedMeasuresFactors.model.length > 1)
-		}
+		visible:		myAnalysis !== null && myAnalysis.needsRefresh && (repeatedMeasuresFactors.nbFactors > 1)
 		color:			jaspTheme.controlWarningBackgroundColor
 		width:			form.implicitWidth
 		height:			warningMessageUpdate.height
@@ -38,10 +36,7 @@ Form
 		Text
 		{
 			id:					warningMessageUpdate
-			text:				qsTr("This analysis was created with an older version of JASP (or a dynamic module). \
-									Since then, the model specification of the Bayesian Repeated Measures ANOVA has changed. \
-									By default, all models now include random slopes for all but the highest order repeated-measures interaction to avoid discrepancies with the frequentist repeated measures ANOVA. \
-									More details about the update can be found at https://groups.google.com/g/lavaan/c/HSavF8oaW5M.")
+			text:				qsTr("This analysis was created with an older version of JASP (or a dynamic module). Since then, the model specification of the Bayesian Repeated Measures ANOVA has changed. By default, all models now include random slopes for all but the highest order repeated-measures interaction to avoid discrepancies with the frequentist repeated measures ANOVA.")
 			color:				jaspTheme.controlWarningTextColor
 			anchors.top:		parent.top
 			padding:			5 * jaspTheme.uiScale

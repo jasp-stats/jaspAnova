@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
 "POT-Creation-Date: 2022-04-30 03:07\n"
-"PO-Revision-Date: 2022-04-29 11:52+0000\n"
+"PO-Revision-Date: 2022-05-04 10:17+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "es/>\n"
@@ -587,13 +587,15 @@ msgstr ""
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Todos los modelos incluyen %s, y pendientes aleatorias para todos los "
+"factores de medidas repetidas."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
+"Se excluyen las pendientes aleatorias para los factores de medidas repetidas."
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "Todos los modelos incluyen %s"
+msgstr "Todos los modelos incluyen %s."
 
 msgid "Analysis of Effects - %s"
 msgstr "Análisis de los Efectos - %s"
@@ -835,9 +837,8 @@ msgstr "R%s posterior"
 msgid "Single Model R%s"
 msgstr "R%s del Modelo Único"
 
-#, fuzzy
 msgid "Order Restricted Hypotheses"
-msgstr "Restricciones de Orden"
+msgstr "Hipótesis de Restricciones de Orden"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
@@ -848,42 +849,50 @@ msgstr ""
 "\n"
 "¡Algunas restricciones están repetidas!"
 
-#, fuzzy
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
-msgstr "Hay errores en la sintaxis de las restricciones para %s."
+msgstr ""
+"Hay errores en la sintaxis de las restricciones para %s. ¡La sintaxis no se "
+"puede descodificar!"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "Medias Marginales Restringidas con Bootstrapping:"
+msgstr "Bootstrapping en el modelo no restringido"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Fallo en %1$s - No se puede codificar la sintaxis del modelo! Mensaje de "
+"fallo: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Fallo en %1$s - Error de sintaxis en el modelo! Mensaje de fallo: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "Fallo en %1$s - No se puede estimar el modelo! Mensaje de fallo: %2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "Medias Marginales Restringidas con Bootstrapping:"
+msgstr "Bootstrapping de los modelos restringidos"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+"Non se puede ajustar el modelo no restringido. En consecuencia, no se puede "
+"estimar ninguno de los modelos restringidos. Mensaje de fallo: %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+"No se puede hacer el bootstrapping en el modelo sin restricciones. En "
+"consecuencia, no se puede realizar el bootstrapping en los modelos "
+"restringidos. Mensaje de fallo: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"Non se puede ajustar ninguno de los modelos restringidos especificados. "
+"Causa(s): %s"
 
 msgid "Unconstrained"
 msgstr "No restringido"
@@ -892,16 +901,13 @@ msgid "Complement"
 msgstr "Complemento"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Información de sintaxis"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Coeficientes disponibles para la sintaxis de restricciones"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"No se puede calcular el factor de Bayes para el modelo: %1$s.\n"
-"El mensaje de fallo fue: %2$s."
+msgstr "¡No puede calcularse la comparación de modelos! Mensaje de fallo: $s"
 
 msgid "Model Comparison Table"
 msgstr "Tabla de Comparación de Modelos"
@@ -910,7 +916,7 @@ msgid "Model"
 msgstr "Modelo"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-verosimilitud"
 
 msgid "Penalty"
 msgstr "Penalización"
@@ -924,9 +930,8 @@ msgstr "Ponderación"
 msgid "GORICA"
 msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
-msgstr "Ponderación"
+msgstr "Ratio de ponderaciones"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
@@ -941,38 +946,37 @@ msgstr ""
 "GORICA = Aproximación al Criterio de Información Generalizado de Orden "
 "Restrinxido."
 
-#, fuzzy
 msgid ""
 "Weights ratios indicate the relative weight for each model against the \"%1$s"
 "\" model. %2$s"
 msgstr ""
-"Los ratios indican la ponderación relativa de cada modelo frente al modelo "
-"\"%1$s\". %2$s"
+"Los ratios de ponderación indican la ponderación relativa de cada modelo "
+"frente al modelo \"%1$s\". %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "¡No se pueden calcular las ponderaciones!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
 "¡El modelo '%s' no puede ser un modelo de referencia ya que está vacío!"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "Todos los modelos incluyen %s"
+msgstr "Se han excluido los siguientes modelos: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Ponderaciones-%s Relativas"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Solo hay un modelo en la comparación: no se puede calcular la matriz de "
+"ponderaciones relativas"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "Coeficientes"
+msgstr "Comparación de Coeficientes"
 
 msgid "Coefficient"
 msgstr "Coeficiente"
@@ -980,96 +984,99 @@ msgstr "Coeficiente"
 msgid "Coefficients differ from unconstrained model."
 msgstr "Los coeficientes difieren del modelo no restringido."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Resúmenes de Modelos"
+msgstr "Resumen del Modelo"
 
-#, fuzzy
 msgid "Restriction Matrix"
-msgstr "Restricción"
+msgstr "Matriz de Restricciones"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Lado izquierdo (lhs)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Lado derecho (rhs)"
 
 msgid "Coefficients"
 msgstr "Coeficientes"
 
-#, fuzzy
 msgid "%s%% CI"
-msgstr "IC del %.0f%%"
+msgstr "IC del %s%%"
 
-#, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr "Bootstrapping basado en %s réplicas acertadas."
+msgstr "Estimaciones basadas en %s repeticiones con Bootstrap acertadas."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "No se puede calcular la tabla de coeficientes. Mensaje de fallo: %s"
 
-#, fuzzy
 msgid "Informative Hypothesis Tests"
 msgstr "Contrastes de Hipótesis Informadas"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hipótesis"
 
-#, fuzzy
 msgid "Test"
-msgstr "Tipo de Contraste"
+msgstr "Contraste"
 
-#, fuzzy
 msgid "Test Statistic"
-msgstr "Estadístico"
+msgstr "Estadístico de Contraste"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Tipo %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
+"No se pueden calcular los contrastes de hipótesis informadas. Mensaje de "
+"fallo: %s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
 msgstr ""
+"H%1$s: Todas las restricciones de igualdad están activas (==), H%2$s: Al "
+"menos, una restricción de igualdad no se cumple."
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Todos los parámetros están restringidos a ser iguales (==), H%2$s: Al "
+"menos, una restricción de desigualdad es estrictamente cierta (>)."
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Todas las restricciones son igualdades (==), H%2$s: Al menos, una "
+"restricción de desigualdad es estrictamente cierta (>)."
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"%1$s: Todas las restricciones se cumplen, H%2$s: Al menos, una restricción "
+"no se cumple."
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Al menos, una restricción es falsa o está activa (==), H%2$s: Todas "
+"las restricciones son estrictamente ciertas (>)."
 
-#, fuzzy
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
 msgstr ""
-"Por favor, selecciona un elemento del modelo para resumir, en la sección "
-"'Medias Marginales Restringidas'."
+"No se especificaron los términos de medias marginales. Por favor, selecciona "
+"elementos del modelo en la sección 'Medias Marginales Restringidas'."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "No se pueden calcular las medias marginales. Mensaje de fallo: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Los resultados se promedian sobre los niveles de: %s"
+msgstr "Los resultados son medias calculadas sobre los niveles de: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "Las covariables (%s) se han mantenido fijas en sus valores medios."
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -1081,11 +1088,10 @@ msgstr ""
 "La matriz de la propuesta no es invertible. Esto puede deberse a que hay "
 "variables dependientes colineales."
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] "Modelo nulo (incl. %s)"
-msgstr[1] "Modelo nulo (incl. %s)"
+msgstr[0] "Modelo nulo (incl. %s y pendientes aleatorias)"
+msgstr[1] "Modelo nulo (incl. %s, y pendientes aleatorias)"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

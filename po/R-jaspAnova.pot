@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-04-30 03:07\n"
+"POT-Creation-Date: 2022-05-07 02:59\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -269,6 +269,9 @@ msgid "The covariates: <em>%s</em>, contain infinite values."
 msgstr ""
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
+msgstr ""
+
+msgid "Data set too big for univariate follow-up test. Try selecting \"Use multivariate model for follow-up tests\" in the Model tab."
 msgstr ""
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."

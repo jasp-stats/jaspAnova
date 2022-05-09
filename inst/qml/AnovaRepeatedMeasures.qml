@@ -146,7 +146,7 @@ Form
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList { name: "descriptivePlotsTwoVariables"; title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
+			AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
 			AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); singleVariable: true }
 			AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: ["ordinal", "nominal"] }
 		}
@@ -164,15 +164,15 @@ Form
 					name: "errorBarTypeTwo"
 					RadioButton
 					{
-						value: "confidenceInterval";		label: qsTr("Confidence interval"); checked: true
+						value: "confidenceInterval"; label: qsTr("Confidence interval"); checked: true
 						childrenOnSameRow: true
 						CIField { name: "confidenceIntervalIntervalTwo" }
 					}
-					RadioButton { value: "standardErrorTwo";	label: qsTr("Standard error") }
+					RadioButton { value: "standardErrorTwo"; label: qsTr("Standard error") }
 				}
 			}
-			CheckBox { name: "usePooledStandErrorCITwo";	label: qsTr("Average across unused RM factors")	}
-			CheckBox { name: "zeroFix";		label: qsTr("Fix horizontal axis to 0")							 }
+			CheckBox { name: "usePooledStandErrorCITwo"; label: qsTr("Average across unused RM factors")	}
+			CheckBox { name: "zeroFix";					 label: qsTr("Fix horizontal axis to 0")			}
 		}
 	}
 

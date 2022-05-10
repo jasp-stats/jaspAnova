@@ -24,12 +24,36 @@ import "./common" as ANOVA
 Form
 {
 
+	// The following part is used for spawning upgrade notifications about multigroup analysis
+	Rectangle
+	{
+		visible:		myAnalysis !== null && myAnalysis.needsRefresh && (repeatedMeasuresFactors.nbFactors > 1)
+		color:			jaspTheme.controlWarningBackgroundColor
+		width:			form.implicitWidth
+		height:			warningMessageUpdate.height
+		radius:			jaspTheme.borderRadius
+
+		Text
+		{
+			id:					warningMessageUpdate
+			text:				qsTr("This analysis was created with an older version of JASP (or a dynamic module). Since then, the model specification of the Bayesian Repeated Measures ANOVA has changed. By default, all models now include random slopes for all but the highest order repeated-measures interaction to avoid discrepancies with the frequentist repeated measures ANOVA.")
+			color:				jaspTheme.controlWarningTextColor
+			anchors.top:		parent.top
+			padding:			5 * jaspTheme.uiScale
+			wrapMode:			Text.Wrap
+			width:				parent.width - 10 * jaspTheme.uiScale
+			verticalAlignment:	Text.AlignVCenter
+		}
+	}
+	// end upgrade notifications
+
 	VariablesForm
 	{
 		preferredHeight: 520 * preferencesModel.uiScale
 		AvailableVariablesList { name: "allVariablesList" }
 		FactorLevelList
 		{
+			id: repeatedMeasuresFactors
 			name: "repeatedMeasuresFactors"
 			title: qsTr("Repeated Measures Factors")
 			height: 180 * preferencesModel.uiScale

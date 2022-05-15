@@ -3,6 +3,7 @@ context("Bayesian ANCOVA")
 # does not test
 # - descriptives table (code from regular ANOVA)
 # - descriptives plot (code from regular ANOVA)
+# - bar plot (code from regular ANOVA)
 # - raincloud plot (code is from regular ANOVA)
 # - bftype (01, 10)
 

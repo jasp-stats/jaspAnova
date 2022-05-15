@@ -3,6 +3,7 @@ context("Bayesian Repeated Measures ANOVA")
 # does not test
 # - descriptives table (code from regular ANOVA)
 # - descriptives plot (code from regular ANOVA)
+# - bar plot (code from regular ANOVA)
 # - raincloud plot (code is from regular ANOVA)
 # - bftype (01, 10)
 
@@ -339,6 +340,24 @@ test_that("Descriptives plot matches for beer data", {
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
   jaspTools::expect_equal_plots(testPlot, "Descriptives plot")
 })
+
+
+options <- initOpts()
+options$plotTwoHorizontalAxis <- "Drink"
+options$plotTwoSeparatePlots <- "Imagery"
+options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
+options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
+                                        list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
+options$modelTerms <- list(list(components = "Drink", isNuisance = FALSE), list(components = "Imagery", isNuisance = FALSE))
+set.seed(1)
+results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
+
+test_that("Bar plot matches for beer data", {
+  plotName <- results[["results"]][["descriptivesContainer"]][["collection"]][["descriptivesContainer_containerDescriptivesPlotsTwo"]][["collection"]][["descriptivesContainer_containerDescriptivesPlotsTwo_Imagery: Negative"]][["data"]]
+  testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
+  jaspTools::expect_equal_plots(testPlot, "Bar plot")
+})
+
 
 test_that("Model Comparison table results matches for beer data", {
   table <- results[["results"]][["tableModelComparison"]][["data"]]

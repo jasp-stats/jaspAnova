@@ -1369,13 +1369,11 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   }
 
-  descriptivesTable$addColumnInfo(name = "N",    title=gettext("N"),    type = "integer")
-  descriptivesTable$addColumnInfo(name = "Mean", title=gettext("Mean"), type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",   title=gettext("SD"),   type = "number")
-  descriptivesTable$addColumnInfo(name = "SE",   title=gettext("SE"),   type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation",
-                                                 title=gettext("coefOfVariation"),
-                                                                        type = "number")
+  descriptivesTable$addColumnInfo(name = "N",               title = gettext("N"),               type = "integer")
+  descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),            type = "number")
+  descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),              type = "number")
+  descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),              type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("coefOfVariation"), type = "number")
 
   lvls <- list()
   factors <- list()

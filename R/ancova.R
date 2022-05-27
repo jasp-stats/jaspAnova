@@ -1409,10 +1409,10 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   }
 
   allMeans <- sapply(allSubsets, mean)
-  descriptiveResult[["Mean"]] <- ifelse(is.nan(allMeans), NA, allMeans)
-  descriptiveResult[["N"]]    <- sapply(allSubsets, length)
-  descriptiveResult[["SD"]]   <- sapply(allSubsets, sd)
-  descriptiveResult[["SE"]]   <- descriptiveResult[["SD"]] / sqrt(descriptiveResult[["N"]])
+  descriptiveResult[["Mean"]]             <- ifelse(is.nan(allMeans), NA, allMeans)
+  descriptiveResult[["N"]]                <- sapply(allSubsets, length)
+  descriptiveResult[["SD"]]               <- sapply(allSubsets, sd)
+  descriptiveResult[["SE"]]               <- descriptiveResult[["SD"]] / sqrt(descriptiveResult[["N"]])
   descriptiveResult[["coefOfVariation"]]  <- descriptiveResult[["SD"]] / descriptiveResult[["Mean"]]
 
 

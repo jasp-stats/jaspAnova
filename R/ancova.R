@@ -929,7 +929,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     ## Computation
     resultPostHoc <- lapply(postHocCorrections, function(x)
-      summary(emmeans::contrast(postHocRef[[postHocVarIndex]], method = "pairwise"),
+      summary(emmeans::contrast(postHocRef[[postHocVarIndex]], method = "pairwise", enhance.levels = FALSE),
               adjust = x, infer = c(TRUE, TRUE), level = options$confidenceIntervalIntervalPostHoc))
 
     numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))

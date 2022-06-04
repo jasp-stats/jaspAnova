@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2022-05-07 02:59\n"
-"PO-Revision-Date: 2022-02-04 14:01+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"PO-Revision-Date: 2022-06-03 15:15+0000\n"
+"Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -48,6 +48,8 @@ msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"De Welch-correctie kon niet worden berekend omdat '%1$s' geen variantie "
+"heeft na groepering op het (de) volgende niveau('s) van '%2$s': %3$s"
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -199,7 +201,7 @@ msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Resultaten gebaseerd op ongecorrigeerde gemiddelden."
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -325,6 +327,8 @@ msgid ""
 "Data set too big for univariate follow-up test. Try selecting \"Use "
 "multivariate model for follow-up tests\" in the Model tab."
 msgstr ""
+"Dataset te groot voor univariate opvolgtest. Probeer \"Use multivariate "
+"model for follow-up tests\" te selecteren in het Model tabblad."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -539,7 +543,7 @@ msgid "Duplicate variables encountered in %s"
 msgstr "Duplicate variabelen gevonden in %s"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "Dubbele deelnemerskolom toegevoegd aan modeltermen, %s"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
@@ -582,13 +586,15 @@ msgstr ""
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Alle modellen omvatten %s, en willekeurige hellingen voor alle factoren met "
+"herhaalde metingen."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
+"Willekeurige hellingen voor factoren met herhaalde metingen zijn uitgesloten."
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "Alle modellen bevatten %s"
+msgstr "Alle modellen bevatten %s."
 
 msgid "Analysis of Effects - %s"
 msgstr "Analyse van Effecten - %s"
@@ -827,9 +833,8 @@ msgstr "Posterior R%s"
 msgid "Single Model R%s"
 msgstr "Enkel Model R%s"
 
-#, fuzzy
 msgid "Order Restricted Hypotheses"
-msgstr "Orderbeperkingen"
+msgstr "Orderbeperkte Hypothesen"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
@@ -840,42 +845,46 @@ msgstr ""
 "\n"
 "Sommige beperkingen zijn dubbel!"
 
-#, fuzzy
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
-msgstr "Er zijn fouten in de beperkings syntax voor %s."
+msgstr ""
+"Er zijn fouten in de beperkings syntax voor %s. De syntax kon niet "
+"gedecodeerd worden!"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
-msgstr ""
+msgstr "Fout in %1$s - Kon de modelsyntaxis niet coderen! Foutmelding: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Fout in %1$s - Syntaxfout in het model! Foutmelding: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "Fout in %1$s - Kon het model niet schatten! Foutmelding: %2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden:"
+msgstr "Bootstrapping voor Beperkte Marginale Gemiddelden"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+"Het onbeperkte model kon niet worden gepast. Als gevolg daarvan kon geen van "
+"de beperkte modellen worden geschat. Foutmelding: %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+"Er kon geen bootstrapping worden uitgevoerd voor het onbeperkte model. Als "
+"gevolg daarvan kon bootstrapping voor de beperkte modellen niet worden "
+"uitgevoerd. Foutmelding: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "Kan geen van de gespecificeerde beperkte modellen passen. Reden(en): %s"
 
 msgid "Unconstrained"
 msgstr "Onbeperkt"
@@ -884,16 +893,13 @@ msgid "Complement"
 msgstr "Complement"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Syntax-informatie"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Beschikbare coëfficiënten voor beperkingssyntaxis"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"Bayes factor kon niet worden berekend voor model: %1$s.\n"
-"Foutbericht: %2$s."
+msgstr "Kon geen modelvergelijking berekenen! Foutmelding: %s"
 
 msgid "Model Comparison Table"
 msgstr "Modelvergelijkingstabel"
@@ -902,7 +908,7 @@ msgid "Model"
 msgstr "Model"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-waarschijnlijkheid"
 
 msgid "Penalty"
 msgstr "Straf"
@@ -916,9 +922,8 @@ msgstr "Gewicht"
 msgid "GORICA"
 msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
-msgstr "Gewicht"
+msgstr "Gewichtsverhouding"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
@@ -932,37 +937,36 @@ msgid ""
 msgstr ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
-#, fuzzy
 msgid ""
 "Weights ratios indicate the relative weight for each model against the \"%1$s"
 "\" model. %2$s"
 msgstr ""
-"De verhoudingen geven het relatieve gewicht aan van elk model ten opzichte "
-"van het %1$s model. %2$s"
+"De ratio's van de gewichten geven het relatieve gewicht voor elk model ten "
+"opzichte van het \"%1$s\" model aan. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Kon de gewichten niet berekenen!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr "Model '%s' kan geen referentiemodel zijn, want het is leeg!"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "Alle modellen bevatten %s"
+msgstr "De volgende modellen werden uitgesloten: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Relatieve %s-gewichten"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Slechts één model in de vergelijking: Kan relatieve gewichtenmatrix niet "
+"berekenen"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "Coëfficiënten"
+msgstr "Vergelijking van coëfficiënten"
 
 msgid "Coefficient"
 msgstr "Coëfficiënt"
@@ -970,96 +974,96 @@ msgstr "Coëfficiënt"
 msgid "Coefficients differ from unconstrained model."
 msgstr "Coëfficiënten verschillen van het model zonder beperkingen."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Model Samenvattingen"
+msgstr "Model Samenvatting"
 
-#, fuzzy
 msgid "Restriction Matrix"
-msgstr "Beperking"
+msgstr "Beperkingsmatrix"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Linkerzijde (lhs)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Rechterzijde (rhs)"
 
 msgid "Coefficients"
 msgstr "Coëfficiënten"
 
-#, fuzzy
 msgid "%s%% CI"
-msgstr "%.0f%% CI"
+msgstr "%s%% CI"
 
-#, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr "Bootstrapping gebaseerd op %s succesvolle replicaties."
+msgstr "Schattingen gebaseerd op %s succesvolle bootstrap replicaten."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "Kon geen tabel met coëfficiënten berekenen. Foutmelding: %s"
 
-#, fuzzy
 msgid "Informative Hypothesis Tests"
 msgstr "Geïnformeerde Hypothesetoets"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hypothese"
 
-#, fuzzy
 msgid "Test"
-msgstr "Test Type"
+msgstr "Test"
 
-#, fuzzy
 msgid "Test Statistic"
-msgstr "Statistiek"
+msgstr "Toetsstatistiek"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Type %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "Kon de informatieve hypothesetoetsen niet berekenen. Foutmelding: %s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
 msgstr ""
+"H%1$s: Alle gelijkheidsbeperkingen zijn actief (==), H%2$s: Ten minste één "
+"gelijkheidsbeperking is geschonden."
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Alle parameters zijn beperkt om gelijk te zijn (==), H%2$s: Ten "
+"minste één ongelijkheidsrestrictie is strikt waar (>)."
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Alle beperkingen zijn gelijkheden (==), H%2$s: Ten minste één "
+"ongelijkheidsrestrictie is strikt waar (>)."
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Alle beperkingen gelden, H%2$s: Minstens één restrictie is geschonden."
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Ten minste één restrictie is onwaar of actief (==), H%2$s: Alle "
+"restricties zijn strikt waar (>)."
 
-#, fuzzy
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
 msgstr ""
-"Selecteer een modelterm om samen te vatten in de 'Beperkte Marginale "
-"Middelen' sectie."
+"Geen marginale gemiddelden opgegeven. Selecteer a.u.b. modeltermen in de "
+"'Beperkte marginale gemiddelden' sectie."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Kon de marginale gemiddelden niet berekenen. Foutmelding: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
 msgstr "Resultaten zijn gemiddeld over de levels van: %s"
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "Covariaten (%'s) zijn op hun gemiddelde waarde gehouden."
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -1071,11 +1075,10 @@ msgstr ""
 "De ontwerpmatrix is niet inverteerbaar. Dit kan het gevolg zijn van "
 "collineaire afhankelijke variabelen."
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] "Nulmodel (incl. %s)"
-msgstr[1] "Nulmodel (incl. %s)"
+msgstr[0] "Nulmodel (incl. %s en willekeurige hellingen)"
+msgstr[1] "Nulmodel (incl. %s, en willekeurige hellingen)"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

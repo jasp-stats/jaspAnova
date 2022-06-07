@@ -15,7 +15,7 @@ Imports:
   boot,
   car,
   colorspace,
-  emmeans,
+  emmeans (>= 1.7.4),
   ggplot2,
   jaspBase,
   jaspDescriptives,

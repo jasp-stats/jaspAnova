@@ -522,7 +522,7 @@
     setSeed              = options[["setSeed"]],
     reuseable            = reuseable,
     RMFactors            = options[["repeatedMeasuresFactors"]],
-    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies()],
+    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
     hideNuisanceEffects  = options[["hideNuisanceEffects"]]
   )
 
@@ -556,7 +556,7 @@
     .BANOVAdataDependencies(),
     "effects", "effectsType",
     "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType",
-    .BANOVAmodelSpaceDependencies(),
+    .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -707,7 +707,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     "sampleModeNumAcc", "fixedNumAcc",
     "bayesFactorType", "bayesFactorOrder",
     "hideNuisanceEffects", "legacy",
-    .BANOVAmodelSpaceDependencies(),
+    .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -847,7 +847,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     statePosteriors <- createJaspState(object = posteriors)
     statePosteriors$dependOn(
-      c(.BANOVAmodelSpaceDependencies(), "sampleModeMCMC", "fixedMCMCSamples"),
+      c(.BANOVAmodelSpaceDependencies(options[["modelPrior"]]), "sampleModeMCMC", "fixedMCMCSamples"),
       optionsFromObject = jaspResults[["tableModelComparisonState"]]
     )
     jaspResults[["statePosteriors"]] <- statePosteriors
@@ -875,7 +875,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     .BANOVAdataDependencies(),
     "posteriorEstimates",
     "sampleModeMCMC", "fixedMCMCSamples", "credibleInterval",
-    .BANOVAmodelSpaceDependencies(),
+    .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -943,7 +943,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     .BANOVAdataDependencies(),
     "criTable",
     "sampleModeMCMC", "fixedMCMCSamples", "bayesFactorType", "credibleInterval",
-    .BANOVAmodelSpaceDependencies(),
+    .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -2728,8 +2728,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     # A, B         p(A) * P(B)       * (1 - P(A:B))
     # A, B, A:B    p(A) * P(B)       * P(A:B)
 
-    termFactors <- attr(termsFullModel, "factors")[, termLabels]
-    termFactors <- termFactors[rownames(termFactors) %in% termLabels, ]
+    termFactors <- attr(termsFullModel, "factors")[, termLabels, drop = FALSE]
+    termFactors <- termFactors[rownames(termFactors) %in% termLabels, , drop = FALSE]
     rnmsTermFactors <- rownames(termFactors)
     termOrders  <- attr(termsFullModel, "order")[fullNonNuisance]
 
@@ -2907,8 +2907,10 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   c("dependent", "randomFactors", "covariates", "fixedFactors", "betweenSubjectFactors", "repeatedMeasuresFactors", "repeatedMeasuresCells", "modelTerms",
     "seed", "setSeed")
 }
-.BANOVAmodelSpaceDependencies <- function() {
-  c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes")
+.BANOVAmodelSpaceDependencies <- function(modelPrior) {
+  c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
+    if (modelPrior == "custom") "modelTermsCustomPrior"
+  )
 }
 .BANOVArscaleDependencies <- function(coefficientsPrior) {
   c("priorFixedEffects", "priorRandomEffects", "priorCovariates", "coefficientsPrior",
@@ -2917,7 +2919,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 }
 
 .BANOVAmodelPriorOptionsChanged <- function(state, options) {
-  !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies()], options[.BANOVAmodelSpaceDependencies()])
+  !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies(options[["modelPrior"]])], options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])])
 }
 
 .BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {

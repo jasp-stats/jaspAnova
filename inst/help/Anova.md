@@ -78,7 +78,7 @@ ANOVA allows the user to analyze the difference between multiple group means.
       - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 
       - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method. 
   - Type: Different types of post hoc tests can be selected. 
-      -  Standard: Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
+      -  Standard (LSD): Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
       -  Games-Howell: This method can be used when equal group/level variances are not assumed. The p-values are corrected with the Tukey method.
       -  Dunnett: When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted. 
         <details>

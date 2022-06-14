@@ -437,6 +437,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   withinIndices <- .mapAnovaTermsToTerms(rownames(withinAnovaTable), rownames(corrections))
 
+  # set 1 as an upper-bound of the correction factors, see https://github.com/jasp-stats/jasp-issues/issues/1709
   ggCorrections <- pmin(corrections[withinIndices, "GG eps"], 1)
   hfCorrections <- pmin(corrections[withinIndices, "HF eps"], 1)
   

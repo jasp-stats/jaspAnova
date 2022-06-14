@@ -907,7 +907,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
-  postHocStandardContainer <- createJaspContainer(title = gettext("Standard"))
+  postHocStandardContainer <- createJaspContainer(title = gettext("Standard (LSD)"))
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",

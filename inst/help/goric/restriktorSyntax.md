@@ -121,3 +121,14 @@ The syntax for specifying order constraints contains the following elements: - `
 ### Examples
 
 For further information and examples, see: <https://restriktor.org/tutorial/syntax.html>
+
+### References
+
+Kuiper, R. M., Hoijtink, H. and Silvapulle, M.J. (2011). An Akaike type information criterion for model selection under inequality constraints. *Biometrika, 98*, 495-501.
+
+Kuiper, R. M., Hoijtink, H. and Silvapulle, M.J. (2012). Generalization of the order restricted information criterion for multivariate normal linear models. *Journal of Statistical Planning and Inference, 142*, 2454-2463.
+
+Kuiper, R. M., & Hoijtink, H. (2013). A Fortran 90 program for the generalization of the order restricted information criterion. *Journal of Statistical Software, 54*(8), 1-19.
+
+Vanbrabant, L., Van Loey, N., & Kuiper, R. M. (2020). Evaluating a Theory-Based Hypothesis Against Its Complement Using an AIC-Type Information Criterion With an Application to Facial Burn Injury. *Psychological Methods, 25*(2), 129-142.
+

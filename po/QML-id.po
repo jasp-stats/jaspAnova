@@ -281,170 +281,6 @@ msgctxt "AncovaBayesian|"
 msgid "Covariates"
 msgstr "Kovariat"
 
-msgctxt "AncovaBayesian|"
-msgid "Tables"
-msgstr "Tabel"
-
-msgctxt "AncovaBayesian|"
-msgid "Effects"
-msgstr "Efek"
-
-msgctxt "AncovaBayesian|"
-msgid "Across all models"
-msgstr "Di semua model"
-
-msgctxt "AncovaBayesian|"
-msgid "Across matched models"
-msgstr "Di seluruh model berpasangan"
-
-msgctxt "AncovaBayesian|"
-msgid "Estimates"
-msgstr "Estimasi"
-
-msgctxt "AncovaBayesian|"
-msgid "Model averaged R²"
-msgstr "R² rata-rata model"
-
-msgctxt "AncovaBayesian|"
-msgid "Descriptives"
-msgstr "Deskriptif"
-
-msgctxt "AncovaBayesian|"
-msgid "Credible interval"
-msgstr "Interval kredibel"
-
-msgctxt "AncovaBayesian|"
-msgid "Order"
-msgstr "Urutan"
-
-msgctxt "AncovaBayesian|"
-msgid "Compare to best model"
-msgstr "Bandingkan dengan model terbaik"
-
-msgctxt "AncovaBayesian|"
-msgid "Compare to null model"
-msgstr "Bandingkan dengan model nol"
-
-msgctxt "AncovaBayesian|"
-msgid "Plots"
-msgstr "Plot"
-
-msgctxt "AncovaBayesian|"
-msgid "Model averaged posteriors"
-msgstr "Posterior rata-rata model"
-
-msgctxt "AncovaBayesian|"
-msgid "Group levels in single plot"
-msgstr "Level kelompok pada plot tunggal"
-
-msgctxt "AncovaBayesian|"
-msgid "Individual plot per level"
-msgstr "Plot individual per level"
-
-msgctxt "AncovaBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "Plot Q-Q residual"
-
-msgctxt "AncovaBayesian|"
-msgid "Posterior R²"
-msgstr "R² posterior"
-
-msgctxt "AncovaBayesian|"
-msgid "Model"
-msgstr "Model"
-
-msgctxt "AncovaBayesian|"
-msgid "Components"
-msgstr "Komponen"
-
-msgctxt "AncovaBayesian|"
-msgid "Single Model Inference"
-msgstr "Inferensi Model Tunggal"
-
-msgctxt "AncovaBayesian|"
-msgid "Specific Model Terms"
-msgstr "Ketentuan Model Spesifik"
-
-msgctxt "AncovaBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AncovaBayesian|"
-msgid "Marginal posteriors"
-msgstr "Posterior marjinal"
-
-msgctxt "AncovaBayesian|"
-msgid "Post Hoc Tests"
-msgstr "Uji Pos Hoc"
-
-msgctxt "AncovaBayesian|"
-msgid "Correction"
-msgstr "Koreksi"
-
-msgctxt "AncovaBayesian|"
-msgid "Null control"
-msgstr "Kontrol nol"
-
-msgctxt "AncovaBayesian|"
-msgid "Descriptives Plots"
-msgstr "Plot deskriptif"
-
-msgctxt "AncovaBayesian|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "AncovaBayesian|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "AncovaBayesian|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
-
-msgctxt "AncovaBayesian|"
-msgid "Display"
-msgstr "Tampilkan"
-
-msgctxt "AncovaBayesian|"
-msgid "Additional Options"
-msgstr "Opsi Tambahan"
-
-msgctxt "AncovaBayesian|"
-msgid "Prior"
-msgstr "Prior"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale fixed effects"
-msgstr "efek tetap skala r"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale random effects"
-msgstr "efek acak skala r"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale covariates"
-msgstr "kovariat skala r"
-
-msgctxt "AncovaBayesian|"
-msgid "Numerical Accuracy"
-msgstr "Keakuratan Numerik"
-
-msgctxt "AncovaBayesian|"
-msgid "Auto"
-msgstr "Oto"
-
-msgctxt "AncovaBayesian|"
-msgid "Manual"
-msgstr "Manual"
-
-msgctxt "AncovaBayesian|"
-msgid "No. samples"
-msgstr "Jml. Sampel"
-
-msgctxt "AncovaBayesian|"
-msgid "Posterior Samples"
-msgstr "Sampel Posterior"
-
 msgctxt "Anova|"
 msgid "Dependent Variable"
 msgstr "Variabel Terikat"
@@ -684,170 +520,6 @@ msgstr "Faktor Tetap"
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
 msgstr "Faktor Acak"
-
-msgctxt "AnovaBayesian|"
-msgid "Tables"
-msgstr "Tabel"
-
-msgctxt "AnovaBayesian|"
-msgid "Effects"
-msgstr "Efek"
-
-msgctxt "AnovaBayesian|"
-msgid "Across all models"
-msgstr "Di semua model"
-
-msgctxt "AnovaBayesian|"
-msgid "Across matched models"
-msgstr "Di model yang berpasangan"
-
-msgctxt "AnovaBayesian|"
-msgid "Estimates"
-msgstr "Estimasi"
-
-msgctxt "AnovaBayesian|"
-msgid "Model averaged R²"
-msgstr "R² rata -rata model"
-
-msgctxt "AnovaBayesian|"
-msgid "Descriptives"
-msgstr "Deskriptif"
-
-msgctxt "AnovaBayesian|"
-msgid "Credible interval"
-msgstr "Interval kredibel"
-
-msgctxt "AnovaBayesian|"
-msgid "Order"
-msgstr "Urutan"
-
-msgctxt "AnovaBayesian|"
-msgid "Compare to best model"
-msgstr "Bandingkan dengan model terbaik"
-
-msgctxt "AnovaBayesian|"
-msgid "Compare to null model"
-msgstr "Bandingkan dengan model nol"
-
-msgctxt "AnovaBayesian|"
-msgid "Plots"
-msgstr "Plot"
-
-msgctxt "AnovaBayesian|"
-msgid "Model averaged posteriors"
-msgstr "Posterior rata-rata model"
-
-msgctxt "AnovaBayesian|"
-msgid "Group levels in single plot"
-msgstr "Level grup di plot tunggal"
-
-msgctxt "AnovaBayesian|"
-msgid "Individual plot per level"
-msgstr "Plot individual per level"
-
-msgctxt "AnovaBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "Plot Q-Q residual"
-
-msgctxt "AnovaBayesian|"
-msgid "Posterior R²"
-msgstr "R² posterior"
-
-msgctxt "AnovaBayesian|"
-msgid "Model"
-msgstr "Model"
-
-msgctxt "AnovaBayesian|"
-msgid "Components"
-msgstr "Komponen"
-
-msgctxt "AnovaBayesian|"
-msgid "Single Model Inference"
-msgstr "Inferensi Model Tunggal"
-
-msgctxt "AnovaBayesian|"
-msgid "Specific Model Terms"
-msgstr "Ketentuan Model Spesifik"
-
-msgctxt "AnovaBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AnovaBayesian|"
-msgid "Marginal posteriors"
-msgstr "Posterior marjinal"
-
-msgctxt "AnovaBayesian|"
-msgid "Post Hoc Tests"
-msgstr "Uji Pos Hoc"
-
-msgctxt "AnovaBayesian|"
-msgid "Correction"
-msgstr "Koreksi"
-
-msgctxt "AnovaBayesian|"
-msgid "Null control"
-msgstr "Kontrol nol"
-
-msgctxt "AnovaBayesian|"
-msgid "Descriptives Plots"
-msgstr "Plot Deskriptif"
-
-msgctxt "AnovaBayesian|"
-msgid "Factors"
-msgstr "Faktor"
-
-msgctxt "AnovaBayesian|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "AnovaBayesian|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "AnovaBayesian|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
-
-msgctxt "AnovaBayesian|"
-msgid "Display"
-msgstr "Tampilkan"
-
-msgctxt "AnovaBayesian|"
-msgid "Additional Options"
-msgstr "Opsi Tambahan"
-
-msgctxt "AnovaBayesian|"
-msgid "Prior"
-msgstr "Prior"
-
-msgctxt "AnovaBayesian|"
-msgid "r scale fixed effects"
-msgstr "efek tetap skala r"
-
-msgctxt "AnovaBayesian|"
-msgid "r scale random effects"
-msgstr "efek acak skala r"
-
-msgctxt "AnovaBayesian|"
-msgid "Numerical Accuracy"
-msgstr "Keakuratan Numerik"
-
-msgctxt "AnovaBayesian|"
-msgid "Auto"
-msgstr "Otomatis"
-
-msgctxt "AnovaBayesian|"
-msgid "Manual"
-msgstr "Manual"
-
-msgctxt "AnovaBayesian|"
-msgid "No. samples"
-msgstr "Jml. sampel"
-
-msgctxt "AnovaBayesian|"
-msgid "Posterior Samples"
-msgstr "Sampel Posterior"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
@@ -1116,174 +788,6 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
 msgstr "Kovariat"
 
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Tables"
-msgstr "Tabel"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Effects"
-msgstr "Efek"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Across all models"
-msgstr "Di seluruh model"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Across matched models"
-msgstr "Di model yang berpasangan"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Estimates"
-msgstr "Estimasi"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model averaged R²"
-msgstr "R² rata-rata model"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Descriptives"
-msgstr "Deskriptif"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Credible interval"
-msgstr "Interval kredibel"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Order"
-msgstr "Urutan"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Compare to best model"
-msgstr "Bandingkan dengan model terbaik"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Compare to null model"
-msgstr "Bandingkan dengan model nol"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Plots"
-msgstr "Plot"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model averaged posteriors"
-msgstr "Posterior rata-rata model"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Group levels in single plot"
-msgstr "Level kelompok di plot individual"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Individual plot per level"
-msgstr "Plot individual per level"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "Plot Q-Q residual"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Posterior R²"
-msgstr "R² posterior"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model"
-msgstr "Model"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Components"
-msgstr "Komponen"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Single Model Inference"
-msgstr "Inferensi Model Tunggal"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Specific Model Terms"
-msgstr "Model Spesifik"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Marginal posteriors"
-msgstr "Posterior marjinal"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Post Hoc Tests"
-msgstr "Uji Pos Hoc"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Correction"
-msgstr "Koreksi"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Null control"
-msgstr "Kontrol nol"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Descriptives Plots"
-msgstr "Plot Deskriptif"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Factors"
-msgstr "Faktor"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Label y-axis"
-msgstr "Label aksis-y"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Additional Options"
-msgstr "Opsi Tambahan"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Prior"
-msgstr "Prior"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale fixed effects"
-msgstr "efek tetap skala r"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale random effects"
-msgstr "efek acak skala r"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale covariates"
-msgstr "kovariat skala r"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Numerical Accuracy"
-msgstr "Keakuratan Numerik"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Auto"
-msgstr "Otomatis"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Manual"
-msgstr "Manual"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "No. samples"
-msgstr "Jml. sampel"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Posterior Samples"
-msgstr "Sampel Posterior"
-
 msgctxt "Manova|"
 msgid "Dependent Variables"
 msgstr "Variabel Terikat"
@@ -1406,31 +910,7 @@ msgid "RM Factor"
 msgstr "Faktor Pengukuran Berulang"
 
 msgctxt "OrderRestrictions|"
-msgid "Order Restrictions"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Summary for "
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Informed hypothesis test for "
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Type global"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Type A"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Type B"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
@@ -1446,59 +926,10 @@ msgctxt "OrderRestrictions|"
 msgid "Model comparison"
 msgstr ""
 
-msgctxt "OrderRestrictions|"
-msgid "Complement"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Unconstrained"
-msgstr ""
-
 #, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Tidak ada"
-
-msgctxt "OrderRestrictions|"
-msgid "Compare against"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Reference model for weight ratios"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Show model coefficients"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Highlight coefficients"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Uncertainty"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "% confidence intervals based on"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "% confidence intervals"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "based on"
-msgstr ""
-
-#, fuzzy
-msgctxt "OrderRestrictions|"
-msgid "bootstraps"
-msgstr "bootstrap"
-
-msgctxt "OrderRestrictions|"
-msgid "Huber-White correction for heteroskedasticity"
-msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
@@ -1528,29 +959,8 @@ msgctxt "OrderRestrictions|"
 msgid "HC5"
 msgstr ""
 
-#, fuzzy
-msgctxt "OrderRestrictions|"
-msgid "Model Terms"
-msgstr "Ketentuan Model"
-
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Restricted Models"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Plot Restricted Marginal Means"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid ""
-"Enter each restriction on a new line, e.g., factorLow == factorHigh, \n"
-"where 'factor' is the factor name and 'Low'/'High' are the factor level "
-"names. \n"
-"Click the information icon for more examples."
 msgstr ""
 
 msgctxt "OrderRestrictions|"
@@ -1558,3 +968,491 @@ msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
 msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid ""
+"This analysis was created with an older version of JASP (or a dynamic "
+"module). Since then, the model specification of the Bayesian Repeated "
+"Measures ANOVA has changed. By default, all models now include random slopes "
+"for all but the highest order repeated-measures interaction to avoid "
+"discrepancies with the frequentist repeated measures ANOVA."
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Additional Options"
+msgstr "Opsi Tambahan"
+
+msgctxt "AdditionalOptions|"
+msgid "Specify Prior on Coefficients"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For fixed and random terms"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For each term individually"
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Prior"
+msgstr "Prior"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale fixed effects"
+msgstr "efek tetap skala r"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale random effects"
+msgstr "efek acak skala r"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale covariates"
+msgstr "kovariat skala r"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Numerical Accuracy"
+msgstr "Keakuratan Numerik"
+
+msgctxt "AdditionalOptions|"
+msgid "Auto"
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "AdditionalOptions|"
+msgid "No. samples"
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Posterior Samples"
+msgstr "Sampel Posterior"
+
+msgctxt "AdditionalOptions|"
+msgid "Legacy results"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid ""
+"When checked, the random slopes of repeated measures factors are omitted as "
+"in JASP <=0.16. Omitting the random slopes may yield completely different "
+"results from the frequentist ANOVA."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Hide nuisance in model"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid ""
+"When checked, the nuisance parameters common to all models are omitted from "
+"the model specification."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Enforce the Principle of Marginality"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For fixed effects"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For random slopes"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Model Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Uniform"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Beta binomial"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "a"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "b"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Wilson"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "λ"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Castillo"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "u"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "p"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Custom"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Term"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Prior incl. prob."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "r-scale"
+msgstr ""
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Order"
+msgstr "Urutan"
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Compare to best model"
+msgstr "Bandingkan dengan model terbaik"
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Compare to null model"
+msgstr "Bandingkan dengan model nol"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Tables"
+msgstr "Tabel"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Effects"
+msgstr "Efek"
+
+msgctxt "DefaultOptions|"
+msgid "Across all models"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Across matched models"
+msgstr ""
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Estimates"
+msgstr "Estimasi"
+
+msgctxt "DefaultOptions|"
+msgid "Model averaged R²"
+msgstr ""
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Descriptives"
+msgstr "Deskriptif"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Credible interval"
+msgstr "Interval kredibel"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Order"
+msgstr "Urutan"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Compare to best model"
+msgstr "Bandingkan dengan model terbaik"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Compare to null model"
+msgstr "Bandingkan dengan model nol"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Plots"
+msgstr "Plot"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Model averaged posteriors"
+msgstr "Posterior rata-rata model"
+
+msgctxt "DefaultOptions|"
+msgid "Group levels in single plot"
+msgstr ""
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Individual plot per level"
+msgstr "Plot individual per level"
+
+msgctxt "DefaultOptions|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Posterior R²"
+msgstr "R² posterior"
+
+msgctxt "DescriptivesPlots|"
+msgid "Descriptives Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Factors"
+msgstr "Faktor"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Horizontal Axis"
+msgstr "Aksis Horizontal"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Separate Lines"
+msgstr "Garis Terpisah"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Separate Plots"
+msgstr "Plot Terpisah"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Label y-axis"
+msgstr "Label aksis-y"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Display"
+msgstr "Tampilkan"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Credible interval"
+msgstr "Interval kredibel"
+
+#, fuzzy
+msgctxt "ModelTerms|"
+msgid "Model"
+msgstr "Model"
+
+#, fuzzy
+msgctxt "ModelTerms|"
+msgid "Components"
+msgstr "Komponen"
+
+msgctxt "OrderRestrictions|"
+msgid "Order Restricted Hypotheses"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Enter each restriction of one hypothesis on a new line, e.g., \n"
+"factorLow == factorMid\n"
+"factorMid < factorHigh\n"
+"where 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are "
+"the factor level names.\n"
+"Click on the 'plus' icon to add more hypotheses. \n"
+"Click the information icon for more examples."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Syntax settings"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Show available coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Set for all models"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model summary"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Marginal means"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Summary for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Marginal means for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests for %1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Complement model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Unconstrained model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add to comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add weight ratios"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Reference model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Relative weights matrix"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Compare model coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Highlight active restrictions"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Uncertainty quantification"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Heterogeneity correction"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Bootstrapping"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Samples"
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "Confidence intervals"
+msgstr "Interval kepercayaan"
+
+msgctxt "OrderRestrictions|"
+msgid "Terms"
+msgstr ""
+
+msgctxt "PostHocTests|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+#, fuzzy
+msgctxt "PostHocTests|"
+msgid "Correction"
+msgstr "Koreksi"
+
+#, fuzzy
+msgctxt "PostHocTests|"
+msgid "Null control"
+msgstr "Kontrol nol"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Single Model Inference"
+msgstr "Inferensi Model Tunggal"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Components"
+msgstr "Komponen"
+
+msgctxt "SingleModelInference|"
+msgid "Specific Model Terms"
+msgstr ""
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Tables"
+msgstr "Tabel"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Estimates"
+msgstr "Estimasi"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "R²"
+msgstr "R²"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Plots"
+msgstr "Plot"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Marginal posteriors"
+msgstr "Posterior marjinal"
+
+msgctxt "SingleModelInference|"
+msgid "Group levels in single plot"
+msgstr ""
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Individual plot per level"
+msgstr "Plot individual per level"
+
+msgctxt "SingleModelInference|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Posterior R²"
+msgstr "R² posterior"

@@ -279,170 +279,6 @@ msgctxt "AncovaBayesian|"
 msgid "Covariates"
 msgstr "共変量"
 
-msgctxt "AncovaBayesian|"
-msgid "Tables"
-msgstr "表"
-
-msgctxt "AncovaBayesian|"
-msgid "Effects"
-msgstr "効果"
-
-msgctxt "AncovaBayesian|"
-msgid "Across all models"
-msgstr "全てのモデル"
-
-msgctxt "AncovaBayesian|"
-msgid "Across matched models"
-msgstr "一致したモデル"
-
-msgctxt "AncovaBayesian|"
-msgid "Estimates"
-msgstr "推定値"
-
-msgctxt "AncovaBayesian|"
-msgid "Model averaged R²"
-msgstr "モデル平均R²"
-
-msgctxt "AncovaBayesian|"
-msgid "Descriptives"
-msgstr "記述統計量"
-
-msgctxt "AncovaBayesian|"
-msgid "Credible interval"
-msgstr "信用区間"
-
-msgctxt "AncovaBayesian|"
-msgid "Order"
-msgstr "順序"
-
-msgctxt "AncovaBayesian|"
-msgid "Compare to best model"
-msgstr "ベストモデルとの比較"
-
-msgctxt "AncovaBayesian|"
-msgid "Compare to null model"
-msgstr "帰無モデルとの比較"
-
-msgctxt "AncovaBayesian|"
-msgid "Plots"
-msgstr "プロット"
-
-msgctxt "AncovaBayesian|"
-msgid "Model averaged posteriors"
-msgstr "モデル平均事後分布"
-
-msgctxt "AncovaBayesian|"
-msgid "Group levels in single plot"
-msgstr "群の水準を１つにプロットする"
-
-msgctxt "AncovaBayesian|"
-msgid "Individual plot per level"
-msgstr "水準ごとに個別のプロット"
-
-msgctxt "AncovaBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "残差のQ-Qプロット"
-
-msgctxt "AncovaBayesian|"
-msgid "Posterior R²"
-msgstr "事後R²"
-
-msgctxt "AncovaBayesian|"
-msgid "Model"
-msgstr "モデル"
-
-msgctxt "AncovaBayesian|"
-msgid "Components"
-msgstr "コンポーネント"
-
-msgctxt "AncovaBayesian|"
-msgid "Single Model Inference"
-msgstr "単一モデルの推論"
-
-msgctxt "AncovaBayesian|"
-msgid "Specific Model Terms"
-msgstr "特定のモデル項"
-
-msgctxt "AncovaBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AncovaBayesian|"
-msgid "Marginal posteriors"
-msgstr "周辺事後分布"
-
-msgctxt "AncovaBayesian|"
-msgid "Post Hoc Tests"
-msgstr "事後検定"
-
-msgctxt "AncovaBayesian|"
-msgid "Correction"
-msgstr "補正"
-
-msgctxt "AncovaBayesian|"
-msgid "Null control"
-msgstr "帰無コントロール"
-
-msgctxt "AncovaBayesian|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "AncovaBayesian|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "AncovaBayesian|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "AncovaBayesian|"
-msgid "Separate Plots"
-msgstr "分割プロット"
-
-msgctxt "AncovaBayesian|"
-msgid "Display"
-msgstr "表示"
-
-msgctxt "AncovaBayesian|"
-msgid "Additional Options"
-msgstr "追加オプション"
-
-msgctxt "AncovaBayesian|"
-msgid "Prior"
-msgstr "事前分布"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale fixed effects"
-msgstr "固定効果のr スケール"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale random effects"
-msgstr "ランダム効果のrスケール"
-
-msgctxt "AncovaBayesian|"
-msgid "r scale covariates"
-msgstr "共変量のrスケール"
-
-msgctxt "AncovaBayesian|"
-msgid "Numerical Accuracy"
-msgstr "数値精度"
-
-msgctxt "AncovaBayesian|"
-msgid "Auto"
-msgstr "自動"
-
-msgctxt "AncovaBayesian|"
-msgid "Manual"
-msgstr "手動"
-
-msgctxt "AncovaBayesian|"
-msgid "No. samples"
-msgstr "サンプル数"
-
-msgctxt "AncovaBayesian|"
-msgid "Posterior Samples"
-msgstr "事後分布サンプル"
-
 msgctxt "Anova|"
 msgid "Dependent Variable"
 msgstr "従属変数"
@@ -682,170 +518,6 @@ msgstr "固定要因"
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
 msgstr "変動要因"
-
-msgctxt "AnovaBayesian|"
-msgid "Tables"
-msgstr "表"
-
-msgctxt "AnovaBayesian|"
-msgid "Effects"
-msgstr "効果"
-
-msgctxt "AnovaBayesian|"
-msgid "Across all models"
-msgstr "全てのモデル"
-
-msgctxt "AnovaBayesian|"
-msgid "Across matched models"
-msgstr "一致したモデル"
-
-msgctxt "AnovaBayesian|"
-msgid "Estimates"
-msgstr "推定値"
-
-msgctxt "AnovaBayesian|"
-msgid "Model averaged R²"
-msgstr "モデル平均R²"
-
-msgctxt "AnovaBayesian|"
-msgid "Descriptives"
-msgstr "記述統計量"
-
-msgctxt "AnovaBayesian|"
-msgid "Credible interval"
-msgstr "信用区間"
-
-msgctxt "AnovaBayesian|"
-msgid "Order"
-msgstr "順序"
-
-msgctxt "AnovaBayesian|"
-msgid "Compare to best model"
-msgstr "ベストモデルとの比較"
-
-msgctxt "AnovaBayesian|"
-msgid "Compare to null model"
-msgstr "帰無モデルとの比較"
-
-msgctxt "AnovaBayesian|"
-msgid "Plots"
-msgstr "プロット"
-
-msgctxt "AnovaBayesian|"
-msgid "Model averaged posteriors"
-msgstr "モデル平均事後分布"
-
-msgctxt "AnovaBayesian|"
-msgid "Group levels in single plot"
-msgstr "群の水準を１つにプロットする"
-
-msgctxt "AnovaBayesian|"
-msgid "Individual plot per level"
-msgstr "水準ごとに個別のプロット"
-
-msgctxt "AnovaBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "残差のQ-Qプロット"
-
-msgctxt "AnovaBayesian|"
-msgid "Posterior R²"
-msgstr "事後R²"
-
-msgctxt "AnovaBayesian|"
-msgid "Model"
-msgstr "モデル"
-
-msgctxt "AnovaBayesian|"
-msgid "Components"
-msgstr "コンポーネント"
-
-msgctxt "AnovaBayesian|"
-msgid "Single Model Inference"
-msgstr "単一モデルの推論"
-
-msgctxt "AnovaBayesian|"
-msgid "Specific Model Terms"
-msgstr "特定のモデル項"
-
-msgctxt "AnovaBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AnovaBayesian|"
-msgid "Marginal posteriors"
-msgstr "周辺事後分布"
-
-msgctxt "AnovaBayesian|"
-msgid "Post Hoc Tests"
-msgstr "事後検定"
-
-msgctxt "AnovaBayesian|"
-msgid "Correction"
-msgstr "補正"
-
-msgctxt "AnovaBayesian|"
-msgid "Null control"
-msgstr "帰無コントロール"
-
-msgctxt "AnovaBayesian|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "AnovaBayesian|"
-msgid "Factors"
-msgstr "要因"
-
-msgctxt "AnovaBayesian|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "AnovaBayesian|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "AnovaBayesian|"
-msgid "Separate Plots"
-msgstr "分割プロット"
-
-msgctxt "AnovaBayesian|"
-msgid "Display"
-msgstr "表示"
-
-msgctxt "AnovaBayesian|"
-msgid "Additional Options"
-msgstr "追加オプション"
-
-msgctxt "AnovaBayesian|"
-msgid "Prior"
-msgstr "事前分布"
-
-msgctxt "AnovaBayesian|"
-msgid "r scale fixed effects"
-msgstr "固定効果のr スケール"
-
-msgctxt "AnovaBayesian|"
-msgid "r scale random effects"
-msgstr "ランダム効果のrスケール"
-
-msgctxt "AnovaBayesian|"
-msgid "Numerical Accuracy"
-msgstr "数値精度"
-
-msgctxt "AnovaBayesian|"
-msgid "Auto"
-msgstr "自動"
-
-msgctxt "AnovaBayesian|"
-msgid "Manual"
-msgstr "手動"
-
-msgctxt "AnovaBayesian|"
-msgid "No. samples"
-msgstr "サンプル数"
-
-msgctxt "AnovaBayesian|"
-msgid "Posterior Samples"
-msgstr "事後分布サンプル"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
@@ -1111,174 +783,6 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
 msgstr "共変量"
 
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Tables"
-msgstr "表"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Effects"
-msgstr "効果"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Across all models"
-msgstr "全てのモデル"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Across matched models"
-msgstr "一致したモデル"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Estimates"
-msgstr "推定値"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model averaged R²"
-msgstr "モデル平均R²"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Descriptives"
-msgstr "記述統計量"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Credible interval"
-msgstr "信用区間"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Order"
-msgstr "順序"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Compare to best model"
-msgstr "ベストモデルとの比較"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Compare to null model"
-msgstr "帰無モデルとの比較"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Plots"
-msgstr "プロット"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model averaged posteriors"
-msgstr "モデル平均事後分布"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Group levels in single plot"
-msgstr "群の水準を１つにプロットする"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Individual plot per level"
-msgstr "水準ごとに個別のプロット"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Q-Q plot of residuals"
-msgstr "残差のQ-Qプロット"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Posterior R²"
-msgstr "事後R²"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Model"
-msgstr "モデル"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Components"
-msgstr "コンポーネント"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Single Model Inference"
-msgstr "単一モデルの推論"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Specific Model Terms"
-msgstr "特定のモデル項"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "R²"
-msgstr "R²"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Marginal posteriors"
-msgstr "周辺事後分布"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Post Hoc Tests"
-msgstr "事後検定"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Correction"
-msgstr "補正"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Null control"
-msgstr "帰無コントロール"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Factors"
-msgstr "要因"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Separate Plots"
-msgstr "分割プロット"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Label y-axis"
-msgstr "Y軸のラベル"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Additional Options"
-msgstr "追加オプション"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Prior"
-msgstr "事前分布"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale fixed effects"
-msgstr "固定効果のr スケール"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale random effects"
-msgstr "ランダム効果のrスケール"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "r scale covariates"
-msgstr "共変量のrスケール"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Numerical Accuracy"
-msgstr "数値精度"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Auto"
-msgstr "自動"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Manual"
-msgstr "手動"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "No. samples"
-msgstr "サンプル数"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Posterior Samples"
-msgstr "事後分布サンプル"
-
 msgctxt "Manova|"
 msgid "Dependent Variables"
 msgstr "従属変数"
@@ -1400,32 +904,8 @@ msgid "Label y-axis"
 msgstr "Y軸のラベル"
 
 msgctxt "OrderRestrictions|"
-msgid "Order Restrictions"
-msgstr "順序制約"
-
-msgctxt "OrderRestrictions|"
 msgid "Model 1"
 msgstr "モデル1"
-
-msgctxt "OrderRestrictions|"
-msgid "Summary for "
-msgstr "概要: "
-
-msgctxt "OrderRestrictions|"
-msgid "Informed hypothesis test for "
-msgstr "情報仮説検定 "
-
-msgctxt "OrderRestrictions|"
-msgid "Type global"
-msgstr "グローバル型"
-
-msgctxt "OrderRestrictions|"
-msgid "Type A"
-msgstr "タイプA"
-
-msgctxt "OrderRestrictions|"
-msgid "Type B"
-msgstr "タイプB"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
@@ -1441,56 +921,8 @@ msgid "Model comparison"
 msgstr "モデル比較"
 
 msgctxt "OrderRestrictions|"
-msgid "Complement"
-msgstr "補完"
-
-msgctxt "OrderRestrictions|"
-msgid "Unconstrained"
-msgstr "制約なし"
-
-msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "なし"
-
-msgctxt "OrderRestrictions|"
-msgid "Compare against"
-msgstr "比較"
-
-msgctxt "OrderRestrictions|"
-msgid "Reference model for weight ratios"
-msgstr "重量比の参照モデル"
-
-msgctxt "OrderRestrictions|"
-msgid "Show model coefficients"
-msgstr "モデル係数を表示する"
-
-msgctxt "OrderRestrictions|"
-msgid "Highlight coefficients"
-msgstr "係数をハイライト表示する"
-
-msgctxt "OrderRestrictions|"
-msgid "Uncertainty"
-msgstr "不確実性"
-
-msgctxt "OrderRestrictions|"
-msgid "% confidence intervals based on"
-msgstr "に基づく%信頼区間"
-
-msgctxt "OrderRestrictions|"
-msgid "% confidence intervals"
-msgstr "%信頼区間"
-
-msgctxt "OrderRestrictions|"
-msgid "based on"
-msgstr "に基づく"
-
-msgctxt "OrderRestrictions|"
-msgid "bootstraps"
-msgstr "ブートス トラップ"
-
-msgctxt "OrderRestrictions|"
-msgid "Huber-White correction for heteroskedasticity"
-msgstr "分散不均一性に対するHuber-White補正"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
@@ -1521,34 +953,511 @@ msgid "HC5"
 msgstr "HC5"
 
 msgctxt "OrderRestrictions|"
-msgid "Model Terms"
-msgstr "モデル項"
-
-msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
 msgstr "制約付き周辺平均"
-
-msgctxt "OrderRestrictions|"
-msgid "Restricted Models"
-msgstr "制約ありモデル"
-
-msgctxt "OrderRestrictions|"
-msgid "Plot Restricted Marginal Means"
-msgstr "制約あり周辺平均のプロット"
-
-msgctxt "OrderRestrictions|"
-msgid ""
-"Enter each restriction on a new line, e.g., factorLow == factorHigh, \n"
-"where 'factor' is the factor name and 'Low'/'High' are the factor level "
-"names. \n"
-"Click the information icon for more examples."
-msgstr ""
-"新しい行に各制約を入力します e.g., factorLow == factorHigh, \n"
-"ここで'factor'は因子名、'Low'/'High'は因子水準名です. \n"
-"その他の例については、情報アイコンをクリックしてください."
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
 msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid ""
+"This analysis was created with an older version of JASP (or a dynamic "
+"module). Since then, the model specification of the Bayesian Repeated "
+"Measures ANOVA has changed. By default, all models now include random slopes "
+"for all but the highest order repeated-measures interaction to avoid "
+"discrepancies with the frequentist repeated measures ANOVA."
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Additional Options"
+msgstr "追加オプション"
+
+msgctxt "AdditionalOptions|"
+msgid "Specify Prior on Coefficients"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For fixed and random terms"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For each term individually"
+msgstr ""
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Prior"
+msgstr "事前分布"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale fixed effects"
+msgstr "固定効果のr スケール"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale random effects"
+msgstr "ランダム効果のrスケール"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "r scale covariates"
+msgstr "共変量のrスケール"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Numerical Accuracy"
+msgstr "数値精度"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Auto"
+msgstr "自動"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Manual"
+msgstr "手動"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "No. samples"
+msgstr "サンプル数"
+
+#, fuzzy
+msgctxt "AdditionalOptions|"
+msgid "Posterior Samples"
+msgstr "事後分布サンプル"
+
+msgctxt "AdditionalOptions|"
+msgid "Legacy results"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid ""
+"When checked, the random slopes of repeated measures factors are omitted as "
+"in JASP <=0.16. Omitting the random slopes may yield completely different "
+"results from the frequentist ANOVA."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Hide nuisance in model"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid ""
+"When checked, the nuisance parameters common to all models are omitted from "
+"the model specification."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Enforce the Principle of Marginality"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For fixed effects"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "For random slopes"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Model Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Uniform"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Beta binomial"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "a"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "b"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Wilson"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "λ"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Castillo"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "u"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "p"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Custom"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Term"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Prior incl. prob."
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "r-scale"
+msgstr ""
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Order"
+msgstr "順序"
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Compare to best model"
+msgstr "ベストモデルとの比較"
+
+#, fuzzy
+msgctxt "BayesFactorOrder|"
+msgid "Compare to null model"
+msgstr "帰無モデルとの比較"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Tables"
+msgstr "表"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Effects"
+msgstr "効果"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Across all models"
+msgstr "全てのモデル"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Across matched models"
+msgstr "一致したモデル"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Estimates"
+msgstr "推定値"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Model averaged R²"
+msgstr "モデル平均R²"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Descriptives"
+msgstr "記述統計量"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Credible interval"
+msgstr "信用区間"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Order"
+msgstr "順序"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Compare to best model"
+msgstr "ベストモデルとの比較"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Compare to null model"
+msgstr "帰無モデルとの比較"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Plots"
+msgstr "プロット"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Model averaged posteriors"
+msgstr "モデル平均事後分布"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Group levels in single plot"
+msgstr "群の水準を１つにプロットする"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Individual plot per level"
+msgstr "水準ごとに個別のプロット"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+#, fuzzy
+msgctxt "DefaultOptions|"
+msgid "Posterior R²"
+msgstr "事後R²"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Factors"
+msgstr "要因"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Label y-axis"
+msgstr "Y軸のラベル"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Display"
+msgstr "表示"
+
+#, fuzzy
+msgctxt "DescriptivesPlots|"
+msgid "Credible interval"
+msgstr "信用区間"
+
+#, fuzzy
+msgctxt "ModelTerms|"
+msgid "Model"
+msgstr "モデル"
+
+#, fuzzy
+msgctxt "ModelTerms|"
+msgid "Components"
+msgstr "コンポーネント"
+
+msgctxt "OrderRestrictions|"
+msgid "Order Restricted Hypotheses"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Enter each restriction of one hypothesis on a new line, e.g., \n"
+"factorLow == factorMid\n"
+"factorMid < factorHigh\n"
+"where 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are "
+"the factor level names.\n"
+"Click on the 'plus' icon to add more hypotheses. \n"
+"Click the information icon for more examples."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Syntax settings"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Show available coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Set for all models"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model summary"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Marginal means"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Summary for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Marginal means for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests for %1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Complement model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Unconstrained model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add to comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add weight ratios"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Reference model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Relative weights matrix"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Compare model coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Highlight active restrictions"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Uncertainty quantification"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Heterogeneity correction"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Bootstrapping"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Samples"
+msgstr ""
+
+#, fuzzy
+msgctxt "OrderRestrictions|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "OrderRestrictions|"
+msgid "Terms"
+msgstr ""
+
+#, fuzzy
+msgctxt "PostHocTests|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+#, fuzzy
+msgctxt "PostHocTests|"
+msgid "Correction"
+msgstr "補正"
+
+#, fuzzy
+msgctxt "PostHocTests|"
+msgid "Null control"
+msgstr "帰無コントロール"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Single Model Inference"
+msgstr "単一モデルの推論"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Components"
+msgstr "コンポーネント"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Specific Model Terms"
+msgstr "特定のモデル項"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Tables"
+msgstr "表"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Estimates"
+msgstr "推定値"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "R²"
+msgstr "R²"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Plots"
+msgstr "プロット"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Marginal posteriors"
+msgstr "周辺事後分布"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Group levels in single plot"
+msgstr "群の水準を１つにプロットする"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Individual plot per level"
+msgstr "水準ごとに個別のプロット"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+#, fuzzy
+msgctxt "SingleModelInference|"
+msgid "Posterior R²"
+msgstr "事後R²"

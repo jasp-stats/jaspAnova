@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-06-14 21:04+0000\n"
+"Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 "X-Language: de\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -974,72 +980,68 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
+"Diese Analyse wurde mit einer älteren Version von JASP (oder einem "
+"dynamischen Modul) erstellt. Seitdem hat sich die Modellspezifikation der "
+"Bayesschen ANOVA mit Messwiederholung geändert. Standardmäßig enthalten alle "
+"Modelle nun zufällige Steigungen für alle bis auf die Interaktionen mit "
+"Messwiederholung höchster Ordnung, um Diskrepanzen mit der frequentistischen "
+"ANOVA mit Messwiederholung zu vermeiden."
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
 msgstr "Weitere Optionen"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
-msgstr ""
+msgstr "Prior für Koeffizienten spezifizieren"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "Für feste und zufällige Terme"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "Für jeden Term einzeln"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Prior"
 msgstr "Prior"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr "r Skalenparameter fester Effekte"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
 msgstr "r Skalenparameter zufälliger Effekte"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
 msgstr "r Skalenparameter Kovariaten"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Numerical Accuracy"
 msgstr "Numerische Präzision"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Auto"
 msgstr "Auto"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Manual"
 msgstr "Manuell"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
 msgstr "Stichprobenumfang"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
 msgstr "Posterior Stichprobe"
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
-msgstr ""
+msgstr "Veraltete Ergebnisse"
 
 msgctxt "AdditionalOptions|"
 msgid ""
@@ -1047,238 +1049,218 @@ msgid ""
 "in JASP <=0.16. Omitting the random slopes may yield completely different "
 "results from the frequentist ANOVA."
 msgstr ""
+"Falls aktiviert, werden die zufälligen Steigungen der Faktoren mit "
+"Messwiederholung wie in JASP <=0.16 weggelassen. Das Weglassen der "
+"zufälligen Steigungen kann zu völlig anderen Ergebnissen als bei der "
+"frequentistischen ANOVA führen."
 
 msgctxt "AdditionalOptions|"
 msgid "Hide nuisance in model"
-msgstr ""
+msgstr "Störfaktor im Modell ausblenden"
 
 msgctxt "AdditionalOptions|"
 msgid ""
 "When checked, the nuisance parameters common to all models are omitted from "
 "the model specification."
 msgstr ""
+"Falls aktiviert, werden die Störparameter, die allen Modellen gemeinsam "
+"sind, in der Modellspezifikation weggelassen."
 
 msgctxt "AdditionalOptions|"
 msgid "Enforce the Principle of Marginality"
-msgstr ""
+msgstr "Durchsetzung des Prinzips der Marginalität"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr ""
+msgstr "Für feste Effekte"
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr ""
+msgstr "Für zufällige Steigungen"
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
-msgstr ""
+msgstr "Modell-Prior"
 
 msgctxt "AdditionalOptions|"
 msgid "Uniform"
-msgstr ""
+msgstr "Gleichverteilung"
 
 msgctxt "AdditionalOptions|"
 msgid "Beta binomial"
-msgstr ""
+msgstr "Beta-Binomial"
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr ""
+msgstr "a"
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr ""
+msgstr "b"
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr ""
+msgstr "Wilson"
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr ""
+msgstr "λ"
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr ""
+msgstr "Castillo"
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr ""
+msgstr "Benutzerdefiniert"
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr ""
+msgstr "Term"
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
-msgstr ""
+msgstr "Prior inkl. Wahrsch."
 
 msgctxt "AdditionalOptions|"
 msgid "r-scale"
-msgstr ""
+msgstr "r-Skalenparameter"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Order"
 msgstr "Reihenfolge"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
 msgstr "Mit bestem Modell vergleichen"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
 msgstr "Mit Nullmodell vergleichen"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Tables"
 msgstr "Tabellen"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Effects"
 msgstr "Effekte"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Across all models"
 msgstr "Über alle Modelle"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
 msgstr "Über gematchte Modelle"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Estimates"
 msgstr "Schätzer"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "Modell-gemitteltes R²"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr "Deskriptive Statistik"
+msgstr "Deskriptive Statistiken"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
 msgstr "Glaubwürdigkeitsintervall"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Order"
 msgstr "Reihenfolge"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
 msgstr "Mit bestem Modell vergleichen"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
 msgstr "Mit Nullmodell vergleichen"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Plots"
 msgstr "Abbildungen"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
-msgstr ""
+msgstr "Modell-gemittelte Posterior"
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Stufen in einer Abbildung gruppieren"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "Separate Abbildung pro Stufe"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Q-Q-Diagramm der Residuen"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
 msgstr "Posterior R²"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
 msgstr "Deskriptive Abbildungen"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
 msgstr "Faktoren"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
 msgstr "Horizontale Achse"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "Verschiedene Linien"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
 msgstr "Verschiedene Abbildungen"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Label y-axis"
 msgstr "Beschriftung Y-Achse"
 
 msgctxt "DescriptivesPlots|"
 msgid "Display"
-msgstr ""
+msgstr "Anzeigen"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
 msgstr "Glaubwürdigkeitsintervall"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Model"
 msgstr "Modell"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Components"
 msgstr "Komponenten"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Reihenfolgebeschränkungs-Hypothesen"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -1290,171 +1272,165 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
+"Geben Sie jede Beschränkung einer Hypothese in eine neue Zeile ein, z. B.,\n"
+"FaktorNiedrig == FaktorMitte\n"
+"FaktorMitte < FaktorHoch\n"
+"wobei 'Faktor' der Name des Faktors (oder der Kovariate) ist und "
+"'Niedrig'/'Mittel'/'Hoch' die Namen der Faktorstufen sind.\n"
+"Klicken Sie auf das 'Plus'-Symbol, um weitere Hypothesen hinzuzufügen.\n"
+"Klicken Sie auf das Informationssymbol für weitere Beispiele."
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr ""
+msgstr "Syntax-Einstellungen"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr ""
+msgstr "Verfügbare Koeffizienten anzeigen"
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr ""
+msgstr "Für alle Modelle setzen"
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Modellzusammenfassung"
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Randmittelwerte"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr ""
+msgstr "Informierte-Hypothesen-Tests"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr ""
+msgstr "Zusammenfassung für %1"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr ""
+msgstr "Randmittelwerte für %1"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr ""
+msgstr "Informierte Hypothesentests für %1"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr ""
+msgstr "Komplementäres Modell"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr ""
+msgstr "Unbeschränktes Modell"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr ""
+msgstr "Zum Vergleich hinzufügen"
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr ""
+msgstr "Gewichtsverhältnisse hinzufügen"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr ""
+msgstr "Referenzmodell"
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr ""
+msgstr "Matrix relativer Gewichte"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr ""
+msgstr "Modell-Koeffizienten vergleichen"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr ""
+msgstr "Aktive Beschränkungen markieren"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr ""
+msgstr "Unsicherheitsquantifizierung"
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr ""
+msgstr "Heterogenitätskorrektur"
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr ""
+msgstr "Bootstrapping"
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "Stichprobe"
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Konfidenzintervalle"
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr ""
+msgstr "Terme"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
 msgstr "Post-hoc-Tests"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
 msgstr "Korrektur"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Null control"
 msgstr "Null-Kontrolle"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
 msgstr "Einzelmodellinferenz"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Components"
 msgstr "Komponenten"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
 msgstr "Spezifische Modellterme"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Tables"
 msgstr "Tabellen"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Estimates"
 msgstr "Schätzer"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "R²"
 msgstr "R²"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Plots"
 msgstr "Abbildungen"
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
-msgstr ""
+msgstr "Marginale Posterior"
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "Stufen in einer Abbildung gruppieren"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
 msgstr "Separate Abbildung pro Stufe"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
 msgstr "Q-Q-Diagramm der Residuen"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "Posterior R²"

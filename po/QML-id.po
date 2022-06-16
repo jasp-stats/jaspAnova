@@ -1226,9 +1226,10 @@ msgctxt "DefaultOptions|"
 msgid "Posterior R²"
 msgstr "R² posterior"
 
+#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Plot Deskriptif"
 
 #, fuzzy
 msgctxt "DescriptivesPlots|"

@@ -1,29 +1,30 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-27 22:12+0000\n"
-"Last-Translator: Antonio Guarnieri <ag@nty.it>\n"
+"PO-Revision-Date: 2022-06-18 03:07+0000\n"
+"Last-Translator: Giovanni Schettino <giannischettino00@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/it/>\n"
 "Language: it\n"
-"X-Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.13-dev\n"
+"X-Language: it\n"
 "X-Qt-Contexts: true\n"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "This module offers the standard Frequentist and Bayesian ANOVA tests."
-msgstr ""
+msgstr "Questo modulo include i test standard ANOVA frequentisti e bayesiani."
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Classico"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
@@ -39,7 +40,7 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Bayesiano"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
@@ -85,7 +86,6 @@ msgctxt "Ancova|"
 msgid "Estimates of effect size"
 msgstr "Stima della dimensione dell'effetto"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "η²"
 msgstr "η²"
@@ -174,7 +174,6 @@ msgctxt "Ancova|"
 msgid "Dunnett"
 msgstr "Dunnett"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Dunn"
 msgstr "Dunn"
@@ -183,27 +182,22 @@ msgctxt "Ancova|"
 msgid "Correction"
 msgstr "Correzione"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Tukey"
 msgstr "Tukey"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Scheffe"
 msgstr "Scheffe"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Holm"
 msgstr "Holm"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Šidák"
 msgstr "Šidák"
@@ -280,7 +274,6 @@ msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
 msgstr "Test di Kruskal-Wallis"
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid " "
 msgstr " "
@@ -494,7 +487,6 @@ msgctxt "Anova|"
 msgid "Estimates of effect size"
 msgstr "Stima della misura effettiva"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "η²"
 msgstr "η²"
@@ -503,7 +495,6 @@ msgctxt "Anova|"
 msgid "partial η²"
 msgstr "η² parziale"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "ω²"
 msgstr "ω²"
@@ -544,12 +535,10 @@ msgctxt "Anova|"
 msgid "None"
 msgstr "Nulla"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Brown-Forsythe"
 msgstr "Brown-Forsythe"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Welch"
 msgstr "Welch"
@@ -574,7 +563,6 @@ msgctxt "Anova|"
 msgid "Type"
 msgstr "Carattere"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Standard"
 msgstr "Standard"
@@ -583,26 +571,22 @@ msgctxt "Anova|"
 msgid "From"
 msgstr "Da"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "bootstraps"
-msgstr "bootstraps"
+msgstr "bootstrap"
 
 msgctxt "Anova|"
 msgid "Effect size"
 msgstr "Dimensioni Effetto"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Dunnett"
 msgstr "Dunnett"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Dunn"
 msgstr "Dunn"
@@ -611,27 +595,22 @@ msgctxt "Anova|"
 msgid "Correction"
 msgstr "Correzione"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Tukey"
 msgstr "Tukey"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Scheffe"
 msgstr "Scheffe"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Holm"
 msgstr "Holm"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "Šidák"
 msgstr "Šidák"
@@ -708,7 +687,6 @@ msgctxt "Anova|"
 msgid "Kruskal-Wallis Test"
 msgstr "Test di Kruskal-Wallis"
 
-#, fuzzy
 msgctxt "Anova|"
 msgid " "
 msgstr " "
@@ -918,7 +896,6 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Estimates of effect size"
 msgstr "Stime di dimensioni dell'effetto"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "η²"
 msgstr "η²"
@@ -1091,10 +1068,9 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "From"
 msgstr "Da"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "bootstraps"
-msgstr "bootstraps"
+msgstr "bootstrap"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Compare marginal means to 0"

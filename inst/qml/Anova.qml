@@ -56,9 +56,10 @@ Form
 
 	Common.ClassicalContrasts
 	{
-		source: "modelTerms"
+		analysis:	form.analysis
+		source:		"modelTerms"
 	}
-	
+
 	Common.ClassicalOrderRestrictions
 	{
 		analysis: form.analysis

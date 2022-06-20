@@ -20,30 +20,15 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./" as Common
 
-Section
+DropDown
 {
-	title: qsTr("Contrasts")
-	property int analysis
-	property alias source: contrasts.source
-
-	ContrastsList { id: contrasts }
-
-	Loader
-	{
-		Component
-		{
-			id: equalVarianceAssumption
-			CheckBox { name: "contrastAssumeEqualVariance"; label: qsTr("Assume equal variances"); checked: true }
-		}
-		sourceComponent: analysis === Common.Type.Analysis.RMANOVA ? equalVarianceAssumption : undefined
-	}
-
-	CheckBox
-	{
-		name: "confidenceIntervalsContrast"; label: qsTr("Confidence intervals")
-		childrenOnSameRow: true
-		CIField {	name: "confidenceIntervalIntervalContrast" }
-	}
+	name: "sumOfSquares"
+	indexDefaultValue: 2
+	label: qsTr("Sum of squares")
+	values: [
+		{ label: qsTr("Type %1").arg("\u2160"),	value: "type1"},
+		{ label: qsTr("Type %1").arg("\u2161"),	value: "type2"},
+		{ label: qsTr("Type %1").arg("\u2162"),	value: "type3"}
+	]
 }

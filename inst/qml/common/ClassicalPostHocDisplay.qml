@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2013-2018 University of Amsterdam
+// Copyright (C) 2013-2022 University of Amsterdam
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -16,34 +16,20 @@
 // <http://www.gnu.org/licenses/>.
 //
 
-import QtQuick			2.12
+import QtQuick	2.15
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./" as Common
 
-Section
+Group
 {
-	title: qsTr("Contrasts")
-	property int analysis
-	property alias source: contrasts.source
-
-	ContrastsList { id: contrasts }
-
-	Loader
-	{
-		Component
-		{
-			id: equalVarianceAssumption
-			CheckBox { name: "contrastAssumeEqualVariance"; label: qsTr("Assume equal variances"); checked: true }
-		}
-		sourceComponent: analysis === Common.Type.Analysis.RMANOVA ? equalVarianceAssumption : undefined
-	}
-
+	title: qsTr("Display")
 	CheckBox
 	{
-		name: "confidenceIntervalsContrast"; label: qsTr("Confidence intervals")
-		childrenOnSameRow: true
-		CIField {	name: "confidenceIntervalIntervalContrast" }
+		name:				"confidenceIntervalsPostHoc";
+		label:				qsTr("Confidence intervals")
+		childrenOnSameRow:	true
+		CIField { name: "confidenceIntervalIntervalPostHoc" }
 	}
+	CheckBox { name: "postHocFlagSignificant";	label: qsTr("Flag Significant Comparisons") }
 }

@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2013-2018 University of Amsterdam
+// Copyright (C) 2013-2022 University of Amsterdam
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -16,10 +16,11 @@
 // <http://www.gnu.org/licenses/>.
 //
 
-import QtQuick			2.12
+import QtQuick	2.15
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "./" as Common
 
 
 Section
@@ -32,7 +33,6 @@ Section
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
 		AvailableVariablesList { name: "postHocTestsAvailable"; id: availableTerms }
 		AssignedVariablesList {  name: "postHocTestsVariables" }
-
 	}
 
 
@@ -76,15 +76,5 @@ Section
 		CheckBox { name: "postHocTestsSidak";       label: qsTr("Šidák")                }
 	}
 
-	Group
-	{
-		title: qsTr("Display")
-		CheckBox
-				{
-					name: "confidenceIntervalsPostHoc"; label: qsTr("Confidence intervals")
-					childrenOnSameRow: true
-					CIField {name: "confidenceIntervalIntervalPostHoc" }
-				}
-		CheckBox { name: "postHocFlagSignificant";	label: qsTr("Flag Significant Comparisons") }
-	}
+	Common.ClassicalPostHocDisplay{}
 }

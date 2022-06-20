@@ -58,7 +58,8 @@ Form
 
 	Common.ClassicalContrasts
 	{
-		source: [{ name : "modelTerms", discard: "covariates" }]
+		analysis:	form.analysis
+		source:		[{ name : "modelTerms", discard: "covariates" }]
 	}
 
 	Common.ClassicalOrderRestrictions

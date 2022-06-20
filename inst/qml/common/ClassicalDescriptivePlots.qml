@@ -23,7 +23,8 @@ import JASP				1.0
 
 Section
 {
-	title: qsTr("Descriptives Plots")
+	title:		qsTr("Descriptives Plots")
+	columns:	1
 	property alias source: availableTerms.source
 
 	VariablesForm

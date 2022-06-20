@@ -35,16 +35,5 @@ Section
 		AssignedVariablesList {  name: "modelTerms"; title: qsTr("Model Terms"); listViewType: JASP.Interaction }
 	}
 
-	DropDown
-	{
-		name: "sumOfSquares"
-		indexDefaultValue: 2
-		label: qsTr("Sum of squares")
-		values: [
-			{ label: "Type \u2160", value: "type1"},
-			{ label: "Type \u2161", value: "type2"},
-			{ label: "Type \u2162", value: "type3"}
-		]
-	}
-
+	Common.ClassicalSumOfSquares{}
 }

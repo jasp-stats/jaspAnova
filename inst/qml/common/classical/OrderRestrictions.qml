@@ -26,7 +26,8 @@ import "../." as Common
 
 Section
 {
-	property var analysis
+	property int analysis
+	property alias source: marginalMeansTerms.source
 	
 	title:		qsTr("Order Restricted Hypotheses")
 	columns:	2
@@ -260,15 +261,7 @@ Section
 		{
 			name: "restrictedModelTerms"
 			label: qsTr("Restricted Marginal Means")
-//			source: (type === "Ancova" ? [ { name: "modelTerms", discard: "covariates" } ] :
-//										 type === "RM-Anova" ? [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ] :
-//															   "modelTerms")
-			source: switch(analysis)
-					{
-						case Common.Type.Analysis.ANCOVA:	return [ { name: "modelTerms", discard: "covariates" } ];
-						case Common.Type.Analysis.RMANOVA:	return [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ];
-						default:							return "modelTerms";
-					}
+			id: marginalMeansTerms
 		}
 
 		AssignedVariablesList { name: "restrictedModelMarginalMeansTerms"; label: qsTr("Terms") }

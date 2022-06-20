@@ -63,7 +63,8 @@ Form
 
 	Classical.OrderRestrictions
 	{
-		analysis: form.analysis
+		analysis:	form.analysis
+		source:		"modelTerms"
 	}
 	
 	Classical.PostHoc

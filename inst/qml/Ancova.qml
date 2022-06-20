@@ -65,7 +65,8 @@ Form
 
 	Classical.OrderRestrictions
 	{
-		analysis: form.analysis
+		analysis:	form.analysis
+		source:		[{ name: "modelTerms", discard: "covariates" }]
 	}
 
 	Classical.PostHoc

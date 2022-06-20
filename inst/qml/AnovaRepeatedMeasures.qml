@@ -96,7 +96,8 @@ Form
 
 	Classical.OrderRestrictions
 	{
-		analysis: form.analysis
+		analysis:	form.analysis
+		source:		[{ name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" }]
 	}
 	
 	Section

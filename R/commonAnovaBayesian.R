@@ -1802,7 +1802,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAdescriptivesPlotsTwo <- function(jaspContainer, dataset, options, errors, analysisType) {
 
-  if(length(options[["plotTwoHorizontalAxis"]]) == 0L
+  if (length(options[["plotTwoHorizontalAxis"]]) == 0L
       || options[["plotTwoHorizontalAxis"]] == ""
       || !is.null(jaspContainer[["containerDescriptivesPlotsTwo"]]))
     return()
@@ -1812,7 +1812,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspContainer[["containerDescriptivesPlotsTwo"]] <- descriptivesPlotTwoContainer
 
   # either Bayesian or Frequentist anova
-  if(is.null(options$confidenceIntervalIntervalTwo)) { # TRUE implies Bayesian
+  if (is.null(options$confidenceIntervalIntervalTwo)) { # TRUE implies Bayesian
     plotErrorBars <- options$plotTwoErrorBars
     errorBarType  <- options$errorBarTypeTwo
     confInterval <- options$plotTwoCredibleIntervalInterval
@@ -1831,14 +1831,14 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   zeroFix <- options$zeroFix
   descriptivesPlotTwoContainer$dependOn(c("plotTwoHorizontalAxis", "plotTwoSeparatePlots", "labelYAxisTwo"))
 
-  if(errors$noVariables) {
+  if (errors$noVariables) {
     descriptivesPlotTwoContainer[["dummyplot"]] <- createJaspPlot(title = gettext("Bar Plot"))
     return()
   }
 
   groupVars <- c(options$plotTwoHorizontalAxis, options$plotTwoSeparatePlots)
   groupVars <- groupVars[groupVars != ""]
-  if(analysisType == "RM-ANOVA") {
+  if (analysisType == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
     yLabel <- options[["labelYAxisTwo"]]
   } else {
@@ -1849,7 +1849,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   betweenSubjectFactors <- groupVars[groupVars %in% options$betweenSubjectFactors]
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
 
-  if(length(repeatedMeasuresFactors) == 0) {
+  if (length(repeatedMeasuresFactors) == 0) {
     summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = confInterval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
@@ -1867,11 +1867,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
 
-  if(options$plotTwoHorizontalAxis != "") {
+  if (options$plotTwoHorizontalAxis != "") {
     colnames(summaryStat)[colnames(summaryStat) == options$plotTwoHorizontalAxis] <- "plotTwoHorizontalAxis"
   }
 
-  if(options$plotTwoSeparatePlots != "") {
+  if (options$plotTwoSeparatePlots != "") {
     colnames(summaryStat)[colnames(summaryStat) == options$plotTwoSeparatePlots] <- "plotTwoSeparatePlots"
     subsetPlots <- levels(summaryStat[,"plotTwoSeparatePlots"])
     nPlots <- length(subsetPlots)
@@ -1879,7 +1879,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     nPlots <- 1
   }
 
-  for(i in seq_len(nPlots)) {
+  for (i in seq_len(nPlots)) {
 
     if (nPlots > 1L) {
       title <- paste(options$plotTwoSeparatePlots,": ",subsetPlots[i], sep = "")
@@ -1892,13 +1892,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesPlot$height <- 500
     descriptivesPlot$width <- 500
 
-    if(options$plotTwoSeparatePlots != "") {
+    if (options$plotTwoSeparatePlots != "") {
       summaryStatSubset <- subset(summaryStat, summaryStat[,"plotTwoSeparatePlots"] == subsetPlots[i])
     } else {
       summaryStatSubset <- summaryStat
     }
 
-    if(plotErrorBars){
+    if (plotErrorBars) {
       pd <- ggplot2::position_dodge(.2)
       error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
                                       colour = "black", width = .2, position = pd)
@@ -1906,17 +1906,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       error <- NULL
     }
 
-    if(zeroFix){
+    if (zeroFix) {
       values <- c(0, summaryStatSubset[,"dependent"],
                   min(summaryStatSubset[,"dependent"])*1.1, #do we need those extensions?
                   max(summaryStatSubset[,"dependent"])*1.1)
-    } else{
+    } else {
       values <- c(summaryStatSubset[,"dependent"],
                   min(summaryStatSubset[,"dependent"])*1.1,
                   max(summaryStatSubset[,"dependent"])*1.1)
     }
 
-    if(plotErrorBars) {
+    if (plotErrorBars) {
       ciPos <- c(values, summaryStatSubset$ciLower, summaryStatSubset$ciUpper)
       yBreaks <- jaspGraphs::getPrettyAxisBreaks(ciPos)
     } else {

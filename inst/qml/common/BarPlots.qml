@@ -23,42 +23,51 @@ import JASP				1.0
 
 Section
 {
-	property bool showLabel: false
-	property alias source: descriptivePlotsTwoVariables.source
+	property bool showLabel: 	false
+	property alias source: 		descriptivePlotsTwoVariables.source
 
 	title: qsTr("Bar Plots")
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); id: descriptivePlotsTwoVariables }
-		AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); singleVariable: true }
-		AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");	singleVariable: true }
+		AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); 			id: descriptivePlotsTwoVariables }
+		AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true }
+		AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true }
 	}
 	
 	TextField
 	{
-		visible: showLabel
-		name: "labelYAxisTwo"; label: qsTr("Label y-axis"); fieldWidth: 200
+		visible: 	showLabel
+		name: 		"labelYAxisTwo" 
+		label: 		qsTr("Label y-axis") 
+		fieldWidth: 200
 	}
 
 	Group
 	{
-		title: qsTr("Display")
-		columns: 2
+		title: 		qsTr("Display")
+		columns: 	2
+		
 		CheckBox
 		{
-			name: "plotTwoErrorBars"; label: qsTr("Display error bars")
+			name: 	"plotTwoErrorBars"
+			label: 	qsTr("Display error bars")
+			
 			RadioButtonGroup
 			{
-				name: "errorBarTypeTwo"
+				name: 	"errorBarTypeTwo"
+				
 				RadioButton
 				{
-					value: "confidenceInterval"; label: qsTr("Credible interval"); checked: true
-					childrenOnSameRow: true
-					CIField { name: "plotTwoCredibleIntervalInterval" }
+					value: 				"confidenceInterval" 
+					label: 				qsTr("Credible interval")
+					checked: 			true
+					childrenOnSameRow: 	true
+					
+					CIField { name: 	"plotTwoCredibleIntervalInterval" }
 				}
-				RadioButton { value: "standardErrorTwo"; label: qsTr("Standard error") }
+				RadioButton { value: 	"standardErrorTwo"; label: qsTr("Standard error") }
 			}
 		}
 		CheckBox { name: "zeroFix"; label: qsTr("Fix horizontal axis to 0")	}

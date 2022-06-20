@@ -6,7 +6,7 @@ context("ANCOVA -- Verification project")
 
 ## Testing standard ----
 
-options <- jaspTools::analysisOptions("Ancova")
+options <- initClassicalAnovaOptions("Ancova")
 
 options$dependent <- "Happiness"
 options$fixedFactors <- "Dose"

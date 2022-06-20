@@ -6,7 +6,7 @@ context("ANCOVA")
 
 # Main results ----
 test_that("Main table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$covariates <- "contGamma"
@@ -54,7 +54,7 @@ test_that("Main table results match", {
 })
 
 test_that("Main table results match for three-way ANOVA", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom", "facGender")
   options$modelTerms <- list(
@@ -101,7 +101,7 @@ test_that("Main table results match for three-way ANOVA", {
 
 # Additional results ----
 test_that("Homogeneity of Variances table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
   options$covariates <- "contGamma"
@@ -119,7 +119,7 @@ test_that("Homogeneity of Variances table results match", {
 # Contrasts verified with SPSS
 # should we put this in verification project???
 test_that("Contrasts table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$covariates <- "contGamma"
@@ -179,7 +179,7 @@ test_that("Contrasts table results match", {
 })
 
 test_that("Post Hoc table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
   options$covariates <- "contGamma"
@@ -208,7 +208,7 @@ test_that("Post Hoc table results match", {
 })
 
 test_that("Marginal Means table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
   options$covariates <- "contGamma"
@@ -243,7 +243,7 @@ test_that("Marginal Means table results match", {
 })
 
 test_that("Simple Main Effects table results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
   options$covariates <- "contGamma"
@@ -275,7 +275,7 @@ test_that("Analysis handles errors", {
 
   # Same as ANOVA
 
- options <- jaspTools::analysisOptions("Ancova")
+ options <- initClassicalAnovaOptions("Ancova")
  options$dependent <- "contNormal"
  options$covariates <- "debInf"
  options$fixedFactors <- "contBinom"
@@ -292,7 +292,7 @@ test_that("Analysis handles errors", {
 
 ## Chapter 6 ----
 test_that("Field - Chapter 6 results match", {
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
 
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
@@ -362,7 +362,7 @@ test_that("Field - Chapter 6 results match", {
                       ))
 
   # interaction with covariate
-  options <- jaspTools::analysisOptions("Ancova")
+  options <- initClassicalAnovaOptions("Ancova")
 
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
@@ -403,7 +403,7 @@ test_that("Field - Chapter 6 results match", {
 
 # Ordinal Restrictions ----
 # this test also tests anova restrictions
-options <- analysisOptions("Ancova")
+options <- initClassicalAnovaOptions("Ancova")
 options$contrasts <- list(list(contrast = "none", variable = "contBinom"))
 options$covariates <- "contcor1"
 options$customContrasts <- list()
@@ -575,7 +575,7 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
 
 
 ## see https://restriktor.org/tutorial/example2.html for comparison ----
-options <- analysisOptions("Ancova")
+options <- initClassicalAnovaOptions("Ancova")
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$covariates <- "Age"
 options$customContrasts <- list()

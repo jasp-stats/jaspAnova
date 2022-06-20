@@ -23,7 +23,7 @@ options(list(
 ))
 
 initOpts <- function(){
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
   options$repeatedMeasuresFactors <- list(
     list(name = "Drink", levels = c("Beer", "Wine", "Water")),
@@ -330,7 +330,7 @@ test_that("Field - Chapter 8 marginal means match", {
 # Error handling
 test_that("Analysis handles errors", {
 
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
   options[["betweenModelTerms"]] <- list(list(components = "Celebrity"))
   options[["betweenSubjectFactors"]] <- "Celebrity"
   options[["repeatedMeasuresCells"]] <- c("Stick Insect", "Kangaroo Testicle", "Fish Eye", "Witchetty Grub")
@@ -339,14 +339,14 @@ test_that("Analysis handles errors", {
     name = "Animal"
   ))
 
-  results <- jaspTools::runAnalysis(options = options, dataset = "Bush Tucker Food.csv")
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", options = options, dataset = "Bush Tucker Food.csv")
   expect_identical(results$status, "validationError", label = "Duplicate variables in subject and betweenSubjectFactors")
 
 })
 
 # Mixed Effects
 initOpts <- function(){
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
   options$repeatedMeasuresFactors <- list(
     list(name = "Looks", levels = c("Attractive", "Average" , "Ugly")),
@@ -498,7 +498,7 @@ test_that("Raincloud Plots match for between subjects", {
 
 
 test_that("Effect Size Calculation correct", {
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
   options$repeatedMeasuresFactors <- list(
     list(name = "Animal", levels = c("Stick", "Kangaroo", "Fish", "Grub"))
@@ -616,7 +616,7 @@ test_that("Conover table match", {
 # Andy Field tests ----
 # should we put this in verification?
 test_that("Field - Chapter 8 results match", {
-  options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
   options$repeatedMeasuresFactors <- list(
     list(name = "Animal", levels = c("Stick", "Kangaroo", "Fish", "Grub"))
@@ -814,7 +814,7 @@ test_that("Field - Chapter 9 match",  {
 })
 
 # test model without interaction effect
-options <- analysisOptions("AnovaRepeatedMeasures")
+options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$contrasts <- list(list(contrast = "none", variable = "Drink"))
 options$customContrasts <- list()
 options$labelYAxis <- "Alcohol Attitudes"
@@ -847,7 +847,7 @@ test_that("Test of Sphericity table results match", {
 })
 
 # test model without interaction effect
-options <- analysisOptions("AnovaRepeatedMeasures")
+options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$withinModelTerms <- list(list(components = "Drink"), list(components = "Imagery"))
 options$sphericityGreenhouseGeisser <- TRUE
 options$sphericityHuynhFeldt <- TRUE
@@ -903,7 +903,7 @@ test_that("No interaction: Within Subjects Effects table results match", {
 
 
 # Ordinal restrictions ----
-options <- analysisOptions("AnovaRepeatedMeasures")
+options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$betweenModelTerms <- list(list(components = "facGender"), list(components = "facExperim"),
                                   list(components = c("facGender", "facExperim")))
 options$betweenSubjectFactors <- c("facGender", "facExperim")

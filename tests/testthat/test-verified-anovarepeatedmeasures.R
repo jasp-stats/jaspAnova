@@ -24,7 +24,7 @@ options(list(
 
 ## Testing standard RM ANOVA
 
-options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
 options$repeatedMeasuresFactors <- list(
   list(name = "RMFactor1", levels = c("control", "experimental"))
@@ -36,7 +36,7 @@ options$withinModelTerms <- list(
   list(components = "RMFactor1")
 )
 
-results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", 
+results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                   dataset = "Ranova.csv",
                                   options = options)
 
@@ -44,21 +44,21 @@ results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
 test_that("Main results match R, SPSS, SAS, MiniTab", {
   # Main table
   resultTable <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
-  
+
   jaspTools::expect_equal_tables(
-    "test"=resultTable, 
+    "test"=resultTable,
     "ref"=list("TRUE", 22.5, 20, 20, "RMFactor1", 1, 0.00105387125701656, "TRUE",
                "", 0.88888888888889, 8.00000000000001, "Residuals", 9, "")
   )
 })
-  
+
 # https://jasp-stats.github.io/jasp-verification-project/anova.html#one-way-repeated-measures-anova
 test_that("Between effects results match R, SPSS, SAS, MiniTab", {
   # Between effects table
   resultTable <- results$results$rmAnovaContainer$collection$rmAnovaContainer_betweenTable$data
-  
+
   jaspTools::expect_equal_tables(
-    "test"=resultTable, 
+    "test"=resultTable,
     "ref"=list("TRUE", "", 20.2222222222222, "", 182, "Residuals", 9)
   )
 })
@@ -66,7 +66,7 @@ test_that("Between effects results match R, SPSS, SAS, MiniTab", {
 
 ## Testing Friedman ----
 
-options <- jaspTools::analysisOptions("AnovaRepeatedMeasures")
+options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
 options$repeatedMeasuresFactors <- list(
   list(name = "RMFactor1", levels = c("treatment1", "treatment2", "treatment3", "treatment4"))
@@ -80,7 +80,7 @@ options$withinModelTerms <- list(
 
 options$friedmanWithinFactor <- "RMFactor1"
 
-results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", 
+results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                   dataset = "Friedman.csv",
                                   options = options)
 
@@ -90,9 +90,9 @@ results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
 test_that("Main results match R, SPSS, SAS, MiniTab 2", {
   # Main table
   resultTable <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
-  
+
   jaspTools::expect_equal_tables(
-    "test"=resultTable, 
+    "test"=resultTable,
     "ref"=list("TRUE", 3.38639427564036, 49.4772727272727, 148.431818181818,
                "RMFactor1", 3, 0.0307909821225901, "TRUE", "", 14.6106060606061,
                438.318181818182, "Residuals", 30, "")
@@ -103,9 +103,9 @@ test_that("Main results match R, SPSS, SAS, MiniTab 2", {
 test_that("Between effects results match R, SPSS, SAS, MiniTab 2", {
   # Between effects table
   resultTable <- results$results$rmAnovaContainer$collection$rmAnovaContainer_betweenTable$data
-  
+
   jaspTools::expect_equal_tables(
-    "test"=resultTable, 
+    "test"=resultTable,
     "ref"=list("TRUE", "", 24.2045454545455, "", 242.045454545455, "Residuals",
                10)
   )
@@ -116,9 +116,9 @@ test_that("Friedman results match R, SPSS, SAS, MiniTab 2", {
   # Nonparametric Friedman
   resultContainer <- results$results$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection
   resultTable <- resultContainer$rmAnovaContainer_nonparametricContainer_friedmanTable$data
-  
+
   jaspTools::expect_equal_tables(
-    "test"=resultTable, 
+    "test"=resultTable,
     "ref"=list("RMFactor1", 11.9454545454546, 3, 0.36198347107438, 0.00757236506542182
     )
   )

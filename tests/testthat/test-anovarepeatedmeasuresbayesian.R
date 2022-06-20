@@ -341,24 +341,6 @@ test_that("Descriptives plot matches for beer data", {
   jaspTools::expect_equal_plots(testPlot, "Descriptives plot")
 })
 
-
-options <- initOpts("AnovaRepeatedMeasuresBayesian")
-options$plotTwoHorizontalAxis <- "Drink"
-options$plotTwoSeparatePlots <- "Imagery"
-options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
-options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
-                                        list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
-options$modelTerms <- list(list(components = "Drink", isNuisance = FALSE), list(components = "Imagery", isNuisance = FALSE))
-set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
-
-test_that("Bar plot matches for beer data", {
-  plotName <- results[["results"]][["descriptivesContainer"]][["collection"]][["descriptivesContainer_containerDescriptivesPlotsTwo"]][["collection"]][["descriptivesContainer_containerDescriptivesPlotsTwo_Imagery: Negative"]][["data"]]
-  testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "Bar plot")
-})
-
-
 test_that("Model Comparison table results matches for beer data", {
   table <- results[["results"]][["tableModelComparison"]][["data"]]
   jaspTools::expect_equal_tables(

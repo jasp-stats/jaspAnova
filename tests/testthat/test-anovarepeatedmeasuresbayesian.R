@@ -342,7 +342,7 @@ test_that("Descriptives plot matches for beer data", {
 })
 
 
-options <- initOpts()
+options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$plotTwoHorizontalAxis <- "Drink"
 options$plotTwoSeparatePlots <- "Imagery"
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")

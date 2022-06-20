@@ -5,7 +5,7 @@ context("ANOVA -- Verification project")
 
 # https://jasp-stats.github.io/jasp-verification-project/anova.html#one-way-independent-anova
 test_that("Main table results match R, SPSS, SAS and MiniTab", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Score"
   options$fixedFactors <- "Group"
 
@@ -27,7 +27,7 @@ test_that("Main table results match R, SPSS, SAS and MiniTab", {
 
 # https://jasp-stats.github.io/jasp-verification-project/anova.html#factorial-independent-anova
 test_that("Main table results match  R, SPSS, SAS and MiniTab 2-factor", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Score"
   options$fixedFactors <- c("Norms", "Standing")
 
@@ -54,7 +54,7 @@ test_that("Main table results match  R, SPSS, SAS and MiniTab 2-factor", {
 
 ## Testing Kruskal-Wallis
 
-options <- jaspTools::analysisOptions("Anova")
+options <- initClassicalAnovaOptions("Anova")
 options$dependent <- "Score"
 options$fixedFactors <- "Treatment"
 options$kruskalVariablesAssigned <- "Treatment"

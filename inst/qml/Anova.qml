@@ -49,7 +49,10 @@ Form
 		source: ["fixedFactors", "randomFactors"]
 	}
 
-	Common.ClassicalAssumptionChecks{}
+	Common.ClassicalAssumptionChecks
+	{
+		analysis: form.analysis
+	}
 
 	Common.ClassicalContrasts
 	{

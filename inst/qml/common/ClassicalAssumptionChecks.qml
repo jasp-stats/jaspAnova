@@ -26,17 +26,26 @@ import "./" as Common
 Section
 {
 	title: qsTr("Assumption Checks")
+	property int analysis
 
 	Group
 	{
 		CheckBox { name: "homogeneityTests";	label: qsTr("Homogeneity tests")			}
-		Group
+		Loader
 		{
-			title: qsTr("Homogeneity corrections")
-			columns: 3
-			CheckBox { name: "homogeneityNone";		label: qsTr("None")           ; checked: true }
-			CheckBox { name: "homogeneityBrown";	label: qsTr("Brown-Forsythe") ; checked: false }
-			CheckBox { name: "homogeneityWelch";	label: qsTr("Welch")          ; checked: false }
+			Component
+			{
+				id: homogeneityCorrections
+				Group
+				{
+					title: qsTr("Homogeneity corrections")
+					columns: 3
+					CheckBox { name: "homogeneityNone";		label: qsTr("None")           ; checked: true }
+					CheckBox { name: "homogeneityBrown";	label: qsTr("Brown-Forsythe") ; checked: false }
+					CheckBox { name: "homogeneityWelch";	label: qsTr("Welch")          ; checked: false }
+				}
+			}
+			sourceComponent: analysis === Common.Type.Analysis.ANOVA ? homogeneityCorrections : undefined
 		}
 		CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals") }
 	}

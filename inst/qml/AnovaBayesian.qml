@@ -49,6 +49,6 @@ Form
 
 	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }
 
-	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BANOVA; id: additionalOptions }
+	Bayesian.AdditionalOptions { analysis: form.analysis; id: additionalOptions }
 
 }

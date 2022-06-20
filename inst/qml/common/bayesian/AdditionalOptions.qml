@@ -21,11 +21,12 @@ import QtQuick.Layouts	1.3
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "../." as Common
 
 Section
 {
 
-				property int	analysisType
+				property int	analysis
 				property var	covariates:				null
 	readonly	property alias	marginalityEnforced:	fixedMarginality.checked
 
@@ -50,7 +51,7 @@ Section
 				title: qsTr("Prior")
 				DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
 				DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
-				DoubleField { visible: analysisType !== AnalysisType.AnalysisType.BANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;												}
+				DoubleField { visible: analysis !== Common.Type.Analysis.ANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;												}
 			}
 		}
 
@@ -98,7 +99,7 @@ Section
 		{
 			CheckBox
 			{
-				visible: analysisType === AnalysisType.AnalysisType.BRMANOVA
+				visible: analysis === Common.Type.Analysis.RMANOVA
 				name:	"legacy"
 				label:	qsTr("Legacy results")
 				info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")

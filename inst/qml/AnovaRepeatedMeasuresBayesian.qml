@@ -107,5 +107,5 @@ Form
 		enableYAxisLabel: true
 	}
 
-	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions; covariates: covariates }
+	Bayesian.AdditionalOptions { analysis: form.analysis; id: additionalOptions; covariates: covariates }
 }

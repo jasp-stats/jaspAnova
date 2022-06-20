@@ -51,6 +51,6 @@ Form
 
 	Common.RainCloudPlots { source: ["fixedFactors", "covariates"] }
 
-	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions; covariates: covariates }
+	Bayesian.AdditionalOptions { analysis: form.analysis; id: additionalOptions; covariates: covariates }
 
 }

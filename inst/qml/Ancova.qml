@@ -21,6 +21,7 @@ import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
 import "./common" as Common
+import "./common/classical" as Classical
 
 Form
 {
@@ -28,7 +29,7 @@ Form
 	property int analysis:	Common.Type.Analysis.ANCOVA
 	property int framework:	Common.Type.Framework.Classical
 
-	Common.ClassicalInvisiblePlotSizes{}
+	Classical.InvisiblePlotSizes{}
 	
 	VariablesForm
 	{
@@ -41,38 +42,38 @@ Form
 		AssignedVariablesList	{ name: "wlsWeights";		title: qsTr("WLS Weights");			suggestedColumns: ["scale"];				singleVariable: true	}
 	}
 
-	Common.ClassicalDisplay
+	Classical.Display
 	{
 		analysis: form.analysis
 	}
 
-	Common.ClassicalModels
+	Classical.Models
 	{
 		source: ["fixedFactors", "randomFactors", "covariates"]
 	}
 
-	Common.ClassicalAssumptionChecks
+	Classical.AssumptionChecks
 	{
 		analysis: form.analysis
 	}
 
-	Common.ClassicalContrasts
+	Classical.Contrasts
 	{
 		analysis:	form.analysis
 		source:		[{ name : "modelTerms", discard: "covariates" }]
 	}
 
-	Common.ClassicalOrderRestrictions
+	Classical.OrderRestrictions
 	{
 		analysis: form.analysis
 	}
 
-	Common.ClassicalPostHoc
+	Classical.PostHoc
 	{
 		source: [{ name: "modelTerms", discard: "covariates" }]
 	}
 
-	Common.ClassicalDescriptivePlots
+	Classical.DescriptivePlots
 	{
 		source: ["fixedFactors", "randomFactors", "covariates"]
 	}
@@ -82,18 +83,19 @@ Form
 		source: ["fixedFactors", "randomFactors", "covariates"]
 	}
 
-	Common.ClassicalMarginalMeans
+	Classical.MarginalMeans
 	{
 		source: [{ name: "modelTerms", discard: "covariates" }]
 	}
 
-	Common.ClassicalSimpleMainEffects
+	Classical.SimpleMainEffects
 	{
 		source: ["fixedFactors", "randomFactors"]
 	}
 
-	Common.ClassicalNonparametrics
+	Classical.Nonparametrics
 	{
 		source: ["fixedFactors", "randomFactors"]
 	}
+
 }

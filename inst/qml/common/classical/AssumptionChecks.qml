@@ -20,20 +20,33 @@ import QtQuick	2.15
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./" as Common
+import "../." as Common
 
 
 Section
 {
-	title: qsTr("Model")
-	property alias source: components.source
+	title: qsTr("Assumption Checks")
+	property int analysis
 
-	VariablesForm
+	Group
 	{
-		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "components"; title: qsTr("Components"); id: components }
-		AssignedVariablesList {  name: "modelTerms"; title: qsTr("Model Terms"); listViewType: JASP.Interaction }
+		CheckBox { name: "homogeneityTests";	label: qsTr("Homogeneity tests")			}
+		Loader
+		{
+			Component
+			{
+				id: homogeneityCorrections
+				Group
+				{
+					title: qsTr("Homogeneity corrections")
+					columns: 3
+					CheckBox { name: "homogeneityNone";		label: qsTr("None")           ; checked: true }
+					CheckBox { name: "homogeneityBrown";	label: qsTr("Brown-Forsythe") ; checked: false }
+					CheckBox { name: "homogeneityWelch";	label: qsTr("Welch")          ; checked: false }
+				}
+			}
+			sourceComponent: analysis === Common.Type.Analysis.ANOVA ? homogeneityCorrections : undefined
+		}
+		CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals") }
 	}
-
-	Common.ClassicalSumOfSquares{}
 }

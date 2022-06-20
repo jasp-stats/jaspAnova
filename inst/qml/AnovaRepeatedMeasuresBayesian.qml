@@ -19,10 +19,15 @@ import QtQuick			2.8
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./common" as ANOVA
+import "./common" as Common
+import "./common/bayesian" as Bayesian
+
 
 Form
 {
+	id: form
+	property int analysis:	Common.Type.Analysis.RMANOVA
+	property int framework:	Common.Type.Framework.Bayesian
 
 	// The following part is used for spawning upgrade notifications about multigroup analysis
 	Rectangle
@@ -81,28 +86,26 @@ Form
 		}
 	}
 
-	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
+	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
-	ANOVA.ModelTerms { source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]	}
+	Bayesian.ModelTerms { source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"]	}
 
-	ANOVA.SingleModelInference { source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"] }
+	Bayesian.SingleModelInference { source: ["repeatedMeasuresFactors", "betweenSubjectFactors", "covariates"] }
 
-	ANOVA.PostHocTests { source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
+	Bayesian.PostHocTests { source: ["repeatedMeasuresFactors", "betweenSubjectFactors"] }
 
-	ANOVA.DescriptivesPlots
+	Bayesian.DescriptivesPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		showLabel: true
 	}
 
-	ANOVA.RainCloudPlots
+	Common.RainCloudPlots
 	{
-		availableVariableSource: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		enableHorizontal: false
 		enableYAxisLabel: true
 	}
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions; covariates: covariates }
-
-
+	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BRMANOVA; id: additionalOptions; covariates: covariates }
 }

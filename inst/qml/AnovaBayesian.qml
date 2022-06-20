@@ -20,10 +20,14 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./common" as ANOVA
+import "./common" as Common
+import "./common/bayesian" as Bayesian
 
 Form
 {
+	id: form
+	property int analysis:	Common.Type.Analysis.ANOVA
+	property int framework:	Common.Type.Framework.Bayesian
 
 	VariablesForm
 	{
@@ -33,18 +37,18 @@ Form
 		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
 	}
 
-	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
+	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
-	ANOVA.ModelTerms { source: ["fixedFactors", "randomFactors"] }
+	Bayesian.ModelTerms { source: ["fixedFactors", "randomFactors"] }
 
-	ANOVA.SingleModelInference { source: ["fixedFactors", "randomFactors"] }
+	Bayesian.SingleModelInference { source: ["fixedFactors", "randomFactors"] }
 
-	ANOVA.PostHocTests { source: "fixedFactors" }
+	Bayesian.PostHocTests { source: "fixedFactors" }
 
-	ANOVA.DescriptivesPlots { source: "fixedFactors" }
+	Bayesian.DescriptivesPlots { source: "fixedFactors" }
 
-	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "randomFactors"] }
+	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANOVA; id: additionalOptions }
+	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BANOVA; id: additionalOptions }
 
 }

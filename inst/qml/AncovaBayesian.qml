@@ -20,10 +20,15 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./common" as ANOVA
+import "./common" as Common
+import "./common/bayesian" as Bayesian
+
 
 Form
 {
+	id: form
+	property int analysis:	Common.Type.Analysis.ANCOVA
+	property int framework:	Common.Type.Framework.Bayesian
 
 	VariablesForm
 	{
@@ -34,18 +39,18 @@ Form
 		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			suggestedColumns: ["scale"];	id: covariates		}
 	}
 
-	ANOVA.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
+	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}
 
-	ANOVA.ModelTerms { source: ["fixedFactors", "randomFactors", "covariates"]	}
+	Bayesian.ModelTerms { source: ["fixedFactors", "randomFactors", "covariates"]	}
 
-	ANOVA.SingleModelInference { source: ["fixedFactors", "randomFactors", "covariates"] }
+	Bayesian.SingleModelInference { source: ["fixedFactors", "randomFactors", "covariates"] }
 
-	ANOVA.PostHocTests { source: "fixedFactors" }
+	Bayesian.PostHocTests { source: "fixedFactors" }
 
-	ANOVA.DescriptivesPlots { source: ["fixedFactors", "covariates"] }
+	Bayesian.DescriptivesPlots { source: ["fixedFactors", "covariates"] }
 
-	ANOVA.RainCloudPlots { availableVariableSource: ["fixedFactors", "covariates"] }
+	Common.RainCloudPlots { source: ["fixedFactors", "covariates"] }
 
-	ANOVA.AdditionalOptions { analysisType: ANOVA.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions; covariates: covariates }
+	Bayesian.AdditionalOptions { analysisType: Bayesian.AnalysisType.AnalysisType.BANCOVA; id: additionalOptions; covariates: covariates }
 
 }

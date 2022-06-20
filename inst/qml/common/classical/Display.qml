@@ -20,7 +20,7 @@ import QtQuick	2.15
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import "./" as Common
+import "../." as Common
 
 
 Group

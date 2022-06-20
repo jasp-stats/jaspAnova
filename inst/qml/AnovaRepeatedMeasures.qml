@@ -21,12 +21,15 @@ import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
 import "./common" as Common
+import "./common/classical" as Classical
 
 Form
 {
 	id: form
 	property int analysis:	Common.Type.Analysis.RMANOVA
 	property int framework:	Common.Type.Framework.Classical
+
+	Classical.InvisiblePlotSizes{}
 
 	VariablesForm
 	{
@@ -38,7 +41,7 @@ Form
 		AssignedVariablesList			{ name: "covariates";				title: qsTr("Covariates");					suggestedColumns: ["scale"]												}
 	}
 
-	Common.ClassicalDisplay
+	Classical.Display
 	{
 		analysis: form.analysis
 	}
@@ -61,7 +64,7 @@ Form
 			AssignedVariablesList	{ name: "betweenModelTerms"; title: qsTr("Model terms"); listViewType: JASP.Interaction }
 		}
 
-		Common.ClassicalSumOfSquares{}
+		Classical.SumOfSquares{}
 
 		CheckBox { name: "useMultivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: false }
 	}
@@ -85,13 +88,13 @@ Form
 		}
 	}
 
-	Common.ClassicalContrasts
+	Classical.Contrasts
 	{
 		analysis:	form.analysis
 		source:		["withinModelTerms", { name: "betweenModelTerms", discard: "covariates", combineWithOtherModels: true }]
 	}
 
-	Common.ClassicalOrderRestrictions
+	Classical.OrderRestrictions
 	{
 		analysis: form.analysis
 	}
@@ -124,10 +127,10 @@ Form
 			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffé")				}
 		}
 
-		Common.ClassicalPostHocDisplay{}
+		Classical.PostHocDisplay{}
 	}
 
-	Common.ClassicalDescriptivePlots
+	Classical.DescriptivePlots
 	{
 		TextField	{ name: "labelYAxis";				label: qsTr("Label y-axis"); fieldWidth: 200	}
 		CheckBox	{ name: "usePooledStandErrorCI";	label: qsTr("Average across unused RM factors")	}
@@ -140,12 +143,12 @@ Form
 		enableYAxisLabel:	true
 	}
 
-	Common.ClassicalMarginalMeans
+	Classical.MarginalMeans
 	{
 		source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates" }]
 	}
 
-	Common.ClassicalSimpleMainEffects
+	Classical.SimpleMainEffects
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		CheckBox { name: "poolErrorTermSimpleEffects";	label: qsTr("Pool error terms") }
@@ -165,4 +168,5 @@ Form
 
 		CheckBox { name: "conoverTest"; label: qsTr("Conover's post hoc tests") }
 	}
+
 }

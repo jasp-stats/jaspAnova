@@ -9,8 +9,8 @@ initClassicalAnovaOptions <- function(analysis = c("Anova", "Ancova", "AnovaRepe
 }
 
 classicalAnovaCommonOptions <- function() {
-  path <- testthat::test_path("..", "..", "inst", "qml", "common")
-  files <- list.files(path, pattern = "^Classical", full.names = TRUE)
+  path <- testthat::test_path("..", "..", "inst", "qml", "common", "classical")
+  files <- list.files(path, full.names = TRUE)
   files <- c(
     files,
     testthat::test_path("..", "..", "inst", "qml", "common", "RainCloudPlots.qml")

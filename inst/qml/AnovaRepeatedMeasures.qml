@@ -133,6 +133,7 @@ Form
 
 	Classical.DescriptivePlots
 	{
+		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		TextField	{ name: "labelYAxis";				label: qsTr("Label y-axis"); fieldWidth: 200	}
 		CheckBox	{ name: "usePooledStandErrorCI";	label: qsTr("Average across unused RM factors")	}
 	}

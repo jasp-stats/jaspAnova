@@ -1873,16 +1873,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (options$plotTwoSeparatePlots != "") {
     colnames(summaryStat)[colnames(summaryStat) == options$plotTwoSeparatePlots] <- "plotTwoSeparatePlots"
-    subsetPlots <- levels(summaryStat[,"plotTwoSeparatePlots"])
+    subsetPlots <- levels(summaryStat[, "plotTwoSeparatePlots"])
     nPlots <- length(subsetPlots)
   } else {
-    nPlots <- 1
+    nPlots <- 1L
   }
 
   for (i in seq_len(nPlots)) {
 
     if (nPlots > 1L) {
-      title <- paste(options$plotTwoSeparatePlots,": ",subsetPlots[i], sep = "")
+      title <- paste0(options$plotTwoSeparatePlots, ": ", subsetPlots[i])
     } else {
       title <- ""
     }
@@ -1893,7 +1893,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesPlot$width <- 500
 
     if (options$plotTwoSeparatePlots != "") {
-      summaryStatSubset <- subset(summaryStat, summaryStat[,"plotTwoSeparatePlots"] == subsetPlots[i])
+      summaryStatSubset <- subset(summaryStat, summaryStat[, "plotTwoSeparatePlots"] == subsetPlots[i])
     } else {
       summaryStatSubset <- summaryStat
     }
@@ -1906,15 +1906,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       error <- NULL
     }
 
-    if (zeroFix) {
-      values <- c(0, summaryStatSubset[,"dependent"],
-                  min(summaryStatSubset[,"dependent"])*1.1, #do we need those extensions?
-                  max(summaryStatSubset[,"dependent"])*1.1)
-    } else {
-      values <- c(summaryStatSubset[,"dependent"],
-                  min(summaryStatSubset[,"dependent"])*1.1,
-                  max(summaryStatSubset[,"dependent"])*1.1)
-    }
+    values <- 1.1 * range(summaryStatSubset[["dependent"]])
+    if (zeroFix)
+      values <- c(0, values)
 
     if (plotErrorBars) {
       ciPos <- c(values, summaryStatSubset$ciLower, summaryStatSubset$ciUpper)

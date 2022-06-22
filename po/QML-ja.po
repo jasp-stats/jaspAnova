@@ -64,204 +64,8 @@ msgid "WLS Weights"
 msgstr "重みつけ最小二乗法ウェイト"
 
 msgctxt "Ancova|"
-msgid "Display"
-msgstr "表示"
-
-msgctxt "Ancova|"
-msgid "Descriptive statistics"
-msgstr "記述統計"
-
-msgctxt "Ancova|"
-msgid "Estimates of effect size"
-msgstr "効果量の推定値"
-
-msgctxt "Ancova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Ancova|"
-msgid "partial η²"
-msgstr "偏η²"
-
-msgctxt "Ancova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Ancova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p比"
-
-msgctxt "Ancova|"
-msgid "Model"
-msgstr "モデル"
-
-msgctxt "Ancova|"
-msgid "Components"
-msgstr "コンポーネント"
-
-msgctxt "Ancova|"
-msgid "Model Terms"
-msgstr "モデル項"
-
-msgctxt "Ancova|"
-msgid "Sum of squares"
-msgstr "平方和"
-
-msgctxt "Ancova|"
-msgid "Assumption Checks"
-msgstr "仮定のチェック"
-
-msgctxt "Ancova|"
-msgid "Homogeneity tests"
-msgstr "等質性検定"
-
-msgctxt "Ancova|"
-msgid "Q-Q plot of residuals"
-msgstr "残差のQ-Qプロット"
-
-msgctxt "Ancova|"
 msgid "Factor covariate independence check"
 msgstr "要因共変量の独立性チェック"
-
-msgctxt "Ancova|"
-msgid "Contrasts"
-msgstr "コントラスト"
-
-msgctxt "Ancova|"
-msgid "Confidence intervals"
-msgstr "信頼区間"
-
-msgctxt "Ancova|"
-msgid "Post Hoc Tests"
-msgstr "事後検定"
-
-msgctxt "Ancova|"
-msgid "Type"
-msgstr "タイプ"
-
-msgctxt "Ancova|"
-msgid "Standard"
-msgstr "標準"
-
-msgctxt "Ancova|"
-msgid "From"
-msgstr "次から"
-
-msgctxt "Ancova|"
-msgid "bootstraps"
-msgstr "ブートス トラップ"
-
-msgctxt "Ancova|"
-msgid "Effect size"
-msgstr "効果量"
-
-msgctxt "Ancova|"
-msgid "Games-Howell"
-msgstr "ゲームス・ハウエル(Games-Howell)"
-
-msgctxt "Ancova|"
-msgid "Dunnett"
-msgstr "ダネット(Dunnett)"
-
-msgctxt "Ancova|"
-msgid "Dunn"
-msgstr "ダン(Dunn)"
-
-msgctxt "Ancova|"
-msgid "Correction"
-msgstr "補正"
-
-msgctxt "Ancova|"
-msgid "Tukey"
-msgstr "テューキー(Tukey)"
-
-msgctxt "Ancova|"
-msgid "Bonferroni"
-msgstr "ボンフェローニ(Bonferroni)"
-
-msgctxt "Ancova|"
-msgid "Holm"
-msgstr "ホルム(Holm)"
-
-msgctxt "Ancova|"
-msgid "Šidák"
-msgstr "シダック(Šidák)"
-
-msgctxt "Ancova|"
-msgid "Flag Significant Comparisons"
-msgstr "有意な比較に印"
-
-msgctxt "Ancova|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "Ancova|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "Ancova|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "Ancova|"
-msgid "Separate Plots"
-msgstr "分割プロット"
-
-msgctxt "Ancova|"
-msgid "Display error bars"
-msgstr "エラーバーの表示"
-
-msgctxt "Ancova|"
-msgid "Standard error"
-msgstr "標準誤差"
-
-msgctxt "Ancova|"
-msgid "Marginal Means"
-msgstr "周辺平均"
-
-msgctxt "Ancova|"
-msgid "Compare marginal means to 0"
-msgstr "周辺平均を 0 と比較する"
-
-msgctxt "Ancova|"
-msgid "Confidence interval adjustment"
-msgstr "信頼区間の調整"
-
-msgctxt "Ancova|"
-msgid "None"
-msgstr "なし"
-
-msgctxt "Ancova|"
-msgid "Simple Main Effects"
-msgstr "単純主効果"
-
-msgctxt "Ancova|"
-msgid "Factors"
-msgstr "要因"
-
-msgctxt "Ancova|"
-msgid "Simple Effect Factor"
-msgstr "単純効果を検討する要因"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 1"
-msgstr "調整要因１"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 2"
-msgstr "調整要因２"
-
-msgctxt "Ancova|"
-msgid "Nonparametrics"
-msgstr "ノンパラメトリック"
-
-msgctxt "Ancova|"
-msgid "Kruskal-Wallis Test"
-msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
-
-msgctxt "Ancova|"
-msgid " "
-msgstr "　"
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
@@ -295,218 +99,6 @@ msgctxt "Anova|"
 msgid "WLS Weights"
 msgstr "重みつけ最小二乗法ウェイト"
 
-msgctxt "Anova|"
-msgid "Display"
-msgstr "表示"
-
-msgctxt "Anova|"
-msgid "Descriptive statistics"
-msgstr "記述統計"
-
-msgctxt "Anova|"
-msgid "Estimates of effect size"
-msgstr "効果量の推定値"
-
-msgctxt "Anova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Anova|"
-msgid "partial η²"
-msgstr "偏η²"
-
-msgctxt "Anova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Anova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p比"
-
-msgctxt "Anova|"
-msgid "Model"
-msgstr "モデル"
-
-msgctxt "Anova|"
-msgid "Components"
-msgstr "コンポーネント"
-
-msgctxt "Anova|"
-msgid "Model Terms"
-msgstr "モデル項"
-
-msgctxt "Anova|"
-msgid "Sum of squares"
-msgstr "平方和"
-
-msgctxt "Anova|"
-msgid "Assumption Checks"
-msgstr "仮定のチェック"
-
-msgctxt "Anova|"
-msgid "Homogeneity tests"
-msgstr "等質性検定"
-
-msgctxt "Anova|"
-msgid "Homogeneity corrections"
-msgstr "等質性補正"
-
-msgctxt "Anova|"
-msgid "None"
-msgstr "なし"
-
-msgctxt "Anova|"
-msgid "Brown-Forsythe"
-msgstr "ブラウン・フォーサイス(Brown-Forsythe)"
-
-msgctxt "Anova|"
-msgid "Welch"
-msgstr "ウェルチ(Welch)"
-
-msgctxt "Anova|"
-msgid "Q-Q plot of residuals"
-msgstr "残差のQ-Qプロット"
-
-msgctxt "Anova|"
-msgid "Contrasts"
-msgstr "コントラスト"
-
-msgctxt "Anova|"
-msgid "Confidence intervals"
-msgstr "信頼区間"
-
-msgctxt "Anova|"
-msgid "Post Hoc Tests"
-msgstr "事後検定"
-
-msgctxt "Anova|"
-msgid "Type"
-msgstr "タイプ"
-
-msgctxt "Anova|"
-msgid "Standard"
-msgstr "標準"
-
-msgctxt "Anova|"
-msgid "From"
-msgstr "次から"
-
-msgctxt "Anova|"
-msgid "bootstraps"
-msgstr "ブートス トラップ"
-
-msgctxt "Anova|"
-msgid "Effect size"
-msgstr "効果量"
-
-msgctxt "Anova|"
-msgid "Games-Howell"
-msgstr "ゲームス・ハウエル(Games-Howell)"
-
-msgctxt "Anova|"
-msgid "Dunnett"
-msgstr "ダネット(Dunnett)"
-
-msgctxt "Anova|"
-msgid "Dunn"
-msgstr "ダン(Dunn)"
-
-msgctxt "Anova|"
-msgid "Correction"
-msgstr "補正"
-
-msgctxt "Anova|"
-msgid "Tukey"
-msgstr "テューキー(Tukey)"
-
-msgctxt "Anova|"
-msgid "Bonferroni"
-msgstr "ボンフェローニ(Bonferroni)"
-
-msgctxt "Anova|"
-msgid "Holm"
-msgstr "ホルム(Holm)"
-
-msgctxt "Anova|"
-msgid "Šidák"
-msgstr "シダック(Šidák)"
-
-msgctxt "Anova|"
-msgid "Flag Significant Comparisons"
-msgstr "有意な比較に印をつける"
-
-msgctxt "Anova|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "Anova|"
-msgid "Factors"
-msgstr "要因"
-
-msgctxt "Anova|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "Anova|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "Anova|"
-msgid "Separate Plots"
-msgstr "分割プロット"
-
-msgctxt "Anova|"
-msgid "Display error bars"
-msgstr "エラーバーの表示"
-
-msgctxt "Anova|"
-msgid "Confidence interval"
-msgstr "信頼区間"
-
-msgctxt "Anova|"
-msgid "Standard error"
-msgstr "標準誤差"
-
-msgctxt "Anova|"
-msgid "Marginal Means"
-msgstr "周辺平均"
-
-msgctxt "Anova|"
-msgid "Compare marginal means to 0"
-msgstr "周辺平均を 0 と比較する"
-
-msgctxt "Anova|"
-msgid "Confidence interval adjustment"
-msgstr "信頼区間の調整"
-
-msgctxt "Anova|"
-msgid "Simple Main Effects"
-msgstr "単純主効果"
-
-msgctxt "Anova|"
-msgid "Simple Effect Factor"
-msgstr "単純効果を検討する要因"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 1"
-msgstr "調整要因１"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 2"
-msgstr "調整要因２"
-
-msgctxt "Anova|"
-msgid "Nonparametrics"
-msgstr "ノンパラメトリック"
-
-msgctxt "Anova|"
-msgid "Kruskal-Wallis Test"
-msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
-
-msgctxt "Anova|"
-msgid " "
-msgstr "　"
-
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
 msgstr "従属変数"
@@ -536,38 +128,6 @@ msgid "Covariates"
 msgstr "共変量"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Display"
-msgstr "表示"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptive statistics"
-msgstr "記述統計"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Estimates of effect size"
-msgstr "効果量の推定値"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "partial η²"
-msgstr "偏η²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "general η²"
-msgstr "一般化η²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximum p比"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
 msgstr "モデル"
 
@@ -586,10 +146,6 @@ msgstr "参加者間コンポーネント"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
 msgstr "モデル項"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Sum of squares"
-msgstr "平方和"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
@@ -624,18 +180,6 @@ msgid "Homogeneity tests"
 msgstr "等質性検定"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Contrasts"
-msgstr "対比"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Assume equal variances"
-msgstr "等分散を仮定"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence intervals"
-msgstr "信頼区間"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
 msgstr "事後検定"
 
@@ -664,88 +208,16 @@ msgid "Tukey"
 msgstr "テューキー(Tukey)"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Flag Significant Comparisons"
-msgstr "有意な比較に印をつける"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptives Plots"
-msgstr "記述統計量プロット"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
 msgstr "要因"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Horizontal Axis"
-msgstr "横軸"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Lines"
-msgstr "分割線"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Plots"
-msgstr "分割プロット"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
 msgstr "Y軸のラベル"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Display error bars"
-msgstr "エラーバーの表示"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval"
-msgstr "信頼区間"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Standard error"
-msgstr "標準誤差"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
 msgstr "使用してない反復要因の平均"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Marginal Means"
-msgstr "周辺平均"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "From"
-msgstr "次から"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "bootstraps"
-msgstr "ブートス トラップ"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Compare marginal means to 0"
-msgstr "周辺平均を 0 と比較する"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval adjustment"
-msgstr "信頼区間の調整"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Šidák"
-msgstr "シダック(Šidák)"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Main Effects"
-msgstr "単純主効果"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Effect Factor"
-msgstr "単純効果を検討する要因"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 1"
-msgstr "調整要因１"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 2"
-msgstr "調整要因２"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
@@ -862,14 +334,6 @@ msgstr "Vovk-Sellke maximum p比"
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
 msgstr "複数の平均値差を評価する"
-
-msgctxt "Ancova|"
-msgid "Scheffé"
-msgstr "シェフェ(Scheffe)"
-
-msgctxt "Anova|"
-msgid "Scheffé"
-msgstr "シェフェ(Scheffe)"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
@@ -1461,3 +925,857 @@ msgstr "残差のQ-Qプロット"
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "事後R²"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Assumption Checks"
+msgstr "仮定のチェック"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity tests"
+msgstr "等質性検定"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity corrections"
+msgstr "等質性補正"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "None"
+msgstr "なし"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Brown-Forsythe"
+msgstr "ブラウン・フォーサイス(Brown-Forsythe)"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Welch"
+msgstr "ウェルチ(Welch)"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "Contrasts|"
+msgid "Contrasts"
+msgstr ""
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Assume equal variances"
+msgstr "等分散を仮定"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Descriptives Plots"
+msgstr "記述統計量プロット"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Factors"
+msgstr "要因"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Horizontal Axis"
+msgstr "横軸"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Lines"
+msgstr "分割線"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Plots"
+msgstr "分割プロット"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display"
+msgstr "表示"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display error bars"
+msgstr "エラーバーの表示"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Confidence interval"
+msgstr "信頼区間"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Standard error"
+msgstr "標準誤差"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Display"
+msgstr "表示"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Descriptive statistics"
+msgstr "記述統計"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Estimates of effect size"
+msgstr "効果量の推定値"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "η²"
+msgstr "η²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "partial η²"
+msgstr "偏η²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "general η²"
+msgstr "一般化η²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "ω²"
+msgstr "ω²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p比"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Marginal Means"
+msgstr "周辺平均"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "From"
+msgstr "次から"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "bootstraps"
+msgstr "ブートス トラップ"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Compare marginal means to 0"
+msgstr "周辺平均を 0 と比較する"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Confidence interval adjustment"
+msgstr "信頼区間の調整"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "None"
+msgstr "なし"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model"
+msgstr "モデル"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Components"
+msgstr "コンポーネント"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model Terms"
+msgstr "モデル項"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Nonparametrics"
+msgstr "ノンパラメトリック"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Kruskal-Wallis Test"
+msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid " "
+msgstr "　"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Post Hoc Tests"
+msgstr "事後検定"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Type"
+msgstr "タイプ"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Standard"
+msgstr "標準"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "From"
+msgstr "次から"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "bootstraps"
+msgstr "ブートス トラップ"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Effect size"
+msgstr "効果量"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Games-Howell"
+msgstr "ゲームス・ハウエル(Games-Howell)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunnett"
+msgstr "ダネット(Dunnett)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunn"
+msgstr "ダン(Dunn)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Correction"
+msgstr "補正"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Tukey"
+msgstr "テューキー(Tukey)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Scheffé"
+msgstr "シェフェ(Scheffe)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Bonferroni"
+msgstr "ボンフェローニ(Bonferroni)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Holm"
+msgstr "ホルム(Holm)"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Šidák"
+msgstr "シダック(Šidák)"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Display"
+msgstr "表示"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "PostHocDisplay|"
+msgid "Flag Significant Comparisons"
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Main Effects"
+msgstr "単純主効果"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Factors"
+msgstr "要因"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Effect Factor"
+msgstr "単純効果を検討する要因"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 1"
+msgstr "調整要因１"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 2"
+msgstr "調整要因２"
+
+#, fuzzy
+msgctxt "SumOfSquares|"
+msgid "Sum of squares"
+msgstr "平方和"
+
+#, qt-format
+msgctxt "SumOfSquares|"
+msgid "Type %1"
+msgstr ""
+
+#~ msgctxt "Ancova|"
+#~ msgid "Display"
+#~ msgstr "表示"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "記述統計"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "効果量の推定値"
+
+#~ msgctxt "Ancova|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "Ancova|"
+#~ msgid "partial η²"
+#~ msgstr "偏η²"
+
+#~ msgctxt "Ancova|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Vovk-Sellke maximum p比"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Model"
+#~ msgstr "モデル"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Components"
+#~ msgstr "コンポーネント"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Model Terms"
+#~ msgstr "モデル項"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Sum of squares"
+#~ msgstr "平方和"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Assumption Checks"
+#~ msgstr "仮定のチェック"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Homogeneity tests"
+#~ msgstr "等質性検定"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Q-Q plot of residuals"
+#~ msgstr "残差のQ-Qプロット"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Contrasts"
+#~ msgstr "コントラスト"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Confidence intervals"
+#~ msgstr "信頼区間"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Post Hoc Tests"
+#~ msgstr "事後検定"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Type"
+#~ msgstr "タイプ"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Standard"
+#~ msgstr "標準"
+
+#~ msgctxt "Ancova|"
+#~ msgid "From"
+#~ msgstr "次から"
+
+#~ msgctxt "Ancova|"
+#~ msgid "bootstraps"
+#~ msgstr "ブートス トラップ"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Effect size"
+#~ msgstr "効果量"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Games-Howell"
+#~ msgstr "ゲームス・ハウエル(Games-Howell)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Dunnett"
+#~ msgstr "ダネット(Dunnett)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Dunn"
+#~ msgstr "ダン(Dunn)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Correction"
+#~ msgstr "補正"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Tukey"
+#~ msgstr "テューキー(Tukey)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Bonferroni"
+#~ msgstr "ボンフェローニ(Bonferroni)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Holm"
+#~ msgstr "ホルム(Holm)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Šidák"
+#~ msgstr "シダック(Šidák)"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "有意な比較に印"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "記述統計量プロット"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "横軸"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Separate Lines"
+#~ msgstr "分割線"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Separate Plots"
+#~ msgstr "分割プロット"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Display error bars"
+#~ msgstr "エラーバーの表示"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Standard error"
+#~ msgstr "標準誤差"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Marginal Means"
+#~ msgstr "周辺平均"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "周辺平均を 0 と比較する"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "信頼区間の調整"
+
+#~ msgctxt "Ancova|"
+#~ msgid "None"
+#~ msgstr "なし"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "単純主効果"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Factors"
+#~ msgstr "要因"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "単純効果を検討する要因"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "調整要因１"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "調整要因２"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Nonparametrics"
+#~ msgstr "ノンパラメトリック"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Kruskal-Wallis Test"
+#~ msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
+
+#~ msgctxt "Ancova|"
+#~ msgid " "
+#~ msgstr "　"
+
+#~ msgctxt "Anova|"
+#~ msgid "Display"
+#~ msgstr "表示"
+
+#~ msgctxt "Anova|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "記述統計"
+
+#~ msgctxt "Anova|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "効果量の推定値"
+
+#~ msgctxt "Anova|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "Anova|"
+#~ msgid "partial η²"
+#~ msgstr "偏η²"
+
+#~ msgctxt "Anova|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "Anova|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Vovk-Sellke maximum p比"
+
+#~ msgctxt "Anova|"
+#~ msgid "Model"
+#~ msgstr "モデル"
+
+#~ msgctxt "Anova|"
+#~ msgid "Components"
+#~ msgstr "コンポーネント"
+
+#~ msgctxt "Anova|"
+#~ msgid "Model Terms"
+#~ msgstr "モデル項"
+
+#~ msgctxt "Anova|"
+#~ msgid "Sum of squares"
+#~ msgstr "平方和"
+
+#~ msgctxt "Anova|"
+#~ msgid "Assumption Checks"
+#~ msgstr "仮定のチェック"
+
+#~ msgctxt "Anova|"
+#~ msgid "Homogeneity tests"
+#~ msgstr "等質性検定"
+
+#~ msgctxt "Anova|"
+#~ msgid "Homogeneity corrections"
+#~ msgstr "等質性補正"
+
+#~ msgctxt "Anova|"
+#~ msgid "None"
+#~ msgstr "なし"
+
+#~ msgctxt "Anova|"
+#~ msgid "Brown-Forsythe"
+#~ msgstr "ブラウン・フォーサイス(Brown-Forsythe)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Welch"
+#~ msgstr "ウェルチ(Welch)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Q-Q plot of residuals"
+#~ msgstr "残差のQ-Qプロット"
+
+#~ msgctxt "Anova|"
+#~ msgid "Contrasts"
+#~ msgstr "コントラスト"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence intervals"
+#~ msgstr "信頼区間"
+
+#~ msgctxt "Anova|"
+#~ msgid "Post Hoc Tests"
+#~ msgstr "事後検定"
+
+#~ msgctxt "Anova|"
+#~ msgid "Type"
+#~ msgstr "タイプ"
+
+#~ msgctxt "Anova|"
+#~ msgid "Standard"
+#~ msgstr "標準"
+
+#~ msgctxt "Anova|"
+#~ msgid "From"
+#~ msgstr "次から"
+
+#~ msgctxt "Anova|"
+#~ msgid "bootstraps"
+#~ msgstr "ブートス トラップ"
+
+#~ msgctxt "Anova|"
+#~ msgid "Effect size"
+#~ msgstr "効果量"
+
+#~ msgctxt "Anova|"
+#~ msgid "Games-Howell"
+#~ msgstr "ゲームス・ハウエル(Games-Howell)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Dunnett"
+#~ msgstr "ダネット(Dunnett)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Dunn"
+#~ msgstr "ダン(Dunn)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Correction"
+#~ msgstr "補正"
+
+#~ msgctxt "Anova|"
+#~ msgid "Tukey"
+#~ msgstr "テューキー(Tukey)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Bonferroni"
+#~ msgstr "ボンフェローニ(Bonferroni)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Holm"
+#~ msgstr "ホルム(Holm)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Šidák"
+#~ msgstr "シダック(Šidák)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "有意な比較に印をつける"
+
+#~ msgctxt "Anova|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "記述統計量プロット"
+
+#~ msgctxt "Anova|"
+#~ msgid "Factors"
+#~ msgstr "要因"
+
+#~ msgctxt "Anova|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "横軸"
+
+#~ msgctxt "Anova|"
+#~ msgid "Separate Lines"
+#~ msgstr "分割線"
+
+#~ msgctxt "Anova|"
+#~ msgid "Separate Plots"
+#~ msgstr "分割プロット"
+
+#~ msgctxt "Anova|"
+#~ msgid "Display error bars"
+#~ msgstr "エラーバーの表示"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence interval"
+#~ msgstr "信頼区間"
+
+#~ msgctxt "Anova|"
+#~ msgid "Standard error"
+#~ msgstr "標準誤差"
+
+#~ msgctxt "Anova|"
+#~ msgid "Marginal Means"
+#~ msgstr "周辺平均"
+
+#~ msgctxt "Anova|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "周辺平均を 0 と比較する"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "信頼区間の調整"
+
+#~ msgctxt "Anova|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "単純主効果"
+
+#~ msgctxt "Anova|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "単純効果を検討する要因"
+
+#~ msgctxt "Anova|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "調整要因１"
+
+#~ msgctxt "Anova|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "調整要因２"
+
+#~ msgctxt "Anova|"
+#~ msgid "Nonparametrics"
+#~ msgstr "ノンパラメトリック"
+
+#~ msgctxt "Anova|"
+#~ msgid "Kruskal-Wallis Test"
+#~ msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
+
+#~ msgctxt "Anova|"
+#~ msgid " "
+#~ msgstr "　"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Display"
+#~ msgstr "表示"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "記述統計"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "効果量の推定値"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "partial η²"
+#~ msgstr "偏η²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "general η²"
+#~ msgstr "一般化η²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Vovk-Sellke maximum p比"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Sum of squares"
+#~ msgstr "平方和"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Contrasts"
+#~ msgstr "対比"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Assume equal variances"
+#~ msgstr "等分散を仮定"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence intervals"
+#~ msgstr "信頼区間"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "有意な比較に印をつける"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "記述統計量プロット"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "横軸"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Separate Lines"
+#~ msgstr "分割線"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Separate Plots"
+#~ msgstr "分割プロット"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Display error bars"
+#~ msgstr "エラーバーの表示"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence interval"
+#~ msgstr "信頼区間"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Standard error"
+#~ msgstr "標準誤差"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Marginal Means"
+#~ msgstr "周辺平均"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "From"
+#~ msgstr "次から"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "bootstraps"
+#~ msgstr "ブートス トラップ"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "周辺平均を 0 と比較する"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "信頼区間の調整"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Šidák"
+#~ msgstr "シダック(Šidák)"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "単純主効果"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "単純効果を検討する要因"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "調整要因１"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "調整要因２"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Scheffé"
+#~ msgstr "シェフェ(Scheffe)"
+
+#~ msgctxt "Anova|"
+#~ msgid "Scheffé"
+#~ msgstr "シェフェ(Scheffe)"

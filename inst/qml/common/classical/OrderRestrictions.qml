@@ -21,10 +21,13 @@ import QtQuick.Layouts	1.3
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "../." as Common
+
 
 Section
 {
-	property var type
+	property int analysis
+	property alias source: marginalMeansTerms.source
 	
 	title:		qsTr("Order Restricted Hypotheses")
 	columns:	2
@@ -84,7 +87,7 @@ Section
 				name:		"restrictedInformedHypothesisTestByDefault"
 				id:			informedHypothesisTestByDefault
 				label:		qsTr("Informed hypothesis tests")
-				visible:	type !== "RM-Anova"
+				visible:	analysis !== Common.Type.Analysis.RMANOVA
 			}
 		}
 	}
@@ -131,7 +134,7 @@ Section
 					name:		"informedHypothesisTest"
 					label:		qsTr("Informed hypothesis tests for %1").arg(rowValue)
 					checked:	informedHypothesisTestByDefault.checked
-					visible:	type !== "RM-Anova"
+					visible:	analysis !== Common.Type.Analysis.RMANOVA
 				}
 			}
 		}
@@ -211,7 +214,7 @@ Section
 		{
 			name:				"restrictedSE"
 			label:				qsTr("Heterogeneity correction")
-			visible:			type !== "RM-Anova"
+			visible:			analysis !== Common.Type.Analysis.RMANOVA
 			indexDefaultValue:	0
 			values:
 			[
@@ -258,9 +261,7 @@ Section
 		{
 			name: "restrictedModelTerms"
 			label: qsTr("Restricted Marginal Means")
-			source: (type === "Ancova" ? [ { name: "modelTerms", discard: "covariates" } ] :
-										 type === "RM-Anova" ? [ { name: "betweenModelTerms", discard: "covariates" }, { name: "withinModelTerms" } ] :
-															   "modelTerms")
+			id: marginalMeansTerms
 		}
 
 		AssignedVariablesList { name: "restrictedModelMarginalMeansTerms"; label: qsTr("Terms") }

@@ -15,7 +15,7 @@ initOpts <- function(analysisName) {
 
 addCommonQMLoptions <- function(options) {
   # jaspTools doesn't recognize common QML elements so this function adds the defaults manually
-  root <- testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
+  root <- testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
   c(
     options,
     jaspTools:::readQML(file.path(root, "DefaultOptions.qml")),

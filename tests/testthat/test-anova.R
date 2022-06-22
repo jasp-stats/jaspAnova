@@ -5,7 +5,7 @@ context("ANOVA")
 
 # Main results ----
 test_that("Main table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
@@ -64,7 +64,7 @@ test_that("Main table results match", {
 
 # Additional results ----
 test_that("Homogeneity of Variances table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
   options$modelTerms <- list(list(components="facExperim"))
@@ -78,7 +78,7 @@ test_that("Homogeneity of Variances table results match", {
 # Contrasts verified with SPSS
 # should we put this in verification project???
 test_that("Contrasts table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
   options$confidenceIntervalsContrast <- TRUE
@@ -134,7 +134,7 @@ test_that("Contrasts table results match", {
 })
 
 test_that("Post Hoc table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
   options$modelTerms <- list(list(components="contBinom"))
@@ -157,7 +157,7 @@ test_that("Post Hoc table results match", {
 })
 
 test_that("Marginal Means table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
   options$modelTerms <- list(list(components="contBinom"))
@@ -190,7 +190,7 @@ test_that("Marginal Means table results match", {
 
 
 test_that("Descriptives table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
   options$modelTerms <- list(list(components="contBinom"))
@@ -205,7 +205,7 @@ test_that("Descriptives table results match", {
 })
 
 test_that("Q-Q plot matches", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
   options$modelTerms <- list(list(components="contBinom"))
@@ -216,7 +216,7 @@ test_that("Q-Q plot matches", {
 })
 
 test_that("Descriptives plots match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
@@ -241,7 +241,7 @@ test_that("Descriptives plots match", {
 })
 
 test_that("Raincloud plots match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
@@ -265,7 +265,7 @@ test_that("Raincloud plots match", {
 })
 
 test_that("Simple Main Effects table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
   options$modelTerms <- list(
@@ -290,7 +290,7 @@ test_that("Simple Main Effects table results match", {
 
 
 test_that("Nonparametric table results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
   options$kruskalVariablesAssigned <- c( "facFive", "facExperim")
@@ -308,7 +308,7 @@ test_that("Nonparametric table results match", {
 
 # Error handling ----
 test_that("Analysis handles errors", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "debInf"
   options$fixedFactors <- "contBinom"
   options$modelTerms <- list(list(components="contBinom"))
@@ -345,7 +345,7 @@ test_that("Analysis handles errors", {
                   label="Negative WLS weights check")
 })
 
-options <- analysisOptions("Anova")
+options <- initClassicalAnovaOptions("Anova")
 options$contrasts <- list(list(contrast = "none", variable = "Species"))
 options$customContrasts <- list()
 options$dependent <- "Sepal.Length"
@@ -398,7 +398,7 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
 
 ## Chapter 4 -----
 test_that("Field - Chapter 4 results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$modelTerms <- list(list(components = "Dose"))
@@ -425,7 +425,7 @@ test_that("Field - Chapter 4 results match", {
 ## Chapter 5 ----
 
 test_that("Field - Chapter 5 results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Happiness"
   options$fixedFactors <- "Dose"
   options$modelTerms <- list(list(components = "Dose"))
@@ -479,7 +479,7 @@ test_that("Field - Chapter 5 results match", {
 ## Chapter 7 ----
 
 test_that("Field - Chapter 7 results match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
 
   options$dependent <- "Attractiveness"
   options$fixedFactors <- list("FaceType", "Alcohol")
@@ -553,7 +553,7 @@ test_that("Field - Chapter 7 results match", {
 })
 
 test_that("ANOVA - factor level with zero variance works and Welch homogeneity correction shows a footnote", {
-  options <- analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "value"
   options$fixedFactors <- "group"
   options$homogeneityWelch <- TRUE
@@ -585,7 +585,7 @@ test_that("ANOVA - factor level with zero variance works and Welch homogeneity c
 # Tests from https://restriktor.org
 
 ## Basic model ----
-options <- analysisOptions("Anova")
+options <- initClassicalAnovaOptions("Anova")
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
@@ -659,7 +659,7 @@ test_that("Ordinal restrictions: Restriction Matrix table results match", {
 
 ## Ordered means and with effect sizes ----
 
-options <- analysisOptions("Anova")
+options <- initClassicalAnovaOptions("Anova")
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
@@ -755,7 +755,7 @@ test_that("Ordinal restrictions: Restriction Matrix table results match", {
 })
 
 ### see https://restriktor.org/tutorial/example6.html for comparison ----
-options <- analysisOptions("Anova")
+options <- initClassicalAnovaOptions("Anova")
 options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Anger"

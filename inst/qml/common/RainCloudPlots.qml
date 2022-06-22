@@ -23,17 +23,17 @@ import JASP				1.0
 
 Section
 {
-	property var	availableVariableSource
-	property bool	enableHorizontal: true
-	property bool	enableYAxisLabel: false
-	property var	suggested: (enableYAxisLabel) ? [] : ["ordinal", "nominal"]
+	property alias	source:				availableTerms.source
+	property bool	enableHorizontal:	true
+	property bool	enableYAxisLabel:	false
+	property var	suggested:			(enableYAxisLabel) ? [] : ["ordinal", "nominal"]
 	
 	title: qsTr("Raincloud Plots")
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); source: availableVariableSource }
+		AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); id: availableTerms }
 		AssignedVariablesList { name: "rainCloudPlotsHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; suggestedColumns: suggested }
 		AssignedVariablesList { name: "rainCloudPlotsSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: suggested }
 	}

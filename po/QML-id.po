@@ -65,205 +65,8 @@ msgid "WLS Weights"
 msgstr "Bobot WLS"
 
 msgctxt "Ancova|"
-msgid "Display"
-msgstr "Tampilkan"
-
-msgctxt "Ancova|"
-msgid "Descriptive statistics"
-msgstr "Statistik deskriptif"
-
-msgctxt "Ancova|"
-msgid "Estimates of effect size"
-msgstr "Estimasi besaran efek"
-
-msgctxt "Ancova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Ancova|"
-msgid "partial η²"
-msgstr "η² parsial"
-
-msgctxt "Ancova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Ancova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Rasio-p maksimum Vovk-Sellke"
-
-msgctxt "Ancova|"
-msgid "Model"
-msgstr "Model"
-
-msgctxt "Ancova|"
-msgid "Components"
-msgstr "Komponen"
-
-#, fuzzy
-msgctxt "Ancova|"
-msgid "Model Terms"
-msgstr "Ketentuan Model"
-
-msgctxt "Ancova|"
-msgid "Sum of squares"
-msgstr "Jumlah kuadrat"
-
-msgctxt "Ancova|"
-msgid "Assumption Checks"
-msgstr "Pemeriksaan Asumsi"
-
-msgctxt "Ancova|"
-msgid "Homogeneity tests"
-msgstr "Pengujian homogenitas"
-
-msgctxt "Ancova|"
-msgid "Q-Q plot of residuals"
-msgstr "Plot Q-Q residual"
-
-msgctxt "Ancova|"
 msgid "Factor covariate independence check"
 msgstr "Pemeriksaan independensi kovariat faktor"
-
-msgctxt "Ancova|"
-msgid "Contrasts"
-msgstr "Kontras"
-
-msgctxt "Ancova|"
-msgid "Confidence intervals"
-msgstr "Interval kepercayaan"
-
-msgctxt "Ancova|"
-msgid "Post Hoc Tests"
-msgstr "Pengujian Pos Hoc"
-
-msgctxt "Ancova|"
-msgid "Type"
-msgstr "Tipe"
-
-msgctxt "Ancova|"
-msgid "Standard"
-msgstr "Standar"
-
-msgctxt "Ancova|"
-msgid "From"
-msgstr "Dari"
-
-msgctxt "Ancova|"
-msgid "bootstraps"
-msgstr "bootstrap"
-
-msgctxt "Ancova|"
-msgid "Effect size"
-msgstr "Besaran efek"
-
-msgctxt "Ancova|"
-msgid "Games-Howell"
-msgstr "Games-Howell"
-
-msgctxt "Ancova|"
-msgid "Dunnett"
-msgstr "Dunnett"
-
-msgctxt "Ancova|"
-msgid "Dunn"
-msgstr "Dunn"
-
-msgctxt "Ancova|"
-msgid "Correction"
-msgstr "Koreksi"
-
-msgctxt "Ancova|"
-msgid "Tukey"
-msgstr "Tukey"
-
-msgctxt "Ancova|"
-msgid "Bonferroni"
-msgstr "Bonferroni"
-
-msgctxt "Ancova|"
-msgid "Holm"
-msgstr "Holm"
-
-msgctxt "Ancova|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "Ancova|"
-msgid "Flag Significant Comparisons"
-msgstr "Tandai Perbandingan yang Signifikan"
-
-msgctxt "Ancova|"
-msgid "Descriptives Plots"
-msgstr "Plot Deskriptif"
-
-msgctxt "Ancova|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "Ancova|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "Ancova|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
-
-msgctxt "Ancova|"
-msgid "Display error bars"
-msgstr "Tampilkan batang galat"
-
-msgctxt "Ancova|"
-msgid "Standard error"
-msgstr "Galat baku"
-
-msgctxt "Ancova|"
-msgid "Marginal Means"
-msgstr "Rerata Marjinal"
-
-msgctxt "Ancova|"
-msgid "Compare marginal means to 0"
-msgstr "Bandingkan rerata marjinal dengan 0"
-
-msgctxt "Ancova|"
-msgid "Confidence interval adjustment"
-msgstr "Penyesuaian interval kepercayaan"
-
-msgctxt "Ancova|"
-msgid "None"
-msgstr "Tidak ada"
-
-msgctxt "Ancova|"
-msgid "Simple Main Effects"
-msgstr "Efek Utama Sederhana"
-
-msgctxt "Ancova|"
-msgid "Factors"
-msgstr "Faktor"
-
-msgctxt "Ancova|"
-msgid "Simple Effect Factor"
-msgstr "Faktor Efek Sederhana"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 1"
-msgstr "Moderator Faktor 1"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 2"
-msgstr "Moderator Faktor 2"
-
-msgctxt "Ancova|"
-msgid "Nonparametrics"
-msgstr "Nonparametrik"
-
-msgctxt "Ancova|"
-msgid "Kruskal-Wallis Test"
-msgstr "Uji Kruskal-Wallis"
-
-msgctxt "Ancova|"
-msgid " "
-msgstr " "
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
@@ -297,218 +100,6 @@ msgctxt "Anova|"
 msgid "WLS Weights"
 msgstr "Bobot WLS"
 
-msgctxt "Anova|"
-msgid "Display"
-msgstr "Tampilkan"
-
-msgctxt "Anova|"
-msgid "Descriptive statistics"
-msgstr "Statistik deskriptif"
-
-msgctxt "Anova|"
-msgid "Estimates of effect size"
-msgstr "Estimasi besaran efek"
-
-msgctxt "Anova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Anova|"
-msgid "partial η²"
-msgstr "η² parsial"
-
-msgctxt "Anova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Anova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Rasio-p maksimum Vovk-Sellke"
-
-msgctxt "Anova|"
-msgid "Model"
-msgstr "Model"
-
-msgctxt "Anova|"
-msgid "Components"
-msgstr "Komponen"
-
-msgctxt "Anova|"
-msgid "Model Terms"
-msgstr "Ketentuan Model"
-
-msgctxt "Anova|"
-msgid "Sum of squares"
-msgstr "Jumlah kuadrat"
-
-msgctxt "Anova|"
-msgid "Assumption Checks"
-msgstr "Pemeriksaan Asumsi"
-
-msgctxt "Anova|"
-msgid "Homogeneity tests"
-msgstr "Uji homogenitas"
-
-msgctxt "Anova|"
-msgid "Homogeneity corrections"
-msgstr "Koreksi homogenitas"
-
-msgctxt "Anova|"
-msgid "None"
-msgstr "Tidak ada"
-
-msgctxt "Anova|"
-msgid "Brown-Forsythe"
-msgstr "Brown-Forsythe"
-
-msgctxt "Anova|"
-msgid "Welch"
-msgstr "Welch"
-
-msgctxt "Anova|"
-msgid "Q-Q plot of residuals"
-msgstr "Plot-QQ residual"
-
-msgctxt "Anova|"
-msgid "Contrasts"
-msgstr "Kontras"
-
-msgctxt "Anova|"
-msgid "Confidence intervals"
-msgstr "Interval kepercayaan"
-
-msgctxt "Anova|"
-msgid "Post Hoc Tests"
-msgstr "Uji Pos Hoc"
-
-msgctxt "Anova|"
-msgid "Type"
-msgstr "Tipe"
-
-msgctxt "Anova|"
-msgid "Standard"
-msgstr "Standar"
-
-msgctxt "Anova|"
-msgid "From"
-msgstr "Dari"
-
-msgctxt "Anova|"
-msgid "bootstraps"
-msgstr "bootstrap"
-
-msgctxt "Anova|"
-msgid "Effect size"
-msgstr "Besaran efek"
-
-msgctxt "Anova|"
-msgid "Games-Howell"
-msgstr "Games-Howell"
-
-msgctxt "Anova|"
-msgid "Dunnett"
-msgstr "Dunnett"
-
-msgctxt "Anova|"
-msgid "Dunn"
-msgstr "Dunn"
-
-msgctxt "Anova|"
-msgid "Correction"
-msgstr "Koreksi"
-
-msgctxt "Anova|"
-msgid "Tukey"
-msgstr "Tukey"
-
-msgctxt "Anova|"
-msgid "Bonferroni"
-msgstr "Bonferroni"
-
-msgctxt "Anova|"
-msgid "Holm"
-msgstr "Holm"
-
-msgctxt "Anova|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "Anova|"
-msgid "Flag Significant Comparisons"
-msgstr "Tandai Perbandingan yang Signifikan"
-
-msgctxt "Anova|"
-msgid "Descriptives Plots"
-msgstr "Plot Deskriptif"
-
-msgctxt "Anova|"
-msgid "Factors"
-msgstr "Faktor"
-
-msgctxt "Anova|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "Anova|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "Anova|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
-
-msgctxt "Anova|"
-msgid "Display error bars"
-msgstr "Tampilkan batang galat"
-
-msgctxt "Anova|"
-msgid "Confidence interval"
-msgstr "Interval kepercayaan"
-
-msgctxt "Anova|"
-msgid "Standard error"
-msgstr "Galat baku"
-
-msgctxt "Anova|"
-msgid "Marginal Means"
-msgstr "Rerata Marjinal"
-
-msgctxt "Anova|"
-msgid "Compare marginal means to 0"
-msgstr "Bandingan rerata marjinal dengan 0"
-
-msgctxt "Anova|"
-msgid "Confidence interval adjustment"
-msgstr "Penyesuaian interval kepercayaan"
-
-msgctxt "Anova|"
-msgid "Simple Main Effects"
-msgstr "Efek Utama Sederhana"
-
-msgctxt "Anova|"
-msgid "Simple Effect Factor"
-msgstr "Faktor Efek Sederhana"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 1"
-msgstr "Moderator Faktor 1"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 2"
-msgstr "Moderator Faktor 2"
-
-msgctxt "Anova|"
-msgid "Nonparametrics"
-msgstr "Nonparametrik"
-
-msgctxt "Anova|"
-msgid "Kruskal-Wallis Test"
-msgstr "Uji Kruskal-Wallis"
-
-msgctxt "Anova|"
-msgid " "
-msgstr " "
-
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
 msgstr "Variabel Terikat"
@@ -538,38 +129,6 @@ msgid "Covariates"
 msgstr "Kovariat"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Display"
-msgstr "Tampilkan"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptive statistics"
-msgstr "Statistik deskriptif"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Estimates of effect size"
-msgstr "Estimasi besaran efek"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "partial η²"
-msgstr "η² parsial"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "general η²"
-msgstr "η² umum"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Rasio-p maksimum Vovk-Sellke"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
 msgstr "Model"
 
@@ -588,10 +147,6 @@ msgstr "Komponen Antar Subyek"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
 msgstr "Ketentuan model"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Sum of squares"
-msgstr "Jumlah kuadrat"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
@@ -628,18 +183,6 @@ msgid "Homogeneity tests"
 msgstr "Uji homogenitas"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Contrasts"
-msgstr "Kontras"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Assume equal variances"
-msgstr "Asumsikan varians setara"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence intervals"
-msgstr "Interval kepercayaan"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
 msgstr "Uji Pos Hoc"
 
@@ -668,89 +211,17 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Flag Significant Comparisons"
-msgstr "Tandai Perbandingan yang Signifikan"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptives Plots"
-msgstr "Plot Deskriptif"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
 msgstr "Faktor"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Horizontal Axis"
-msgstr "Aksis Horizontal"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Lines"
-msgstr "Garis Terpisah"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Plots"
-msgstr "Plot Terpisah"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
 msgstr "Label aksis-y"
 
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Display error bars"
-msgstr "Tampilkan batang galat"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval"
-msgstr "Interval kepercayaan"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Standard error"
-msgstr "Galat baku"
-
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
 msgstr "Rata-rata di seluruh faktor pengukuran berulang yang tidak digunakan"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Marginal Means"
-msgstr "Rerata Marjinal"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "From"
-msgstr "Dari"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "bootstraps"
-msgstr "bootstrap"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Compare marginal means to 0"
-msgstr "Bandingkan rerata marjinal dengan 0"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval adjustment"
-msgstr "Penyesuaian interval kepercayaan"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Main Effects"
-msgstr "Efek Utama Sederhana"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Effect Factor"
-msgstr "Faktor Efek Sederhana"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 1"
-msgstr "Moderator Faktor 1"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 2"
-msgstr "Moderator Faktor 2"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
@@ -892,14 +363,6 @@ msgstr "Label aksis-y"
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
 msgstr "Evaluasi perbedaan antara rerata majemuk"
-
-msgctxt "Ancova|"
-msgid "Scheffé"
-msgstr "Scheffé"
-
-msgctxt "Anova|"
-msgid "Scheffé"
-msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
@@ -1457,3 +920,319 @@ msgstr ""
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "R² posterior"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Assumption Checks"
+msgstr "Pemeriksaan Asumsi"
+
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity tests"
+msgstr ""
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity corrections"
+msgstr "Koreksi homogenitas"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "None"
+msgstr "Tidak ada"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Brown-Forsythe"
+msgstr "Brown-Forsythe"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Welch"
+msgstr "Welch"
+
+msgctxt "AssumptionChecks|"
+msgid "Q-Q plot of residuals"
+msgstr ""
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Contrasts"
+msgstr "Kontras"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Assume equal variances"
+msgstr "Asumsikan varians setara"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Confidence intervals"
+msgstr "Interval kepercayaan"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Descriptives Plots"
+msgstr "Plot Deskriptif"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Factors"
+msgstr "Faktor"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Horizontal Axis"
+msgstr "Aksis Horizontal"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Lines"
+msgstr "Garis Terpisah"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Plots"
+msgstr "Plot Terpisah"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display"
+msgstr "Tampilkan"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display error bars"
+msgstr "Tampilkan batang galat"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Confidence interval"
+msgstr "Interval kepercayaan"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Standard error"
+msgstr "Galat baku"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Display"
+msgstr "Tampilkan"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Descriptive statistics"
+msgstr "Statistik deskriptif"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Estimates of effect size"
+msgstr "Estimasi besaran efek"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "η²"
+msgstr "η²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "partial η²"
+msgstr "η² parsial"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "general η²"
+msgstr "η² umum"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "ω²"
+msgstr "ω²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Rasio-p maksimum Vovk-Sellke"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Marginal Means"
+msgstr "Rerata Marjinal"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "From"
+msgstr "Dari"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "bootstraps"
+msgstr "bootstrap"
+
+msgctxt "MarginalMeans|"
+msgid "Compare marginal means to 0"
+msgstr ""
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Confidence interval adjustment"
+msgstr "Penyesuaian interval kepercayaan"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "None"
+msgstr "Tidak ada"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model"
+msgstr "Model"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Components"
+msgstr "Komponen"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model Terms"
+msgstr "Ketentuan Model"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Nonparametrics"
+msgstr "Nonparametrik"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Kruskal-Wallis Test"
+msgstr "Uji Kruskal-Wallis"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid " "
+msgstr " "
+
+msgctxt "PostHoc|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Type"
+msgstr "Tipe"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Standard"
+msgstr "Standar"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "From"
+msgstr "Dari"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "bootstraps"
+msgstr "bootstrap"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Effect size"
+msgstr "Besaran efek"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Games-Howell"
+msgstr "Games-Howell"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunnett"
+msgstr "Dunnett"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunn"
+msgstr "Dunn"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Correction"
+msgstr "Koreksi"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Tukey"
+msgstr "Tukey"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Bonferroni"
+msgstr "Bonferroni"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Holm"
+msgstr "Holm"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Šidák"
+msgstr "Šidák"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Display"
+msgstr "Tampilkan"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Confidence intervals"
+msgstr "Interval kepercayaan"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Flag Significant Comparisons"
+msgstr "Tandai Perbandingan yang Signifikan"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Main Effects"
+msgstr "Efek Utama Sederhana"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Factors"
+msgstr "Faktor"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Effect Factor"
+msgstr "Faktor Efek Sederhana"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 1"
+msgstr "Moderator Faktor 1"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 2"
+msgstr "Moderator Faktor 2"
+
+#, fuzzy
+msgctxt "SumOfSquares|"
+msgid "Sum of squares"
+msgstr "Jumlah kuadrat"
+
+#, qt-format
+msgctxt "SumOfSquares|"
+msgid "Type %1"
+msgstr ""

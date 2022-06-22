@@ -103,7 +103,7 @@ Form
 	Bayesian.BarPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		showLabel: true
+		TextField{ name: 	"labelYAxisTwo"; label: 	qsTr("Label y-axis"); fieldWidth: 	200 }
 	}
 
 	Common.RainCloudPlots

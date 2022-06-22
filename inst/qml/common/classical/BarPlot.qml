@@ -24,13 +24,13 @@ import JASP				1.0
 Section
 {
 	title: 						qsTr("Bar Plots")
-	property alias source: 		descriptivePlotsTwoVariables.source
+	property alias source: 		availableTerms.source
 	columns: 					1
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); 			id: descriptivePlotsTwoVariables }
+		AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); 			id: availableTerms }
 		AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true }
 		AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true }
 	}
@@ -51,11 +51,11 @@ Section
 				RadioButton
 				{
 					value: 				"confidenceInterval" 
-					label: 				qsTr("Credible interval")
+					label: 				qsTr("Confidence interval")
 					checked: 			true
 					childrenOnSameRow: 	true
 					
-					CIField { name: 	"plotTwoCredibleIntervalInterval" }
+					CIField { name: 	"confidenceIntervalIntervalTwo" }
 				}
 				RadioButton { value: 	"standardErrorTwo"; label: qsTr("Standard error") }
 			}

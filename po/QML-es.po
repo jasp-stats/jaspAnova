@@ -65,204 +65,8 @@ msgid "WLS Weights"
 msgstr "Ponderaciones MCP (WLS)"
 
 msgctxt "Ancova|"
-msgid "Display"
-msgstr "Mostrar"
-
-msgctxt "Ancova|"
-msgid "Descriptive statistics"
-msgstr "Estadísticos descriptivos"
-
-msgctxt "Ancova|"
-msgid "Estimates of effect size"
-msgstr "Estimaciones de la magnitud del efecto"
-
-msgctxt "Ancova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Ancova|"
-msgid "partial η²"
-msgstr "η² parcial"
-
-msgctxt "Ancova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Ancova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Relación p máxima de Vovk-Sellke"
-
-msgctxt "Ancova|"
-msgid "Model"
-msgstr "Modelo"
-
-msgctxt "Ancova|"
-msgid "Components"
-msgstr "Componentes"
-
-msgctxt "Ancova|"
-msgid "Model Terms"
-msgstr "Elementos del Modelo"
-
-msgctxt "Ancova|"
-msgid "Sum of squares"
-msgstr "Suma de cuadrados"
-
-msgctxt "Ancova|"
-msgid "Assumption Checks"
-msgstr "Verificaciones de Supuestos"
-
-msgctxt "Ancova|"
-msgid "Homogeneity tests"
-msgstr "Contrastes de Homogeneidad"
-
-msgctxt "Ancova|"
-msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de los errores"
-
-msgctxt "Ancova|"
 msgid "Factor covariate independence check"
 msgstr "Comprobación de independencia de covariables de factores"
-
-msgctxt "Ancova|"
-msgid "Contrasts"
-msgstr "Contrastes"
-
-msgctxt "Ancova|"
-msgid "Confidence intervals"
-msgstr "Intervalos de confianza"
-
-msgctxt "Ancova|"
-msgid "Post Hoc Tests"
-msgstr "Contrastes Post-hoc"
-
-msgctxt "Ancova|"
-msgid "Type"
-msgstr "Tipo"
-
-msgctxt "Ancova|"
-msgid "Standard"
-msgstr "Estándar"
-
-msgctxt "Ancova|"
-msgid "From"
-msgstr "De"
-
-msgctxt "Ancova|"
-msgid "bootstraps"
-msgstr "bootstraps"
-
-msgctxt "Ancova|"
-msgid "Effect size"
-msgstr "Magnitud del efecto"
-
-msgctxt "Ancova|"
-msgid "Games-Howell"
-msgstr "Games-Howell"
-
-msgctxt "Ancova|"
-msgid "Dunnett"
-msgstr "Dunnett"
-
-msgctxt "Ancova|"
-msgid "Dunn"
-msgstr "Dunn"
-
-msgctxt "Ancova|"
-msgid "Correction"
-msgstr "Corrección"
-
-msgctxt "Ancova|"
-msgid "Tukey"
-msgstr "Tukey"
-
-msgctxt "Ancova|"
-msgid "Bonferroni"
-msgstr "Bonferroni"
-
-msgctxt "Ancova|"
-msgid "Holm"
-msgstr "Holm"
-
-msgctxt "Ancova|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "Ancova|"
-msgid "Flag Significant Comparisons"
-msgstr "Marcar las comparaciones significativas"
-
-msgctxt "Ancova|"
-msgid "Descriptives Plots"
-msgstr "Gráficos Descriptivos"
-
-msgctxt "Ancova|"
-msgid "Horizontal Axis"
-msgstr "Eje Horizontal"
-
-msgctxt "Ancova|"
-msgid "Separate Lines"
-msgstr "Líneas Separadas"
-
-msgctxt "Ancova|"
-msgid "Separate Plots"
-msgstr "Gráficos Separados"
-
-msgctxt "Ancova|"
-msgid "Display error bars"
-msgstr "Mostrar barras de error"
-
-msgctxt "Ancova|"
-msgid "Standard error"
-msgstr "Error típico"
-
-msgctxt "Ancova|"
-msgid "Marginal Means"
-msgstr "Medias Marginales"
-
-msgctxt "Ancova|"
-msgid "Compare marginal means to 0"
-msgstr "Comparar las medias marginales con 0"
-
-msgctxt "Ancova|"
-msgid "Confidence interval adjustment"
-msgstr "Ajuste del intervalo de confianza"
-
-msgctxt "Ancova|"
-msgid "None"
-msgstr "Ninguna"
-
-msgctxt "Ancova|"
-msgid "Simple Main Effects"
-msgstr "Efectos Principales Simples"
-
-msgctxt "Ancova|"
-msgid "Factors"
-msgstr "Factores"
-
-msgctxt "Ancova|"
-msgid "Simple Effect Factor"
-msgstr "Factor de Efecto Simple"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 1"
-msgstr "Factor Moderador 1"
-
-msgctxt "Ancova|"
-msgid "Moderator Factor 2"
-msgstr "Factor Moderador 2"
-
-msgctxt "Ancova|"
-msgid "Nonparametrics"
-msgstr "No Paramétricos"
-
-msgctxt "Ancova|"
-msgid "Kruskal-Wallis Test"
-msgstr "Contraste de Kruskal-Wallis"
-
-msgctxt "Ancova|"
-msgid " "
-msgstr " "
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
@@ -296,218 +100,6 @@ msgctxt "Anova|"
 msgid "WLS Weights"
 msgstr "Ponderaciones MCP (WLS)"
 
-msgctxt "Anova|"
-msgid "Display"
-msgstr "Mostrar"
-
-msgctxt "Anova|"
-msgid "Descriptive statistics"
-msgstr "Estadísticos descriptivos"
-
-msgctxt "Anova|"
-msgid "Estimates of effect size"
-msgstr "Estimaciones de la magnitud del efecto"
-
-msgctxt "Anova|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Anova|"
-msgid "partial η²"
-msgstr "η² parcial"
-
-msgctxt "Anova|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "Anova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Relación p máxima de Vovk-Sellke"
-
-msgctxt "Anova|"
-msgid "Model"
-msgstr "Modelo"
-
-msgctxt "Anova|"
-msgid "Components"
-msgstr "Componentes"
-
-msgctxt "Anova|"
-msgid "Model Terms"
-msgstr "Elementos del Modelo"
-
-msgctxt "Anova|"
-msgid "Sum of squares"
-msgstr "Suma de cuadrados"
-
-msgctxt "Anova|"
-msgid "Assumption Checks"
-msgstr "Verificaciones de Supuestos"
-
-msgctxt "Anova|"
-msgid "Homogeneity tests"
-msgstr "Contrastes de Homogeneidad"
-
-msgctxt "Anova|"
-msgid "Homogeneity corrections"
-msgstr "Correcciones de Homogeneidad"
-
-msgctxt "Anova|"
-msgid "None"
-msgstr "Ninguna"
-
-msgctxt "Anova|"
-msgid "Brown-Forsythe"
-msgstr "Brown-Forsythe"
-
-msgctxt "Anova|"
-msgid "Welch"
-msgstr "Welch"
-
-msgctxt "Anova|"
-msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q de los errores"
-
-msgctxt "Anova|"
-msgid "Contrasts"
-msgstr "Contrastes"
-
-msgctxt "Anova|"
-msgid "Confidence intervals"
-msgstr "Intervalos de confianza"
-
-msgctxt "Anova|"
-msgid "Post Hoc Tests"
-msgstr "Contrastes Post-hoc"
-
-msgctxt "Anova|"
-msgid "Type"
-msgstr "Tipo"
-
-msgctxt "Anova|"
-msgid "Standard"
-msgstr "Estándar"
-
-msgctxt "Anova|"
-msgid "From"
-msgstr "De"
-
-msgctxt "Anova|"
-msgid "bootstraps"
-msgstr "bootstraps"
-
-msgctxt "Anova|"
-msgid "Effect size"
-msgstr "Magnitud del efecto"
-
-msgctxt "Anova|"
-msgid "Games-Howell"
-msgstr "Games-Howell"
-
-msgctxt "Anova|"
-msgid "Dunnett"
-msgstr "Dunnett"
-
-msgctxt "Anova|"
-msgid "Dunn"
-msgstr "Dunn"
-
-msgctxt "Anova|"
-msgid "Correction"
-msgstr "Corrección"
-
-msgctxt "Anova|"
-msgid "Tukey"
-msgstr "Tukey"
-
-msgctxt "Anova|"
-msgid "Bonferroni"
-msgstr "Bonferroni"
-
-msgctxt "Anova|"
-msgid "Holm"
-msgstr "Holm"
-
-msgctxt "Anova|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "Anova|"
-msgid "Flag Significant Comparisons"
-msgstr "Marcar las comparaciones significativas"
-
-msgctxt "Anova|"
-msgid "Descriptives Plots"
-msgstr "Gráficos Descriptivos"
-
-msgctxt "Anova|"
-msgid "Factors"
-msgstr "Factores"
-
-msgctxt "Anova|"
-msgid "Horizontal Axis"
-msgstr "Eje Horizontal"
-
-msgctxt "Anova|"
-msgid "Separate Lines"
-msgstr "Líneas Separadas"
-
-msgctxt "Anova|"
-msgid "Separate Plots"
-msgstr "Gráficos Separados"
-
-msgctxt "Anova|"
-msgid "Display error bars"
-msgstr "Mostrar barras de error"
-
-msgctxt "Anova|"
-msgid "Confidence interval"
-msgstr "Intervalo de confianza"
-
-msgctxt "Anova|"
-msgid "Standard error"
-msgstr "Error típico"
-
-msgctxt "Anova|"
-msgid "Marginal Means"
-msgstr "Medias Marginales"
-
-msgctxt "Anova|"
-msgid "Compare marginal means to 0"
-msgstr "Comparar las medias marginales con 0"
-
-msgctxt "Anova|"
-msgid "Confidence interval adjustment"
-msgstr "Ajuste del intervalo de confianza"
-
-msgctxt "Anova|"
-msgid "Simple Main Effects"
-msgstr "Efectos Principales Simples"
-
-msgctxt "Anova|"
-msgid "Simple Effect Factor"
-msgstr "Factor de Efecto Simple"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 1"
-msgstr "Factor Moderador 1"
-
-msgctxt "Anova|"
-msgid "Moderator Factor 2"
-msgstr "Factor Moderador 2"
-
-msgctxt "Anova|"
-msgid "Nonparametrics"
-msgstr "No Paramétricos"
-
-msgctxt "Anova|"
-msgid "Kruskal-Wallis Test"
-msgstr "Contraste de Kruskal-Wallis"
-
-msgctxt "Anova|"
-msgid " "
-msgstr " "
-
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
 msgstr "Variable Dependiente"
@@ -537,38 +129,6 @@ msgid "Covariates"
 msgstr "Covariables"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Display"
-msgstr "Mostrar"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptive statistics"
-msgstr "Estadísticos descriptivos"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Estimates of effect size"
-msgstr "Estimaciones de la magnitud del efecto"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "partial η²"
-msgstr "η² parcial"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "general η²"
-msgstr "η² general"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "ω²"
-msgstr "ω²"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Relación p máxima de Vovk-Sellke"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
 msgstr "Modelo"
 
@@ -587,10 +147,6 @@ msgstr "Componentes Entre Elementos"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
 msgstr "Elementos del modelo"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Sum of squares"
-msgstr "Suma de cuadrados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
@@ -625,18 +181,6 @@ msgid "Homogeneity tests"
 msgstr "Contrastes de Homogeneidad"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Contrasts"
-msgstr "Contrastes"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Assume equal variances"
-msgstr "Suponer varianzas iguales"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence intervals"
-msgstr "Intervalos de confianza"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
 msgstr "Contrastes Post-hoc"
 
@@ -665,88 +209,16 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Flag Significant Comparisons"
-msgstr "Marcar las comparaciones significativas"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Descriptives Plots"
-msgstr "Gráficos Descriptivos"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
 msgstr "Factores"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Horizontal Axis"
-msgstr "Eje Horizontal"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Lines"
-msgstr "Líneas Separadas"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Separate Plots"
-msgstr "Gráficos Separados"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
 msgstr "Etiqueta del eje y"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Display error bars"
-msgstr "Mostrar barras de error"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval"
-msgstr "Intervalo de confianza"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Standard error"
-msgstr "Error típico"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
 msgstr "Promedio de los factores RM no utilizados"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Marginal Means"
-msgstr "Medias Marginales"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "From"
-msgstr "De"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "bootstraps"
-msgstr "bootstraps"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Compare marginal means to 0"
-msgstr "Comparar las medias marginales con 0"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Confidence interval adjustment"
-msgstr "Ajuste del intervalo de confianza"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Šidák"
-msgstr "Šidák"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Main Effects"
-msgstr "Efectos Principales Simples"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Simple Effect Factor"
-msgstr "Factor de Efecto Simple"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 1"
-msgstr "Factor Moderador 1"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Moderator Factor 2"
-msgstr "Factor Moderador 2"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
@@ -887,14 +359,6 @@ msgstr "Etiqueta del eje y"
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
 msgstr "Evaluar la diferencia entre varias medias"
-
-msgctxt "Ancova|"
-msgid "Scheffé"
-msgstr "Scheffé"
-
-msgctxt "Anova|"
-msgid "Scheffé"
-msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
@@ -1428,3 +892,859 @@ msgstr "Gráfico Q-Q de los errores"
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "R² posterior"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Assumption Checks"
+msgstr "Verificaciones de Supuestos"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity tests"
+msgstr "Contrastes de Homogeneidad"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Homogeneity corrections"
+msgstr "Correcciones de Homogeneidad"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "None"
+msgstr "Ninguna"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Brown-Forsythe"
+msgstr "Brown-Forsythe"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Welch"
+msgstr "Welch"
+
+#, fuzzy
+msgctxt "AssumptionChecks|"
+msgid "Q-Q plot of residuals"
+msgstr "Gráfico Q-Q de los errores"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Contrasts"
+msgstr "Contrastes"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Assume equal variances"
+msgstr "Suponer varianzas iguales"
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Confidence intervals"
+msgstr "Intervalos de confianza"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Descriptives Plots"
+msgstr "Gráficos Descriptivos"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Factors"
+msgstr "Factores"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Horizontal Axis"
+msgstr "Eje Horizontal"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Lines"
+msgstr "Líneas Separadas"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Separate Plots"
+msgstr "Gráficos Separados"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display"
+msgstr "Mostrar"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Display error bars"
+msgstr "Mostrar barras de error"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Standard error"
+msgstr "Error típico"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Display"
+msgstr "Mostrar"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Descriptive statistics"
+msgstr "Estadísticos descriptivos"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Estimates of effect size"
+msgstr "Estimaciones de la magnitud del efecto"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "η²"
+msgstr "η²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "partial η²"
+msgstr "η² parcial"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "general η²"
+msgstr "η² general"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "ω²"
+msgstr "ω²"
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Relación p máxima de Vovk-Sellke"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Marginal Means"
+msgstr "Medias Marginales"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "From"
+msgstr "De"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "bootstraps"
+msgstr "bootstraps"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Compare marginal means to 0"
+msgstr "Comparar las medias marginales con 0"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Confidence interval adjustment"
+msgstr "Ajuste del intervalo de confianza"
+
+#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "None"
+msgstr "Ninguna"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model"
+msgstr "Modelo"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Components"
+msgstr "Componentes"
+
+#, fuzzy
+msgctxt "Models|"
+msgid "Model Terms"
+msgstr "Elementos del Modelo"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Nonparametrics"
+msgstr "No Paramétricos"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Kruskal-Wallis Test"
+msgstr "Contraste de Kruskal-Wallis"
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid " "
+msgstr " "
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Post Hoc Tests"
+msgstr "Contrastes Post-hoc"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Type"
+msgstr "Tipo"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Standard"
+msgstr "Estándar"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "From"
+msgstr "De"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "bootstraps"
+msgstr "bootstraps"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Effect size"
+msgstr "Magnitud del efecto"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Games-Howell"
+msgstr "Games-Howell"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunnett"
+msgstr "Dunnett"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Dunn"
+msgstr "Dunn"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Correction"
+msgstr "Corrección"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Tukey"
+msgstr "Tukey"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Bonferroni"
+msgstr "Bonferroni"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Holm"
+msgstr "Holm"
+
+#, fuzzy
+msgctxt "PostHoc|"
+msgid "Šidák"
+msgstr "Šidák"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Display"
+msgstr "Mostrar"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Confidence intervals"
+msgstr "Intervalos de confianza"
+
+#, fuzzy
+msgctxt "PostHocDisplay|"
+msgid "Flag Significant Comparisons"
+msgstr "Marcar las comparaciones significativas"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Main Effects"
+msgstr "Efectos Principales Simples"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Factors"
+msgstr "Factores"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Simple Effect Factor"
+msgstr "Factor de Efecto Simple"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 1"
+msgstr "Factor Moderador 1"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 2"
+msgstr "Factor Moderador 2"
+
+#, fuzzy
+msgctxt "SumOfSquares|"
+msgid "Sum of squares"
+msgstr "Suma de cuadrados"
+
+#, qt-format
+msgctxt "SumOfSquares|"
+msgid "Type %1"
+msgstr ""
+
+#~ msgctxt "Ancova|"
+#~ msgid "Display"
+#~ msgstr "Mostrar"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "Estadísticos descriptivos"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "Estimaciones de la magnitud del efecto"
+
+#~ msgctxt "Ancova|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "Ancova|"
+#~ msgid "partial η²"
+#~ msgstr "η² parcial"
+
+#~ msgctxt "Ancova|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Relación p máxima de Vovk-Sellke"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Model"
+#~ msgstr "Modelo"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Components"
+#~ msgstr "Componentes"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Model Terms"
+#~ msgstr "Elementos del Modelo"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Sum of squares"
+#~ msgstr "Suma de cuadrados"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Assumption Checks"
+#~ msgstr "Verificaciones de Supuestos"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Homogeneity tests"
+#~ msgstr "Contrastes de Homogeneidad"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Q-Q plot of residuals"
+#~ msgstr "Gráfico Q-Q de los errores"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Contrasts"
+#~ msgstr "Contrastes"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Confidence intervals"
+#~ msgstr "Intervalos de confianza"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Post Hoc Tests"
+#~ msgstr "Contrastes Post-hoc"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Standard"
+#~ msgstr "Estándar"
+
+#~ msgctxt "Ancova|"
+#~ msgid "From"
+#~ msgstr "De"
+
+#~ msgctxt "Ancova|"
+#~ msgid "bootstraps"
+#~ msgstr "bootstraps"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Effect size"
+#~ msgstr "Magnitud del efecto"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Games-Howell"
+#~ msgstr "Games-Howell"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Dunnett"
+#~ msgstr "Dunnett"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Dunn"
+#~ msgstr "Dunn"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Correction"
+#~ msgstr "Corrección"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Tukey"
+#~ msgstr "Tukey"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Bonferroni"
+#~ msgstr "Bonferroni"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Holm"
+#~ msgstr "Holm"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Šidák"
+#~ msgstr "Šidák"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "Marcar las comparaciones significativas"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "Gráficos Descriptivos"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "Eje Horizontal"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Separate Lines"
+#~ msgstr "Líneas Separadas"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Separate Plots"
+#~ msgstr "Gráficos Separados"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Display error bars"
+#~ msgstr "Mostrar barras de error"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Standard error"
+#~ msgstr "Error típico"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Marginal Means"
+#~ msgstr "Medias Marginales"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "Comparar las medias marginales con 0"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "Ajuste del intervalo de confianza"
+
+#~ msgctxt "Ancova|"
+#~ msgid "None"
+#~ msgstr "Ninguna"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "Efectos Principales Simples"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Factors"
+#~ msgstr "Factores"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "Factor de Efecto Simple"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "Factor Moderador 1"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "Factor Moderador 2"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Nonparametrics"
+#~ msgstr "No Paramétricos"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Kruskal-Wallis Test"
+#~ msgstr "Contraste de Kruskal-Wallis"
+
+#~ msgctxt "Ancova|"
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgctxt "Anova|"
+#~ msgid "Display"
+#~ msgstr "Mostrar"
+
+#~ msgctxt "Anova|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "Estadísticos descriptivos"
+
+#~ msgctxt "Anova|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "Estimaciones de la magnitud del efecto"
+
+#~ msgctxt "Anova|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "Anova|"
+#~ msgid "partial η²"
+#~ msgstr "η² parcial"
+
+#~ msgctxt "Anova|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "Anova|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Relación p máxima de Vovk-Sellke"
+
+#~ msgctxt "Anova|"
+#~ msgid "Model"
+#~ msgstr "Modelo"
+
+#~ msgctxt "Anova|"
+#~ msgid "Components"
+#~ msgstr "Componentes"
+
+#~ msgctxt "Anova|"
+#~ msgid "Model Terms"
+#~ msgstr "Elementos del Modelo"
+
+#~ msgctxt "Anova|"
+#~ msgid "Sum of squares"
+#~ msgstr "Suma de cuadrados"
+
+#~ msgctxt "Anova|"
+#~ msgid "Assumption Checks"
+#~ msgstr "Verificaciones de Supuestos"
+
+#~ msgctxt "Anova|"
+#~ msgid "Homogeneity tests"
+#~ msgstr "Contrastes de Homogeneidad"
+
+#~ msgctxt "Anova|"
+#~ msgid "Homogeneity corrections"
+#~ msgstr "Correcciones de Homogeneidad"
+
+#~ msgctxt "Anova|"
+#~ msgid "None"
+#~ msgstr "Ninguna"
+
+#~ msgctxt "Anova|"
+#~ msgid "Brown-Forsythe"
+#~ msgstr "Brown-Forsythe"
+
+#~ msgctxt "Anova|"
+#~ msgid "Welch"
+#~ msgstr "Welch"
+
+#~ msgctxt "Anova|"
+#~ msgid "Q-Q plot of residuals"
+#~ msgstr "Gráfico Q-Q de los errores"
+
+#~ msgctxt "Anova|"
+#~ msgid "Contrasts"
+#~ msgstr "Contrastes"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence intervals"
+#~ msgstr "Intervalos de confianza"
+
+#~ msgctxt "Anova|"
+#~ msgid "Post Hoc Tests"
+#~ msgstr "Contrastes Post-hoc"
+
+#~ msgctxt "Anova|"
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgctxt "Anova|"
+#~ msgid "Standard"
+#~ msgstr "Estándar"
+
+#~ msgctxt "Anova|"
+#~ msgid "From"
+#~ msgstr "De"
+
+#~ msgctxt "Anova|"
+#~ msgid "bootstraps"
+#~ msgstr "bootstraps"
+
+#~ msgctxt "Anova|"
+#~ msgid "Effect size"
+#~ msgstr "Magnitud del efecto"
+
+#~ msgctxt "Anova|"
+#~ msgid "Games-Howell"
+#~ msgstr "Games-Howell"
+
+#~ msgctxt "Anova|"
+#~ msgid "Dunnett"
+#~ msgstr "Dunnett"
+
+#~ msgctxt "Anova|"
+#~ msgid "Dunn"
+#~ msgstr "Dunn"
+
+#~ msgctxt "Anova|"
+#~ msgid "Correction"
+#~ msgstr "Corrección"
+
+#~ msgctxt "Anova|"
+#~ msgid "Tukey"
+#~ msgstr "Tukey"
+
+#~ msgctxt "Anova|"
+#~ msgid "Bonferroni"
+#~ msgstr "Bonferroni"
+
+#~ msgctxt "Anova|"
+#~ msgid "Holm"
+#~ msgstr "Holm"
+
+#~ msgctxt "Anova|"
+#~ msgid "Šidák"
+#~ msgstr "Šidák"
+
+#~ msgctxt "Anova|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "Marcar las comparaciones significativas"
+
+#~ msgctxt "Anova|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "Gráficos Descriptivos"
+
+#~ msgctxt "Anova|"
+#~ msgid "Factors"
+#~ msgstr "Factores"
+
+#~ msgctxt "Anova|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "Eje Horizontal"
+
+#~ msgctxt "Anova|"
+#~ msgid "Separate Lines"
+#~ msgstr "Líneas Separadas"
+
+#~ msgctxt "Anova|"
+#~ msgid "Separate Plots"
+#~ msgstr "Gráficos Separados"
+
+#~ msgctxt "Anova|"
+#~ msgid "Display error bars"
+#~ msgstr "Mostrar barras de error"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence interval"
+#~ msgstr "Intervalo de confianza"
+
+#~ msgctxt "Anova|"
+#~ msgid "Standard error"
+#~ msgstr "Error típico"
+
+#~ msgctxt "Anova|"
+#~ msgid "Marginal Means"
+#~ msgstr "Medias Marginales"
+
+#~ msgctxt "Anova|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "Comparar las medias marginales con 0"
+
+#~ msgctxt "Anova|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "Ajuste del intervalo de confianza"
+
+#~ msgctxt "Anova|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "Efectos Principales Simples"
+
+#~ msgctxt "Anova|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "Factor de Efecto Simple"
+
+#~ msgctxt "Anova|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "Factor Moderador 1"
+
+#~ msgctxt "Anova|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "Factor Moderador 2"
+
+#~ msgctxt "Anova|"
+#~ msgid "Nonparametrics"
+#~ msgstr "No Paramétricos"
+
+#~ msgctxt "Anova|"
+#~ msgid "Kruskal-Wallis Test"
+#~ msgstr "Contraste de Kruskal-Wallis"
+
+#~ msgctxt "Anova|"
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Display"
+#~ msgstr "Mostrar"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Descriptive statistics"
+#~ msgstr "Estadísticos descriptivos"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Estimates of effect size"
+#~ msgstr "Estimaciones de la magnitud del efecto"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "η²"
+#~ msgstr "η²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "partial η²"
+#~ msgstr "η² parcial"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "general η²"
+#~ msgstr "η² general"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "ω²"
+#~ msgstr "ω²"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Vovk-Sellke maximum p-ratio"
+#~ msgstr "Relación p máxima de Vovk-Sellke"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Sum of squares"
+#~ msgstr "Suma de cuadrados"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Contrasts"
+#~ msgstr "Contrastes"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Assume equal variances"
+#~ msgstr "Suponer varianzas iguales"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence intervals"
+#~ msgstr "Intervalos de confianza"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Flag Significant Comparisons"
+#~ msgstr "Marcar las comparaciones significativas"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Descriptives Plots"
+#~ msgstr "Gráficos Descriptivos"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Horizontal Axis"
+#~ msgstr "Eje Horizontal"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Separate Lines"
+#~ msgstr "Líneas Separadas"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Separate Plots"
+#~ msgstr "Gráficos Separados"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Display error bars"
+#~ msgstr "Mostrar barras de error"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence interval"
+#~ msgstr "Intervalo de confianza"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Standard error"
+#~ msgstr "Error típico"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Marginal Means"
+#~ msgstr "Medias Marginales"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "From"
+#~ msgstr "De"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "bootstraps"
+#~ msgstr "bootstraps"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Compare marginal means to 0"
+#~ msgstr "Comparar las medias marginales con 0"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Confidence interval adjustment"
+#~ msgstr "Ajuste del intervalo de confianza"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Šidák"
+#~ msgstr "Šidák"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Simple Main Effects"
+#~ msgstr "Efectos Principales Simples"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Simple Effect Factor"
+#~ msgstr "Factor de Efecto Simple"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Moderator Factor 1"
+#~ msgstr "Factor Moderador 1"
+
+#~ msgctxt "AnovaRepeatedMeasures|"
+#~ msgid "Moderator Factor 2"
+#~ msgstr "Factor Moderador 2"
+
+#~ msgctxt "Ancova|"
+#~ msgid "Scheffé"
+#~ msgstr "Scheffé"
+
+#~ msgctxt "Anova|"
+#~ msgid "Scheffé"
+#~ msgstr "Scheffé"

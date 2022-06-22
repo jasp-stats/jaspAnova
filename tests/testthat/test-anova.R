@@ -241,7 +241,7 @@ test_that("Descriptives plots match", {
 })
 
 test_that("Bar plots match", {
-  options <- jaspTools::analysisOptions("Anova")
+  options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"

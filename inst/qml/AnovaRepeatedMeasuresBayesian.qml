@@ -100,7 +100,7 @@ Form
 		showLabel: true
 	}
 	
-	ANOVA.BarPlots
+	Bayesian.BarPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		showLabel: true

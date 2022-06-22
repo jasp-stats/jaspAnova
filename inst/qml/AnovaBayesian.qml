@@ -46,6 +46,8 @@ Form
 	Bayesian.PostHocTests { source: "fixedFactors" }
 
 	Bayesian.DescriptivesPlots { source: "fixedFactors" }
+	
+	Bayesian.BarPlots { source: ["fixedFactors", "randomFactors"] }
 
 	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }
 

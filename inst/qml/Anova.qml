@@ -39,7 +39,44 @@ Form
 		AssignedVariablesList	{	name:	"randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"];	debug:	true				}
 		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");			suggestedColumns: ["scale"];				singleVariable: true		}
 	}
+
+	Classical.Display
+	{
+		analysis: form.analysis
+	}
+
+	Classical.Models
+	{
+		source: ["fixedFactors", "randomFactors"]
+	}
+
+	Classical.AssumptionChecks
+	{
+		analysis: form.analysis
+	}
+
+	Classical.Contrasts
+	{
+		analysis:	form.analysis
+		source:		"modelTerms"
+	}
+
+	Classical.OrderRestrictions
+	{
+		analysis:	form.analysis
+		source:		"modelTerms"
+	}
 	
+	Classical.PostHoc
+	{
+		source: "modelTerms"
+	}
+	
+	Classical.DescriptivePlots
+	{
+		source: ["fixedFactors", "randomFactors"]
+	}
+
 	Section
 	{
 		title: 		qsTr("Bar Plots")
@@ -81,43 +118,6 @@ Form
 			}
 			CheckBox { name: "zeroFix"; 	label: qsTr("Fix horizontal axis to 0");	checked: true }
 		}
-	}
-
-	Classical.Display
-	{
-		analysis: form.analysis
-	}
-
-	Classical.Models
-	{
-		source: ["fixedFactors", "randomFactors"]
-	}
-
-	Classical.AssumptionChecks
-	{
-		analysis: form.analysis
-	}
-
-	Classical.Contrasts
-	{
-		analysis:	form.analysis
-		source:		"modelTerms"
-	}
-
-	Classical.OrderRestrictions
-	{
-		analysis:	form.analysis
-		source:		"modelTerms"
-	}
-	
-	Classical.PostHoc
-	{
-		source: "modelTerms"
-	}
-	
-	Classical.DescriptivePlots
-	{
-		source: ["fixedFactors", "randomFactors"]
 	}
 
 	Common.RainCloudPlots

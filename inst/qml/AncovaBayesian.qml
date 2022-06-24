@@ -49,7 +49,11 @@ Form
 
 	Bayesian.DescriptivesPlots { source: ["fixedFactors", "covariates"] }
 	
-	Bayesian.BarPlots { source: ["fixedFactors", "covariates"] }
+	Common.BarPlots 
+	{ 
+		source: ["fixedFactors", "covariates"] 
+		showCred: true
+	}
 
 	Common.RainCloudPlots { source: ["fixedFactors", "covariates"] }
 

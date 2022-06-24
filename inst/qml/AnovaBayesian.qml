@@ -47,7 +47,11 @@ Form
 
 	Bayesian.DescriptivesPlots { source: "fixedFactors" }
 	
-	Bayesian.BarPlots { source: ["fixedFactors", "randomFactors"] }
+	Common.BarPlots 
+	{ 
+		source: ["fixedFactors", "randomFactors"] 
+		showCred: true
+	}
 
 	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }
 

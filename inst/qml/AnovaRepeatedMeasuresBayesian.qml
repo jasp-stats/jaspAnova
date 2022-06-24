@@ -100,9 +100,10 @@ Form
 		showLabel: true
 	}
 	
-	Bayesian.BarPlots
+	Common.BarPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		showCred: true
 		TextField{ name: 	"labelYAxisTwo"; label: 	qsTr("Label y-axis"); fieldWidth: 	200 }
 	}
 

@@ -80,9 +80,10 @@ Form
 		source: ["fixedFactors", "randomFactors", "covariates"]
 	}
 
-	Classical.BarPlot
+	Common.BarPlots
 	{
 		source: ["fixedFactors", "randomFactors", "covariates"]
+		showConf: true
 	}
 	
 	Common.RainCloudPlots

@@ -26,6 +26,8 @@ Section
 	title: 						qsTr("Bar Plots")
 	property alias source: 		descriptivePlotsTwoVariables.source
 	columns: 					1
+	property bool showConf: 	false
+	property bool showCred: 	false
 
 	VariablesForm
 	{
@@ -50,12 +52,23 @@ Section
 				
 				RadioButton
 				{
+					visible: 			showCred
 					value: 				"confidenceInterval" 
 					label: 				qsTr("Credible interval")
 					checked: 			true
 					childrenOnSameRow: 	true
 					
 					CIField { name: 	"plotTwoCredibleIntervalInterval" }
+				}
+				RadioButton
+				{
+					visible: 			showConf
+					value: 				"confidenceInterval" 
+					label: 				qsTr("Confidence interval")
+					checked: 			true
+					childrenOnSameRow: 	true
+					
+					CIField { name: 	"confidenceIntervalIntervalTwo" }
 				}
 				RadioButton { value: 	"standardErrorTwo"; label: qsTr("Standard error") }
 			}

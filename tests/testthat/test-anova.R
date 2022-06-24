@@ -250,16 +250,17 @@ test_that("Bar plots match", {
     list(components="contBinom"),
     list(components=c("facFive", "contBinom"))
   )
-  options$plotTwoHorizontalAxis <- "contBinom"
-  options$plotTwoSeparatePlots <- "facFive"
-  options$plotTwoErrorBars <- TRUE
-  options$confidenceIntervalIntervalTwo <- 0.90
-  options$errorBarTypeTwo <- "confidenceInterval"
+  options$barPlotHorizontalAxis <- "contBinom"
+  options$barPlotSeparatePlots <- "facFive"
+  options$barPlotHorizontalZeroFix <- TRUE
+  options$barPlotErrorBars <- TRUE
+  options$barPlotConfidenceInterval <- 0.90
+  options$barPlotErrorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(testPlot, "barPlot-ci")
 
-  options$errorBarTypeTwo <- "standardErrorTwo"
+  options$barPlotErrorBarType <- "standardError"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(testPlot, "barPlot-se")

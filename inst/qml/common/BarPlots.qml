@@ -20,21 +20,21 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
+import "./" as Common
 
 Section
 {
 	title: 						qsTr("Bar Plots")
-	property alias source: 		descriptivePlotsTwoVariables.source
+	property alias source: 		availableTerms.source
+	property int framework:		Common.Type.Framework.Classical
 	columns: 					1
-	property bool showConf: 	false
-	property bool showCred: 	false
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList { name: "descriptivePlotsTwoVariables"; 	title: qsTr("Factors"); 			id: descriptivePlotsTwoVariables }
-		AssignedVariablesList { name: "plotTwoHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true }
-		AssignedVariablesList { name: "plotTwoSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true }
+		AvailableVariablesList { name: "barPlotVariables"; 				title: qsTr("Factors"); 			id: availableTerms }
+		AssignedVariablesList { name: "barPlotHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true }
+		AssignedVariablesList { name: "barPlotSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true }
 	}
 
 	Group
@@ -43,36 +43,25 @@ Section
 		
 		CheckBox
 		{
-			name: 	"plotTwoErrorBars"
+			name: 	"barPlotErrorBars"
 			label: 	qsTr("Display error bars")
 			
 			RadioButtonGroup
 			{
-				name: 	"errorBarTypeTwo"
+				name: 	"barPlotErrorBarType"
 				
 				RadioButton
 				{
-					visible: 			showCred
 					value: 				"confidenceInterval" 
-					label: 				qsTr("Credible interval")
+					label: 				framework === Common.Type.Framework.Classical ? qsTr("Confidence interval") : qsTr("Credible interval")
 					checked: 			true
 					childrenOnSameRow: 	true
 					
-					CIField { name: 	"plotTwoCredibleIntervalInterval" }
+					CIField { name: 	framework === Common.Type.Framework.Classical ? "barPlotConfidenceInterval" : "barPlotCredibleInterval" }
 				}
-				RadioButton
-				{
-					visible: 			showConf
-					value: 				"confidenceInterval" 
-					label: 				qsTr("Confidence interval")
-					checked: 			true
-					childrenOnSameRow: 	true
-					
-					CIField { name: 	"confidenceIntervalIntervalTwo" }
-				}
-				RadioButton { value: 	"standardErrorTwo"; label: qsTr("Standard error") }
+				RadioButton { value: 	"standardError"; 	label: qsTr("Standard error") }
 			}
 		}
-		CheckBox { name: "zeroFix"; 	label: qsTr("Fix horizontal axis to 0");	checked: true }
+		CheckBox { name: "barPlotHorizontalZeroFix"; 		label: qsTr("Fix horizontal axis to 0");	checked: true }
 	}
 }

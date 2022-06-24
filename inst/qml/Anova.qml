@@ -80,7 +80,7 @@ Form
 	Common.BarPlots
 	{ 
 		source: ["fixedFactors", "randomFactors"] 
-		showConf: true
+		framework:	form.framework
 	}
 
 	Common.RainCloudPlots

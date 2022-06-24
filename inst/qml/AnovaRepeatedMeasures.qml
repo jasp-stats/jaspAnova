@@ -141,7 +141,7 @@ Form
 	Common.BarPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		showConf: true
+		framework:	form.framework
 		TextField 	{ name: "labelYAxisTwo"; 			label: qsTr("Label y-axis"); 	fieldWidth: 200 }
 		CheckBox 	{ name: "usePooledStandErrorCITwo"; label: qsTr("Average across unused RM factors") }
 	}

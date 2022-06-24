@@ -474,33 +474,34 @@ test_that("Bar Plots match", {
   options <- initOpts()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
-  options$plotTwoHorizontalAxis <- "Charisma"
-  options$plotTwoSeparatePlots <- "gender"
-  options$plotTwoErrorBars <- TRUE
+  options$barPlotHorizontalAxis <- "Charisma"
+  options$barPlotSeparatePlots <- "gender"
+  options$barPlotHorizontalZeroFix <- TRUE
+  options$barPlotErrorBars <- TRUE
 
   options$usePooledStandErrorCITwo <- FALSE
-  options$errorBarTypeTwo <- "confidenceInterval"
+  options$barPlotErrorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA1Bar")
 
   options$usePooledStandErrorCITwo <- TRUE
-  options$errorBarTypeTwo <- "confidenceInterval"
+  options$barPlotErrorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA2Bar")
 
   options$usePooledStandErrorCITwo <- FALSE
-  options$errorBarTypeTwo <- "standardError"
+  options$barPlotErrorBarType <- "standardError"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA3Bar")
 
   options$usePooledStandErrorCITwo <- TRUE
-  options$errorBarTypeTwo <- "standardError"
+  options$barPlotErrorBarType <- "standardError"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj

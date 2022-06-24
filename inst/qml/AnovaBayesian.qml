@@ -49,8 +49,8 @@ Form
 	
 	Common.BarPlots 
 	{ 
-		source: ["fixedFactors", "randomFactors"] 
-		showCred: true
+		source: ["fixedFactors", "randomFactors"]
+		framework:	form.framework
 	}
 
 	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }

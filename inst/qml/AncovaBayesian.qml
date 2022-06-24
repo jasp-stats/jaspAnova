@@ -52,7 +52,7 @@ Form
 	Common.BarPlots 
 	{ 
 		source: ["fixedFactors", "covariates"] 
-		showCred: true
+		framework:	form.framework
 	}
 
 	Common.RainCloudPlots { source: ["fixedFactors", "covariates"] }

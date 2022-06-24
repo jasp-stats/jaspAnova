@@ -103,7 +103,7 @@ Form
 	Common.BarPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		showCred: true
+		framework:	form.framework
 		TextField{ name: 	"labelYAxisTwo"; label: 	qsTr("Label y-axis"); fieldWidth: 	200 }
 	}
 

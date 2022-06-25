@@ -1812,23 +1812,23 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspContainer[["containerBarPlots"]] <- barPlotContainer
 
   # either Bayesian or Frequentist anova
-  if (is.null(options$barPlotConfidenceInterval)) { # TRUE implies Bayesian
-    plotErrorBars <- options$barPlotErrorBars
-    errorBarType  <- options$barPlotErrorBarType
-    confInterval <- options$barPlotCredibleInterval
+  if (is.null(options[["barPlotConfidenceInterval"]])) { # TRUE implies Bayesian
+    plotErrorBars <- options[["barPlotErrorBars"]]
+    errorBarType  <- options[["barPlotErrorBarType"]]
+    confInterval <- options[["barPlotCredibleInterval"]]
     barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
                                 "barPlotHorizontalZeroFix", "barPlotCredibleInterval"))
 
   } else {
-    plotErrorBars <- options$barPlotErrorBars
-    errorBarType  <- options$barPlotErrorBarType
-    confInterval <- options$barPlotConfidenceInterval
+    plotErrorBars <- options[["barPlotErrorBars"]]
+    errorBarType  <- options[["barPlotErrorBarType"]]
+    confInterval <- options[["barPlotConfidenceInterval"]]
     barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
                                 "barPlotHorizontalZeroFix", "barPlotConfidenceInterval", "usePooledStandErrorCITwo"))
 
   }
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
-  barPlotHorizontalZeroFix <- options$barPlotHorizontalZeroFix
+  barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
   barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
 
   if (errors$noVariables) {
@@ -1836,18 +1836,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     return()
   }
 
-  groupVars <- c(options$barPlotHorizontalAxis, options$barPlotSeparatePlots)
+  groupVars <- c(options[["barPlotHorizontalAxis"]], options[["barPlotSeparatePlots"]])
   groupVars <- groupVars[groupVars != ""]
   if (analysisType == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
     yLabel <- options[["labelYAxisTwo"]]
   } else {
-    dependent<- options$dependent
+    dependent<- options[["dependent"]]
     yLabel <- options[["dependent"]]
   }
 
-  betweenSubjectFactors <- groupVars[groupVars %in% options$betweenSubjectFactors]
-  repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
+  betweenSubjectFactors <- groupVars[groupVars %in% options[["betweenSubjectFactors"]]]
+  repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options[["repeatedMeasuresFactors"]], `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
     summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
@@ -1867,12 +1867,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
 
-  if (options$barPlotHorizontalAxis != "") {
-    colnames(summaryStat)[colnames(summaryStat) == options$barPlotHorizontalAxis] <- "barPlotHorizontalAxis"
+  if (options[["barPlotHorizontalAxis"]] != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options[["barPlotHorizontalAxis"]]] <- "barPlotHorizontalAxis"
   }
 
-  if (options$barPlotSeparatePlots != "") {
-    colnames(summaryStat)[colnames(summaryStat) == options$barPlotSeparatePlots] <- "barPlotSeparatePlots"
+  if (options[["barPlotSeparatePlots"]] != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options[["barPlotSeparatePlots"]]] <- "barPlotSeparatePlots"
     subsetPlots <- levels(summaryStat[, "barPlotSeparatePlots"])
     nPlots <- length(subsetPlots)
   } else {
@@ -1882,7 +1882,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   for (i in seq_len(nPlots)) {
 
     if (nPlots > 1L) {
-      title <- paste0(options$barPlotSeparatePlots, ": ", subsetPlots[i])
+      title <- paste0(options[["barPlotSeparatePlots"]], ": ", subsetPlots[i])
     } else {
       title <- ""
     }
@@ -1892,7 +1892,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     barPlot$height <- 500
     barPlot$width <- 500
 
-    if (options$barPlotSeparatePlots != "") {
+    if (options[["barPlotSeparatePlots"]] != "") {
       summaryStatSubset <- subset(summaryStat, summaryStat[, "barPlotSeparatePlots"] == subsetPlots[i])
     } else {
       summaryStatSubset <- summaryStat
@@ -1924,7 +1924,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       error +
       ggplot2::labs(y = yLabel, x = options[["barPlotHorizontalAxis"]]) +
       ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks), oob = scales::rescale_none) +
-      ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"barPlotHorizontalAxis"])) +
+      ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[, "barPlotHorizontalAxis"])) +
       jaspGraphs::geom_rangeframe(sides = "l") +
       jaspGraphs::themeJaspRaw()
 

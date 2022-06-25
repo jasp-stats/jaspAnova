@@ -850,9 +850,10 @@ msgctxt "OrderRestrictions|"
 msgid "Terms"
 msgstr ""
 
+#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 #, fuzzy
 msgctxt "PostHocTests|"
@@ -926,9 +927,10 @@ msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "Pemeriksaan Asumsi"
 
+#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Uji homogenitas"
 
 #, fuzzy
 msgctxt "AssumptionChecks|"
@@ -1113,9 +1115,10 @@ msgctxt "Nonparametrics|"
 msgid " "
 msgstr " "
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 #, fuzzy
 msgctxt "PostHoc|"

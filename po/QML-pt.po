@@ -701,9 +701,10 @@ msgctxt "DescriptivesPlots|"
 msgid "Factors"
 msgstr "Fatores"
 
+#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
@@ -926,9 +927,10 @@ msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr ""
 
+#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Testes de homogeneidade"
 
 #, fuzzy
 msgctxt "AssumptionChecks|"
@@ -978,9 +980,10 @@ msgctxt "DescriptivePlots|"
 msgid "Factors"
 msgstr "Fatores"
 
+#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
@@ -1090,9 +1093,10 @@ msgctxt "Models|"
 msgid "Components"
 msgstr "Componentes"
 
+#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Termos do modelo"
 
 #, fuzzy
 msgctxt "Nonparametrics|"
@@ -1134,9 +1138,10 @@ msgctxt "PostHoc|"
 msgid "bootstraps"
 msgstr "bootstraps"
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr ""
+msgstr "Tamanho de efeito"
 
 #, fuzzy
 msgctxt "PostHoc|"

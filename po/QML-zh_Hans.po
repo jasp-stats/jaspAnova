@@ -706,9 +706,10 @@ msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "分隔线"
 
+#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "多图( Separate Plots)"
 
 #, fuzzy
 msgctxt "DescriptivesPlots|"
@@ -851,9 +852,10 @@ msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
 
+#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr ""
+msgstr "校正"
 
 #, fuzzy
 msgctxt "PostHocTests|"
@@ -986,9 +988,10 @@ msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
 msgstr "分隔线"
 
+#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "多图( Separate Plots)"
 
 #, fuzzy
 msgctxt "DescriptivePlots|"
@@ -1152,9 +1155,10 @@ msgctxt "PostHoc|"
 msgid "Dunn"
 msgstr "Dunn 检验"
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr ""
+msgstr "校正"
 
 #, fuzzy
 msgctxt "PostHoc|"

@@ -766,9 +766,10 @@ msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
 msgstr ""
 
+#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr ""
+msgstr "Aucune"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
@@ -941,9 +942,10 @@ msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
 msgstr "Corrections d'homogénéité"
 
+#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr ""
+msgstr "Aucune"
 
 #, fuzzy
 msgctxt "AssumptionChecks|"
@@ -1085,9 +1087,10 @@ msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
 msgstr "Ajustement des intervalles de confiance"
 
+#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr ""
+msgstr "Aucune"
 
 #, fuzzy
 msgctxt "Models|"

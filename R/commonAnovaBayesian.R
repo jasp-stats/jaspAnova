@@ -1811,22 +1811,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   barPlotContainer$position <- 3
   jaspContainer[["containerBarPlots"]] <- barPlotContainer
 
-  # either Bayesian or Frequentist anova
-  if (is.null(options[["barPlotConfidenceInterval"]])) { # TRUE implies Bayesian
-    plotErrorBars <- options[["barPlotErrorBars"]]
-    errorBarType  <- options[["barPlotErrorBarType"]]
-    confInterval <- options[["barPlotCredibleInterval"]]
-    barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
-                                "barPlotHorizontalZeroFix", "barPlotCredibleInterval"))
+  plotErrorBars <- options[["barPlotErrorBars"]]
+  errorBarType  <- options[["barPlotErrorBarType"]]
+  confInterval <- options[["barPlotCiInterval"]]
+  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
+                              "barPlotHorizontalZeroFix", "barPlotCiInterval", "usePooledStandErrorCITwo"))
 
-  } else {
-    plotErrorBars <- options[["barPlotErrorBars"]]
-    errorBarType  <- options[["barPlotErrorBarType"]]
-    confInterval <- options[["barPlotConfidenceInterval"]]
-    barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
-                                "barPlotHorizontalZeroFix", "barPlotConfidenceInterval", "usePooledStandErrorCITwo"))
-
-  }
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
   barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
   barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
@@ -1911,7 +1901,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       values <- c(0, values)
 
     if (plotErrorBars) {
-      ciPos <- c(values, summaryStatSubset$ciLower, summaryStatSubset$ciUpper)
+      ciPos <- c(values, summaryStatSubset[["ciLower"]], summaryStatSubset[["ciUpper"]])
       yBreaks <- jaspGraphs::getPrettyAxisBreaks(ciPos)
     } else {
       yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)

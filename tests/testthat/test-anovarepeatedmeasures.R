@@ -478,6 +478,7 @@ test_that("Bar Plots match", {
   options$barPlotSeparatePlots <- "gender"
   options$barPlotHorizontalZeroFix <- TRUE
   options$barPlotErrorBars <- TRUE
+  options$barPlotCiInterval <- 0.95
 
   options$usePooledStandErrorCITwo <- FALSE
   options$barPlotErrorBarType <- "confidenceInterval"

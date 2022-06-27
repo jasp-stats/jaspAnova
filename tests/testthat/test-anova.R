@@ -254,7 +254,7 @@ test_that("Bar plots match", {
   options$barPlotSeparatePlots <- "facFive"
   options$barPlotHorizontalZeroFix <- TRUE
   options$barPlotErrorBars <- TRUE
-  options$barPlotConfidenceInterval <- 0.90
+  options$barPlotCiInterval <- 0.90
   options$barPlotErrorBarType <- "confidenceInterval"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj

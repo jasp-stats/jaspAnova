@@ -57,7 +57,7 @@ Section
 					checked: 			true
 					childrenOnSameRow: 	true
 					
-					CIField { name: 	framework === Common.Type.Framework.Classical ? "barPlotConfidenceInterval" : "barPlotCredibleInterval" }
+					CIField { name: 	"barPlotCiInterval" }
 				}
 				RadioButton { value: 	"standardError"; 	label: qsTr("Standard error") }
 			}

@@ -1871,10 +1871,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   for (i in seq_len(nPlots)) {
 
-    if (nPlots > 1L) {
-      title <- paste0(options[["barPlotSeparatePlots"]], ": ", subsetPlots[i])
+    title <- if (nPlots > 1L) {
+      paste0(options[["barPlotSeparatePlots"]], ": ", subsetPlots[i])
     } else {
-      title <- ""
+      ""
     }
     barPlot <- createJaspPlot(title = title)
     barPlotContainer[[title]] <- barPlot
@@ -1882,29 +1882,27 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     barPlot$height <- 500
     barPlot$width <- 500
 
-    if (options[["barPlotSeparatePlots"]] != "") {
-      summaryStatSubset <- subset(summaryStat, summaryStat[, "barPlotSeparatePlots"] == subsetPlots[i])
+    summaryStatSubset <- if (options[["barPlotSeparatePlots"]] != "") {
+      subset(summaryStat, summaryStat[, "barPlotSeparatePlots"] == subsetPlots[i])
     } else {
-      summaryStatSubset <- summaryStat
+      summaryStat
     }
 
+    error <- NULL
     if (plotErrorBars) {
       pd <- ggplot2::position_dodge(.2)
       error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
                                       colour = "black", width = .2, position = pd)
-    } else {
-      error <- NULL
     }
 
     values <- 1.1 * range(summaryStatSubset[["dependent"]])
     if (barPlotHorizontalZeroFix)
       values <- c(0, values)
 
-    if (plotErrorBars) {
-      ciPos <- c(values, summaryStatSubset[["ciLower"]], summaryStatSubset[["ciUpper"]])
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ciPos)
+    yBreaks <- if (plotErrorBars) {
+      jaspGraphs::getPrettyAxisBreaks(c(values, summaryStatSubset[["ciLower"]], summaryStatSubset[["ciUpper"]]))
     } else {
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)
+      jaspGraphs::getPrettyAxisBreaks(values)
     }
     pd2 <- ggplot2::position_dodge2(preserve = "single")
 

@@ -1,7 +1,7 @@
 Package: jaspAnova
 Type: Package
 Title: ANOVA Module for JASP
-Version: 0.16.3
+Version: 0.16.4
 Date: 2020-04-20
 Author: JASP Team
 Website: jasp-stats.org

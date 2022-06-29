@@ -520,4 +520,72 @@ Upgrades
 		// Nonparametrics
 		ChangeRename {	from: "kruskalVariablesAvailable";	to: "friedmanAvailableFactors"		}
 	}
+
+	Upgrade
+	{
+		functionName:		"AnovaBayesian"
+		fromVersion:		"0.16.3"
+		toVersion:			"0.16.4"
+
+		// RainCloudPlots.qml
+		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
+		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
+
+		// DescriptivePlots.qml
+		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
+		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
+		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
+		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
+
+		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
+		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
+	}
+
+	Upgrade
+	{
+		functionName:		"AncovaBayesian"
+		fromVersion:		"0.16.3"
+		toVersion:			"0.16.4"
+
+		// RainCloudPlots.qml
+		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
+		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
+
+		// DescriptivePlots.qml
+		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
+		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
+		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
+		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
+
+		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
+		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
+	}
+
+	Upgrade
+	{
+		functionName:		"AnovaRepeatedMeasuresBayesian"
+		fromVersion:		"0.16.3"
+		toVersion:			"0.16.4"
+
+		// RainCloudPlots.qml
+		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
+		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsLabelYAxis";			to: "rainCloudYAxisLabel"			}
+
+		// DescriptivePlots.qml
+		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
+		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
+		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
+		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
+
+		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
+		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
+
+		ChangeRename {	from: "labelYAxis";						to: "descriptivePlotYAxisLabel"			}
+	}
 }

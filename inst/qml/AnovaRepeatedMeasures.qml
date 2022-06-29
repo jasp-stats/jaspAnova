@@ -153,7 +153,7 @@ Form
 	Classical.SimpleMainEffects
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		CheckBox { name: "poolErrorTermSimpleEffects";	label: qsTr("Pool error terms") }
+		CheckBox { name: "simpleMainEffectErrorTermPooled";	label: qsTr("Pool error terms") }
 	}
 
 	Section

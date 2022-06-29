@@ -19,7 +19,7 @@ test_that("Main table results match", {
   options$effectSizeEtaSquared <- TRUE
   options$effectSizeOmegaSquared <- TRUE
   options$effectSizePartialEtaSquared <- TRUE
-  options$VovkSellkeMPR <- TRUE
+  options$vovkSellke <- TRUE
 
   refTables <- list(
     type1 = list("facFive", 181.151987151139, 4, 45.2879967877848, 1.86433860843651,
@@ -110,7 +110,7 @@ test_that("Homogeneity of Variances table results match", {
     list(components="contGamma")
   )
   options$homogeneityTests <- TRUE
-  options$VovkSellkeMPR <- TRUE
+  options$vovkSellke <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_assumptionsContainer"]][["collection"]][["anovaContainer_assumptionsContainer_leveneTable"]][["data"]]
   jaspTools::expect_equal_tables(table, list(2.72159218177061, 1, 98, 0.102201011380302, 1.57819444559362))
@@ -127,7 +127,7 @@ test_that("Contrasts table results match", {
     list(components="facFive"),
     list(components="contGamma")
   )
-  options$confidenceIntervalsContrast <- TRUE
+  options$contrastCi <- TRUE
   refTables <- list(
     deviation = list("2 - 1, 2, 3, 4, 5", -0.200720248979633, 0.213572066533121, -0.939824445386938,
                      0.349716429527485, 94, -0.6247726, 0.2233321, "TRUE", "3 - 1, 2, 3, 4, 5", 0.326355030521638,
@@ -187,15 +187,15 @@ test_that("Post Hoc table results match", {
     list(components="facExperim"),
     list(components="contGamma")
   )
-  options$postHocTestEffectSize <- TRUE
-  options$postHocTestsBonferroni <- TRUE
-  options$postHocTestsHolm <- TRUE
-  options$postHocTestsScheffe <- TRUE
-  options$postHocTestsTukey <- TRUE
-  options$postHocTestsSidak <- TRUE
-  options$postHocTestsVariables <- list("facExperim")
-  options$postHocTestsTypeStandard <- TRUE
-  options$confidenceIntervalsPostHoc <- TRUE
+  options$postHocTerms                  <- list("facExperim")
+  options$postHocTypeStandard           <- TRUE
+  options$postHocTypeStandardEffectSize <- TRUE
+  options$postHocCorrectionBonferroni   <- TRUE
+  options$postHocCorrectionHolm         <- TRUE
+  options$postHocCorrectionScheffe      <- TRUE
+  options$postHocCorrectionTukey        <- TRUE
+  options$postHocCorrectionSidak        <- TRUE
+  options$postHocCi                     <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
@@ -216,8 +216,8 @@ test_that("Marginal Means table results match", {
     list(components="facExperim"),
     list(components="contGamma")
   )
-  options$marginalMeansCompareMainEffects <- TRUE
-  options$marginalMeansTerms <- "facExperim"
+  options$marginalMeanComparedToZero <- TRUE
+  options$marginalMeanTerms <- "facExperim"
 
   refTables <- list(
     none = list("control", -0.230293705415766, 0.151049119466849, -0.530084395048618, 97,
@@ -235,7 +235,7 @@ test_that("Marginal Means table results match", {
   )
 
   for (adjustment in c("none", "Bonferroni", "Sidak")) {
-    options$marginalMeansCIAdjustment <- adjustment
+    options$marginalMeanCiCorrection <- adjustment
     results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
     table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
     jaspTools::expect_equal_tables(table, refTables[[adjustment]], label=paste("Table with CI adjustment", adjustment))
@@ -252,12 +252,12 @@ test_that("Simple Main Effects table results match", {
     list(components="facFive"),
     list(components="contGamma")
   )
-  options$simpleFactor <- "facExperim"
-  options$moderatorFactorOne <- "facFive"
-  options$moderatorFactorTwo <- ""
+  options$simpleMainEffectFactor             <- "facExperim"
+  options$simpleMainEffectModeratorFactorOne <- "facFive"
+  options$simpleMainEffectModeratorFactorTwo <- ""
   options$homogeneityTests <- TRUE
   options$sumOfSquares <- "type1"
-  options$VovkSellkeMPR <- TRUE
+  options$vovkSellke <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "debug.csv", options)
   # table <- results[["results"]][["simpleEffects"]][["data"]]
   table <- results$results$anovaContainer$collection$anovaContainer_simpleEffectsContainer$collection$anovaContainer_simpleEffectsContainer_simpleEffectsTable$data
@@ -302,23 +302,23 @@ test_that("Field - Chapter 6 results match", {
     list(components = "Puppy_love")
   )
 
-  options$marginalMeansTerms <- list(
+  options$marginalMeanTerms <- list(
     list(components = "Dose")
   )
-  options$marginalMeansBootstrapping <- TRUE
-  options$marginalMeansBootstrappingReplicates <- 500
+  options$marginalMeanBootstrap <- TRUE
+  options$marginalMeanBootstrapSamples <- 500
 
   options$contrasts <- list(
     list(contrast = "simple", variable = "Dose")
   )
-  options$confidenceIntervalsContrast <- TRUE
+  options$contrastCi <- TRUE
 
-  options$postHocTestsVariables <- "Dose"
-  options$postHocTestsSidak <- TRUE
-  options$postHocTestsTukey <- FALSE
-  options$confidenceIntervalsPostHoc <- TRUE
-  options$postHocTestsBootstrapping <- TRUE
-  options$postHocTestsBootstrappingReplicates <- 500
+  options$postHocTerms <- "Dose"
+  options$postHocCorrectionSidak <- TRUE
+  options$postHocCorrectionTukey <- FALSE
+  options$postHocTypeStandardBootstrap <- TRUE
+  options$postHocTypeStandardBootstrapSamples <- 500
+  options$postHocCi <- TRUE
 
   set.seed(1) # seed for bootstrapping
   results <- jaspTools::runAnalysis("Ancova", "Puppy Love.csv", options)
@@ -376,9 +376,9 @@ test_that("Field - Chapter 6 results match", {
   options$contrasts <- list(
     list(contrast = "none", variable = "Dose")
   )
-  options$plotHorizontalAxis <- "Puppy_love"
-  options$plotSeparatePlots <- "Dose"
-  options$plotErrorBars <- TRUE
+  options$descriptivePlotHorizontalAxis <- "Puppy_love"
+  options$descriptivePlotSeparatePlot <- "Dose"
+  options$descriptivePlotErrorBar <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "Puppy Love.csv", options)
 
   table <- results$result$anovaContainer$collection$anovaContainer_anovaTable$data
@@ -410,34 +410,34 @@ options$customContrasts <- list()
 options$dependent <- "contNormal"
 options$fixedFactors <- "contBinom"
 options$modelTerms <- list(list(components = "contBinom"), list(components = "contcor1"))
-options$rainCloudPlotsHorizontalAxis <- ""
-options$rainCloudPlotsHorizontalDisplay <- FALSE
-options$rainCloudPlotsLabelYAxis <- ""
-options$rainCloudPlotsSeparatePlots <- ""
-options$restrictedBootstrapping <- TRUE
-options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
-options$restrictedBootstrappingReplicates <- 100
-options$restrictedIncludeIntercept <- TRUE
-options$restrictedInformedHypothesisTestByDefault <- TRUE
-options$restrictedMarginalMeansByDefault <- TRUE
+options$rainCloudHorizontalAxis <- ""
+options$rainCloudHorizontalDisplay <- FALSE
+options$rainCloudYAxisLabel <- ""
+options$rainCloudSeparatePlots <- ""
+options$restrictedBootstrap <- TRUE
+options$restrictedBootstrapCiLevel <- 0.95
+options$restrictedBootstrapSamples <- 100
+options$restrictedInterceptInclusion <- TRUE
+options$restrictedAvailableCoefficients <- TRUE
+options$restrictedInformedHypothesisTestForAllModels <- TRUE
+options$restrictedMarginalMeanForAllModels <- TRUE
+options$restrictedModelSummaryForAllModels <- TRUE
 options$restrictedModelComparison <- "unconstrained"
 options$restrictedModelComparisonCoefficients <- TRUE
-options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonCoefficientsHighlight <- TRUE
 options$restrictedModelComparisonMatrix <- TRUE
 options$restrictedModelComparisonReference <- "Model 2"
 options$restrictedModelComparisonWeights <- TRUE
-options$restrictedModelMarginalMeansTerms <- list(list(variable = "contBinom"))
-options$restrictedModelShowAvailableCoefficients <- TRUE
-options$restrictedModelSummaryByDefault <- TRUE
-options$restrictedModels <- list(list(informedHypothesisTest = TRUE, marginalMeans = TRUE,
-                                      modelName = "Model 1", modelSummary = TRUE, restrictionSyntax = ".Intercept. == 0"),
-                                 list(informedHypothesisTest = TRUE, marginalMeans = TRUE,
-                                      modelName = "Model 2", modelSummary = TRUE, restrictionSyntax = ".Intercept. > 0"),
-                                 list(informedHypothesisTest = TRUE, marginalMeans = TRUE,
-                                      modelName = "Model 3", modelSummary = TRUE, restrictionSyntax = ".Intercept. == 0\ncontBinom1 > 0"))
-options$restrictedSE <- "standard"
+options$restrictedMarginalMeanTerms <- list(list(variable = "contBinom"))
+options$restrictedModels <- list(list(informedHypothesisTest = TRUE, marginalMean = TRUE,
+                                      name = "Model 1", summary = TRUE, syntax = ".Intercept. == 0"),
+                                 list(informedHypothesisTest = TRUE, marginalMean = TRUE,
+                                      name = "Model 2", summary = TRUE, syntax = ".Intercept. > 0"),
+                                 list(informedHypothesisTest = TRUE, marginalMean = TRUE,
+                                      name = "Model 3", summary = TRUE, syntax = ".Intercept. == 0\ncontBinom1 > 0"))
+options$restrictedHeterogeneityCorrection <- "none"
 set.seed(1)
-results <- runAnalysis("Ancova", "test.csv", options)
+results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
 
 
 ## Models with equality restrictions only ----
@@ -582,30 +582,30 @@ options$customContrasts <- list()
 options$dependent <- "Anger"
 options$fixedFactors <- "Group"
 options$modelTerms <- list(list(components = "Group"), list(components = "Age"))
-options$rainCloudPlotsHorizontalAxis <- ""
-options$rainCloudPlotsHorizontalDisplay <- FALSE
-options$rainCloudPlotsLabelYAxis <- ""
-options$rainCloudPlotsSeparatePlots <- ""
-options$restrictedBootstrapping <- FALSE
-options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
-options$restrictedBootstrappingReplicates <- 1000
-options$restrictedIncludeIntercept <- FALSE
-options$restrictedInformedHypothesisTestByDefault <- FALSE
-options$restrictedMarginalMeansByDefault <- FALSE
+options$rainCloudHorizontalAxis <- ""
+options$rainCloudHorizontalDisplay <- FALSE
+options$rainCloudYAxisLabel <- ""
+options$rainCloudSeparatePlots <- ""
+options$restrictedBootstrap <- FALSE
+options$restrictedBootstrapCiLevel <- 0.95
+options$restrictedBootstrapSamples <- 1000
+options$restrictedInterceptInclusion <- FALSE
+options$restrictedAvailableCoefficients <- FALSE
+options$restrictedInformedHypothesisTestForAllModels <- FALSE
+options$restrictedMarginalMeanForAllModels <- FALSE
+options$restrictedModelSummaryForAllModels <- FALSE
 options$restrictedModelComparison <- "none"
 options$restrictedModelComparisonCoefficients <- FALSE
-options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonCoefficientsHighlight <- TRUE
 options$restrictedModelComparisonMatrix <- FALSE
 options$restrictedModelComparisonReference <- "Model 1"
 options$restrictedModelComparisonWeights <- FALSE
-options$restrictedModelMarginalMeansTerms <- list(list(variable = "Group"))
-options$restrictedModelShowAvailableCoefficients <- FALSE
-options$restrictedModelSummaryByDefault <- FALSE
-options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMeans = TRUE,
-                                      modelName = "Model 1", modelSummary = FALSE, restrictionSyntax = "GroupNo < GroupPhysical\nGroupPhysical  == GroupBehavioral\nGroupBehavioral < GroupBoth"))
-options$restrictedSE <- "standard"
+options$restrictedMarginalMeanTerms <- list(list(variable = "Group"))
+options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMean = TRUE,
+                                      name = "Model 1", summary = FALSE, syntax = "GroupNo < GroupPhysical\nGroupPhysical  == GroupBehavioral\nGroupBehavioral < GroupBoth"))
+options$restrictedHeterogeneityCorrection <- "none"
 set.seed(1)
-results <- runAnalysis("Ancova", "AngerManagement.csv", options)
+results <- jaspTools::runAnalysis("Ancova", "AngerManagement.csv", options)
 
 test_that("Ordinal restrictions: Adjuested marginal means results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_Group"]][["data"]]

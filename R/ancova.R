@@ -35,7 +35,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   options(contrasts = c("contr.sum","contr.poly"))
 
   # Set corrections to FALSE when performing ANCOVA
-  if (is.null(options$homogeneityBrown)) {
+  if (is.null(options$homogeneityCorrectionBrown)) {
     options$homogeneityCorrectionNone <- TRUE
     options$homogeneityCorrectionBrown <- FALSE
     options$homogeneityCorrectionWelch <- FALSE
@@ -423,21 +423,21 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     result[["vovkSellke"]] <-  ifelse(result[['Pr(>F)']] != "", VovkSellkeMPR(na.omit(result[['Pr(>F)']])), "")
   }
 
-  if ((options$homogeneityBrown || options$homogeneityWelch) && length(options$modelTerms) > 1)
+  if ((options$homogeneityCorrectionBrown || options$homogeneityCorrectionWelch) && length(options$modelTerms) > 1)
     return()
 
   anovaResult <- list()
-  if (options$homogeneityNone) {
+  if (options$homogeneityCorrectionNone) {
     anovaResult[["result"]] <- result
   }
 
-  if (options$homogeneityBrown) {
+  if (options$homogeneityCorrectionBrown) {
 
     tempResult <- onewaytests::bf.test(as.formula(modelDef$model.def), model$model)
     brownResult <- result
     brownResult[[1, 'correction']] <- "Brown-Forsythe"
 
-    if (options$homogeneityNone)
+    if (options$homogeneityCorrectionNone)
       brownResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
 
     brownResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
@@ -454,13 +454,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
     anovaResult[['brownResult']] <- brownResult
   }
 
-  if (options$homogeneityWelch) {
+  if (options$homogeneityCorrectionWelch) {
 
     tempResult <- stats::oneway.test(as.formula(modelDef$model.def), model$model, var.equal = FALSE)
     welchResult <- result
     welchResult[[1, 'correction']] <- "Welch"
 
-    if (options$homogeneityNone || options$homogeneityBrown)
+    if (options$homogeneityCorrectionNone || options$homogeneityCorrectionBrown)
       welchResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
 
     welchResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
@@ -506,8 +506,8 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   # Save model to state
   anovaContainer[["anovaResult"]] <- createJaspState(object = anovaResult)
-  anovaContainer[["anovaResult"]]$dependOn(c("sumOfSquares", "homogeneityBrown", "homogeneityWelch",
-                                             "homogeneityNone", "effectSizeEstimates", "effectSizeEtaSquared",
+  anovaContainer[["anovaResult"]]$dependOn(c("sumOfSquares", "homogeneityCorrectionBrown", "homogeneityCorrectionWelch",
+                                             "homogeneityCorrectionNone", "effectSizeEstimates", "effectSizeEtaSquared",
                                               "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
 }
 
@@ -517,13 +517,13 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   title <- ifelse(is.null(options$covariates), gettext("ANOVA"), gettext("ANCOVA"))
   anovaTable <- createJaspTable(title = title, position = 1,
-                           dependencies = c("homogeneityWelch", "homogeneityBrown", "homogeneityNone",
+                           dependencies = c("homogeneityCorrectionWelch", "homogeneityCorrectionBrown", "homogeneityCorrectionNone",
                                             "vovkSellke", "effectSizeEstimates", "effectSizeEtaSquared",
                                             "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
 
-  corrections <- c("None", "Brown-Forsythe", "Welch")[c(options$homogeneityNone,
-                                                        options$homogeneityBrown,
-                                                        options$homogeneityWelch)]
+  corrections <- c("None", "Brown-Forsythe", "Welch")[c(options$homogeneityCorrectionNone,
+                                                        options$homogeneityCorrectionBrown,
+                                                        options$homogeneityCorrectionWelch)]
 
   dfType <- "integer" # Make df an integer unless corrections are applied
   if ((length(corrections) > 1 || any(!"None" %in% corrections)) && is.null(options$covariates)) {
@@ -540,7 +540,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   if (options$vovkSellke) {
     anovaTable$addColumnInfo(title = gettextf("VS-MPR%s", "\u002A"), name = "vovkSellke", type = "number")
-    anovaTable$addFootnote(message = .messages("footnote", "vovkSellke"), symbol = "\u002A")
+    anovaTable$addFootnote(message = .messages("footnote", "VovkSellkeMPR"), symbol = "\u002A")
   }
 
   if (options$effectSizeEstimates) {
@@ -580,7 +580,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   # here we ask for the model to be computed
   .anovaResult(anovaContainer, options)
 
-  if ((options$homogeneityBrown || options$homogeneityWelch) && length(options$modelTerms) > 1) {
+  if ((options$homogeneityCorrectionBrown || options$homogeneityCorrectionWelch) && length(options$modelTerms) > 1) {
     anovaTable$setError(gettext("The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"))
     return()
   }
@@ -900,7 +900,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
-                                      "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapReplicates",
+                                      "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples",
                                       "postHocCi", "postHocCiLevel"))
 
   postHocContainer[["postHocStandardContainer"]] <- postHocStandardContainer
@@ -967,7 +967,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
     if (options$postHocTypeStandardBootstrap) {
 
-      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTypeStandardBootstrapReplicates']])))
+      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTypeStandardBootstrapSamples']])))
       postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Mean Difference estimate is based on the median of the bootstrap distribution."))
       postHocStandardContainer[[thisVarName]]$addFootnote(symbol = "\u2020", message = gettext("Bias corrected accelerated."))
 
@@ -1453,7 +1453,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   if (options$vovkSellke) {
     leveneTable$addColumnInfo(title = gettextf("VS-MPR%s", "\u002A"), name = "vovkSellke", type = "number")
-    leveneTable$addFootnote(message = .messages("footnote", "vovkSellke"), symbol = "\u002A")
+    leveneTable$addFootnote(message = .messages("footnote", "VovkSellkeMPR"), symbol = "\u002A")
   }
 
   leveneTable$showSpecifiedColumnsOnly <- TRUE

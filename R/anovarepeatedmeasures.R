@@ -288,7 +288,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       result <- stats::aov(model.formula, data=dataset)
       summaryResultOne <- summary(result, expand.split = FALSE)
 
-      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, 
+      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE,
                               include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
 
@@ -311,7 +311,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     } else if (options$sumOfSquares == "type2") {
 
     tryResult <- try({
-      result <- afex::aov_car(model.formula, data=dataset, type= 2, factorize = FALSE, 
+      result <- afex::aov_car(model.formula, data=dataset, type= 2, factorize = FALSE,
                               include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
@@ -320,7 +320,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   } else {
 
     tryResult <- try({
-      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE, 
+      result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE,
                               include_aov = isFALSE(options[["useMultivariateModelFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
@@ -1032,12 +1032,12 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   postHocTable$addColumnInfo(name="estimate", title=gettext("Mean Difference"), type="number")
 
-  if (options$confidenceIntervalsPostHoc || makeBootstrapTable) {
+  if (options$postHocCi || makeBootstrapTable) {
 
     if (makeBootstrapTable) {
-      thisOverTitle <- gettextf("%1$s%% bca%2$s CI", options$confidenceIntervalIntervalPostHoc * 100, "\u2020")
+      thisOverTitle <- gettextf("%1$s%% bca%2$s CI", options$postHocCiLevel * 100, "\u2020")
     } else {
-      thisOverTitle <- gettextf("%s%% CI for Mean Difference", options$confidenceIntervalIntervalPostHoc * 100)
+      thisOverTitle <- gettextf("%s%% CI for Mean Difference", options$postHocCiLevel * 100)
     }
 
     postHocTable$addColumnInfo(name="lower.CL", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
@@ -1052,32 +1052,32 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   postHocTable$addColumnInfo(name="t.ratio", title=gettext("t"), type="number")
 
-  if (options$postHocTestEffectSize) {
+  if (options$postHocTypeStandardEffectSize) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
 
-    if (isFALSE(options$postHocTestPooledError))
+    if (isFALSE(options$postHocPooledError))
       postHocTable$addFootnote(gettext("Computation of Cohen's d based on pooled error."))
 
-    if (options$confidenceIntervalsPostHoc) {
-      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$confidenceIntervalIntervalPostHoc * 100)
+    if (options$postHocCi) {
+      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$postHocCiLevel * 100)
       postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
       postHocTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
     }
   }
 
-  if (options$postHocTestsTukey)
+  if (options$postHocCorrectionTukey)
     postHocTable$addColumnInfo(name="tukey",    title=gettext("p<sub>tukey</sub>"), type="pvalue")
 
-  if (options$postHocTestsScheffe)
+  if (options$postHocCorrectionScheffe)
     postHocTable$addColumnInfo(name="scheffe", title=gettext("p<sub>scheffe</sub>"), type="pvalue")
 
-  if (options$postHocTestsBonferroni)
+  if (options$postHocCorrectionBonferroni)
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
 
-  if (options$postHocTestsHolm)
+  if (options$postHocCorrectionHolm)
     postHocTable$addColumnInfo(name="holm", title=gettext("p<sub>holm</sub>"), type="pvalue")
 
-  if (options$postHocTestsSidak)
+  if (options$postHocCorrectionSidak)
     postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>sidak</sub>"), type="pvalue")
 
 
@@ -1231,7 +1231,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     return ()
 
   marginalMeansContainer <- createJaspContainer(title = gettext("Marginal Means"))
-  marginalMeansContainer$dependOn(c("marginalMeansTerms",  "marginalMeansCompareMainEffects", "marginalMeansCIAdjustment",
+  marginalMeansContainer$dependOn(c("marginalMeansTerms",  "marginalMeanComparedToZero", "marginalMeansCIAdjustment",
                                     "marginalMeansBootstrapping", "marginalMeansBootstrappingReplicates"))
 
   rmAnovaContainer[["marginalMeansContainer"]] <- marginalMeansContainer
@@ -1360,14 +1360,14 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   marginalMeansTable$addColumnInfo(name="SE", title=gettext("SE"), type="number")
 
-  if (options$marginalMeansCompareMainEffects) {
+  if (options$marginalMeanComparedToZero) {
     marginalMeansTable$addColumnInfo(name="t.ratio", title=gettext("t"),  type="number")
     marginalMeansTable$addColumnInfo(name="df",      title=gettext("df"), type=dfType)
     marginalMeansTable$addColumnInfo(name="p.value", title=gettext("p"),  type="pvalue")
 
-    if (options$marginalMeansCIAdjustment == "bonferroni") {
+    if (options$marginalMeanCiCorrection == "bonferroni") {
       marginalMeansTable$addFootnote(message = gettext("Bonferroni CI adjustment"))
-    } else if (options$marginalMeansCIAdjustment == "sidak") {
+    } else if (options$marginalMeanCiCorrection == "sidak") {
       marginalMeansTable$addFootnote(message = gettext("Sidak CI adjustment"))
     }
   }

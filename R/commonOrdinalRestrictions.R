@@ -242,7 +242,7 @@
 
   model <- list(
     fit                       = fit,
-    modelName                 = modelName,
+    name                      = modelName,
     summary                   = restrictedModelOption[["summary"]],
     informedHypothesisTest    = restrictedModelOption[["informedHypothesisTest"]],
     marginalMean              = restrictedModelOption[["marginalMean"]],
@@ -337,7 +337,7 @@
   }
 
   if(!isTryError(modelComparison)) {
-    modelNames <- vapply(models[["restricted"]], "[[", character(1), "modelName")
+    modelNames <- .aorGetModelNames(models[["restricted"]])
     names(modelNames) <- modelNames
     modelNames <- switch(comparison,
                          unconstrained = c(modelNames, unconstrained = gettext("Unconstrained")),

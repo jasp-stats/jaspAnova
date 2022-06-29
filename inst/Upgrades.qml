@@ -453,7 +453,7 @@ Upgrades
 		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
 		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
 		ChangeRename {	from: "postHocTestEffectSize";					to: "postHocEffectSize"						}
-		ChangeRename {	from: "postHocTestPooledError";					to: "postHocPooledError"			}
+		ChangeRename {	from: "postHocTestPooledError";					to: "postHocPooledError"					}
 
 		ChangeRename {	from: "postHocTestsHolm";						to: "postHocCorrectionHolm"					}
 		ChangeRename {	from: "postHocTestsBonferroni";					to: "postHocCorrectionBonferroni"			}

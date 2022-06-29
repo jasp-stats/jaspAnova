@@ -30,10 +30,10 @@ Section
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList	{ name: "descriptivePlotsVariables";	title: qsTr("Factors");	id: availableTerms }
-		AssignedVariablesList	{ name: "plotHorizontalAxis";			title: qsTr("Horizontal Axis");	singleVariable: true }
-		AssignedVariablesList	{ name: "plotSeparateLines";			title: qsTr("Separate Lines");	singleVariable: true }
-		AssignedVariablesList	{ name: "plotSeparatePlots";			title: qsTr("Separate Plots");	singleVariable: true }
+		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");	id: availableTerms }
+		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";			title: qsTr("Horizontal Axis");	singleVariable: true }
+		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";			title: qsTr("Separate Lines");	singleVariable: true }
+		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";			title: qsTr("Separate Plots");	singleVariable: true }
 	}
 
 	Group
@@ -41,17 +41,19 @@ Section
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "plotErrorBars"; label: qsTr("Display error bars")
+			name: "descriptivePlotErrorBar"; label: qsTr("Display error bars")
 			RadioButtonGroup
 			{
-				name: "errorBarType"
+				name: "descriptivePlotErrorBarType"
 				RadioButton
 				{
-					value: "confidenceInterval";		label: qsTr("Confidence interval"); checked: true
-					childrenOnSameRow: true
-					CIField { name: "confidenceIntervalInterval" }
+					value:				"ci";
+					label:				qsTr("Confidence interval");
+					checked:			true
+					childrenOnSameRow:	true
+					CIField { name: "descriptivePlotCiLevel" }
 				}
-				RadioButton { value: "standardError";	label: qsTr("Standard error") }
+				RadioButton { value: "se";	label: qsTr("Standard error") }
 			}
 		}
 	}

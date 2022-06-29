@@ -46,5 +46,5 @@ Group
 
 		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")				}
 	}
-	CheckBox { name: "VovkSellkeMPR"; label: qsTr("Vovk-Sellke maximum p-ratio") }
+	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio") }
 }

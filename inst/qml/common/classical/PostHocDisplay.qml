@@ -26,10 +26,10 @@ Group
 	title: qsTr("Display")
 	CheckBox
 	{
-		name:				"confidenceIntervalsPostHoc";
+		name:				"postHocCi";
 		label:				qsTr("Confidence intervals")
 		childrenOnSameRow:	true
-		CIField { name: "confidenceIntervalIntervalPostHoc" }
+		CIField { name: "postHocCiLevel" }
 	}
-	CheckBox { name: "postHocFlagSignificant";	label: qsTr("Flag Significant Comparisons") }
+	CheckBox { name: "postHocSignificanceFlag";	label: qsTr("Flag Significant Comparisons") }
 }

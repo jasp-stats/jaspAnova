@@ -33,9 +33,9 @@ Section
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList { name: "rainCloudPlotsVariables";		title: qsTr("Factors"); id: availableTerms }
-		AssignedVariablesList { name: "rainCloudPlotsHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; suggestedColumns: suggested }
-		AssignedVariablesList { name: "rainCloudPlotsSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: suggested }
+		AvailableVariablesList	{ name: "rainCloudAvailableFactors";		title: qsTr("Factors"); id: availableTerms }
+		AssignedVariablesList	{ name: "rainCloudHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; suggestedColumns: suggested }
+		AssignedVariablesList	{ name: "rainCloudSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: suggested }
 	}
 
 	CheckBox

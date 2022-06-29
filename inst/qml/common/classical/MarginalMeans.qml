@@ -30,18 +30,18 @@ Section
 	VariablesForm
 	{
 		preferredHeight:	jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "marginalMeansTermsAvailable"; id: availableTerms	}
-		AssignedVariablesList {  name: "marginalMeansTerms"									}
+		AvailableVariablesList { name: "marginalMeanAvailableTerms"; id: availableTerms	}
+		AssignedVariablesList {  name: "marginalMeanTerms"									}
 	}
 
 	CheckBox
 	{
-		name:				"marginalMeansBootstrapping";
+		name:				"marginalMeanBootstrap";
 		label:				qsTr("From")
 		childrenOnSameRow:	true
 		IntegerField
 		{
-			name:			"marginalMeansBootstrappingReplicates"
+			name:			"marginalMeanBootstrapSamples"
 			defaultValue:	1000
 			fieldWidth:		50
 			min:			100
@@ -51,11 +51,11 @@ Section
 
 	CheckBox
 	{
-		name:	"marginalMeansCompareMainEffects";
+		name:	"marginalMeanComparedToZero";
 		label:	qsTr("Compare marginal means to 0")
 		DropDown
 		{
-			name:	"marginalMeansCIAdjustment"
+			name:	"marginalMeanCiCorrection"
 			label:	qsTr("Confidence interval adjustment")
 			values:	[
 				{ label:	qsTr("None"),	value:	"none"},

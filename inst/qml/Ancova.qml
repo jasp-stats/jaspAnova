@@ -55,7 +55,7 @@ Form
 	Classical.AssumptionChecks
 	{
 		analysis: form.analysis
-		CheckBox { name: "factorCovariateIndependence";	label: qsTr("Factor covariate independence check");	debug: true	}
+		CheckBox { name: "factorCovariateIndependenceCheck";	label: qsTr("Factor covariate independence check");	debug: true	}
 	}
 
 	Classical.Contrasts

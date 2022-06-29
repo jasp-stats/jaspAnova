@@ -163,7 +163,7 @@ Form
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList	{ name: "kruskalVariablesAvailable";	title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]	}
+			AvailableVariablesList	{ name: "friedmanAvailableFactors";		title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]	}
 			AssignedVariablesList	{ name: "friedmanWithinFactor";			title: qsTr("RM Factor")																}
 			AssignedVariablesList	{ name: "friedmanBetweenFactor";		title: qsTr("Optional Grouping Factor"); singleVariable: true							}
 		}

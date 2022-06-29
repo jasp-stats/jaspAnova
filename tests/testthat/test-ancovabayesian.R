@@ -134,9 +134,9 @@ options$covariates <- "contcor1"
 options$dependent <- "contNormal"
 options$fixedFactors <- "facGender"
 options$modelTerms <- list(list(components = "facGender", isNuisance = FALSE), list(components = "contcor1", isNuisance = FALSE))
-options$plotCredibleInterval <- TRUE
-options$plotHorizontalAxis <- "contcor1"
-options$plotSeparateLines <- "facGender"
+options$descriptivePlotCi <- TRUE
+options$descriptivePlotHorizontalAxis <- "contcor1"
+options$descriptivePlotSeparateLines <- "facGender"
 options$singleModelTerms <- list(list(components = "facGender"), list(components = "contcor1"))
 set.seed(1)
 results <- jaspTools::runAnalysis("AncovaBayesian", "debug.csv", options)
@@ -172,7 +172,7 @@ options$modelTerms <- list(
 options$posteriorEstimates <- TRUE
 options$singleModelTerms <- list(list(components = "contcor1"), list(components = "facGender"))
 set.seed(1)
-results <- runAnalysis("AncovaBayesian", "test.csv", options)
+results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
 
 test_that("Model Comparison table results with interactions match", {
 	table <- results[["results"]][["tableModelComparison"]][["data"]]

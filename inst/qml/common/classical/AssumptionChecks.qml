@@ -39,9 +39,9 @@ Section
 			{
 				title: qsTr("Homogeneity corrections")
 				columns: 3
-				CheckBox { name: "homogeneityNone";		label: qsTr("None")           ; checked: true }
-				CheckBox { name: "homogeneityBrown";	label: qsTr("Brown-Forsythe") ; checked: false }
-				CheckBox { name: "homogeneityWelch";	label: qsTr("Welch")          ; checked: false }
+				CheckBox { name: "homogeneityCorrectionNone";		label: qsTr("None")           ; checked: true }
+				CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe") ; checked: false }
+				CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")          ; checked: false }
 			}
 		}
 		sourceComponent: analysis === Common.Type.Analysis.ANOVA ? homogeneityCorrections : undefined

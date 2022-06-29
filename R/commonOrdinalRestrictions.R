@@ -51,14 +51,14 @@
     container    = container,
     name         = "ordinalRestrictions",
     title        = gettext("Order Restricted Hypotheses"),
-    dependencies = c("restrictedIncludeIntercept", "restrictedSE")
+    dependencies = c("restrictedInterceptInclusion", "restrictedHeterogeneityCorrection")
     )
 
   return(ordinalRestrictionsContainer)
 }
 
 .aorGetModelSyntax <- function(model) {
-  return(model[["restrictionSyntax"]])
+  return(model[["syntax"]])
 }
 
 .aorGetModelSyntaxes <- function(models) {
@@ -66,7 +66,7 @@
 }
 
 .aorGetModelName <- function(model) {
-  return(model[["modelName"]])
+  return(model[["name"]])
 }
 
 .aorGetModelNames <- function(models) {
@@ -168,7 +168,7 @@
   unrestrictedBootstrap[vapply(unrestrictedBootstrap, isTryError, logical(1))] <- NULL
 
   container[["stateUnrestrictedBootstrap"]] <- createJaspState(
-    object = unrestrictedBootstrap, dependencies = c("restrictedBootstrapping", "restrictedBootstrappingReplicates")
+    object = unrestrictedBootstrap, dependencies = c("restrictedBootstrap", "restrictedBootstrapSamples")
   )
 
   return(unrestrictedBootstrap)
@@ -186,20 +186,20 @@
   } else {
     container[[stateName]] <- createJaspState()
     container[[stateName]]$dependOn(
-      options             = c("restrictedBootstrapping", "restrictedBootstrappingReplicates", "restrictedBootstrappingConfidenceIntervalLevel"),
+      options             = c("restrictedBootstrap", "restrictedBootstrapSamples", "restrictedBootstrapCiLevel"),
       optionContainsValue = list(restrictedModels = restrictedModelOption)
     )
   }
 
-  restrictionSyntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
-  restrictionSyntax         <- try(.aorTranslateSyntax(restrictionSyntaxOriginal, dataset, options, modelName))
+  syntaxOriginal <- .aorGetModelSyntax (restrictedModelOption)
+  syntax         <- try(.aorTranslateSyntax(syntaxOriginal, dataset, options, modelName))
 
-  if(isTryError(restrictionSyntax)) {
-    message <- .aorExtractErrorMessageSoft(restrictionSyntax)
+  if(isTryError(syntax)) {
+    message <- .aorExtractErrorMessageSoft(syntax)
     stop(gettextf("Error in %1$s - Could not encode the model syntax! Error message: %2$s", modelName, message))
   }
 
-  syntaxCheck <- try(.aorCheckSyntax(modelName, restrictionSyntax))
+  syntaxCheck <- try(.aorCheckSyntax(modelName, syntax))
 
   if(isTryError(syntaxCheck)) {
     message <- .aorExtractErrorMessageSoft(syntaxCheck)
@@ -208,9 +208,20 @@
 
   if(analysis == "anova") {
     unrestricted <- unrestrictedModel[["fit"]]
-    fit <- try(restriktor::restriktor(object = unrestricted, constraints = restrictionSyntax, se = options[["restrictedSE"]]))
+    se <- switch(
+      options[["restrictedHeterogeneityCorrection"]],
+      huberWhite0  = "HC0",
+      huberWhite1  = "HC1",
+      huberWhite2  = "HC2",
+      huberWhite3  = "HC3",
+      huberWhite4  = "HC4",
+      huberWhite4m = "HC4m",
+      huberWhite5  = "HC5",
+      "standard"
+    )
+    fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
   } else {
-    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, restrictionSyntax))
+    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax))
   }
 
   if(isTryError(fit)) {
@@ -219,24 +230,24 @@
   }
 
   if(length(unrestrictedBootstrap) > 0) {
-    bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, restrictionSyntax, modelName))
+    bootstraps <- try(.aorCalculateBootstrapping(unrestrictedBootstrap, fit, syntax, modelName))
     progressbarTick()
   } else {
     bootstraps <- NULL
   }
 
-  ciLevel <- options[["restrictedBootstrappingConfidenceIntervalLevel"]]
+  ciLevel <- options[["restrictedBootstrapCiLevel"]]
   coefficients  <- try(.aorCalculateCoefficients(fit, bootstraps, ciLevel))
   marginalMeans <- .aorCalculateMarginalMeans   (fit, bootstraps, ciLevel, c(options[["modelTerms"]], options[["withinModelTerms"]], options[["betweenModelTerms"]]), dataset)
 
   model <- list(
     fit                       = fit,
     modelName                 = modelName,
-    modelSummary              = restrictedModelOption[["modelSummary"]],
+    summary                   = restrictedModelOption[["summary"]],
     informedHypothesisTest    = restrictedModelOption[["informedHypothesisTest"]],
-    marginalMeans             = restrictedModelOption[["marginalMeans"]],
-    restrictionSyntax         = restrictionSyntax,
-    restrictionSyntaxOriginal = restrictionSyntaxOriginal,
+    marginalMean              = restrictedModelOption[["marginalMean"]],
+    syntax                    = syntax,
+    syntaxOriginal            = syntaxOriginal,
     bootstrapSamples          = nrow(bootstraps),
     coefficients              = coefficients,
     marginalMeansResult       = marginalMeans
@@ -273,12 +284,12 @@
     return()
   }
 
-  if(options[["restrictedBootstrapping"]]) {
+  if(options[["restrictedBootstrap"]]) {
     unrestrictedBootstrap <- try(.aorGetUnrestrictedBootstrap(
       container    = container,
       dataset      = dataset,
       unrestricted = models[["unrestricted"]][["fit"]],
-      samples      = options[["restrictedBootstrappingReplicates"]]
+      samples      = options[["restrictedBootstrapSamples"]]
       ))
 
     if(isTryError(unrestrictedBootstrap)) {
@@ -368,11 +379,11 @@
 }
 
 .aorBasicInfoAvailableParameters <- function(container, options, unrestricted, analysis) {
-  if(!is.null(container[["availableParameters"]]) || !options[["restrictedModelShowAvailableCoefficients"]]) return()
+  if(!is.null(container[["availableParameters"]]) || !options[["restrictedAvailableCoefficients"]]) return()
 
   availableParameters <- createJaspHtml(title        = gettext("Available coefficients for restriction syntax"),
                                         position     = 1,
-                                        dependencies = c("restrictedModelShowAvailableCoefficients")
+                                        dependencies = c("restrictedAvailableCoefficients")
                                         )
   container[["availableParameters"]] <- availableParameters
 
@@ -531,7 +542,7 @@
 
   coefficientsTable <- createJaspTable(title        = gettext("Coefficients Comparison"),
                                        position     = 3,
-                                       dependencies = c("restrictedModelComparisonCoefficients", "restrictedModelComparisonHighlightCoefficients")
+                                       dependencies = c("restrictedModelComparisonCoefficients", "restrictedModelComparisonCoefficientsHighlight")
                                        )
   coefficientsTable$showSpecifiedColumnsOnly <- TRUE
   coefficientsTable$addColumnInfo(name = "coef", title = gettext("Coefficient"), type = "string")
@@ -565,7 +576,7 @@
 
   coefficientsTable$setData(df)
 
-  if(options[["restrictedModelComparisonHighlightCoefficients"]])
+  if(options[["restrictedModelComparisonCoefficientsHighlight"]])
     .aorModelComparisonHighlightCoefficients(coefficientsTable, unrestrictedCoefficients, df)
 }
 
@@ -625,7 +636,7 @@
 
 ## Model Summary ----
 .aorModelSummary <- function(container, options, model) {
-  if(!is.null(container[["modelSummaryContainer"]]) || !model[["modelSummary"]]) return()
+  if(!is.null(container[["modelSummaryContainer"]]) || !model[["summary"]]) return()
 
   modelSummaryContainer <- .aorGetContainer(
     container = container,
@@ -682,7 +693,7 @@
 
 
     if(!is.null(model[["bootstrapSamples"]])) {
-      overtitle <- gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]])
+      overtitle <- gettextf("%s%% CI", 100*options[["restrictedBootstrapCiLevel"]])
       coefficientsTable$addColumnInfo(name = "lower",    title = gettext("Lower"),       type = "number", overtitle = overtitle)
       coefficientsTable$addColumnInfo(name = "upper",    title = gettext("Upper"),       type = "number", overtitle = overtitle)
       coefficientsTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", model[["bootstrapSamples"]]))
@@ -780,23 +791,23 @@
 
 ## Marginal means ----
 .aorMarginalMeans <- function(container, options, model, dataset) {
-  if(!model[["marginalMeans"]]) return()
+  if(!model[["marginalMean"]]) return()
 
   marginalMeansContainer <- .aorGetContainer(
     container    = container,
     name         = "marginalMeansContainer",
     title        = gettext("Marginal Means"),
     position     = 2,
-    dependencies = c("restrictedModelMarginalMeansTerms",
-                     "restrictedBootstrappingConfidenceIntervalLevel")
+    dependencies = c("restrictedMarginalMeanTerms",
+                     "restrictedBootstrapCiLevel")
   )
 
-  if(length(options[["restrictedModelMarginalMeansTerms"]]) == 0 || options[["restrictedModelMarginalMeansTerms"]] == "") {
+  if(length(options[["restrictedMarginalMeanTerms"]]) == 0 || options[["restrictedMarginalMeanTerms"]] == "") {
     # settting an error on empty container does not show up, so we will make an empty table
     marginalMeansContainer[["table"]] <- createJaspTable(title = gettext("Marginal Means"))
     marginalMeansContainer$setError(gettext("No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."))
   } else {
-    terms <- options[["restrictedModelMarginalMeansTerms"]]
+    terms <- options[["restrictedMarginalMeanTerms"]]
     for(i in seq_along(terms))
       .aorMarginalMeansTerm(marginalMeansContainer, dataset, options, model, terms[[i]][["variable"]], i)
   }
@@ -821,8 +832,8 @@
     marginalMeansTable$addColumnInfo(name="SE",     title = gettext("SE"),            type="number")
 
   if(!is.null(model[["bootstrapSamples"]])) {
-    marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
-    marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrappingConfidenceIntervalLevel"]]))
+    marginalMeansTable$addColumnInfo(name="lower.CL", title = gettext("Lower"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrapCiLevel"]]))
+    marginalMeansTable$addColumnInfo(name="upper.CL", title = gettext("Upper"),         type="number", overtitle = gettextf("%s%% CI", 100*options[["restrictedBootstrapCiLevel"]]))
 
     marginalMeansTable$addFootnote(gettextf("Estimates based on %s successful bootstrap replicates.", model[["bootstrapSamples"]]))
   }
@@ -873,7 +884,7 @@
   trimws(message)
 }
 
-.aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, restrictionSyntax, modelName) {
+.aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, syntax, modelName) {
   samples    <- length(unrestrictedBootstrap)
   ncoefs     <- length(coefficients(fit))
   bootstraps <- matrix(nrow = samples, ncol = ncoefs)
@@ -882,10 +893,10 @@
   for(i in seq_len(samples)) {
     unconstrained <- unrestrictedBootstrap[[i]]
     if(inherits(fit, "restriktor")) { # an(c)ova
-      boot <- try(restriktor::restriktor(object = unconstrained, constraints = restrictionSyntax, se = fit[["se"]]))
+      boot <- try(restriktor::restriktor(object = unconstrained, constraints = syntax, se = fit[["se"]]))
     } else { # rm anova
       model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
-      boot <- try(.rmaorCalculateRestrictedModel(model, restrictionSyntax))
+      boot <- try(.rmaorCalculateRestrictedModel(model, syntax))
     }
 
     if(!isTryError(boot)) {
@@ -1041,7 +1052,7 @@
   modelTerms        <- reorderModelTerms$modelTerms
   modelDef          <- .modelFormula(modelTerms, options)
 
-  if (options[["restrictedIncludeIntercept"]]) {
+  if (options[["restrictedInterceptInclusion"]]) {
     formula <- as.formula(modelDef[["model.def"]])
   } else {
     formula <- as.formula(paste(modelDef[["model.def"]], "- 1"))
@@ -1089,7 +1100,7 @@
   # get formula for a lm fit
   lhs <- sprintf("cbind(%s)", paste(options[["repeatedMeasuresCells"]], collapse = ","))
 
-  if(!options[["restrictedIncludeIntercept"]] && length(options[["betweenModelTerms"]]) > 0) {
+  if(!options[["restrictedInterceptInclusion"]] && length(options[["betweenModelTerms"]]) > 0) {
     rhs <- "0"
   } else {
     rhs <- "1"
@@ -1158,11 +1169,11 @@
   ))
 }
 
-.rmaorCalculateRestrictedModel <- function(unrestrictedModel, restrictionSyntax) {
+.rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax) {
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-    constraints = restrictionSyntax,
+    constraints = syntax,
     comparison  = "none",
     type        = "gorica"
   )

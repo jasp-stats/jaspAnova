@@ -301,7 +301,7 @@ Upgrades
 		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
 		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
 		ChangeRename {	from: "postHocTestsTypeStandard";				to: "postHocTypeStandard"					}
-		ChangeRename {	from: "postHocBootstrapping";					to: "postHocTypeStandardBootstrap"			}
+		ChangeRename {	from: "postHocTestsBootstrapping";				to: "postHocTypeStandardBootstrap"			}
 		ChangeRename {	from: "postHocTestsBootstrappingReplicates";	to: "postHocTypeStandardBootstrapSamples"	}
 		ChangeRename {	from: "postHocTestEffectSize";					to: "postHocTypeStandardEffectSize"			}
 		ChangeRename {	from: "postHocTestsTypeGames";					to: "postHocTypeGames"						}

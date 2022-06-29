@@ -1435,6 +1435,30 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAdescriptives <- function(jaspResults, dataset, options, errors, analysisType, ready = TRUE, position = 9001) {
   if (!ready)
     return()
+
+  # temporary rename options: Get rid of this once BANOVAs renaming options are also done
+  if(!is.null(options[["descriptivePlotHorizontalAxis"]])) {
+    options[["plotHorizontalAxis"]]         <- options[["descriptivePlotHorizontalAxis"]]
+    options[["plotSeparateLines"]]          <- options[["descriptivePlotSeparateLines"]]
+    options[["plotSeparatePlots"]]          <- options[["descriptivePlotSeparatePlot"]]
+    options[["plotErrorBars"]]              <- options[["descriptivePlotErrorBar"]]
+    options[["confidenceIntervalInterval"]] <- options[["descriptivePlotCiLevel"]]
+
+    options[["errorBarType"]] <- switch(
+      options[["descriptivePlotErrorBarType"]],
+      ci = "confidenceInterval",
+      se = "standardError"
+    )
+
+    options[["rainCloudPlotsVariables"]]         <- options[["rainCloudAvailableFactors"]]
+    options[["rainCloudPlotsHorizontalAxis"]]    <- options[["rainCloudHorizontalAxis"]]
+    options[["rainCloudPlotsSeparatePlots"]]     <- options[["rainCloudSeparatePlots"]]
+    options[["rainCloudPlotsHorizontalDisplay"]] <- options[["rainCloudHorizontalDisplay"]]
+  }
+
+
+
+
   # the main use of this function is that descriptives can now be reused for the frequentist ANOVAs
   # without the container, the position could mess things up
   descriptivesContainer <- jaspResults[["descriptivesContainer"]]

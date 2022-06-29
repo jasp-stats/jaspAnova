@@ -40,7 +40,7 @@ Section
 
 	CheckBox
 	{
-		name: "rainCloudPlotsHorizontalDisplay";
+		name: "rainCloudHorizontalDisplay";
 		label: qsTr("Horizontal display");
 		visible: enableHorizontal 
 	}

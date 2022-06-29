@@ -201,6 +201,7 @@ Upgrades
 		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 
 		// MarginalMeans.qml
@@ -345,6 +346,7 @@ Upgrades
 		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 
 		// MarginalMeans.qml

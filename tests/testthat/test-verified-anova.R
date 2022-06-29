@@ -57,7 +57,7 @@ test_that("Main table results match  R, SPSS, SAS and MiniTab 2-factor", {
 options <- initClassicalAnovaOptions("Anova")
 options$dependent <- "Score"
 options$fixedFactors <- "Treatment"
-options$kruskalVariablesAssigned <- "Treatment"
+options$kruskalWallisFactors <- "Treatment"
 
 options$modelTerms <- list(
   list(components="Treatment")

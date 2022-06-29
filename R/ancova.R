@@ -36,9 +36,9 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
   # Set corrections to FALSE when performing ANCOVA
   if (is.null(options$homogeneityBrown)) {
-    options$homogeneityNone <- TRUE
-    options$homogeneityBrown <- FALSE
-    options$homogeneityWelch <- FALSE
+    options$homogeneityCorrectionNone <- TRUE
+    options$homogeneityCorrectionBrown <- FALSE
+    options$homogeneityCorrectionWelch <- FALSE
   }
 
   if (is.null(dataset)) {

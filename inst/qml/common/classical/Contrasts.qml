@@ -35,15 +35,15 @@ Section
 		Component
 		{
 			id: equalVarianceAssumption
-			CheckBox { name: "contrastAssumeEqualVariance"; label: qsTr("Assume equal variances"); checked: true }
+			CheckBox { name: "contrastEqualVariance"; label: qsTr("Assume equal variances"); checked: true }
 		}
 		sourceComponent: analysis === Common.Type.Analysis.RMANOVA ? equalVarianceAssumption : undefined
 	}
 
 	CheckBox
 	{
-		name: "confidenceIntervalsContrast"; label: qsTr("Confidence intervals")
+		name: "contrastCi"; label: qsTr("Confidence intervals")
 		childrenOnSameRow: true
-		CIField {	name: "confidenceIntervalIntervalContrast" }
+		CIField {	name: "contrastCiLevel" }
 	}
 }

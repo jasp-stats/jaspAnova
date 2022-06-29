@@ -47,7 +47,7 @@ Section
 	
 	TextField
 	{
-		name: "rainCloudPlotsLabelYAxis";
+		name: "rainCloudYAxisLabel";
 		label: qsTr("Label y-axis");
 		fieldWidth: 200;
 		visible: enableYAxisLabel

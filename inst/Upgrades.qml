@@ -367,4 +367,157 @@ Upgrades
 		ChangeRename {	from: "kruskalVariablesAvailable";	to: "kruskalWallisAvailableFactors"	}
 		ChangeRename {	from: "kruskalVariablesAssigned";	to: "kruskalWallisFactors"			}
 	}
+
+	Upgrade
+	{
+		functionName:		"AnovaRepeatedMeasures"
+		fromVersion:		"0.16.3"
+		toVersion:			"0.16.4"
+
+		// Display.qml
+		ChangeRename {	from: "VovkSellkeMPR";	to: "vovkSellke"	}
+
+		// Model section
+		ChangeRename {	from: "useMultivariateModelFollowup";	to: "multivariateModelFollowup"	}
+
+		// AssumptionChecks.qml
+		ChangeRename {	from: "sphericityNone";					to: "sphericityCorrectionNone"				}
+		ChangeRename {	from: "sphericityGreenhouseGeisser";	to: "sphericityCorrectionGreenhouseGeisser"	}
+		ChangeRename {	from: "sphericityHuynhFeldt";			to: "sphericityCorrectionHuynhFeldt"		}
+
+
+		// Contrasts.qml
+		ChangeRename {	from: "contrastAssumeEqualVariance";			to: "contrastEqualVariance"		}
+		ChangeRename {	from: "confidenceIntervalsContrast";			to: "contrastCi"				}
+		ChangeRename {	from: "confidenceIntervalIntervalContrast";		to: "contrastCiLevel"			}
+
+		// OrderRestrictions.qml
+		ChangeRename {	from: "restrictedIncludeIntercept";					to: "restrictedInterceptInclusion"					}
+		ChangeRename {	from: "restrictedModelShowAvailableCoefficients";	to: "restrictedAvailableCoefficients"				}
+		ChangeRename {	from: "restrictedModelSummaryByDefault";			to: "restrictedModelSummaryForAllModels"			}
+		ChangeRename {	from: "restrictedMarginalMeansByDefault";			to: "restrictedMarginalMeanForAllModels"			}
+		ChangeRename {	from: "restrictedInformedHypothesisTestByDefault";	to: "restrictedInformedHypothesisTestForAllModels"	}
+
+		// restrictedModels is an array of option lists so we need to change the option names for each model
+		ChangeJS
+		{
+			name: "restrictedModels"
+			jsFunction: function(options)
+			{
+				let newModels = options["restrictedModels"].map(model => {
+					let newModel = {};
+					newModel.informedHypothesisTest	= model.informedHypothesisTest;
+					newModel.marginalMean			= model.marginalMeans;
+					newModel.summary				= model.modelSummary;
+					newModel.name					= model.modelName;
+					newModel.syntax					= model.restrictionSyntax;
+
+					return newModel ;
+				});
+
+				return newModels;
+			}
+		}
+
+		ChangeRename {	from: "restrictedModelComparisonHighlightCoefficients";		to: "restrictedModelComparisonCoefficientsHighlight"	}
+
+		ChangeRename {	from: "restrictedSE";	to: "restrictedHeterogeneityCorrection"	}
+
+		ChangeJS
+		{
+			name: "restrictedHeterogeneityCorrection"
+			jsFunction: function(options)
+			{
+				switch(options["restrictedHeterogeneityCorrection"])
+				{
+					case "standard":	return "none";
+					case "HC0":			return "huberWhite0";
+					case "HC1":			return "huberWhite1";
+					case "HC2":			return "huberWhite2";
+					case "HC3":			return "huberWhite3";
+					case "HC4":			return "huberWhite4";
+					case "HC4m":		return "huberWhite4m";
+					case "HC5":			return "huberWhite5";
+					default:			return options["restrictedHeterogeneityCorrection"];
+				}
+			}
+		}
+
+		ChangeRename {	from: "restrictedBootstrapping";								to: "restrictedBootstrap"			}
+		ChangeRename {	from: "restrictedBootstrappingReplicates";						to: "restrictedBootstrapSamples"	}
+		ChangeRename {	from: "restrictedBootstrappingConfidenceIntervalLevel";			to: "restrictedBootstrapCiLevel"	}
+
+		ChangeRename {	from: "restrictedModelMarginalMeansTerms";	to: "restrictedMarginalMeanTerms"	}
+
+		// PostHoc section
+		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
+		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
+		ChangeRename {	from: "postHocTestEffectSize";					to: "postHocEffectSize"						}
+		ChangeRename {	from: "postHocTestPooledError";					to: "postHocPooledError"			}
+
+		ChangeRename {	from: "postHocTestsHolm";						to: "postHocCorrectionHolm"					}
+		ChangeRename {	from: "postHocTestsBonferroni";					to: "postHocCorrectionBonferroni"			}
+		ChangeRename {	from: "postHocTestsTukey";						to: "postHocCorrectionTukey"				}
+		ChangeRename {	from: "postHocTestsScheffe";					to: "postHocCorrectionScheffe"				}
+
+		// PostHocDiplay.qml
+		ChangeRename {	from: "confidenceIntervalsPostHoc";			to: "postHocCi"					}
+		ChangeRename {	from: "confidenceIntervalIntervalPostHoc";	to: "postHocCiLevel"			}
+		ChangeRename {	from: "postHocFlagSignificant";				to: "postHocSignificanceFlag"	}
+
+		// DescriptivePlots.qml
+		ChangeRename {	from: "descriptivePlotsVariables";	to: "descriptivePlotAvailableFactors"	}
+		ChangeRename {	from: "plotHorizontalAxis";			to: "descriptivePlotHorizontalAxis"		}
+		ChangeRename {	from: "plotSeparateLines";			to: "descriptivePlotSeparateLines"		}
+		ChangeRename {	from: "plotSeparatePlots";			to: "descriptivePlotSeparatePlot"		}
+		ChangeRename {	from: "plotErrorBars";				to: "descriptivePlotErrorBar"			}
+		ChangeRename {	from: "errorBarType";				to: "descriptivePlotErrorBarType"		}
+
+		ChangeJS
+		{
+			name: "descriptivePlotErrorBarType"
+			jsFunction: function(options)
+			{
+				switch(options["descriptivePlotErrorBarType"])
+				{
+					case "confidenceInterval":	return "ci";
+					case "standardError":		return "se";
+					default:					return options["descriptivePlotErrorBarType"];
+				}
+			}
+		}
+
+		ChangeRename {	from: "confidenceIntervalInterval";		to: "descriptivePlotCiLevel"	}
+
+		ChangeRename {	from: "labelYAxis";					to: "descriptivePlotYAxisLabel"		}
+		ChangeRename {	from: "usePooledStandErrorCI";		to: "descriptivePlotErrorBarPooled"	}
+
+
+		// RainCloudPlots.qml
+		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
+		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
+		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
+		ChangeRename {	from: "rainCloudPlotsLabelYAxis";			to: "rainCloudYAxisLabel"			}
+
+
+		// MarginalMeans.qml
+		ChangeRename {	from: "marginalMeansTermsAvailable";			to: "marginalMeanAvailableTerms"	}
+		ChangeRename {	from: "marginalMeansTerms";						to: "marginalMeanTerms"				}
+		ChangeRename {	from: "marginalMeansBootstrapping";				to: "marginalMeanBootstrap"			}
+		ChangeRename {	from: "marginalMeansBootstrappingReplicates";	to: "marginalMeanBootstrapSamples"	}
+		ChangeRename {	from: "marginalMeansCompareMainEffects";		to: "marginalMeanComparedToZero"	}
+		ChangeRename {	from: "marginalMeansCIAdjustment";				to: "marginalMeanCiCorrection"		}
+
+		// SimpleMainEffects
+		ChangeRename {	from: "effectsVariables";		to: "simpleMainEffectAvailableFactors"		}
+		ChangeRename {	from: "simpleFactor";			to: "simpleMainEffectFactor"				}
+		ChangeRename {	from: "moderatorFactorOne";		to: "simpleMainEffectModeratorFactorOne"	}
+		ChangeRename {	from: "moderatorFactorTwo";		to: "simpleMainEffectModeratorFactorTwo"	}
+
+		ChangeRename {	from: "poolErrorTermSimpleEffects";		to: "simpleMainEffectErrorTermPooled"	}
+
+
+		// Nonparametrics
+		ChangeRename {	from: "kruskalVariablesAvailable";	to: "friedmanAvailableFactors"		}
+	}
 }

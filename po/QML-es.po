@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-06-29 09:04+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -893,317 +899,254 @@ msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "R² posterior"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "Verificaciones de Supuestos"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
 msgstr "Contrastes de Homogeneidad"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
 msgstr "Correcciones de Homogeneidad"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "None"
 msgstr "Ninguna"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
 msgstr "Brown-Forsythe"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Welch"
 msgstr "Welch"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q de los errores"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Contrasts"
 msgstr "Contrastes"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Assume equal variances"
 msgstr "Suponer varianzas iguales"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Intervalos de confianza"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
 msgstr "Gráficos Descriptivos"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Factors"
 msgstr "Factores"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
 msgstr "Eje Horizontal"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
 msgstr "Líneas Separadas"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
 msgstr "Gráficos Separados"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display"
 msgstr "Mostrar"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display error bars"
 msgstr "Mostrar barras de error"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
 msgstr "Error típico"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Display"
 msgstr "Mostrar"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Descriptive statistics"
 msgstr "Estadísticos descriptivos"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Estimates of effect size"
 msgstr "Estimaciones de la magnitud del efecto"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "η²"
 msgstr "η²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "partial η²"
 msgstr "η² parcial"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "general η²"
 msgstr "η² general"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "ω²"
 msgstr "ω²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Relación p máxima de Vovk-Sellke"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
 msgstr "Medias Marginales"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "From"
 msgstr "De"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
 msgstr "bootstraps"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
 msgstr "Comparar las medias marginales con 0"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
 msgstr "Ajuste del intervalo de confianza"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "None"
 msgstr "Ninguna"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model"
 msgstr "Modelo"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Components"
 msgstr "Componentes"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
 msgstr "Elementos del Modelo"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
 msgstr "No Paramétricos"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr "Contraste de Kruskal-Wallis"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid " "
 msgstr " "
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "Contrastes Post-hoc"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Type"
 msgstr "Tipo"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Standard"
 msgstr "Estándar"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "From"
 msgstr "De"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "bootstraps"
 msgstr "bootstraps"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
 msgstr "Magnitud del efecto"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunnett"
 msgstr "Dunnett"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunn"
 msgstr "Dunn"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "Corrección"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Tukey"
 msgstr "Tukey"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Scheffé"
 msgstr "Scheffé"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Holm"
 msgstr "Holm"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Šidák"
 msgstr "Šidák"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Display"
 msgstr "Mostrar"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "Intervalos de confianza"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Flag Significant Comparisons"
-msgstr "Marcar las comparaciones significativas"
+msgstr "Marcar las Comparaciones Significativas"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
 msgstr "Efectos Principales Simples"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
 msgstr "Factores"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
 msgstr "Factor de Efecto Simple"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
 msgstr "Factor Moderador 1"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
 msgstr "Factor Moderador 2"
 
-#, fuzzy
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
 msgstr "Suma de cuadrados"
@@ -1211,4 +1154,4 @@ msgstr "Suma de cuadrados"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
-msgstr ""
+msgstr "Tipo %1"

@@ -1822,10 +1822,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     addLines   <- !(groupVar %in% unlist(options[["betweenSubjectFactors"]]))
     dependentV <- .BANOVAdependentName
     yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
+    title      <- if (trimws(yLabel) == "") gettext("Dependent") else yLabel
   } else {
     addLines   <- FALSE
     dependentV <- options[["dependent"]]
     yLabel     <- options[["dependent"]]
+    title      <- options[["dependent"]]
   }
 
   if (!is.null(options$rainCloudPlotsHorizontalDisplay) && options$rainCloudPlotsHorizontalDisplay)
@@ -1836,7 +1838,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (options$rainCloudPlotsSeparatePlots != "") {
     for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
       subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
-      thisPlotName <- paste0(dependentV, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
+      thisPlotName <- paste0(title, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot
       p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
@@ -1846,7 +1848,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         subPlot$plotObject <- p
     }
   } else {
-    singlePlot <- createJaspPlot(title = dependentV, width = 480, height = 320)
+    singlePlot <- createJaspPlot(title = title, width = 480, height = 320)
     rainCloudPlotsContainer[["rainCloudPlotSingle"]] <- singlePlot
     p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(dataset, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
     if(isTryError(p))

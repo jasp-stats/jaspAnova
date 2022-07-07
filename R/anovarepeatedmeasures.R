@@ -437,16 +437,20 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   withinIndices <- .mapAnovaTermsToTerms(rownames(withinAnovaTable), rownames(corrections))
 
-  ggTable[["num Df"]]          <- withinAnovaTable[["num Df"]] * corrections[withinIndices, "GG eps"]
+  # set 1 as an upper-bound of the correction factors, see https://github.com/jasp-stats/jasp-issues/issues/1709
+  ggCorrections <- pmin(corrections[withinIndices, "GG eps"], 1)
+  hfCorrections <- pmin(corrections[withinIndices, "HF eps"], 1)
+  
+  ggTable[["num Df"]]          <- withinAnovaTable[["num Df"]] * ggCorrections
   ggTable[["Mean Sq"]]         <- withinAnovaTable[["Sum Sq"]] / ggTable[["num Df"]]
-  ggTable[["den Df"]]          <- withinAnovaTable[["den Df"]] * corrections[withinIndices, "GG eps"]
+  ggTable[["den Df"]]          <- withinAnovaTable[["den Df"]] * ggCorrections
   ggTable[["Pr(>F)"]]          <- pf(withinAnovaTable[["F value"]], ggTable[["num Df"]], ggTable[["den Df"]], lower.tail = FALSE)
   ggTable[["correction"]]      <- gettext("Greenhouse-Geisser")
   ggTable[[".isNewGroup"]]     <- FALSE
 
-  hfTable[["num Df"]]          <- withinAnovaTable[["num Df"]] * corrections[withinIndices, "HF eps"]
+  hfTable[["num Df"]]          <- withinAnovaTable[["num Df"]] * hfCorrections
   hfTable[["Mean Sq"]]         <- withinAnovaTable[["Sum Sq"]] / hfTable[["num Df"]]
-  hfTable[["den Df"]]          <- withinAnovaTable[["den Df"]] * corrections[withinIndices, "HF eps"]
+  hfTable[["den Df"]]          <- withinAnovaTable[["den Df"]] * hfCorrections
   hfTable[["Pr(>F)"]]          <- pf(withinAnovaTable[["F value"]], hfTable[["num Df"]], hfTable[["den Df"]], lower.tail = FALSE)
   hfTable[["correction"]]      <- gettext("Huynh-Feldt")
   hfTable[[".isNewGroup"]]     <- FALSE

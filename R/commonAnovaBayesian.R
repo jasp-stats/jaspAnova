@@ -1822,7 +1822,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     addLines   <- !(groupVar %in% unlist(options[["betweenSubjectFactors"]]))
     dependentV <- .BANOVAdependentName
     yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
-    title      <- if (trimws(yLabel) == "") gettext("Dependent") else yLabel
+    if (trimws(yLabel) == "")
+      title <- gettext("Dependent")
+      yLabel <- NULL
+  } else {
+      title <- yLabel
+    }
   } else {
     addLines   <- FALSE
     dependentV <- options[["dependent"]]

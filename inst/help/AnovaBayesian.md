@@ -27,7 +27,7 @@ The Bayesian ANOVA allows the user to analyze the difference between multiple gr
     - Across matched models: When this option is selected, only models with exactly that component will be included in the analysis. Therefore, interactions with the component are excluded. Compares models that include the component to equivalent models excluding the component. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Mathôt.
       <details>
         <summary><b>GIF demonstration: Select effects </b></summary>
-        <img src="analyses/gif/inclusion_bayes_anova.gif"/>
+        <img src="gif/inclusion_bayes_anova.gif"/>
       </details>
 
 - Estimates: By selecting this option, a table with the model averaged posterior summary will be displayed. This table includes information about the model averaged posterior mean, the standard deviation, and the credible interval for each level of the fixed factors and their interactions.  
@@ -39,7 +39,7 @@ The Bayesian ANOVA allows the user to analyze the difference between multiple gr
 - Compare to best model: The models used for the analysis constructed under the option `Model` will be compared to the best model included in the analysis.
   <details>
     <summary><b>GIF demonstration: Select order </b></summary>
-    <img src="analyses/gif/banova_simplebestcrop.gif"/>
+    <img src="gif/banova_simplebestcrop.gif"/>
   </details>
 
 #### Plots
@@ -73,7 +73,7 @@ The Bayesian ANOVA allows the user to analyze the difference between multiple gr
 - To perform a post hoc test, drag the factor name to perform the post hoc test on to the right column.
   <details>
     <summary><b>GIF demonstration: Post hoc test </b></summary>
-    <img src="analyses/gif/bayes_posthoc_anova.gif"/>
+    <img src="gif/bayes_posthoc_anova.gif"/>
   </details>
 
   Then it is possible to select:

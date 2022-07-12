@@ -34,7 +34,7 @@ Met een ANCOVA kan men het verschil tussen meerdere groepsgemiddelden analyseren
     - Modeltermen: De onafhankelijke variabelen en covariaten in het model. Standaard worden alle hoofd- en interactie-effecten van de gespecificeerde onafhankelijke variabelen en covariaten meegenomen in het model.
   <details>
     <summary><b>GIF demonstratie: Voeg interactie toe </b></summary>
-    <img src="analyses/gif/interaction_effect_anova.gif"/>
+    <img src="gif/interaction_effect_anova.gif"/>
   </details>
                                                                                       
 - Kwadratensom: Er zijn verschillende soorten kwadratensommen. De keuze van het type is belangrijk als er meerdere factoren zijn en de data ongebalanceerd is. In een ongebalanceerd design hebben de verschillende niveaus van de onafhankelijke variabele niet evenveel observaties (bijv. als een groep meer observaties heeft dan de ander). In dit scenario kan de type kwadratensom de resultaten beïnvloeden.   
@@ -50,7 +50,7 @@ Met een ANCOVA kan men het verschil tussen meerdere groepsgemiddelden analyseren
 - Voor elke onafhankelijke variabele kan een specifiek contrast worden geselecteerd door op `geen` te klikken in de rechterkolom. 
   <details>
     <summary><b>GIF demonstratie: Selecteer contrast </b></summary>
-    <img src="analyses/gif/contrasts_anova.gif"/>
+    <img src="gif/contrasts_anova.gif"/>
   </details>
 
 
@@ -82,7 +82,7 @@ Met een ANCOVA kan men het verschil tussen meerdere groepsgemiddelden analyseren
       -  Dunett: Als u deze methode selecteert, worden alle niveaus vergeleken met een specifiek niveau, bijvoorbeeld met de controlegroep. Momenteel is het nog niet mogelijk om handmatig te specificeren met welk niveau de andere niveaus worden vergeleken, maar dit is gebaseerd op de volgorde van de niveaus. Om de volgorde aan te passen kunnen de niveaulabels worden veranderd.
         <details>
 	        <summary><b>GIF demonstratie: Pas niveaulabels aan</b></summary>
-	        <img src="analyses/gif/labelediting.gif"/>
+	        <img src="gif/labelediting.gif"/>
       </details> 
     
       -  Dunn: Dit is een verdelingsvrije toets die kan worden gebruikt om kleine subsets van paren te testen. Deze post-hoc toets is een opvolger van de Kruskal-Wallis toets. De p-waarden worden gecorrigeerd met de Bonferroni en de Holm methode.
@@ -112,7 +112,7 @@ Met een ANCOVA kan men het verschil tussen meerdere groepsgemiddelden analyseren
 - Het hoofdeffect geeft het effect weer van een onafhankelijke variabele voor elk niveau van de andere onafhankelijke variabele door een ANOVA te doen voor elke subset van de data zoals die wordt gespecificeerd door de moderator variabelen. 
   <details>
 	  <summary><b>GIF demonstratie: Hoofdeffecten</b></summary>
-	  <img src="analyses/gif/simplemaineffects_anova.gif"/>
+	  <img src="gif/simplemaineffects_anova.gif"/>
   </details>
 
   - Factoren: Dit veld bevat alle onafhankelijke variabelen die worden meegenomen in de analyse.

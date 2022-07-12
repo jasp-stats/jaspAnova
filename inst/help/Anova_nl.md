@@ -34,7 +34,7 @@ Met een ANOVA berekent men het verschil tussen meerdere groepsgemiddelden.
     - Modeltermen: De onafhankelijke variabelen in het model. Standaard worden alle hoofd- en interactie-effecten van de gekozen onafhankelijke variabele in het model meegenomen. 
   <details>
     <summary><b>GIF demonstratie: Toevoegen interactie </b></summary>
-    <img src="analyses/gif/interaction_effect_anova.gif"/>
+    <img src="gif/interaction_effect_anova.gif"/>
   </details>
                    
 - Kwadratensom: Er zijn verschillende soorten van de kwadratensom. De keuze van het type is belangrijk als er meerdere factoren zijn en de data ongebalanceerd is. In een ongebalanceerd design hebben de verschillende niveaus van de onafhankelijke variabele niet evenveel observaties (bijv. als een groep meer observaties heeft dan de ander). In dit scenario kan het type kwadratensom de resultaten beïnvloeden.   
@@ -55,7 +55,7 @@ Met een ANOVA berekent men het verschil tussen meerdere groepsgemiddelden.
 - Voor elke onafhankelijke variabele kan een specifiek contrast worden geselecteerd door op `geen` te klikken in de rechterkolom.
   <details>
     <summary><b>GIF demonstratie: Selecteer contrast </b></summary>
-    <img src="analyses/gif/contrasts_anova.gif"/>
+    <img src="gif/contrasts_anova.gif"/>
   </details>
 
   - Factoren: Dit zijn de onafhankelijke variabelen die worden meegenomen in de analyse (i.e., de variabelen die zijn geselecteerd in het `vaste factoren` veld).
@@ -86,7 +86,7 @@ Met een ANOVA berekent men het verschil tussen meerdere groepsgemiddelden.
       -  Dunett: Als u deze methode selecteert, worden alle niveaus vergeleken met een specifiek niveau, bijvoorbeeld met de controlegroep. Momenteel is het nog niet mogelijk om handmatig te specificeren met welk niveau de andere niveaus worden vergeleken, maar dit is gebaseerd op de volgorde van de niveaus. Om de volgorde aan te passen, kunnen de niveaulabels worden veranderd.
         <details>
 	        <summary><b>GIF demonstratie: Aanpassen niveaulabels </b></summary>
-	        <img src="analyses/gif/labelediting.gif"/>
+	        <img src="gif/labelediting.gif"/>
       </details> 
     
 	  -  Dunn: Dit is een niet-parametrische toets die kan worden gebruikt om kleine subsets van paren te testen. Deze post-hoc toets is een opvolger voor de Kruskal-Wallis toets. De p-waarden worden gecorrigeerd met de Bonferroni en de Holm methode.
@@ -115,7 +115,7 @@ Met een ANOVA berekent men het verschil tussen meerdere groepsgemiddelden.
 - Het hoofdeffect geeft het effect van een onafhankelijke variabele voor elk niveau van de andere onafhankelijke variabele door een ANOVA te doen voor elke subset van de data zoals die wordt gespecificeerd door de moderator variabelen. 
   <details>
 	  <summary><b>GIF demonstratie: Hoofdeffecten</b></summary>
-	  <img src="analyses/gif/simplemaineffects_anova.gif"/>
+	  <img src="gif/simplemaineffects_anova.gif"/>
   </details>
 
   - Factoren: Dit veld bevat alle onafhankelijke variabelen die worden meegenomen in de analyse.

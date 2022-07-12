@@ -34,7 +34,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
     - Model terms: The independent variables and covariates included in the model. By default, all the main effects and interaction effects of the specified independent variables, and the covariates are included in the model.
   <details>
     <summary><b>GIF demonstration: Add interaction </b></summary>
-    <img src="gif/interaction_effect_anova.gif"/>
+    <img src="%HELP_FOLDER%/gif/interaction_effect_anova.gif"/>
   </details>
                                                                                       
 - Sum of Squares: There are different types of the sum of squares. The choice of the type is important when there are multiple factors and when the data are unbalanced. In an unbalanced design, the different levels of the independent variable do not contain an equal number of observations (e.g., one group contains more obsevations than another group). In this scenario, the sum of squares type can influence the results.   
@@ -51,7 +51,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
 - For each independent variable, a specific contrast can be selected by clicking on `none` in the right column. 
   <details>
     <summary><b>GIF demonstration: Select contrast </b></summary>
-    <img src="gif/contrasts_anova.gif"/>
+    <img src="%HELP_FOLDER%/gif/contrasts_anova.gif"/>
   </details>
 
 
@@ -79,7 +79,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
     -  Dunnett: When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted. 
     <details>
       <summary><b>GIF demonstration: Adjust level labels </b></summary>
-      <img src="gif/labelediting.gif"/>
+      <img src="%HELP_FOLDER%/gif/labelediting.gif"/>
     </details> 
 
     -  Dunn: This is a non-parametric test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
@@ -116,7 +116,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
 - The simple main effects represent the effect of one independent variable for each level of the other independent variable, by conducting an ANOVA for each subset of the data as specified by the moderator variables. 
   <details>
 	  <summary><b>GIF demonstration: Simple main effects </b></summary>
-	  <img src="gif/simplemaineffects_anova.gif"/>
+	  <img src="%HELP_FOLDER%/gif/simplemaineffects_anova.gif"/>
   </details>
 
   - Factors: This box contains all the independent variables included in the analysis. 

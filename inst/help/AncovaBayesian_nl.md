@@ -30,7 +30,7 @@ Met de Bayesiaanse ANCOVA kan men het verschil tussen meerdere groepsgemiddelden
     - Over alle gematchte modellen: Wanneer deze optie is geselecteerd, worden alleen modellen met precies die component meegenomen in de analyse. Zodanig worden interacties met de component uitgesloten. Vergelijkt modellen die de component meenemen met modellen die deze niet meenemen. Hogere-orde interacties worden uitgesloten. Analyse voorgesteld door Sebastiaan Mathot.
       <details>
         <summary><b>GIF demonstratie: Selecteer effecten </b></summary>
-        <img src="gif/inclusion_bayes_anova.gif"/>
+        <img src="%HELP_FOLDER%/gif/inclusion_bayes_anova.gif"/>
       </details>
 
 - Schattingen: Als deze optie is geselecteerd, wordt een tabel weergegeven met een samenvatting van de model gemiddelde posterior. Deze tabel bevat informatie over het model gemiddelde posterior, de standaardafwijking, en de geloofwaardigheidsinterval voor elk niveau van de vaste factoren, hun interacties en de covariaten.
@@ -42,7 +42,7 @@ Met de Bayesiaanse ANCOVA kan men het verschil tussen meerdere groepsgemiddelden
 - Vergelijk met het beste model: De modellen die gebruikt worden in de analyse onder de optie 'model', zullen worden vergeleken met het beste model in de analyse.
   <details>
     <summary><b>GIF demonstratie: Selecteer volgorde </b></summary>
-    <img src="gif/banova_simplebestcrop.gif"/>
+    <img src="%HELP_FOLDER%/gif/banova_simplebestcrop.gif"/>
   </details>
   
 #### Grafieken
@@ -76,7 +76,7 @@ Met de Bayesiaanse ANCOVA kan men het verschil tussen meerdere groepsgemiddelden
 - Sleep de naam van een factor naar de rechterkolom om een post-hoc toets uit te voeren. 
   <details>
     <summary><b>GIF demonstratie: Post-hoc toets </b></summary>
-    <img src="gif/bayes_posthoc_anova.gif"/>
+    <img src="%HELP_FOLDER%/gif/bayes_posthoc_anova.gif"/>
   </details>
 
   Dan is het mogelijk om het volgende te selecteren:

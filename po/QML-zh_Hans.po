@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-07-13 03:17+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspanova-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14-dev\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -433,6 +439,9 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
+"此分析是使用旧版本的 JASP（或动态模块）创建的。从那时起，贝叶斯重复测量方差分"
+"析的建模规则发生了变化。默认情况下，所有模型现在都包括除最高阶重复测量交互之"
+"外的所有随机斜率，以便与频率重复测量方差分析区分开。"
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
@@ -440,57 +449,48 @@ msgstr "附加选项"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
-msgstr ""
+msgstr "指定先验系数"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "对于固定和随机项"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "对于每项单独"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Prior"
 msgstr "先验"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
-msgstr "r 尺度固定效应"
+msgstr "固定效应 r 尺度"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
-msgstr "r 尺度随机效应"
+msgstr "随机效应 r 尺度"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
-msgstr "r 尺度协变量"
+msgstr "协变量 r 尺度"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Numerical Accuracy"
 msgstr "数值精度"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Auto"
 msgstr "自动"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Manual"
 msgstr "手动设置"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
 msgstr "样本数量"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
 msgstr "后验样本"
@@ -504,7 +504,8 @@ msgid ""
 "When checked, the random slopes of repeated measures factors are omitted as "
 "in JASP <=0.16. Omitting the random slopes may yield completely different "
 "results from the frequentist ANOVA."
-msgstr ""
+msgstr "选中时，重复测量因子的随机斜率将被省略，如 JASP <=0."
+"16。省略随机斜率可能会产生与频率方差分析完全不同的结果。"
 
 msgctxt "AdditionalOptions|"
 msgid "Hide nuisance in model"

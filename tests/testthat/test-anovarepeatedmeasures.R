@@ -282,13 +282,18 @@ test_that("Descriptives Match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
 
-  refTable <- list(4.45, 20, 17.3037111930543, "Beer", "Negative", 10, 20, 10.295630140987,
-                   "Beer", "Neutral", 21.05, 20, 13.0079934938807, "Beer", "Positive",
-                   -9.2, 20, 6.8024763292882, "Water", "Negative", 2.35, 20, 6.83855170878193,
-                   "Water", "Neutral", 17.4, 20, 7.07404447704126, "Water", "Positive",
-                   -12, 20, 6.18146635643918, "Wine", "Negative", 11.65, 20, 6.24310145596511,
-                   "Wine", "Neutral", 25.35, 20, 6.73775692801786, "Wine", "Positive"
-  )
+  refTable <- list("Beer", "Negative", 4.45, 20, 17.3037111930543, 3.86922744906933,
+                   3.88847442540545, "Beer", "Neutral", 10, 20, 10.295630140987,
+                   2.30217288664427, 1.0295630140987, "Beer", "Positive", 21.05,
+                   20, 13.0079934938807, 2.90867577031922, 0.617956935576279, "Water",
+                   "Negative", -9.2, 20, 6.8024763292882, 1.52107994876217, -0.739399601009587,
+                   "Water", "Neutral", 2.35, 20, 6.83855170878193, 1.52914664884837,
+                   2.91002200373699, "Water", "Positive", 17.4, 20, 7.07404447704126,
+                   1.58180443265212, 0.406554280289727, "Wine", "Negative", -12,
+                   20, 6.18146635643918, 1.38221789736259, -0.515122196369932, "Wine",
+                   "Neutral", 11.65, 20, 6.24310145596511, 1.39599992459659, 0.535888536992713,
+                   "Wine", "Positive", 25.35, 20, 6.73775692801786, 1.50660825069181,
+                   0.265789227929699)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_descriptivesContainer$collection$rmAnovaContainer_descriptivesContainer_tableDescriptives$data
   jaspTools::expect_equal_tables(table, refTable)
@@ -343,6 +348,7 @@ test_that("Analysis handles errors", {
   expect_identical(results$status, "validationError", label = "Duplicate variables in subject and betweenSubjectFactors")
 
 })
+
 
 # Mixed Effects
 initOpts <- function(){

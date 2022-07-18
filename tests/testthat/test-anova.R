@@ -150,7 +150,7 @@ test_that("Post Hoc table results match", {
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_contBinom$data
   jaspTools::expect_equal_tables(table,
                                  list("TRUE", 0.214904085649005, 0.448976320466698, 0.15401876311258,
-                                      -0.24864690950018, 0.55668443572534, 0, 1, 0.163364220743842,
+                                      -0.24864690950018, 0.55668443572534, "contBinom0", "contBinom1", 0.163364220743842,
                                       0.448976320466698, -0.263105943067512, 0.448976320466698, 0.448976320466698,
                                       0.760172707980336, 0.448976320466698, 0.589834384555196)
     )
@@ -199,9 +199,9 @@ test_that("Descriptives table results match", {
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   # removed new group booleans
   jaspTools::expect_equal_tables(table,
-    list(0, 58, -0.120135614827586, 1.10575982846952, 1, 42, -0.283499835571429,
-         0.994612407217046)
-  )
+        list(-0.120135614827586, 58, 1.10575982846952, 0.145193378675912, -9.20426328242848,
+             0, -0.283499835571429, 42, 0.994612407217046, 0.15347202634745,
+             -3.50833504087324, 1))
 })
 
 test_that("Q-Q plot matches", {
@@ -452,12 +452,12 @@ test_that("Field - Chapter 5 results match", {
   # standard post hoc (tukey)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Dose$data
   jaspTools::expect_equal_tables(table,
-                      list(1, 2, -1, 0.886942313043338, -1.12746904200424, 0.516276123508473,
-                           -3.36624115850686, 1.36624115850686, "TRUE",
-                           1, 3, -2.8, 0.886942313043338, -3.15691331761188, 0.020924399492241,
-                           -5.16624115850686, -0.433758841493135, "FALSE",
-                           2, 3, -1.8, 0.886942313043338, -2.02944427560764, 0.147457622995377,
-                           -4.16624115850686, 0.566241158506865, "FALSE"))
+                                 list("TRUE", 0.886942313043338, "Dose1", "Dose2", -1, -3.36624115850687, -1.12746904200424,
+                                      0.516276123508473, 1.36624115850687, "FALSE", 0.886942313043338,
+                                      "Dose1", "Dose3", -2.8, -5.16624115850687, -3.15691331761188, 0.0209243994922408,
+                                      -0.433758841493134, "FALSE", 0.886942313043338, "Dose2", "Dose3", -1.8,
+                                      -4.16624115850687, -2.02944427560764, 0.147457622995377, 0.566241158506866
+                                 ))
 
   # games-howell post hoc
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocGamesContainer$collection$anovaContainer_postHocContainer_postHocGamesContainer_Dose$data
@@ -529,13 +529,14 @@ test_that("Field - Chapter 7 results match", {
   # removed both post hoc table and contrast table because bootstrap results are now in same table
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection[[1]]$collection$anovaContainer_postHocContainer_postHocStandardContainer_Alcohol$data
   jaspTools::expect_equal_tables(table,
-                      list(0, 1, -0.769579725829725, -0.00376914898826841, 0.392000159227314,
-                           -1.48733254329573, 0.0548973391001531, 0.230950085511107, -1.8129965586672,
-                           0.177726007657148, "TRUE", 0, 2, -1.43536324786325,
-                           0.0142934574412497, 0.435378856593833, -2.31465226049576, -0.602581004497448, -3.47491007077881,
-                           0.00359956767679779, 0.00337043014651417, "FALSE", 1, 2, -0.690674603174602,
-                           0.018062606429518, 0.407611902363181, -1.43846891737073, 0.214248742598683, -1.66191351211161,
-                           0.311931949521, 0.231712504393661, "FALSE"))
+                                 list("TRUE", 0.392000159227314, -0.00376914898826786, 0.230950085511107,
+                                      "Alcohol0", "Alcohol1", -0.769579725829724, -1.48733254329573, -1.8129965586672,
+                                      0.177726007657148, 0.0548973391001529, "FALSE", 0.435378856593833,
+                                      0.0142934574412505, 0.00359956767679779, "Alcohol0", "Alcohol2", -1.43536324786325,
+                                      -2.31465226049576, -3.47491007077881, 0.00337043014651417, -0.602581004497449,
+                                      "FALSE", 0.407611902363181, 0.0180626064295184, 0.311931949521,
+                                      "Alcohol1", "Alcohol2", -0.690674603174603, -1.43846891737073, -1.66191351211161,
+                                      0.231712504393661, 0.214248742598683))
 
 
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data

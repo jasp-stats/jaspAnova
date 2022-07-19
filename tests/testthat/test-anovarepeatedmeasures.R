@@ -524,7 +524,7 @@ test_that("Effect Size Calculation correct", {
   options$effectSizeEtaSquared <- TRUE
   options$effectSizePartialEtaSquared <- TRUE
   options$effectSizeOmegaSquared <- TRUE
-  options$effectSizeGenEtaSquared <- TRUE
+  options$effectSizeGeneralEtaSquared <- TRUE
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",

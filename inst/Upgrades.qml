@@ -376,6 +376,7 @@ Upgrades
 
 		// Display.qml
 		ChangeRename {	from: "VovkSellkeMPR";	to: "vovkSellke"	}
+		ChangeRename {	from: "effectSizeGenEtaSquared";	to: "effectSizeGeneralEtaSquared"	}
 
 		// Model section
 		ChangeRename {	from: "useMultivariateModelFollowup";	to: "multivariateModelFollowup"	}

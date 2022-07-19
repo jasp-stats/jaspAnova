@@ -440,7 +440,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   # set 1 as an upper-bound of the correction factors, see https://github.com/jasp-stats/jasp-issues/issues/1709
   ggCorrections <- pmin(corrections[withinIndices, "GG eps"], 1)
   hfCorrections <- pmin(corrections[withinIndices, "HF eps"], 1)
-  
+
   ggTable[["num Df"]]          <- withinAnovaTable[["num Df"]] * ggCorrections
   ggTable[["Mean Sq"]]         <- withinAnovaTable[["Sum Sq"]] / ggTable[["num Df"]]
   ggTable[["den Df"]]          <- withinAnovaTable[["den Df"]] * ggCorrections
@@ -522,7 +522,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   betweenTable <- createJaspTable(title = gettext("Between Subjects Effects"), position = 2)
   betweenTable$dependOn(c("effectSizeEstimates", "effectSizeEtaSquared", "effectSizePartialEtaSquared",
-                             "effectSizeGenEtaSquared", "effectSizeOmegaSquared", "vovkSellke"))
+                             "effectSizeGeneralEtaSquared", "effectSizeOmegaSquared", "vovkSellke"))
 
   betweenTable$addColumnInfo(title = gettext("Cases"),          name = "case",    type = "string" )
   betweenTable$addColumnInfo(title = gettext("Sum of Squares"), name = "Sum Sq",  type = "number")
@@ -544,7 +544,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
     if (options$effectSizePartialEtaSquared)
       betweenTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
 
-    if (options$effectSizeGenEtaSquared)
+    if (options$effectSizeGeneralEtaSquared)
       betweenTable$addColumnInfo(title = gettextf("%s<sub>G</sub>", "\u03B7\u00B2"), name = "genEta", type = "number")
 
     if (options$effectSizeOmegaSquared)
@@ -586,7 +586,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   anovaTable$showSpecifiedColumnsOnly <- TRUE
   anovaTable$dependOn(c("sphericityCorrectionGreenhouseGeisser", "sphericityCorrectionHuynhFeldt",
                         "sphericityCorrectionNone", "vovkSellke", "effectSizeEstimates", "effectSizeEtaSquared",
-                        "effectSizePartialEtaSquared", "effectSizeGenEtaSquared", "effectSizeOmegaSquared"))
+                        "effectSizePartialEtaSquared", "effectSizeGeneralEtaSquared", "effectSizeOmegaSquared"))
 
   corrections <- c("None", "Greenhouse-Geisser", "Huynh-Feldt")[c(options$sphericityCorrectionNone,
                                                                  options$sphericityCorrectionGreenhouseGeisser,
@@ -622,7 +622,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
     }
 
-    if(options$effectSizeGenEtaSquared) {
+    if(options$effectSizeGeneralEtaSquared) {
       anovaTable$addColumnInfo(name="genEta", type="number", title=gettextf("%s<sub>G</sub>", "\u03B7\u00B2"))
     }
 

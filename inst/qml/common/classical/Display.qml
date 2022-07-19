@@ -37,10 +37,10 @@ Group
 		{
 			Component
 			{
-				id: effectSizePartialGeneral
-				CheckBox { name: "effectSizePartialEtaGeneral";	label: qsTr("general η²")	}
+				id: effectSizeGenEtaSquared
+				CheckBox { name: "effectSizeGenEtaSquared";	label: qsTr("general η²")	}
 			}
-			sourceComponent: effectSizePartialGeneral
+			sourceComponent: effectSizeGenEtaSquared
 			active: analysis === Common.Type.Analysis.RMANOVA
 		}
 

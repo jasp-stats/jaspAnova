@@ -1586,8 +1586,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
-    plotErrorBars <- options$plotErrorBars
-    errorBarType  <- if(options$descriptivePlotErrorBarType == "ci") "confindenceInterval" else "se"
+    plotErrorBars <- options$descriptivePlotErrorBar
+    errorBarType  <- if(options$descriptivePlotErrorBarType == "ci") "confidenceInterval" else "se"
     conf.interval <- options$descriptivePlotCiLevel
     descriptivesPlotContainer$dependOn(c("dependent", "plotErrorBars", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
                                          "descriptivePlotErrorBarPooled"))

@@ -1052,7 +1052,9 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
 
   postHocTable$addColumnInfo(name="t.ratio", title=gettext("t"), type="number")
 
-  if (options$postHocTypeStandardEffectSize || options$postHocEffectSize) {
+  # postHocTypeStandardEffectSize is from AN(C)OVA
+  # postHocEffectSize is from RMANOVA
+  if (isTRUE(options$postHocTypeStandardEffectSize) || isTRUE(options$postHocEffectSize)) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
 
     if (isFALSE(options$postHocPooledError))

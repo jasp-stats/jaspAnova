@@ -324,8 +324,8 @@ test_that("Model Averaged Posterior Summary table results with interactions matc
 
 
 options <- initOpts("AnovaRepeatedMeasuresBayesian")
-options$plotHorizontalAxis <- "Drink"
-options$plotSeparateLines <- "Imagery"
+options$descriptivePlotHorizontalAxis <- "Drink"
+options$descriptivePlotSeparateLines <- "Imagery"
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
 options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
     list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))

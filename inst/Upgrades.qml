@@ -23,7 +23,7 @@ Upgrades
 		{
 			name:		"restrictedSE"
 			condition:	function(options) { return options["restrictedSE"] === "none"; }
-			jsValue:	"standard"
+			jsonValue:	"standard"
 		}
 	}
 
@@ -47,7 +47,7 @@ Upgrades
 		{
 			name:		"restrictedSE"
 			condition:	function(options) { return options["restrictedSE"] === "none"; }
-			jsValue:	"standard"
+			jsonValue:	"standard"
 		}
 	}
 
@@ -71,7 +71,7 @@ Upgrades
 		{
 			name:		"restrictedSE"
 			condition:	function(options) { return options["restrictedSE"] === "none"; }
-			jsValue:	"standard"
+			jsonValue:	"standard"
 		}
 	}
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: 2022-02-04 13:48+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -203,14 +203,17 @@ msgid ""
 "level."
 msgstr "置信区间太窄，请选择其他的置信水平。"
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "均值"
 
 msgid "SD"
 msgstr "标准差"
 
-msgid "N"
-msgstr "N"
+msgid "coefOfVariation"
+msgstr ""
 
 msgid "Assumption Checks"
 msgstr "假设检验"
@@ -717,6 +720,10 @@ msgstr "描述统计"
 
 msgid "Descriptives - %s"
 msgstr "描述统计 - %s"
+
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "模型比较"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

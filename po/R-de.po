@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: 2022-05-11 10:00+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -219,14 +219,17 @@ msgid ""
 msgstr ""
 "Konfidenzintervall ist zu schmal, bitte wähle ein anderes Konfidenzniveau."
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "Mittelwert"
 
 msgid "SD"
 msgstr "SD"
 
-msgid "N"
-msgstr "N"
+msgid "coefOfVariation"
+msgstr ""
 
 msgid "Assumption Checks"
 msgstr "Annahmeprüfungen"
@@ -774,6 +777,10 @@ msgstr "Deskriptive Statistiken"
 
 msgid "Descriptives - %s"
 msgstr "Deskriptiv - %s"
+
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "Koeffizientenvergleich"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

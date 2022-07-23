@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.16.3\n"
-"POT-Creation-Date: 2022-06-22 12:56\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,13 +181,16 @@ msgstr ""
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "Mean"
 msgstr ""
 
 msgid "SD"
 msgstr ""
 
-msgid "N"
+msgid "coefOfVariation"
 msgstr ""
 
 msgid "Assumption Checks"
@@ -620,6 +623,9 @@ msgid "Descriptives"
 msgstr ""
 
 msgid "Descriptives - %s"
+msgstr ""
+
+msgid "Coefficient of variation"
 msgstr ""
 
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."

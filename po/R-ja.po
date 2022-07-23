@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -209,14 +209,17 @@ msgid ""
 "level."
 msgstr "信頼区間が狭すぎるので，別の信頼水準を選択してください。"
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "平均値"
 
 msgid "SD"
 msgstr "標準偏差"
 
-msgid "N"
-msgstr "N"
+msgid "coefOfVariation"
+msgstr ""
 
 msgid "Assumption Checks"
 msgstr "仮定のチェック"
@@ -743,6 +746,10 @@ msgstr "記述統計量"
 
 msgid "Descriptives - %s"
 msgstr "記述統計量 - %s"
+
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "係数"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

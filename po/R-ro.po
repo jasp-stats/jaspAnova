@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: 2022-02-16 17:04+0000\n"
 "Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -202,13 +202,16 @@ msgid ""
 "level."
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "Mean"
 msgstr ""
 
 msgid "SD"
 msgstr ""
 
-msgid "N"
+msgid "coefOfVariation"
 msgstr ""
 
 msgid "Assumption Checks"
@@ -692,6 +695,9 @@ msgid "Descriptives"
 msgstr ""
 
 msgid "Descriptives - %s"
+msgstr ""
+
+msgid "Coefficient of variation"
 msgstr ""
 
 msgid ""

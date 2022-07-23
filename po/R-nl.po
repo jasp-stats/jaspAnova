@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-07-23 03:16\n"
 "PO-Revision-Date: 2022-06-09 13:33+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -218,14 +218,17 @@ msgid ""
 msgstr ""
 "Betrouwbaarheidsinterval is te smal, kies een ander betrouwbaarheidslevel."
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "Gemiddelde"
 
 msgid "SD"
 msgstr "SD"
 
-msgid "N"
-msgstr "N"
+msgid "coefOfVariation"
+msgstr ""
 
 msgid "Assumption Checks"
 msgstr "Verificatie van aannames"
@@ -771,6 +774,10 @@ msgstr "Beschrijvende statistiek"
 msgid "Descriptives - %s"
 msgstr "Beschrijvingen - %s"
 
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "Vergelijking van coëfficiënten"
+
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
@@ -884,7 +891,8 @@ msgstr ""
 "uitgevoerd. Foutmelding: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr "Kan geen van de gespecificeerde beperkte modellen passen. Reden(en): %s"
+msgstr ""
+"Kan geen van de gespecificeerde beperkte modellen passen. Reden(en): %s"
 
 msgid "Unconstrained"
 msgstr "Onbeperkt"

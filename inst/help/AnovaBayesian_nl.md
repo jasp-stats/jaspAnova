@@ -27,7 +27,7 @@ De bayesiaanse ANOVA laat de gebruiker verschillende tussen meerdere groepsgemid
     - Over alle gematchte modellen:  Als u deze optie selecteert, worden alleen modellen met precies die component meegenomen in de analyse. Zodanig worden interacties met de component uitgesloten. Vergelijkt modellen die de component meenemen met modellen die hem niet meenemen, hogere orde interacties worden uitgesloten. Analyse voorgesteld door Sebastiaan Mathot.
       <details>
         <summary><b>GIF demonstration: Geselecteerde effecten </b></summary>
-        <img src="analyses/gif/inclusion_bayes_anova.gif"/>
+        <img src="%HELP_FOLDER%/gif/inclusion_bayes_anova.gif"/>
       </details>
 
 - Schattingen: Als u deze optie selecteert, wordt een tabel weergegeven met een samenvatting van de model gemiddelde posterior. Deze tabel bevat informatie over de model gemiddelde standaardafwijking, gemiddelde, en betrouwbaarheidsinterval voor elk niveau van de vaste factoren en hun interacties.
@@ -39,7 +39,7 @@ De bayesiaanse ANOVA laat de gebruiker verschillende tussen meerdere groepsgemid
 - Vergelijk met het beste model: De modellen die gebruikt worden in de analyse onder de optie 'model', vergelijken met het beste model in de analyse.
   <details>
     <summary><b>GIF demonstratie: Selecteer volgorde </b></summary>
-    <img src="analyses/gif/banova_simplebestcrop.gif"/>
+    <img src="%HELP_FOLDER%/gif/banova_simplebestcrop.gif"/>
   </details>
 
 #### Grafieken
@@ -73,7 +73,7 @@ De bayesiaanse ANOVA laat de gebruiker verschillende tussen meerdere groepsgemid
 - Sleep de naam van een factor naar de rechterkolom om een post-hoc toets uit te voeren. 
   <details>
     <summary><b>GIF demonstratie: Post-hoc toets </b></summary>
-    <img src="analyses/gif/bayes_posthoc_anova.gif"/>
+    <img src="%HELP_FOLDER%/gif/bayes_posthoc_anova.gif"/>
   </details>
 
   Dan is het mogelijk om het volgende te selecteren:

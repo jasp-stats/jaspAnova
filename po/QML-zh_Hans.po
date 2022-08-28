@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-08-29 04:15+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspanova-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -584,32 +590,26 @@ msgctxt "AdditionalOptions|"
 msgid "r-scale"
 msgstr ""
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Order"
 msgstr "秩次(order)"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
 msgstr "与最优模型比较"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr "与空模型比较"
+msgstr "与零模型比较"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Tables"
 msgstr "表"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Effects"
 msgstr "效应"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Across all models"
 msgstr "交叉(across)所有模型"

@@ -59,8 +59,8 @@ Section
 		{
 			name: "integrationMethod"
 			title: qsTr("Integration Method")
-			RadioButton	{ value: "automatic";	label: qsTr("Automatic");				checked: true	; id: integrationMethodAutomatic}
-			RadioButton	{ value: "laplace";		label: qsTr("Laplace approximation");	checked: true									}
+			RadioButton	{ value: "automatic";	label: qsTr("Automatic");				checked: true	; id: integrationMethodAutomatic	}
+			RadioButton	{ value: "laplace";		label: qsTr("Laplace approximation");														}
 		}
 
 		RadioButtonGroup

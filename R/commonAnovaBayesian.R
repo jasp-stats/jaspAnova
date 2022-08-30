@@ -424,7 +424,7 @@
   } else {
     bfIntegrationMethod <- "laplace"
     modelTable$addFootnote(gettext("The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."))
-    modelTable$addFootnote(gettext("The Laplace approximation does not provide an error estimate."), colNames = "error %")
+    modelTable$addFootnote(gettext("The Laplace approximation does not always provide an error estimate."), colNames = "error %")
   }
 
   for (m in seq_len(nmodels)) {
@@ -540,6 +540,7 @@
   stateObj <- createJaspState(object = model, dependencies = c(
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
     "dependent", "repeatedMeasuresCells", "sampleModeNumAcc", "fixedNumAcc", "seed", "setSeed",
+    "integrationMethod",
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -565,7 +566,7 @@
   effectsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "effects", "effectsType",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType",
+    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "integrationMethod",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
@@ -714,7 +715,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
     .BANOVAdataDependencies(),
-    "sampleModeNumAcc", "fixedNumAcc",
+    "sampleModeNumAcc", "fixedNumAcc", "integrationMethod",
     "bayesFactorType", "bayesFactorOrder",
     "hideNuisanceEffects", "legacy",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),

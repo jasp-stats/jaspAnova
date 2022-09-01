@@ -584,7 +584,7 @@
     jaspResults[["tableEffects"]] <- effectsTable
     return()
   }
-saveRDS(object = list(model = model, options = options), file = "~/GitHub/jasp/deleteable/banova_state.rds")
+
   effects.matrix <- model$effects
   no.effects <- ncol(effects.matrix)
   effectNames <- colnames(model$effects)

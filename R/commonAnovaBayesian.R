@@ -390,8 +390,8 @@
   # internalTable is an internal representation of the model comparison table
   internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("P(M)", "P(M|data)", "BFM", "BF10", "error %")))
   # set BF null model and p(M)
-  internalTable[1L, 4L] <- 0
-  internalTable[, 1L] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
+  internalTable[1L, "BF10"] <- 0
+  internalTable[, "P(M)"] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
 
   #Now compute Bayes Factors for each model in the list, and populate the tables accordingly
   startProgressbar(nmodels, gettext("Computing Bayes factors"))
@@ -515,9 +515,9 @@
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
     model.list           = model.list,
     fixedFactors         = fixedFactors,
-    randomFactors        = randomFactors, # stored because they are modified in RM-ANOVA
+    randomFactors        = if (analysisType == "RM-ANOVA") randomFactors else options[["randomFactors"]], # stored because they are modified in RM-ANOVA
     modelTerms           = modelTerms,
-    covariates           = options[["covariates"]],
+    covariates           = if (analysisType == "ANOVA") NULL else options[["covariates"]],
     seed                 = options[["seed"]],
     setSeed              = options[["setSeed"]],
     reuseable            = reuseable,
@@ -740,46 +740,44 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # function that actually fills in the table created by .BANOVAinitModelComparisonTable
   footnotes <- NULL
-  if (anyNA(internalTable[, "P(M|data)"])) {
-    # if TRUE, called from analysis
 
-    logSumExp <- matrixStats::logSumExp
-    logbfs <- internalTable[, "BF10"]
-    if (!anyNA(internalTable[, "BF10"])) {
-      # no errors, proceed normally and complete the table
+  logSumExp <- matrixStats::logSumExp
+  logbfs <- internalTable[, "BF10"]
+  logprior <- log(internalTable[, "P(M)"])
+  if (!anyNA(internalTable[, "BF10"])) {
+    # no errors, proceed normally and complete the table
 
-      logsumbfs <- logSumExp(logbfs)
-      internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
+    logsumbfs <- logSumExp(logbfs + logprior)
+    internalTable[, "P(M|data)"] <-  exp(logbfs + logprior - logsumbfs)
 
-      nmodels <- nrow(internalTable)
-      mm <- max(logbfs)
-      for (i in seq_len(nmodels)) {
-        internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
-      }
-
-    } else {
-      # create table excluding failed models
-
-      idxGood <- !is.na(logbfs)
-      widxGood <- which(idxGood)
-      logsumbfs <- logSumExp(logbfs[idxGood])
-      internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
-
-      nmodels <- sum(idxGood)
-      mm <- max(logbfs, na.rm = TRUE)
-      widxBad <- which(!idxGood)
-      for (i in widxGood) {
-        internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
-      }
-
-      internalTable[widxBad, "P(M|data)"] <- NaN
-      internalTable[widxBad, "BFM"]       <- NaN
-      internalTable[widxBad, "BF10"]      <- NaN
-      footnotes <- list(
-        message = gettext("<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!")
-      )
+    nmodels <- nrow(internalTable)
+    mm <- max(logbfs)
+    for (i in seq_len(nmodels)) {
+      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
     }
-  } # else: results already computed
+
+  } else {
+    # create table excluding failed models
+
+    idxGood <- !is.na(logbfs)
+    widxGood <- which(idxGood)
+    logsumbfs <- logSumExp(logbfs[idxGood])
+    internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
+
+    nmodels <- sum(idxGood)
+    mm <- max(logbfs, na.rm = TRUE)
+    widxBad <- which(!idxGood)
+    for (i in widxGood) {
+      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
+    }
+
+    internalTable[widxBad, "P(M|data)"] <- NaN
+    internalTable[widxBad, "BFM"]       <- NaN
+    internalTable[widxBad, "BF10"]      <- NaN
+    footnotes <- list(
+      message = gettext("<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!")
+    )
+  }
 
   # create the output table
   table <- as.data.frame(internalTable)
@@ -2929,6 +2927,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
   nms <- c("fixedFactors", "modelTerms", "randomFactors", "covariates", "seed", "setSeed")
+  nms <- intersect(names(options), nms) # excludes covariates for ANOVA
   identical(state[nms], options[nms])
 }
 

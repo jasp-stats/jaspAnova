@@ -268,6 +268,8 @@
     }
 
     internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
+    stateObj$postProbs        <- internalTableObj$internalTable[, "P(M|data)"]
+    stateObj$priorProbs       <- internalTableObj$internalTable[, "P(M)"]
     stateObj$internalTableObj <- internalTableObj
     modelTable$setData(internalTableObj$table)
     jaspResults[["tableModelComparison"]] <- modelTable
@@ -290,8 +292,6 @@
   rscaleRandom  <- tempRScale[["rscaleRandom"]]
   rscaleCont    <- tempRScale[["rscaleCont"]]
   rscaleEffects <- tempRScale[["rscaleEffects"]]
-
-  iter <- NA
 
   tmp <- .BANOVAcreateModelFormula(dependent, modelTerms)
   model.formula <- tmp$model.formula
@@ -584,7 +584,7 @@
     jaspResults[["tableEffects"]] <- effectsTable
     return()
   }
-
+saveRDS(object = list(model = model, options = options), file = "~/GitHub/jasp/deleteable/banova_state.rds")
   effects.matrix <- model$effects
   no.effects <- ncol(effects.matrix)
   effectNames <- colnames(model$effects)
@@ -751,7 +751,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     internalTable[, "P(M|data)"] <-  exp(logbfs + logprior - logsumbfs)
 
     nmodels <- nrow(internalTable)
-    mm <- max(logbfs)
     for (i in seq_len(nmodels)) {
       internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
     }
@@ -765,7 +764,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
 
     nmodels <- sum(idxGood)
-    mm <- max(logbfs, na.rm = TRUE)
     widxBad <- which(!idxGood)
     for (i in widxGood) {
       internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)

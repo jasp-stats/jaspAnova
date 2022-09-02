@@ -176,3 +176,53 @@ test_that("Model Comparison table results match", {
          0.2, 0.0372502225465335, 20.2487932367166)
   )
 })
+
+test_that("Model prior changes posterior model probabilities", {
+
+  options <- initOpts("AnovaBayesian")
+
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("contBinom", "facGender")
+  options$modelTerms <- list(
+    list(components = c("contBinom", "facGender"), isNuisance = FALSE),
+    list(components = "facGender", isNuisance = FALSE),
+    list(components = "contBinom", isNuisance = FALSE)
+  )
+  options$effects <- TRUE
+
+  # so that the priors actually differ
+  options[["bernoulliParam"]] <- .3
+  options[["betaBinomialParamA"]] <- 1.1
+  options[["betaBinomialParamB"]] <- 1.1
+  options[["wilsonParamLambda"]] <- 0.8
+  options[["castilloParamU"]] <- 2.1
+  options[["modelTermsCustomPrior"]] <- list(list(components = "contBinom",                 priorIncl = 0.1, rscaleFixed = 0.5),
+                                             list(components = "facGender",                 priorIncl = 0.2, rscaleFixed = 0.5),
+                                             list(components = c("contBinom", "facGender"), priorIncl = 0.3, rscaleFixed = 0.5))
+
+  # set to TRUE to regenerate the reference object, set to FALSE to test
+  createReference <- FALSE
+
+  referencePath <- testthat::test_path("BANOVA_modelPriors.rds")
+  reference <- if (createReference) list() else readRDS(referencePath)
+
+  modelPriors <- c("uniform", "beta.binomial", "Wilson", "Castillo", "Bernoulli", "custom")
+  for (modelPrior in modelPriors) {
+
+    options$modelPrior <- modelPrior
+
+    set.seed(1)
+    results <- runAnalysis("AnovaBayesian", "debug.csv", options)
+    tableModelComparison <- results[["results"]][["tableModelComparison"]][["data"]]
+    tableEffects <- results[["results"]][["tableEffects"]][["data"]]
+
+    if (createReference) {
+      reference[[modelPrior]][["modelComparison"]]  <- jaspTools:::collapseTestTable(tableModelComparison)
+      reference[[modelPrior]][["posteriorSummary"]] <- jaspTools:::collapseTestTable(tableEffects)
+    } else {
+      jaspTools::expect_equal_tables(tableModelComparison, reference[[modelPrior]][["modelComparison"]])
+      jaspTools::expect_equal_tables(tableEffects,         reference[[modelPrior]][["posteriorSummary"]])
+    }
+  }
+  if (createReference) saveRDS(reference, referencePath)
+})

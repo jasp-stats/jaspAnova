@@ -419,6 +419,14 @@
   # without these there is no error
   bfIterations <- if (options[["sampleModeNumAcc"]] == "auto") 1e4L else options[["fixedNumAcc"]]
 
+  if (options[["integrationMethod"]] == "automatic") {
+    bfIntegrationMethod <- "auto"
+  } else {
+    bfIntegrationMethod <- "laplace"
+    modelTable$addFootnote(gettext("The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."))
+    modelTable$addFootnote(gettext("The Laplace approximation does not always provide an error estimate."), colNames = "error %")
+  }
+
   for (m in seq_len(nmodels)) {
     # loop over all models, where the first is the null-model and the last the most complex model
     if (is.na(reuseable[m])) {
@@ -434,7 +442,9 @@
           rscaleRandom  = rscaleRandom,
           rscaleCont    = rscaleCont,
           rscaleEffects = rscaleEffects,
-          iterations    = bfIterations))
+          iterations    = bfIterations,
+          method        = bfIntegrationMethod
+        ))
         if (isTryError(bf)) {
           modelName <- strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L]
           .quitAnalysis(gettextf("Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s.",
@@ -462,7 +472,7 @@
         bfObj <- bfObj / modelObject[[1L]]$bf
 
       internalTable[m, "BF10"]    <- bfObj@bayesFactor[, "bf"] # always LogBF10!
-      internalTable[m, "error %"] <- bfObj@bayesFactor[, "error"]
+      internalTable[m, "error %"] <- bfObj@bayesFactor[, "error"] # always NA if bfIntegrationMethod == "laplace"
       # }
 
       # disable filling of Bayes factor column (see https://github.com/jasp-stats/jasp-test-release/issues/1018 for discussion)
@@ -530,6 +540,7 @@
   stateObj <- createJaspState(object = model, dependencies = c(
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
     "dependent", "repeatedMeasuresCells", "sampleModeNumAcc", "fixedNumAcc", "seed", "setSeed",
+    "integrationMethod",
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
 
@@ -555,7 +566,7 @@
   effectsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "effects", "effectsType",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType",
+    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "integrationMethod",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["coefficientsPrior"]])
   ))
@@ -704,7 +715,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
     .BANOVAdataDependencies(),
-    "sampleModeNumAcc", "fixedNumAcc",
+    "sampleModeNumAcc", "fixedNumAcc", "integrationMethod",
     "bayesFactorType", "bayesFactorOrder",
     "hideNuisanceEffects", "legacy",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),

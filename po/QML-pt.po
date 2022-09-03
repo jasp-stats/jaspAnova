@@ -452,10 +452,6 @@ msgid "For each term individually"
 msgstr ""
 
 msgctxt "AdditionalOptions|"
-msgid "Prior"
-msgstr "Anterior"
-
-msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr "efeitos fixos da escala r"
 
@@ -1129,3 +1125,19 @@ msgstr "Soma dos quadrados"
 msgctxt "SumOfSquares|"
 msgid "Type %1"
 msgstr "Tipo %1"
+
+msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
+msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-07-23 03:16\n"
+"POT-Creation-Date: 2022-09-03 03:25\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -555,6 +555,16 @@ msgstr "帰無モデル (%s含む)"
 
 msgid "Computing Bayes factors"
 msgstr "ベイズファクターの計算"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"

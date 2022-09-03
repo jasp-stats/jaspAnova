@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-08-29 04:15+0000\n"
-"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"jasp/jaspanova-qml/zh_Hans/>\n"
-"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -458,10 +452,6 @@ msgstr "对于固定和随机项"
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
 msgstr "对于每项单独"
-
-msgctxt "AdditionalOptions|"
-msgid "Prior"
-msgstr "先验"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
@@ -1229,4 +1219,20 @@ msgstr "平方和"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
 msgstr ""

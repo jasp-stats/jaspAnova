@@ -395,11 +395,6 @@ msgstr ""
 
 #, fuzzy
 msgctxt "AdditionalOptions|"
-msgid "Prior"
-msgstr "Antérieur"
-
-#, fuzzy
-msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr "Échelle r des effets fixes"
 
@@ -1245,4 +1240,20 @@ msgstr "Somme des carrés"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
 msgstr ""

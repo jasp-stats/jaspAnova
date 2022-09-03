@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-07-23 03:16\n"
+"POT-Creation-Date: 2022-09-03 03:25\n"
 "PO-Revision-Date: 2022-07-26 11:17+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -535,6 +535,16 @@ msgstr "空模型（包括 %s）"
 
 msgid "Computing Bayes factors"
 msgstr "计算贝叶斯因子"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"

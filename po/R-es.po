@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2022-07-23 03:16\n"
+"POT-Creation-Date: 2022-09-03 03:25\n"
 "PO-Revision-Date: 2022-07-26 11:17+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -587,6 +587,16 @@ msgstr "Modelo nulo (incl. %s)"
 
 msgid "Computing Bayes factors"
 msgstr "Calculando los factores de Bayes"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"

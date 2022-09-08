@@ -589,4 +589,16 @@ Upgrades
 
 		ChangeRename {	from: "labelYAxis";						to: "descriptivePlotYAxisLabel"			}
 	}
+
+	Upgrade
+	{
+		functionName:		"Manova"
+		fromVersion:		"0.16.3"
+		toVersion:			"0.16.4"
+
+		// DescriptivePlots.qml
+		ChangeRename {	from: "includeAnovaTables";				to: "anovaTables"	}
+		ChangeRename {	from: "VovkSellkeMPR";					to: "vovkSellke"	}
+
+	}
 }

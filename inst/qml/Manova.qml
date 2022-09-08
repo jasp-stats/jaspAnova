@@ -78,8 +78,8 @@ Form
 		Group
 		{
 			title: qsTr("Display")
-			CheckBox { name: "includeAnovaTables"; label: qsTr("ANOVA tables") }
-			CheckBox { name: "VovkSellkeMPR"; label: qsTr("Vovk-Sellke maximum p-ratio") }
+			CheckBox { name: "anovaTables"; label: qsTr("ANOVA tables") }
+			CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio") }
 		}
 
 	

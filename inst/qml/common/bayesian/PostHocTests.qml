@@ -36,6 +36,6 @@ Section
 	Group
 	{
 		title: qsTr("Correction")
-		CheckBox { name: "postHocTestsNullControl"; label: qsTr("Null control"); checked: true }
+		CheckBox { name: "postHocNullControl"; label: qsTr("Null control"); checked: true }
 	}
 }

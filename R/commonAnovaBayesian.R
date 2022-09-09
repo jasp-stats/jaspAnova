@@ -1231,7 +1231,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     postHocCollection <- createJaspContainer(title = gettext("Post Hoc Tests"))
     postHocCollection$position <- 8
     postHocCollection$addCitation(.BANOVAcitations[3:4])
-    postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocTestsNullControl", "bayesFactorType"))
+    postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocNullControl", "bayesFactorType"))
     jaspResults[["collectionPosthoc"]] <- postHocCollection
   }
 
@@ -1239,7 +1239,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   footnote <- gsub("[\r\n\t]", "",
     gettext("The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."))
 
-  bfTxt <- if (options[["postHocTestsNullControl"]]) ", U" else ""
+  bfTxt <- if (options[["postHocNullControl"]]) ", U" else ""
 
   switch(options[["bayesFactorType"]],
     BF10    = { bf.title <- paste0("BF<sub>10",     bfTxt, "</sub>")  },
@@ -1272,7 +1272,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     postHocTable$dependOn(optionContainsValue = list("postHocTerms" = posthoc.var))
 
-    if (options[["postHocTestsNullControl"]])
+    if (options[["postHocNullControl"]])
       postHocTable$addFootnote(footnote)
 
     if (is.null(model$models)) { # only show empty table
@@ -1324,7 +1324,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
         } else {
 
-          if (options[["postHocTestsNullControl"]]) {
+          if (options[["postHocNullControl"]]) {
             pH0 <- 0.5^(2 / length(variable.levels))
           } else {
             pH0 <- 0.5

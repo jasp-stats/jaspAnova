@@ -94,8 +94,8 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="RM_FACTOR_1", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
-  options$postHocTestsTerms <- "RM_FACTOR_1"
+  options$postHocNullControl <- TRUE
+  options$postHocTerms <- "RM_FACTOR_1"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
@@ -181,7 +181,7 @@ test_that("Analysis fails gracefully if some models error", {
   # NOTE: the option below makes BayesFactor return NaN as BF for models with covariates.
   # It's a nice hack to test how gracefully the analysis recovers when some but not all BFs could be computed.
   # A user can never enter NULL here. This hack exists for BayesFactor version 0.9.12.4.2.
-  options$priorCovariates <- NULL
+  options$cauchyPriorScaleCovariates <- NULL
 
   set.seed(42)
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)

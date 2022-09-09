@@ -667,6 +667,8 @@ Upgrades
 		// PostHocTests.qml
 		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+		ChangeRename {	from: "postHocTestsNullControl";		to: "postHocNullControl"				}
+
 		
 		// SingleModelInference.qml
 		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}

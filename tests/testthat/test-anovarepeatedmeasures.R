@@ -567,58 +567,6 @@ test_that("Simple Effects table match", {
   jaspTools::expect_equal_tables(table, refTable)
 })
 
-test_that("Nonparametric table match", {
-
-  # Kendall W now also verified by case presented in
-  # https://github.com/jasp-stats/jasp-issues/issues/1473
-  options <- initOpts()
-
-  options$betweenSubjectFactors <- "gender"
-  options$betweenModelTerms <- list(
-    list(components = "gender")
-  )
-
-  options$friedmanWithinFactor <- "Charisma"
-
-  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv",
-                            options = options)
-
-  refTable <- list("Charisma", 40.074508162411, 2, 0.539957264957265, 1.98577994376659e-09)
-
-  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection[[1]]$data
-  jaspTools::expect_equal_tables(table, refTable)
-})
-
-
-
-test_that("Conover table match", {
-
-  options <- initOpts()
-
-  options$betweenSubjectFactors <- "gender"
-  options$betweenModelTerms <- list(
-    list(components = "gender")
-  )
-
-  options$conoverTest <- TRUE
-
-  options$friedmanWithinFactor <- "Charisma"
-
-  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv",
-                            options = options)
-
-  refTable <- list( "High", "Some", 1.31809226918034, 406, 306.5, 0.189380510753162, 0.568141532259486,
-                    0.233862092301299, 158, "High", "None", 2.89450412880305, 406, 187.5,
-                    0.00433496034546402, 0.0130048810363921, 0.0130048810363921, 158, "Some",
-                    "None", 1.57641185962271, 306.5, 187.5, 0.116931046150649, 0.350793138451948,
-                    0.233862092301299, 158)
-
-  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_Charisma$data
-  jaspTools::expect_equal_tables(table, refTable)
-})
-
 # Andy Field tests ----
 # should we put this in verification?
 test_that("Field - Chapter 8 results match", {
@@ -645,6 +593,9 @@ test_that("Field - Chapter 8 results match", {
   options$confidenceIntervalsPostHoc <- TRUE
   options$postHocTestEffectSize <- TRUE
 
+  options$friedmanWithinFactor <- "Animal"
+  options$conoverTest <- TRUE
+  
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",
                             options = options)
@@ -693,6 +644,29 @@ test_that("Field - Chapter 8 results match", {
                    0.988219907541572, "Fish", "Grub", -1.625, 0.906918466006362,
                    -8.24895462968414, -0.891942561653216, 4.99895462968414)
 
+  jaspTools::expect_equal_tables(table, refTable)
+  
+  
+  # Friedman Test
+  # Kendall W now also verified by case presented in
+  # https://github.com/jasp-stats/jasp-issues/issues/1473
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_friedmanTable$data 
+  
+  refTable <- list("Animal", 11.5263157894737, 3, 0.480263157894737, 0.00919516147593829)
+  jaspTools::expect_equal_tables(table, refTable)
+  
+  # Connover Test
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_Animal$data
+  refTable <- list("Stick", "Kangaroo", 0.0473184822848627, 21, 0.0473184822848627,
+                   0.00788641371414379, 2.93636897778917, 29, 14, "Stick", "Fish",
+                   0.07351563317191, 21, 0.0612630276432583, 0.0122526055286517,
+                   2.74061104593656, 29, 15, "Stick", "Grub", 1, 21, 0.555190969714741,
+                   0.18506365657158, 1.37030552296828, 29, 22, "Kangaroo", "Fish",
+                   1, 21, 0.846681455685693, 0.846681455685693, 0.195757931852611,
+                   14, 15, "Kangaroo", "Grub", 0.793676144068488, 21, 0.529117429378992,
+                   0.132279357344748, 1.56606345482089, 14, 22, "Fish", "Grub",
+                   1, 21, 0.555190969714741, 0.18506365657158, 1.37030552296828,
+                   15, 22)
   jaspTools::expect_equal_tables(table, refTable)
 })
 

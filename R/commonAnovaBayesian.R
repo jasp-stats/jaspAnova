@@ -510,7 +510,7 @@
     effects                 = effects.matrix,
     interactions.matrix     = interactions.matrix,
     nuisance                = nuisance,
-    nuisanceRandomSlopes    =  nuisanceRandomSlopes,
+    nuisanceRandomSlopes    = nuisanceRandomSlopes,
     analysisType            = analysisType,
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
     model.list              = model.list,

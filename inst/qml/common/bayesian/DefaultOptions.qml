@@ -59,7 +59,7 @@ Group
 	{
 		title: qsTr("Plots")
 		CheckBox {
-			label: qsTr("Model averaged posteriors");		name: "posteriorPlot"
+			label: qsTr("Model averaged posteriors");		name: "modelAveragedPosteriorPlot"
 			RadioButtonGroup
 			{
 				name: "groupPosterior"

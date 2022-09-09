@@ -14,8 +14,8 @@ test_that("Main table results match", {
   options$fixedFactors <- "facGender"
   options$randomFactors <- "facFive"
   options$covariates <- "contGamma"
-  options$priorCovariates <- 0.3
-  options$priorRandomEffects <- 1.2
+  options$cauchyPriorScaleCovariates <- 0.3
+  options$cauchyPriorScaleRandomEffects <- 1.2
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=TRUE),
@@ -85,7 +85,7 @@ test_that("Post-hoc Comparisons table results match", {
     list(components="facFive", isNuisance=FALSE)
   )
   options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "facFive"
+  options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)

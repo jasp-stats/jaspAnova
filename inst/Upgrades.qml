@@ -542,6 +542,42 @@ Upgrades
 
 		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
 		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
+		
+		// DefaultOptions.qml
+		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
+		
+		// PostHocTests.qml
+		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
+		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+
+		// SingleModelInference.qml
+		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
+		ChangeRename {	from: "singleModelrsqPlot";				to: "singleModelRsqPlot"				}
+
+		// AdditionalOptions.qml
+		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
+		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
+		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
+		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
+		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
+		
+		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
+		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
+		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
+		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
+		ChangeRename {	from: "legacy";							to: "legacyResults"						}
+		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
+		
+		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
+		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
+		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
+		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
+		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
+		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
+		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
+		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
 	}
 
 	Upgrade
@@ -564,6 +600,42 @@ Upgrades
 
 		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
 		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
+
+		// DefaultOptions.qml
+		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
+
+		// PostHocTests.qml
+		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
+		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+
+		// SingleModelInference.qml
+		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
+		ChangeRename {	from: "singleModelrsqPlot";				to: "singleModelRsqPlot"				}
+		
+		// AdditionalOptions.qml
+		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
+		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
+		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
+		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
+		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
+		
+		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
+		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
+		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
+		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
+		ChangeRename {	from: "legacy";							to: "legacyResults"						}
+		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
+		
+		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
+		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
+		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
+		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
+		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
+		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
+		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
+		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
 	}
 
 	Upgrade
@@ -588,6 +660,42 @@ Upgrades
 		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
 
 		ChangeRename {	from: "labelYAxis";						to: "descriptivePlotYAxisLabel"			}
+
+		// DefaultOptions.qml
+		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
+
+		// PostHocTests.qml
+		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
+		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+		
+		// SingleModelInference.qml
+		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
+		ChangeRename {	from: "singleModelrsqPlot";				to: "singleModelRsqPlot"				}
+
+		// AdditionalOptions.qml
+		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
+		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
+		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
+		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
+		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
+		
+		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
+		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
+		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
+		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
+		ChangeRename {	from: "legacy";							to: "legacyResults"						}
+		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
+		
+		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
+		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
+		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
+		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
+		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
+		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
+		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
+		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
 	}
 
 	Upgrade

@@ -29,8 +29,8 @@ Section
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "postHocTestsAvailable"; id: postHocTestsAvailable }
-		AssignedVariablesList {  name: "postHocTestsVariables" }
+		AvailableVariablesList { name: "postHocAvailableTerms"; id: postHocTestsAvailable }
+		AssignedVariablesList {  name: "postHocTerms" }
 	}
 
 	Group

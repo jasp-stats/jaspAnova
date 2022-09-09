@@ -251,7 +251,7 @@
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type or the ordering
     modelTable <- .BANOVAinitModelComparisonTable(options)
-    modelTable[["Models"]] <- .BANOVAgetModelTitlesWithAllTerms(stateObj[["models"]], stateObj[["model.list"]], analysisType, options[["hideNuisanceEffects"]])
+    modelTable[["Models"]] <- .BANOVAgetModelTitlesWithAllTerms(stateObj[["models"]], stateObj[["model.list"]], analysisType, options[["hideNuisanceParameters"]])
 
     if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
@@ -299,7 +299,7 @@
   effects       <- tmp$effects
 
   if (analysisType == "RM-ANOVA") {
-    legacy    <- options[["legacy"]]
+    legacy    <- options[["legacyResults"]]
     rmFactors <- vapply(options[["repeatedMeasuresFactors"]], `[[`, character(1L), "name")
   } else {
     legacy    <- FALSE
@@ -383,7 +383,7 @@
   }
 
   modelTable <- .BANOVAinitModelComparisonTable(options)
-  modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceEffects"]])
+  modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceParameters"]])
 
   modelTable[["Models"]] <- modelNames
   jaspResults[["tableModelComparison"]] <- modelTable
@@ -417,7 +417,7 @@
   }
 
   # without these there is no error
-  bfIterations <- if (options[["sampleModeNumAcc"]] == "auto") 1e4L else options[["fixedNumAcc"]]
+  bfIterations <- if (options[["samplingMethodNumericAccuracy"]] == "auto") 1e4L else options[["samplesNumericAccuracy"]]
 
   for (m in seq_len(nmodels)) {
     # loop over all models, where the first is the null-model and the last the most complex model
@@ -487,7 +487,7 @@
   }
 
   if (anyNuisance) {
-    if (analysisType == "RM-ANOVA" && !options[["legacy"]]) {
+    if (analysisType == "RM-ANOVA" && !options[["legacyResults"]]) {
       message <- gettextf("All models include %s, and random slopes for all repeated measures factors.",
                paste0(.BANOVAdecodeNuisance(setdiff(nuisance, nuisanceRandomSlopes)), collapse = ", "))
 
@@ -503,34 +503,34 @@
   }
 
   model <- list(
-    models               = modelObject,
-    postProbs            = internalTableObj$internalTable[, "P(M|data)"],
-    priorProbs           = internalTableObj$internalTable[, "P(M)"],
-    internalTableObj     = internalTableObj,
-    effects              = effects.matrix,
-    interactions.matrix  = interactions.matrix,
-    nuisance             = nuisance,
-    nuisanceRandomSlopes = nuisanceRandomSlopes,
-    analysisType         = analysisType,
+    models                  = modelObject,
+    postProbs               = internalTableObj$internalTable[, "P(M|data)"],
+    priorProbs              = internalTableObj$internalTable[, "P(M)"],
+    internalTableObj        = internalTableObj,
+    effects                 = effects.matrix,
+    interactions.matrix     = interactions.matrix,
+    nuisance                = nuisance,
+    nuisanceRandomSlopes    =  nuisanceRandomSlopes,
+    analysisType            = analysisType,
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
-    model.list           = model.list,
-    fixedFactors         = fixedFactors,
-    randomFactors        = randomFactors, # stored because they are modified in RM-ANOVA
-    modelTerms           = modelTerms,
-    covariates           = options[["covariates"]],
-    seed                 = options[["seed"]],
-    setSeed              = options[["setSeed"]],
-    reuseable            = reuseable,
-    RMFactors            = options[["repeatedMeasuresFactors"]],
-    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
-    hideNuisanceEffects  = options[["hideNuisanceEffects"]]
+    model.list              = model.list,
+    fixedFactors            = fixedFactors,
+    randomFactors           = randomFactors, # stored because they are modified in RM-ANOVA
+    modelTerms              = modelTerms,
+    covariates              = options[["covariates"]],
+    seed                    = options[["seed"]],
+    setSeed                 = options[["setSeed"]],
+    reuseable               = reuseable,
+    RMFactors               = options[["repeatedMeasuresFactors"]],
+    modelPriorOptions       = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
+    hideNuisanceParameters  = options[["hideNuisanceParameters"]]
   )
 
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
-    "dependent", "repeatedMeasuresCells", "sampleModeNumAcc", "fixedNumAcc", "seed", "setSeed",
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    "dependent", "repeatedMeasuresCells", "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "seed", "setSeed",
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   jaspResults[["tableModelComparisonState"]] <- stateObj
@@ -555,9 +555,9 @@
   effectsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "effects", "effectsType",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType",
+    "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "bayesFactorType",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -704,11 +704,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
     .BANOVAdataDependencies(),
-    "sampleModeNumAcc", "fixedNumAcc",
+    "samplingMethodNumericAccuracy", "samplesNumericAccuracy",
     "bayesFactorType", "bayesFactorOrder",
-    "hideNuisanceEffects", "legacy",
+    "hideNuisanceParameters", "legacyResults",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   switch(options$bayesFactorType,
@@ -822,7 +822,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 # posterior inference ----
 .BANOVAestimatePosteriors <- function(jaspResults, dataset, options, model) {
 
-  userNeedsPosteriorSamples <- options$posteriorEstimates || options$posteriorPlot || options$qqPlot ||
+  userNeedsPosteriorSamples <- options$posteriorEstimates || options$modelAveragedPosteriorPlot || options$qqPlot ||
     options$rsqPlot || options$criTable
   if (is.null(model$models) || !userNeedsPosteriorSamples)
     return()
@@ -847,7 +847,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     statePosteriors <- createJaspState(object = posteriors)
     statePosteriors$dependOn(
-      c(.BANOVAmodelSpaceDependencies(options[["modelPrior"]]), "sampleModeMCMC", "fixedMCMCSamples"),
+      c(.BANOVAmodelSpaceDependencies(options[["modelPrior"]]), "samplingMethodMCMC", "samplesMCMC"),
       optionsFromObject = jaspResults[["tableModelComparisonState"]]
     )
     jaspResults[["statePosteriors"]] <- statePosteriors
@@ -874,9 +874,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   estsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "posteriorEstimates",
-    "sampleModeMCMC", "fixedMCMCSamples", "credibleInterval",
+    "samplingMethodMCMC", "samplesMCMC", "credibleInterval",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -942,9 +942,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   criTable$dependOn(c(
     .BANOVAdataDependencies(),
     "criTable",
-    "sampleModeMCMC", "fixedMCMCSamples", "bayesFactorType", "credibleInterval",
+    "samplingMethodMCMC", "samplesMCMC", "bayesFactorType", "credibleInterval",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -1000,7 +1000,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   issuesTable$setData(df)
   issuesTable$dependOn(
     # these options correspond to userNeedsPosteriorSamples inside .BANOVAestimatePosteriors
-    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
+    options           = c("posteriorEstimates", "modelAveragedPosteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
     optionsFromObject = jaspResults[["statePosteriors"]]
   )
   jaspResults[["tableSamplingIssues"]] <- issuesTable
@@ -1015,12 +1015,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAposteriorPlot <- function(jaspResults, dataset, options, model) {
 
   # meta wrapper for model averaged posterior plots
-  if (!is.null(jaspResults[["posteriorPlot"]]) || !options$posteriorPlot)
+  if (!is.null(jaspResults[["posteriorPlot"]]) || !options$modelAveragedPosteriorPlot)
     return()
 
   posteriorPlotContainer <- createJaspContainer(title = gettext("Model Averaged Posterior Distributions"))
   jaspResults[["posteriorPlot"]] <- posteriorPlotContainer
-  posteriorPlotContainer$dependOn(c("posteriorPlot", "modelTerms", "credibleInterval", "groupPosterior",
+  posteriorPlotContainer$dependOn(c("modelAveragedPosteriorPlot", "modelTerms", "credibleInterval", "groupPosterior",
                                     "repeatedMeasuresCells", "dependent"))
   posteriorPlotContainer$position <- 4
 
@@ -1223,7 +1223,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 # Post hoc comparison ----
 .BANOVAnullControlPostHocTable <- function(jaspResults, dataset, options, model) {
 
-  if (length(options$postHocTestsVariables) == 0L)
+  if (length(options$postHocTerms) == 0L)
     return()
 
   postHocCollection <- jaspResults[["collectionPosthoc"]]
@@ -1248,7 +1248,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
    )
 
   priorWidth <- 1 / sqrt(2)
-  posthoc.variables <- unlist(options[["postHocTestsVariables"]])
+  posthoc.variables <- unlist(options[["postHocTerms"]])
   if (model[["analysisType"]] == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
   } else {
@@ -1270,7 +1270,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     postHocTable$addColumnInfo(name = "BF",             type = "number", title = bf.title)
     postHocTable$addColumnInfo(name = "error %",        type = "number", title = gettext("error %"))
 
-    postHocTable$dependOn(optionContainsValue = list("postHocTestsVariables" = posthoc.var))
+    postHocTable$dependOn(optionContainsValue = list("postHocTerms" = posthoc.var))
 
     if (options[["postHocTestsNullControl"]])
       postHocTable$addFootnote(footnote)
@@ -1869,7 +1869,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # TODO: Bayes factor samples unobserved interaction levels, what to do?
 
   # if the most complex model is retrieved from the state?
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e4L else options[["samplesMCMC"]]
   nmodels    <- length(model[["models"]])
   postProbs  <- model[["postProbs"]]
   statistics <- vector("list", nmodels)
@@ -2174,7 +2174,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAcomputePosteriorCRI <- function(dataset, options, model, posterior) {
 
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e4L else options[["samplesMCMC"]]
   weightedDensities <- posterior[["weightedDensities"]]
   weights <- posterior[["weights"]]
   nmodels    <- length(model[["models"]])
@@ -2663,7 +2663,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     modelprobs <- rep(1 / length(models), length(models))
   } else if (options[["modelPrior"]] == "custom") {
 
-    inclusionProbabilities <- vapply(options[["modelTermsCustomPrior"]], `[[`, FUN.VALUE = numeric(1L), "priorIncl")
+    inclusionProbabilities <- vapply(options[["customPriorSpecification"]], `[[`, FUN.VALUE = numeric(1L), "customPriorInclusionProbability")
     modelprobs <- .BANOVAcustomInclusionProbabilitiesToModelProbabilities(models, nuisance, inclusionProbabilities, enforceMarginality = options[["enforcePrincipleOfMarginalityFixedEffects"]])
 
   } else {
@@ -2673,18 +2673,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     noPredictorsPerModel <- noPredictorsPerModel - noNuisancePredictors
     totalNoPredictors    <- noPredictorsPerModel[length(noPredictorsPerModel)]
 
-    if (options[["modelPrior"]] %in% c("beta.binomial", "Wilson", "Castillo")) {
+    if (options[["modelPrior"]] %in% c("betaBinomial", "Wilson", "Castillo")) {
 
       switch (options[["modelPrior"]],
-              "beta.binomial" = {alpha = options[["betaBinomialParamA"]]; beta = options[["betaBinomialParamB"]]                    },
-              "Wilson"        = {alpha = 1.0;                             beta = totalNoPredictors * options[["wilsonParamLambda"]] },
-              "Castillo"      = {alpha = 1.0;                             beta = totalNoPredictors ^ options[["castilloParamU"]]    }
+              "betaBinomial"  = {alpha = options[["betaBinomialParameterA"]]; beta = options[["betaBinomialParameterB"]]                    },
+              "Wilson"        = {alpha = 1.0;                                 beta = totalNoPredictors * options[["wilsonParamerLambda"]] },
+              "Castillo"      = {alpha = 1.0;                                 beta = totalNoPredictors ^ options[["castilloParameterU"]]    }
       )
 
       modelprobs <- dBetaBinomialModelPrior(noPredictorsPerModel, totalNoPredictors, alpha, beta)
 
     } else if (options[["modelPrior"]] == "Bernoulli") {
-      modelprobs <- dBernoulliModelPrior(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParam"]])
+      modelprobs <- dBernoulliModelPrior(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParameter"]])
     }
 
     # both the betabinomial and bernoulli model priors do not sum to 1 when marginality is respected
@@ -2810,11 +2810,11 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 # Other ----
 .BANOVAgetRScale <- function(options, analysisType) {
 
-  if (options[["coefficientsPrior"]] == "rscalesAcrossParameters") {
+  if (options[["priorSpecificationMode"]] == "acrossParameters") {
 
-    rscaleFixed   <- options[["priorFixedEffects"]]
-    rscaleRandom  <- options[["priorRandomEffects"]]
-    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
+    rscaleFixed   <- options[["cauchyPriorScaleFixedEffects"]]
+    rscaleRandom  <- options[["cauchyPriorScaleRandomEffects"]]
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["cauchyPriorScaleCovariates"]]
     rscaleEffects <- NULL
 
   } else {
@@ -2823,17 +2823,17 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     # default values of lmBF
     rscaleFixed   <- "medium"
     rscaleRandom  <- "nuisance"
-    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["cauchyPriorScaleCovariates"]]
 
-    rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), function(x) {
+    rscaleEffectsNames <- vapply(options[["customPriorSpecification"]], FUN.VALUE = character(1L), function(x) {
       paste(x[["components"]], collapse = ":")
     })
-    rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), `[[`, "rscaleFixed")
+    rscaleEffects <- vapply(options[["customPriorSpecification"]], FUN.VALUE = numeric(1L), `[[`, "customPriorScaleFixedEffects")
 
     rscaleEffectsKeep <- if (analysisType == "ANOVA") {
       rep(TRUE, length(rscaleEffects))
     } else {
-      vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = logical(1L), function(x) {
+      vapply(options[["customPriorSpecification"]], FUN.VALUE = logical(1L), function(x) {
         is.null(options[["covariates"]]) || !(x[["components"]] %in% options[["covariates"]])
       })
     }
@@ -2913,13 +2913,13 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     "seed", "setSeed")
 }
 .BANOVAmodelSpaceDependencies <- function(modelPrior) {
-  c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    if (modelPrior == "custom") "modelTermsCustomPrior"
+  c("modelPrior", "betaBinomialParameterA", "betaBinomialParameterB", "wilsonParameterLambda", "castilloParamerU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
+    if (modelPrior == "custom") "customPriorSpecification"
   )
 }
-.BANOVArscaleDependencies <- function(coefficientsPrior) {
-  c("priorFixedEffects", "priorRandomEffects", "priorCovariates", "coefficientsPrior",
-    if (coefficientsPrior == "rscalesPerTerm") "modelTermsCustomPrior"
+.BANOVArscaleDependencies <- function(priorSpecificationMode) {
+  c("cauchyPriorScaleFixedEffects", "cauchyPriorScaleRandomEffects", "cauchyPriorScaleCovariates", "priorSpecificationMode",
+    if (priorSpecificationMode == "perTerm") "customPriorSpecification"
   )
 }
 
@@ -3235,7 +3235,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 .BANOVAsmi <- function(jaspResults, dataset, options, model) {
 
   userWantsSMI <- any(unlist(options[c(
-    "singleModelPosteriorPlot", "singleModelqqPlot", "singleModelrsqPlot", "singleModelEstimates", "singleModelCriTable"
+    "singleModelPosteriorPlot", "singleModelQqPlot", "singleModelRsqPlot", "singleModelEstimates", "singleModelCriTable"
   )]))
   if (!userWantsSMI)
     return()
@@ -3245,9 +3245,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
     singleModelContainer$dependOn(c(
-      "singleModelTerms", "dependent", "sampleModeMCMC", "fixedMCMCSamples",
+      "singleModelTerms", "dependent", "samplingMethodMCMC", "samplesMCMC",
       "repeatedMeasuresCells", "seed", "setSeed",
-      .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+      .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
     ))
 
     jaspResults[["containerSingleModel"]] <- singleModelContainer
@@ -3280,7 +3280,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiSamplePosterior <- function(dataset, options, analysisType) {
 
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e3L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e3L else options[["samplesMCMC"]]
   modelTerms <- options$singleModelTerms
 
   modelTerms    <- options$modelTerms
@@ -3425,7 +3425,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiQqPlot <- function(jaspContainer, options, model) {
 
-  if (!is.null(jaspContainer[["QQplot"]]) || !options$singleModelqqPlot)
+  if (!is.null(jaspContainer[["QQplot"]]) || !options$singleModelQqPlot)
     return()
 
   if (is.null(model) || jaspContainer$getError()) {
@@ -3444,7 +3444,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     plot        = p,
     aspectRatio = 1
   )
-  plot$dependOn("singleModelqqPlot")
+  plot$dependOn("singleModelQqPlot")
   plot$position <- 3
   jaspContainer[["QQplot"]] <- plot
   return()
@@ -3452,7 +3452,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiRsqPlot <- function(jaspContainer, options, model) {
 
-  if (!is.null(jaspContainer[["smirsqplot"]]) || !options$singleModelrsqPlot)
+  if (!is.null(jaspContainer[["smirsqplot"]]) || !options$singleModelRsqPlot)
     return()
 
   if (is.null(model) || jaspContainer$getError()) {
@@ -3471,7 +3471,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     plot        = p,
     aspectRatio = 1
   )
-  plot$dependOn("singleModelrsqPlot")
+  plot$dependOn("singleModelRsqPlot")
   plot$position <- 4
   jaspContainer[["smirsqplot"]] <- plot
   return()

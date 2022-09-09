@@ -21,9 +21,9 @@ test_that("Main table and Effects table results match", {
     list(components="contcor1", isNuisance=FALSE),
     list(components=c("RM_FACTOR_1", "facGender"), isNuisance=FALSE)
   )
-  options$priorCovariates <- 0.3
-  options$priorFixedEffects <- 0.8
-  options$priorRandomEffects <- 0.8
+  options$cauchyPriorScaleCovariates <- 0.3
+  options$cauchyPriorScaleFixedEffects <- 0.8
+  options$cauchyPriorScaleRandomEffects <- 0.8
 
   options$effects <- TRUE
 
@@ -95,7 +95,7 @@ test_that("Post-hoc Comparisons table results match", {
     list(components="RM_FACTOR_1", isNuisance=FALSE)
   )
   options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "RM_FACTOR_1"
+  options$postHocTestsTerms <- "RM_FACTOR_1"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)

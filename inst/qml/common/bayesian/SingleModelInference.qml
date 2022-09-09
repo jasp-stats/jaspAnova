@@ -60,8 +60,8 @@ Section
 					RadioButton { value: "individual";	label: qsTr("Individual plot per level")				 }
 				}
 			}
-			CheckBox { label: qsTr("Q-Q plot of residuals");	name: "singleModelqqPlot" }
-			CheckBox { label: qsTr("Posterior R\u00B2") ;		name: "singleModelrsqPlot"}
+			CheckBox { label: qsTr("Q-Q plot of residuals");	name: "singleModelQqPlot" }
+			CheckBox { label: qsTr("Posterior R\u00B2") ;		name: "singleModelRsqPlot"}
 		}
 
 	}

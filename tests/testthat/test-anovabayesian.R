@@ -12,8 +12,8 @@ test_that("Main table results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
   options$randomFactors <- "facExperim"
-  options$priorFixedEffects <- 0.4
-  options$priorRandomEffects <- 1.5
+  options$cauchyPriorScaleFixedEffects <- 0.4
+  options$cauchyPriorScaleRandomEffects <- 1.5
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=FALSE),
@@ -86,7 +86,7 @@ test_that("Post-hoc Comparisons table results match", {
     list(components="facFive", isNuisance=FALSE)
   )
   options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "facFive"
+  options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)

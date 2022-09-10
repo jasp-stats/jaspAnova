@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-09-03 03:25\n"
+"POT-Creation-Date: 2022-09-10 03:28\n"
 "PO-Revision-Date: 2022-07-26 11:17+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -464,6 +464,9 @@ msgstr "Kendall's W"
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "请为 Friedman/Durbin 检验指定适当的项。"
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "Durbin 检验"
 
@@ -748,6 +751,9 @@ msgstr "描述性绘图"
 
 msgid "Raincloud plots"
 msgstr "雨云图"
+
+msgid "Dependent"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "抽样后验"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-09-03 03:25\n"
+"POT-Creation-Date: 2022-09-10 03:28\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -483,6 +483,9 @@ msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
 "フリードマン(Friedman)/ダービン(Durbin)検定に適切な項を指定してください。"
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "ダービン(Durbin)検定"
 
@@ -776,6 +779,9 @@ msgstr "記述統計量プロット"
 
 msgid "Raincloud plots"
 msgstr "雨雲プロット"
+
+msgid "Dependent"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "事後分布のサンプリング"

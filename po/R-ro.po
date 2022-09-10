@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-09-03 03:25\n"
+"POT-Creation-Date: 2022-09-10 03:28\n"
 "PO-Revision-Date: 2022-02-16 17:04+0000\n"
 "Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -459,6 +459,9 @@ msgstr ""
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr ""
 
@@ -722,6 +725,9 @@ msgid "Descriptives Plot"
 msgstr ""
 
 msgid "Raincloud plots"
+msgstr ""
+
+msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"

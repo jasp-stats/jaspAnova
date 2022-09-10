@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2022-09-03 03:25\n"
+"POT-Creation-Date: 2022-09-10 03:28\n"
 "PO-Revision-Date: 2022-09-05 10:29+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -509,6 +509,9 @@ msgstr ""
 "Por favor, especifique los términos adecuados para el contraste de Friedman/"
 "Durbin."
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "Contraste de Durbin"
 
@@ -818,6 +821,9 @@ msgstr "Gráfico de Descriptivos"
 
 msgid "Raincloud plots"
 msgstr "Gráficos de tipo nube con lluvia"
+
+msgid "Dependent"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "Muestreo de posteriores"

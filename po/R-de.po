@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-09-03 03:25\n"
+"POT-Creation-Date: 2022-09-10 03:28\n"
 "PO-Revision-Date: 2022-09-04 10:18+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -504,6 +504,9 @@ msgstr "Kendalls W"
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "Bitte spezifiziere gültige Terme für den Friedman/Durbin Test."
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "Durbin-Test"
 
@@ -810,6 +813,9 @@ msgstr "Deskriptive Abbildung"
 
 msgid "Raincloud plots"
 msgstr "Regenwolken-Plots"
+
+msgid "Dependent"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "Stichprobennahme der Posterior"

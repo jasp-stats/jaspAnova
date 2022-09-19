@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-19 04:20+0000\n"
+"PO-Revision-Date: 2022-09-20 14:17+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-qml/zh_Hans/>\n"
@@ -287,7 +287,7 @@ msgstr "横轴"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "分隔绘图"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
@@ -614,123 +614,101 @@ msgctxt "DefaultOptions|"
 msgid "Across matched models"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Estimates"
 msgstr "估计"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
 msgstr "模型平均 R²"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
 msgstr "描述统计"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
 msgstr "可信区间"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Order"
 msgstr "秩次(order)"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
 msgstr "与最优模型比较"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
 msgstr "与空模型比较"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Plots"
 msgstr "绘图"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
 msgstr "模型平均后验"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
 msgstr "为每组水平单独绘图"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "为每个水平单独绘图"
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "残差 QQ 图"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
 msgstr "后验 R²"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
 msgstr "描述性绘图"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
 msgstr "因子"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
 msgstr "横轴"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "分隔线"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "分隔绘图"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Label y-axis"
-msgstr "标签 y 轴"
+msgstr "y 轴标签"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr "显示"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
 msgstr "可信区间"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Model"
 msgstr "模型"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Components"
 msgstr "成分"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "序限制假设"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -742,109 +720,112 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
+"在新行上输入一个假设的单个限制，例如，\n"
+"factorLow == factorMid\n"
+"factorMid < factorHigh\n"
+"其中“factor”是因子（或协变量）名称，“Low”/“Mid”/“High”是因子水平名称。\n"
+"单击“加号+”图标来添加更多假设。\n"
+"单击信息图标以获取更多示例。"
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr ""
+msgstr "语法设置"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr ""
+msgstr "显示可用系数"
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr ""
+msgstr "为所有模型设置"
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr ""
+msgstr "模型摘要"
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "边际均值"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr ""
+msgstr "有信息的假设检验"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr ""
+msgstr "%1 的摘要"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr ""
+msgstr "%1 的边际均值"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr ""
+msgstr "%1 的有信息假设检验"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr ""
+msgstr "互补模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr ""
+msgstr "无约束模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr ""
+msgstr "添加到比较"
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr ""
+msgstr "加权比率"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr ""
+msgstr "参照模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr ""
+msgstr "相对权重矩阵"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr ""
+msgstr "比较模型系数"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr ""
+msgstr "突出显示启用的约束"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr ""
+msgstr "不确定性量化"
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr ""
+msgstr "异质性校正"
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr ""
+msgstr "Bootstrapping"
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "样本"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
 msgstr "置信区间"
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr ""
+msgstr "项"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
 msgstr "校正"
@@ -854,90 +835,74 @@ msgctxt "PostHocTests|"
 msgid "Null control"
 msgstr "Null control"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
 msgstr "单一模型推断"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Components"
 msgstr "成分"
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "指定模型的项"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Tables"
 msgstr "表"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Estimates"
 msgstr "估计"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "R²"
 msgstr "R²"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Plots"
 msgstr "绘图"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
 msgstr "边际后验"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
 msgstr "为每组水平单独绘图"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
 msgstr "为每个水平单独绘图"
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "残差 QQ 图"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "后验 R²"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "假设检验"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
 msgstr "齐性检验(Homogeneity)"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
 msgstr "同质性（齐性）校正"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "None"
 msgstr "无"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
 msgstr "Brown-Forsythe"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Welch"
 msgstr "Welch"
@@ -950,77 +915,62 @@ msgctxt "Contrasts|"
 msgid "Contrasts"
 msgstr ""
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Assume equal variances"
 msgstr "假设方差齐（相等）"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "置信区间"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
 msgstr "描述性绘图"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Factors"
 msgstr "因子"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
 msgstr "横轴"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
 msgstr "分隔线"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr "多图( Separate Plots)"
+msgstr "分隔绘图"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display"
 msgstr "显示"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display error bars"
 msgstr "显示误差线"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "置信区间"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
 msgstr "标准误"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Display"
 msgstr "显示"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Descriptive statistics"
 msgstr "描述性统计"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Estimates of effect size"
 msgstr "效应量估计"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "η²"
 msgstr "η²"
@@ -1030,12 +980,10 @@ msgctxt "Display|"
 msgid "partial η²"
 msgstr "partial η²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "general η²"
-msgstr "general η²"
+msgstr "一般 η²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "ω²"
 msgstr "ω²"
@@ -1045,56 +993,46 @@ msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Vovk-Sellke maximum p-ratio"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
 msgstr "边际均值"
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr ""
+msgstr "从"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
 msgstr "次的自助抽样(bootstrap)"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
-msgstr "将边际均值与0进行比较"
+msgstr "将边际均值与 0 进行比较"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
 msgstr "置信区间调整方法"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "None"
 msgstr "无"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model"
 msgstr "模型"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Components"
 msgstr "成分"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
 msgstr "模型的项(Terms)"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
 msgstr "非参数检验"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr "Kruskal-Wallis 检验"
@@ -1104,120 +1042,98 @@ msgctxt "Nonparametrics|"
 msgid " "
 msgstr " "
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Type"
 msgstr "类型"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Standard"
 msgstr "标准(Standard)"
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr ""
+msgstr "从"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "bootstraps"
 msgstr "次的自助抽样(bootstrap)"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
 msgstr "效应量"
 
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunnett"
 msgstr "Dunnett 检验"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunn"
 msgstr "Dunn 检验"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "校正"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Tukey"
 msgstr "Tukey"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Scheffé"
 msgstr "Scheffé"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Holm"
 msgstr "Holm"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Šidák"
 msgstr "Šidák"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Display"
 msgstr "显示"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "置信区间"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Flag Significant Comparisons"
 msgstr "标记具显著性比较结果"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
 msgstr "简单主效应"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
 msgstr "因子"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
 msgstr "简单效应因子"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
 msgstr "调节因子 1"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
 msgstr "调节因子 2"
 
-#, fuzzy
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
 msgstr "平方和"
@@ -1225,20 +1141,20 @@ msgstr "平方和"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
-msgstr ""
+msgstr "类型 %1"
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr ""
+msgstr "系数先验"
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
-msgstr ""
+msgstr "积分方法"
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
-msgstr ""
+msgstr "拉普拉斯近似法"

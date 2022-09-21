@@ -1495,7 +1495,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   descriptivesTable$addColumnInfo(name = "Mean",            title=gettext("Mean"),                     type = "number")
   descriptivesTable$addColumnInfo(name = "SD",              title=gettext("SD"),                       type = "number")
   descriptivesTable$addColumnInfo(name = "SE",              title=gettext("SE"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of variation"), type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of Variation"), type = "number")
   if (is.null(options$confidenceIntervalInterval)) {
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)

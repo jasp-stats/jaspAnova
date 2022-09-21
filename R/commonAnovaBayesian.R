@@ -246,7 +246,7 @@
     modelTable <- .BANOVAinitModelComparisonTable(options)
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
-  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
+  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options) && .BANOVAmarginalityOptionsUnchanged(stateObj, options)) {
 
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type or the ordering
@@ -2941,6 +2941,12 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies(options[["modelPrior"]])], options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])])
 }
 
+.BANOVAmarginalityOptionsUnchanged <- function(state, options) {
+  stateOpts <- state[["modelPriorOptions"]]
+  stateOpts[["enforcePrincipleOfMarginalityFixedEffects"]] == options[["enforcePrincipleOfMarginalityFixedEffects"]] &&
+    stateOpts[["enforcePrincipleOfMarginalityRandomSlopes"]] == options[["enforcePrincipleOfMarginalityRandomSlopes"]]
+}
+
 .BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
   nms <- c("fixedFactors", "modelTerms", "randomFactors", "covariates", "seed", "setSeed")
   nms <- intersect(names(options), nms) # excludes covariates for ANOVA
@@ -3069,8 +3075,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
       for (j in which(ord > 1L)) {
         labelPieces <- strsplit(termLabels[j], ":")[[1L]]
+        sortedLabelPieces <- sort(labelPieces)
         for (k in seq_along(originalLabelsPieces))
-          if (all(sort(labelPieces) == originalLabelsPiecesSorted[[k]]))
+          if (identical(sortedLabelPieces, originalLabelsPiecesSorted[[k]]))
             termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
       }
 

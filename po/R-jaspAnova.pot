@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.16.4\n"
-"POT-Creation-Date: 2022-09-17 03:25\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "SD"
 msgstr ""
 
-msgid "coefOfVariation"
+msgid "Coefficient of Variation"
 msgstr ""
 
 msgid "Assumption Checks"
@@ -632,9 +632,6 @@ msgid "Descriptives"
 msgstr ""
 
 msgid "Descriptives - %s"
-msgstr ""
-
-msgid "Coefficient of variation"
 msgstr ""
 
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."

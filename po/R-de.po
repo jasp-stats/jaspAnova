@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-09-10 03:28\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-09-11 09:22+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -228,7 +228,8 @@ msgstr "Mittelwert"
 msgid "SD"
 msgstr "SD"
 
-msgid "coefOfVariation"
+#, fuzzy
+msgid "Coefficient of Variation"
 msgstr "Variationskoeffizient"
 
 msgid "Assumption Checks"
@@ -795,9 +796,6 @@ msgstr "Deskriptive Statistiken"
 msgid "Descriptives - %s"
 msgstr "Deskriptiv - %s"
 
-msgid "Coefficient of variation"
-msgstr "Variationskoeffizient"
-
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
@@ -1121,6 +1119,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nullmodell (inkl. %s und zufällige Steigungen)"
 msgstr[1] "Nullmodell (inkl. %s, und zufällige Steigungen)"
+
+#~ msgid "coefOfVariation"
+#~ msgstr "Variationskoeffizient"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

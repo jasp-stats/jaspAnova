@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-09-10 03:28\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-09-21 16:16+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -212,8 +212,9 @@ msgstr "均值"
 msgid "SD"
 msgstr "标准差"
 
-msgid "coefOfVariation"
-msgstr ""
+#, fuzzy
+msgid "Coefficient of Variation"
+msgstr "模型比较"
 
 msgid "Assumption Checks"
 msgstr "假设检验"
@@ -523,8 +524,9 @@ msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
 "%2$s. Only the first 10 missing combinations are shown. Please adjust the "
 "model and remove any interactions with missing cells"
-msgstr "%1$s 的相互作用对组合没有观测值：%2$s 美元。仅显示前 10 "
-"个缺失的组合。请调整模型并删除与缺失单元格的任何交互"
+msgstr ""
+"%1$s 的相互作用对组合没有观测值：%2$s 美元。仅显示前 10 个缺失的组合。请调整"
+"模型并删除与缺失单元格的任何交互"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr "贝叶斯因子未定义——所有效应都被指定为干扰效应。"
@@ -732,10 +734,6 @@ msgstr "描述统计"
 
 msgid "Descriptives - %s"
 msgstr "描述统计 - %s"
-
-#, fuzzy
-msgid "Coefficient of variation"
-msgstr "模型比较"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

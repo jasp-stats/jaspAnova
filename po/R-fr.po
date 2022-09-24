@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-09-10 03:28\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-09-15 09:10+0000\n"
 "Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -222,8 +222,9 @@ msgstr "Moyenne"
 msgid "SD"
 msgstr "ET"
 
-msgid "coefOfVariation"
-msgstr ""
+#, fuzzy
+msgid "Coefficient of Variation"
+msgstr "Coefficient de variation"
 
 msgid "Assumption Checks"
 msgstr "Vérifications des présupposés"
@@ -736,9 +737,6 @@ msgstr "Descriptives"
 
 msgid "Descriptives - %s"
 msgstr "Descriptives - %s"
-
-msgid "Coefficient of variation"
-msgstr "Coefficient de variation"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

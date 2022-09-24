@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-09-10 03:28\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-06-09 13:33+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -227,8 +227,9 @@ msgstr "Gemiddelde"
 msgid "SD"
 msgstr "SD"
 
-msgid "coefOfVariation"
-msgstr ""
+#, fuzzy
+msgid "Coefficient of Variation"
+msgstr "Vergelijking van coëfficiënten"
 
 msgid "Assumption Checks"
 msgstr "Verificatie van aannames"
@@ -786,10 +787,6 @@ msgstr "Beschrijvende statistiek"
 
 msgid "Descriptives - %s"
 msgstr "Beschrijvingen - %s"
-
-#, fuzzy
-msgid "Coefficient of variation"
-msgstr "Vergelijking van coëfficiënten"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

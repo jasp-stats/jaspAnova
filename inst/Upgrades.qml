@@ -7,7 +7,7 @@ Upgrades
 	//Future authors DONT FORGET TO UPDATE THE VERSION NUMBER in DESCRIPTION and Description.qml!
 	function shouldRename(name)
 	{
-		return function(options) { return options.has(name); }
+		return function(options) { return options.hasOwnProperty(name); }
 	}
 
 	Upgrade

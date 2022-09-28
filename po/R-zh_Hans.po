@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-09-24 03:31\n"
-"PO-Revision-Date: 2022-09-21 16:16+0000\n"
+"PO-Revision-Date: 2022-09-28 09:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -39,7 +39,7 @@ msgstr "您的设计包含空单元格。请尝试使用不同类型的平方和
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr ""
+msgstr "无法计算 Welch 校正，因为在“%2$s”的以下几个水平分组后“%1$s”的方差为零：%3$s"
 
 msgid "ANOVA"
 msgstr "方差分析"
@@ -187,7 +187,7 @@ msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "结果基于未校正均值。"
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -212,9 +212,8 @@ msgstr "均值"
 msgid "SD"
 msgstr "标准差"
 
-#, fuzzy
 msgid "Coefficient of Variation"
-msgstr "模型比较"
+msgstr "变异系数"
 
 msgid "Assumption Checks"
 msgstr "假设检验"
@@ -266,7 +265,7 @@ msgid "Factor"
 msgstr "因子"
 
 msgid "Statistic"
-msgstr "统计"
+msgstr "统计量"
 
 msgid "Q-Q Plot"
 msgstr "Q-Q 图"
@@ -307,7 +306,8 @@ msgstr "请为 RM 因子选择一个与组间因子不同的名称。"
 msgid ""
 "Data set too big for univariate follow-up test. Try selecting \"Use "
 "multivariate model for follow-up tests\" in the Model tab."
-msgstr ""
+msgstr "数据集太大，无法进行单变量后续检验。尝试在“模型”选项卡中选择“使用多元模型进行"
+"跟踪检验”。"
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -409,11 +409,10 @@ msgid "Cohen's d"
 msgstr "Cohen's d"
 
 msgid "Computation of Cohen's d based on pooled error."
-msgstr ""
+msgstr "基于合并误差计算 Cohen's d ."
 
-#, fuzzy
 msgid "%s%% CI for Cohen's d"
-msgstr "Cohen's d 的%s%%置信区间"
+msgstr "Cohen's d 的 %s%% 置信区间"
 
 msgid "p<sub>scheffe</sub>"
 msgstr "p<sub>scheffe</sub>"
@@ -466,7 +465,7 @@ msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "请为 Friedman/Durbin 检验指定适当的项。"
 
 msgid "Not an unreplicated complete block design."
-msgstr ""
+msgstr "不是一个非重复的完整块设计。"
 
 msgid "Durbin Test"
 msgstr "Durbin 检验"
@@ -511,14 +510,13 @@ msgid "Duplicate variables encountered in %s"
 msgstr "在 %s 中遇到重复的变量"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "模型项中添加了重复的参与列，%s"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
 "%2$s. Please adjust the model and remove any interactions with missing cells"
-msgstr ""
-"对组合：%1$s的交互作用没有观测值：%2$s. 请调整模型并删除任何缺失单元的交互作"
-"用"
+msgstr "对组合：%1$s的交互作用没有观测值：%2$s. "
+"请调整模型并移除任何缺失单元的交互作用"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
@@ -545,10 +543,11 @@ msgid ""
 "automatic method. This is fine when exploring the data and obtaining a rough "
 "estimate. However, we recommend using the automatic integration method to "
 "obtain the final results."
-msgstr ""
+msgstr "拉普拉斯近似比自动方法更快，但也不太准确。这在探索数据并获得粗略估计时可用。"
+"但是，我们建议使用自动积分方法来获得最终结果。"
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "拉普拉斯近似并不总是提供误差估计。"
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -559,14 +558,13 @@ msgstr ""
 
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
-msgstr ""
+msgstr "所有模型都包括重复测量因子的 %s和随机斜率。"
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "重复测量因子的随机斜率被排除在外。"
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "所有型号都包括 %s"
+msgstr "所有模型都具有 %s。"
 
 msgid "Analysis of Effects - %s"
 msgstr "效应分析 - %s"
@@ -750,7 +748,7 @@ msgid "Raincloud plots"
 msgstr "雨云图"
 
 msgid "Dependent"
-msgstr ""
+msgstr "依赖"
 
 msgid "Sampling posteriors"
 msgstr "抽样后验"
@@ -795,22 +793,24 @@ msgid "Single Model R%s"
 msgstr "单一模型 R%s"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "序约束假设"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
 "\n"
 "Some restrictions are duplicate!"
 msgstr ""
+"在模型 %1$s 中发现语法错误。\n"
+"\n"
+"有些约束是重复的！"
 
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
-msgstr ""
+msgstr "%s 的约束语法有错误。无法解析语法！"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "自举(Bootstrap)边缘均值："
+msgstr "自举非约束模型"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""

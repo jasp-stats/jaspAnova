@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-09-24 03:31\n"
-"PO-Revision-Date: 2022-09-28 09:40+0000\n"
+"PO-Revision-Date: 2022-10-04 08:18+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hans/>\n"
@@ -813,114 +813,110 @@ msgid "Bootstrapping unrestricted model"
 msgstr "自举非约束模型"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 出错 - 无法对模型语法进行编码！错误消息：%2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 出错 - 模型中的语法错误！错误消息：%2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 出错 - 无法估计模型！错误消息：%2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "自举(Bootstrap)边缘均值："
+msgstr "自举(Bootstrap)约束模型"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
-msgstr ""
+msgstr "无法拟合非限约束模型。因此，无法估计任何约束模型。错误消息：%s。"
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
-msgstr ""
+msgstr "无法获得非约束模型的自助抽样。因此，无法执行受限模型的自助抽样。错误消息：%s"
+"。"
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "无法拟合任何指定的约束模型。因为：%s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "非约束的"
 
 msgid "Complement"
 msgstr ""
 
 msgid "Syntax information"
-msgstr ""
+msgstr "语法信息"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "约束语法的可用系数"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"无法为模型：%1$s 计算贝叶斯因子。\n"
-"错误消息是：%2$s。"
+msgstr "无法计算模型比较！错误消息：%s"
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "模型比较"
+msgstr "模型比较表"
 
-#, fuzzy
 msgid "Model"
 msgstr "模型"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "对数似然"
 
 msgid "Penalty"
-msgstr ""
+msgstr "惩罚"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
 msgstr "权重"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
-msgstr "权重"
+msgstr "权重比"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = 广义序约束信息准则 Generalized Order-Restricted Information "
+"Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion "
+"Approximation.（广义序约束信息准则近似）"
 
 msgid ""
 "Weights ratios indicate the relative weight for each model against the \"%1$s"
 "\" model. %2$s"
-msgstr ""
+msgstr "权重比表示每个模型相对于“%1$s”模型的相对权重。 %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "无法计算权重！"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "模型“%s”不能作为参考模型，因为它是空的！"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "所有型号都包括 %s"
+msgstr "排除了以下模型：%s。"
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "相对 %s-权重"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
-msgstr ""
+msgstr "比较中只有一个模型：无法计算相对权重矩阵"
 
 msgid "vs."
 msgstr ""
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "模型比较"
+msgstr "系数比较"
 
 msgid "Coefficient"
 msgstr "系数"

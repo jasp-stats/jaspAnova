@@ -84,7 +84,7 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
+  options$postHocNullControl <- TRUE
   options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 

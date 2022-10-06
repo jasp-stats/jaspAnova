@@ -186,7 +186,7 @@ Section
 
 		spacing:				0
 		Layout.preferredWidth:	parent.width
-		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+		visible	:				customPriorModelProbabilities.checked || !priorSpecificationAcrossParameters.checked
 		RowLayout
 		{
 			Row
@@ -205,7 +205,7 @@ Section
 			{
 				spacing:				customPriorLayout.space
 				Layout.preferredWidth:	customPriorLayout.prefWidth
-				Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked}
+				Label { text: qsTr("r-scale");				visible: !priorSpecificationAcrossParameters.checked}
 			}
 		}
 
@@ -246,7 +246,7 @@ Section
 						max:			100
 						defaultValue:	0.5
 						inclusive:		JASP.None
-						visible:		!rscalesAcrossParameters.checked && (covariates === null || !rowValue.split(INTERACTION_SEPARATOR).some(elt => { return covariates.columnsNames.includes(elt.trim())}))
+						visible:		!priorSpecificationAcrossParameters.checked && (covariates === null || !rowValue.split(INTERACTION_SEPARATOR).some(elt => { return covariates.columnsNames.includes(elt.trim())}))
 					}
 				}
 			}

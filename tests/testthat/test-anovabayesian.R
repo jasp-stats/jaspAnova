@@ -85,7 +85,7 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
+  options$postHocNullControl <- TRUE
   options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 
@@ -196,10 +196,10 @@ test_that("Model prior changes posterior model probabilities", {
   options[["betaBinomialParamB"]] <- 1.1
   options[["wilsonParamLambda"]] <- 0.8
   options[["castilloParamU"]] <- 2.1
-  options[["modelTermsCustomPrior"]] <- list(list(components = "contBinom",                 priorIncl = 0.1, rscaleFixed = 0.5),
-                                             list(components = "facGender",                 priorIncl = 0.2, rscaleFixed = 0.5),
-                                             list(components = c("contBinom", "facGender"), priorIncl = 0.3, rscaleFixed = 0.5))
-
+  options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 customPriorInclusionProbability = 0.1, customPriorScaleFixedEffects = 0.5),
+                                                list(components = "facGender",                 customPriorInclusionProbability = 0.2, customPriorScaleFixedEffects = 0.5),
+                                                list(components = c("contBinom", "facGender"), customPriorInclusionProbability = 0.3, customPriorScaleFixedEffects = 0.5))
+  
   # set to TRUE to regenerate the reference object, set to FALSE to test
   createReference <- FALSE
 

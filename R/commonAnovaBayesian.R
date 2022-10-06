@@ -1640,7 +1640,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                subjectName = .BANOVAsubjectName)
   }
 
-  if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+  if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
     splitScatterOptions                                       <- options
     splitScatterOptions[["colorPalette"]]                     <- "ggplot2"
     splitScatterOptions[["scatterPlotLegend"]]                <- TRUE

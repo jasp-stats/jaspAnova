@@ -1637,18 +1637,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   }
 
   if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
-    splitScatterOptions <- options
-    splitScatterOptions[["colorPalette"]] <- "ggplot2"
-    splitScatterOptions[["showLegend"]] <- TRUE
-    splitScatterOptions[["addSmooth"]] <- TRUE
-    splitScatterOptions[["addSmoothCI"]] <- plotErrorBars
-    splitScatterOptions[["addSmoothCIValue"]] <- TRUE
-    splitScatterOptions[["regressionType"]] <- "linear"
-    splitScatterOptions[["graphTypeAbove"]] <- "none"
-    splitScatterOptions[["graphTypeRight"]] <- "none"
-    splitScatterOptions[["addSmoothCIValue"]] <- if (is.null(options[["confidenceIntervalInterval"]]))
-      options[["plotCredibleIntervalInterval"]]
-    else options[["confidenceIntervalInterval"]]
+    splitScatterOptions                                       <- options
+    splitScatterOptions[["colorPalette"]]                     <- "ggplot2"
+    splitScatterOptions[["scatterPlotLegend"]]                <- TRUE
+    splitScatterOptions[["scatterPlotRegressionLine"]]        <- TRUE
+    splitScatterOptions[["scatterPlotRegressionLineCi"]]      <- plotErrorBars
+    splitScatterOptions[["scatterPlotRegressionLineType"]]    <- "linear"
+    splitScatterOptions[["scatterPlotGraphTypeAbove"]]        <- "none"
+    splitScatterOptions[["scatterPlotGraphTypeRight"]]        <- "none"
+    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <-
+      if (is.null(options[["confidenceIntervalInterval"]]))
+        options[["plotCredibleIntervalInterval"]]
+      else
+        options[["confidenceIntervalInterval"]]
 
     if (options$plotSeparatePlots != "") {
 

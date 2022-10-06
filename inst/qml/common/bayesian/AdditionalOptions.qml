@@ -48,7 +48,7 @@ Section
 			Group
 			{
 				columns: 1
-				title: qsTr("Prior")
+				title: qsTr("Coefficient Prior")
 				DoubleField {													name: "cauchyPriorScaleFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: priorSpecificationAcrossParameters.checked	}
 				DoubleField {													name: "cauchyPriorScaleRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: priorSpecificationAcrossParameters.checked	}
 				DoubleField { visible: analysis !== Common.Type.Analysis.ANOVA;	name: "cauchyPriorScaleCovariates";		label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;														}
@@ -57,6 +57,15 @@ Section
 
 		RadioButtonGroup
 		{
+			name: "integrationMethod"
+			title: qsTr("Integration Method")
+			RadioButton	{ value: "automatic";	label: qsTr("Automatic");				checked: true	; id: integrationMethodAutomatic	}
+			RadioButton	{ value: "laplace";		label: qsTr("Laplace approximation");														}
+		}
+
+		RadioButtonGroup
+		{
+			enabled: integrationMethodAutomatic.checked
 			name: "samplingMethodNumericAccuracy"
 			title: qsTr("Numerical Accuracy")
 			RadioButton { value: "auto";	label: qsTr("Auto"); checked: true }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
-"PO-Revision-Date: 2022-05-11 10:00+0000\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
+"PO-Revision-Date: 2022-09-28 09:40+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -219,14 +219,17 @@ msgid ""
 msgstr ""
 "Konfidenzintervall ist zu schmal, bitte wähle ein anderes Konfidenzniveau."
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "Mittelwert"
 
 msgid "SD"
 msgstr "SD"
 
-msgid "N"
-msgstr "N"
+msgid "Coefficient of Variation"
+msgstr "Variationskoeffizient"
 
 msgid "Assumption Checks"
 msgstr "Annahmeprüfungen"
@@ -501,6 +504,9 @@ msgstr "Kendalls W"
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "Bitte spezifiziere gültige Terme für den Friedman/Durbin Test."
 
+msgid "Not an unreplicated complete block design."
+msgstr "Kein unrepliziertes komplettes Blockdesign."
+
 msgid "Durbin Test"
 msgstr "Durbin-Test"
 
@@ -577,6 +583,20 @@ msgstr "Nullmodell (inkl. %s)"
 
 msgid "Computing Bayes factors"
 msgstr "Berechne Bayesfaktoren"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+"Die Laplace-Approximation ist schneller, aber auch weniger genau als die "
+"automatische Methode. Das ist in Ordnung zum Explorieren der Daten und für "
+"eine grobe Schätzung. Jedoch empfehlen wir, die automatische "
+"Integrationsmethode zu verwenden, um die endgültigen Ergebnisse zu erhalten."
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr "Die Laplace-Approximation liefert nicht immer eine Fehlerschätzung."
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -790,6 +810,9 @@ msgstr "Deskriptive Abbildung"
 
 msgid "Raincloud plots"
 msgstr "Regenwolken-Plots"
+
+msgid "Dependent"
+msgstr "Abhängig"
 
 msgid "Sampling posteriors"
 msgstr "Stichprobennahme der Posterior"
@@ -1095,6 +1118,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nullmodell (inkl. %s und zufällige Steigungen)"
 msgstr[1] "Nullmodell (inkl. %s, und zufällige Steigungen)"
+
+#~ msgid "coefOfVariation"
+#~ msgstr "Variationskoeffizient"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

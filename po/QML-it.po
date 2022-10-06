@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-19 09:18+0000\n"
+"PO-Revision-Date: 2022-07-28 21:17+0000\n"
 "Last-Translator: Giovanni Schettino <giannischettino00@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/it/>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 "X-Language: it\n"
 "X-Qt-Contexts: true\n"
 
@@ -27,15 +27,15 @@ msgstr "Classico"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA a misure ripetute"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
@@ -159,7 +159,7 @@ msgstr "Da"
 
 msgctxt "Ancova|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstrap"
 
 msgctxt "Ancova|"
 msgid "Effect size"
@@ -377,7 +377,6 @@ msgctxt "AncovaBayesian|"
 msgid "Specific Model Terms"
 msgstr "Termini specifici del modello"
 
-#, fuzzy
 msgctxt "AncovaBayesian|"
 msgid "R²"
 msgstr "R²"
@@ -786,7 +785,6 @@ msgctxt "AnovaBayesian|"
 msgid "Specific Model Terms"
 msgstr "Termini specifici del modello"
 
-#, fuzzy
 msgctxt "AnovaBayesian|"
 msgid "R²"
 msgstr "R²"

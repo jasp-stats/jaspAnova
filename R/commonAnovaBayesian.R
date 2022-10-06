@@ -246,7 +246,7 @@
     modelTable <- .BANOVAinitModelComparisonTable(options)
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
-  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options)) {
+  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options) && .BANOVAmarginalityOptionsUnchanged(stateObj, options)) {
 
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type or the ordering
@@ -268,6 +268,8 @@
     }
 
     internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
+    stateObj$postProbs        <- internalTableObj$internalTable[, "P(M|data)"]
+    stateObj$priorProbs       <- internalTableObj$internalTable[, "P(M)"]
     stateObj$internalTableObj <- internalTableObj
     modelTable$setData(internalTableObj$table)
     jaspResults[["tableModelComparison"]] <- modelTable
@@ -290,8 +292,6 @@
   rscaleRandom  <- tempRScale[["rscaleRandom"]]
   rscaleCont    <- tempRScale[["rscaleCont"]]
   rscaleEffects <- tempRScale[["rscaleEffects"]]
-
-  iter <- NA
 
   tmp <- .BANOVAcreateModelFormula(dependent, modelTerms)
   model.formula <- tmp$model.formula
@@ -390,8 +390,8 @@
   # internalTable is an internal representation of the model comparison table
   internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("P(M)", "P(M|data)", "BFM", "BF10", "error %")))
   # set BF null model and p(M)
-  internalTable[1L, 4L] <- 0
-  internalTable[, 1L] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
+  internalTable[1L, "BF10"] <- 0
+  internalTable[, "P(M)"] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
 
   #Now compute Bayes Factors for each model in the list, and populate the tables accordingly
   startProgressbar(nmodels, gettext("Computing Bayes factors"))
@@ -419,6 +419,14 @@
   # without these there is no error
   bfIterations <- if (options[["samplingMethodNumericAccuracy"]] == "auto") 1e4L else options[["samplesNumericAccuracy"]]
 
+  if (options[["integrationMethod"]] == "automatic") {
+    bfIntegrationMethod <- "auto"
+  } else {
+    bfIntegrationMethod <- "laplace"
+    modelTable$addFootnote(gettext("The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."))
+    modelTable$addFootnote(gettext("The Laplace approximation does not always provide an error estimate."), colNames = "error %")
+  }
+
   for (m in seq_len(nmodels)) {
     # loop over all models, where the first is the null-model and the last the most complex model
     if (is.na(reuseable[m])) {
@@ -434,7 +442,9 @@
           rscaleRandom  = rscaleRandom,
           rscaleCont    = rscaleCont,
           rscaleEffects = rscaleEffects,
-          iterations    = bfIterations))
+          iterations    = bfIterations,
+          method        = bfIntegrationMethod
+        ))
         if (isTryError(bf)) {
           modelName <- strsplit(.BANOVAas.character.formula(model.list[[m]]), "~ ")[[1L]][2L]
           .quitAnalysis(gettextf("Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s.",
@@ -462,7 +472,7 @@
         bfObj <- bfObj / modelObject[[1L]]$bf
 
       internalTable[m, "BF10"]    <- bfObj@bayesFactor[, "bf"] # always LogBF10!
-      internalTable[m, "error %"] <- bfObj@bayesFactor[, "error"]
+      internalTable[m, "error %"] <- bfObj@bayesFactor[, "error"] # always NA if bfIntegrationMethod == "laplace"
       # }
 
       # disable filling of Bayes factor column (see https://github.com/jasp-stats/jasp-test-release/issues/1018 for discussion)
@@ -513,17 +523,17 @@
     nuisanceRandomSlopes    = nuisanceRandomSlopes,
     analysisType            = analysisType,
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
-    model.list              = model.list,
-    fixedFactors            = fixedFactors,
-    randomFactors           = randomFactors, # stored because they are modified in RM-ANOVA
-    modelTerms              = modelTerms,
-    covariates              = options[["covariates"]],
-    seed                    = options[["seed"]],
-    setSeed                 = options[["setSeed"]],
-    reuseable               = reuseable,
-    RMFactors               = options[["repeatedMeasuresFactors"]],
-    modelPriorOptions       = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
-    hideNuisanceParameters  = options[["hideNuisanceParameters"]]
+    model.list           = model.list,
+    fixedFactors         = fixedFactors,
+    randomFactors        = if (analysisType == "RM-ANOVA") randomFactors else options[["randomFactors"]], # stored because they are modified in RM-ANOVA
+    modelTerms           = modelTerms,
+    covariates           = if (analysisType == "ANOVA") NULL else options[["covariates"]],
+    seed                 = options[["seed"]],
+    setSeed              = options[["setSeed"]],
+    reuseable            = reuseable,
+    RMFactors            = options[["repeatedMeasuresFactors"]],
+    modelPriorOptions    = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
+    hideNuisanceEffects  = options[["hideNuisanceEffects"]]
   )
 
   # save state
@@ -531,6 +541,7 @@
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
     "dependent", "repeatedMeasuresCells", "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "seed", "setSeed",
     .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
+
   ))
 
   jaspResults[["tableModelComparisonState"]] <- stateObj
@@ -556,6 +567,7 @@
     .BANOVAdataDependencies(),
     "effects", "effectsType",
     "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "bayesFactorType",
+    "integrationMethod",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
@@ -704,7 +716,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
     .BANOVAdataDependencies(),
-    "samplingMethodNumericAccuracy", "samplesNumericAccuracy",
+    "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "integrationMethod",
     "bayesFactorType", "bayesFactorOrder",
     "hideNuisanceParameters", "legacyResults",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
@@ -740,46 +752,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # function that actually fills in the table created by .BANOVAinitModelComparisonTable
   footnotes <- NULL
-  if (anyNA(internalTable[, "P(M|data)"])) {
-    # if TRUE, called from analysis
 
-    logSumExp <- matrixStats::logSumExp
-    logbfs <- internalTable[, "BF10"]
-    if (!anyNA(internalTable[, "BF10"])) {
-      # no errors, proceed normally and complete the table
+  logSumExp <- matrixStats::logSumExp
+  logbfs <- internalTable[, "BF10"]
+  logprior <- log(internalTable[, "P(M)"])
+  if (!anyNA(internalTable[, "BF10"])) {
+    # no errors, proceed normally and complete the table
 
-      logsumbfs <- logSumExp(logbfs)
-      internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
+    logsumbfs <- logSumExp(logbfs + logprior)
+    internalTable[, "P(M|data)"] <-  exp(logbfs + logprior - logsumbfs)
 
-      nmodels <- nrow(internalTable)
-      mm <- max(logbfs)
-      for (i in seq_len(nmodels)) {
-        internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
-      }
-
-    } else {
-      # create table excluding failed models
-
-      idxGood <- !is.na(logbfs)
-      widxGood <- which(idxGood)
-      logsumbfs <- logSumExp(logbfs[idxGood])
-      internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
-
-      nmodels <- sum(idxGood)
-      mm <- max(logbfs, na.rm = TRUE)
-      widxBad <- which(!idxGood)
-      for (i in widxGood) {
-        internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
-      }
-
-      internalTable[widxBad, "P(M|data)"] <- NaN
-      internalTable[widxBad, "BFM"]       <- NaN
-      internalTable[widxBad, "BF10"]      <- NaN
-      footnotes <- list(
-        message = gettext("<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!")
-      )
+    nmodels <- nrow(internalTable)
+    for (i in seq_len(nmodels)) {
+      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
     }
-  } # else: results already computed
+
+  } else {
+    # create table excluding failed models
+
+    idxGood <- !is.na(logbfs)
+    widxGood <- which(idxGood)
+    logsumbfs <- logSumExp(logbfs[idxGood])
+    internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
+
+    nmodels <- sum(idxGood)
+    widxBad <- which(!idxGood)
+    for (i in widxGood) {
+      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
+    }
+
+    internalTable[widxBad, "P(M|data)"] <- NaN
+    internalTable[widxBad, "BFM"]       <- NaN
+    internalTable[widxBad, "BF10"]      <- NaN
+    footnotes <- list(
+      message = gettext("<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!")
+    )
+  }
 
   # create the output table
   table <- as.data.frame(internalTable)
@@ -1492,6 +1500,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of variation"), type = "number")
 
   if (is.null(options$descriptivePlotCiLevel)) {
+
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
   }
@@ -1631,17 +1640,20 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                subjectName = .BANOVAsubjectName)
   }
 
-  if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
-    splitScatterOptions <- options
-    splitScatterOptions[["colorPalette"]] <- "ggplot2"
-    splitScatterOptions[["showLegend"]] <- TRUE
-    splitScatterOptions[["addSmooth"]] <- TRUE
-    splitScatterOptions[["addSmoothCI"]] <- plotErrorBars
-    splitScatterOptions[["addSmoothCIValue"]] <- TRUE
-    splitScatterOptions[["regressionType"]] <- "linear"
-    splitScatterOptions[["graphTypeAbove"]] <- "none"
-    splitScatterOptions[["graphTypeRight"]] <- "none"
-    splitScatterOptions[["addSmoothCIValue"]] <- options[["descriptivePlotCiLevel"]]
+  if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+    splitScatterOptions                                       <- options
+    splitScatterOptions[["colorPalette"]]                     <- "ggplot2"
+    splitScatterOptions[["scatterPlotLegend"]]                <- TRUE
+    splitScatterOptions[["scatterPlotRegressionLine"]]        <- TRUE
+    splitScatterOptions[["scatterPlotRegressionLineCi"]]      <- plotErrorBars
+    splitScatterOptions[["scatterPlotRegressionLineType"]]    <- "linear"
+    splitScatterOptions[["scatterPlotGraphTypeAbove"]]        <- "none"
+    splitScatterOptions[["scatterPlotGraphTypeRight"]]        <- "none"
+    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <-
+      if (is.null(options[["confidenceIntervalInterval"]]))
+        options[["plotCredibleIntervalInterval"]]
+      else
+        options[["confidenceIntervalInterval"]]
 
     if (options$descriptivePlotSeparatePlot != "") {
 
@@ -1826,11 +1838,19 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (analysisType == "RM-ANOVA") {
     addLines   <- !(groupVar %in% unlist(options[["betweenSubjectFactors"]]))
     dependentV <- .BANOVAdependentName
-    yLabel     <- options[["rainCloudYAxisLabel"]]
+
+    yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
+    if (trimws(yLabel) == "") {
+      title <- gettext("Dependent")
+      yLabel <- NULL
+    } else {
+      title <- yLabel
+    }
   } else {
     addLines   <- FALSE
     dependentV <- options[["dependent"]]
     yLabel     <- options[["dependent"]]
+    title      <- options[["dependent"]]
   }
 
   if (!is.null(options$rainCloudHorizontalDisplay) && options$rainCloudHorizontalDisplay)
@@ -1838,10 +1858,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   else
     horiz <- FALSE
 
-  if (options$rainCloudSeparatePlots != "") {
-    for (thisLevel in levels(dataset[[options[["rainCloudSeparatePlots"]]]])) {
-      subData      <- dataset[dataset[[options[["rainCloudSeparatePlots"]]]] == thisLevel, ]
-      thisPlotName <- paste0(dependentV, ": ", options[["rainCloudSeparatePlots"]], ": ", thisLevel)
+
+  if (options$rainCloudPlotsSeparatePlots != "") {
+    for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
+      subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
+      thisPlotName <- paste0(title, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot
       p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
@@ -1851,7 +1872,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
         subPlot$plotObject <- p
     }
   } else {
-    singlePlot <- createJaspPlot(title = dependentV, width = 480, height = 320)
+    singlePlot <- createJaspPlot(title = title, width = 480, height = 320)
     rainCloudPlotsContainer[["rainCloudPlotSingle"]] <- singlePlot
     p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(dataset, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
     if(isTryError(p))
@@ -2927,8 +2948,15 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   !identical(state[["modelPriorOptions"]][.BANOVAmodelSpaceDependencies(options[["modelPrior"]])], options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])])
 }
 
+.BANOVAmarginalityOptionsUnchanged <- function(state, options) {
+  stateOpts <- state[["modelPriorOptions"]]
+  stateOpts[["enforcePrincipleOfMarginalityFixedEffects"]] == options[["enforcePrincipleOfMarginalityFixedEffects"]] &&
+    stateOpts[["enforcePrincipleOfMarginalityRandomSlopes"]] == options[["enforcePrincipleOfMarginalityRandomSlopes"]]
+}
+
 .BANOVAmodelBFTypeOrOrderChanged <- function(state, options) {
   nms <- c("fixedFactors", "modelTerms", "randomFactors", "covariates", "seed", "setSeed")
+  nms <- intersect(names(options), nms) # excludes covariates for ANOVA
   identical(state[nms], options[nms])
 }
 
@@ -3054,8 +3082,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
       for (j in which(ord > 1L)) {
         labelPieces <- strsplit(termLabels[j], ":")[[1L]]
+        sortedLabelPieces <- sort(labelPieces)
         for (k in seq_along(originalLabelsPieces))
-          if (all(sort(labelPieces) == originalLabelsPiecesSorted[[k]]))
+          if (identical(sortedLabelPieces, originalLabelsPiecesSorted[[k]]))
             termLabels[j] <- paste(originalLabelsPieces[[k]], collapse = ":")
       }
 

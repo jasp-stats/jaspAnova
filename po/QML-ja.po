@@ -454,11 +454,6 @@ msgstr ""
 
 #, fuzzy
 msgctxt "AdditionalOptions|"
-msgid "Prior"
-msgstr "事前分布"
-
-#, fuzzy
-msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr "固定効果のr スケール"
 
@@ -1242,4 +1237,20 @@ msgstr "平方和"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
 msgstr ""

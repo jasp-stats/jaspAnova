@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-02-16 17:04+0000\n"
 "Last-Translator: BogdanKKJ <bogdan.dm.cocos@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -202,13 +202,16 @@ msgid ""
 "level."
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "Mean"
 msgstr ""
 
 msgid "SD"
 msgstr ""
 
-msgid "N"
+msgid "Coefficient of Variation"
 msgstr ""
 
 msgid "Assumption Checks"
@@ -456,6 +459,9 @@ msgstr ""
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr ""
 
@@ -522,6 +528,16 @@ msgid "Null model (incl. %s)"
 msgstr ""
 
 msgid "Computing Bayes factors"
+msgstr ""
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
 msgstr ""
 
 msgid ""
@@ -706,6 +722,9 @@ msgid "Descriptives Plot"
 msgstr ""
 
 msgid "Raincloud plots"
+msgstr ""
+
+msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"

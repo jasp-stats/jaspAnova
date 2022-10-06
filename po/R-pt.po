@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
-"PO-Revision-Date: 2021-09-15 11:48+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
+"PO-Revision-Date: 2022-08-29 00:19+0000\n"
+"Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
 "Language: pt\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -221,14 +221,18 @@ msgstr ""
 "O intervalo de confiança é muito estreito, selecione um nível de confiança "
 "diferente."
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "Média"
 
 msgid "SD"
 msgstr "DP"
 
-msgid "N"
-msgstr "N"
+#, fuzzy
+msgid "Coefficient of Variation"
+msgstr "Comparação de Modelo"
 
 msgid "Assumption Checks"
 msgstr "Verificar pressupostos"
@@ -502,6 +506,9 @@ msgstr "W de Kendall"
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "Especifique os termos apropriados para o teste de Friedman/Durbin."
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "Teste de Durbin"
 
@@ -578,6 +585,16 @@ msgstr "Modelo nulo (incl. %s)"
 
 msgid "Computing Bayes factors"
 msgstr "Calcular fatores bayesianos"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -789,6 +806,9 @@ msgstr "Diagramas Descritivos"
 msgid "Raincloud plots"
 msgstr "DiagramasRaincloud"
 
+msgid "Dependent"
+msgstr ""
+
 msgid "Sampling posteriors"
 msgstr "Amostragem posterior"
 
@@ -961,7 +981,7 @@ msgid "Coefficients Comparison"
 msgstr "Comparação de Modelo"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Coeficiente"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""

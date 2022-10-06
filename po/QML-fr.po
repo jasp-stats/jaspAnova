@@ -375,8 +375,13 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
+"Cette analyse a été créée avec une ancienne version de JASP (ou un module "
+"dynamique). Depuis lors, la spécification du modèle de l'ANOVA bayésienne à "
+"mesures répétées a changé. Par défaut, tous les modèles incluent maintenant "
+"des pentes aléatoires pour toutes les interactions à mesures répétées, sauf "
+"celles d'ordre supérieur, afin d'éviter les divergences avec l'ANOVA à "
+"mesures répétées fréquentiste."
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
 msgstr "Options supplémentaires"
@@ -392,11 +397,6 @@ msgstr ""
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
 msgstr ""
-
-#, fuzzy
-msgctxt "AdditionalOptions|"
-msgid "Prior"
-msgstr "Antérieur"
 
 #, fuzzy
 msgctxt "AdditionalOptions|"
@@ -1245,4 +1245,20 @@ msgstr "Somme des carrés"
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -209,14 +209,18 @@ msgid ""
 "level."
 msgstr "信頼区間が狭すぎるので，別の信頼水準を選択してください。"
 
+msgid "N"
+msgstr "N"
+
 msgid "Mean"
 msgstr "平均値"
 
 msgid "SD"
 msgstr "標準偏差"
 
-msgid "N"
-msgstr "N"
+#, fuzzy
+msgid "Coefficient of Variation"
+msgstr "係数"
 
 msgid "Assumption Checks"
 msgstr "仮定のチェック"
@@ -480,6 +484,9 @@ msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
 "フリードマン(Friedman)/ダービン(Durbin)検定に適切な項を指定してください。"
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr "ダービン(Durbin)検定"
 
@@ -552,6 +559,16 @@ msgstr "帰無モデル (%s含む)"
 
 msgid "Computing Bayes factors"
 msgstr "ベイズファクターの計算"
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -759,6 +776,9 @@ msgstr "記述統計量プロット"
 
 msgid "Raincloud plots"
 msgstr "雨雲プロット"
+
+msgid "Dependent"
+msgstr ""
 
 msgid "Sampling posteriors"
 msgstr "事後分布のサンプリング"

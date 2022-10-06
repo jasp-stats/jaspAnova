@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jaspAnova 0.16.3\n"
-"POT-Creation-Date: 2022-06-22 12:56\n"
+"Project-Id-Version: jaspAnova 0.16.4\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,13 +181,16 @@ msgstr ""
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "Mean"
 msgstr ""
 
 msgid "SD"
 msgstr ""
 
-msgid "N"
+msgid "Coefficient of Variation"
 msgstr ""
 
 msgid "Assumption Checks"
@@ -412,6 +415,9 @@ msgstr ""
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
 
+msgid "Not an unreplicated complete block design."
+msgstr ""
+
 msgid "Durbin Test"
 msgstr ""
 
@@ -473,6 +479,12 @@ msgid "Null model (incl. %s)"
 msgstr ""
 
 msgid "Computing Bayes factors"
+msgstr ""
+
+msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
 msgstr ""
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
@@ -632,6 +644,9 @@ msgid "Descriptives Plot"
 msgstr ""
 
 msgid "Raincloud plots"
+msgstr ""
+
+msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"

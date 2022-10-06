@@ -3,12 +3,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: tr\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
 msgstr ""
 
 msgctxt "Description|"
@@ -116,6 +118,10 @@ msgid "Repeated Measures Factors"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
 msgstr ""
 
@@ -208,7 +214,7 @@ msgid "Tukey"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Factors"
+msgid "Scheffé"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
@@ -228,7 +234,7 @@ msgid "Nonparametrics"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "RM Factor"
+msgid "Factors"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
@@ -240,7 +246,20 @@ msgid "Conover's post hoc tests"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid ""
+"This analysis was created with an older version of JASP (or a dynamic "
+"module). Since then, the model specification of the Bayesian Repeated "
+"Measures ANOVA has changed. By default, all models now include random slopes "
+"for all but the highest order repeated-measures interaction to avoid "
+"discrepancies with the frequentist repeated measures ANOVA."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -253,185 +272,6 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Raincloud Plots"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Factors"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal Axis"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Separate Plots"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal display"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Label y-axis"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Dependent Variables"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Fixed Factors"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Random Factors"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Model"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Components"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Model Terms"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Include intercept"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Additional Options"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Test"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Pillai"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Wilks"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Hotelling-Lawley"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Roy"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Assumption Checks"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Homogeneity of covariance matrices"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Multivariate normality"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Display"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "ANOVA tables"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
-
-msgctxt "Description|"
-msgid "Evaluate the difference between multiple means"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffé"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "RM Factor"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Model 1"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Include intercept"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Model comparison"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "None"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC0"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC1"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC2"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC3"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC4"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC4m"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC5"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Restricted Marginal Means"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid ""
-"Ctrl + Enter to apply. Click on the blue button above for help on the "
-"restriction syntax"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid ""
-"This analysis was created with an older version of JASP (or a dynamic "
-"module). Since then, the model specification of the Bayesian Repeated "
-"Measures ANOVA has changed. By default, all models now include random slopes "
-"for all but the highest order repeated-measures interaction to avoid "
-"discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
 
 msgctxt "AdditionalOptions|"
@@ -451,6 +291,10 @@ msgid "For each term individually"
 msgstr ""
 
 msgctxt "AdditionalOptions|"
+msgid "Coefficient Prior"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr ""
 
@@ -460,6 +304,18 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Integration Method"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "AdditionalOptions|"
+msgid "Laplace approximation"
 msgstr ""
 
 msgctxt "AdditionalOptions|"
@@ -695,116 +551,6 @@ msgctxt "ModelTerms|"
 msgid "Components"
 msgstr ""
 
-msgctxt "OrderRestrictions|"
-msgid "Order Restricted Hypotheses"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid ""
-"Enter each restriction of one hypothesis on a new line, e.g., \n"
-"factorLow == factorMid\n"
-"factorMid < factorHigh\n"
-"where 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are "
-"the factor level names.\n"
-"Click on the 'plus' icon to add more hypotheses. \n"
-"Click the information icon for more examples."
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Syntax settings"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Show available coefficients"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Set for all models"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Model summary"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Marginal means"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Informed hypothesis tests"
-msgstr ""
-
-#, qt-format
-msgctxt "OrderRestrictions|"
-msgid "Summary for %1"
-msgstr ""
-
-#, qt-format
-msgctxt "OrderRestrictions|"
-msgid "Marginal means for %1"
-msgstr ""
-
-#, qt-format
-msgctxt "OrderRestrictions|"
-msgid "Informed hypothesis tests for %1"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Complement model"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Unconstrained model"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Add to comparison"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Add weight ratios"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Reference model"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Relative weights matrix"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Compare model coefficients"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Highlight active restrictions"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Uncertainty quantification"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Heterogeneity correction"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Bootstrapping"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Samples"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Confidence intervals"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Terms"
-msgstr ""
-
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
 msgstr ""
@@ -1021,6 +767,174 @@ msgctxt "Nonparametrics|"
 msgid " "
 msgstr ""
 
+msgctxt "OrderRestrictions|"
+msgid "Order Restricted Hypotheses"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Enter each restriction of one hypothesis on a new line, e.g., \n"
+"factorLow == factorMid\n"
+"factorMid < factorHigh\n"
+"where 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are "
+"the factor level names.\n"
+"Click on the 'plus' icon to add more hypotheses. \n"
+"Click the information icon for more examples."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Click to learn more about the syntax for order restrictions."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Syntax settings"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Show available coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Set for all models"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model summary"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Marginal means"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model 1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Ctrl + Enter to apply. Click on the blue button above for help on the "
+"restriction syntax"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Summary for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Marginal means for %1"
+msgstr ""
+
+#, qt-format
+msgctxt "OrderRestrictions|"
+msgid "Informed hypothesis tests for %1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Complement model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Unconstrained model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "None"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add to comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Add weight ratios"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Reference model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Relative weights matrix"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Compare model coefficients"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Highlight active restrictions"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Uncertainty quantification"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Heterogeneity correction"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC0"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC2"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC3"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4m"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC5"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Bootstrapping"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Confidence intervals"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Restricted Marginal Means"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Terms"
+msgstr ""
+
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr ""
@@ -1122,18 +1036,102 @@ msgctxt "SumOfSquares|"
 msgid "Type %1"
 msgstr ""
 
-msgctxt "AdditionalOptions|"
-msgid "Coefficient Prior"
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
 msgstr ""
 
-msgctxt "AdditionalOptions|"
-msgid "Integration Method"
+msgctxt "RainCloudPlots|"
+msgid "Factors"
 msgstr ""
 
-msgctxt "AdditionalOptions|"
-msgid "Automatic"
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
 msgstr ""
 
-msgctxt "AdditionalOptions|"
-msgid "Laplace approximation"
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Dependent Variables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Test"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Pillai"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Wilks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Hotelling-Lawley"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Roy"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Homogeneity of covariance matrices"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Multivariate normality"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "ANOVA tables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Vovk-Sellke maximum p-ratio"
 msgstr ""

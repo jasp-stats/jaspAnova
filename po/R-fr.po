@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-05-07 02:59\n"
-"PO-Revision-Date: 2022-02-26 02:43+0000\n"
-"Last-Translator: Jordy STEFAN <jordy.stefan@askoria.eu>\n"
+"POT-Creation-Date: 2022-09-24 03:31\n"
+"PO-Revision-Date: 2022-09-28 09:40+0000\n"
+"Last-Translator: Cécile Mazon <cecile.mazon@inria.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
 "Language: fr\n"
@@ -11,14 +11,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
 msgstr ""
-"Les poids WLS contiennent des valeurs négatives et / ou nulles. <br><br> "
-"(seuls les poids WLS positifs sont autorisés)."
+"Les poids WLS contiennent des valeurs négatives et/ou nulles. <br><br> ("
+"seuls les poids WLS positifs sont autorisés)."
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
@@ -48,6 +48,8 @@ msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"La correction de Welch n'a pas pu être calculée car '%1$s' a une variance "
+"nulle après regroupement au(x) niveau(x) suivant(s) de '%2$s': %3$s"
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -146,6 +148,8 @@ msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
 "distribution."
 msgstr ""
+"L'estimation des différences de moyennes est basée sur la médiane de la "
+"distribution bootstrap"
 
 msgid "Bias corrected accelerated."
 msgstr ""
@@ -159,31 +163,31 @@ msgid ""
 msgstr ""
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Comparaisons post-hoc de Dunn - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "Comparaison"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub>"
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Comparaisons post-hoc Games-Howell"
 
 msgid "Mean Difference"
 msgstr ""
@@ -192,24 +196,29 @@ msgid "%.0f%% CI for Mean Difference"
 msgstr ""
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>turkey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Les résultats sont basés sur des moyennes non corrigées."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Comparaisons post-hoc de Dunnett"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>dunette</sub>"
 
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr ""
+"L'intervalle de confiance est trop étroit, merci de sélectionner un niveau "
+"de confiance différent."
+
+msgid "N"
+msgstr "N"
 
 msgid "Mean"
 msgstr "Moyenne"
@@ -217,31 +226,34 @@ msgstr "Moyenne"
 msgid "SD"
 msgstr "ET"
 
-msgid "N"
-msgstr "N"
+msgid "Coefficient of Variation"
+msgstr "Coefficient de variation"
 
 msgid "Assumption Checks"
 msgstr "Vérifications des présupposés"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Test d'égalité des variances (Levene)"
 
 msgid "df1"
-msgstr ""
+msgstr "ddl1"
 
 msgid "df2"
-msgstr ""
+msgstr "ddl2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
 "essentially perfect fit are unreliable)"
 msgstr ""
+"Une valeur F égale à zéro indique une adéquation parfaite <br><br>(Des tests "
+"de Levene sur une adéquation quasi-parfaite ne sont pas fiables)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Moyennes marginales"
 
+#, fuzzy
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Moyennes marginales Bootstrap"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -250,26 +262,27 @@ msgstr ""
 "Certains intervalles de confiance n'ont pas pu être calculés. Peut-être trop "
 "peu de répliques bootstrap."
 
+#, fuzzy
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Le bootstrap est basé sur %s répliques"
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Effets simples principaux"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Effets simples principaux - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Niveau de %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Pas assez d'observations dans les cellules %s"
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Test de Kruskal-Wallis"
 
 msgid "Factor"
-msgstr ""
+msgstr "Facteur"
 
 msgid "Statistic"
 msgstr "Statistique"
@@ -281,96 +294,109 @@ msgid "Theoretical Quantiles"
 msgstr "Quantiles Théoriques"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "Résidus standardisés"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Erreur lors du chargement des données. Merci de vérifier vos observations en "
+"mesures répétées."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Facteur: <em>%s</em>, contient moins de deux niveaux."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Facteurs: <em>%s</em>, contiennent moins de deux niveaux."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La mesure répétée: <em>%s</em>, contient des valeurs infinies."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Les mesures répétées: <em>%s</em>, contiennent des valeurs infinies."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La covariable: <em>%s</em>, contient des valeurs infinies."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Les covariances: <em>%s</em>, contiennent des valeurs infinies."
 
 msgid ""
 "Please choose a name for the RM factors that differs from those for the "
 "between subjects factors."
 msgstr ""
+"Merci de choisir un nom pour les facteurs répétés qui soient différents de "
+"ceux des facteurs inter-sujets."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try selecting \"Use "
 "multivariate model for follow-up tests\" in the Model tab."
 msgstr ""
 
+#, fuzzy
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
 "design."
 msgstr ""
+"Certains paramètres n'ont pas pu être estimés, sûrement à cause de cellules "
+"vides dans le design"
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Effets Inter-sujets"
 
 msgid "%s<sub>G</sub>"
 msgstr ""
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Effets intra-sujets"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Correction de sphéricité"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
+"Les corrections de sphéricité ne sont pas disponibles pour des facteurs à 2 "
+"niveaux"
 
 msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "
 "violated (p < .05)."
 msgstr ""
+"Le test de sphéricité de Mauchly indique que l'hypothèse de sphéricité est "
+"violée (p < .05)."
 
 msgid ""
 "Cannot perform homogeneity tests because there are no between subjects "
 "factors specified."
 msgstr ""
+"Impossible de réaliser les tests d'homogénéité parce qu'il n'y a aucun "
+"facteur inter-sujet spécifié"
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Test de sphéricité"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W de Mauchly"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Approx. %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "p-value"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
 msgstr "Limite inférieure %s"
@@ -399,19 +425,20 @@ msgid ""
 msgstr ""
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Comparaisons post-hoc -"
 
+#, fuzzy
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Comparaisons post-hoc par bootstrap -"
 
 msgid "%1$s%% bca%2$s CI"
 msgstr ""
 
 msgid "bias"
-msgstr ""
+msgstr "biais"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d de Cohen"
 
 msgid "Computation of Cohen's d based on pooled error."
 msgstr ""
@@ -441,9 +468,12 @@ msgstr "Moyenne marginale"
 msgid "95%% bca%s CI"
 msgstr ""
 
+#, fuzzy
 msgid ""
 "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"Les moyennes marginales sont estimées sur la base de la médiane de la "
+"distribution bootstrap"
 
 msgid "95%% CI for Mean Difference"
 msgstr ""
@@ -455,55 +485,63 @@ msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Non-paramétriques"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Test de Friedman"
 
 msgid "Chi-Squared"
-msgstr ""
+msgstr "Chi-Deux"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W de Kendall"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
+"Merci de spécifier des termes appropriés pour le test de Friedman/Durbin."
+
+msgid "Not an unreplicated complete block design."
+msgstr ""
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Test de Durbin"
 
 msgid "df num"
-msgstr ""
+msgstr "ddl num"
 
 msgid "df den"
-msgstr ""
+msgstr "ddl den"
 
 msgid "p<sub>F</sub>"
 msgstr ""
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Test de Conover"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Compraisons post-hoc de Conover"
 
 msgid "T-Stat"
 msgstr ""
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Groupé par %s"
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
+"Les facteurs de modération doivent aussi apparaître dans les termes du "
+"modèle !"
 
 msgid "Infinity found in repeated measures cells."
 msgstr ""
 
+#, fuzzy
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "Le nombre d'observation est <%s dans les cellules de mesures répétées"
 
+#, fuzzy
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "La variance dans les cellules à mesures répétées est de 0"
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
@@ -535,6 +573,16 @@ msgid "Null model (incl. %s)"
 msgstr ""
 
 msgid "Computing Bayes factors"
+msgstr ""
+
+msgid ""
+"The Laplace approximation is faster but also less accurate than the "
+"automatic method. This is fine when exploring the data and obtaining a rough "
+"estimate. However, we recommend using the automatic integration method to "
+"obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
 msgstr ""
 
 msgid ""
@@ -731,6 +779,9 @@ msgid "Descriptives Plot"
 msgstr ""
 
 msgid "Raincloud plots"
+msgstr ""
+
+msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"

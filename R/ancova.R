@@ -1155,7 +1155,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
 
         sigmaAB <- sqrt( ( (bigN * (bigN + 1))/12 - nTies/(12 * (bigN - 1)) ) * (1/nPerGroup[i] + 1/nPerGroup[j] )  )
         zAB <- (meanPerGroup[i] - meanPerGroup[j]) / sigmaAB
-        pValAB <- pnorm(abs(zAB), lower.tail = FALSE)
+        pValAB <- 2 * pnorm(abs(zAB), lower.tail = FALSE) # make two-sided p-value
 
         dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
                                                    z = zAB,
@@ -1373,7 +1373,7 @@ Ancova <- function(jaspResults, dataset = NULL, options) {
   descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),            type = "number")
   descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),              type = "number")
   descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),              type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("coefOfVariation"), type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("Coefficient of Variation"), type = "number")
 
   lvls <- list()
   factors <- list()

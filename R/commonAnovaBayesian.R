@@ -2698,7 +2698,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
       switch (options[["modelPrior"]],
               "betaBinomial"  = {alpha = options[["betaBinomialParameterA"]]; beta = options[["betaBinomialParameterB"]]                    },
-              "Wilson"        = {alpha = 1.0;                                 beta = totalNoPredictors * options[["wilsonParamerLambda"]] },
+              "Wilson"        = {alpha = 1.0;                                 beta = totalNoPredictors * options[["wilsonParameterLambda"]] },
               "Castillo"      = {alpha = 1.0;                                 beta = totalNoPredictors ^ options[["castilloParameterU"]]    }
       )
 

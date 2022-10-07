@@ -191,11 +191,11 @@ test_that("Model prior changes posterior model probabilities", {
   options$effects <- TRUE
 
   # so that the priors actually differ
-  options[["bernoulliParam"]] <- .3
-  options[["betaBinomialParamA"]] <- 1.1
-  options[["betaBinomialParamB"]] <- 1.1
-  options[["wilsonParamLambda"]] <- 0.8
-  options[["castilloParamU"]] <- 2.1
+  options[["bernoulliParameter"]] <- .3
+  options[["betaBinomialParameterA"]] <- 1.1
+  options[["betaBinomialParameterB"]] <- 1.1
+  options[["wilsonParameterLambda"]] <- 0.8
+  options[["castilloParameterU"]] <- 2.1
   options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 customPriorInclusionProbability = 0.1, customPriorScaleFixedEffects = 0.5),
                                                 list(components = "facGender",                 customPriorInclusionProbability = 0.2, customPriorScaleFixedEffects = 0.5),
                                                 list(components = c("contBinom", "facGender"), customPriorInclusionProbability = 0.3, customPriorScaleFixedEffects = 0.5))
@@ -206,7 +206,7 @@ test_that("Model prior changes posterior model probabilities", {
   referencePath <- testthat::test_path("BANOVA_modelPriors.rds")
   reference <- if (createReference) list() else readRDS(referencePath)
 
-  modelPriors <- c("uniform", "beta.binomial", "Wilson", "Castillo", "Bernoulli", "custom")
+  modelPriors <- c("uniform", "betaBinomial", "Wilson", "Castillo", "Bernoulli", "custom")
   for (modelPrior in modelPriors) {
 
     options$modelPrior <- modelPrior

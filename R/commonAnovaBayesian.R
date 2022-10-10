@@ -1649,11 +1649,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     splitScatterOptions[["scatterPlotRegressionLineType"]]    <- "linear"
     splitScatterOptions[["scatterPlotGraphTypeAbove"]]        <- "none"
     splitScatterOptions[["scatterPlotGraphTypeRight"]]        <- "none"
-    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <-
-      if (is.null(options[["confidenceIntervalInterval"]]))
-        options[["plotCredibleIntervalInterval"]]
-      else
-        options[["confidenceIntervalInterval"]]
+    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <- options[["descriptivePlotCiLevel"]]
 
     if (options$descriptivePlotSeparatePlot != "") {
 
@@ -1839,7 +1835,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     addLines   <- !(groupVar %in% unlist(options[["betweenSubjectFactors"]]))
     dependentV <- .BANOVAdependentName
 
-    yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
+    yLabel     <- options[["rainCloudYAxisLabel"]]
     if (trimws(yLabel) == "") {
       title <- gettext("Dependent")
       yLabel <- NULL
@@ -1859,10 +1855,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     horiz <- FALSE
 
 
-  if (options$rainCloudPlotsSeparatePlots != "") {
-    for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
-      subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
-      thisPlotName <- paste0(title, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
+  if (options$rainCloudSeparatePlots != "") {
+    for (thisLevel in levels(dataset[[options[["rainCloudSeparatePlots"]]]])) {
+      subData      <- dataset[dataset[[options[["rainCloudSeparatePlots"]]]] == thisLevel, ]
+      thisPlotName <- paste0(title, ": ", options[["rainCloudSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot
       p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))

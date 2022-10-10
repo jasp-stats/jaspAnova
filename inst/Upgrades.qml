@@ -86,8 +86,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"Anova"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// Display.qml
 		ChangeRename {	from: "VovkSellkeMPR";	to: "vovkSellke"	}
@@ -233,8 +233,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"Ancova"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// Display.qml
 		ChangeRename {	from: "VovkSellkeMPR";	to: "vovkSellke"	}
@@ -378,8 +378,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"AnovaRepeatedMeasures"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// Display.qml
 		ChangeRename {	from: "VovkSellkeMPR";	to: "vovkSellke"	}
@@ -532,8 +532,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"AnovaBayesian"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
 		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
@@ -549,10 +549,10 @@ Upgrades
 
 		ChangeRename {	from: "plotCredibleInterval";			to: "descriptivePlotCi"					}
 		ChangeRename {	from: "plotCredibleIntervalInterval";	to: "descriptivePlotCiLevel"			}
-		
+
 		// DefaultOptions.qml
 		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
-		
+
 		// PostHocTests.qml
 		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
@@ -568,14 +568,14 @@ Upgrades
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
-		
+
 		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
 		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
 		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
 		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
-		
+
 		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
@@ -590,8 +590,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"AncovaBayesian"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
 		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
@@ -618,7 +618,7 @@ Upgrades
 		// SingleModelInference.qml
 		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
 		ChangeRename {	from: "singleModelrsqPlot";				to: "singleModelRsqPlot"				}
-		
+
 		// AdditionalOptions.qml
 		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
 		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
@@ -626,14 +626,14 @@ Upgrades
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
-		
+
 		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
 		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
 		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
 		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
-		
+
 		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
@@ -648,8 +648,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"AnovaRepeatedMeasuresBayesian"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
 		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
@@ -676,7 +676,7 @@ Upgrades
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
 		ChangeRename {	from: "postHocTestsNullControl";		to: "postHocNullControl"				}
 
-		
+
 		// SingleModelInference.qml
 		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
 		ChangeRename {	from: "singleModelrsqPlot";				to: "singleModelRsqPlot"				}
@@ -688,14 +688,14 @@ Upgrades
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
-		
+
 		ChangeRename {	from: "sampleModeNumAcc";				to: "samplingMethodNumericAccuracy"		}
 		ChangeRename {	from: "fixedNumAcc";					to: "samplesNumericAccuracy"			}
 		ChangeRename {	from: "sampleModeMCMC";					to: "samplingMethodMCMC"				}
 		ChangeRename {	from: "fixedMCMCSamples";				to: "samplesMCMC"						}
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
-		
+
 		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
@@ -710,8 +710,8 @@ Upgrades
 	Upgrade
 	{
 		functionName:		"Manova"
-		fromVersion:		"0.16.3"
-		toVersion:			"0.16.4"
+		fromVersion:		"0.16.4"
+		toVersion:			"0.17.0"
 
 		// DescriptivePlots.qml
 		ChangeRename {	from: "includeAnovaTables";				to: "anovaTables"	}

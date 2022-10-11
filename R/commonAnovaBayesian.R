@@ -836,7 +836,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   table[["error %"]] <- 100 * table[["error %"]]
 
   if (!is.null(footnotes)) {
-    idxNan <- which(is.nan(as.matrix(table[-ncol(table)])), arr.ind = TRUE)
+    idxNan <- which(do.call(cbind, lapply(table[-ncol(table)], is.nan)), arr.ind = TRUE)
     footnotes[["rows"]] <- idxNan[, "row"]
     footnotes[["cols"]] <- idxNan[, "col"]
   }

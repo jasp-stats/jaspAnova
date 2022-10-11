@@ -266,7 +266,7 @@
     if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
       priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
-      internalTable[, "P(M)"] <- priorProbs
+      internalTable[["P(M)"]] <- priorProbs
       stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
 
     } else {
@@ -276,8 +276,8 @@
     }
 
     internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
-    stateObj$postProbs        <- internalTableObj$internalTable[, "P(M|data)"]
-    stateObj$priorProbs       <- internalTableObj$internalTable[, "P(M)"]
+    stateObj$postProbs        <- internalTableObj$internalTable[["P(M|data)"]]
+    stateObj$priorProbs       <- internalTableObj$internalTable[["P(M)"]]
     stateObj$internalTableObj <- internalTableObj
     modelTable$setData(internalTableObj$table[seq_len(shownTableSize), ])
     jaspResults[["tableModelComparison"]] <- modelTable
@@ -404,11 +404,20 @@
   modelTable[["Models"]] <- modelNames[seq_len(shownTableSize)]
   jaspResults[["tableModelComparison"]] <- modelTable
   # internalTable is an internal representation of the model comparison table
-  internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("Models", "P(M)", "P(M|data)", "BFM", "BF10", "error %")))
+  # internalTable <- matrix(NA, nmodels, 6L, dimnames = list(modelNames, c("Models", "P(M)", "P(M|data)", "BFM", "BF10", "error %")))
+  internalTable <- data.frame(
+    Models      = character(nmodels),
+    `P(M)`      = numeric(nmodels),
+    `P(M|data)` = numeric(nmodels),
+    BFM         = numeric(nmodels),
+    BF10        = numeric(nmodels),
+    `error %`   = numeric(nmodels),
+    check.names = FALSE
+  )
   # set model names, BF null model and p(M)
-  internalTable[, "Models"] <- modelNames
+  internalTable[["Models"]] <- modelNames
   internalTable[1L, "BF10"] <- 0
-  internalTable[, "P(M)"] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
+  internalTable[["P(M)"]] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
 
   #Now compute Bayes Factors for each model in the list, and populate the tables accordingly
   startProgressbar(nmodels, gettext("Computing Bayes factors"))
@@ -493,7 +502,7 @@
       # }
 
       # disable filling of Bayes factor column (see https://github.com/jasp-stats/jasp-test-release/issues/1018 for discussion)
-      # modelTable[["BF10"]]    <- .recodeBFtype(internalTable[, "BF10"],
+      # modelTable[["BF10"]]    <- .recodeBFtype(internalTable[["BF10"]],
       #                                          newBFtype = options$bayesFactorType,
       #                                          oldBFtype = "LogBF10")
       modelTable[["error %"]] <- internalTable[seq_len(shownTableSize), "error %"]
@@ -530,15 +539,15 @@
   }
 
   model <- list(
-    models                  = modelObject,
-    postProbs               = internalTableObj$internalTable[, "P(M|data)"],
-    priorProbs              = internalTableObj$internalTable[, "P(M)"],
-    internalTableObj        = internalTableObj,
-    effects                 = effects.matrix,
-    interactions.matrix     = interactions.matrix,
-    nuisance                = nuisance,
-    nuisanceRandomSlopes    = nuisanceRandomSlopes,
-    analysisType            = analysisType,
+    models               = modelObject,
+    postProbs            = internalTableObj$internalTable[["P(M|data)"]],
+    priorProbs           = internalTableObj$internalTable[["P(M)"]],
+    internalTableObj     = internalTableObj,
+    effects              = effects.matrix,
+    interactions.matrix  = interactions.matrix,
+    nuisance             = nuisance,
+    nuisanceRandomSlopes = nuisanceRandomSlopes,
+    analysisType         = analysisType,
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
     model.list           = model.list,
     fixedFactors         = fixedFactors,
@@ -772,13 +781,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   footnotes <- NULL
 
   logSumExp <- matrixStats::logSumExp
-  logbfs <- internalTable[, "BF10"]
-  logprior <- log(internalTable[, "P(M)"])
-  if (!anyNA(internalTable[, "BF10"])) {
+  logbfs <- internalTable[["BF10"]]
+  logprior <- log(internalTable[["P(M)"]])
+  if (!anyNA(internalTable[["BF10"]])) {
     # no errors, proceed normally and complete the table
 
     logsumbfs <- logSumExp(logbfs + logprior)
-    internalTable[, "P(M|data)"] <-  exp(logbfs + logprior - logsumbfs)
+    internalTable[["P(M|data)"]] <-  exp(logbfs + logprior - logsumbfs)
 
     nmodels <- nrow(internalTable)
     for (i in seq_len(nmodels)) {
@@ -791,12 +800,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     idxGood <- !is.na(logbfs)
     widxGood <- which(idxGood)
     logsumbfs <- logSumExp(logbfs[idxGood])
-    internalTable[, "P(M|data)"] <-  exp(logbfs - logsumbfs)
+    internalTable[["P(M|data)"]] <-  exp(logbfs - logsumbfs)
 
     nmodels <- sum(idxGood)
     widxBad <- which(!idxGood)
     for (i in widxGood) {
-      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
+      internalTable[["BFM"]][i] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
     }
 
     internalTable[widxBad, "P(M|data)"] <- NaN
@@ -809,11 +818,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   # create the output table
   table <- as.data.frame(internalTable)
-  table[["Models"]] <- rownames(internalTable)
   if (options[["bayesFactorType"]] == "LogBF10") {
-    table[["BFM"]]  <- internalTable[, "BFM"]
+    table[["BFM"]]  <- internalTable[["BFM"]]
   } else {
-    table[["BFM"]]  <- exp(internalTable[, "BFM"])
+    table[["BFM"]]  <- exp(internalTable[["BFM"]])
   }
 
   o <- order(table[["BF10"]], decreasing = TRUE)

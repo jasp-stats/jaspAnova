@@ -196,9 +196,9 @@ test_that("Model prior changes posterior model probabilities", {
   options[["betaBinomialParameterB"]] <- 1.1
   options[["wilsonParameterLambda"]] <- 0.8
   options[["castilloParameterU"]] <- 2.1
-  options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 customPriorInclusionProbability = 0.1, customPriorScaleFixedEffects = 0.5),
-                                                list(components = "facGender",                 customPriorInclusionProbability = 0.2, customPriorScaleFixedEffects = 0.5),
-                                                list(components = c("contBinom", "facGender"), customPriorInclusionProbability = 0.3, customPriorScaleFixedEffects = 0.5))
+  options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 inclusionProbability = 0.1, scaleFixedEffects = 0.5),
+                                                list(components = "facGender",                 inclusionProbability = 0.2, scaleFixedEffects = 0.5),
+                                                list(components = c("contBinom", "facGender"), inclusionProbability = 0.3, scaleFixedEffects = 0.5))
   
   # set to TRUE to regenerate the reference object, set to FALSE to test
   createReference <- FALSE

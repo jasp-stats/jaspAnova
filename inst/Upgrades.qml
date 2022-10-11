@@ -160,10 +160,9 @@ Upgrades
 		ChangeRename {	from: "restrictedModelMarginalMeansTerms";	to: "restrictedMarginalMeanTerms"	}
 
 		// PostHoc.qml
-		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
 		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
 		ChangeRename {	from: "postHocTestsTypeStandard";				to: "postHocTypeStandard"					}
-		ChangeRename {	from: "postHocBootstrapping";					to: "postHocTypeStandardBootstrap"			}
+		ChangeRename {	from: "postHocTestsBootstrapping";					to: "postHocTypeStandardBootstrap"			}
 		ChangeRename {	from: "postHocTestsBootstrappingReplicates";	to: "postHocTypeStandardBootstrapSamples"	}
 		ChangeRename {	from: "postHocTestEffectSize";					to: "postHocTypeStandardEffectSize"			}
 		ChangeRename {	from: "postHocTestsTypeGames";					to: "postHocTypeGames"						}
@@ -181,7 +180,6 @@ Upgrades
 		ChangeRename {	from: "postHocFlagSignificant";				to: "postHocSignificanceFlag"	}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";	to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";			to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";			to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";			to: "descriptivePlotSeparatePlot"		}
@@ -205,14 +203,12 @@ Upgrades
 		ChangeRename {	from: "confidenceIntervalInterval";		to: "descriptivePlotCiLevel"	}
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 
 		// MarginalMeans.qml
-		ChangeRename {	from: "marginalMeansTermsAvailable";			to: "marginalMeanAvailableTerms"	}
 		ChangeRename {	from: "marginalMeansTerms";						to: "marginalMeanTerms"				}
 		ChangeRename {	from: "marginalMeansBootstrapping";				to: "marginalMeanBootstrap"			}
 		ChangeRename {	from: "marginalMeansBootstrappingReplicates";	to: "marginalMeanBootstrapSamples"	}
@@ -220,13 +216,11 @@ Upgrades
 		ChangeRename {	from: "marginalMeansCIAdjustment";				to: "marginalMeanCiCorrection"		}
 
 		// SimpleMainEffects
-		ChangeRename {	from: "effectsVariables";		to: "simpleMainEffectAvailableFactors"		}
 		ChangeRename {	from: "simpleFactor";			to: "simpleMainEffectFactor"				}
 		ChangeRename {	from: "moderatorFactorOne";		to: "simpleMainEffectModeratorFactorOne"	}
 		ChangeRename {	from: "moderatorFactorTwo";		to: "simpleMainEffectModeratorFactorTwo"	}
 
 		// Nonparametrics
-		ChangeRename {	from: "kruskalVariablesAvailable";	to: "kruskalWallisAvailableFactors"	}
 		ChangeRename {	from: "kruskalVariablesAssigned";	to: "kruskalWallisFactors"			}
 	}
 
@@ -305,7 +299,6 @@ Upgrades
 		ChangeRename {	from: "restrictedModelMarginalMeansTerms";	to: "restrictedMarginalMeanTerms"	}
 
 		// PostHoc.qml
-		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
 		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
 		ChangeRename {	from: "postHocTestsTypeStandard";				to: "postHocTypeStandard"					}
 		ChangeRename {	from: "postHocTestsBootstrapping";				to: "postHocTypeStandardBootstrap"			}
@@ -326,7 +319,6 @@ Upgrades
 		ChangeRename {	from: "postHocFlagSignificant";				to: "postHocSignificanceFlag"	}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";	to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";			to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";			to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";			to: "descriptivePlotSeparatePlot"		}
@@ -350,14 +342,12 @@ Upgrades
 		ChangeRename {	from: "confidenceIntervalInterval";		to: "descriptivePlotCiLevel"	}
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 
 		// MarginalMeans.qml
-		ChangeRename {	from: "marginalMeansTermsAvailable";			to: "marginalMeanAvailableTerms"	}
 		ChangeRename {	from: "marginalMeansTerms";						to: "marginalMeanTerms"				}
 		ChangeRename {	from: "marginalMeansBootstrapping";				to: "marginalMeanBootstrap"			}
 		ChangeRename {	from: "marginalMeansBootstrappingReplicates";	to: "marginalMeanBootstrapSamples"	}
@@ -365,13 +355,11 @@ Upgrades
 		ChangeRename {	from: "marginalMeansCIAdjustment";				to: "marginalMeanCiCorrection"		}
 
 		// SimpleMainEffects
-		ChangeRename {	from: "effectsVariables";		to: "simpleMainEffectAvailableFactors"		}
 		ChangeRename {	from: "simpleFactor";			to: "simpleMainEffectFactor"				}
 		ChangeRename {	from: "moderatorFactorOne";		to: "simpleMainEffectModeratorFactorOne"	}
 		ChangeRename {	from: "moderatorFactorTwo";		to: "simpleMainEffectModeratorFactorTwo"	}
 
 		// Nonparametrics
-		ChangeRename {	from: "kruskalVariablesAvailable";	to: "kruskalWallisAvailableFactors"	}
 		ChangeRename {	from: "kruskalVariablesAssigned";	to: "kruskalWallisFactors"			}
 	}
 
@@ -458,7 +446,6 @@ Upgrades
 		ChangeRename {	from: "restrictedModelMarginalMeansTerms";	to: "restrictedMarginalMeanTerms"	}
 
 		// PostHoc section
-		ChangeRename {	from: "postHocTestsAvailable";					to: "postHocAvailableTerms"					}
 		ChangeRename {	from: "postHocTestsVariables";					to: "postHocTerms"							}
 		ChangeRename {	from: "postHocTestEffectSize";					to: "postHocEffectSize"						}
 		ChangeRename {	from: "postHocTestPooledError";					to: "postHocPooledError"					}
@@ -474,7 +461,6 @@ Upgrades
 		ChangeRename {	from: "postHocFlagSignificant";				to: "postHocSignificanceFlag"	}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";	to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";			to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";			to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";			to: "descriptivePlotSeparatePlot"		}
@@ -502,14 +488,12 @@ Upgrades
 
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsLabelYAxis";			to: "rainCloudYAxisLabel"			}
 
 
 		// MarginalMeans.qml
-		ChangeRename {	from: "marginalMeansTermsAvailable";			to: "marginalMeanAvailableTerms"	}
 		ChangeRename {	from: "marginalMeansTerms";						to: "marginalMeanTerms"				}
 		ChangeRename {	from: "marginalMeansBootstrapping";				to: "marginalMeanBootstrap"			}
 		ChangeRename {	from: "marginalMeansBootstrappingReplicates";	to: "marginalMeanBootstrapSamples"	}
@@ -517,7 +501,6 @@ Upgrades
 		ChangeRename {	from: "marginalMeansCIAdjustment";				to: "marginalMeanCiCorrection"		}
 
 		// SimpleMainEffects
-		ChangeRename {	from: "effectsVariables";		to: "simpleMainEffectAvailableFactors"		}
 		ChangeRename {	from: "simpleFactor";			to: "simpleMainEffectFactor"				}
 		ChangeRename {	from: "moderatorFactorOne";		to: "simpleMainEffectModeratorFactorOne"	}
 		ChangeRename {	from: "moderatorFactorTwo";		to: "simpleMainEffectModeratorFactorTwo"	}
@@ -526,7 +509,6 @@ Upgrades
 
 
 		// Nonparametrics
-		ChangeRename {	from: "kruskalVariablesAvailable";	to: "friedmanAvailableFactors"		}
 	}
 
 	Upgrade
@@ -536,13 +518,11 @@ Upgrades
 		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
@@ -554,8 +534,8 @@ Upgrades
 		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
 
 		// PostHocTests.qml
-		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+		ChangeRename {	from: "postHocTestsNullControl";		to: "postHocNullControl"				}
 
 		// SingleModelInference.qml
 		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
@@ -563,8 +543,20 @@ Upgrades
 
 		// AdditionalOptions.qml
 		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
-		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
-		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeJS
+		{
+			name: "priorSpecificationMode"
+			jsFunction: function(options)
+			{
+				switch(options["priorSpecificationMode"])
+				{
+					case "rscalesAcrossParameters":	return "acrossParameters";
+					case "rscalesPerTerm":			return "perTerm";
+					default:						return options["priorSpecificationMode"];
+				}
+			}
+		}
+
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
@@ -576,15 +568,41 @@ Upgrades
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
 
-		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeJS
+		{
+			name: 		"modelPrior"
+			jsFunction:	function(options)
+			{
+				switch(options["modelPrior"])
+				{
+					case "beta.binomial":		return "betaBinomial";
+					default:					return options["modelPrior"];
+				}
+			}
+		}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
 		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
 		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
 		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
 		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
-		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
-		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
+		ChangeJS
+		{
+			name:		"customPriorSpecification"
+			jsFunction:	function(options)
+			{
+				let newSpecs = options["customPriorSpecification"].map(
+					spec => {
+						let newSpec = {};
+						newSpec["components"] 			= spec["components"];
+						newSpec["inclusionProbability"] = spec["priorIncl"];
+						newSpec["scaleFixedEffects"] 	= spec["rscaleFixed"];
+						return newSpec; 
+					});
+
+				return newSpecs;	
+			}
+		}
 	}
 
 	Upgrade
@@ -594,13 +612,11 @@ Upgrades
 		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalDisplay";	to: "rainCloudHorizontalDisplay"	}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
@@ -612,8 +628,8 @@ Upgrades
 		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
 
 		// PostHocTests.qml
-		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
+		ChangeRename {	from: "postHocTestsNullControl";		to: "postHocNullControl"				}
 
 		// SingleModelInference.qml
 		ChangeRename {	from: "singleModelqqPlot";				to: "singleModelQqPlot"					}
@@ -621,8 +637,20 @@ Upgrades
 
 		// AdditionalOptions.qml
 		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
-		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
-		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeJS
+		{
+			name: "priorSpecificationMode"
+			jsFunction: function(options)
+			{
+				switch(options["priorSpecificationMode"])
+				{
+					case "rscalesAcrossParameters":	return "acrossParameters";
+					case "rscalesPerTerm":			return "perTerm";
+					default:						return options["priorSpecificationMode"];
+				}
+			}
+		}
+
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
@@ -634,15 +662,41 @@ Upgrades
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
 
-		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeJS
+		{
+			name: 		"modelPrior"
+			jsFunction:	function(options)
+			{
+				switch(options["modelPrior"])
+				{
+					case "beta.binomial":		return "betaBinomial";
+					default:					return options["modelPrior"];
+				}
+			}
+		}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
 		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
 		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
 		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
 		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
-		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
-		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
+		ChangeJS
+		{
+			name:		"customPriorSpecification"
+			jsFunction:	function(options)
+			{
+				let newSpecs = options["customPriorSpecification"].map(
+					spec => {
+						let newSpec = {};
+						newSpec["components"] 			= spec["components"];
+						newSpec["inclusionProbability"] = spec["priorIncl"];
+						newSpec["scaleFixedEffects"] 	= spec["rscaleFixed"];
+						return newSpec; 
+					});
+
+				return newSpecs;	
+			}
+		}
 	}
 
 	Upgrade
@@ -652,13 +706,11 @@ Upgrades
 		toVersion:			"0.17.0"
 
 		// RainCloudPlots.qml
-		ChangeRename {	from: "rainCloudPlotsVariables";			to: "rainCloudAvailableFactors"		}
 		ChangeRename {	from: "rainCloudPlotsHorizontalAxis";		to: "rainCloudHorizontalAxis"		}
 		ChangeRename {	from: "rainCloudPlotsSeparatePlots";		to: "rainCloudSeparatePlots"		}
 		ChangeRename {	from: "rainCloudPlotsLabelYAxis";			to: "rainCloudYAxisLabel"			}
 
 		// DescriptivePlots.qml
-		ChangeRename {	from: "descriptivePlotsVariables";		to: "descriptivePlotAvailableFactors"	}
 		ChangeRename {	from: "plotHorizontalAxis";				to: "descriptivePlotHorizontalAxis"		}
 		ChangeRename {	from: "plotSeparateLines";				to: "descriptivePlotSeparateLines"		}
 		ChangeRename {	from: "plotSeparatePlots";				to: "descriptivePlotSeparatePlot"		}
@@ -672,7 +724,6 @@ Upgrades
 		ChangeRename {	from: "posteriorPlot";					to: "modelAveragedPosteriorPlot"		}
 
 		// PostHocTests.qml
-		ChangeRename {	from: "postHocTestsAvailable";			to: "postHocAvailableTerms"				}
 		ChangeRename {	from: "postHocTestsVariables";			to: "postHocTerms"						}
 		ChangeRename {	from: "postHocTestsNullControl";		to: "postHocNullControl"				}
 
@@ -683,8 +734,20 @@ Upgrades
 
 		// AdditionalOptions.qml
 		ChangeRename {	from: "coefficientsPrior";				to: "priorSpecificationMode"			}
-		ChangeRename {	from: "rscalesAcrossParameters";		to: "acrossParameters"					}
-		ChangeRename {	from: "rscalesPerTerm";					to: "perTerm"							}
+		ChangeJS
+		{
+			name: "priorSpecificationMode"
+			jsFunction: function(options)
+			{
+				switch(options["priorSpecificationMode"])
+				{
+					case "rscalesAcrossParameters":	return "acrossParameters";
+					case "rscalesPerTerm":			return "perTerm";
+					default:						return options["priorSpecificationMode"];
+				}
+			}
+		}
+		
 		ChangeRename {	from: "priorFixedEffects";				to: "cauchyPriorScaleFixedEffects"		}
 		ChangeRename {	from: "priorRandomEffects";				to: "cauchyPriorScaleRandomEffects"		}
 		ChangeRename {	from: "priorCovariates";				to: "cauchyPriorScaleCovariates"		}
@@ -696,15 +759,41 @@ Upgrades
 		ChangeRename {	from: "legacy";							to: "legacyResults"						}
 		ChangeRename {	from: "hideNuisanceEffects";			to: "hideNuisanceParameters"			}
 
-		ChangeRename {	from: "beta.binomial";					to: "betaBinomial"						}
+		ChangeJS
+		{
+			name: 		"modelPrior"
+			jsFunction:	function(options)
+			{
+				switch(options["modelPrior"])
+				{
+					case "beta.binomial":		return "betaBinomial";
+					default:					return options["modelPrior"];
+				}
+			}
+		}
 		ChangeRename {	from: "betaBinomialParamA";				to: "betaBinomialParameterA"			}
 		ChangeRename {	from: "betaBinomialParamB";				to: "betaBinomialParameterB"			}
 		ChangeRename {	from: "wilsonParamLambda";				to: "wilsonParameterLambda"				}
 		ChangeRename {	from: "castilloParamU";					to: "castilloParameterU"				}
 		ChangeRename {	from: "bernoulliParam";					to: "bernoulliParameter"				}
 		ChangeRename {	from: "modelTermsCustomPrior";			to: "customPriorSpecification"			}
-		ChangeRename {	from: "priorIncl";						to: "customPriorInclusionProbability"	}
-		ChangeRename {	from: "rscaleFixed";					to: "customPriorScaleFixedEffects"		}
+		ChangeJS
+		{
+			name:		"customPriorSpecification"
+			jsFunction:	function(options)
+			{
+				let newSpecs = options["customPriorSpecification"].map(
+					spec => {
+						let newSpec = {};
+						newSpec["components"] 			= spec["components"];
+						newSpec["inclusionProbability"] = spec["priorIncl"];
+						newSpec["scaleFixedEffects"] 	= spec["rscaleFixed"];
+						return newSpec; 
+					});
+
+				return newSpecs;	
+			}
+		}
 	}
 
 	Upgrade

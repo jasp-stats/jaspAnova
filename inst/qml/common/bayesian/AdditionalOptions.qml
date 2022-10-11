@@ -227,7 +227,7 @@ Section
 					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
-						name:			"customPriorInclusionProbability"
+						name:			"inclusionProbability"
 						min:			0
 						max:			100
 						defaultValue:	0.5
@@ -241,7 +241,7 @@ Section
 					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
-						name:			"rscalcustomPriorScaleFixedEffectseFixed"
+						name:			"scaleFixedEffects"
 						min:			0
 						max:			100
 						defaultValue:	0.5

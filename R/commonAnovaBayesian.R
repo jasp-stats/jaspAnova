@@ -2680,7 +2680,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     modelprobs <- rep(1 / length(models), length(models))
   } else if (options[["modelPrior"]] == "custom") {
 
-    inclusionProbabilities <- vapply(options[["customPriorSpecification"]], `[[`, FUN.VALUE = numeric(1L), "customPriorInclusionProbability")
+    inclusionProbabilities <- vapply(options[["customPriorSpecification"]], `[[`, FUN.VALUE = numeric(1L), "inclusionProbability")
     modelprobs <- .BANOVAcustomInclusionProbabilitiesToModelProbabilities(models, nuisance, inclusionProbabilities, enforceMarginality = options[["enforcePrincipleOfMarginalityFixedEffects"]])
 
   } else {
@@ -2845,7 +2845,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     rscaleEffectsNames <- vapply(options[["customPriorSpecification"]], FUN.VALUE = character(1L), function(x) {
       paste(x[["components"]], collapse = ":")
     })
-    rscaleEffects <- vapply(options[["customPriorSpecification"]], FUN.VALUE = numeric(1L), `[[`, "customPriorScaleFixedEffects")
+    rscaleEffects <- vapply(options[["customPriorSpecification"]], FUN.VALUE = numeric(1L), `[[`, "scaleFixedEffects")
 
     rscaleEffectsKeep <- if (analysisType == "ANOVA") {
       rep(TRUE, length(rscaleEffects))

@@ -246,7 +246,17 @@
     modelTable <- .BANOVAinitModelComparisonTable(options)
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
-  } else if (!is.null(stateObj) && .BANOVAmodelBFTypeOrOrderChanged(stateObj, options) && .BANOVAmarginalityOptionsUnchanged(stateObj, options)) {
+  } else if (!is.null(stateObj) && .BANOVAmarginalityOptionsUnchanged(stateObj, options) && (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options) || identical(stateObj[["shownTableSize"]], options[c("modelsShown", "numModelsShown")]))) {
+
+    internalTable <- stateObj$internalTableObj$internalTable
+    nmodels <- nrow(internalTable)
+    if (options[["modelsShown"]] == "unlimited") {
+      shownTableSize <- nmodels
+    } else {
+      shownTableSize <- options[["numModelsShown"]]
+      if (shownTableSize < nmodels)
+        modelTable$addFootnote(gettextf("Showing the best %1$d models out of %2$d total models", options[["numModelsShown"]], nmodels))
+    }
 
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type or the ordering
@@ -256,13 +266,11 @@
     if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
       priorProbs <- .BANOVAcomputePriorModelProbs(stateObj$model.list, stateObj$nuisance, options)
-      internalTable <- stateObj$internalTableObj$internalTable
       internalTable[, "P(M)"] <- priorProbs
       stateObj$completelyReused <- FALSE # model-averaged posteriors need to be resampled
 
     } else {
 
-      internalTable <- stateObj$internalTableObj$internalTable
       stateObj$completelyReused <- TRUE # model-averaged posteriors do not need to be resampled
 
     }
@@ -271,7 +279,7 @@
     stateObj$postProbs        <- internalTableObj$internalTable[, "P(M|data)"]
     stateObj$priorProbs       <- internalTableObj$internalTable[, "P(M)"]
     stateObj$internalTableObj <- internalTableObj
-    modelTable$setData(internalTableObj$table)
+    modelTable$setData(internalTableObj$table[seq_len(shownTableSize), ])
     jaspResults[["tableModelComparison"]] <- modelTable
 
     return(stateObj)
@@ -385,11 +393,20 @@
   modelTable <- .BANOVAinitModelComparisonTable(options)
   modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceParameters"]])
 
-  modelTable[["Models"]] <- modelNames
+  if (options[["modelsShown"]] == "unlimited") {
+    shownTableSize <- nmodels
+  } else {
+    shownTableSize <- options[["numModelsShown"]]
+    if (shownTableSize < nmodels)
+      modelTable$addFootnote(gettextf("Showing the best %1$d models out of %2$d total models", options[["numModelsShown"]], nmodels))
+  }
+
+  modelTable[["Models"]] <- modelNames[seq_len(shownTableSize)]
   jaspResults[["tableModelComparison"]] <- modelTable
   # internalTable is an internal representation of the model comparison table
-  internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("P(M)", "P(M|data)", "BFM", "BF10", "error %")))
-  # set BF null model and p(M)
+  internalTable <- matrix(NA, nmodels, 5L, dimnames = list(modelNames, c("Models", "P(M)", "P(M|data)", "BFM", "BF10", "error %")))
+  # set model names, BF null model and p(M)
+  internalTable[, "Models"] <- modelNames
   internalTable[1L, "BF10"] <- 0
   internalTable[, "P(M)"] <- .BANOVAcomputePriorModelProbs(model.list, nuisance, options)
 
@@ -479,13 +496,13 @@
       # modelTable[["BF10"]]    <- .recodeBFtype(internalTable[, "BF10"],
       #                                          newBFtype = options$bayesFactorType,
       #                                          oldBFtype = "LogBF10")
-      modelTable[["error %"]] <- internalTable[, "error %"]
+      modelTable[["error %"]] <- internalTable[seq_len(shownTableSize), "error %"]
     }
     progressbarTick()
   }
 
   internalTableObj <- .BANOVAfinalizeInternalTable(options, internalTable)
-  modelTable$setData(internalTableObj$table)
+  modelTable$setData(internalTableObj$table[seq_len(shownTableSize), ])
   if (length(internalTableObj[["footnotes"]]) > 0L) {
     idxRow <- internalTableObj[["footnotes"]][["rows"]]
     idxCol <- internalTableObj[["footnotes"]][["cols"]]
@@ -533,7 +550,8 @@
     reuseable            = reuseable,
     RMFactors            = options[["repeatedMeasuresFactors"]],
     modelPriorOptions    = options[.BANOVAmodelSpaceDependencies(options[["modelPrior"]])],
-    hideNuisanceEffects  = options[["hideNuisanceEffects"]]
+    hideNuisanceEffects  = options[["hideNuisanceEffects"]],
+    shownTableSize       = options[c("modelsShown", "numModelsShown")]
   )
 
   # save state

@@ -29,9 +29,9 @@ Section
 	VariablesForm
 	{
 		preferredHeight:	170 * preferencesModel.uiScale
-		AvailableVariablesList	{ name: "effectsVariables";		title: qsTr("Factors")				; id: availableTerms }
-		AssignedVariablesList	{ name: "simpleFactor";			title: qsTr("Simple Effect Factor") ; singleVariable: true }
-		AssignedVariablesList	{ name: "moderatorFactorOne";	title: qsTr("Moderator Factor 1")	; singleVariable: true }
-		AssignedVariablesList	{ name: "moderatorFactorTwo";	title: qsTr("Moderator Factor 2")	; singleVariable: true }
+		AvailableVariablesList	{ name: "simpleMainEffectAvailableFactors";		title: qsTr("Factors")				; id: availableTerms }
+		AssignedVariablesList	{ name: "simpleMainEffectFactor";				title: qsTr("Simple Effect Factor") ; singleVariable: true }
+		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorOne";	title: qsTr("Moderator Factor 1")	; singleVariable: true }
+		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorTwo";	title: qsTr("Moderator Factor 2")	; singleVariable: true }
 	}
 }

@@ -31,8 +31,8 @@ Section
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "postHocTestsAvailable"; id: availableTerms }
-		AssignedVariablesList {  name: "postHocTestsVariables" }
+		AvailableVariablesList	{	name: "postHocAvailableTerms";	id: availableTerms }
+		AssignedVariablesList	{	name: "postHocTerms" }
 	}
 
 
@@ -41,16 +41,16 @@ Section
 		title: qsTr("Type")
 		CheckBox
 		{
-			name: "postHocTestsTypeStandard";	label: qsTr("Standard"); checked: true
+			name: "postHocTypeStandard";	label: qsTr("Standard"); checked: true
 			Group
 			{
 				CheckBox
 				{
-					name: "postHocTestsBootstrapping"; label: qsTr("From")
+					name: "postHocTypeStandardBootstrap"; label: qsTr("From")
 					childrenOnSameRow: true
 					IntegerField
 					{
-						name: "postHocTestsBootstrappingReplicates"
+						name: "postHocTypeStandardBootstrapSamples"
 						defaultValue: 1000
 						fieldWidth: 50
 						min: 100
@@ -58,22 +58,22 @@ Section
 					}
 				}
 			}
-			CheckBox { name: "postHocTestEffectSize";	label: qsTr("Effect size") }
+			CheckBox { name: "postHocTypeStandardEffectSize";	label: qsTr("Effect size") }
 		}
-		CheckBox { name: "postHocTestsTypeGames";		label: qsTr("Games-Howell")				}
-		CheckBox { name: "postHocTestsTypeDunnett";		label: qsTr("Dunnett")					}
-		CheckBox { name: "postHocTestsTypeDunn";		label: qsTr("Dunn")						}
+		CheckBox { name: "postHocTypeGames";		label: qsTr("Games-Howell")				}
+		CheckBox { name: "postHocTypeDunnet";		label: qsTr("Dunnett")					}
+		CheckBox { name: "postHocTypeDunn";			label: qsTr("Dunn")						}
 	}
 
 
 	Group
 	{
 		title: qsTr("Correction")
-		CheckBox { name: "postHocTestsTukey";		label: qsTr("Tukey"); checked: true	}
-		CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffé")				}
-		CheckBox { name: "postHocTestsBonferroni";	label: qsTr("Bonferroni")			}
-		CheckBox { name: "postHocTestsHolm";		label: qsTr("Holm")					}
-		CheckBox { name: "postHocTestsSidak";       label: qsTr("Šidák")                }
+		CheckBox { name: "postHocCorrectionTukey";			label: qsTr("Tukey"); checked: true	}
+		CheckBox { name: "postHocCorrectionScheffe";		label: qsTr("Scheffé")				}
+		CheckBox { name: "postHocCorrectionBonferroni";		label: qsTr("Bonferroni")			}
+		CheckBox { name: "postHocCorrectionHolm";			label: qsTr("Holm")					}
+		CheckBox { name: "postHocCorrectionSidak";			label: qsTr("Šidák")				}
 	}
 
 	Classical.PostHocDisplay{}

@@ -29,13 +29,13 @@ Section
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "postHocTestsAvailable"; id: postHocTestsAvailable }
-		AssignedVariablesList {  name: "postHocTestsVariables" }
+		AvailableVariablesList { name: "postHocAvailableTerms"; id: postHocTestsAvailable }
+		AssignedVariablesList {  name: "postHocTerms" }
 	}
 
 	Group
 	{
 		title: qsTr("Correction")
-		CheckBox { name: "postHocTestsNullControl"; label: qsTr("Null control"); checked: true }
+		CheckBox { name: "postHocNullControl"; label: qsTr("Null control"); checked: true }
 	}
 }

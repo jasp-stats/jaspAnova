@@ -12,8 +12,8 @@ test_that("Main table results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
   options$randomFactors <- "facExperim"
-  options$priorFixedEffects <- 0.4
-  options$priorRandomEffects <- 1.5
+  options$cauchyPriorScaleFixedEffects <- 0.4
+  options$cauchyPriorScaleRandomEffects <- 1.5
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=FALSE),
@@ -85,8 +85,8 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "facFive"
+  options$postHocNullControl <- TRUE
+  options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
@@ -191,22 +191,22 @@ test_that("Model prior changes posterior model probabilities", {
   options$effects <- TRUE
 
   # so that the priors actually differ
-  options[["bernoulliParam"]] <- .3
-  options[["betaBinomialParamA"]] <- 1.1
-  options[["betaBinomialParamB"]] <- 1.1
-  options[["wilsonParamLambda"]] <- 0.8
-  options[["castilloParamU"]] <- 2.1
-  options[["modelTermsCustomPrior"]] <- list(list(components = "contBinom",                 priorIncl = 0.1, rscaleFixed = 0.5),
-                                             list(components = "facGender",                 priorIncl = 0.2, rscaleFixed = 0.5),
-                                             list(components = c("contBinom", "facGender"), priorIncl = 0.3, rscaleFixed = 0.5))
-
+  options[["bernoulliParameter"]] <- .3
+  options[["betaBinomialParameterA"]] <- 1.1
+  options[["betaBinomialParameterB"]] <- 1.1
+  options[["wilsonParameterLambda"]] <- 0.8
+  options[["castilloParameterU"]] <- 2.1
+  options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 inclusionProbability = 0.1, scaleFixedEffects = 0.5),
+                                                list(components = "facGender",                 inclusionProbability = 0.2, scaleFixedEffects = 0.5),
+                                                list(components = c("contBinom", "facGender"), inclusionProbability = 0.3, scaleFixedEffects = 0.5))
+  
   # set to TRUE to regenerate the reference object, set to FALSE to test
   createReference <- FALSE
 
   referencePath <- testthat::test_path("BANOVA_modelPriors.rds")
   reference <- if (createReference) list() else readRDS(referencePath)
 
-  modelPriors <- c("uniform", "beta.binomial", "Wilson", "Castillo", "Bernoulli", "custom")
+  modelPriors <- c("uniform", "betaBinomial", "Wilson", "Castillo", "Bernoulli", "custom")
   for (modelPrior in modelPriors) {
 
     options$modelPrior <- modelPrior

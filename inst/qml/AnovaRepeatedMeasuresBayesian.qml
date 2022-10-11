@@ -97,7 +97,7 @@ Form
 	Bayesian.DescriptivesPlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		showLabel: true
+		TextField	{ name: "descriptivePlotYAxisLabel";	label: qsTr("Label y-axis"); fieldWidth: 200	}
 	}
 
 	Common.RainCloudPlots

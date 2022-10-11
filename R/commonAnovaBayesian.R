@@ -251,7 +251,7 @@
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type or the ordering
     modelTable <- .BANOVAinitModelComparisonTable(options)
-    modelTable[["Models"]] <- .BANOVAgetModelTitlesWithAllTerms(stateObj[["models"]], stateObj[["model.list"]], analysisType, options[["hideNuisanceEffects"]])
+    modelTable[["Models"]] <- .BANOVAgetModelTitlesWithAllTerms(stateObj[["models"]], stateObj[["model.list"]], analysisType, options[["hideNuisanceParameters"]])
 
     if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
@@ -299,7 +299,7 @@
   effects       <- tmp$effects
 
   if (analysisType == "RM-ANOVA") {
-    legacy    <- options[["legacy"]]
+    legacy    <- options[["legacyResults"]]
     rmFactors <- vapply(options[["repeatedMeasuresFactors"]], `[[`, character(1L), "name")
   } else {
     legacy    <- FALSE
@@ -383,7 +383,7 @@
   }
 
   modelTable <- .BANOVAinitModelComparisonTable(options)
-  modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceEffects"]])
+  modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceParameters"]])
 
   modelTable[["Models"]] <- modelNames
   jaspResults[["tableModelComparison"]] <- modelTable
@@ -417,7 +417,7 @@
   }
 
   # without these there is no error
-  bfIterations <- if (options[["sampleModeNumAcc"]] == "auto") 1e4L else options[["fixedNumAcc"]]
+  bfIterations <- if (options[["samplingMethodNumericAccuracy"]] == "auto") 1e4L else options[["samplesNumericAccuracy"]]
 
   if (options[["integrationMethod"]] == "automatic") {
     bfIntegrationMethod <- "auto"
@@ -497,7 +497,7 @@
   }
 
   if (anyNuisance) {
-    if (analysisType == "RM-ANOVA" && !options[["legacy"]]) {
+    if (analysisType == "RM-ANOVA" && !options[["legacyResults"]]) {
       message <- gettextf("All models include %s, and random slopes for all repeated measures factors.",
                paste0(.BANOVAdecodeNuisance(setdiff(nuisance, nuisanceRandomSlopes)), collapse = ", "))
 
@@ -513,15 +513,15 @@
   }
 
   model <- list(
-    models               = modelObject,
-    postProbs            = internalTableObj$internalTable[, "P(M|data)"],
-    priorProbs           = internalTableObj$internalTable[, "P(M)"],
-    internalTableObj     = internalTableObj,
-    effects              = effects.matrix,
-    interactions.matrix  = interactions.matrix,
-    nuisance             = nuisance,
-    nuisanceRandomSlopes = nuisanceRandomSlopes,
-    analysisType         = analysisType,
+    models                  = modelObject,
+    postProbs               = internalTableObj$internalTable[, "P(M|data)"],
+    priorProbs              = internalTableObj$internalTable[, "P(M)"],
+    internalTableObj        = internalTableObj,
+    effects                 = effects.matrix,
+    interactions.matrix     = interactions.matrix,
+    nuisance                = nuisance,
+    nuisanceRandomSlopes    = nuisanceRandomSlopes,
+    analysisType            = analysisType,
     # these are necessary for partial reusage of the state (e.g., when a fixedFactor is added/ removed)
     model.list           = model.list,
     fixedFactors         = fixedFactors,
@@ -539,9 +539,9 @@
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
-    "dependent", "repeatedMeasuresCells", "sampleModeNumAcc", "fixedNumAcc", "seed", "setSeed",
-    "integrationMethod",
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    "dependent", "repeatedMeasuresCells", "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "seed", "setSeed",
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
+
   ))
 
   jaspResults[["tableModelComparisonState"]] <- stateObj
@@ -566,9 +566,10 @@
   effectsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "effects", "effectsType",
-    "sampleModeNumAcc", "fixedNumAcc", "bayesFactorType", "integrationMethod",
+    "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "bayesFactorType",
+    "integrationMethod",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   effectsTable$addCitation(.BANOVAcitations[1:2])
@@ -715,11 +716,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addCitation(.BANOVAcitations[1:2])
   modelTable$dependOn(c(
     .BANOVAdataDependencies(),
-    "sampleModeNumAcc", "fixedNumAcc", "integrationMethod",
+    "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "integrationMethod",
     "bayesFactorType", "bayesFactorOrder",
-    "hideNuisanceEffects", "legacy",
+    "hideNuisanceParameters", "legacyResults",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   switch(options$bayesFactorType,
@@ -829,7 +830,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 # posterior inference ----
 .BANOVAestimatePosteriors <- function(jaspResults, dataset, options, model) {
 
-  userNeedsPosteriorSamples <- options$posteriorEstimates || options$posteriorPlot || options$qqPlot ||
+  userNeedsPosteriorSamples <- options$posteriorEstimates || options$modelAveragedPosteriorPlot || options$qqPlot ||
     options$rsqPlot || options$criTable
   if (is.null(model$models) || !userNeedsPosteriorSamples)
     return()
@@ -854,7 +855,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     statePosteriors <- createJaspState(object = posteriors)
     statePosteriors$dependOn(
-      c(.BANOVAmodelSpaceDependencies(options[["modelPrior"]]), "sampleModeMCMC", "fixedMCMCSamples"),
+      c(.BANOVAmodelSpaceDependencies(options[["modelPrior"]]), "samplingMethodMCMC", "samplesMCMC"),
       optionsFromObject = jaspResults[["tableModelComparisonState"]]
     )
     jaspResults[["statePosteriors"]] <- statePosteriors
@@ -881,9 +882,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   estsTable$dependOn(c(
     .BANOVAdataDependencies(),
     "posteriorEstimates",
-    "sampleModeMCMC", "fixedMCMCSamples", "credibleInterval",
+    "samplingMethodMCMC", "samplesMCMC", "credibleInterval",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -949,9 +950,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   criTable$dependOn(c(
     .BANOVAdataDependencies(),
     "criTable",
-    "sampleModeMCMC", "fixedMCMCSamples", "bayesFactorType", "credibleInterval",
+    "samplingMethodMCMC", "samplesMCMC", "bayesFactorType", "credibleInterval",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
-    .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+    .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
@@ -1007,7 +1008,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   issuesTable$setData(df)
   issuesTable$dependOn(
     # these options correspond to userNeedsPosteriorSamples inside .BANOVAestimatePosteriors
-    options           = c("posteriorEstimates", "posteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
+    options           = c("posteriorEstimates", "modelAveragedPosteriorPlot", "qqPlot", "rsqPlot", "criTable", "modelTerms"),
     optionsFromObject = jaspResults[["statePosteriors"]]
   )
   jaspResults[["tableSamplingIssues"]] <- issuesTable
@@ -1022,12 +1023,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAposteriorPlot <- function(jaspResults, dataset, options, model) {
 
   # meta wrapper for model averaged posterior plots
-  if (!is.null(jaspResults[["posteriorPlot"]]) || !options$posteriorPlot)
+  if (!is.null(jaspResults[["posteriorPlot"]]) || !options$modelAveragedPosteriorPlot)
     return()
 
   posteriorPlotContainer <- createJaspContainer(title = gettext("Model Averaged Posterior Distributions"))
   jaspResults[["posteriorPlot"]] <- posteriorPlotContainer
-  posteriorPlotContainer$dependOn(c("posteriorPlot", "modelTerms", "credibleInterval", "groupPosterior",
+  posteriorPlotContainer$dependOn(c("modelAveragedPosteriorPlot", "modelTerms", "credibleInterval", "groupPosterior",
                                     "repeatedMeasuresCells", "dependent"))
   posteriorPlotContainer$position <- 4
 
@@ -1230,7 +1231,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 # Post hoc comparison ----
 .BANOVAnullControlPostHocTable <- function(jaspResults, dataset, options, model) {
 
-  if (length(options$postHocTestsVariables) == 0L)
+  if (length(options$postHocTerms) == 0L)
     return()
 
   postHocCollection <- jaspResults[["collectionPosthoc"]]
@@ -1238,7 +1239,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     postHocCollection <- createJaspContainer(title = gettext("Post Hoc Tests"))
     postHocCollection$position <- 8
     postHocCollection$addCitation(.BANOVAcitations[3:4])
-    postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocTestsNullControl", "bayesFactorType"))
+    postHocCollection$dependOn(c("dependent", "repeatedMeasuresCells", "postHocNullControl", "bayesFactorType"))
     jaspResults[["collectionPosthoc"]] <- postHocCollection
   }
 
@@ -1246,7 +1247,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   footnote <- gsub("[\r\n\t]", "",
     gettext("The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."))
 
-  bfTxt <- if (options[["postHocTestsNullControl"]]) ", U" else ""
+  bfTxt <- if (options[["postHocNullControl"]]) ", U" else ""
 
   switch(options[["bayesFactorType"]],
     BF10    = { bf.title <- paste0("BF<sub>10",     bfTxt, "</sub>")  },
@@ -1255,7 +1256,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
    )
 
   priorWidth <- 1 / sqrt(2)
-  posthoc.variables <- unlist(options[["postHocTestsVariables"]])
+  posthoc.variables <- unlist(options[["postHocTerms"]])
   if (model[["analysisType"]] == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
   } else {
@@ -1277,9 +1278,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     postHocTable$addColumnInfo(name = "BF",             type = "number", title = bf.title)
     postHocTable$addColumnInfo(name = "error %",        type = "number", title = gettext("error %"))
 
-    postHocTable$dependOn(optionContainsValue = list("postHocTestsVariables" = posthoc.var))
+    postHocTable$dependOn(optionContainsValue = list("postHocTerms" = posthoc.var))
 
-    if (options[["postHocTestsNullControl"]])
+    if (options[["postHocNullControl"]])
       postHocTable$addFootnote(footnote)
 
     if (is.null(model$models)) { # only show empty table
@@ -1331,7 +1332,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
         } else {
 
-          if (options[["postHocTestsNullControl"]]) {
+          if (options[["postHocNullControl"]]) {
             pH0 <- 0.5^(2 / length(variable.levels))
           } else {
             pH0 <- 0.5
@@ -1442,6 +1443,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 .BANOVAdescriptives <- function(jaspResults, dataset, options, errors, analysisType, ready = TRUE, position = 9001) {
   if (!ready)
     return()
+
   # the main use of this function is that descriptives can now be reused for the frequentist ANOVAs
   # without the container, the position could mess things up
   descriptivesContainer <- jaspResults[["descriptivesContainer"]]
@@ -1495,8 +1497,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   descriptivesTable$addColumnInfo(name = "Mean",            title=gettext("Mean"),                     type = "number")
   descriptivesTable$addColumnInfo(name = "SD",              title=gettext("SD"),                       type = "number")
   descriptivesTable$addColumnInfo(name = "SE",              title=gettext("SE"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of Variation"), type = "number")
-  if (is.null(options$confidenceIntervalInterval)) {
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of variation"), type = "number")
+
+  if (is.null(options$descriptivePlotCiLevel)) {
+
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
   }
@@ -1574,8 +1578,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAdescriptivesPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
 
-  if (length(options[["plotHorizontalAxis"]]) == 0L
-      || options[["plotHorizontalAxis"]] == ""
+  if (length(options[["descriptivePlotHorizontalAxis"]]) == 0L
+      || options[["descriptivePlotHorizontalAxis"]] == ""
       || !is.null(jaspContainer[["containerDescriptivesPlots"]]))
     return()
 
@@ -1584,34 +1588,34 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   jaspContainer[["containerDescriptivesPlots"]] <- descriptivesPlotContainer
 
   # either Bayesian or Frequentist anova
-  if (is.null(options$confidenceIntervalInterval)) { # TRUE implies Bayesian
-    plotErrorBars <- options$plotCredibleInterval
+  if (is.null(options$descriptivePlotErrorBarType)) { # TRUE implies Bayesian
+    plotErrorBars <- options$descriptivePlotCi
     errorBarType  <- "confidenceInterval"
-    conf.interval <- options$plotCredibleIntervalInterval
-    descriptivesPlotContainer$dependOn(c("dependent", "plotCredibleInterval", "plotCredibleIntervalInterval"))
+    conf.interval <- options$descriptivePlotCiLevel
+    descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
-    plotErrorBars <- options$plotErrorBars
-    errorBarType  <- options$errorBarType
-    conf.interval <- options$confidenceIntervalInterval
-    descriptivesPlotContainer$dependOn(c("dependent", "plotErrorBars", "errorBarType", "confidenceIntervalInterval",
-                                         "usePooledStandErrorCI"))
+    plotErrorBars <- options$descriptivePlotErrorBar
+    errorBarType  <- if(options$descriptivePlotErrorBarType == "ci") "confidenceInterval" else "se"
+    conf.interval <- options$descriptivePlotCiLevel
+    descriptivesPlotContainer$dependOn(c("dependent", "plotErrorBars", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
+                                         "descriptivePlotErrorBarPooled"))
 
   }
-  usePooledSE <- if (is.null(options[["usePooledStandErrorCI"]])) FALSE else options[["usePooledStandErrorCI"]]
+  usePooledSE <- if (is.null(options[["descriptivePlotErrorBarPooled"]])) FALSE else options[["descriptivePlotErrorBarPooled"]]
 
-  descriptivesPlotContainer$dependOn(c("plotHorizontalAxis", "plotSeparateLines", "plotSeparatePlots", "labelYAxis"))
+  descriptivesPlotContainer$dependOn(c("descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "descriptivePlotYAxisLabel"))
 
   if (errors$noVariables) {
     descriptivesPlotContainer[["dummyplot"]] <- createJaspPlot(title = gettext("Descriptives Plot"))
     return()
   }
 
-  groupVars <- c(options$plotHorizontalAxis, options$plotSeparateLines, options$plotSeparatePlots)
+  groupVars <- c(options$descriptivePlotHorizontalAxis, options$descriptivePlotSeparateLines, options$descriptivePlotSeparatePlot)
   groupVars <- groupVars[groupVars != ""]
   if (analysisType == "RM-ANOVA") {
     dependent <- .BANOVAdependentName
-    yLabel <- options[["labelYAxis"]]
+    yLabel <- options[["descriptivePlotYAxisLabel"]]
   } else {
     dependent<- options$dependent
     yLabel <- options[["dependent"]]
@@ -1636,7 +1640,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                subjectName = .BANOVAsubjectName)
   }
 
-  if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+  if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
     splitScatterOptions                                       <- options
     splitScatterOptions[["colorPalette"]]                     <- "ggplot2"
     splitScatterOptions[["scatterPlotLegend"]]                <- TRUE
@@ -1645,27 +1649,23 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     splitScatterOptions[["scatterPlotRegressionLineType"]]    <- "linear"
     splitScatterOptions[["scatterPlotGraphTypeAbove"]]        <- "none"
     splitScatterOptions[["scatterPlotGraphTypeRight"]]        <- "none"
-    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <-
-      if (is.null(options[["confidenceIntervalInterval"]]))
-        options[["plotCredibleIntervalInterval"]]
-      else
-        options[["confidenceIntervalInterval"]]
+    splitScatterOptions[["scatterPlotRegressionLineCiLevel"]] <- options[["descriptivePlotCiLevel"]]
 
-    if (options$plotSeparatePlots != "") {
+    if (options$descriptivePlotSeparatePlot != "") {
 
-      for (thisLevel in levels(dataset[[options[["plotSeparatePlots"]]]])) {
+      for (thisLevel in levels(dataset[[options[["descriptivePlotSeparatePlot"]]]])) {
 
-        subData <- dataset[dataset[[options[["plotSeparatePlots"]]]] == thisLevel, ]
-        thisPlotName <- paste0(options[["plotHorizontalAxis"]], " - ", options[["dependent"]], ": ",
-                               options[["plotSeparatePlots"]], " = ", thisLevel)
-        jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, subData, c(options[["plotHorizontalAxis"]], options[["dependent"]]),
-                                  split = options[["plotSeparateLines"]], options = splitScatterOptions, name = thisPlotName,
+        subData <- dataset[dataset[[options[["descriptivePlotSeparatePlot"]]]] == thisLevel, ]
+        thisPlotName <- paste0(options[["descriptivePlotHorizontalAxis"]], " - ", options[["dependent"]], ": ",
+                               options[["descriptivePlotSeparatePlot"]], " = ", thisLevel)
+        jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, subData, c(options[["descriptivePlotHorizontalAxis"]], options[["dependent"]]),
+                                  split = options[["descriptivePlotSeparateLines"]], options = splitScatterOptions, name = thisPlotName,
                                   dependOnVariables = FALSE)
       }
 
     } else {
-      jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, dataset, c(options[["plotHorizontalAxis"]], options[["dependent"]]),
-                                split = options[["plotSeparateLines"]], options = splitScatterOptions, dependOnVariables = FALSE)
+      jaspDescriptives::.descriptivesScatterPlots(descriptivesPlotContainer, dataset, c(options[["descriptivePlotHorizontalAxis"]], options[["dependent"]]),
+                                split = options[["descriptivePlotSeparateLines"]], options = splitScatterOptions, dependOnVariables = FALSE)
     }
 
     return()
@@ -1674,16 +1674,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
 
-  if (options$plotHorizontalAxis != "") {
-    colnames(summaryStat)[colnames(summaryStat) == options$plotHorizontalAxis] <- "plotHorizontalAxis"
+  if (options$descriptivePlotHorizontalAxis != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options$descriptivePlotHorizontalAxis] <- "descriptivePlotHorizontalAxis"
   }
 
-  if (options$plotSeparateLines != "") {
-    colnames(summaryStat)[colnames(summaryStat) == options$plotSeparateLines] <- "plotSeparateLines"
+  if (options$descriptivePlotSeparateLines != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options$descriptivePlotSeparateLines] <- "descriptivePlotSeparateLines"
   }
 
-  if (options$plotSeparatePlots != "") {
-    colnames(summaryStat)[colnames(summaryStat) == options$plotSeparatePlots] <- "plotSeparatePlots"
+  if (options$descriptivePlotSeparatePlot != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options$descriptivePlotSeparatePlot] <- "descriptivePlotSeparatePlot"
   }
 
   base_breaks_x <- function(x){
@@ -1707,8 +1707,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     }
   }
 
-  if (options$plotSeparatePlots != "") {
-    subsetPlots <- levels(summaryStat[,"plotSeparatePlots"])
+  if (options$descriptivePlotSeparatePlot != "") {
+    subsetPlots <- levels(summaryStat[,"descriptivePlotSeparatePlot"])
     nPlots <- length(subsetPlots)
   } else {
     nPlots <- 1
@@ -1717,7 +1717,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   for (i in seq_len(nPlots)) {
 
     if (nPlots > 1L) {
-      title <- paste(options$plotSeparatePlots,": ",subsetPlots[i], sep = "")
+      title <- paste(options$descriptivePlotSeparatePlot,": ",subsetPlots[i], sep = "")
     } else {
       title <- ""
     }
@@ -1725,35 +1725,35 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     descriptivesPlotContainer[[title]] <- descriptivesPlot
 
     descriptivesPlot$height <- 300
-    if (options$plotSeparateLines != "") {
+    if (options$descriptivePlotSeparateLines != "") {
       descriptivesPlot$width <- 430
     } else {
       descriptivesPlot$width <- 300
     }
 
-    if (options$plotSeparatePlots != "") {
-      summaryStatSubset <- subset(summaryStat,summaryStat[,"plotSeparatePlots"] == subsetPlots[i])
+    if (options$descriptivePlotSeparatePlot != "") {
+      summaryStatSubset <- subset(summaryStat,summaryStat[,"descriptivePlotSeparatePlot"] == subsetPlots[i])
     } else {
       summaryStatSubset <- summaryStat
     }
 
-    if (options$plotSeparateLines == "") {
+    if (options$descriptivePlotSeparateLines == "") {
 
-      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=plotHorizontalAxis,
+      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
                                                            y=dependent,
                                                            group=1))
 
     } else {
 
-      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=plotHorizontalAxis,
+      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
                                                            y=dependent,
-                                                           group=plotSeparateLines,
-                                                           shape=plotSeparateLines,
-                                                           fill=plotSeparateLines))
+                                                           group=descriptivePlotSeparateLines,
+                                                           shape=descriptivePlotSeparateLines,
+                                                           fill=descriptivePlotSeparateLines))
 
     }
 
-    if (plotErrorBars && !(options[["plotHorizontalAxis"]] %in% options[["covariates"]])) {
+    if (plotErrorBars && !(options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]])) {
 
       pd <- ggplot2::position_dodge(.2)
       p = p + ggplot2::geom_errorbar(ggplot2::aes(ymin=ciLower,
@@ -1766,13 +1766,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     }
 
-    guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(summaryStatSubset$plotSeparateLines)),
-                                         title = options$plotSeparateLines, keywidth = 0.1, keyheight = 0.3,
+    guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(summaryStatSubset$descriptivePlotSeparateLines)),
+                                         title = options$descriptivePlotSeparateLines, keywidth = 0.1, keyheight = 0.3,
                                          default.unit = "inch")
 
-    if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
+    if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
       line <- ggplot2::geom_smooth(method = "lm", size = .7, color = "black", se = FALSE)
-      addHorizontalVar <- summaryStatSubset[,"plotHorizontalAxis"]
+      addHorizontalVar <- summaryStatSubset[,"descriptivePlotHorizontalAxis"]
     } else {
       line <- ggplot2::geom_line(position=pd, size = .7)
     }
@@ -1790,10 +1790,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                    max(summaryStatSubset[,"dependent"])*1.1))
     }
 
-    if (options[["plotHorizontalAxis"]] %in% options[["covariates"]]) {
-      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+    if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
+      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
     } else {
-      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"plotHorizontalAxis"]))
+      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
     }
 
     p <- p + line +
@@ -1801,7 +1801,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       ggplot2::scale_fill_manual(values = c(rep(c("white","black"),5),rep("grey",100)), guide=guideLegend) +
       ggplot2::scale_shape_manual(values = c(rep(c(21:25),each=2),21:25,7:14,33:112), guide=guideLegend) +
       ggplot2::scale_color_manual(values = rep("black",200),guide=guideLegend) +
-      ggplot2::labs(y = yLabel, x = options[["plotHorizontalAxis"]]) +
+      ggplot2::labs(y = yLabel, x = options[["descriptivePlotHorizontalAxis"]]) +
       ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
       ggXaxis +
       jaspGraphs::geom_rangeframe() +
@@ -1814,27 +1814,28 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVArainCloudPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
 
-  if (length(options[["rainCloudPlotsHorizontalAxis"]]) == 0L
-      || options[["rainCloudPlotsHorizontalAxis"]] == ""
+  if (length(options[["rainCloudHorizontalAxis"]]) == 0L
+      || options[["rainCloudHorizontalAxis"]] == ""
       || !is.null(jaspContainer[["containerRainCloudPlots"]]))
     return()
 
   rainCloudPlotsContainer <- createJaspContainer(title = gettext("Raincloud plots"))
   rainCloudPlotsContainer$position <- 3
   jaspContainer[["containerRainCloudPlots"]] <- rainCloudPlotsContainer
-  rainCloudPlotsContainer$dependOn(c("dependent", "rainCloudPlotsHorizontalAxis", "rainCloudPlotsSeparatePlots",
-                                     "rainCloudPlotsLabelYAxis", "rainCloudPlotsHorizontalDisplay"))
+  rainCloudPlotsContainer$dependOn(c("dependent", "rainCloudHorizontalAxis", "rainCloudSeparatePlots",
+                                     "rainCloudYAxisLabel", "rainCloudHorizontalDisplay"))
 
   if (errors$noVariables) {
     rainCloudPlotsContainer[["dummyplot"]] <- createJaspPlot(title = "")
     return()
   }
 
-  groupVar <- options[["rainCloudPlotsHorizontalAxis"]]
+  groupVar <- options[["rainCloudHorizontalAxis"]]
   if (analysisType == "RM-ANOVA") {
     addLines   <- !(groupVar %in% unlist(options[["betweenSubjectFactors"]]))
     dependentV <- .BANOVAdependentName
-    yLabel     <- options[["rainCloudPlotsLabelYAxis"]]
+
+    yLabel     <- options[["rainCloudYAxisLabel"]]
     if (trimws(yLabel) == "") {
       title <- gettext("Dependent")
       yLabel <- NULL
@@ -1848,15 +1849,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     title      <- options[["dependent"]]
   }
 
-  if (!is.null(options$rainCloudPlotsHorizontalDisplay) && options$rainCloudPlotsHorizontalDisplay)
+  if (!is.null(options$rainCloudHorizontalDisplay) && options$rainCloudHorizontalDisplay)
     horiz <- TRUE
   else
     horiz <- FALSE
 
-  if (options$rainCloudPlotsSeparatePlots != "") {
-    for (thisLevel in levels(dataset[[options[["rainCloudPlotsSeparatePlots"]]]])) {
-      subData      <- dataset[dataset[[options[["rainCloudPlotsSeparatePlots"]]]] == thisLevel, ]
-      thisPlotName <- paste0(title, ": ", options[["rainCloudPlotsSeparatePlots"]], ": ", thisLevel)
+
+  if (options$rainCloudSeparatePlots != "") {
+    for (thisLevel in levels(dataset[[options[["rainCloudSeparatePlots"]]]])) {
+      subData      <- dataset[dataset[[options[["rainCloudSeparatePlots"]]]] == thisLevel, ]
+      thisPlotName <- paste0(title, ": ", options[["rainCloudSeparatePlots"]], ": ", thisLevel)
       subPlot      <- createJaspPlot(title = thisPlotName, width = 480, height = 320)
       rainCloudPlotsContainer[[thisLevel]] <- subPlot
       p <- try(jaspTTests::.descriptivesPlotsRainCloudFill(subData, dependentV, groupVar, yLabel, groupVar, addLines, horiz, NULL))
@@ -1884,7 +1886,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # TODO: Bayes factor samples unobserved interaction levels, what to do?
 
   # if the most complex model is retrieved from the state?
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e4L else options[["samplesMCMC"]]
   nmodels    <- length(model[["models"]])
   postProbs  <- model[["postProbs"]]
   statistics <- vector("list", nmodels)
@@ -2189,7 +2191,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 .BANOVAcomputePosteriorCRI <- function(dataset, options, model, posterior) {
 
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e4L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e4L else options[["samplesMCMC"]]
   weightedDensities <- posterior[["weightedDensities"]]
   weights <- posterior[["weights"]]
   nmodels    <- length(model[["models"]])
@@ -2678,7 +2680,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     modelprobs <- rep(1 / length(models), length(models))
   } else if (options[["modelPrior"]] == "custom") {
 
-    inclusionProbabilities <- vapply(options[["modelTermsCustomPrior"]], `[[`, FUN.VALUE = numeric(1L), "priorIncl")
+    inclusionProbabilities <- vapply(options[["customPriorSpecification"]], `[[`, FUN.VALUE = numeric(1L), "inclusionProbability")
     modelprobs <- .BANOVAcustomInclusionProbabilitiesToModelProbabilities(models, nuisance, inclusionProbabilities, enforceMarginality = options[["enforcePrincipleOfMarginalityFixedEffects"]])
 
   } else {
@@ -2688,18 +2690,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     noPredictorsPerModel <- noPredictorsPerModel - noNuisancePredictors
     totalNoPredictors    <- noPredictorsPerModel[length(noPredictorsPerModel)]
 
-    if (options[["modelPrior"]] %in% c("beta.binomial", "Wilson", "Castillo")) {
+    if (options[["modelPrior"]] %in% c("betaBinomial", "Wilson", "Castillo")) {
 
       switch (options[["modelPrior"]],
-              "beta.binomial" = {alpha = options[["betaBinomialParamA"]]; beta = options[["betaBinomialParamB"]]                    },
-              "Wilson"        = {alpha = 1.0;                             beta = totalNoPredictors * options[["wilsonParamLambda"]] },
-              "Castillo"      = {alpha = 1.0;                             beta = totalNoPredictors ^ options[["castilloParamU"]]    }
+              "betaBinomial"  = {alpha = options[["betaBinomialParameterA"]]; beta = options[["betaBinomialParameterB"]]                    },
+              "Wilson"        = {alpha = 1.0;                                 beta = totalNoPredictors * options[["wilsonParameterLambda"]] },
+              "Castillo"      = {alpha = 1.0;                                 beta = totalNoPredictors ^ options[["castilloParameterU"]]    }
       )
 
       modelprobs <- dBetaBinomialModelPrior(noPredictorsPerModel, totalNoPredictors, alpha, beta)
 
     } else if (options[["modelPrior"]] == "Bernoulli") {
-      modelprobs <- dBernoulliModelPrior(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParam"]])
+      modelprobs <- dBernoulliModelPrior(noPredictorsPerModel, totalNoPredictors, options[["bernoulliParameter"]])
     }
 
     # both the betabinomial and bernoulli model priors do not sum to 1 when marginality is respected
@@ -2825,11 +2827,11 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 # Other ----
 .BANOVAgetRScale <- function(options, analysisType) {
 
-  if (options[["coefficientsPrior"]] == "rscalesAcrossParameters") {
+  if (options[["priorSpecificationMode"]] == "acrossParameters") {
 
-    rscaleFixed   <- options[["priorFixedEffects"]]
-    rscaleRandom  <- options[["priorRandomEffects"]]
-    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
+    rscaleFixed   <- options[["cauchyPriorScaleFixedEffects"]]
+    rscaleRandom  <- options[["cauchyPriorScaleRandomEffects"]]
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["cauchyPriorScaleCovariates"]]
     rscaleEffects <- NULL
 
   } else {
@@ -2838,17 +2840,17 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     # default values of lmBF
     rscaleFixed   <- "medium"
     rscaleRandom  <- "nuisance"
-    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["priorCovariates"]]
+    rscaleCont    <- if (analysisType == "ANOVA") "medium" else options[["cauchyPriorScaleCovariates"]]
 
-    rscaleEffectsNames <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = character(1L), function(x) {
+    rscaleEffectsNames <- vapply(options[["customPriorSpecification"]], FUN.VALUE = character(1L), function(x) {
       paste(x[["components"]], collapse = ":")
     })
-    rscaleEffects <- vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = numeric(1L), `[[`, "rscaleFixed")
+    rscaleEffects <- vapply(options[["customPriorSpecification"]], FUN.VALUE = numeric(1L), `[[`, "scaleFixedEffects")
 
     rscaleEffectsKeep <- if (analysisType == "ANOVA") {
       rep(TRUE, length(rscaleEffects))
     } else {
-      vapply(options[["modelTermsCustomPrior"]], FUN.VALUE = logical(1L), function(x) {
+      vapply(options[["customPriorSpecification"]], FUN.VALUE = logical(1L), function(x) {
         is.null(options[["covariates"]]) || !(x[["components"]] %in% options[["covariates"]])
       })
     }
@@ -2928,13 +2930,13 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     "seed", "setSeed")
 }
 .BANOVAmodelSpaceDependencies <- function(modelPrior) {
-  c("modelPrior", "betaBinomialParamA", "betaBinomialParamB", "wilsonParamLambda", "castilloParamU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
-    if (modelPrior == "custom") "modelTermsCustomPrior"
+  c("modelPrior", "betaBinomialParameterA", "betaBinomialParameterB", "wilsonParameterLambda", "castilloParamerU", "enforcePrincipleOfMarginalityFixedEffects", "enforcePrincipleOfMarginalityRandomSlopes",
+    if (modelPrior == "custom") "customPriorSpecification"
   )
 }
-.BANOVArscaleDependencies <- function(coefficientsPrior) {
-  c("priorFixedEffects", "priorRandomEffects", "priorCovariates", "coefficientsPrior",
-    if (coefficientsPrior == "rscalesPerTerm") "modelTermsCustomPrior"
+.BANOVArscaleDependencies <- function(priorSpecificationMode) {
+  c("cauchyPriorScaleFixedEffects", "cauchyPriorScaleRandomEffects", "cauchyPriorScaleCovariates", "priorSpecificationMode",
+    if (priorSpecificationMode == "perTerm") "customPriorSpecification"
   )
 }
 
@@ -3258,7 +3260,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 .BANOVAsmi <- function(jaspResults, dataset, options, model) {
 
   userWantsSMI <- any(unlist(options[c(
-    "singleModelPosteriorPlot", "singleModelqqPlot", "singleModelrsqPlot", "singleModelEstimates", "singleModelCriTable"
+    "singleModelPosteriorPlot", "singleModelQqPlot", "singleModelRsqPlot", "singleModelEstimates", "singleModelCriTable"
   )]))
   if (!userWantsSMI)
     return()
@@ -3268,9 +3270,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   } else {
     singleModelContainer <- createJaspContainer(title = gettext("Single Model Inference"))
     singleModelContainer$dependOn(c(
-      "singleModelTerms", "dependent", "sampleModeMCMC", "fixedMCMCSamples",
+      "singleModelTerms", "dependent", "samplingMethodMCMC", "samplesMCMC",
       "repeatedMeasuresCells", "seed", "setSeed",
-      .BANOVArscaleDependencies(options[["coefficientsPrior"]])
+      .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
     ))
 
     jaspResults[["containerSingleModel"]] <- singleModelContainer
@@ -3303,7 +3305,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiSamplePosterior <- function(dataset, options, analysisType) {
 
-  nIter <- if (options[["sampleModeMCMC"]] == "auto") 1e3L else options[["fixedMCMCSamples"]]
+  nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e3L else options[["samplesMCMC"]]
   modelTerms <- options$singleModelTerms
 
   modelTerms    <- options$modelTerms
@@ -3448,7 +3450,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiQqPlot <- function(jaspContainer, options, model) {
 
-  if (!is.null(jaspContainer[["QQplot"]]) || !options$singleModelqqPlot)
+  if (!is.null(jaspContainer[["QQplot"]]) || !options$singleModelQqPlot)
     return()
 
   if (is.null(model) || jaspContainer$getError()) {
@@ -3467,7 +3469,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     plot        = p,
     aspectRatio = 1
   )
-  plot$dependOn("singleModelqqPlot")
+  plot$dependOn("singleModelQqPlot")
   plot$position <- 3
   jaspContainer[["QQplot"]] <- plot
   return()
@@ -3475,7 +3477,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 .BANOVAsmiRsqPlot <- function(jaspContainer, options, model) {
 
-  if (!is.null(jaspContainer[["smirsqplot"]]) || !options$singleModelrsqPlot)
+  if (!is.null(jaspContainer[["smirsqplot"]]) || !options$singleModelRsqPlot)
     return()
 
   if (is.null(model) || jaspContainer$getError()) {
@@ -3494,7 +3496,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     plot        = p,
     aspectRatio = 1
   )
-  plot$dependOn("singleModelrsqPlot")
+  plot$dependOn("singleModelRsqPlot")
   plot$position <- 4
   jaspContainer[["smirsqplot"]] <- plot
   return()

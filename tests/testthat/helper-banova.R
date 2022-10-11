@@ -6,10 +6,10 @@ initOpts <- function(analysisName) {
   # avoid that BayesFactor shows progress bars
   options("BFprogress" = FALSE)
 
-  options$sampleModeNumAcc <- "manual"
-  options$fixedNumAcc <- 50
+  options$samplingMethodNumericAccuracy <- "manual"
+  options$samplesNumericAccuracy <- 50
   if (analysisName == "AnovaRepeatedMeasuresBayesian")
-    options$legacy <- TRUE
+    options$legacyResults <- TRUE
   options
 }
 

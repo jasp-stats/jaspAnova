@@ -45,9 +45,9 @@ initOpts <- function(){
 test_that("Within subjects table results match", {
   options <- initOpts()
 
-  options$sphericityNone <- TRUE
-  options$sphericityHuynhFeldt <- TRUE
-  options$sphericityGreenhouseGeisser <- TRUE
+  options$sphericityCorrectionNone <- TRUE
+  options$sphericityCorrectionHuynhFeldt <- TRUE
+  options$sphericityCorrectionGreenhouseGeisser <- TRUE
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
@@ -112,15 +112,15 @@ test_that("Sphericity Assumptions table match (Field Chapter 8)", {
 test_that("Post-hoc tests match (Field Chapter 8)", {
   options <- initOpts()
 
-  options$postHocTestsVariables <- list(list(components = "Drink"),
+  options$postHocTerms <- list(list(components = "Drink"),
                                         list(components = "Imagery"),
                                         list(components = c("Drink", "Imagery")))
-  options$postHocTestEffectSize <- TRUE
-  options$postHocTestsBonferroni <- TRUE
-  options$postHocTestsHolm <- TRUE
+  options$postHocEffectSize <- TRUE
+  options$postHocCorrectionBonferroni <- TRUE
+  options$postHocCorrectionHolm <- TRUE
 
-  options$postHocTestPooledError <- FALSE
-  options$confidenceIntervalsPostHoc <- TRUE
+  options$postHocPooledError <- FALSE
+  options$postHocCi <- TRUE
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
 
@@ -304,9 +304,9 @@ test_that("Field - Chapter 8 marginal means match", {
   # compared to SPSS, we pool the standard errors in marginal means
   options <- initOpts()
 
-  options$marginalMeansTerms <- options$withinModelTerms[3]
-  options$marginalMeansBootstrapping <- TRUE
-  options$marginalMeansBootstrappingReplicates <- 500
+  options$marginalMeanTerms <- options$withinModelTerms[3]
+  options$marginalMeanBootstrap <- TRUE
+  options$marginalMeanBootstrapSamples <- 500
   set.seed(1)
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
@@ -442,33 +442,35 @@ test_that("Descriptives Plots match", {
   options <- initOpts()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
-  options$plotHorizontalAxis <- "Charisma"
-  options$plotSeparateLines <- "gender"
-  options$plotErrorBars <- TRUE
+  options$descriptivePlotHorizontalAxis <- "Charisma"
+  options$descriptivePlotSeparateLines <- "gender"
+  options$descriptivePlotErrorBar <- TRUE
 
-  options$usePooledStandErrorCI <- FALSE
-  options$errorBarType <- "confidenceInterval"
-  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv", options = options)
+  options$descriptivePlotErrorBarPooled <- FALSE
+  options$descriptivePlotErrorBarType <- "ci"
+  results <- jaspTools::runAnalysis(
+    name    = "AnovaRepeatedMeasures",
+    dataset = "AnovaMixedEffects.csv",
+    options = options)
   descPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA1")
 
-  options$usePooledStandErrorCI <- TRUE
-  options$errorBarType <- "confidenceInterval"
+  options$descriptivePlotErrorBarPooled <- TRUE
+  options$descriptivePlotErrorBarType <- "ci"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA2")
 
-  options$usePooledStandErrorCI <- FALSE
-  options$errorBarType <- "standardError"
+  options$descriptivePlotErrorBarPooled <- FALSE
+  options$descriptivePlotErrorBarType <- "se"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(descPlot, "mixedRMANOVA3")
 
-  options$usePooledStandErrorCI <- TRUE
-  options$errorBarType <- "standardError"
+  options$descriptivePlotErrorBarPooled <- TRUE
+  options$descriptivePlotErrorBarType <- "se"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaMixedEffects.csv", options = options)
   descPlot <-  results$state$figures[[1]]$obj
@@ -480,11 +482,13 @@ test_that("Raincloud Plots match", {
   options <- initOpts()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
-  options$rainCloudPlotsHorizontalAxis <- "Charisma"
-  options$rainCloudPlotsSeparatePlots <- "gender"
+  options$rainCloudHorizontalAxis <- "Charisma"
+  options$rainCloudSeparatePlots <- "gender"
   set.seed(1)
-  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv", options = options)
+  results <- jaspTools::runAnalysis(
+    name    = "AnovaRepeatedMeasures",
+    dataset = "AnovaMixedEffects.csv",
+    options = options)
   testPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(testPlot, "raincloud-plots")
 })
@@ -493,8 +497,8 @@ test_that("Raincloud Plots match for between subjects", {
   options <- initOpts()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
-  options$rainCloudPlotsHorizontalAxis <- "gender"
-  options$rainCloudPlotsSeparatePlots <- "Charisma"
+  options$rainCloudHorizontalAxis <- "gender"
+  options$rainCloudSeparatePlots <- "Charisma"
   set.seed(1)
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
@@ -520,7 +524,7 @@ test_that("Effect Size Calculation correct", {
   options$effectSizeEtaSquared <- TRUE
   options$effectSizePartialEtaSquared <- TRUE
   options$effectSizeOmegaSquared <- TRUE
-  options$effectSizeGenEtaSquared <- TRUE
+  options$effectSizeGeneralEtaSquared <- TRUE
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",
@@ -545,13 +549,13 @@ test_that("Simple Effects table match", {
     list(components = "gender")
   )
 
-  options$simpleFactor <- "Looks"
-  options$moderatorFactorOne <- "gender"
-  options$moderatorFactorTwo <- "Charisma"
+  options$simpleMainEffectFactor <- "Looks"
+  options$simpleMainEffectModeratorFactorOne <- "gender"
+  options$simpleMainEffectModeratorFactorTwo <- "Charisma"
 
-  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv",
-                            options = options)
+  results <- jaspTools::runAnalysis(name    = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv",
+                                    options = options)
 
   refTable <- list("Female", "High", 42.4666666666668, 2, 21.2333333333334, 0.639629588307488,
                    0.539062933641058, "TRUE", "Female", "Some", 6444.46666666667, 2,
@@ -583,15 +587,15 @@ test_that("Field - Chapter 8 results match", {
   )
 
   options$sphericityTests <- TRUE
-  options$sphericityNone <- TRUE
-  options$sphericityHuynhFeldt <- TRUE
-  options$sphericityGreenhouseGeisser <- TRUE
+  options$sphericityCorrectionNone <- TRUE
+  options$sphericityCorrectionHuynhFeldt <- TRUE
+  options$sphericityCorrectionGreenhouseGeisser <- TRUE
 
-  options$postHocTestsVariables <- "Animal"
-  options$postHocTestPooledError <- FALSE
-  options$postHocTestsBonferroni <- TRUE
-  options$confidenceIntervalsPostHoc <- TRUE
-  options$postHocTestEffectSize <- TRUE
+  options$postHocTerms <- "Animal"
+  options$postHocPooledError <- FALSE
+  options$postHocCorrectionBonferroni <- TRUE
+  options$postHocCi <- TRUE
+  options$postHocEffectSize <- TRUE
 
   options$friedmanWithinFactor <- "Animal"
   options$conoverTest <- TRUE
@@ -676,7 +680,7 @@ test_that("Field - Chapter 9 match",  {
 
   options$sphericityTests <- TRUE
 
-  options$marginalMeansTerms <- list(
+  options$marginalMeanTerms <- list(
     list(components = "Charisma"),
     list(components = "Looks"),
     list(components = "gender"),
@@ -797,28 +801,24 @@ test_that("Field - Chapter 9 match",  {
 options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$contrasts <- list(list(contrast = "none", variable = "Drink"))
 options$customContrasts <- list()
-options$labelYAxis <- "Alcohol Attitudes"
-options$moderatorFactorOne <- "Drink"
-options$plotErrorBars <- TRUE
-options$plotHorizontalAxis <- "Drink"
-options$plotSeparateLines <- "Imagery"
-options$postHocTestPooledError <- FALSE
-options$postHocTestsBonferroni <- TRUE
-options$postHocTestsHolm <- FALSE
-options$rainCloudPlotsHorizontalAxis <- ""
-options$rainCloudPlotsHorizontalDisplay <- FALSE
-options$rainCloudPlotsLabelYAxis <- ""
-options$rainCloudPlotsSeparatePlots <- ""
+options$descriptivePlotYAxisLabel <- "Alcohol Attitudes"
+options$simpleMainEffectModeratorFactorOne <- "Drink"
+options$descriptivePlotErrorBar <- TRUE
+options$descriptivePlotHorizontalAxis <- "Drink"
+options$descriptivePlotSeparateLines <- "Imagery"
+options$postHocPooledError <- FALSE
+options$postHocCorrectionBonferroni <- TRUE
+options$postHocCorrectionHolm <- FALSE
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
 options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
     list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
-options$simpleFactor <- "Imagery"
-options$sphericityGreenhouseGeisser <- TRUE
-options$sphericityHuynhFeldt <- TRUE
+options$simpleMainEffectFactor <- "Imagery"
+options$sphericityCorrectionGreenhouseGeisser <- TRUE
+options$sphericityCorrectionHuynhFeldt <- TRUE
 options$sphericityTests <- TRUE
 options$withinModelTerms <- list(list(components = "Drink"))
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasures", "Alcohol Attitudes.csv", options)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", "Alcohol Attitudes.csv", options)
 
 
 test_that("Test of Sphericity table results match", {
@@ -829,23 +829,19 @@ test_that("Test of Sphericity table results match", {
 # test model without interaction effect
 options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$withinModelTerms <- list(list(components = "Drink"), list(components = "Imagery"))
-options$sphericityGreenhouseGeisser <- TRUE
-options$sphericityHuynhFeldt <- TRUE
-options$postHocTestPooledError <- FALSE
-options$postHocTestsHolm <- FALSE
-options$postHocTestsBonferroni <- TRUE
-options$labelYAxis <- "Alcohol Attitudes"
-options$plotErrorBars <- TRUE
+options$sphericityCorrectionGreenhouseGeisser <- TRUE
+options$sphericityCorrectionHuynhFeldt <- TRUE
+options$postHocPooledError <- FALSE
+options$postHocCorrectionHolm <- FALSE
+options$postHocCorrectionBonferroni <- TRUE
+options$descriptivePlotYAxisLabel <- "Alcohol Attitudes"
+options$descriptivePlotErrorBar <- TRUE
 options$contrasts <- list(list(contrast = "none", variable = "Drink"), list(contrast = "none", variable = "Imagery"))
 options$customContrasts <- list()
-options$rainCloudPlotsHorizontalAxis <- ""
-options$rainCloudPlotsHorizontalDisplay <- FALSE
-options$rainCloudPlotsLabelYAxis <- ""
-options$rainCloudPlotsSeparatePlots <- ""
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
 options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"), list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasures", "AnovaRepeatedMeasures.csv", options)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", "AnovaRepeatedMeasures.csv", options)
 
 
 test_that("No interaction: Between Subjects Effects table results match", {
@@ -902,36 +898,32 @@ options$contrasts <- list(list(contrast = "none", variable = "fac1"), list(contr
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        variable = c("facGender", "facExperim", "fac2")), list(contrast = "none",
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               variable = c("facGender", "facExperim", "fac1", "fac2")))
 options$customContrasts <- list()
-options$rainCloudPlotsHorizontalAxis <- ""
-options$rainCloudPlotsHorizontalDisplay <- FALSE
-options$rainCloudPlotsLabelYAxis <- ""
-options$rainCloudPlotsSeparatePlots <- ""
 options$repeatedMeasuresCells <- c("contNormal", "contGamma", "contcor1", "contcor2")
 options$repeatedMeasuresFactors <- list(list(levels = c("l1", "l2"), name = "fac1"), list(levels = c("a",
                                                                                                      "b"), name = "fac2"))
-options$restrictedBootstrapping <- TRUE
-options$restrictedBootstrappingConfidenceIntervalLevel <- 0.95
-options$restrictedBootstrappingReplicates <- 100
-options$restrictedIncludeIntercept <- TRUE
-options$restrictedInformedHypothesisTestByDefault <- FALSE
-options$restrictedMarginalMeansByDefault <- TRUE
+options$restrictedBootstrap <- TRUE
+options$restrictedBootstrapCiLevel <- 0.95
+options$restrictedBootstrapSamples <- 100
+options$restrictedInterceptInclusion <- TRUE
+options$restrictedInformedHypothesisTestForAllModels <- FALSE
+options$restrictedMarginalMeanForAllModels <- TRUE
 options$restrictedModelComparison <- "complement"
 options$restrictedModelComparisonCoefficients <- FALSE
-options$restrictedModelComparisonHighlightCoefficients <- TRUE
+options$restrictedModelComparisonCoefficientsHighlight <- TRUE
 options$restrictedModelComparisonMatrix <- FALSE
 options$restrictedModelComparisonReference <- "complement"
 options$restrictedModelComparisonWeights <- TRUE
-options$restrictedModelMarginalMeansTerms <- list(list(variable = c("fac1", "fac2")), list(variable = c("facGender",
-                                                                                                        "facExperim")))
-options$restrictedModelShowAvailableCoefficients <- TRUE
-options$restrictedModelSummaryByDefault <- TRUE
-options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMeans = TRUE,
-                                      modelName = "Model 1", modelSummary = TRUE, restrictionSyntax = "contNormal..Intercept. < 0\ncontcor2.facGenderm.facExperimexperimental > 0"))
-options$restrictedSE <- "standard"
+options$restrictedMarginalMeanTerms <- list(list(variable = c("fac1", "fac2")),
+                                            list(variable = c("facGender", "facExperim")))
+options$restrictedAvailableCoefficients <- TRUE
+options$restrictedModelSummaryForAllModels <- TRUE
+options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMean = TRUE,
+                                      name = "Model 1", summary = TRUE, syntax = "contNormal..Intercept. < 0\ncontcor2.facGenderm.facExperimexperimental > 0"))
+options$restrictedHeterogeneityCorrection <- "none"
 options$withinModelTerms <- list(list(components = "fac1"), list(components = "fac2"), list(
   components = c("fac1", "fac2")))
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasures", "test.csv", options)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", "test.csv", options)
 
 
 test_that("Ordinal restrictions: Within factor marginal means table results match", {

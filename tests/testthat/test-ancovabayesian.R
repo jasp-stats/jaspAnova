@@ -14,8 +14,8 @@ test_that("Main table results match", {
   options$fixedFactors <- "facGender"
   options$randomFactors <- "facFive"
   options$covariates <- "contGamma"
-  options$priorCovariates <- 0.3
-  options$priorRandomEffects <- 1.2
+  options$cauchyPriorScaleCovariates <- 0.3
+  options$cauchyPriorScaleRandomEffects <- 1.2
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=TRUE),
@@ -84,8 +84,8 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "facFive"
+  options$postHocNullControl <- TRUE
+  options$postHocTerms <- "facFive"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
@@ -134,9 +134,9 @@ options$covariates <- "contcor1"
 options$dependent <- "contNormal"
 options$fixedFactors <- "facGender"
 options$modelTerms <- list(list(components = "facGender", isNuisance = FALSE), list(components = "contcor1", isNuisance = FALSE))
-options$plotCredibleInterval <- TRUE
-options$plotHorizontalAxis <- "contcor1"
-options$plotSeparateLines <- "facGender"
+options$descriptivePlotCi <- TRUE
+options$descriptivePlotHorizontalAxis <- "contcor1"
+options$descriptivePlotSeparateLines <- "facGender"
 options$singleModelTerms <- list(list(components = "facGender"), list(components = "contcor1"))
 set.seed(1)
 results <- jaspTools::runAnalysis("AncovaBayesian", "debug.csv", options)
@@ -172,7 +172,7 @@ options$modelTerms <- list(
 options$posteriorEstimates <- TRUE
 options$singleModelTerms <- list(list(components = "contcor1"), list(components = "facGender"))
 set.seed(1)
-results <- runAnalysis("AncovaBayesian", "test.csv", options)
+results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
 
 test_that("Model Comparison table results with interactions match", {
 	table <- results[["results"]][["tableModelComparison"]][["data"]]

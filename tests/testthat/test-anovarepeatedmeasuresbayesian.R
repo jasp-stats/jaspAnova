@@ -21,9 +21,9 @@ test_that("Main table and Effects table results match", {
     list(components="contcor1", isNuisance=FALSE),
     list(components=c("RM_FACTOR_1", "facGender"), isNuisance=FALSE)
   )
-  options$priorCovariates <- 0.3
-  options$priorFixedEffects <- 0.8
-  options$priorRandomEffects <- 0.8
+  options$cauchyPriorScaleCovariates <- 0.3
+  options$cauchyPriorScaleFixedEffects <- 0.8
+  options$cauchyPriorScaleRandomEffects <- 0.8
 
   options$effects <- TRUE
 
@@ -94,8 +94,8 @@ test_that("Post-hoc Comparisons table results match", {
   options$modelTerms <- list(
     list(components="RM_FACTOR_1", isNuisance=FALSE)
   )
-  options$postHocTestsNullControl <- TRUE
-  options$postHocTestsVariables <- "RM_FACTOR_1"
+  options$postHocNullControl <- TRUE
+  options$postHocTerms <- "RM_FACTOR_1"
   options <- addCommonQMLoptions(options)
 
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
@@ -181,7 +181,7 @@ test_that("Analysis fails gracefully if some models error", {
   # NOTE: the option below makes BayesFactor return NaN as BF for models with covariates.
   # It's a nice hack to test how gracefully the analysis recovers when some but not all BFs could be computed.
   # A user can never enter NULL here. This hack exists for BayesFactor version 0.9.12.4.2.
-  options$priorCovariates <- NULL
+  options$cauchyPriorScaleCovariates <- NULL
 
   set.seed(42)
   results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
@@ -324,8 +324,8 @@ test_that("Model Averaged Posterior Summary table results with interactions matc
 
 
 options <- initOpts("AnovaRepeatedMeasuresBayesian")
-options$plotHorizontalAxis <- "Drink"
-options$plotSeparateLines <- "Imagery"
+options$descriptivePlotHorizontalAxis <- "Drink"
+options$descriptivePlotSeparateLines <- "Imagery"
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")
 options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water"), name = "Drink"),
     list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))

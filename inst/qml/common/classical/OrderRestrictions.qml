@@ -54,13 +54,13 @@ Section
 			title:	qsTr("Syntax settings")
 			CheckBox
 			{
-				name:	"restrictedIncludeIntercept"
+				name:	"restrictedInterceptInclusion"
 				label:	qsTr("Include intercept")
 			}
 
 			CheckBox
 			{
-				name:	"restrictedModelShowAvailableCoefficients"
+				name:	"restrictedAvailableCoefficients"
 				label:	qsTr("Show available coefficients")
 			}
 		}
@@ -70,21 +70,21 @@ Section
 			title:		qsTr("Set for all models")
 			CheckBox
 			{
-				name:	"restrictedModelSummaryByDefault"
+				name:	"restrictedModelSummaryForAllModels"
 				id:		modelSummaryByDefault
 				label:	qsTr("Model summary")
 			}
 
 			CheckBox
 			{
-				name:	"restrictedMarginalMeansByDefault"
+				name:	"restrictedMarginalMeanForAllModels"
 				id:		marginalMeansByDefault
 				label:	qsTr("Marginal means")
 			}
 
 			CheckBox
 			{
-				name:		"restrictedInformedHypothesisTestByDefault"
+				name:		"restrictedInformedHypothesisTestForAllModels"
 				id:			informedHypothesisTestByDefault
 				label:		qsTr("Informed hypothesis tests")
 				visible:	analysis !== Common.Type.Analysis.RMANOVA
@@ -98,14 +98,14 @@ Section
 		name:				"restrictedModels"
 		maximumItems:		10
 		newItemName:		qsTr("Model 1")
-		optionKey:			"modelName"
+		optionKey:			"name"
 		Layout.columnSpan:	2
 
 		content: Group
 		{
 			TextArea
 			{
-				name:				"restrictionSyntax"
+				name:				"syntax"
 				width:				models.width
 				textType:			JASP.TextTypeModel
 				trim:				true
@@ -117,14 +117,14 @@ Section
 				columns: 3
 				CheckBox
 				{
-					name:		"modelSummary"
+					name:		"summary"
 					label:		qsTr("Summary for %1").arg(rowValue)
 					checked:	modelSummaryByDefault.checked
 				}
 
 				CheckBox
 				{
-					name:		"marginalMeans"
+					name:		"marginalMean"
 					label:		qsTr("Marginal means for %1").arg(rowValue)
 					checked:	marginalMeansByDefault.checked
 				}
@@ -156,7 +156,7 @@ Section
 			property var comparisonValuesExclComplement: 
 			[
 				{ label: qsTr("Unconstrained model"),	value: "unconstrained"	},
-				{ label: qsTr("None"),					value:"none"			}
+				{ label: qsTr("None"),					value: "none"			}
 			]
 			property var comparisonValues: (models.count > 1) ? comparisonValuesExclComplement : comparisonValuesInclComplement
 			
@@ -199,7 +199,7 @@ Section
 			
 			CheckBox
 			{
-				name:		"restrictedModelComparisonHighlightCoefficients"
+				name:		"restrictedModelComparisonCoefficientsHighlight"
 				label:		qsTr("Highlight active restrictions")
 				checked:	true
 			}
@@ -212,32 +212,32 @@ Section
 
 		DropDown
 		{
-			name:				"restrictedSE"
+			name:				"restrictedHeterogeneityCorrection"
 			label:				qsTr("Heterogeneity correction")
 			visible:			analysis !== Common.Type.Analysis.RMANOVA
 			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("None"),	value: "standard"	},
-				{ label: qsTr("HC0"),	value: "HC0"		},
-				{ label: qsTr("HC1"),	value: "HC1"		},
-				{ label: qsTr("HC2"),	value: "HC2"		},
-				{ label: qsTr("HC3"),	value: "HC3"		},
-				{ label: qsTr("HC4"),	value: "HC4"		},
-				{ label: qsTr("HC4m"),	value: "HC4m"		},
-				{ label: qsTr("HC5"),	value: "HC5"		}
+				{ label: qsTr("None"),	value: "none"			},
+				{ label: qsTr("HC0"),	value: "huberWhite0"	},
+				{ label: qsTr("HC1"),	value: "huberWhite1"	},
+				{ label: qsTr("HC2"),	value: "huberWhite2"	},
+				{ label: qsTr("HC3"),	value: "huberWhite3"	},
+				{ label: qsTr("HC4"),	value: "huberWhite4"	},
+				{ label: qsTr("HC4m"),	value: "huberWhite4m"	},
+				{ label: qsTr("HC5"),	value: "huberWhite5"	}
 			]
 		}
 
 
 		CheckBox
 		{
-			name:	"restrictedBootstrapping"
+			name:	"restrictedBootstrap"
 			label:	qsTr("Bootstrapping")
 
 			IntegerField
 			{
-				name:			"restrictedBootstrappingReplicates"
+				name:			"restrictedBootstrapSamples"
 				defaultValue:	1000
 				fieldWidth:		50
 				min:			100
@@ -246,7 +246,7 @@ Section
 
 			CIField
 			{
-				name:	"restrictedBootstrappingConfidenceIntervalLevel"
+				name:	"restrictedBootstrapCiLevel"
 				label:	qsTr("Confidence intervals")
 			}
 		}
@@ -264,7 +264,7 @@ Section
 			id: marginalMeansTerms
 		}
 
-		AssignedVariablesList { name: "restrictedModelMarginalMeansTerms"; label: qsTr("Terms") }
+		AssignedVariablesList { name: "restrictedMarginalMeanTerms"; label: qsTr("Terms") }
 	}
 
 

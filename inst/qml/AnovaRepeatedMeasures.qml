@@ -66,7 +66,7 @@ Form
 
 		Classical.SumOfSquares{}
 
-		CheckBox { name: "useMultivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: false }
+		CheckBox { name: "multivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: false }
 	}
 
 	Section
@@ -80,9 +80,9 @@ Form
 			{
 				title: qsTr("Sphericity corrections")
 				columns: 3
-				CheckBox { name: "sphericityNone";				label: qsTr("None");				checked: true }
-				CheckBox { name: "sphericityGreenhouseGeisser";	label: qsTr("Greenhouse-Geisser");	checked: false }
-				CheckBox { name: "sphericityHuynhFeldt";		label: qsTr("Huynh-Feldt");			checked: false }
+				CheckBox { name: "sphericityCorrectionNone";				label: qsTr("None");				checked: true }
+				CheckBox { name: "sphericityCorrectionGreenhouseGeisser";	label: qsTr("Greenhouse-Geisser");	checked: false }
+				CheckBox { name: "sphericityCorrectionHuynhFeldt";			label: qsTr("Huynh-Feldt");			checked: false }
 			}
 			CheckBox { name: "homogeneityTests"; label: qsTr("Homogeneity tests") }
 		}
@@ -108,24 +108,24 @@ Form
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList { name: "postHocTestsAvailable"; source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates", combineWithOtherModels: true }] }
-			AssignedVariablesList {  name: "postHocTestsVariables" }
+			AvailableVariablesList { name: "postHocAvailableTerms"; source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates", combineWithOtherModels: true }] }
+			AssignedVariablesList {  name: "postHocTerms" }
 		}
 
 		Group
 		{
 			columns: 2
-			CheckBox { name: "postHocTestEffectSize";	label: qsTr("Effect size")						}
-			CheckBox { name: "postHocTestPooledError";	label: qsTr("Pool error term for RM factors");			checked: true	}
+			CheckBox { name: "postHocEffectSize";	label: qsTr("Effect size")						}
+			CheckBox { name: "postHocPooledError";	label: qsTr("Pool error term for RM factors");			checked: true	}
 		}
 
 		Group
 		{
 			title: qsTr("Correction")
-			CheckBox { name: "postHocTestsHolm";		label: qsTr("Holm"); 		checked: true	}
-			CheckBox { name: "postHocTestsBonferroni";	label: qsTr("Bonferroni")			}
-			CheckBox { name: "postHocTestsTukey";		label: qsTr("Tukey")				}
-			CheckBox { name: "postHocTestsScheffe";		label: qsTr("Scheffé")				}
+			CheckBox { name: "postHocCorrectionHolm";			label: qsTr("Holm"); 		checked: true	}
+			CheckBox { name: "postHocCorrectionBonferroni";		label: qsTr("Bonferroni")			}
+			CheckBox { name: "postHocCorrectionTukey";			label: qsTr("Tukey")				}
+			CheckBox { name: "postHocCorrectionScheffe";		label: qsTr("Scheffé")				}
 		}
 
 		Classical.PostHocDisplay{}
@@ -134,8 +134,8 @@ Form
 	Classical.DescriptivePlots
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		TextField	{ name: "labelYAxis";				label: qsTr("Label y-axis"); fieldWidth: 200	}
-		CheckBox	{ name: "usePooledStandErrorCI";	label: qsTr("Average across unused RM factors")	}
+		TextField	{ name: "descriptivePlotYAxisLabel";		label: qsTr("Label y-axis"); fieldWidth: 200	}
+		CheckBox	{ name: "descriptivePlotErrorBarPooled";	label: qsTr("Average across unused RM factors")	}
 	}
 
 	Common.RainCloudPlots
@@ -153,7 +153,7 @@ Form
 	Classical.SimpleMainEffects
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
-		CheckBox { name: "poolErrorTermSimpleEffects";	label: qsTr("Pool error terms") }
+		CheckBox { name: "simpleMainEffectErrorTermPooled";	label: qsTr("Pool error terms") }
 	}
 
 	Section
@@ -163,7 +163,7 @@ Form
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
-			AvailableVariablesList	{ name: "kruskalVariablesAvailable";	title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]	}
+			AvailableVariablesList	{ name: "friedmanAvailableFactors";		title: qsTr("Factors"); source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]	}
 			AssignedVariablesList	{ name: "friedmanWithinFactor";			title: qsTr("RM Factor")																}
 			AssignedVariablesList	{ name: "friedmanBetweenFactor";		title: qsTr("Optional Grouping Factor"); singleVariable: true							}
 		}

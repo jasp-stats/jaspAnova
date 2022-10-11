@@ -106,7 +106,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
         dfNum         = thisRow['num Df'],
         dfDen    = thisRow['den Df'],
         p             = p,
-        VovkSellkeMPR = VovkSellkeMPR(p)
+        vovkSellke = VovkSellkeMPR(p)
       )
     }
   }
@@ -117,7 +117,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
   jaspResults[["stateManovaResults"]]$dependOn(c("dependent", "fixedFactors",
                                                  "testPillai", "testWilks",
                                                  "testHotellingLawley", "testRoy", 
-                                                 "includeIntercept", "VovkSellkeMPR",
+                                                 "includeIntercept", "vovkSellke",
                                                  "modelTerms", "includeAnovaTables"))
   
   # Return results object
@@ -133,7 +133,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
   
   manovaContainer$dependOn(c("dependent", "fixedFactors", "testPillai", "testWilks",
                          "testHotellingLawley", "testRoy", "includeIntercept",
-                         "VovkSellkeMPR", "modelTerms", "includeAnovaTables"))
+                         "vovkSellke", "modelTerms", "includeAnovaTables"))
 
   # Set up the different tests for Manova
   allTests <- c("Pillai", "Wilks", "Hotelling-Lawley", "Roy") 
@@ -161,8 +161,8 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     manovaTable$addColumnInfo(name = "dfDen",   title = "Den df",                 type = "number")
     manovaTable$addColumnInfo(name = "p",       title = "p",                      type = "pvalue")
     
-    if (options$VovkSellkeMPR) {
-      manovaTable$addColumnInfo(name = "VovkSellkeMPR", title = "VS-MPR\u002A", type = "number")
+    if (options$vovkSellke) {
+      manovaTable$addColumnInfo(name = "vovkSellke", title = "VS-MPR\u002A", type = "number")
     }
     
     jaspResults[["manovaContainer"]][[thisTest]] <- manovaTable
@@ -174,12 +174,12 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     for (case in names(manovaResults[["manova"]][[thisTest]])) {
       row <- manovaResults[["manova"]][[thisTest]][[case]]
       if (case == "Residuals") 
-        row[["VovkSellkeMPR"]] <- ""
+        row[["vovkSellke"]] <- ""
       manovaTable$addRows(row, rowNames = paste0(thisTest, " - ", case))
     }
     
-    # Add footnote: VovkSellkeMPR
-    if (options$VovkSellkeMPR) {
+    # Add footnote: vovkSellke
+    if (options$vovkSellke) {
       manovaTable$addFootnote(message = .messages("footnote", "VovkSellkeMPR"), symbol = "\u002A")
     }
   }
@@ -194,7 +194,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
   
   anovaContainer$dependOn(c("dependent", "fixedFactors", "testPillai", "testWilks",
                              "testHotellingLawley", "testRoy", "includeIntercept",
-                             "VovkSellkeMPR", "modelTerms", "includeAnovaTables"))
+                             "vovkSellke", "modelTerms", "includeAnovaTables"))
   
   anovaResults <- manovaResults$anova
 
@@ -207,7 +207,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     
     anovaTable <- createJaspTable(title = paste0("ANOVA: ", varName))
     anovaTable$dependOn(c("dependent", "fixedFactors", "includeIntercept", 
-                          "VovkSellkeMPR", "modelTerms"))
+                          "vovkSellke", "modelTerms"))
     
     anovaTable$showSpecifiedColumnsOnly <- TRUE
     
@@ -219,8 +219,8 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     anovaTable$addColumnInfo(name = "F value",  title = "F",              type = "number")
     anovaTable$addColumnInfo(name = "Pr(>F)",   title = "p",              type = "pvalue")
     
-    if (options$VovkSellkeMPR) {
-      anovaTable$addColumnInfo(name = "VovkSellkeMPR", title = "VS-MPR\u002A", type = "number")
+    if (options$vovkSellke) {
+      anovaTable$addColumnInfo(name = "vovkSellke", title = "VS-MPR\u002A", type = "number")
     }
     
     if (!ready)
@@ -231,12 +231,12 @@ Manova <- function(jaspResults, dataset = NULL, options) {
     for (case in rownames(manovaResults[["anova"]][[thisVar]])) {
       row <- as.list(manovaResults[["anova"]][[thisVar]][case, ])
       row["cases"] <- stringi::stri_unescape_unicode(gsub("<U\\+(....)>", "\\\\u\\1", case)) # summary() seemingly escapes unicode on windows
-      row["VovkSellkeMPR"] <- if(trimws(case) == "Residuals") "" else VovkSellkeMPR(row[["Pr(>F)"]])
+      row["vovkSellke"] <- if(trimws(case) == "Residuals") "" else VovkSellkeMPR(row[["Pr(>F)"]])
       anovaTable$addRows(row, rowNames = paste0(thisVar, " - ", case))
     }
     
-    # Add footnote: VovkSellkeMPR
-    if (options$VovkSellkeMPR) {
+    # Add footnote: vovkSellke
+    if (options$vovkSellke) {
       anovaTable$addFootnote(message = .messages("footnote", "VovkSellkeMPR"), symbol = "\u002A")
     }
     

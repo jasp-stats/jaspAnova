@@ -10,7 +10,7 @@ test_that("Main table results match", {
     list(components="contBinom"),
     list(components="facGender"))
   options$includeIntercept <- TRUE
-  options$VovkSellkeMPR <- TRUE
+  options$vovkSellke <- TRUE
   options$testWilks <- TRUE
 
   results <- jaspTools::runAnalysis("Manova", "test.csv", options, view = TRUE)

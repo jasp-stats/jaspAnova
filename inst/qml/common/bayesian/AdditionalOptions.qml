@@ -41,17 +41,17 @@ Section
 			RadioButtonGroup
 			{
 				title: qsTr("Specify Prior on Coefficients")
-				name: "coefficientsPrior"
-				RadioButton {	value: "rscalesAcrossParameters";	label: qsTr("For fixed and random terms");			checked: true;	id: rscalesAcrossParameters	}
-				RadioButton	{	value: "rscalesPerTerm";			label: qsTr("For each term individually");														}
+				name: "priorSpecificationMode"
+				RadioButton {	value: "acrossParameters";	label: qsTr("For fixed and random terms");			checked: true;	id: priorSpecificationAcrossParameters	}
+				RadioButton	{	value: "perTerm";			label: qsTr("For each term individually");																	}
 			}
 			Group
 			{
 				columns: 1
 				title: qsTr("Coefficient Prior")
-				DoubleField {																name: "priorFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
-				DoubleField {																name: "priorRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: rscalesAcrossParameters.checked	}
-				DoubleField { visible: analysis !== Common.Type.Analysis.ANOVA;	name: "priorCovariates";	label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;												}
+				DoubleField {													name: "cauchyPriorScaleFixedEffects";	label: qsTr("r scale fixed effects");	defaultValue: 0.5;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: priorSpecificationAcrossParameters.checked	}
+				DoubleField {													name: "cauchyPriorScaleRandomEffects";	label: qsTr("r scale random effects");	defaultValue: 1;		max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;	enabled: priorSpecificationAcrossParameters.checked	}
+				DoubleField { visible: analysis !== Common.Type.Analysis.ANOVA;	name: "cauchyPriorScaleCovariates";		label: qsTr("r scale covariates");		defaultValue: 0.354;	max: 2;		inclusive: JASP.MaxOnly;	decimals: 3;														}
 			}
 		}
 
@@ -66,7 +66,7 @@ Section
 		RadioButtonGroup
 		{
 			enabled: integrationMethodAutomatic.checked
-			name: "sampleModeNumAcc"
+			name: "samplingMethodNumericAccuracy"
 			title: qsTr("Numerical Accuracy")
 			RadioButton { value: "auto";	label: qsTr("Auto"); checked: true }
 			RadioButton
@@ -74,7 +74,7 @@ Section
 				value: "manual";	label: qsTr("Manual")
 				IntegerField
 				{
-					name: "fixedNumAcc"
+					name: "samplesNumericAccuracy"
 					label: qsTr("No. samples")
 					defaultValue: 1e4
 					fieldWidth: 50
@@ -86,7 +86,7 @@ Section
 
 		RadioButtonGroup
 		{
-			name: "sampleModeMCMC"
+			name: "samplingMethodMCMC"
 			title: qsTr("Posterior Samples")
 			RadioButton { value: "auto";	label: qsTr("Auto"); checked: true }
 			RadioButton
@@ -94,7 +94,7 @@ Section
 				value: "manual";	label: qsTr("Manual")
 				IntegerField
 				{
-					name: "fixedMCMCSamples"
+					name: "samplesMCMC"
 					label: qsTr("No. samples")
 					defaultValue: 1e3
 					fieldWidth: 50
@@ -109,14 +109,14 @@ Section
 			CheckBox
 			{
 				visible: analysis === Common.Type.Analysis.RMANOVA
-				name:	"legacy"
+				name:	"legacyResults"
 				label:	qsTr("Legacy results")
 				info:	qsTr("When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.")
 			}
 
 			CheckBox
 			{
-				name:		"hideNuisanceEffects"
+				name:		"hideNuisanceParameters"
 				checked:	true
 				label:		qsTr("Hide nuisance in model")
 				info:		qsTr("When checked, the nuisance parameters common to all models are omitted from the model specification.")
@@ -140,11 +140,11 @@ Section
 			RadioButton { value: "uniform"; label: qsTr("Uniform"); checked: true}
 			RadioButton
 			{
-				value: "beta.binomial"; label: qsTr("Beta binomial")
+				value: "betaBinomial"; label: qsTr("Beta binomial")
 				childrenOnSameRow: true
 				childrenArea.columnSpacing: 1
-				DoubleField { name: "betaBinomialParamA"; label: qsTr("a"); defaultValue: 1; inclusive: JASP.MaxOnly}
-				DoubleField { name: "betaBinomialParamB"; label: qsTr("b"); defaultValue: 1; inclusive: JASP.MaxOnly}
+				DoubleField { name: "betaBinomialParameterA"; label: qsTr("a"); defaultValue: 1; inclusive: JASP.MaxOnly}
+				DoubleField { name: "betaBinomialParameterB"; label: qsTr("b"); defaultValue: 1; inclusive: JASP.MaxOnly}
 			}
 			RadioButton
 			{
@@ -152,7 +152,7 @@ Section
 				label: qsTr("Wilson")
 				childrenOnSameRow: true
 				childrenArea.columnSpacing: 1
-				DoubleField { name: "wilsonParamLambda"; label: qsTr("λ"); defaultValue: 1; inclusive: JASP.None; min: 0}
+				DoubleField { name: "wilsonParameterLambda"; label: qsTr("λ"); defaultValue: 1; inclusive: JASP.None; min: 0}
 			}
 			RadioButton
 			{
@@ -160,13 +160,13 @@ Section
 				label: qsTr("Castillo")
 				childrenOnSameRow: true
 				childrenArea.columnSpacing: 1
-				DoubleField { name: "castilloParamU"; label: qsTr("u"); defaultValue: 1; inclusive: JASP.MinMax; min: 1}
+				DoubleField { name: "castilloParameterU"; label: qsTr("u"); defaultValue: 1; inclusive: JASP.MinMax; min: 1}
 			}
 			RadioButton
 			{
 				value: "Bernoulli"; label: qsTr("Bernoulli")
 				childrenOnSameRow: true
-				DoubleField { name: "bernoulliParam"; label: qsTr("p"); defaultValue: 0.5; max: 1; inclusive: JASP.None; decimals: 3 }
+				DoubleField { name: "bernoulliParameter"; label: qsTr("p"); defaultValue: 0.5; max: 1; inclusive: JASP.None; decimals: 3 }
 			}
 			RadioButton
 			{
@@ -186,7 +186,7 @@ Section
 
 		spacing:				0
 		Layout.preferredWidth:	parent.width
-		visible	:				customPriorModelProbabilities.checked || !rscalesAcrossParameters.checked
+		visible	:				customPriorModelProbabilities.checked || !priorSpecificationAcrossParameters.checked
 		RowLayout
 		{
 			Row
@@ -205,14 +205,14 @@ Section
 			{
 				spacing:				customPriorLayout.space
 				Layout.preferredWidth:	customPriorLayout.prefWidth
-				Label { text: qsTr("r-scale");				visible: !rscalesAcrossParameters.checked}
+				Label { text: qsTr("r-scale");				visible: !priorSpecificationAcrossParameters.checked}
 			}
 		}
 
 		VariablesList
 		{
-			id					: modelTermsCustomPrior
-			name				: "modelTermsCustomPrior"
+			id					: customPriorSpecification
+			name				: "customPriorSpecification"
 			optionKey			: "components"
 			source				: [ { name: "modelTerms", condition: "isNuisanceValue == false", conditionVariables: [{ name: "isNuisanceValue", component: "isNuisance", property: "checked"}] }]
 			listViewType		: JASP.AssignedVariables
@@ -227,7 +227,7 @@ Section
 					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
-						name:			"priorIncl"
+						name:			"inclusionProbability"
 						min:			0
 						max:			100
 						defaultValue:	0.5
@@ -241,12 +241,12 @@ Section
 					Layout.preferredWidth:	customPriorLayout.prefWidth
 					DoubleField
 					{
-						name:			"rscaleFixed"
+						name:			"scaleFixedEffects"
 						min:			0
 						max:			100
 						defaultValue:	0.5
 						inclusive:		JASP.None
-						visible:		!rscalesAcrossParameters.checked && (covariates === null || !rowValue.split(INTERACTION_SEPARATOR).some(elt => { return covariates.columnsNames.includes(elt.trim())}))
+						visible:		!priorSpecificationAcrossParameters.checked && (covariates === null || !rowValue.split(INTERACTION_SEPARATOR).some(elt => { return covariates.columnsNames.includes(elt.trim())}))
 					}
 				}
 			}

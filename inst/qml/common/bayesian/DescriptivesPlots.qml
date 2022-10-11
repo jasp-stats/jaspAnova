@@ -23,36 +23,28 @@ import JASP				1.0
 
 Section
 {
-	property bool showLabel: false
 	property alias source: descriptivePlotsVariables.source
-
-	title: qsTr("Descriptives Plots")
+	title:		qsTr("Descriptives Plots")
+	columns:	1
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
 
-		AvailableVariablesList { name: "descriptivePlotsVariables" ;	title: qsTr("Factors"); id: descriptivePlotsVariables }
-		AssignedVariablesList { name: "plotHorizontalAxis";				title: qsTr("Horizontal Axis");	singleVariable: true }
-		AssignedVariablesList { name: "plotSeparateLines";				title: qsTr("Separate Lines");	singleVariable: true }
-		AssignedVariablesList { name: "plotSeparatePlots";				title: qsTr("Separate Plots");	singleVariable: true }
-	}
-
-	TextField
-	{
-		visible: showLabel
-		name: "labelYAxis"; label: qsTr("Label y-axis"); fieldWidth: 200
+		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");		id: descriptivePlotsVariables	}
+		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";	title: qsTr("Horizontal Axis");	singleVariable: true		}
+		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";		title: qsTr("Separate Lines");	singleVariable: true		}
+		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";		title: qsTr("Separate Plots");	singleVariable: true		}
 	}
 
 	Group
 	{
-
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "plotCredibleInterval"; label: qsTr("Credible interval")
+			name: "descriptivePlotCi"; label: qsTr("Credible interval")
 			childrenOnSameRow: true
-			CIField { name: "plotCredibleIntervalInterval" }
+			CIField { name: "descriptivePlotCiLevel" }
 		}
 	}
 }

@@ -55,6 +55,20 @@ Group
 		RadioButton { value: "nullModelTop"; label: qsTr("Compare to null model")					}
 	}
 
+	RadioButtonGroup
+	{
+		name: "modelsShown"
+		title: qsTr("Limit No. Models Shown")
+		RadioButton { value: "unlimited"; label: qsTr("No") }
+		RadioButton {
+			value: "limited"
+			label: qsTr("Yes, show best")
+			checked: true
+			childrenOnSameRow: true
+			IntegerField { name: "numModelsShown"; defaultValue: 10; min: 1}
+		}
+	}
+
 	GroupBox
 	{
 		title: qsTr("Plots")

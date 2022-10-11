@@ -248,20 +248,15 @@
     return(list(analysisType = analysisType))
   } else if (!is.null(stateObj) && .BANOVAmarginalityOptionsUnchanged(stateObj, options) && (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options) || identical(stateObj[["shownTableSize"]], options[c("modelsShown", "numModelsShown")]))) {
 
-    internalTable <- stateObj$internalTableObj$internalTable
-    nmodels <- nrow(internalTable)
-    if (options[["modelsShown"]] == "unlimited") {
-      shownTableSize <- nmodels
-    } else {
-      shownTableSize <- options[["numModelsShown"]]
-      if (shownTableSize < nmodels)
-        modelTable$addFootnote(gettextf("Showing the best %1$d models out of %2$d total models", options[["numModelsShown"]], nmodels))
-    }
-
     # if the statement above is TRUE then no new variables were added (or seed changed)
-    # and the only change is in the Bayes factor type or the ordering
+    # and the only change is in the Bayes factor type, the ordering, or the number of models shown
     modelTable <- .BANOVAinitModelComparisonTable(options)
     modelTable[["Models"]] <- .BANOVAgetModelTitlesWithAllTerms(stateObj[["models"]], stateObj[["model.list"]], analysisType, options[["hideNuisanceParameters"]])
+
+    internalTable <- stateObj$internalTableObj$internalTable
+    nmodels <- nrow(internalTable)
+    .BANOVAestimateModels
+    shownTableSize <- .BANOVAgetShownTableSizeAndAddFootnote(modelTable, nmodels, options[["modelsShown"]], options[["numModelsShown"]])
 
     if (.BANOVAmodelPriorOptionsChanged(stateObj, options)) {
 
@@ -393,13 +388,7 @@
   modelTable <- .BANOVAinitModelComparisonTable(options)
   modelNames <- .BANOVAgetModelTitlesWithAllTerms(modelObject, model.list, analysisType, options[["hideNuisanceParameters"]])
 
-  if (options[["modelsShown"]] == "unlimited") {
-    shownTableSize <- nmodels
-  } else {
-    shownTableSize <- options[["numModelsShown"]]
-    if (shownTableSize < nmodels)
-      modelTable$addFootnote(gettextf("Showing the best %1$d models out of %2$d total models", options[["numModelsShown"]], nmodels))
-  }
+  shownTableSize <- .BANOVAgetShownTableSizeAndAddFootnote(modelTable, nmodels, options[["modelsShown"]], options[["numModelsShown"]])
 
   modelTable[["Models"]] <- modelNames[seq_len(shownTableSize)]
   jaspResults[["tableModelComparison"]] <- modelTable
@@ -746,9 +735,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "integrationMethod",
     "bayesFactorType", "bayesFactorOrder",
     "hideNuisanceParameters", "legacyResults",
+    "modelsShown",
     .BANOVAmodelSpaceDependencies(options[["modelPrior"]]),
     .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
   ))
+  if (options[["modelsShown"]] == "limited")
+    modelTable$dependOn("numModelsShown")
 
   switch(options$bayesFactorType,
     BF10 = {
@@ -2886,6 +2878,17 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
   }
   return(list(rscaleFixed = rscaleFixed, rscaleRandom = rscaleRandom, rscaleCont = rscaleCont, rscaleEffects = rscaleEffects))
+}
+
+.BANOVAgetShownTableSizeAndAddFootnote <- function(modelTable, nmodels, modelsShown, numModelsShown) {
+  if (modelsShown == "unlimited") {
+    shownTableSize <- nmodels
+  } else {
+    shownTableSize <- min(nmodels, numModelsShown)
+    if (shownTableSize < nmodels)
+      modelTable$addFootnote(gettextf("Showing the best %1$d out of %2$d models.", numModelsShown, nmodels))
+  }
+  return(shownTableSize)
 }
 
 # # .BANOVAupdateRscales <- function() {

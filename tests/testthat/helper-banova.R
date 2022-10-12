@@ -2,6 +2,7 @@
 initOpts <- function(analysisName) {
   options <- jaspTools::analysisOptions(analysisName)
   options <- addCommonQMLoptions(options)
+  options$modelsShown <- "unlimited"
 
   # avoid that BayesFactor shows progress bars
   options("BFprogress" = FALSE)

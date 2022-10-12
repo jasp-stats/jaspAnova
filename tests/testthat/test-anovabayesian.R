@@ -226,3 +226,61 @@ test_that("Model prior changes posterior model probabilities", {
   }
   if (createReference) saveRDS(reference, referencePath)
 })
+
+test_that("Changing the number of models shown affects the main table", {
+  set.seed(0)
+  options <- initOpts("AnovaBayesian")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("facGender", "facFive", "facExperim")
+  options$modelTerms <- list(
+    list(components="facGender", isNuisance=FALSE),
+    list(components="facFive", isNuisance=FALSE),
+    list(components="facExperim", isNuisance=FALSE),
+    list(components=c("facGender", "facFive"), isNuisance=FALSE),
+    list(components=c("facGender", "facExperim"), isNuisance=FALSE),
+    list(components=c("facExperim", "facFive"), isNuisance=FALSE),
+    list(components=c("facGender", "facExperim", "facFive"), isNuisance=FALSE)
+  )
+
+  options$modelsShown <- "limited"
+  options$numModelsShown <- 5
+
+  results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
+  table <- results[["results"]][["tableModelComparison"]][["data"]]
+
+  jaspTools::expect_equal_tables(table,
+                                 list(1, 13.3659218116967, "facGender", 0.0526315789473684, 0.426128774149797,
+                                      "", 0.523794362759307, 5.17210247921735, "Null model", 0.0526315789473684,
+                                      0.223203849709198, 0.00991710759730765, 0.181670581429487, 1.51039873056377,
+                                      "facGender + facExperim", 0.0526315789473684, 0.0774150621636282,
+                                      14.3301775340925, 0.160926125807685, 1.32523271745499, "facGender + facFive",
+                                      0.0526315789473684, 0.0685752527191049, 23.0898719232616, 0.116409805929351,
+                                      0.939504896110524, "facExperim", 0.0526315789473684, 0.0496055678996901,
+                                      0.0269112294974812), label = "Table with 5 rows")
+
+  options$modelsShown <- "limited"
+  options$numModelsShown <- 10
+
+  results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
+  table <- results[["results"]][["tableModelComparison"]][["data"]]
+
+  jaspTools::expect_equal_tables(table,
+                                 list(1, 13.5401945213762, "facGender", 0.0526315789473684, 0.429299651661927,
+                                      "", 0.523794362759307, 5.22175350578976, "Null model", 0.0526315789473684,
+                                      0.224864737475051, 0.00991710759730765, 0.170863908644435, 1.42484787623232,
+                                      "facGender + facExperim", 0.0526315789473684, 0.0733518164626514,
+                                      7.64535614840947, 0.16705375323206, 1.39061999288634, "facGender + facFive",
+                                      0.0526315789473684, 0.0717161180713408, 13.4935759252231, 0.116409805929351,
+                                      0.946863619476086, "facExperim", 0.0526315789473684, 0.0499746891355029,
+                                      0.0269112294974812, 0.0902952358051223, 0.725884830441666, "facGender + facExperim + facGender<unicode><unicode><unicode>facExperim",
+                                      0.0526315789473684, 0.0387637132778706, 22.7829909603318, 0.0791076920342147,
+                                      0.632786277848988, "facFive", 0.0526315789473684, 0.0339609046340674,
+                                      0.00994061596714849, 0.0570470263884217, 0.451891785202431,
+                                      "facGender + facFive + facGender<unicode><unicode><unicode>facFive",
+                                      0.0526315789473684, 0.0244902685568982, 7.29922242520545, 0.0252985039010556,
+                                      0.197637975104202, "facGender + facFive + facExperim", 0.0526315789473684,
+                                      0.0108606389122911, 9.56328348447552, 0.0208881223923882, 0.16287125549643,
+                                      "facGender + facFive + facExperim + facFive<unicode><unicode><unicode>facExperim",
+                                      0.0526315789473684, 0.00896726366692393, 7.67806876653366), label = "Table with 10 rows")
+
+})

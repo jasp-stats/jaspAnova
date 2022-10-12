@@ -246,7 +246,10 @@
     modelTable <- .BANOVAinitModelComparisonTable(options)
     jaspResults[["tableModelComparison"]] <- modelTable
     return(list(analysisType = analysisType))
-  } else if (!is.null(stateObj) && .BANOVAmarginalityOptionsUnchanged(stateObj, options) && (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options) || identical(stateObj[["shownTableSize"]], options[c("modelsShown", "numModelsShown")]))) {
+  } else if (!is.null(stateObj) &&
+             .BANOVAmodelTermsUnchanged(stateObj, options) &&
+             .BANOVAmarginalityOptionsUnchanged(stateObj, options) &&
+             (.BANOVAmodelBFTypeOrOrderChanged(stateObj, options) || identical(stateObj[["shownTableSize"]], options[c("modelsShown", "numModelsShown")]))) {
 
     # if the statement above is TRUE then no new variables were added (or seed changed)
     # and the only change is in the Bayes factor type, the ordering, or the number of models shown
@@ -2985,6 +2988,9 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   identical(state[nms], options[nms])
 }
 
+.BANOVAmodelTermsUnchanged <- function(state, options) {
+  identical(state[["modelTerms"]], options[["modelTerms"]])
+}
 
 # HF formulas ----
 .BANOVAgetFormulaComponents <- function(x, what = c("components", "variables")) {

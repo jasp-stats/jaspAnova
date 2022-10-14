@@ -30,6 +30,6 @@ Section
 	{
 		preferredHeight:	170 * preferencesModel.uiScale
 		AvailableVariablesList	{ name: "kruskalWallisAvailableFactors";	title: qsTr("Kruskal-Wallis Test");	id: availableTerms	}
-		AssignedVariablesList	{ name: "kruskalWallisFactors";				title: qsTr(" ")										}
+		AssignedVariablesList	{ name: "kruskalWallisFactors";				title: " "												}
 	}
 }

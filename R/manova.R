@@ -15,6 +15,61 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+ManovaWrapper <- function(
+          data = NULL,
+          formula = NULL,
+          anovaTables = FALSE,
+          boxMTest = FALSE,
+          dependent = list(),
+          fixedFactors = list(),
+          includeIntercept = TRUE,
+          modelTerms = list(),
+          plotHeight = 320,
+          plotHeightDescriptivesPlotLegend = 300,
+          plotHeightDescriptivesPlotNoLegend = 300,
+          plotHeightQQPlot = 300,
+          plotWidth = 480,
+          plotWidthDescriptivesPlotLegend = 430,
+          plotWidthDescriptivesPlotNoLegend = 350,
+          plotWidthQQPlot = 300,
+          randomFactors = list(),
+          shapiroTest = FALSE,
+          testHotellingLawley = FALSE,
+          testPillai = TRUE,
+          testRoy = FALSE,
+          testWilks = FALSE,
+          vovkSellke = FALSE) {
+
+   defaultArgCalls <- formals(jaspAnova::ManovaWrapper)
+   defaultArgs <- lapply(defaultArgCalls, eval)
+   options <- as.list(match.call())[-1L]
+   options <- lapply(options, eval)
+   defaults <- setdiff(names(defaultArgs), names(options))
+   options[defaults] <- defaultArgs[defaults]
+   options[["data"]] <- NULL
+
+   if (!is.null(formula)) {
+      if (!inherits(formula, "formula")) {
+         formula <- as.formula(formula)
+      }
+      options$formula <- deparse1(formula)
+   }
+
+   optionsWithFormula <- c("modelTerms")
+   for (name in optionsWithFormula) {
+      if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = deparse1(options[[name]])   }
+
+   if (jaspResultsCalledFromJasp()) {
+      result <- list("options" = options, "analysis"="jaspAnova::Manova")
+      result <- jsonlite::toJSON(result, auto_unbox = TRUE, digits = NA, null="null")
+      toString(result)
+   } else {
+      options <- checkAnalysisOptions("jaspAnova::Manova", options)
+      jaspTools::runAnalysis("jaspAnova::Manova", data, options)
+   }
+
+}
+
 Manova <- function(jaspResults, dataset = NULL, options) {
   
   # Check if we're ready to actually compute something or just show empty tables

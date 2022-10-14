@@ -29,6 +29,13 @@ Form
 	property int analysis:	Common.Type.Analysis.ANOVA
 	property int framework:	Common.Type.Framework.Bayesian
 
+	Formula
+	{
+		lhs: "dependent"
+		rhs: [{ name: "modelTerms", extraOptions: "isNuisance" }]
+		userMustSpecify: "randomFactors"
+	}
+
 	VariablesForm
 	{
 		AvailableVariablesList	{ name: "allVariablesList"																							}

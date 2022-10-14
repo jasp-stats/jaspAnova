@@ -30,7 +30,14 @@ Form
 	property int framework:	Common.Type.Framework.Classical
 
 	Classical.InvisiblePlotSizes{}
-	
+
+	Formula
+	{
+		lhs: "dependent"
+		rhs: "modelTerms"
+		userMustSpecify: ["randomFactors", "covariates"]
+	}
+
 	VariablesForm
 	{
 		preferredHeight:	400 * preferencesModel.uiScale

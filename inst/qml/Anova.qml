@@ -30,6 +30,13 @@ Form
 	
 	Classical.InvisiblePlotSizes{}
 
+	Formula
+	{
+		lhs: "dependent"
+		rhs: "modelTerms"
+		userMustSpecify: "randomFactors"
+	}
+
 	VariablesForm
 	{
 		preferredHeight: 400 * preferencesModel.uiScale

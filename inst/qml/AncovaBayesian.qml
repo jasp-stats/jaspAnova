@@ -30,6 +30,13 @@ Form
 	property int analysis:	Common.Type.Analysis.ANCOVA
 	property int framework:	Common.Type.Framework.Bayesian
 
+	Formula
+	{
+		lhs: "dependent"
+		rhs: [{ name: "modelTerms", extraOptions: "isNuisance" }]
+		userMustSpecify: ["randomFactors", "covariates"]
+	}
+
 	VariablesForm
 	{
 		AvailableVariablesList	{ name: "allVariablesList"																							}

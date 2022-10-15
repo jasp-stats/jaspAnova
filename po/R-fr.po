@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-09-24 03:31\n"
-"PO-Revision-Date: 2022-09-28 09:40+0000\n"
-"Last-Translator: Cécile Mazon <cecile.mazon@inria.fr>\n"
+"PO-Revision-Date: 2022-10-12 19:54+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -676,7 +676,7 @@ msgid "P(M|data)"
 msgstr "P(M|donnée)"
 
 msgid "error %"
-msgstr "% erreur"
+msgstr "% d'erreur"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -826,7 +826,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Order Restricted Hypotheses"
-msgstr "Restrictions de commande"
+msgstr "Hypothèses restreintes par l'ordre"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
@@ -999,9 +999,8 @@ msgstr "Tests d'hypothèses éclairés"
 msgid "Hypothesis"
 msgstr ""
 
-#, fuzzy
 msgid "Test"
-msgstr "Type de test"
+msgstr "Test"
 
 #, fuzzy
 msgid "Test Statistic"

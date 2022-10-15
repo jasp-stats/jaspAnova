@@ -692,10 +692,6 @@ msgid "Separate Plots"
 msgstr "Gráficos Separados"
 
 msgctxt "DescriptivesPlots|"
-msgid "Label y-axis"
-msgstr "Etiqueta del eje y"
-
-msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr "Mostrar"
 
@@ -1161,3 +1157,20 @@ msgstr "Automático"
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
 msgstr "Aproximación de Laplace"
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr "Etiqueta del eje y"
+
+msgctxt "DefaultOptions|"
+msgid "Limit No. Models Shown"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "No"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Yes, show best"
+msgstr ""

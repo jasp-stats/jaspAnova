@@ -712,11 +712,6 @@ msgstr "分割プロット"
 
 #, fuzzy
 msgctxt "DescriptivesPlots|"
-msgid "Label y-axis"
-msgstr "Y軸のラベル"
-
-#, fuzzy
-msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr "表示"
 
@@ -1253,4 +1248,21 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr "Y軸のラベル"
+
+msgctxt "DefaultOptions|"
+msgid "Limit No. Models Shown"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "No"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Yes, show best"
 msgstr ""

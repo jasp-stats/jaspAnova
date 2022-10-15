@@ -681,10 +681,6 @@ msgid "Separate Plots"
 msgstr "分隔绘图"
 
 msgctxt "DescriptivesPlots|"
-msgid "Label y-axis"
-msgstr "y 轴标签"
-
-msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr "显示"
 
@@ -1153,3 +1149,19 @@ msgstr "自动"
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
 msgstr "拉普拉斯近似法"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Limit No. Models Shown"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "No"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Yes, show best"
+msgstr ""

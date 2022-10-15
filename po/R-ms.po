@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-09-24 03:31\n"
+"POT-Creation-Date: 2022-10-15 03:28\n"
 "PO-Revision-Date: 2022-02-04 03:58+0000\n"
 "Last-Translator: Harris Abd Hamid <harris75@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -719,6 +719,10 @@ msgstr "Deskriptif"
 msgid "Descriptives - %s"
 msgstr ""
 
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "Pekali"
+
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
@@ -748,6 +752,9 @@ msgstr ""
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
+msgstr ""
+
+msgid "Showing the best %1$d out of %2$d models."
 msgstr ""
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"

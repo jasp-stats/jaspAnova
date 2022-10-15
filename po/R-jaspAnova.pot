@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2022-10-08 03:14\n"
+"POT-Creation-Date: 2022-10-15 03:28\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -634,6 +634,9 @@ msgstr ""
 msgid "Descriptives - %s"
 msgstr ""
 
+msgid "Coefficient of variation"
+msgstr ""
+
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
 msgstr ""
 
@@ -659,6 +662,9 @@ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."
+msgstr ""
+
+msgid "Showing the best %1$d out of %2$d models."
 msgstr ""
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"

@@ -674,10 +674,6 @@ msgid "Separate Plots"
 msgstr ""
 
 msgctxt "DescriptivesPlots|"
-msgid "Label y-axis"
-msgstr ""
-
-msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr ""
 
@@ -1134,4 +1130,20 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Limit No. Models Shown"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "No"
+msgstr ""
+
+msgctxt "DefaultOptions|"
+msgid "Yes, show best"
 msgstr ""

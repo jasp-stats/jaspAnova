@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-09-24 03:31\n"
+"POT-Creation-Date: 2022-10-15 03:28\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -761,6 +761,10 @@ msgstr "記述統計量"
 msgid "Descriptives - %s"
 msgstr "記述統計量 - %s"
 
+#, fuzzy
+msgid "Coefficient of variation"
+msgstr "係数"
+
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
 "%g combinations are unobserved)."
@@ -795,6 +799,9 @@ msgid ""
 msgstr ""
 "すべての予測の分散はゼロでした。予測変数に異常がないか確認するか，事後分布の"
 "サンプル数を増やしましょう。"
+
+msgid "Showing the best %1$d out of %2$d models."
+msgstr ""
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""

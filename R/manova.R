@@ -173,7 +173,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
                                                  "testPillai", "testWilks",
                                                  "testHotellingLawley", "testRoy", 
                                                  "includeIntercept", "vovkSellke",
-                                                 "modelTerms", "includeAnovaTables"))
+                                                 "modelTerms", "anovaTables"))
   
   # Return results object
   return(results)
@@ -188,7 +188,7 @@ Manova <- function(jaspResults, dataset = NULL, options) {
   
   manovaContainer$dependOn(c("dependent", "fixedFactors", "testPillai", "testWilks",
                          "testHotellingLawley", "testRoy", "includeIntercept",
-                         "vovkSellke", "modelTerms", "includeAnovaTables"))
+                         "vovkSellke", "modelTerms", "anovaTables"))
 
   # Set up the different tests for Manova
   allTests <- c("Pillai", "Wilks", "Hotelling-Lawley", "Roy") 
@@ -242,14 +242,14 @@ Manova <- function(jaspResults, dataset = NULL, options) {
 
 .uniAnovaTables <- function(jaspResults, dataset, options, manovaResults, ready) {
   
-  if (!is.null(jaspResults[["anovaContainer"]]) || !options$includeAnovaTables) return()
+  if (!is.null(jaspResults[["anovaContainer"]]) || !options$anovaTables) return()
   
   anovaContainer <- createJaspContainer(title = gettext("ANOVA"))
   jaspResults[["anovaContainer"]] <- anovaContainer
   
   anovaContainer$dependOn(c("dependent", "fixedFactors", "testPillai", "testWilks",
                              "testHotellingLawley", "testRoy", "includeIntercept",
-                             "vovkSellke", "modelTerms", "includeAnovaTables"))
+                             "vovkSellke", "modelTerms", "anovaTables"))
   
   anovaResults <- manovaResults$anova
 

@@ -12,7 +12,7 @@ options$testPillai          <- TRUE
 options$testWilks           <- TRUE
 options$testHotellingLawley <- TRUE
 options$testRoy             <- TRUE
-options$includeAnovaTables  <- TRUE
+options$anovaTables         <- TRUE
 results <- jaspTools::runAnalysis("Manova", "manova_ocd.csv", options)
 
 # https://jasp-stats.github.io/jasp-verification-project/anova.html#manova

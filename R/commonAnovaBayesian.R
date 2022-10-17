@@ -1611,13 +1611,13 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # either Bayesian or Frequentist anova
   if (is.null(options$descriptivePlotErrorBarType)) { # TRUE implies Bayesian
     plotErrorBars <- options$descriptivePlotCi
-    errorBarType  <- "confidenceInterval"
+    errorBarType  <- "ci"
     conf.interval <- options$descriptivePlotCiLevel
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
     plotErrorBars <- options$descriptivePlotErrorBar
-    errorBarType  <- if(options$descriptivePlotErrorBarType == "ci") "confidenceInterval" else "se"
+    errorBarType  <- options$descriptivePlotErrorBarType
     conf.interval <- options$descriptivePlotCiLevel
     descriptivesPlotContainer$dependOn(c("dependent", "plotErrorBars", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
                                          "descriptivePlotErrorBarPooled"))

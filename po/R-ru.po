@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-10-15 03:28\n"
-"PO-Revision-Date: 2022-10-23 11:33+0000\n"
+"PO-Revision-Date: 2022-10-25 08:01+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -107,10 +107,10 @@ msgid "%s%% CI for Mean Difference"
 msgstr ""
 
 msgid "Lower"
-msgstr ""
+msgstr "Нижний"
 
 msgid "Upper"
-msgstr ""
+msgstr "Верхний"
 
 msgid "SE"
 msgstr "SE"
@@ -203,10 +203,10 @@ msgid ""
 msgstr ""
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "Среднее"
 
 msgid "SD"
 msgstr "SD"
@@ -215,7 +215,7 @@ msgid "Coefficient of Variation"
 msgstr ""
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Проверка допущений"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
@@ -502,7 +502,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Повторяющиеся переменные обнаружены в %s"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
@@ -705,13 +705,13 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Описательные статистики"
 
 msgid "Descriptives - %s"
 msgstr ""
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Коэффициент изменчивости"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "

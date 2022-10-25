@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-10-15 03:28\n"
-"PO-Revision-Date: 2022-10-25 08:01+0000\n"
+"PO-Revision-Date: 2022-10-26 00:31+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -64,7 +64,7 @@ msgid "Mean Square"
 msgstr ""
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
 msgstr "p"
@@ -116,7 +116,7 @@ msgid "SE"
 msgstr "SE"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr ""
@@ -177,7 +177,7 @@ msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr ""
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Разница средних"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr ""
@@ -264,13 +264,13 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "К-К график"
 
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "Теоретические квантили"
 
 msgid "Standardized Residuals"
 msgstr ""
@@ -401,7 +401,7 @@ msgid "bias"
 msgstr ""
 
 msgid "Cohen's d"
-msgstr "D Коэна"
+msgstr "d Коэна"
 
 msgid "Computation of Cohen's d based on pooled error."
 msgstr ""
@@ -625,7 +625,7 @@ msgid "P(M|data)"
 msgstr ""
 
 msgid "error %"
-msgstr ""
+msgstr "погрешность %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -682,7 +682,7 @@ msgid "Level"
 msgstr ""
 
 msgid "Density"
-msgstr ""
+msgstr "Плотность"
 
 msgid "Model Averaged Q-Q Plot"
 msgstr ""
@@ -928,7 +928,7 @@ msgid "Hypothesis"
 msgstr ""
 
 msgid "Test"
-msgstr ""
+msgstr "Критерий"
 
 msgid "Test Statistic"
 msgstr ""

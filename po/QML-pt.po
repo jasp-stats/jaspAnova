@@ -1017,10 +1017,6 @@ msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr "Teste Kruskal-Wallis"
 
-msgctxt "Nonparametrics|"
-msgid " "
-msgstr " "
-
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "Testes Post Hoc"

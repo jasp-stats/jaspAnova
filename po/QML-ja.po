@@ -1106,11 +1106,6 @@ msgid "Kruskal-Wallis Test"
 msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
 
 #, fuzzy
-msgctxt "Nonparametrics|"
-msgid " "
-msgstr "　"
-
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "事後検定"

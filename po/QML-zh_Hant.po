@@ -759,10 +759,6 @@ msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr ""
 
-msgctxt "Nonparametrics|"
-msgid " "
-msgstr ""
-
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
 msgstr ""

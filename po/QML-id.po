@@ -1101,11 +1101,6 @@ msgid "Kruskal-Wallis Test"
 msgstr "Uji Kruskal-Wallis"
 
 #, fuzzy
-msgctxt "Nonparametrics|"
-msgid " "
-msgstr " "
-
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "Uji Pos Hoc"

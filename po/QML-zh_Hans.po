@@ -1028,11 +1028,6 @@ msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr "Kruskal-Wallis 检验"
 
-#, fuzzy
-msgctxt "Nonparametrics|"
-msgid " "
-msgstr " "
-
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
@@ -1150,9 +1145,10 @@ msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
 msgstr "拉普拉斯近似法"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "标签 y 轴"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-10-15 03:28\n"
-"PO-Revision-Date: 2022-10-04 08:18+0000\n"
-"Last-Translator: Daria Omelchenko <dariaomelchenko2110@gmail.com>\n"
+"PO-Revision-Date: 2022-10-26 00:31+0000\n"
+"Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
 "Language: ru\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 
 msgid "ANOVA"
-msgstr ""
+msgstr "Дисперсионный анализ"
 
 msgid "ANCOVA"
 msgstr ""
@@ -58,16 +58,16 @@ msgid "Sum of Squares"
 msgstr ""
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "Mean Square"
 msgstr ""
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
 msgstr ""
@@ -107,16 +107,16 @@ msgid "%s%% CI for Mean Difference"
 msgstr ""
 
 msgid "Lower"
-msgstr ""
+msgstr "Нижний"
 
 msgid "Upper"
-msgstr ""
+msgstr "Верхний"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr ""
@@ -150,7 +150,7 @@ msgid ""
 msgstr ""
 
 msgid "Dunn"
-msgstr ""
+msgstr "Данн"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
@@ -177,7 +177,7 @@ msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr ""
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Разница средних"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr ""
@@ -189,7 +189,7 @@ msgid "Results based on uncorrected means."
 msgstr ""
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Даннетт"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
@@ -203,19 +203,19 @@ msgid ""
 msgstr ""
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "Среднее"
 
 msgid "SD"
-msgstr ""
+msgstr "SD"
 
 msgid "Coefficient of Variation"
 msgstr ""
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Проверка допущений"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
@@ -264,13 +264,13 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "К-К график"
 
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "Теоретические квантили"
 
 msgid "Standardized Residuals"
 msgstr ""
@@ -313,10 +313,10 @@ msgid ""
 msgstr ""
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Гринхаус-Гессер"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Хюйн-Фельдт"
 
 msgid "None"
 msgstr ""
@@ -502,7 +502,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Повторяющиеся переменные обнаружены в %s"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
@@ -625,7 +625,7 @@ msgid "P(M|data)"
 msgstr ""
 
 msgid "error %"
-msgstr ""
+msgstr "погрешность %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -682,7 +682,7 @@ msgid "Level"
 msgstr ""
 
 msgid "Density"
-msgstr ""
+msgstr "Плотность"
 
 msgid "Model Averaged Q-Q Plot"
 msgstr ""
@@ -705,13 +705,13 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Описательные статистики"
 
 msgid "Descriptives - %s"
 msgstr ""
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Коэффициент изменчивости"
 
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%g out of "
@@ -928,7 +928,7 @@ msgid "Hypothesis"
 msgstr ""
 
 msgid "Test"
-msgstr ""
+msgstr "Критерий"
 
 msgid "Test Statistic"
 msgstr ""

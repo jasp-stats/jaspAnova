@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-03 07:07+0000\n"
+"PO-Revision-Date: 2022-11-08 09:33+0000\n"
 "Last-Translator: Changya Hu <changyahu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-qml/zh_Hant/>\n"
@@ -9,249 +9,250 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Qt-Contexts: true\n"
 "X-Language: zh_Hant\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "變異數分析"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "比較多個平均數之差異"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "古典"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "重複量數變異數分析"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "共變數分析"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "多變量變異數分析"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "貝氏"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "貝氏變異數分析"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr ""
+msgstr "貝氏重複量數變異數分析"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "貝氏共變數分析"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "依變數"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "隨機因子"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr ""
+msgstr "共變數"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "加權最小平方法 (WLS)"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr ""
+msgstr "因子共變數獨立性檢定"
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "依變數"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "隨機因子"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "共變數"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "依變數"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "隨機因子"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "加權最小平方法 (WLS)"
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "依變數"
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "隨機因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr ""
+msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "重複量數細格"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "受試者間因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr ""
+msgstr "共變數"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr ""
+msgstr "重複量數成分"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr ""
+msgstr "模型設定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr ""
+msgstr "受試者間成分"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr ""
+msgstr "模型設定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
-msgstr ""
+msgstr "以多變數模型進行後續分析"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "檢查統計技術假設"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr ""
+msgstr "球形檢定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr ""
+msgstr "球形校正"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "同質性檢定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "事後比較檢定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr ""
+msgstr "效果量"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
-msgstr ""
+msgstr "合併RM因子的誤差項"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr ""
+msgstr "校正"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Y軸標籤"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr ""
+msgstr "將為使用的RM因子取平均值"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr ""
+msgstr "合併誤差項"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "無母數"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr ""
+msgstr "因子"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr ""
+msgstr "其他分組因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr ""
+msgstr "Conover事後比較檢定"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
@@ -261,30 +262,33 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
+"此分析是基於使用舊版本的 JASP（或動態模組）。新版貝氏重複量數變異數分析模組與"
+"舊版有所不同。除了最高階重複量數交互作用之外的所有模型，新版分析將包含隨機斜"
+"率，以避免與古典統計分析重複量數變異數分析設定有差異。。"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr ""
+msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "重複量數細格"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "受試者間因子"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "共變數"
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr ""
+msgstr "其他設定"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -320,7 +324,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
@@ -332,15 +336,15 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr ""
+msgstr "自動"
 
 msgctxt "AdditionalOptions|"
 msgid "Manual"
-msgstr ""
+msgstr "手動設定"
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "樣本數"
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
@@ -348,7 +352,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
-msgstr ""
+msgstr "之前版本之分析結果"
 
 msgctxt "AdditionalOptions|"
 msgid ""
@@ -373,11 +377,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr ""
+msgstr "隨機截距"
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
@@ -401,23 +405,23 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr ""
+msgstr "Wilson"
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr ""
+msgstr "λ"
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr ""
+msgstr "Castillo"
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
@@ -425,11 +429,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr ""
+msgstr "客製"
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr ""
+msgstr "項目"
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
@@ -445,59 +449,59 @@ msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "相較於最佳模型"
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "相較於虛無模型"
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr ""
+msgstr "表格"
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
-msgstr ""
+msgstr "效果"
 
 msgctxt "DefaultOptions|"
 msgid "Across all models"
-msgstr ""
+msgstr "與所有模型比較"
 
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
-msgstr ""
+msgstr "與配對模型比較"
 
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr ""
+msgstr "估計值"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "模型平均 R²"
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr ""
+msgstr "描述統計"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "可信區間"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
-msgstr ""
+msgstr "順序"
 
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
-msgstr ""
+msgstr "相較於最佳模型"
 
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "相較於虛無模型"
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr ""
+msgstr "圖"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -505,95 +509,96 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "單一圖顯示分組水準"
 
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "依個別水準分別繪圖"
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "殘差Q-Q圖"
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "事後 R²"
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "描述統計圖"
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "因子"
 
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "橫軸"
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "分別畫線"
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "分別畫圖"
 
 msgctxt "DescriptivesPlots|"
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "可信區間"
 
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgctxt "ModelTerms|"
 msgid "Components"
-msgstr ""
+msgstr "成分"
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "事後比較檢定"
 
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr ""
+msgstr "校正"
 
+#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Null control"
-msgstr ""
+msgstr "無控制"
 
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "單一模型推論"
 
 msgctxt "SingleModelInference|"
 msgid "Components"
-msgstr ""
+msgstr "成分"
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "特定模式項目"
 
 msgctxt "SingleModelInference|"
 msgid "Tables"
-msgstr ""
+msgstr "表格"
 
 msgctxt "SingleModelInference|"
 msgid "Estimates"
-msgstr ""
+msgstr "估計數"
 
 msgctxt "SingleModelInference|"
 msgid "R²"
-msgstr ""
+msgstr "R² (決定係數)"
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr ""
+msgstr "圖"
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
@@ -601,131 +606,132 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
-msgstr ""
+msgstr "單一圖顯示分組水準"
 
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
-msgstr ""
+msgstr "依個別水準分別繪圖"
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "殘差Q-Q圖"
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
-msgstr ""
+msgstr "事後 R²"
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "檢查統計技術假設"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "同質性考驗"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr ""
+msgstr "同質性修正"
 
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr ""
+msgstr "Brown-Forsythe"
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr ""
+msgstr "Welch"
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "殘差Q-Q圖"
 
 msgctxt "Contrasts|"
 msgid "Contrasts"
-msgstr ""
+msgstr "比較"
 
 msgctxt "Contrasts|"
 msgid "Assume equal variances"
-msgstr ""
+msgstr "假設變異數相等"
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "信賴區間"
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "描述統計圖"
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
-msgstr ""
+msgstr "因子"
 
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "橫軸"
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "分別畫線"
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "分別畫圖"
 
 msgctxt "DescriptivePlots|"
 msgid "Display"
-msgstr ""
+msgstr "呈現"
 
+#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display error bars"
-msgstr ""
+msgstr "顯示錯誤"
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "信賴區間"
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
-msgstr ""
+msgstr "標準誤"
 
 msgctxt "Display|"
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr ""
+msgstr "描述統計數"
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "效果量估計值"
 
 msgctxt "Display|"
 msgid "η²"
-msgstr ""
+msgstr "η² 效果量"
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr ""
+msgstr "η² 淨效果量"
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr ""
+msgstr "一般η² 效果量"
 
 msgctxt "Display|"
 msgid "ω²"
-msgstr ""
+msgstr "ω²"
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke最大p值比率"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "邊際平均數"
 
 msgctxt "MarginalMeans|"
 msgid "From"
@@ -733,23 +739,23 @@ msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
-msgstr ""
+msgstr "拔靴法"
 
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
-msgstr ""
+msgstr "將邊際平均數與0比較"
 
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
-msgstr ""
+msgstr "信賴區間調整"
 
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgctxt "Models|"
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgctxt "Models|"
 msgid "Components"
@@ -757,15 +763,15 @@ msgstr ""
 
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "模型設定"
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "無母數"
 
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kruskal-Wallis 檢定"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
@@ -788,7 +794,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr ""
+msgstr "語法設定"
 
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
@@ -917,15 +923,15 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr ""
+msgstr "拔靴法"
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "樣本"
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "信賴區間"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
@@ -937,15 +943,15 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "事後比較檢定"
 
 msgctxt "PostHoc|"
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgctxt "PostHoc|"
 msgid "Standard"
-msgstr ""
+msgstr "標準"
 
 msgctxt "PostHoc|"
 msgid "From"
@@ -953,201 +959,201 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "bootstraps"
-msgstr ""
+msgstr "拔靴法"
 
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr ""
+msgstr "效果量"
 
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgctxt "PostHoc|"
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr ""
+msgstr "校正"
 
 msgctxt "PostHoc|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "PostHoc|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "PostHoc|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "PostHoc|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "PostHoc|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "PostHocDisplay|"
 msgid "Display"
-msgstr ""
+msgstr "報表呈現內容"
 
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "信賴區間"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag Significant Comparisons"
-msgstr ""
+msgstr "標準"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "簡單主要效果"
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
-msgstr ""
+msgstr "因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr ""
+msgstr "簡單效果因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
-msgstr ""
+msgstr "調節因子1"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
-msgstr ""
+msgstr "調節因子2"
 
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
-msgstr ""
+msgstr "均差平方和"
 
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
-msgstr ""
+msgstr "類型%1"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "雲雨圖"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "因子"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "橫軸"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr ""
+msgstr "分別畫圖"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr ""
+msgstr "水平呈現"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Y軸標籤"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr ""
+msgstr "依變數"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "固定因子"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "隨機因子"
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgctxt "Manova|"
 msgid "Components"
-msgstr ""
+msgstr "成分"
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "模型設定"
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr ""
+msgstr "包含截距"
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr ""
+msgstr "其他設定"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr ""
+msgstr "考驗"
 
 msgctxt "Manova|"
 msgid "Pillai"
-msgstr ""
+msgstr "Pillai"
 
 msgctxt "Manova|"
 msgid "Wilks"
-msgstr ""
+msgstr "Wilks"
 
 msgctxt "Manova|"
 msgid "Hotelling-Lawley"
-msgstr ""
+msgstr "Hotelling-Lawley"
 
 msgctxt "Manova|"
 msgid "Roy"
-msgstr ""
+msgstr "Roy"
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "檢查統計技術假設"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr ""
+msgstr "共變數矩陣同質性"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
-msgstr ""
+msgstr "多變量常態分配"
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr ""
+msgstr "呈現"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr ""
+msgstr "變異數分析表"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke 對大p值比率"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Y軸標籤"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
-msgstr ""
+msgstr "限制列出的模型數目"
 
 msgctxt "DefaultOptions|"
 msgid "No"
-msgstr ""
+msgstr "否"
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
-msgstr ""
+msgstr "是，呈現最佳組合"

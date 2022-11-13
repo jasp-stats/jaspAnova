@@ -1,62 +1,69 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-11-14 06:44+0000\n"
+"Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Klasyczne"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA dla powtórzonych pomiarów"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Bayesowski"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "Bayesowska ANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr ""
+msgstr "Bayesowska ANOVA dla powtórzonych pomiarów"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "Bayesowska ANCOVA"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Zmienna zależna"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Czynniki stałe"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Czynniki losowe"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr ""
+msgstr "Współzmienne"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
@@ -68,31 +75,31 @@ msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Zmienna zależna"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Czynniki stałe"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Czynniki losowe"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Współzmienne"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Zmienna zależna"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Czynniki stałe"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Czynniki losowe"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
@@ -100,15 +107,15 @@ msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Zmienna zależna"
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Czynniki stałe"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Czynniki losowe"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
@@ -120,15 +127,15 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Czynniki międzyobiektowe"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr ""
+msgstr "Współzmienne"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
@@ -136,7 +143,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Składniki modelu"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
@@ -144,7 +151,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr ""
+msgstr "Składniki modelu"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Use multivariate model for follow-up tests"
@@ -152,11 +159,11 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Weryfikacja założeń"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr ""
+msgstr "Testy sferyczności"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
@@ -180,11 +187,11 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Testy post hoc"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr ""
+msgstr "Wielkość efektu"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for RM factors"
@@ -200,19 +207,19 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr ""
+msgstr "Czynniki"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Etykieta osi y"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
@@ -224,7 +231,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nieparametryczne"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
@@ -232,7 +239,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr ""
+msgstr "Opcjonalny czynnik grupujący"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
@@ -240,7 +247,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "Czynniki powtarzanych pomiarów"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
@@ -248,27 +255,27 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Czynniki międzyobiektowe"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Współzmienne"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr ""
+msgstr "Zmienne zależne"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Czynniki stałe"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Czynniki losowe"
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "Manova|"
 msgid "Components"
@@ -336,11 +343,11 @@ msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Czynniki"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Oś pozioma"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
@@ -352,15 +359,15 @@ msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Etykieta osi y"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "Oceń różnicę pomiędzy wieloma średnimi"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
@@ -368,7 +375,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Model 1"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
@@ -376,43 +383,43 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Uwzględnij wyraz wolny"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "Porównanie modeli"
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr ""
+msgstr "Brak"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
@@ -435,7 +442,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Dodatkowe opcje"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -443,11 +450,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "Dla składników stałych i losowych"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "Dla każdego składnika oddzielnie"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
@@ -467,15 +474,15 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr ""
+msgstr "Automatycznie"
 
 msgctxt "AdditionalOptions|"
 msgid "Manual"
-msgstr ""
+msgstr "Ręcznie"
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "Liczba próbek"
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
@@ -508,7 +515,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr ""
+msgstr "Dla efektów stałych"
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
@@ -528,35 +535,35 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr ""
+msgstr "a"
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr ""
+msgstr "b"
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr ""
+msgstr "Wilson"
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr ""
+msgstr "λ"
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr ""
+msgstr "Castillo"
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
@@ -564,7 +571,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr ""
+msgstr "Składnik"
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
@@ -584,19 +591,19 @@ msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Porównaj z modelem zerowym"
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr ""
+msgstr "Tabele"
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
-msgstr ""
+msgstr "Efekty"
 
 msgctxt "DefaultOptions|"
 msgid "Across all models"
-msgstr ""
+msgstr "We wszystkich modelach"
 
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
@@ -604,7 +611,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr ""
+msgstr "Szacunki"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
@@ -612,11 +619,11 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Statystyki opisowe"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Przedział wiarygodności"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -628,11 +635,11 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
-msgstr ""
+msgstr "Porównaj z modelem zerowym"
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr ""
+msgstr "Wykresy"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -648,7 +655,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Wykres K-K reszt"
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
@@ -656,19 +663,20 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Wykresy opisowe"
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Czynniki"
 
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr ""
+msgstr "Oś pozioma"
 
+#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
-msgstr ""
+msgstr "Oddzielne linie"
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
@@ -680,11 +688,11 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Przedział wiarygodności"
 
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgctxt "ModelTerms|"
 msgid "Components"
@@ -707,11 +715,11 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr ""
+msgstr "Ustawienia składni"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr ""
+msgstr "Pokaż dostępne współczynniki"
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
@@ -1131,7 +1139,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Etykieta osi y"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"

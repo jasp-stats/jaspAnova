@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-10-31 08:31\n"
-"PO-Revision-Date: 2022-11-12 01:07+0000\n"
+"PO-Revision-Date: 2022-11-14 06:44+0000\n"
 "Last-Translator: Changya Hu <changyahu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
@@ -14,22 +14,23 @@ msgstr ""
 "X-Generator: Weblate 4.15-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
-msgstr ""
+msgstr "加權最小平方法 (WLS)的權重為有負值或零（WLS權數須為正值）"
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
-msgstr ""
+msgstr "遇到單數契合;一個或多個預測變數是其他預測變數的線性組合"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
-msgstr ""
+msgstr "殘差平方和為0；這能是依變數的變異數極低所造成"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "計算 ANOVA 時出錯：%s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
-msgstr ""
+msgstr "您的研究設計有空白細格。請嘗試不同類型的差方和。"
 
+#, fuzzy
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
-msgstr ""
+msgstr "無法計算 Welch 校正，因為以“%2$s”分組後“%1$s”的變異數零：%3$s"
 
 msgid "ANOVA"
 msgstr "變異數分析"
@@ -38,229 +39,234 @@ msgid "ANCOVA"
 msgstr "共變數分析"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "同質性校正"
 
 msgid "Cases"
-msgstr ""
+msgstr "個案"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "離均差平方和"
 
 msgid "df"
-msgstr ""
+msgstr "自由度"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "均方"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "Vovk-Sellke 極大值p比率%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "一類離均差平方和"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "二類離均差平方和"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "三類離均差平方和"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
-msgstr ""
+msgstr "Brown-Forsythe 與 Welch 校正僅使用於單因子變異數分析"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "比較表"
 
+#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s 比較 - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "請設定另一個比較"
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "自定比較矩陣列數錯誤。"
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "請指定非零比較權重。"
 
 msgid "Estimate"
-msgstr ""
+msgstr "估計數"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "平均數差異 %s%% 信賴區間"
 
 msgid "Lower"
-msgstr ""
+msgstr "下限"
 
 msgid "Upper"
-msgstr ""
+msgstr "上限"
 
 msgid "SE"
-msgstr ""
+msgstr "標準誤"
 
 msgid "t"
-msgstr ""
+msgstr "t 值"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s 比較係數 - %2$s"
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "事後比較檢定"
 
 msgid "Standard"
-msgstr ""
+msgstr "標準"
 
+#, fuzzy
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "結果為以下級水準之平均值：%s"
 
+#, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "拔靴法結果是基於%s的成功取樣"
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "平均數差異估計值是基於拔靴法分配的中位數"
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "偏誤加速校正"
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "拔靴法事後檢定"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"一些信賴區間間無法計算。\n"
+"可能因為拔靴法複製樣本太少。"
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Dunn 事後比較- %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "比較"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "組間<sub>組內</sub>"
 
 msgid "W<sub>j</sub>"
 msgstr ""
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "bonferroni p值"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "holm p值"
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Games-Howell 事後檢定 - %s"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "平均數差異"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "平均數差異 %.的%% 信賴區間"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "Tukey p值"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "基於未校正的平均數"
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Dunnett事後比較"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "Dunnett p值"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
-msgstr ""
+msgstr "信賴區間太窄，請選擇一個另一個信賴區間水準"
 
 msgid "N"
-msgstr ""
+msgstr "樣本數"
 
 msgid "Mean"
-msgstr ""
+msgstr "平均數"
 
 msgid "SD"
-msgstr ""
+msgstr "標準差"
 
 msgid "Coefficient of Variation"
-msgstr ""
+msgstr "變異係數"
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "統計技術假設檢查"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "(Levene)變異數同質檢定"
 
 msgid "df1"
-msgstr ""
+msgstr "自由度1"
 
 msgid "df2"
-msgstr ""
+msgstr "自由度2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
-msgstr ""
+msgstr "F值為零表示完美模式配適度(Levene檢定出現完美配適度表示此結果不穩定)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "邊際平均數"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "基於拔靴法所得之邊際平均數"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
-msgstr ""
+msgstr "無法計算某些信賴區間，可能因為拔靴法樣本太少。"
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "拔靴法結果是基於%的成功樣本。"
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "簡單主要效果"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "簡單主要效果 - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "%s水準"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "%s 細格中樣本數不足"
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kruskal-Wallis 考驗"
 
 msgid "Factor"
-msgstr ""
+msgstr "因子"
 
 msgid "Statistic"
-msgstr ""
+msgstr "統計數"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Q-Q 圖"
 
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "理論分位值"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "標準化殘差"
 
 msgid "Error while loading data. Please verify your repeated measures observations."
-msgstr ""
+msgstr "載入資料時發生錯誤。請驗證您的重複量數觀察值。"
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "因子：<em>%s</em>, 水準數少於2"
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "因子：<em>%s</em>, 水準數少於2"
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
 msgstr ""
@@ -659,7 +665,7 @@ msgid "Sampling posteriors"
 msgstr ""
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "樣本長度與權重長度相同！"
 
 msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr ""
@@ -758,13 +764,13 @@ msgid "GORIC"
 msgstr ""
 
 msgid "Weight"
-msgstr ""
+msgstr "權重"
 
 msgid "GORICA"
 msgstr ""
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "權重比"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
@@ -773,10 +779,10 @@ msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation
 msgstr ""
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
-msgstr ""
+msgstr "權重比顯示各模型之於“%1$s”模型的相對權重。 %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "無法計算權重！"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
@@ -785,10 +791,11 @@ msgid "The following models were excluded: %s."
 msgstr ""
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "相對 %s 權重"
 
+#, fuzzy
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
-msgstr ""
+msgstr "比較中只有一個模型：無法計算相對權重矩陣"
 
 msgid "vs."
 msgstr ""

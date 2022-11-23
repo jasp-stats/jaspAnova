@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-10-31 08:31\n"
-"PO-Revision-Date: 2022-11-23 11:15+0000\n"
+"PO-Revision-Date: 2022-11-25 14:01+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "pl/>\n"
@@ -33,34 +33,34 @@ msgid "The Welch correction could not be computed because '%1$s' has zero varian
 msgstr ""
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Poprawka na homogeniczność"
 
 msgid "Cases"
-msgstr ""
+msgstr "Przypadki"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Suma kwadratów"
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Średni kwadrat"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
 msgstr ""
@@ -75,10 +75,10 @@ msgid "The Brown-Forsythe and Welch corrections are only available for one-way A
 msgstr ""
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Tabele kontrastów"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Kontrast - %2$s"
 
 msgid "Please specify an additional contrast."
 msgstr ""
@@ -90,7 +90,7 @@ msgid "Please specify non-zero contrast weights."
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "Oszacuj"
 
 msgid "%s%% CI for Mean Difference"
 msgstr ""
@@ -102,19 +102,19 @@ msgid "Upper"
 msgstr "Górny"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s współczynniki kontrastu - %2$s"
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Testy post-hoc"
 
 msgid "Standard"
-msgstr ""
+msgstr "Standardowy"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr ""
@@ -137,31 +137,31 @@ msgstr ""
 "Prawdopodobnie zbyt mało replikacji bootstrapowych."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
 
 msgid "Comparison"
-msgstr ""
+msgstr "Porównanie"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub>"
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Porównania post-hoc Gamesa-Howella - %s"
 
 msgid "Mean Difference"
 msgstr ""
@@ -170,25 +170,25 @@ msgid "%.0f%% CI for Mean Difference"
 msgstr ""
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
 msgstr ""
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Porównania post-hoc Dunnetta - %s"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>dunnett</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
 msgstr "Średnia"
@@ -197,19 +197,19 @@ msgid "SD"
 msgstr "SD"
 
 msgid "Coefficient of Variation"
-msgstr ""
+msgstr "Współczynnik wariancji"
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Weryfikacja założeń"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Test równości wariancji Levene'a"
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
@@ -233,28 +233,28 @@ msgid "Simple Main Effects - %s"
 msgstr ""
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Poziom %s"
 
 msgid "Not enough observations in cells %s."
 msgstr ""
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Test Kruskala-Wallisa"
 
 msgid "Factor"
-msgstr ""
+msgstr "Czynnik"
 
 msgid "Statistic"
-msgstr ""
+msgstr "Statystyka"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Wykres K-K"
 
 msgid "Theoretical Quantiles"
-msgstr ""
+msgstr "Kwantyle teoretyczne"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "Reszty standaryzowane"
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
@@ -287,25 +287,25 @@ msgid "Some parameters are not estimable, most likely due to empty cells of the 
 msgstr ""
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Żaden"
 
 msgid "Between Subjects Effects"
 msgstr ""
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
 msgstr ""
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Poprawka na sferyczność"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
@@ -317,22 +317,22 @@ msgid "Cannot perform homogeneity tests because there are no between subjects fa
 msgstr ""
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Test sferyczności"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W Mauchly'ego"
 
 msgid "Approx. %s"
 msgstr ""
 
 msgid "p-value"
-msgstr ""
+msgstr "wartość p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
 msgstr ""
@@ -353,31 +353,31 @@ msgid "P-value and confidence intervals adjusted for comparing a family of %1$s 
 msgstr ""
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Porównania post-hoc -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Bootstrapowane porównania post-hoc -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s%% bca%2$s CI"
 
 msgid "bias"
 msgstr ""
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d Cohena"
 
 msgid "Computation of Cohen's d based on pooled error."
 msgstr ""
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "%s%% CI dla d Cohena"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "p<sub>scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "p<sub>sidak</sub>"
 
 msgid "Unequal variances only available for main effects of within subjects factors"
 msgstr ""
@@ -392,7 +392,7 @@ msgid "Marginal Mean"
 msgstr ""
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95%% bca%s CI"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
@@ -407,16 +407,16 @@ msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nieparametryczne"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Test Friedmana"
 
 msgid "Chi-Squared"
-msgstr ""
+msgstr "Chi-kwadrat"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W Kendalla"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
@@ -425,28 +425,28 @@ msgid "Not an unreplicated complete block design."
 msgstr ""
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Test Durbina"
 
 msgid "df num"
-msgstr ""
+msgstr "df num"
 
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Test Conovera"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Porównania post-hoc Conovera - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "Statystyka t"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Pogrupowane według %s."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
@@ -464,7 +464,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "W %s napotkano powtórzone zmienne"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
@@ -479,10 +479,10 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Model zerowy"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Model zerowy (zaw. %s)"
 
 msgid "Computing Bayes factors"
 msgstr ""
@@ -503,7 +503,7 @@ msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Wszystkie modele zawierają %s."
 
 msgid "Analysis of Effects - %s"
 msgstr ""
@@ -512,18 +512,17 @@ msgid "Analysis of Effects"
 msgstr ""
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>incl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>excl</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>incl</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "Efekty"
 
-#, fuzzy
 msgid "P(incl)"
 msgstr "P(zawiera)"
 
@@ -543,34 +542,34 @@ msgid "Some Bayes factors could not be calculated. Inclusion probabilities and B
 msgstr ""
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Porównanie modeli"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Modele"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|data)"
 
 msgid "error %"
-msgstr ""
+msgstr "błąd %"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
@@ -603,19 +602,19 @@ msgid "For some affected models, more than 75%% of the posterior samples failed,
 msgstr ""
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Ostrzeżenie.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr ""
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Rozkład posterior"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Poziom"
 
 msgid "Density"
 msgstr "Gęstość"
@@ -636,28 +635,28 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Statystyki opisowe"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Statystyki opisowe - %s"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Współczynnik wariancji"
 
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
 msgstr ""
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Wykresy opisowe"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Wykresy opisowe"
 
 msgid "Raincloud plots"
 msgstr ""
 
 msgid "Dependent"
-msgstr ""
+msgstr "Zależna"
 
 msgid "Sampling posteriors"
 msgstr ""
@@ -687,13 +686,13 @@ msgid "Single Model Posterior Summary"
 msgstr ""
 
 msgid "Variable"
-msgstr ""
+msgstr "Zmienna"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "Posterior R%s"
 
 msgid "Single Model R%s"
 msgstr ""
@@ -750,7 +749,7 @@ msgid "Model Comparison Table"
 msgstr ""
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Log-likelihood"
 msgstr ""
@@ -759,28 +758,31 @@ msgid "Penalty"
 msgstr ""
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Waga"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
 msgstr ""
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Nie można obliczyć wag!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
@@ -795,13 +797,13 @@ msgid "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "Porównania współczynników"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Współczynnik"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
@@ -822,7 +824,7 @@ msgid "Coefficients"
 msgstr "Współczynniki"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""
@@ -834,16 +836,16 @@ msgid "Informative Hypothesis Tests"
 msgstr ""
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hipoteza"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "Statystyka testu"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Typ %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
@@ -876,7 +878,7 @@ msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""
 
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""

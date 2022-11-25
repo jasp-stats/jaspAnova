@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-10-31 08:31\n"
-"PO-Revision-Date: 2022-11-14 06:44+0000\n"
+"PO-Revision-Date: 2022-11-25 14:01+0000\n"
 "Last-Translator: Changya Hu <changyahu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
@@ -152,7 +152,7 @@ msgid "W<sub>i</sub>"
 msgstr "組間<sub>組內</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "bonferroni p值"
@@ -269,400 +269,431 @@ msgid "Factors: <em>%s</em>, contain fewer than two levels."
 msgstr "因子：<em>%s</em>, 水準數少於2"
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "重複量數: <em>%s</em> , 內含無限值"
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "重複量數: <em>%s</em> , 內含無限值"
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "共變數: <em>%s</em> , 內含無限值"
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "共變數: <em>%s</em> , 內含無限值"
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
-msgstr ""
+msgstr "請為RM因子命名一個不同於受試者間因子的名稱"
 
 msgid "Data set too big for univariate follow-up test. Try selecting \"Use multivariate model for follow-up tests\" in the Model tab."
-msgstr ""
+msgstr "資料太大以致於無法進行後續單變量分析。請試著在模型選單處，"
+"選擇\"使用多邊量模型進行後續分析\""
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
-msgstr ""
+msgstr "一些參數無法估計，很可能因為設計中有空的細格。"
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "受試者間效果"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "受試者內效果"
 
+#, fuzzy
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "球形校正"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "球形校正不適用於有 2 個水準的因子。"
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
-msgstr ""
+msgstr "Mauchly 的球形檢驗擲出資料違反球形假設 (p < .05)。"
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
-msgstr ""
+msgstr "無法執行同質性檢驗，因未指定受試者間因子。"
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "球形測試"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "Mauchly's W"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "趨近 %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "p值"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "下界%s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
-msgstr ""
+msgstr "無法執行球形檢驗，因為RM因子只有兩個水準，或者因為 SSP 矩陣為奇異值。"
 
 msgid "Unpooled error term only allowed in balanced designs."
-msgstr ""
+msgstr "僅有平衡設計可出現未合併誤差項。"
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
-msgstr ""
+msgstr "%s 校正後的 p 值不適用於重複量數事後檢驗（Maxwell，1980；Field，2012）。"
 
 msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
+msgstr "P 值經過調整，用於比較 %s 群"
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
+msgstr "調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
 
+#, fuzzy
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "事後比較 -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "拔靴法事後比較 -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s%% 偏誤加速校正%2$s 信賴區間"
 
 msgid "bias"
-msgstr ""
+msgstr "偏誤"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "Cohen's d 效果量"
 
 msgid "Computation of Cohen's d based on pooled error."
-msgstr ""
+msgstr "Cohen's d 效果量計算是基於合併誤差。"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "<sub>Scheffe</sub> p值"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "<sub>Sidak</sub>p值"
 
 msgid "Unequal variances only available for main effects of within subjects factors"
-msgstr ""
+msgstr "不等方差僅適用於受試者內主效果"
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "邊際平均數"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "拔靴法邊際平均數"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "邊際平均數"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95%%偏誤加速校正%信賴區間"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "邊際平均數估計值是基於拔學法分配之中位數。"
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "平均差的95%% 信賴區間"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "Bonferroni 信賴區間調整"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "Sidak 信賴區間調整"
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "無母數"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Friedman 考驗"
 
 msgid "Chi-Squared"
-msgstr ""
+msgstr "卡方"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "Kendall's W"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "請為 Friedman/Durbin 考驗指定適當的設定。"
 
 msgid "Not an unreplicated complete block design."
-msgstr ""
+msgstr "並非不可複製的完整區組設計。"
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Durbin考驗"
 
 msgid "df num"
-msgstr ""
+msgstr "分子自由度"
 
 msgid "df den"
-msgstr ""
+msgstr "分母自由度"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "<sub>F</sub> p值"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Conover 考驗"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Conover 事後比較 -%s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "T統計數"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "根據%s分群"
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "調節因子也須出現在模型項中！"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "在重複量數細格中發現的無窮大值。"
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "重複量數細格的觀測值數為 < %s"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "重複量數細格的變異數為 0。"
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "重複量數細格中出現的重複的變數 %s"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "在 %s 中發現重複的變數"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "模型項中加入了重複的參與者直行，%s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
-msgstr ""
+msgstr "%1$s "
+"交互作用中的%2$s組合沒有觀察值。請調整模型並移除任何有缺失值細格的交互作用"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
-msgstr ""
+msgstr "%1$s 交互作用中的%2$s組合沒有觀察值。僅顯示前 10 "
+"個缺失的組合。請調整模型並移除任何有缺失值細格的交互作用"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
-msgstr ""
+msgstr "未定義貝氏因子——所有效果皆為多餘的"
 
 msgid "Null model"
-msgstr ""
+msgstr "虛無模型"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "虛無模型(包含 %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "計算貝氏因子"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
-msgstr ""
+msgstr "Laplace 近似法比自動法快但正確性較低。此法用於探索資料並進行粗略估計時可行。"
+"然而，我們建議使用自動積分方法來估計最終結果。"
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "Laplace近似法不一定都會提供誤差估計。"
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
 msgstr ""
+"無法計算模型 %1$s 的貝氏因子。\n"
+"錯誤訊息為： %2$s。"
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
-msgstr ""
+msgstr "所有模型都包括 %s 和所有重複量數因子的隨機斜率。"
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "排除重複量數因子的隨機斜率。"
 
+#, fuzzy
 msgid "All models include %s."
-msgstr ""
+msgstr "所有模型包括%s。"
 
+#, fuzzy
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "效果分析 - %s"
 
+#, fuzzy
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "效果分析"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "對數(BF<sub>incl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>排除</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>包括</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "效果"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(包含)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(排除)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P（包含|資料）"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P（排除|資料）"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
-msgstr ""
+msgstr "比較將含該效果的模型與不含該效果的等同模型進。高階交互作用不納入分析。 "
+"此為Sebastiaan Math%st 建議的分析。"
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
-msgstr ""
+msgstr "某些貝氏因子無法計算。計算包含機率和貝氏因子是排除這些模式。分析結果可能無法"
+"解釋！"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "模型比較"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "模型"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|data)"
 
 msgid "error %"
-msgstr ""
+msgstr "錯誤%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
-msgstr ""
+msgstr "<b><em>警告。</em></b>無法計算某些貝氏因子。多模型推論分析在排除這些模型下所"
+"得出的。分析結果可能無法解釋！"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "模型平均後驗摘要"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%%可信區間"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "模型平均R%s"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b><em>警告:出現抽樣問題!</em></b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "受影響模型"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% 可用樣本"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "可用樣本"
 
+#, fuzzy
 msgid "Total samples drawn"
-msgstr ""
+msgstr "抽取樣本總數"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"對某些受影響的模型，超過75%的後驗樣本失敗，或者使用少於1000個樣本用來分析後續"
+"結果。所有基於模型平均的報表都可能有偏誤且無法解釋。檢查模型設定和數據是否存"
+"在奇怪的模式。"
 
+#, fuzzy
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>警告。</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "模型平均後驗分配"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "後驗分配"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
-msgstr ""
+msgstr "無法繪製後驗分配圖。檢查包含此參數的模型是否有錯誤。"
 
 msgid "Level"
-msgstr ""
+msgstr "水準"
 
+#, fuzzy
 msgid "Density"
-msgstr ""
+msgstr "密度"
 
+#, fuzzy
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "模型平均 Q-Q 圖"
 
+#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "模型平均後驗 R%s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"後驗勝率已針對多重檢驗進行了校正，將原假設在所有比較中成立的先驗概率固定為 0."
+"5（Westfall， Johnson， & Utts， 1997）。個別比較是基於預設的先驗柯西 （0， "
+"r = 1/sqrt（2））t 檢定。貝氏因子中的「U」表示它未校正。"
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "先前勝率"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "後驗勝率"
 
+#, fuzzy
 msgid "Descriptives"
-msgstr ""
+msgstr "描述統計"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "描述統計 - %s"
 
+#, fuzzy
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "變異係數"
 
 msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
-msgstr ""
+msgstr "未觀察到某些因子組合，因此省略（未觀察到 %g 組合中的 %g）。"
 
+#, fuzzy
 msgid "Descriptives plots"
-msgstr ""
+msgstr "描述統計圖"
 
+#, fuzzy
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "描述統計圖"
 
+#, fuzzy
 msgid "Raincloud plots"
-msgstr ""
+msgstr "雨雲圖"
 
+#, fuzzy
 msgid "Dependent"
-msgstr ""
+msgstr "依賴"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "事後抽樣"
 
 msgid "length of samples must be equal to length of weights!"
 msgstr "樣本長度與權重長度相同！"
@@ -671,112 +702,130 @@ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."
-msgstr ""
+msgstr "所有預測的變異數為零。檢查預測變數是否存在異常或增加後驗樣本的數量。"
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "顯示 %2$d 個模型中最好的 %1$d 個模型。"
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "BayesFactor：：列舉常規模型：%s 中發生以下錯誤"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "單一模型推論"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"單一模型推論中的有錯誤：\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "單一模型後驗摘要"
 
 msgid "Variable"
-msgstr ""
+msgstr "變數"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "單一模式後驗分配"
 
+#, fuzzy
 msgid "Posterior R%s"
-msgstr ""
+msgstr "後驗 R%s"
 
+#, fuzzy
 msgid "Single Model R%s"
-msgstr ""
+msgstr "單一模型 R%s"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "序受限假設"
 
+#, fuzzy
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"在模型 %1$s 中發現語法錯誤。\n"
+"\n"
+"有些限制是重複的！"
 
+#, fuzzy
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
-msgstr ""
+msgstr "%s 的限制語法存在錯誤。語法無法解碼！"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "拔靴不受限模型"
 
+#, fuzzy
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 中的錯誤 - 無法對模型語法進行編碼！錯誤訊息： %2$s"
 
+#, fuzzy
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 中的錯誤 - 模型中的語法錯誤！錯誤訊息： %2$s"
 
+#, fuzzy
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s 中的錯誤 - 無法估計模型！錯誤訊息： %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "拔靴受限模型"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
-msgstr ""
+msgstr "無法配適不受限模型。因此，無法估計任何受限制的模型。錯誤訊息： %s。"
 
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
-msgstr ""
+msgstr "不受限模型無法以拔靴法進行分析。因此，無法對受限模型執行拔靴法。錯誤訊息： "
+"%s。"
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "無法配任何設定的受限模型。原因：%s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "不設限的"
 
+#, fuzzy
 msgid "Complement"
-msgstr ""
+msgstr "補足"
 
+#, fuzzy
 msgid "Syntax information"
-msgstr ""
+msgstr "語法資訊"
 
+#, fuzzy
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "限制語法的可用係數"
 
+#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "無法計算模型比較！錯誤訊息： %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "模型比較表"
 
 msgid "Model"
-msgstr ""
+msgstr "模型"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "對數概度"
 
+#, fuzzy
 msgid "Penalty"
-msgstr ""
+msgstr "懲罰"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
 msgstr "權重"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
 msgstr "權重比"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
-msgstr ""
+msgstr "GORIC = 廣義序限制資訊準則 （Kuiper， Hoijtink， & Silvapulle， 2011）。"
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
+msgstr "GORICA = 廣義序限制資訊準則近似"
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr "權重比顯示各模型之於“%1$s”模型的相對權重。 %2$s"
@@ -785,10 +834,11 @@ msgid "Could not compute weights!"
 msgstr "無法計算權重！"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "模型“%s”不能作為參考模型，因為是空模型！"
 
+#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "排除了以下模型：%s。"
 
 msgid "Relative %s-Weights"
 msgstr "相對 %s 權重"
@@ -798,93 +848,101 @@ msgid "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr "比較中只有一個模型：無法計算相對權重矩陣"
 
 msgid "vs."
-msgstr ""
+msgstr "比較"
 
+#, fuzzy
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "係數比較"
 
+#, fuzzy
 msgid "Coefficient"
-msgstr ""
+msgstr "係數"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "係數與不設限模型不同。"
 
 msgid "Model Summary"
-msgstr ""
+msgstr "模型摘要"
 
+#, fuzzy
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "限制矩陣"
 
+#, fuzzy
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "左側 (lhs)"
 
+#, fuzzy
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "右側 (rhs)"
 
+#, fuzzy
 msgid "Coefficients"
-msgstr ""
+msgstr "係數"
 
+#, fuzzy
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% 信賴區間"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "估計基於 %s 次成功的拔靴法複製。"
 
+#, fuzzy
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "無法計算係數表。錯誤訊息： %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "資訊假設考驗"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "假設"
 
 msgid "Test"
-msgstr ""
+msgstr "考驗"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "考驗統計數"
 
+#, fuzzy
 msgid "Type %s"
-msgstr ""
+msgstr "類型 %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "無法計算資訊性假設考驗。錯誤訊息： %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
-msgstr ""
+msgstr "H%1$s：所有等同限制都處於活化狀態 （==），H%2$s：有一個等同限制被違反了。"
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s：所有參數都限制為相等 （==），H%2$s：至少有一個不等式限制為真 （>）。"
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s：所有限制都是等式 (==)，H%2$s：至少有一個不等式限制是為真 (>)。"
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
-msgstr ""
+msgstr "H%1$s：所有限制都成立，H%2$s：至少違反了一個限制。"
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
-msgstr ""
+msgstr "H%1$s：至少有一個限制為假或有效 (==)，H%2$s：所有限制都為真 (>)。"
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
-msgstr ""
+msgstr "沒有設定邊際平均數。請在「受限邊際平均值」處設定模型內容。"
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "無法計算邊際平均數。錯誤訊息： %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "結果是基於下列不同水準取其平均而得：%s。"
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "共變數 （%s） 固定為其平均值。"
 
 msgid "MANOVA"
-msgstr ""
+msgstr "多變量變異數分析"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
-msgstr ""
+msgstr "設計矩陣無反矩陣。這可能是因為與依變數的共線性所造成的。"
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "虛無模型（包括 %s 與隨機斜率）"

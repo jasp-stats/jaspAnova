@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-14 06:44+0000\n"
+"PO-Revision-Date: 2022-11-25 14:01+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pl/>\n"
@@ -611,7 +611,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr "Szacunki"
+msgstr "Oszacowania"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
@@ -838,7 +838,7 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Estimates"
-msgstr ""
+msgstr "Oszacowania"
 
 msgctxt "SingleModelInference|"
 msgid "R²"
@@ -890,7 +890,7 @@ msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr ""
+msgstr "Welch"
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
@@ -954,7 +954,7 @@ msgstr ""
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Oszacowania wielkości efektu"
 
 msgctxt "Display|"
 msgid "η²"

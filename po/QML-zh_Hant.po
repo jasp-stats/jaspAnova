@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-08 09:33+0000\n"
-"Last-Translator: Changya Hu <changyahu@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"jasp/jaspanova-qml/zh_Hant/>\n"
-"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
-"X-Qt-Contexts: true\n"
 "X-Language: zh_Hant\n"
+"X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
@@ -443,9 +437,10 @@ msgctxt "AdditionalOptions|"
 msgid "r-scale"
 msgstr ""
 
+#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Order"
-msgstr ""
+msgstr "順序"
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
@@ -757,9 +752,10 @@ msgctxt "Models|"
 msgid "Model"
 msgstr "模型"
 
+#, fuzzy
 msgctxt "Models|"
 msgid "Components"
-msgstr ""
+msgstr "成分"
 
 msgctxt "Models|"
 msgid "Model Terms"
@@ -796,9 +792,10 @@ msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
 msgstr "語法設定"
 
+#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
-msgstr ""
+msgstr "包含截距"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
@@ -857,9 +854,10 @@ msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
 msgstr ""
 
+#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"

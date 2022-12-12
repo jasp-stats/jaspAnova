@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-10-15 03:28\n"
-"PO-Revision-Date: 2022-11-25 14:01+0000\n"
-"Last-Translator: fedder <fedor.derish@gmail.com>\n"
+"PO-Revision-Date: 2022-12-11 19:47+0000\n"
+"Last-Translator: Коновалова Екатерина <ekatkon17@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
@@ -101,7 +101,7 @@ msgid "Please specify non-zero contrast weights."
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "Оценка"
 
 msgid "%s%% CI for Mean Difference"
 msgstr ""
@@ -261,7 +261,7 @@ msgid "Kruskal-Wallis Test"
 msgstr ""
 
 msgid "Factor"
-msgstr ""
+msgstr "Фактор"
 
 msgid "Statistic"
 msgstr "Статистика"
@@ -579,8 +579,9 @@ msgstr ""
 msgid "P(excl)"
 msgstr ""
 
+#, fuzzy
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(включая|данные)"
 
 msgid "P(excl|data)"
 msgstr ""
@@ -598,7 +599,7 @@ msgid ""
 msgstr ""
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Сравнение моделей"
 
 msgid "BF<sub>M</sub>"
 msgstr ""
@@ -619,10 +620,10 @@ msgid "Models"
 msgstr "Модели"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|данные)"
 
 msgid "error %"
 msgstr "погрешность %"
@@ -679,7 +680,7 @@ msgid ""
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Уровень"
 
 msgid "Density"
 msgstr "Плотность"
@@ -722,7 +723,7 @@ msgid "Descriptives plots"
 msgstr ""
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Описательный график"
 
 msgid "Raincloud plots"
 msgstr ""
@@ -762,7 +763,7 @@ msgid "Single Model Posterior Summary"
 msgstr ""
 
 msgid "Variable"
-msgstr ""
+msgstr "Переменная"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""
@@ -910,7 +911,7 @@ msgid "Right-hand side (rhs)"
 msgstr ""
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Коэффициенты"
 
 msgid "%s%% CI"
 msgstr ""

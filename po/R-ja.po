@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2022-10-15 03:28\n"
+"POT-Creation-Date: 2022-12-12 14:40\n"
 "PO-Revision-Date: 2022-01-07 12:53+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -790,9 +790,6 @@ msgstr "事後分布のサンプリング"
 msgid "length of samples must be equal to length of weights!"
 msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
 
-msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
-msgstr "!all(names(isNuisance) %in% colnames(posterior)) が真ではありません."
-
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
@@ -940,8 +937,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Weights ratios indicate the relative weight for each model against the \"%1$s"
-"\" model. %2$s"
+"Weights ratios indicate the relative weight for each model against the "
+"\"%1$s\" model. %2$s"
 msgstr "比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
 
 msgid "Could not compute weights!"
@@ -1077,6 +1074,10 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "帰無モデル (%s含む)"
+
+#~ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+#~ msgstr ""
+#~ "!all(names(isNuisance) %in% colnames(posterior)) が真ではありません."
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

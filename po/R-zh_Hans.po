@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-10-15 03:28\n"
+"POT-Creation-Date: 2022-12-12 14:40\n"
 "PO-Revision-Date: 2022-11-03 13:01+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -764,9 +764,6 @@ msgstr "抽样后验"
 msgid "length of samples must be equal to length of weights!"
 msgstr "样本的长度必须等于权重的长度！"
 
-msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
-msgstr "!all(names(isNuisance) %in% colnames(posterior)) 不正确。"
-
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
 "increase the number of posterior samples."
@@ -904,8 +901,8 @@ msgstr ""
 "（广义序约束信息准则近似）"
 
 msgid ""
-"Weights ratios indicate the relative weight for each model against the \"%1$s"
-"\" model. %2$s"
+"Weights ratios indicate the relative weight for each model against the "
+"\"%1$s\" model. %2$s"
 msgstr "权重比表示每个模型相对于“%1$s”模型的相对权重。 %2$s"
 
 msgid "Could not compute weights!"
@@ -1032,6 +1029,9 @@ msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造�
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
+#~ msgstr "!all(names(isNuisance) %in% colnames(posterior)) 不正确。"
 
 #~ msgid "Model Coefficients Table"
 #~ msgstr "模型系数表"

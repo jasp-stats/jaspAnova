@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2022-10-31 08:31\n"
+"POT-Creation-Date: 2022-12-12 14:40\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -657,9 +657,6 @@ msgid "Sampling posteriors"
 msgstr ""
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
-
-msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."

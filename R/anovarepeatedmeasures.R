@@ -989,7 +989,6 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   postHocVariablesListV <- unname(lapply(postHocVariables, .v))
   variables <- unname(sapply(postHocVariables, function(x) paste(.v(x), collapse = ":")))
 
-  options$postHocTestsSidak <- FALSE
   for (postHocVarIndex in 1:length(postHocVariables)) {
 
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")

@@ -1190,7 +1190,8 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
   if (options$postHocCorrectionHolm)
     postHocTable$addColumnInfo(name="holm", title=gettext("p<sub>holm</sub>"), type="pvalue")
 
-  if (options$postHocCorrectionSidak)
+  # Sidak option does not exist in RM-ANOVA
+  if (isTRUE(options$postHocCorrectionSidak))
     postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>sidak</sub>"), type="pvalue")
 
 
@@ -1566,7 +1567,7 @@ AnovaRepeatedMeasures <- function(jaspResults, dataset = NULL, options) {
       friedmanTable$setError(gettextf("Not an unreplicated complete block design."))
       return()
     }
-    
+
     t <- nlevels(groups)
     b <- nlevels(blocks)
     r <- unique(table(groups))

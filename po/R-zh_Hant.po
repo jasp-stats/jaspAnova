@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2022-12-12 14:30+0000\n"
-"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"PO-Revision-Date: 2022-12-20 20:17+0000\n"
+"Last-Translator: Changya Hu <changyahu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -36,11 +36,10 @@ msgid ""
 "squares."
 msgstr "您的研究設計有空白細格。請嘗試不同類型的差方和。"
 
-#, fuzzy
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr "無法計算 Welch 校正，因為以“%2$s”分組後“%1$s”的變異數零：%3$s"
+msgstr "無法計算 Welch 校正，因為以“%2$s”分組後，“%1$s”的變異數在以下水準為零：%3$s"
 
 msgid "ANOVA"
 msgstr "變異數分析"
@@ -70,7 +69,7 @@ msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr "Vovk-Sellke 極大值p比率%s"
+msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
 
 msgid "Type I Sum of Squares"
 msgstr "一類離均差平方和"
@@ -107,11 +106,13 @@ msgstr "估計數"
 msgid "%s%% CI for Mean Difference"
 msgstr "平均數差異 %s%% 信賴區間"
 
+#, fuzzy
 msgid "Lower"
-msgstr "下限"
+msgstr "下界"
 
+#, fuzzy
 msgid "Upper"
-msgstr "上限"
+msgstr "上界"
 
 msgid "SE"
 msgstr "標準誤"
@@ -714,7 +715,6 @@ msgstr "無法繪製後驗分配圖。檢查包含此參數的模型是否有錯
 msgid "Level"
 msgstr "水準"
 
-#, fuzzy
 msgid "Density"
 msgstr "密度"
 
@@ -1047,7 +1047,7 @@ msgid "Could not compute the marginal means. Error message: %s"
 msgstr "無法計算邊際平均數。錯誤訊息： %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "結果是基於下列不同水準取其平均而得：%s。"
+msgstr "結果是以下列水準的平均數：%s。"
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr "共變數 （%s） 固定為其平均值。"

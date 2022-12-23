@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2022-12-20 20:17+0000\n"
+"PO-Revision-Date: 2022-12-24 02:41+0000\n"
 "Last-Translator: Changya Hu <changyahu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
@@ -66,7 +66,7 @@ msgid "F"
 msgstr "F"
 
 msgid "p"
-msgstr "p"
+msgstr "p值"
 
 msgid "VS-MPR%s"
 msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
@@ -101,7 +101,7 @@ msgid "Please specify non-zero contrast weights."
 msgstr "請指定非零比較權重。"
 
 msgid "Estimate"
-msgstr "估計數"
+msgstr "估計"
 
 msgid "%s%% CI for Mean Difference"
 msgstr "平均數差異 %s%% 信賴區間"
@@ -118,7 +118,7 @@ msgid "SE"
 msgstr "標準誤"
 
 msgid "t"
-msgstr "t 值"
+msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s 比較係數 - %2$s"
@@ -270,7 +270,7 @@ msgid "Factor"
 msgstr "因子"
 
 msgid "Statistic"
-msgstr "統計數"
+msgstr "統計"
 
 msgid "Q-Q Plot"
 msgstr "Q-Q 圖"
@@ -963,6 +963,7 @@ msgstr "係數"
 msgid "Coefficients differ from unconstrained model."
 msgstr "係數與不設限模型不同。"
 
+#, fuzzy
 msgid "Model Summary"
 msgstr "模型摘要"
 
@@ -978,7 +979,6 @@ msgstr "左側 (lhs)"
 msgid "Right-hand side (rhs)"
 msgstr "右側 (rhs)"
 
-#, fuzzy
 msgid "Coefficients"
 msgstr "係數"
 
@@ -1047,7 +1047,7 @@ msgid "Could not compute the marginal means. Error message: %s"
 msgstr "無法計算邊際平均數。錯誤訊息： %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "結果是以下列水準的平均數：%s。"
+msgstr "結果是基於下列水準的平均數：%s。"
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr "共變數 （%s） 固定為其平均值。"

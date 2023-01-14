@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-01-15 11:51+0000\n"
+"Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "X-Language: de\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -346,7 +352,7 @@ msgstr "Horizontale Achse"
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr "Verschiedene Abbildungen"
+msgstr "Separate Diagramme"
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
@@ -650,7 +656,7 @@ msgstr "Mit Nullmodell vergleichen"
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr "Abbildungen"
+msgstr "Diagramme"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -658,11 +664,11 @@ msgstr "Modell-gemittelte Posterior"
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
-msgstr "Stufen in einer Abbildung gruppieren"
+msgstr "Stufen in einem Diagramm gruppieren"
 
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
-msgstr "Separate Abbildung pro Stufe"
+msgstr "Separates Diagramm pro Stufe"
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
@@ -674,7 +680,7 @@ msgstr "Posterior R²"
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr "Deskriptive Abbildungen"
+msgstr "Deskriptive Diagramme"
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
@@ -690,7 +696,7 @@ msgstr "Verschiedene Linien"
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr "Verschiedene Abbildungen"
+msgstr "Separate Diagramme"
 
 msgctxt "DescriptivesPlots|"
 msgid "Display"
@@ -863,7 +869,7 @@ msgstr "R²"
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr "Abbildungen"
+msgstr "Diagramme"
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
@@ -871,11 +877,11 @@ msgstr "Marginale Posterior"
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
-msgstr "Stufen in einer Abbildung gruppieren"
+msgstr "Stufen in einem Diagramm gruppieren"
 
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
-msgstr "Separate Abbildung pro Stufe"
+msgstr "Separates Diagramm pro Stufe"
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
@@ -927,7 +933,7 @@ msgstr "Konfidenzintervalle"
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr "Deskriptive Abbildungen"
+msgstr "Deskriptive Diagramme"
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
@@ -943,7 +949,7 @@ msgstr "Verschiedene Linien"
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr "Verschiedene Abbildungen"
+msgstr "Separate Diagramme"
 
 msgctxt "DescriptivePlots|"
 msgid "Display"

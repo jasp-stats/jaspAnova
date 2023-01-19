@@ -30,7 +30,7 @@ Form
 	// The following part is used for spawning upgrade notifications about multigroup analysis
 	Rectangle
 	{
-		visible:		myAnalysis !== null && myAnalysis.needsRefresh && (repeatedMeasuresFactors.nbFactors > 1)
+		visible:		needsRefresh && (repeatedMeasuresFactors.nbFactors > 1)
 		color:			jaspTheme.controlWarningBackgroundColor
 		width:			form.implicitWidth
 		height:			warningMessageUpdate.height

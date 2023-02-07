@@ -19,14 +19,14 @@
 
 AnovaRepeatedMeasures <- function(
           data = NULL,
-          version = "0.17",
+          version = "0.17.1",
           betweenModelTerms = list(),
           betweenSubjectFactors = list(),
           conoverTest = FALSE,
           contrastCi = FALSE,
           contrastCiLevel = 0.95,
           contrastEqualVariance = TRUE,
-          contrasts = list(list(contrast = "none", variable = "RM Factor 1")),
+          contrasts = list(),
           covariates = list(),
           customContrasts = list(),
           descriptivePlotCiLevel = 0.95,

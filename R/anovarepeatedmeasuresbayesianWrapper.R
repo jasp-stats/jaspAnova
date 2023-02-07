@@ -19,7 +19,7 @@
 
 AnovaRepeatedMeasuresBayesian <- function(
           data = NULL,
-          version = "0.17",
+          version = "0.17.1",
           bayesFactorOrder = "bestModelTop",
           bayesFactorType = "BF10",
           bernoulliParameter = 0.5,
@@ -33,7 +33,7 @@ AnovaRepeatedMeasuresBayesian <- function(
           covariates = list(),
           credibleInterval = 0.95,
           criTable = FALSE,
-          customPriorSpecification = list(list(components = "RM Factor 1", inclusionProbability = 0.5, scaleFixedEffects = 0.5)),
+          customPriorSpecification = list(),
           descriptivePlotCi = FALSE,
           descriptivePlotCiLevel = 0.95,
           descriptivePlotHorizontalAxis = "",

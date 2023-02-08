@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-01-31 19:50+0000\n"
+"PO-Revision-Date: 2023-02-09 18:35+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -106,11 +106,13 @@ msgstr "Оценка"
 msgid "%s%% CI for Mean Difference"
 msgstr ""
 
+#, fuzzy
 msgid "Lower"
-msgstr "Нижний"
+msgstr "Нижняя граница"
 
+#, fuzzy
 msgid "Upper"
-msgstr "Верхний"
+msgstr "Верхняя граница"
 
 msgid "SE"
 msgstr "SE"
@@ -356,7 +358,7 @@ msgid "Approx. %s"
 msgstr ""
 
 msgid "p-value"
-msgstr ""
+msgstr "p"
 
 msgid "Greenhouse-Geisser %s"
 msgstr ""
@@ -682,6 +684,7 @@ msgstr ""
 msgid "Level"
 msgstr "Уровень"
 
+#, fuzzy
 msgid "Density"
 msgstr "Плотность"
 
@@ -835,9 +838,8 @@ msgstr ""
 msgid "Model"
 msgstr "Модель"
 
-#, fuzzy
 msgid "Log-likelihood"
-msgstr "Лог-подобие"
+msgstr "Лог-функция правдоподобия"
 
 msgid "Penalty"
 msgstr ""

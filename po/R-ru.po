@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-02-09 18:35+0000\n"
+"PO-Revision-Date: 2023-02-16 13:03+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -55,7 +55,7 @@ msgid "Cases"
 msgstr ""
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Сумма квадратов"
 
 msgid "df"
 msgstr "df"
@@ -106,16 +106,14 @@ msgstr "Оценка"
 msgid "%s%% CI for Mean Difference"
 msgstr ""
 
-#, fuzzy
 msgid "Lower"
 msgstr "Нижняя граница"
 
-#, fuzzy
 msgid "Upper"
 msgstr "Верхняя граница"
 
 msgid "SE"
-msgstr "SE"
+msgstr "СО"
 
 msgid "t"
 msgstr "t"
@@ -223,10 +221,10 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -452,8 +450,9 @@ msgstr ""
 msgid "Friedman Test"
 msgstr ""
 
+#, fuzzy
 msgid "Chi-Squared"
-msgstr ""
+msgstr "X%s"
 
 msgid "Kendall's W"
 msgstr ""
@@ -624,11 +623,13 @@ msgstr "Модели"
 msgid "P(M)"
 msgstr "P(M)"
 
+#, fuzzy
 msgid "P(M|data)"
-msgstr "P(M|данные)"
+msgstr "P(M|data)"
 
+#, fuzzy
 msgid "error %"
-msgstr "погрешность %"
+msgstr "ошибка %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -898,8 +899,9 @@ msgstr ""
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
+#, fuzzy
 msgid "Model Summary"
-msgstr ""
+msgstr "Сводка"
 
 msgid "Restriction Matrix"
 msgstr ""
@@ -913,8 +915,9 @@ msgstr ""
 msgid "Coefficients"
 msgstr "Коэффициенты"
 
+#, fuzzy
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% ДИ"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""
@@ -972,8 +975,9 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr ""
 
+#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Результаты усредняются по уровням: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""

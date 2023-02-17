@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-02-16 13:03+0000\n"
+"PO-Revision-Date: 2023-02-18 02:48+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -60,8 +60,9 @@ msgstr "Сумма квадратов"
 msgid "df"
 msgstr "df"
 
+#, fuzzy
 msgid "Mean Square"
-msgstr ""
+msgstr "Средний квадрат"
 
 msgid "F"
 msgstr "F"
@@ -113,7 +114,7 @@ msgid "Upper"
 msgstr "Верхняя граница"
 
 msgid "SE"
-msgstr "СО"
+msgstr "SE"
 
 msgid "t"
 msgstr "t"
@@ -138,8 +139,9 @@ msgid ""
 "distribution."
 msgstr ""
 
+#, fuzzy
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Ускорение с коррекцией предубеждений."
 
 msgid "Bootstrapping Post Hoc Test"
 msgstr ""
@@ -273,7 +275,7 @@ msgid "Theoretical Quantiles"
 msgstr "Теоретические квантили"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "Стандартизированные остатки"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -452,7 +454,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Chi-Squared"
-msgstr "X%s"
+msgstr "X^2"
 
 msgid "Kendall's W"
 msgstr ""
@@ -523,10 +525,10 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Нулевая модель"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Нулевая модель (вкл. %s)"
 
 msgid "Computing Bayes factors"
 msgstr ""
@@ -553,8 +555,9 @@ msgstr ""
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
 
+#, fuzzy
 msgid "All models include %s."
-msgstr ""
+msgstr "Все модели включают %s."
 
 msgid "Analysis of Effects - %s"
 msgstr ""
@@ -574,8 +577,9 @@ msgstr ""
 msgid "Effects"
 msgstr ""
 
+#, fuzzy
 msgid "P(incl)"
-msgstr ""
+msgstr "P(incl)"
 
 msgid "P(excl)"
 msgstr ""
@@ -601,8 +605,9 @@ msgstr ""
 msgid "Model Comparison"
 msgstr "Сравнение моделей"
 
+#, fuzzy
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 #, fuzzy
 msgid "BF<sub>10</sub>"
@@ -726,8 +731,9 @@ msgstr ""
 msgid "Descriptives plots"
 msgstr ""
 
+#, fuzzy
 msgid "Descriptives Plot"
-msgstr "Описательный график"
+msgstr "График описательных статистик"
 
 msgid "Raincloud plots"
 msgstr ""
@@ -893,8 +899,9 @@ msgstr ""
 msgid "Coefficients Comparison"
 msgstr ""
 
+#, fuzzy
 msgid "Coefficient"
-msgstr ""
+msgstr "Коэффициент"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""

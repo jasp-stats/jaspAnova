@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-02-09 18:35+0000\n"
+"PO-Revision-Date: 2023-02-18 02:48+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -55,13 +55,14 @@ msgid "Cases"
 msgstr ""
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Сумма квадратов"
 
 msgid "df"
 msgstr "df"
 
+#, fuzzy
 msgid "Mean Square"
-msgstr ""
+msgstr "Средний квадрат"
 
 msgid "F"
 msgstr "F"
@@ -106,11 +107,9 @@ msgstr "Оценка"
 msgid "%s%% CI for Mean Difference"
 msgstr ""
 
-#, fuzzy
 msgid "Lower"
 msgstr "Нижняя граница"
 
-#, fuzzy
 msgid "Upper"
 msgstr "Верхняя граница"
 
@@ -140,8 +139,9 @@ msgid ""
 "distribution."
 msgstr ""
 
+#, fuzzy
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Ускорение с коррекцией предубеждений."
 
 msgid "Bootstrapping Post Hoc Test"
 msgstr ""
@@ -223,10 +223,10 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -275,7 +275,7 @@ msgid "Theoretical Quantiles"
 msgstr "Теоретические квантили"
 
 msgid "Standardized Residuals"
-msgstr ""
+msgstr "Стандартизированные остатки"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -452,8 +452,9 @@ msgstr ""
 msgid "Friedman Test"
 msgstr ""
 
+#, fuzzy
 msgid "Chi-Squared"
-msgstr ""
+msgstr "X^2"
 
 msgid "Kendall's W"
 msgstr ""
@@ -524,10 +525,10 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Нулевая модель"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Нулевая модель (вкл. %s)"
 
 msgid "Computing Bayes factors"
 msgstr ""
@@ -554,8 +555,9 @@ msgstr ""
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
 
+#, fuzzy
 msgid "All models include %s."
-msgstr ""
+msgstr "Все модели включают %s."
 
 msgid "Analysis of Effects - %s"
 msgstr ""
@@ -575,8 +577,9 @@ msgstr ""
 msgid "Effects"
 msgstr ""
 
+#, fuzzy
 msgid "P(incl)"
-msgstr ""
+msgstr "P(incl)"
 
 msgid "P(excl)"
 msgstr ""
@@ -602,8 +605,9 @@ msgstr ""
 msgid "Model Comparison"
 msgstr "Сравнение моделей"
 
+#, fuzzy
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 #, fuzzy
 msgid "BF<sub>10</sub>"
@@ -624,11 +628,13 @@ msgstr "Модели"
 msgid "P(M)"
 msgstr "P(M)"
 
+#, fuzzy
 msgid "P(M|data)"
-msgstr "P(M|данные)"
+msgstr "P(M|data)"
 
+#, fuzzy
 msgid "error %"
-msgstr "погрешность %"
+msgstr "ошибка %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -725,8 +731,9 @@ msgstr ""
 msgid "Descriptives plots"
 msgstr ""
 
+#, fuzzy
 msgid "Descriptives Plot"
-msgstr "Описательный график"
+msgstr "График описательных статистик"
 
 msgid "Raincloud plots"
 msgstr ""
@@ -892,14 +899,16 @@ msgstr ""
 msgid "Coefficients Comparison"
 msgstr ""
 
+#, fuzzy
 msgid "Coefficient"
-msgstr ""
+msgstr "Коэффициент"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
+#, fuzzy
 msgid "Model Summary"
-msgstr ""
+msgstr "Сводка"
 
 msgid "Restriction Matrix"
 msgstr ""
@@ -913,8 +922,9 @@ msgstr ""
 msgid "Coefficients"
 msgstr "Коэффициенты"
 
+#, fuzzy
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% ДИ"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""
@@ -972,8 +982,9 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr ""
 
+#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Результаты усредняются по уровням: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""

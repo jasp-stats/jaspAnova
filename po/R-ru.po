@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-02-18 02:48+0000\n"
+"PO-Revision-Date: 2023-02-23 16:30+0000\n"
 "Last-Translator: fedder <fedor.derish@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
@@ -45,14 +45,16 @@ msgstr ""
 msgid "ANOVA"
 msgstr "Дисперсионный анализ"
 
+#, fuzzy
 msgid "ANCOVA"
-msgstr ""
+msgstr "Ковариационный анализ (ANCOVA)"
 
+#, fuzzy
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Коррекция нарушения гомогенности"
 
 msgid "Cases"
-msgstr ""
+msgstr "Случаи"
 
 msgid "Sum of Squares"
 msgstr "Сумма квадратов"
@@ -62,7 +64,7 @@ msgstr "df"
 
 #, fuzzy
 msgid "Mean Square"
-msgstr "Средний квадрат"
+msgstr "Дисперсия"
 
 msgid "F"
 msgstr "F"
@@ -74,38 +76,42 @@ msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Сумма квадратов I типа"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Сумма квадратов II типа"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Сумма квадратов III типа"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"Поправки Браун-Форсайта и Вэлча доступны только для однофакторного "
+"дисперсионного анализа"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Таблицы контрастов"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Контраст - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Пожалуйста, определите дополнительный контраст."
 
+#, fuzzy
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Неправильное число контрастов в рядах матрицы."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Пожалуйста, определите ненулевые веса контрастов."
 
 msgid "Estimate"
 msgstr "Оценка"
 
+#, fuzzy
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% ДИ для разницы средних"
 
 msgid "Lower"
 msgstr "Нижняя граница"
@@ -120,89 +126,101 @@ msgid "t"
 msgstr "t"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Коэффициенты контрастов - %2$s"
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Апостериорные сравнения"
 
 msgid "Standard"
-msgstr ""
+msgstr "T-критерий"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "Результаты усреднены по всем уровням фактора: %s"
 
+#, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Бутстрэппинг основан на %s успешных повторах."
 
+#, fuzzy
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
 "distribution."
-msgstr ""
+msgstr "Разница средних значений основана на медиане распределения бутстрэпа."
 
 #, fuzzy
 msgid "Bias corrected accelerated."
-msgstr "Ускорение с коррекцией предубеждений."
+msgstr "Bias corrected accelerated."
 
+#, fuzzy
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Бутстрэпинговые апостериорные сравнения"
 
+#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed.\n"
 "Possibly too few bootstrap replicates."
 msgstr ""
+"Некоторые доверительные интервалы не могут быть рассчитаны.\n"
+"Возможно здесь слишком мало бутстрэп-выборок."
 
 msgid "Dunn"
 msgstr "Данн"
 
+#, fuzzy
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Апостериорные сравнения с помощью критерия Данна - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "Сравнение"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub>"
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Геймс-Хоуэлл"
 
+#, fuzzy
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Апостериорные сравнения с помощью критерия Геймс-Хоуэлла - %s"
 
 msgid "Mean Difference"
 msgstr "Разница средних"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "%.0f%% ДИ для разницы средних"
 
 msgid "p<sub>tukey</sub>"
 msgstr ""
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Результаты основаны на нескорректированных средних."
 
 msgid "Dunnett"
 msgstr "Даннетт"
 
+#, fuzzy
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Апостериорные сравнения с помощью критерия Даннета - %s"
 
 msgid "p<sub>dunnett</sub>"
 msgstr ""
 
+#, fuzzy
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr ""
+"Доверительные интервалы слишком малы. Пожалуйста, выберите другие границы "
+"доверительного интервала."
 
 msgid "N"
 msgstr "N"
@@ -213,14 +231,15 @@ msgstr "Среднее"
 msgid "SD"
 msgstr "SD"
 
+#, fuzzy
 msgid "Coefficient of Variation"
-msgstr ""
+msgstr "Коэффициент изменчивости"
 
 msgid "Assumption Checks"
 msgstr "Проверка допущений"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Критерий равенства дисперсий Ливиня"
 
 msgid "df1"
 msgstr "df1"
@@ -233,34 +252,43 @@ msgid ""
 "essentially perfect fit are unreliable)"
 msgstr ""
 
+#, fuzzy
 msgid "Marginal Means"
-msgstr ""
+msgstr "Предельные средние"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Бутстрэпинговые предельные средние"
 
+#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
 "replicates."
 msgstr ""
+"Некоторые доверительные интервалы не могут быть рассчитаны. Возможно слишком "
+"мало бустрэп-выборок."
 
+#, fuzzy
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Бутстрэпинг основан на %s выборках."
 
+#, fuzzy
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Простые главные эффекты фактора"
 
+#, fuzzy
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Простые главные эффекты фактора - %s"
 
+#, fuzzy
 msgid "Level of %s"
-msgstr ""
+msgstr "Уровень фактора %s"
 
+#, fuzzy
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Недостаточно наблюдений в ячейках %s."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Критерий Краскала-Уоллиса"
 
 msgid "Factor"
 msgstr "Фактор"
@@ -277,42 +305,57 @@ msgstr "Теоретические квантили"
 msgid "Standardized Residuals"
 msgstr "Стандартизированные остатки"
 
+#, fuzzy
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Ошибка в загрузке данных. Пожалуйста проверьте наличие повторных наблюдений."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Фактор: <em>%s</em>, состоит из менее двух категорий."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Факторы: <em>%s</em>, состоят из менее двух категорий."
 
+#, fuzzy
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "Повторное измерение: <em>%s</em>, содержит чрезмерно большие значения."
 
+#, fuzzy
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Повторные измерения: <em>%s</em>, содержат чрезмерно большие значения."
 
+#, fuzzy
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "Ковариата: <em>%s</em>, содержит чрезмерно большие значения."
 
+#, fuzzy
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Ковариаты: <em>%s</em>, содержат чрезмерно большие значения."
 
+#, fuzzy
 msgid ""
 "Please choose a name for the RM factors that differs from those for the "
 "between subjects factors."
 msgstr ""
+"Пожалуйста выберите имя для факторов, отличные от межгрупповых факторов."
 
+#, fuzzy
 msgid ""
 "Data set too big for univariate follow-up test. Try selecting \"Use "
 "multivariate model for follow-up tests\" in the Model tab."
 msgstr ""
+"Данные слишком объемные для использования последующего одномерного критерия. "
+"Попробуйте использовать многомерную модель для последующих критериев в "
+"соответствующем разделе."
 
+#, fuzzy
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
 "design."
 msgstr ""
+"Некоторые параметры не могут быть рассчитаны, скорее всего из-за наличия "
+"пустых ячеек для данного дизайна."
 
 msgid "Greenhouse-Geisser"
 msgstr "Гринхаус-Гессер"
@@ -320,23 +363,26 @@ msgstr "Гринхаус-Гессер"
 msgid "Huynh-Feldt"
 msgstr "Хюйн-Фельдт"
 
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Не требуется"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Межгрупповые эффекты"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Внутригрупповые эффекты"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Коррекция нарушения сферичности (гомогенности)"
 
+#, fuzzy
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
+"Коррекция нарушения сферичности невозможна для фактора , имеющего два уровня."
 
 msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "
@@ -355,19 +401,19 @@ msgid "Mauchly's W"
 msgstr ""
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Аппрокс. %s"
 
 msgid "p-value"
 msgstr "p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Гринхаус-Гессер %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Хюйн-Фельдт %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Нижняя граница %s"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -391,10 +437,10 @@ msgid ""
 msgstr ""
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Апостериорные сравнения -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Апостериорные сравнения (бутстрэппинг) -"
 
 msgid "%1$s%% bca%2$s CI"
 msgstr ""
@@ -402,14 +448,16 @@ msgstr ""
 msgid "bias"
 msgstr ""
 
+#, fuzzy
 msgid "Cohen's d"
 msgstr "d Коэна"
 
 msgid "Computation of Cohen's d based on pooled error."
 msgstr ""
 
+#, fuzzy
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "%s%% ДИ для d Коэна"
 
 msgid "p<sub>scheffe</sub>"
 msgstr ""
@@ -422,13 +470,13 @@ msgid ""
 msgstr ""
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Маргинальные средние -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Маргинальные средние (бутстрэппинг) -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Маргинальное среднее"
 
 msgid "95%% bca%s CI"
 msgstr ""
@@ -438,7 +486,7 @@ msgid ""
 msgstr ""
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "95%% ДИ для разницы средних"
 
 msgid "Bonferroni CI adjustment"
 msgstr ""
@@ -447,17 +495,17 @@ msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Непараметрические критерии"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Критерий Фридмана"
 
 #, fuzzy
 msgid "Chi-Squared"
-msgstr "X^2"
+msgstr "Хи-квадрат (X^2)"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W Кендалла"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
@@ -465,8 +513,9 @@ msgstr ""
 msgid "Not an unreplicated complete block design."
 msgstr ""
 
+#, fuzzy
 msgid "Durbin Test"
-msgstr ""
+msgstr "Критерий Дарбина"
 
 msgid "df num"
 msgstr ""
@@ -478,10 +527,10 @@ msgid "p<sub>F</sub>"
 msgstr ""
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Критерий Коновера"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Апостериорные сравнения с помощью критерия Коновера - %s"
 
 msgid "T-Stat"
 msgstr ""
@@ -718,7 +767,7 @@ msgid "Descriptives"
 msgstr "Описательные статистики"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Описательные статистики - %s"
 
 msgid "Coefficient of variation"
 msgstr "Коэффициент изменчивости"
@@ -728,18 +777,21 @@ msgid ""
 "%g combinations are unobserved)."
 msgstr ""
 
+#, fuzzy
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Графики описательных статистик"
 
 #, fuzzy
 msgid "Descriptives Plot"
 msgstr "График описательных статистик"
 
+#, fuzzy
 msgid "Raincloud plots"
-msgstr ""
+msgstr "График дождевых облаков"
 
+#, fuzzy
 msgid "Dependent"
-msgstr ""
+msgstr "Зависимая переменная"
 
 msgid "Sampling posteriors"
 msgstr ""

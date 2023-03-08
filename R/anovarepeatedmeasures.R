@@ -1750,8 +1750,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     simpleOptions[["fixedFactors"]]  <- simpleOptions[['betweenSubjectFactors']]
     simpleOptions[["modelTerms"]] <- simpleOptions[['betweenModelTerms']]
     simpleOptions[["dependent"]] <- .BANOVAdependentName
-    simpleOptions[["homogeneityBrown"]] <- simpleOptions[["homogeneityWelch"]] <- FALSE
-    simpleOptions[["homogeneityNone"]] <- TRUE
+    simpleOptions[["homogeneityCorrectionBrown"]] <- simpleOptions[["homogeneityCorrectionWelch"]] <- FALSE
+    simpleOptions[["homogeneityCorrectionNone"]] <- TRUE
 
   }
 

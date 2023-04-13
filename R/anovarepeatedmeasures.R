@@ -1090,7 +1090,14 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 }
 
 .rmAnovaContrastTable <- function(rmAnovaContainer, longData, options, ready) {
-  if (!is.null(rmAnovaContainer[["contrastContainer"]]) || all(grepl("none", options$contrasts)))
+  #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
+  decodedContrasts <- c()
+  for (c in 1:length(options$contrasts)) {
+    options$contrasts[c]$decoded <- jaspBase::decodeColNames(options$contrasts[c]$contrast)
+    append(decodedContrasts, options$contrasts[c]$decoded)
+  }
+
+  if (!is.null(rmAnovaContainer[["contrastContainer"]]) || all(grepl("none", decodedContrasts)))
     return()
 
   contrastContainer <- createJaspContainer(title = gettext("Contrast Tables"))
@@ -1099,7 +1106,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   for (contrast in options$contrasts) {
 
-    if (contrast$contrast != "none") {
+    if (contrast$decoded != "none") {
 
       contrastType <- unlist(strsplit(contrast$contrast, ""))
       contrastType[1] <- toupper(contrastType[1])
@@ -1113,7 +1120,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       myTitle <- gettextf("%1$s Contrast - %2$s", contrastType,  contrastVariable)
       contrastContainerName <- paste0(contrast$contrast, "Contrast_",  paste(contrast$variable, collapse = ":"))
-      dfType <- if (length(contrast$variable) > 1 || contrast$contrast == "custom") "number" else "integer"
+      dfType <- if (length(contrast$variable) > 1 || contrast$decoded == "custom") "number" else "integer"
       contrastContainer[[contrastContainerName]] <- createJaspContainer()
       contrastContainer[[contrastContainerName]][["contrastTable"]] <- .createContrastTableAnova(myTitle,
                                                                                                  options,
@@ -1133,9 +1140,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
     contrastContainerName <- paste0(contrast$contrast, "Contrast_",  paste(contrast$variable, collapse = ":"))
 
-    if (contrast$contrast != "none") {
+    if (contrast$decoded != "none") {
 
-      if (contrast$contrast == "custom") {
+      if (contrast$decoded == "custom") {
         customContrastSetup <- options$customContrasts[[which(sapply(options$customContrasts,
                                                                      function(x) all(contrast$variable %in% x$value) &&
                                                                        length(contrast$variable) == length(x$value)))]]
@@ -1149,12 +1156,12 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         column <- factor(apply(longData[ .v(contrast$variable) ], 1, paste, collapse =", "))
       }
 
-      contrastMatrix    <- .createContrastAnova(column, contrast$contrast, customContrastSetup)
+      contrastMatrix    <- .createContrastAnova(column, contrast$decoded, customContrastSetup)
       contrCoef         <- lapply(as.data.frame(contrastMatrix), as.vector)
 
-      if (contrast$contrast != "custom") {
+      if (contrast$decoded != "custom") {
         contrCoef         <- lapply(as.data.frame(contrastMatrix), as.vector)
-        names(contrCoef)  <- .anovaContrastCases(column, contrast$contrast)
+        names(contrCoef)  <- .anovaContrastCases(column, contrast$decoded)
       } else {
         contrCoef         <- apply(contrastMatrix, 1, list)
       }
@@ -1164,7 +1171,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       contrCoefEmmeans <- coef(contrastResult)
       colnames(contrCoefEmmeans) <- c(contrast$variable, paste("Comparison", 1: (ncol(contrCoefEmmeans) - length(contrast$variable))))
 
-      if (contrast$contrast == "custom") {
+      if (contrast$decoded == "custom") {
         if (isTryError(contrastResult)) {
           if (grepl(contrastResult[1], pattern = "Nonconforming number")) {
             contrastContainer[[contrastContainerName]]$setError(gettext("Please specify an additional contrast."))
@@ -1186,7 +1193,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
 
       if (options$contrastEqualVariance == FALSE && contrast$variable %in% unlist(options$withinModelTerms) &&
-          length(contrast$variable) == 1 && contrast$contrast != "custom") {
+          length(contrast$variable) == 1 && contrast$decoded != "custom") {
 
         newDF <- do.call(data.frame, tapply(longData[[.BANOVAdependentName]], longData[[.v(contrast$variable)]], cbind))
         ssNr <- tapply(longData[[.BANOVAsubjectName]], longData[[.v(contrast$variable)]], cbind)
@@ -1215,7 +1222,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       }
 
-      if (contrast$contrast == "custom" | length(contrast$variable) > 1) {
+      if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)
         weightType <-  if (all(apply(contrastMatrix, 2, function(x) x %% 1 == 0))) "integer" else "number"
         contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createCoefficientsTableAnova(contrast,

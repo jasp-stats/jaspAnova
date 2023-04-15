@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-01-13 12:30+0000\n"
+"PO-Revision-Date: 2023-04-14 19:50+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "pl/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -73,17 +73,17 @@ msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Suma kwadratów typu I"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Suma kwadratów typu II"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Suma kwadratów typu III"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
-msgstr ""
+msgstr "Poprawki Browna-Forsythe'a i Welcha są dostępne tylko dla 1-ANOVA"
 
 msgid "Contrast Tables"
 msgstr "Tabele kontrastów"
@@ -92,7 +92,7 @@ msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Kontrast - %2$s"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Proszę określić dodatkowy kontrast."
 
 msgid "Wrong number of custom contrast matrix rows."
 msgstr ""
@@ -101,10 +101,10 @@ msgid "Please specify non-zero contrast weights."
 msgstr ""
 
 msgid "Estimate"
-msgstr "Oszacuj"
+msgstr "Oszacowanie"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% PU różnicy średnich"
 
 msgid "Lower"
 msgstr "Dolny"
@@ -179,16 +179,16 @@ msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Porównania post-hoc Gamesa-Howella - %s"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Różnica średnich"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "%.0f%% PU różnicy średnich"
 
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Wyniki bazują na nieskorygowanych średnich."
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -202,7 +202,7 @@ msgstr "p<sub>dunnett</sub>"
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
-msgstr ""
+msgstr "Przedział ufności jest zbyt wąski, proszę wybrać inny poziom ufności."
 
 msgid "N"
 msgstr "N"
@@ -234,10 +234,10 @@ msgid ""
 msgstr ""
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Średnie brzegowe"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Bootstrapowe średnie brzegowe"
 
 msgid ""
 "Some confidence intervals could not be computed. Possibly too few bootstrap "
@@ -248,10 +248,10 @@ msgid "Bootstrapping based on %s replicates."
 msgstr ""
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Proste efekty główne"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Proste efekty główne - %s"
 
 msgid "Level of %s"
 msgstr "Poziom %s"
@@ -324,13 +324,13 @@ msgid "None"
 msgstr "Żaden"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Efekty międzyobiektowe"
 
 msgid "%s<sub>G</sub>"
 msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Efekty wewnątrzobiektowe"
 
 msgid "Sphericity Correction"
 msgstr "Poprawka na sferyczność"
@@ -367,7 +367,7 @@ msgid "Huynh-Feldt %s"
 msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Dolna granica %s"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -422,13 +422,13 @@ msgid ""
 msgstr ""
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Średnie brzegowe -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Bootstrapowe średnie brzegowe -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Średnie brzegowe"
 
 msgid "95%% bca%s CI"
 msgstr "95%% bca%s PU"
@@ -438,7 +438,7 @@ msgid ""
 msgstr ""
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "95%% PU różnicy średnich"
 
 msgid "Bonferroni CI adjustment"
 msgstr ""
@@ -530,7 +530,7 @@ msgid "Null model (incl. %s)"
 msgstr "Model zerowy (zaw. %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Obliczanie współczynników Bayesa"
 
 msgid ""
 "The Laplace approximation is faster but also less accurate than the "
@@ -558,10 +558,10 @@ msgid "All models include %s."
 msgstr "Wszystkie modele zawierają %s."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Analiza efektów - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Analiza efektów"
 
 msgid "Log(BF<sub>incl</sub>)"
 msgstr "Log(BF<sub>incl</sub>)"
@@ -579,13 +579,13 @@ msgid "P(incl)"
 msgstr "P(zawiera)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(excl)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|data)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(excl|dane)"
 
 msgid ""
 "Compares models that contain the effect to equivalent models stripped of the "
@@ -727,7 +727,7 @@ msgid "Descriptives Plot"
 msgstr "Wykresy opisowe"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "Wykresy chmury deszczowej"
 
 msgid "Dependent"
 msgstr "Zależna"
@@ -736,7 +736,7 @@ msgid "Sampling posteriors"
 msgstr ""
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "długość próbek musi być równa długości wag!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors for anomalies or "
@@ -744,10 +744,10 @@ msgid ""
 msgstr ""
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Pokazuje najlepsze %1$d z %2$d modeli."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "W BayesFactor::enumerateGeneralModels wystąpił następujący błąd: %s"
 
 msgid "Single Model Inference"
 msgstr ""
@@ -791,12 +791,14 @@ msgstr ""
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Błąd w %1$s — nie udało się zakodować składni modelu! Komunikat o błędzie: "
+"%2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Błąd w %1$s - błąd składni w modelu! Komunikat o błędzie: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "Błąd w %1$s - nie udało się oszacować modelu! Komunikat o błędzie: %2$s"
 
 msgid "Bootstrapping restricted models"
 msgstr ""
@@ -989,5 +991,6 @@ msgstr ""
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Model zerowy (w tym %s i losowe nachylenia)"
+msgstr[1] "Modele zerowe (w tym %s i losowe nachylenia)"
+msgstr[2] "Modeli zerowych (w tym %s i losowe nachylenia)"

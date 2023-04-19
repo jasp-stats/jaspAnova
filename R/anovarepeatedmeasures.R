@@ -1090,6 +1090,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 }
 
 .rmAnovaContrastTable <- function(rmAnovaContainer, longData, options, ready) {
+  if (!ready || is.null(options$contrasts))
+      return()
+  
   #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
   decodedContrasts <- list()
   for (i in 1:length(options$contrasts)) {

@@ -601,10 +601,9 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
 .anovaContrastsTable <- function(anovaContainer, dataset, options, ready) {
   #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
-  decodedContrasts <- c()
-  for (c in 1:length(options$contrasts)) {
-    options$contrasts[c]$decoded <- jaspBase::decodeColNames(options$contrasts[c]$contrast)
-    append(decodedContrasts, options$contrasts[c]$decoded)
+  decodedContrasts <- list()
+  for (i in 1:length(options$contrasts)) {
+    options$contrasts[[i]]$decoded <- decodedContrasts[[i]] <- jaspBase::decodeColNames(options$contrasts[[i]]$contrast)
   }
 
   if (!is.null(anovaContainer[["contrastContainer"]]) || all(grepl("none", decodedContrasts)))

@@ -600,7 +600,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaContrastsTable <- function(anovaContainer, dataset, options, ready) {
-  if (!ready)
+  if (!ready || is.null(options$contrasts))
     return()
     
   #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"

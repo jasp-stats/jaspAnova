@@ -600,7 +600,16 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 }
 
 .anovaContrastsTable <- function(anovaContainer, dataset, options, ready) {
-  if (!is.null(anovaContainer[["contrastContainer"]]) || all(grepl("none", options$contrasts)))
+  if (!ready || is.null(options$contrasts))
+    return()
+    
+  #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
+  decodedContrasts <- list()
+  for (i in 1:length(options$contrasts)) {
+    options$contrasts[[i]]$decoded <- decodedContrasts[[i]] <- jaspBase::decodeColNames(options$contrasts[[i]]$contrast)
+  }
+
+  if (!is.null(anovaContainer[["contrastContainer"]]) || all(grepl("none", decodedContrasts)))
     return()
 
   contrastContainer <- createJaspContainer(title = gettext("Contrast Tables"))
@@ -609,7 +618,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   for (contrast in options$contrasts) {
 
-    if (contrast$contrast != "none") {
+    if (contrast$decoded != "none") {
       contrastType <- unlist(strsplit(contrast$contrast, ""))
       contrastType[1] <- toupper(contrastType[1])
       contrastType <- paste0(contrastType, collapse = "")
@@ -644,12 +653,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     contrastContainerName <- paste0(contrast$contrast, "Contrast_",  paste(contrast$variable, collapse = ":"))
 
-    if (contrast$contrast != "none") {
+    if (contrast$decoded != "none") {
 
       variable <- contrast$variable
       v <- .v(variable)
 
-      if (contrast$contrast == "custom") {
+      if (contrast$decoded == "custom") {
         customContrastSetup <- options$customContrasts[[which(sapply(options$customContrasts,
                                                                      function(x)  all(x$value %in% contrast$variable) &&
                                                                        length(contrast$variable) == length(x$value)))]]
@@ -663,10 +672,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         column <- factor(apply(dataset[ v ], 1, paste, collapse =", "))
       }
 
-      contrastMatrix    <- .createContrastAnova(column, contrast$contrast, customContrastSetup)
+      contrastMatrix    <- .createContrastAnova(column, contrast$decoded, customContrastSetup)
 
-      if (contrast$contrast != "custom") {
-        cases <- .anovaContrastCases(column, contrast$contrast)
+      if (contrast$decoded != "custom") {
+        cases <- .anovaContrastCases(column, contrast$decoded)
         contrCoef         <- lapply(as.data.frame(contrastMatrix), as.vector)
         names(contrCoef)  <- cases
       } else {
@@ -678,7 +687,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       # is input the same as used by emmeans?
       # all(as.matrix( coef(contrastResult)[, -(1:length(v)) ]) == t(contrastMatrix))
 
-      if (contrast$contrast == "custom") {
+      if (contrast$decoded == "custom") {
         if (isTryError(contrastResult)) {
           if (grepl(contrastResult[1], pattern = "Nonconforming number")) {
             contrastContainer[[contrastContainerName]]$setError(gettext("Please specify an additional contrast."))
@@ -699,7 +708,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
       contrastResult[[".isNewGroup"]] <- c(TRUE, rep(FALSE, nrow(contrastResult)-1))
 
-      if (contrast$contrast == "custom" | length(contrast$variable) > 1) {
+      if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)
         weightType <-  if (all(apply(contrastMatrix, 2, function(x) x %% 1 == 0))) "integer" else "number"
         contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createCoefficientsTableAnova(contrast,

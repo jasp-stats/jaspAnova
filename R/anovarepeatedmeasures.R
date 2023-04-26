@@ -1587,7 +1587,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
     conoverTable <- createConoverTable(groupingVar)
     noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", .BANOVAsubjectName)
-    conoverTable$addFootnote(gettextf("Grouped by %s.", noteBlockName))
+    conoverTable$addFootnote(gettextf("Grouped by %s.", blockingVar))
 
     rows <- list()
 

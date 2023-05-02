@@ -109,7 +109,7 @@ Constraints on coefficients of within-subject factors can be specified similar t
 
 If both within- and between-subjects terms are in the model, their coefficients can also only be accessed through the dot operator `.`; the within-subject terms preceed those that are between-subjects, e.g.
 
-`withinSubjectsLevel1.betweenFactorLevel1`.
+`withinSubjectsCell.betweenFactorLevel1`.
 
 Including or excluding the intercept has the same implications for the between-subject terms (and covariates) as in AN(C)OVA. There is no intercept for the within-subject terms. 
 

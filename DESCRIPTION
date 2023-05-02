@@ -33,4 +33,5 @@ Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspDescriptives,
   jasp-stats/jaspGraphs,
-  jasp-stats/jaspTTests
+  jasp-stats/jaspTTests,
+  Kucharssim/restriktor

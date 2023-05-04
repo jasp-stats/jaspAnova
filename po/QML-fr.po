@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-05-04 19:40+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18-dev\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
@@ -593,7 +599,6 @@ msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
 msgstr "Modèle postérieurs moyens"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
 msgstr "Niveaux du groupe dans un seul graphique"
@@ -602,7 +607,6 @@ msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "Graphique distinct par niveau"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Diagramme Q-Q des résidus"
@@ -653,7 +657,6 @@ msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
 msgstr "Hypothèses Restreintes par l'ordre"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid ""
 "Enter each restriction of one hypothesis on a new line, e.g., \n"
@@ -664,19 +667,17 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
-"Saisissez chaque condition d'une hypothèse sur une nouvelle ligne, par ex, \n"
+"Entrer chaque restriction d'une hypothèse sur une nouvelle ligne, par ex, \n"
 "facteurBas == facteurMoyen\n"
 "facteurMoyen< facteurHaut\n"
-"où 'factor' est le nom du facteur (ou de la covariable) et "
-"'Bas'/'Moyen'/'Haut' sont les noms des niveaux du facteur.\n"
+"où 'factor' est le nom du facteur (ou de la covariable) et 'Bas'/'Moyen'/"
+"'Haut' sont les noms des niveaux du facteur.\n"
 "Cliquez sur l'icône \"plus\" pour ajouter d'autres hypothèses. \n"
 "Cliquez sur l'icône d'information pour obtenir d'autres exemples."
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
-"Cliquer pour en savoir plus sur la syntaxe des restrictions de commande."
+msgstr "Cliquer pour en savoir plus sur la syntaxe des contraintes d'ordre."
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
@@ -686,15 +687,13 @@ msgctxt "OrderRestrictions|"
 msgid "Include intercept"
 msgstr "Inclure l'intercept"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr "Afficher les coefficients disponibles"
+msgstr "Voir les coefficients disponibles"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr "Ensemble pour tous les modèles"
+msgstr "Mettre pour tous les modèles"
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
@@ -704,10 +703,9 @@ msgctxt "OrderRestrictions|"
 msgid "Marginal means"
 msgstr "Moyennes marginales"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr "Tests d'hypothèses informés"
+msgstr "Tests d'hypothèses informées"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
@@ -731,16 +729,15 @@ msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
 msgstr "Moyennes marginale pour %1"
 
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr "Tests d'hypothèses informés pour %1"
+msgstr "Tests d'hypothèses informées pour %1"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
 msgstr "Comparaison entre modèles"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
 msgstr "Modèle complémentaire"
@@ -753,12 +750,10 @@ msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Aucune"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
 msgstr "Ajouter à la comparaison"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
 msgstr "Ajouter des poids relatifs"
@@ -767,22 +762,18 @@ msgctxt "OrderRestrictions|"
 msgid "Reference model"
 msgstr "Modèle de référence"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
 msgstr "Matrice des poids relatifs"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
 msgstr "Comparer les coefficients du modèle"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr "Mettre en évidence les contraintes activées"
+msgstr "Mettre en surbrillance les restrictions actives"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
 msgstr "Quantification de l'incertitude"
@@ -850,7 +841,7 @@ msgstr "Correction"
 #, fuzzy
 msgctxt "PostHocTests|"
 msgid "Null control"
-msgstr "Contrôle d'hypothèse nulle"
+msgstr "Contrôle nul"
 
 #, fuzzy
 msgctxt "SingleModelInference|"
@@ -861,7 +852,6 @@ msgctxt "SingleModelInference|"
 msgid "Components"
 msgstr "Composantes"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
 msgstr "Termes spécifiques du modèle"
@@ -887,7 +877,6 @@ msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
 msgstr "Postérieurs marginaux"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
 msgstr "Niveaux du groupe dans un seul graphique"
@@ -896,7 +885,6 @@ msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
 msgstr "Graphique distinct par niveau"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
 msgstr "Diagramme Q-Q des résidus"
@@ -906,7 +894,6 @@ msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "R² du postérieur"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "Vérifications des présupposés"
@@ -931,7 +918,6 @@ msgctxt "AssumptionChecks|"
 msgid "Welch"
 msgstr "Welch"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
 msgstr "Diagramme Q-Q des résidus"
@@ -1004,19 +990,17 @@ msgctxt "Display|"
 msgid "partial η²"
 msgstr "η² partiel"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "general η²"
-msgstr "η² généralisé"
+msgstr "η² général"
 
 msgctxt "Display|"
 msgid "ω²"
 msgstr "ω²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Ratio p maximal de Vovk-Sellke"
+msgstr "Ratio-p maximum de Vovk-Sellke"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
@@ -1034,10 +1018,9 @@ msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
 msgstr "Comparer les moyennes marginales à 0"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
-msgstr "Ajustement des intervalles de confiance"
+msgstr "Ajustement de l'intervalle de confiance"
 
 msgctxt "MarginalMeans|"
 msgid "None"
@@ -1135,10 +1118,9 @@ msgctxt "PostHocDisplay|"
 msgid "Flag Significant Comparisons"
 msgstr "Marquer les comparaisons significatives"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "Effet principaux"
+msgstr "Effets principaux simples"
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
@@ -1170,7 +1152,6 @@ msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
 msgstr "Coefficient de la distribution Prior"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
 msgstr "Méthode d'Intégration"

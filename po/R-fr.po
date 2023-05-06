@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-01-16 13:32+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"PO-Revision-Date: 2023-05-05 21:50+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -194,9 +194,8 @@ msgstr "Comparaisons post-hoc de Games-Howell - %s"
 msgid "Mean Difference"
 msgstr "Différence moyenne"
 
-#, fuzzy
 msgid "%.0f%% CI for Mean Difference"
-msgstr "IC pour la différence moyenne %.0f%%"
+msgstr "IC pour la différence de moyennes %.0f%%"
 
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
@@ -328,14 +327,13 @@ msgstr ""
 "Merci de choisir un nom pour les facteurs répétés qui soient différents de "
 "ceux des facteurs inter-sujets."
 
-#, fuzzy
 msgid ""
 "Data set too big for univariate follow-up test. Try selecting \"Use "
 "multivariate model for follow-up tests\" in the Model tab."
 msgstr ""
 "L'ensemble de données est trop gros pour permettre un test univarié post "
 "hoc. Essayez en sélectionnant \"Utiliser un modèle multivarié pour les tests "
-"de suivi\" dans l'onglet Modèle."
+"post-hoc\" dans l'onglet Modèle."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -777,7 +775,7 @@ msgid "Density"
 msgstr "Densité"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "Diagramme Q-Q moyenné par le modèle"
 
 msgid "Model Averaged Posterior R%s"
 msgstr ""
@@ -797,7 +795,7 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr "Descriptifs"
+msgstr "Statistiques descriptives"
 
 msgid "Descriptives - %s"
 msgstr "Descriptives - %s"
@@ -823,11 +821,12 @@ msgid "Raincloud plots"
 msgstr "Graphiques en nuages de points"
 
 msgid "Dependent"
-msgstr ""
+msgstr "Dépendante"
 
 msgid "Sampling posteriors"
 msgstr ""
 
+#, fuzzy
 msgid "length of samples must be equal to length of weights!"
 msgstr "la longueur des échantillons doit être égale à la longueur des poids !"
 
@@ -838,8 +837,9 @@ msgstr ""
 "Toutes les prédictions avaient une variance nulle. Vérifiez les prédicteurs "
 "pour les anomalies ou augmentez le nombre d'échantillons postérieurs."
 
+#, fuzzy
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Montre le meilleur %1$d des %2$d modèles."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""
@@ -871,7 +871,6 @@ msgstr ""
 msgid "Single Model R%s"
 msgstr ""
 
-#, fuzzy
 msgid "Order Restricted Hypotheses"
 msgstr "Hypothèses restreintes par l'ordre"
 
@@ -896,12 +895,16 @@ msgstr "Bootstrapping sous l'hypothèse alternative"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Erreur à %1$s - La syntaxe du modèle n'a pas pu être encodée ! Message "
+"d'erreur : %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
 msgstr ""
+"Erreur à %1$s - Erreur de syntaxe dans le modèle ! Message d'erreur : %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
 msgstr ""
+"Erreur à %1$s - Le modèle n'a pas peut être estimé ! Message d'erreur : %2$s"
 
 msgid "Bootstrapping restricted models"
 msgstr "Bootstrapping sous l'hypothèse nulle"
@@ -927,13 +930,14 @@ msgid "Complement"
 msgstr "Complément"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Information de syntaxe"
 
 msgid "Available coefficients for restriction syntax"
 msgstr ""
 
+#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "N'a pas pu effectuer la comparaison du modèle ! Message d'erreur :%s"
 
 msgid "Model Comparison Table"
 msgstr "Tableau de comparaison des modèles"
@@ -958,7 +962,7 @@ msgstr "GORICA"
 
 #, fuzzy
 msgid "Weights ratio"
-msgstr "Poids"
+msgstr "Ratio des poids"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
@@ -972,37 +976,37 @@ msgid ""
 msgstr ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
-#, fuzzy
 msgid ""
 "Weights ratios indicate the relative weight for each model against the "
 "\"%1$s\" model. %2$s"
 msgstr ""
 "Les ratios indiquent le poids relatif de chaque modèle par rapport au modèle "
-"\"%1$s\" ;. %2$s"
+"\"%1$s\". %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "N'a pas pu calculer les poids !"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
 "Le modèle '%s' ; ne peut pas être un modèle de référence car il est vide !"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "Les modèles suivants ont été exclus : %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Poids %s-relatifs"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Un seul modèle comparé : la matrice des poids relatifs ne peut pas être "
+"calculée"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "Coefficients"
+msgstr "Comparaison des coefficients"
 
 msgid "Coefficient"
 msgstr "Coefficient"
@@ -1010,19 +1014,17 @@ msgstr "Coefficient"
 msgid "Coefficients differ from unconstrained model."
 msgstr "Les coefficients diffèrent du modèle sans contrainte."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Résumés des modèles"
+msgstr "Résumé du modèle"
 
-#, fuzzy
 msgid "Restriction Matrix"
-msgstr "Restriction"
+msgstr "Matrice de restrictions"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Côté gauche (gauche)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Côté droit (droit)"
 
 msgid "Coefficients"
 msgstr "Coefficients"
@@ -1035,14 +1037,14 @@ msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "Bootstrapping basé sur%s de répliques réussies."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "Ne peut pas calculer le tableau de coefficients. Message d'erreur : %s"
 
 #, fuzzy
 msgid "Informative Hypothesis Tests"
 msgstr "Tests d'hypothèses éclairés"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hypothèse"
 
 msgid "Test"
 msgstr "Test"
@@ -1096,12 +1098,13 @@ msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
 msgstr ""
-"Aucun terme de moyenne marginale n'est spécifié. Veuillez sélectionner les "
-"termes du modèle dans la section 'Moyennes Marginales Restreintes'."
+"Aucun terme de moyenne marginale n'est spécifié. SVP, veuillez sélectionner "
+"les termes du modèle dans la section 'Moyennes Marginales Restreintes'."
 
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "Impossible de calculer les moyennes marginales. Message d'erreur : %s"
 
+#, fuzzy
 msgid "Results are averaged over the levels of: %s."
 msgstr "Les résultats sont moyennés aux niveaux suivants : %s."
 
@@ -1111,6 +1114,7 @@ msgstr "Les covariables (%s) sont maintenues à leurs valeurs moyennes."
 msgid "MANOVA"
 msgstr "MANOVA"
 
+#, fuzzy
 msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
@@ -1118,6 +1122,7 @@ msgstr ""
 "La matrice de conception n'est pas inversible. Cela peut être dû à des "
 "variables dépendantes colinéaires."
 
+#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modèle nul ( inclus %s et pentes aléatoires)"

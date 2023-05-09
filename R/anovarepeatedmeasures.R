@@ -1092,7 +1092,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 .rmAnovaContrastTable <- function(rmAnovaContainer, longData, options, ready) {
   if (!ready || is.null(options$contrasts))
       return()
-  
+
   #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
   decodedContrasts <- list()
   for (i in 1:length(options$contrasts)) {
@@ -1586,7 +1586,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   for (groupingVar in groupingVariables) {
 
     conoverTable <- createConoverTable(groupingVar)
-    noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", .BANOVAsubjectName)
+    noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", blockingVar)
     conoverTable$addFootnote(gettextf("Grouped by %s.", noteBlockName))
 
     rows <- list()

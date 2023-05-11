@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2022-12-12 14:40\n"
-"PO-Revision-Date: 2023-05-04 19:40+0000\n"
+"PO-Revision-Date: 2023-05-12 13:53+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "pl/>\n"
@@ -82,13 +82,13 @@ msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
 msgid "Type I Sum of Squares"
-msgstr "Suma kwadratów typu I"
+msgstr "Suma kwadratów typu I."
 
 msgid "Type II Sum of Squares"
-msgstr "Suma kwadratów typu II"
+msgstr "Suma kwadratów typu II."
 
 msgid "Type III Sum of Squares"
-msgstr "Suma kwadratów typu III"
+msgstr "Suma kwadratów typu III."
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -116,13 +116,13 @@ msgid "%s%% CI for Mean Difference"
 msgstr "%s%% PU różnicy średnich"
 
 msgid "Lower"
-msgstr "Dolny"
+msgstr "Dolna granica"
 
 msgid "Upper"
 msgstr "Górna granica"
 
 msgid "SE"
-msgstr "SE"
+msgstr "Błąd stand."
 
 msgid "t"
 msgstr "t"
@@ -140,7 +140,7 @@ msgid "Results are averaged over the levels of: %s"
 msgstr "Wyniki są uśrednione dla poziomów z: %s"
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr "Bootstrapping oparty na %s udanych replikacjach."
+msgstr "Bootstrap oparty na %s udanych replikacjach."
 
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
@@ -152,7 +152,7 @@ msgid "Bias corrected accelerated."
 msgstr "Skorygowane względem obciążenia i przyspieszone (BCa)."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr "Bootstrapowy test post hoc"
+msgstr "Bootstrapowy test post-hoc"
 
 msgid ""
 "Some confidence intervals could not be computed.\n"
@@ -165,7 +165,7 @@ msgid "Dunn"
 msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Porównania post hoc Dunna - %s"
+msgstr "Porównania post-hoc Dunna - %s"
 
 msgid "Comparison"
 msgstr "Porównanie"
@@ -221,7 +221,7 @@ msgid "Mean"
 msgstr "Średnia"
 
 msgid "SD"
-msgstr "SD"
+msgstr "Odch. stand."
 
 msgid "Coefficient of Variation"
 msgstr "Współczynnik zmienności"
@@ -382,7 +382,7 @@ msgid "Mauchly's W"
 msgstr "W Mauchly'ego"
 
 msgid "Approx. %s"
-msgstr "Około %s"
+msgstr "Przybl. %s"
 
 msgid "p-value"
 msgstr "wartość p"
@@ -429,7 +429,7 @@ msgid "Post Hoc Comparisons -"
 msgstr "Porównania post-hoc -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "Bootstrapowane porównania post-hoc -"
+msgstr "Bootstrapowe porównania post-hoc -"
 
 msgid "%1$s%% bca%2$s CI"
 msgstr "%1$s%% bca%2$s PU"
@@ -483,7 +483,7 @@ msgid "Bonferroni CI adjustment"
 msgstr "Korekta Bonferroniego dla PU"
 
 msgid "Sidak CI adjustment"
-msgstr "Korekta Sidaka dla PU"
+msgstr "Korekta Sidaka dla PU."
 
 msgid "Nonparametrics"
 msgstr "Nieparametryczne"
@@ -636,13 +636,13 @@ msgid "Effects"
 msgstr "Efekty"
 
 msgid "P(incl)"
-msgstr "P(zawiera)"
+msgstr "P(incl)"
 
 msgid "P(excl)"
 msgstr "P(excl)"
 
 msgid "P(incl|data)"
-msgstr "P(incl|data)"
+msgstr "P(incl|dane)"
 
 msgid "P(excl|data)"
 msgstr "P(excl|dane)"
@@ -690,7 +690,7 @@ msgid "P(M)"
 msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr "P(M|data)"
+msgstr "P(M|dane)"
 
 msgid "error %"
 msgstr "błąd %"

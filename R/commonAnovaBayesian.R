@@ -1580,6 +1580,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # do.call(rbind, rows) turns rows into a data.frame (from a list) for jaspResults
   data <- do.call(rbind.data.frame, rows)
 
+  # the results of `by` are in alphabetical order, so we reorder the data.frame to match the factor level order. Fixes https://github.com/jasp-stats/jasp-issues/issues/1741
+  newOrder <- match(unique(ind), rownames(data))
+  data <- data[newOrder, ]
+
   # add footnote if there are unobserved combinations
   nObserved <- nrow(data)
   nPossible <- prod(sapply(dataset2[, fixed, drop = FALSE], nlevels))

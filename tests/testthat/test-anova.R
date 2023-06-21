@@ -188,7 +188,6 @@ test_that("Marginal Means table results match", {
   }
 })
 
-
 test_that("Descriptives table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
@@ -202,6 +201,105 @@ test_that("Descriptives table results match", {
         list(-0.120135614827586, 58, 1.10575982846952, 0.145193378675912, -9.20426328242848,
              0, -0.283499835571429, 42, 0.994612407217046, 0.15347202634745,
              -3.50833504087324, 1))
+})
+
+test_that("Descriptives table respects factor order", {
+
+  # tests https://github.com/jasp-stats/jasp-issues/issues/1741
+
+  # test 1: one-way ANOVA
+
+  set.seed(42)
+  dat <- data.frame(
+    x     = rnorm(100),
+    group = sample(c("Sedentary", "Low", "Medium", "High"), 100 , TRUE)
+  )
+
+  options <- initClassicalAnovaOptions("Anova")
+
+  options$dependent    <- "x"
+  options$fixedFactors <- "group"
+  options$modelTerms   <- list(list(components = "group"))
+  options$descriptives <- TRUE
+
+  # change the level order
+  levels1 <- c("Medium", "Sedentary", "Low", "High")
+  dat$group <- factor(dat$group, levels = levels1)
+
+  result1 <- runAnalysis(name = "Anova", options = options, dataset = dat)
+
+  tb1 <- result1$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
+  rowNms1 <- sapply(tb1, `[[`, "group.")
+
+  expect_identical(rowNms1, levels1)
+
+  # change the level order
+  levels2 <- c("Sedentary", "Low", "Medium", "High")
+  dat$group <- factor(dat$group, levels = levels2)
+
+  result2 <- runAnalysis(name = "Anova", options = options, dataset = dat, makeTests = FALSE)
+
+  tb2 <- result2$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
+  rowNms2 <- sapply(tb2, `[[`, "group.")
+
+  expect_identical(rowNms2, levels2)
+
+  # test 2: three-way ANOVA
+  set.seed(3141593)
+  dat <- data.frame(
+    x     = rnorm(20),
+    group1 = factor(sample(letters[10:13], 100 , TRUE)),
+    group2 = factor(sample(letters[1:3], 100 , TRUE)),
+    group3 = factor(sample(LETTERS[1:5], 100 , TRUE))
+  )
+
+  # alphabetic level order
+  set.seed(2718282)
+  for (group in 1:3) {
+    colName <- sprintf("group%d", group)
+    levels(dat[[colName]]) <- sort(levels(dat[[colName]]))
+  }
+
+
+  options <- initClassicalAnovaOptions("Anova")
+
+  options$dependent    <- "x"
+  options$fixedFactors <- paste0("group", 1:3)
+
+  options$modelTerms   <- list(list(components = "group1"), list(components = "group2"), list(components = "group3"))
+  options$descriptives <- TRUE
+
+  result <- runAnalysis(name = "Anova", options = options, dataset = dat)
+
+  tb <- result$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
+  for (group in 1:3) {
+
+    rowNmsGroup <- sapply(tb, `[[`, sprintf("group%d.", group))
+    rowNmsGroup <- rowNmsGroup[!duplicated(rowNmsGroup)]
+    levelsGroup <- levels(dat[[sprintf("group%d", group)]])
+    expect_identical(rowNmsGroup, levelsGroup)
+
+  }
+
+  # scramble level order
+  set.seed(2718282)
+  for (group in 1:3) {
+    colName <- sprintf("group%d", group)
+    levels(dat[[colName]]) <- sample(levels(dat[[colName]]))
+  }
+
+  result <- runAnalysis(name = "Anova", options = options, dataset = dat)
+
+  tb <- result$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
+  for (group in 1:3) {
+
+    rowNmsGroup <- sapply(tb, `[[`, sprintf("group%d.", group))
+    rowNmsGroup <- rowNmsGroup[!duplicated(rowNmsGroup)]
+    levelsGroup <- levels(dat[[sprintf("group%d", group)]])
+    expect_identical(rowNmsGroup, levelsGroup)
+
+  }
+
 })
 
 test_that("Q-Q plot matches", {
@@ -287,7 +385,6 @@ test_that("Simple Main Effects table results match", {
                                   0.0824380354608798, "FALSE", 5, 0.313611321775938, 1, 0.313611321775938,
                                   0.27778587668933, 0.599397784945329, "FALSE"))
 })
-
 
 test_that("Nonparametric table results match", {
   options <- initClassicalAnovaOptions("Anova")

@@ -1586,7 +1586,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (nObserved != nPossible) {
     descriptivesTable$addFootnote(
       message = gettextf(
-        "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved).",
+        "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved).",
         nPossible - nObserved, nPossible
       )
     )

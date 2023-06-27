@@ -1513,18 +1513,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   for (i in seq_along(fixed))
     descriptivesTable$addColumnInfo(name = fixedDot[i], type = "string", title = fixed[i], combine = TRUE)
 
-  overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
-  descriptivesTable$addColumnInfo(name = "N",               title=gettext("N"),                        type = "integer")
-  descriptivesTable$addColumnInfo(name = "Mean",            title=gettext("Mean"),                     type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",              title=gettext("SD"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "SE",              title=gettext("SE"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of variation"), type = "number")
+  descriptivesTable$addColumnInfo(name = "N",               title = gettext("N"),                        type = "integer")
+  descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),                     type = "number")
+  descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),                       type = "number")
+  descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),                       type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("Coefficient of variation"), type = "number")
 
-  if (is.null(options$descriptivePlotCiLevel)) {
-
+  if (!is.null(options[["credibleInterval"]])) {
+    overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
   }
+
   descriptivesTable$showSpecifiedColumnsOnly <- TRUE
   jaspContainer[["tableDescriptives"]] <- descriptivesTable
 

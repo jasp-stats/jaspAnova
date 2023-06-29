@@ -1022,7 +1022,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (any(df[["percentageSucces"]] < 0.25) || any(df[["remainingRows"]] < 1000L))
     issuesTable$addFootnote(
-      gettext("For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
+      gettext("For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."),
       symbol = .BANOVAGetWarningSymbol()
     )
 
@@ -1513,18 +1513,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   for (i in seq_along(fixed))
     descriptivesTable$addColumnInfo(name = fixedDot[i], type = "string", title = fixed[i], combine = TRUE)
 
-  overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
-  descriptivesTable$addColumnInfo(name = "N",               title=gettext("N"),                        type = "integer")
-  descriptivesTable$addColumnInfo(name = "Mean",            title=gettext("Mean"),                     type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",              title=gettext("SD"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "SE",              title=gettext("SE"),                       type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title=gettext("Coefficient of variation"), type = "number")
+  descriptivesTable$addColumnInfo(name = "N",               title = gettext("N"),                        type = "integer")
+  descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),                     type = "number")
+  descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),                       type = "number")
+  descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),                       type = "number")
+  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("Coefficient of variation"), type = "number")
 
-  if (is.null(options$descriptivePlotCiLevel)) {
-
+  if (!is.null(options[["credibleInterval"]])) {
+    overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
     descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
     descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
   }
+
   descriptivesTable$showSpecifiedColumnsOnly <- TRUE
   jaspContainer[["tableDescriptives"]] <- descriptivesTable
 
@@ -1586,7 +1586,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   if (nObserved != nPossible) {
     descriptivesTable$addFootnote(
       message = gettextf(
-        "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved).",
+        "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved).",
         nPossible - nObserved, nPossible
       )
     )

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2022-12-12 14:40\n"
+"POT-Creation-Date: 2023-07-01 03:02\n"
 "PO-Revision-Date: 2023-06-07 02:51+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -678,8 +678,9 @@ msgstr "有用的样本"
 msgid "Total samples drawn"
 msgstr "抽取的样本总数"
 
+#, fuzzy
 msgid ""
-"For some affected models, more than 75%% of the posterior samples failed, or "
+"For some affected models, more than 75% of the posterior samples failed, or "
 "fewer than 1000 samples remained for subsequent results. All model-averaged "
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
@@ -740,9 +741,10 @@ msgstr "描述统计 - %s"
 msgid "Coefficient of variation"
 msgstr "变异系数"
 
+#, fuzzy
 msgid ""
-"Some combinations of factors are not observed and hence omitted (%g out of "
-"%g combinations are unobserved)."
+"Some combinations of factors are not observed and hence omitted (%1$g out of "
+"%2$g combinations are unobserved)."
 msgstr "某些因子组合没有被观测到，因此被忽略（%g 组合中的 %g 未被观测到）。"
 
 msgid "Descriptives plots"

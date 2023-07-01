@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2022-12-12 14:40\n"
+"POT-Creation-Date: 2023-07-01 03:02\n"
 "PO-Revision-Date: 2023-01-01 15:48+0000\n"
 "Last-Translator: Sau-chin Chen <pmsp96@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -39,7 +39,8 @@ msgstr "您的研究設計有空白細格。請嘗試不同類型的差方和。
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr "無法計算 Welch 校正，因為以“%2$s”分組後，“%1$s”的變異數在以下水準為零：%3$s"
+msgstr ""
+"無法計算 Welch 校正，因為以“%2$s”分組後，“%1$s”的變異數在以下水準為零：%3$s"
 
 msgid "ANOVA"
 msgstr "變異數分析"
@@ -687,8 +688,9 @@ msgstr "可用樣本"
 msgid "Total samples drawn"
 msgstr "抽取樣本總數"
 
+#, fuzzy
 msgid ""
-"For some affected models, more than 75%% of the posterior samples failed, or "
+"For some affected models, more than 75% of the posterior samples failed, or "
 "fewer than 1000 samples remained for subsequent results. All model-averaged "
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
@@ -754,9 +756,10 @@ msgstr "描述統計 - %s"
 msgid "Coefficient of variation"
 msgstr "變異係數"
 
+#, fuzzy
 msgid ""
-"Some combinations of factors are not observed and hence omitted (%g out of "
-"%g combinations are unobserved)."
+"Some combinations of factors are not observed and hence omitted (%1$g out of "
+"%2$g combinations are unobserved)."
 msgstr "未觀察到某些因子組合，因此省略（未觀察到 %g 組合中的 %g）。"
 
 #, fuzzy

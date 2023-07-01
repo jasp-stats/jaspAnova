@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.2\n"
-"POT-Creation-Date: 2023-04-22 02:43\n"
+"POT-Creation-Date: 2023-07-01 03:02\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Total samples drawn"
 msgstr ""
 
-msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
+msgid "For some affected models, more than 75% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
 
 msgid "<b><em>Warning.</em></b>"
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Coefficient of variation"
 msgstr ""
 
-msgid "Some combinations of factors are not observed and hence omitted (%g out of %g combinations are unobserved)."
+msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
 
 msgid "Descriptives plots"

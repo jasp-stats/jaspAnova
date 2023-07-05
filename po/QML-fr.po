@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-07-06 04:49+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
@@ -61,7 +67,7 @@ msgstr "Covariables"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "Poids moindres carrés pondérés"
+msgstr "Poids des moindres carrés pondérés"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
@@ -115,6 +121,7 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
 msgstr "Facteurs Intra-Sujets"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
 msgstr "Colonnes Intra-Sujets"
@@ -213,7 +220,7 @@ msgstr "Facteurs"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr "Label de l'axe y"
+msgstr "Titre de l'axe y"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
@@ -243,6 +250,7 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
 msgstr "Facteurs Intra-Sujets"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
 msgstr "Colonnes Intra-Sujets"
@@ -386,6 +394,7 @@ msgctxt "AdditionalOptions|"
 msgid "Additional Options"
 msgstr "Options supplémentaires"
 
+#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
 msgstr "Spécifier la distribution a priori des Coefficients"
@@ -426,6 +435,7 @@ msgctxt "AdditionalOptions|"
 msgid "No. samples"
 msgstr "Nbre d'échantillons"
 
+#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
 msgstr "Échantillons postérieurs"
@@ -591,7 +601,7 @@ msgstr "Graphiques"
 #, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
-msgstr "Modèle postérieurs moyens"
+msgstr "Moyennes postérieures du modèle"
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
@@ -646,10 +656,9 @@ msgctxt "ModelTerms|"
 msgid "Components"
 msgstr "Composantes"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr "Hypothèses Restreintes par l'ordre"
+msgstr "Hypothèses restreintes par l'ordre"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -728,6 +737,7 @@ msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
 msgstr "Tests d'hypothèses informées pour %1"
 
+#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
 msgstr "Comparaison entre modèles"
@@ -832,15 +842,13 @@ msgctxt "PostHocTests|"
 msgid "Correction"
 msgstr "Correction"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Null control"
 msgstr "Contrôle nul"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
-msgstr "Inférence sur le modèle unique"
+msgstr "Inférence sur modèle unique"
 
 msgctxt "SingleModelInference|"
 msgid "Components"
@@ -1141,10 +1149,9 @@ msgctxt "SumOfSquares|"
 msgid "Type %1"
 msgstr "Type %1"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr "Coefficient de la distribution Prior"
+msgstr "Coefficient Prior"
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
@@ -1160,7 +1167,7 @@ msgstr "Approximation de Laplace"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr "Étiquette de l'axe y"
+msgstr "Titre de l'axe y"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"

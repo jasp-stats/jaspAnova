@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2023-07-01 03:02\n"
-"PO-Revision-Date: 2023-05-05 21:50+0000\n"
+"PO-Revision-Date: 2023-07-06 09:49+0000\n"
 "Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -238,7 +238,7 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr "Test d'égalité des variances (Levene)"
 
 msgid "df1"
-msgstr "ddl1"
+msgstr "dl1"
 
 msgid "df2"
 msgstr "ddl2"
@@ -682,13 +682,13 @@ msgid "BF<sub>M</sub>"
 msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr "BF<sub>10</sub>"
+msgstr "FB<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr "BF<sub>01</sub>"
+msgstr "FB<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr "Log(BF<sub>M</sub>)"
+msgstr "Log(FB<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
 msgstr "Log(BF<sub>10</sub>)"
@@ -715,12 +715,11 @@ msgstr ""
 "modèles. Les résultats peuvent être ininterprétables !"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Résumé"
 
 msgid "%s%% Credible Interval"
 msgstr "%s%% Intervalle de crédibilité"
 
-#, fuzzy
 msgid "Model Averaged R%s"
 msgstr "Modèle R%s moyenné"
 
@@ -740,27 +739,26 @@ msgstr "Échantillons utiles"
 msgid "Total samples drawn"
 msgstr "Total des échantillons prélevés"
 
-#, fuzzy
 msgid ""
 "For some affected models, more than 75% of the posterior samples failed, or "
 "fewer than 1000 samples remained for subsequent results. All model-averaged "
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
 msgstr ""
-"Pour certains modèles concernés, plus de 75%% des échantillons postérieurs "
+"Pour certains modèles concernés, plus de 75% des échantillons postérieurs "
 "ont échoué, ou moins de 1000 échantillons sont restés pour les résultats "
-"ultérieurs. Tous les résultats moyennés par le modèle peuvent être biaisées "
-"et ininterprétables. Vérifiez la spécification du modèle et les données pour "
-"détecter tout modèle étrange."
+"subséquents. Tous les résultats moyennés par le modèle peuvent être biaisées "
+"et non interprétables. Vérifiez la spécification du modèle et les données "
+"pour détecter tout patron étrange."
 
 msgid "<b><em>Warning.</em></b>"
 msgstr "<b><em>Avertissement.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "Distributions postérieures moyennées du modèle"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Distribution postérieure"
 
 msgid ""
 "Could not plot posterior distribution. Check if an error occurred for models "
@@ -778,8 +776,9 @@ msgstr "Densité"
 msgid "Model Averaged Q-Q Plot"
 msgstr "Diagramme Q-Q moyenné par le modèle"
 
+#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "R%s postérieur moyenné du modèle"
 
 msgid ""
 "The posterior odds have been corrected for multiple testing by fixing to 0.5 "
@@ -788,12 +787,18 @@ msgid ""
 "default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the "
 "Bayes factor denotes that it is uncorrected."
 msgstr ""
+"Les ratios postérieurs ont été corrigés pour tenir compte des tests "
+"multiples en fixant à 0,5 la probabilité a priori que l'hypothèse nulle soit "
+"vraie parmi toutes les comparaisons (Westfall, Johnson, & Hypothèse nulle, "
+"1997). Les comparaisons individuelles sont basées sur le test t par défaut "
+"avec un a priori de Cauchy (0, r = 1/sqrt(2)). Le \"U\" dans le facteur de "
+"Bayes indique qu'il n'est pas corrigé."
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "Probabilités a priori"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "Probabilités a posteriori"
 
 msgid "Descriptives"
 msgstr "Statistiques descriptives"
@@ -801,7 +806,6 @@ msgstr "Statistiques descriptives"
 msgid "Descriptives - %s"
 msgstr "Descriptives - %s"
 
-#, fuzzy
 msgid "Coefficient of variation"
 msgstr "Coefficient de variation"
 
@@ -825,8 +829,9 @@ msgstr "Graphiques en nuages de points"
 msgid "Dependent"
 msgstr "Dépendante"
 
+#, fuzzy
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "Échantillonnage a posteriori"
 
 #, fuzzy
 msgid "length of samples must be equal to length of weights!"
@@ -858,20 +863,24 @@ msgstr ""
 "Erreur dans l'inférence de modèle unique :\n"
 "%s"
 
+#, fuzzy
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "Résumé a postériori d'un modèle unique"
 
 msgid "Variable"
 msgstr "Variable"
 
+#, fuzzy
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "Distribution a postériori d'un modèle unique"
 
+#, fuzzy
 msgid "Posterior R%s"
-msgstr ""
+msgstr "R%s a posteriori"
 
+#, fuzzy
 msgid "Single Model R%s"
-msgstr ""
+msgstr "R%s d'un modèle unique"
 
 msgid "Order Restricted Hypotheses"
 msgstr "Hypothèses restreintes par l'ordre"
@@ -948,7 +957,7 @@ msgid "Model"
 msgstr "Modèle"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-vraisemblance"
 
 msgid "Penalty"
 msgstr "Pénalité"
@@ -962,7 +971,6 @@ msgstr "Poids"
 msgid "GORICA"
 msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
 msgstr "Ratio des poids"
 
@@ -1041,9 +1049,8 @@ msgstr "Bootstrapping basé sur%s de répliques réussies."
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr "Ne peut pas calculer le tableau de coefficients. Message d'erreur : %s"
 
-#, fuzzy
 msgid "Informative Hypothesis Tests"
-msgstr "Tests d'hypothèses éclairés"
+msgstr "Tests d'hypothèses informatives"
 
 msgid "Hypothesis"
 msgstr "Hypothèse"
@@ -1106,7 +1113,6 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "Impossible de calculer les moyennes marginales. Message d'erreur : %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
 msgstr "Les résultats sont moyennés aux niveaux suivants : %s."
 
@@ -1116,7 +1122,6 @@ msgstr "Les covariables (%s) sont maintenues à leurs valeurs moyennes."
 msgid "MANOVA"
 msgstr "MANOVA"
 
-#, fuzzy
 msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
@@ -1124,11 +1129,10 @@ msgstr ""
 "La matrice de conception n'est pas inversible. Cela peut être dû à des "
 "variables dépendantes colinéaires."
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modèle nul ( inclus %s et pentes aléatoires)"
-msgstr[1] "Modèle nul ( inclus %s et pentes aléatoires)"
+msgstr[1] "Modèles nuls ( inclus %s et pentes aléatoires)"
 
 #~ msgid ""
 #~ "Syntax error found in model %1$s, line: %2$s.\n"

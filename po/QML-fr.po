@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-07-12 02:22+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
@@ -115,10 +121,9 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
 msgstr "Facteurs Intra-Sujets"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "Colonnes Intra-Sujets"
+msgstr "Cellules Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
@@ -244,10 +249,9 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
 msgstr "Facteurs Intra-Sujets"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "Colonnes Intra-Sujets"
+msgstr "Cellules Intra-Sujets"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
@@ -355,7 +359,7 @@ msgstr "Affichage horizontal"
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr "Label de l'axe y"
+msgstr "Titre de l'axe y"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
@@ -388,7 +392,6 @@ msgctxt "AdditionalOptions|"
 msgid "Additional Options"
 msgstr "Options supplémentaires"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
 msgstr "Spécifier la distribution a priori des Coefficients"
@@ -429,10 +432,9 @@ msgctxt "AdditionalOptions|"
 msgid "No. samples"
 msgstr "Nbre d'échantillons"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
-msgstr "Échantillons postérieurs"
+msgstr "Échantillons a posteriori"
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
@@ -592,10 +594,9 @@ msgctxt "DefaultOptions|"
 msgid "Plots"
 msgstr "Graphiques"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
-msgstr "Moyennes postérieures du modèle"
+msgstr "Moyennes a posteriori du modèle"
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
@@ -609,10 +610,9 @@ msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Diagramme Q-Q des résidus"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
-msgstr "R² du postérieur"
+msgstr "R² a posteriori"
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
@@ -731,7 +731,6 @@ msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
 msgstr "Tests d'hypothèses informées pour %1"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
 msgstr "Comparaison entre modèles"
@@ -868,10 +867,9 @@ msgctxt "SingleModelInference|"
 msgid "Plots"
 msgstr "Graphiques"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
-msgstr "Postérieurs marginaux"
+msgstr "Distributions marginales a posteriori"
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
@@ -885,10 +883,9 @@ msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
 msgstr "Diagramme Q-Q des résidus"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
-msgstr "R² du postérieur"
+msgstr "R² a posteriori"
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"

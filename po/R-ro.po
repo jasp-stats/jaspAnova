@@ -658,7 +658,7 @@ msgid "Total samples drawn"
 msgstr ""
 
 msgid ""
-"For some affected models, more than 75% of the posterior samples failed, or "
+"For some affected models, more than 75%% of the posterior samples failed, or "
 "fewer than 1000 samples remained for subsequent results. All model-averaged "
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."

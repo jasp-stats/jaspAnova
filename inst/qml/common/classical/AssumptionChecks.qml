@@ -29,21 +29,16 @@ Section
 	property int analysis
 
 	CheckBox { name: "homogeneityTests";	label: qsTr("Homogeneity tests")			}
-	Loader
+	Group
 	{
-		Component
-		{
-			id: homogeneityCorrections
-			Group
-			{
-				title: qsTr("Homogeneity corrections")
-				columns: 3
-				CheckBox { name: "homogeneityCorrectionNone";		label: qsTr("None")           ; checked: true }
-				CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe") ; checked: false }
-				CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")          ; checked: false }
-			}
-		}
-		sourceComponent: analysis === Common.Type.Analysis.ANOVA ? homogeneityCorrections : undefined
+		visible: analysis === Common.Type.Analysis.ANOVA
+		height: visible ? implicitHeight : 0
+
+		title: qsTr("Homogeneity corrections")
+		columns: 3
+		CheckBox { name: "homogeneityCorrectionNone";		label: qsTr("None")           ; checked: true }
+		CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe") ; checked: false }
+		CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")          ; checked: false }
 	}
 	CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals") }
 }

@@ -3343,7 +3343,6 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   nIter <- if (options[["samplingMethodMCMC"]] == "auto") 1e3L else options[["samplesMCMC"]]
   modelTerms <- options$singleModelTerms
 
-  modelTerms    <- options$modelTerms
   dependent     <- options$dependent
   if (analysisType == "RM-ANOVA") {
     modelTerms[[length(modelTerms) + 1L]] <- list(components = .BANOVAsubjectName, isNuisance = TRUE)

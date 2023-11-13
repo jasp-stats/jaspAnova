@@ -199,7 +199,7 @@ test_that("Model prior changes posterior model probabilities", {
   options[["customPriorSpecification"]] <- list(list(components = "contBinom",                 inclusionProbability = 0.1, scaleFixedEffects = 0.5),
                                                 list(components = "facGender",                 inclusionProbability = 0.2, scaleFixedEffects = 0.5),
                                                 list(components = c("contBinom", "facGender"), inclusionProbability = 0.3, scaleFixedEffects = 0.5))
-  
+
   # set to TRUE to regenerate the reference object, set to FALSE to test
   createReference <- FALSE
 
@@ -283,4 +283,40 @@ test_that("Changing the number of models shown affects the main table", {
                                       "facGender + facFive + facExperim + facFive<unicode><unicode><unicode>facExperim",
                                       0.0526315789473684, 0.00896726366692393, 7.67806876653366), label = "Table with 10 rows")
 
+})
+
+test_that("Single model inference works", {
+  options <- initOpts("AnovaBayesian")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("facGender", "facFive")
+  options$modelTerms <- list(
+    list(components="facGender", isNuisance=FALSE),
+    list(components="facFive", isNuisance=FALSE),
+    list(components=c("facGender", "facFive"), isNuisance=FALSE)
+  )
+
+  # single model inference for full model without interaction effect
+  options$singleModelEstimates <- TRUE
+  options$singleModelTerms <- list(
+    list(components="facGender"),
+    list(components="facFive")
+  )
+
+  set.seed(123)
+  result <- jaspTools::runAnalysis(name = "AnovaBayesian", options = options, dataset = "debug.csv")
+  table <- result[["results"]][["containerSingleModel"]][["collection"]][["containerSingleModel_SMItablePosteriorEstimates"]][["data"]]
+  jaspTools::expect_equal_tables(
+    table,
+    list("", -0.396031836238149, -0.19346538433122, 0.105924716342584,
+         0.0072248062850778, "Intercept", "f", -0.414794277186536, -0.209040764503124,
+         0.10117577274577, -0.00976114711277226, "facGender", "m", 0.00976114711277226,
+         0.209040764503124, 0.10117577274577, 0.414794277186536, "",
+         1, -0.458061854289654, -0.119294134142763, 0.168176609000649,
+         0.193397360192855, "facFive", 2, -0.456651110307801, -0.100193505564579,
+         0.176506452100615, 0.233224162499312, "", 3, -0.0687243942234638,
+         0.255394463800637, 0.179269286210147, 0.627323017115639, "",
+         4, -0.443051405395219, -0.119113650358978, 0.164903560647659,
+         0.189664348197634, "", 5, -0.238052982190886, 0.083206826265683,
+         0.171198782366933, 0.420959595778805, "")
+  )
 })

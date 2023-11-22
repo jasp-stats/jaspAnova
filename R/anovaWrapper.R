@@ -19,7 +19,7 @@
 
 Anova <- function(
           data = NULL,
-          version = "0.17.1",
+          version = "0.18.2",
           formula = NULL,
           contrastCi = FALSE,
           contrastCiLevel = 0.95,

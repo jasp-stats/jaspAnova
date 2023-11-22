@@ -19,7 +19,7 @@
 
 AnovaRepeatedMeasures <- function(
           data = NULL,
-          version = "0.17.1",
+          version = "0.18.2",
           betweenModelTerms = list(),
           betweenSubjectFactors = list(),
           conoverTest = FALSE,

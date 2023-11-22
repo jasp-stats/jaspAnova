@@ -19,7 +19,7 @@
 
 Ancova <- function(
           data = NULL,
-          version = "0.17.1",
+          version = "0.18.2",
           formula = NULL,
           contrastCi = FALSE,
           contrastCiLevel = 0.95,
@@ -40,6 +40,9 @@ Ancova <- function(
           effectSizePartialEtaSquared = FALSE,
           factorCovariateIndependenceCheck = FALSE,
           fixedFactors = list(),
+          homogeneityCorrectionBrown = FALSE,
+          homogeneityCorrectionNone = TRUE,
+          homogeneityCorrectionWelch = FALSE,
           homogeneityTests = FALSE,
           kruskalWallisFactors = list(),
           marginalMeanBootstrap = FALSE,

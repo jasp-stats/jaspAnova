@@ -19,7 +19,7 @@
 
 Manova <- function(
           data = NULL,
-          version = "0.17.1",
+          version = "0.18.2",
           formula = NULL,
           anovaTables = FALSE,
           boxMTest = FALSE,

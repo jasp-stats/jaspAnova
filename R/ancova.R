@@ -994,7 +994,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                          postHocVarIndex = postHocVarIndex),
                               silent = TRUE)
 
-      if (class(bootstrapPostHoc) == "try-error") {
+      if (jaspBase::isTryError(bootstrapPostHoc)) {
         postHocStandardContainer[[thisVarName]]$setError(bootstrapPostHoc)
         next
       }
@@ -1342,7 +1342,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     dunnettResult <- summary(dunnettFit)[["test"]]
     dunnettConfInt <- try(confint(dunnettFit, level = options$postHocCiLevel), silent = TRUE)
 
-    if (options$postHocCi && class(dunnettConfInt) == "try-error") {
+    if (options$postHocCi && jaspBase::isTryError(dunnettConfInt)) {
       postHocDunnettContainer$setError(gettext("Confidence interval is too narrow, please select a different confidence level."))
     } else {
       dunnettResult <- data.frame(contrast = names(dunnettResult$coefficients),
@@ -1587,7 +1587,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                options = options, nRows = nRows,
                                                anovaFormula = anovaFormula), silent = TRUE)
 
-      if (class(bootstrapMarginalMeans) == "try-error") {
+      if (jaspBase::isTryError(bootstrapMarginalMeans)) {
         marginalMeansContainer[[thisVarName]]$setError(bootstrapMarginalMeans)
         next
       }

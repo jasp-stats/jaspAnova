@@ -2872,7 +2872,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
       rep(TRUE, length(rscaleEffects))
     } else {
       vapply(options[["customPriorSpecification"]], FUN.VALUE = logical(1L), function(x) {
-        is.null(options[["covariates"]]) || !(x[["components"]] %in% options[["covariates"]])
+        is.null(options[["covariates"]]) || !any(x[["components"]] %in% options[["covariates"]])
       })
     }
 

@@ -3359,7 +3359,13 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   randomFactors <- .BANOVAgetRandomFactors(options, analysisType)
   dataTypes     <- .BANOVAgetDataTypes(dataset, formula, randomFactors)
   levelInfo     <- .BANOVAgetLevelInfo(dataset, formula, dataTypes)
-  allParamNames <- c("mu", unlist(levelInfo$levelNames))
+
+  # if all variables are continuous, then continuous variables keep their name.   E.g., "contGamma" stays   "contGamma".
+  # if any variables are factors,    then continuous variables names are doubled. E.g., "contGamma" becomes "contGamma-contGamma".
+  allParamNames <- c(
+    "mu",
+    if (all(dataTypes == "continuous")) names(levelInfo$levelNames) else unlist(levelInfo$levelNames)
+  )
 
   .setSeedJASP(options)
   samples <- BayesFactor::lmBF(

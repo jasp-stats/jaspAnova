@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2023-07-01 03:02\n"
-"PO-Revision-Date: 2023-10-01 07:00+0000\n"
-"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"PO-Revision-Date: 2023-12-16 02:37+0000\n"
+"Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -67,7 +67,7 @@ msgid "F"
 msgstr "F"
 
 msgid "p"
-msgstr "p值"
+msgstr "p"
 
 msgid "VS-MPR%s"
 msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
@@ -107,11 +107,9 @@ msgstr "估計"
 msgid "%s%% CI for Mean Difference"
 msgstr "平均數差異 %s%% 信賴區間"
 
-#, fuzzy
 msgid "Lower"
 msgstr "下界"
 
-#, fuzzy
 msgid "Upper"
 msgstr "上界"
 
@@ -210,7 +208,7 @@ msgid ""
 msgstr "信賴區間太窄，請選擇一個另一個信賴區間水準"
 
 msgid "N"
-msgstr "樣本數"
+msgstr "N"
 
 msgid "Mean"
 msgstr "平均數"
@@ -221,7 +219,6 @@ msgstr "標準差"
 msgid "Coefficient of Variation"
 msgstr "變異係數"
 
-#, fuzzy
 msgid "Assumption Checks"
 msgstr "前提假設檢查"
 
@@ -654,7 +651,7 @@ msgid "P(M|data)"
 msgstr "P(M|data)"
 
 msgid "error %"
-msgstr "錯誤%"
+msgstr "誤差 %"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -745,14 +742,12 @@ msgstr "先前勝率"
 msgid "Posterior Odds"
 msgstr "後驗勝率"
 
-#, fuzzy
 msgid "Descriptives"
-msgstr "描述統計"
+msgstr "敘述統計量"
 
 msgid "Descriptives - %s"
 msgstr "描述統計 - %s"
 
-#, fuzzy
 msgid "Coefficient of variation"
 msgstr "變異係數"
 
@@ -966,7 +961,6 @@ msgstr "係數"
 msgid "Coefficients differ from unconstrained model."
 msgstr "係數與不設限模型不同。"
 
-#, fuzzy
 msgid "Model Summary"
 msgstr "模型摘要"
 
@@ -985,7 +979,6 @@ msgstr "右側 (rhs)"
 msgid "Coefficients"
 msgstr "係數"
 
-#, fuzzy
 msgid "%s%% CI"
 msgstr "%s%% 信賴區間"
 

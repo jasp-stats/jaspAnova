@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-12-27 02:37+0000\n"
+"Last-Translator: Rania Rahida <raniarahida@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4-dev\n"
 "X-Language: id\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -156,12 +162,10 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Pemeriksaan Asumsi"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
 msgstr "Uji kebulatan"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
 msgstr "Koreksi kebulatan"
@@ -218,7 +222,6 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
 msgstr "Label aksis-y"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
 msgstr "Rata-rata di seluruh faktor pengukuran berulang yang tidak digunakan"
@@ -279,7 +282,6 @@ msgctxt "Manova|"
 msgid "Components"
 msgstr "Komponen"
 
-#, fuzzy
 msgctxt "Manova|"
 msgid "Model Terms"
 msgstr "Ketentuan Model"
@@ -374,7 +376,7 @@ msgstr "Faktor Pengukuran Berulang"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Model 1"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
@@ -389,7 +391,6 @@ msgctxt "OrderRestrictions|"
 msgid "Model comparison"
 msgstr ""
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "None"
 msgstr "Tidak ada"
@@ -441,7 +442,6 @@ msgid ""
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
 msgstr "Opsi Tambahan"
@@ -458,40 +458,34 @@ msgctxt "AdditionalOptions|"
 msgid "For each term individually"
 msgstr ""
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
 msgstr "efek tetap skala r"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
 msgstr "efek acak skala r"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
 msgstr "kovariat skala r"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Numerical Accuracy"
 msgstr "Keakuratan Numerik"
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr ""
+msgstr "Otomatis"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Manual"
 msgstr "Manual"
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "No. sampel"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
 msgstr "Sampel Posterior"
@@ -523,11 +517,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr ""
+msgstr "Untuk efek tetap"
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr ""
+msgstr "Untuk kemiringan acak"
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
@@ -575,11 +569,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr ""
+msgstr "Kustom"
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr ""
+msgstr "Istilah"
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
@@ -589,27 +583,22 @@ msgctxt "AdditionalOptions|"
 msgid "r-scale"
 msgstr ""
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Order"
 msgstr "Urutan"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
 msgstr "Bandingkan dengan model terbaik"
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
 msgstr "Bandingkan dengan model nol"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Tables"
 msgstr "Tabel"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Effects"
 msgstr "Efek"
@@ -622,7 +611,6 @@ msgctxt "DefaultOptions|"
 msgid "Across matched models"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Estimates"
 msgstr "Estimasi"
@@ -631,37 +619,30 @@ msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
 msgstr "Deskriptif"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
 msgstr "Interval kredibel"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Order"
 msgstr "Urutan"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
 msgstr "Bandingkan dengan model terbaik"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
 msgstr "Bandingkan dengan model nol"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Plots"
 msgstr "Plot"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
 msgstr "Posterior rata-rata model"
@@ -670,7 +651,6 @@ msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "Plot individual per level"
@@ -679,52 +659,42 @@ msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
 msgstr "R² posterior"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
 msgstr "Plot Deskriptif"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
 msgstr "Faktor"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
 msgstr "Aksis Horizontal"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "Garis Terpisah"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
 msgstr "Plot Terpisah"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Display"
 msgstr "Tampilkan"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
 msgstr "Interval kredibel"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Model"
 msgstr "Model"
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Components"
 msgstr "Komponen"
@@ -829,9 +799,8 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "Sampel"
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
 msgstr "Interval kepercayaan"
@@ -840,27 +809,22 @@ msgctxt "OrderRestrictions|"
 msgid "Terms"
 msgstr ""
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
 msgstr "Uji Pos Hoc"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
 msgstr "Koreksi"
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Null control"
 msgstr "Kontrol nol"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
 msgstr "Inferensi Model Tunggal"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Components"
 msgstr "Komponen"
@@ -869,27 +833,22 @@ msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Tables"
 msgstr "Tabel"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Estimates"
 msgstr "Estimasi"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "R²"
 msgstr "R²"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Plots"
 msgstr "Plot"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
 msgstr "Posterior marjinal"
@@ -898,7 +857,6 @@ msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
 msgstr "Plot individual per level"
@@ -907,27 +865,22 @@ msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
 msgstr "R² posterior"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "Pemeriksaan Asumsi"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
 msgstr "Uji homogenitas"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
 msgstr "Koreksi homogenitas"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "None"
 msgstr "Tidak ada"
@@ -946,117 +899,94 @@ msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
 msgstr ""
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Contrasts"
 msgstr "Kontras"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Assume equal variances"
 msgstr "Asumsikan varians setara"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Interval kepercayaan"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
 msgstr "Plot Deskriptif"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Factors"
 msgstr "Faktor"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
 msgstr "Aksis Horizontal"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
 msgstr "Garis Terpisah"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
 msgstr "Plot Terpisah"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display"
 msgstr "Tampilkan"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display error bars"
 msgstr "Tampilkan batang galat"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Interval kepercayaan"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
 msgstr "Galat baku"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Display"
 msgstr "Tampilkan"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Descriptive statistics"
 msgstr "Statistik deskriptif"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Estimates of effect size"
 msgstr "Estimasi besaran efek"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "η²"
 msgstr "η²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "partial η²"
 msgstr "η² parsial"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "general η²"
 msgstr "η² umum"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "ω²"
 msgstr "ω²"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Rasio-p maksimum Vovk-Sellke"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
 msgstr "Rerata Marjinal"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "From"
 msgstr "Dari"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
 msgstr "bootstrap"
@@ -1065,72 +995,58 @@ msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
 msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
 msgstr "Penyesuaian interval kepercayaan"
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "None"
 msgstr "Tidak ada"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model"
 msgstr "Model"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Components"
 msgstr "Komponen"
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
 msgstr "Ketentuan Model"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
 msgstr "Nonparametrik"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
 msgstr "Uji Kruskal-Wallis"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "Uji Pos Hoc"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Type"
 msgstr "Tipe"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Standard"
 msgstr "Standar"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "From"
 msgstr "Dari"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "bootstraps"
 msgstr "bootstrap"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
 msgstr "Besaran efek"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -1145,7 +1061,6 @@ msgctxt "PostHoc|"
 msgid "Dunn"
 msgstr "Dunn"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "Koreksi"
@@ -1175,47 +1090,38 @@ msgctxt "PostHoc|"
 msgid "Šidák"
 msgstr "Šidák"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Display"
 msgstr "Tampilkan"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "Interval kepercayaan"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Flag Significant Comparisons"
 msgstr "Tandai Perbandingan yang Signifikan"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
 msgstr "Efek Utama Sederhana"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
 msgstr "Faktor"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
 msgstr "Faktor Efek Sederhana"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
 msgstr "Moderator Faktor 1"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
 msgstr "Moderator Faktor 2"
 
-#, fuzzy
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
 msgstr "Jumlah kuadrat"
@@ -1241,7 +1147,6 @@ msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
 msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
 msgstr "Label aksis-y"
@@ -1252,8 +1157,8 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "No"
-msgstr ""
+msgstr "Tidak"
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
-msgstr ""
+msgstr "Ya, tunjukkan yang terbaik"

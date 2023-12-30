@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2023-07-01 03:02\n"
-"PO-Revision-Date: 2023-12-16 02:37+0000\n"
+"PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspanova-r/zh_Hant/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -128,9 +128,8 @@ msgstr "事後比較檢定"
 msgid "Standard"
 msgstr "標準"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s"
-msgstr "結果為以下級水準之平均值：%s"
+msgstr "結果為以下水準之平均值：%s"
 
 #, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
@@ -398,7 +397,6 @@ msgid ""
 msgstr ""
 "調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
 
-#, fuzzy
 msgid "Post Hoc Comparisons -"
 msgstr "事後比較 -"
 
@@ -985,7 +983,6 @@ msgstr "%s%% 信賴區間"
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "估計基於 %s 次成功的拔靴法複製。"
 
-#, fuzzy
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr "無法計算係數表。錯誤訊息： %s"
 
@@ -1001,7 +998,6 @@ msgstr "考驗"
 msgid "Test Statistic"
 msgstr "考驗統計數"
 
-#, fuzzy
 msgid "Type %s"
 msgstr "類型 %s"
 

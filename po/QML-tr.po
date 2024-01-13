@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-31 20:07+0000\n"
-"Last-Translator: Hazar Altinbas <altinbashazar@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/tr/>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
 "X-Language: tr\n"
 "X-Qt-Contexts: true\n"
 
@@ -247,21 +241,25 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
 msgstr ""
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
+msgstr "Tekrarlı Ölçüm Faktörleri"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Tekrarlı Ölçüm Hücreleri"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Denekler Arası Faktörler"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Eşdeğişkenler"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
@@ -296,9 +294,10 @@ msgctxt "Manova|"
 msgid "Fixed Factors"
 msgstr "Sabit Faktörler"
 
+#, fuzzy
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Rassal Faktörler"
 
 #, fuzzy
 msgctxt "Manova|"
@@ -309,9 +308,10 @@ msgctxt "Manova|"
 msgid "Components"
 msgstr ""
 
+#, fuzzy
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Model Terimleri"
 
 msgctxt "Manova|"
 msgid "Include intercept"
@@ -1013,9 +1013,10 @@ msgctxt "Models|"
 msgid "Components"
 msgstr ""
 
+#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Model Terimleri"
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"

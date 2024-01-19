@@ -907,7 +907,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
-  postHocStandardContainer <- createJaspContainer(title = gettext("Standard"))
+  postHocStandardContainer <- createJaspContainer(title = gettext("Standard (LSD)"))
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
@@ -1129,6 +1129,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
+    
+    postHocTable$addFootnote(message = gettext("P-values are based on one-sided tests."))
 
     return(postHocTable)
   }

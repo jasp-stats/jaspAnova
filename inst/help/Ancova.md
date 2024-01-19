@@ -70,7 +70,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
 ### Post Hoc Tests
 - To perform a post hoc test, drag one or more factor names to the right column. Several options are available:    
 - Type: Different types of post hoc tests can be selected. 
--  Standard: Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
+-  Standard (LSD): Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
     - Confidence intervals: When this option is selected, the confidence interval for the mean difference is calculated. This is done for every post hoc method except for Dunn. By default this is set to 95% but this can be adjusted into the desired percentage.  
     - From `...` bootstraps: By selecting this option, the bootstrapped post hoc test is applied. By default, the number of replications is set to 1000. This can be changed into the desired number. 
     - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`. 

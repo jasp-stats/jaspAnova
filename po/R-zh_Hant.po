@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2023-07-01 03:02\n"
+"POT-Creation-Date: 2024-01-20 02:40\n"
 "PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -125,7 +125,8 @@ msgstr "%1$s 比較係數 - %2$s"
 msgid "Post Hoc Tests"
 msgstr "事後比較檢定"
 
-msgid "Standard"
+#, fuzzy
+msgid "Standard (LSD)"
 msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"
@@ -173,6 +174,9 @@ msgstr "bonferroni p值"
 
 msgid "p<sub>holm</sub>"
 msgstr "holm p值"
+
+msgid "P-values are based on one-sided tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -690,9 +694,9 @@ msgid ""
 "output may be biased and uninterpretable. Check the model specification and "
 "data for any odd patterns."
 msgstr ""
-"對某些受影響的模型，超過75%%的後驗樣本失敗，或者使用少於1000個樣本用來分析後續"
-"結果。所有基於模型平均的報表都可能有偏誤且無法解釋。檢查模型設定和數據是否存"
-"在奇怪的模式。"
+"對某些受影響的模型，超過75%%的後驗樣本失敗，或者使用少於1000個樣本用來分析後"
+"續結果。所有基於模型平均的報表都可能有偏誤且無法解釋。檢查模型設定和數據是否"
+"存在奇怪的模式。"
 
 #, fuzzy
 msgid "<b><em>Warning.</em></b>"

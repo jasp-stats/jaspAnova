@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2023-07-01 03:02\n"
+"POT-Creation-Date: 2024-01-20 02:40\n"
 "PO-Revision-Date: 2024-01-11 18:06+0000\n"
 "Last-Translator: fiscuteancom <vladfiscutean@gmail.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/ro/>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +126,8 @@ msgstr ""
 msgid "Post Hoc Tests"
 msgstr "Teste Post Hoc"
 
-msgid "Standard"
+#, fuzzy
+msgid "Standard (LSD)"
 msgstr "Standard"
 
 msgid "Results are averaged over the levels of: %s"
@@ -170,6 +171,9 @@ msgid "p<sub>bonf</sub>"
 msgstr ""
 
 msgid "p<sub>holm</sub>"
+msgstr ""
+
+msgid "P-values are based on one-sided tests."
 msgstr ""
 
 msgid "Games-Howell"

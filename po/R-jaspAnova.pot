@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.18.3\n"
-"POT-Creation-Date: 2024-01-13 02:40\n"
+"POT-Creation-Date: 2024-01-20 02:40\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr ""
 msgid "Post Hoc Tests"
 msgstr ""
 
-msgid "Standard"
+msgid "Standard (LSD)"
 msgstr ""
 
 msgid "Results are averaged over the levels of: %s"
@@ -150,6 +150,9 @@ msgid "p<sub>bonf</sub>"
 msgstr ""
 
 msgid "p<sub>holm</sub>"
+msgstr ""
+
+msgid "P-values are based on one-sided tests."
 msgstr ""
 
 msgid "Games-Howell"

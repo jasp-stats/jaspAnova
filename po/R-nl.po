@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2023-07-01 03:02\n"
+"POT-Creation-Date: 2024-01-20 02:40\n"
 "PO-Revision-Date: 2023-08-25 13:53+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -135,7 +135,8 @@ msgstr "%1$s Contrast Coëfficiënten - %2$s"
 msgid "Post Hoc Tests"
 msgstr "Post-Hoc Toetsen"
 
-msgid "Standard"
+#, fuzzy
+msgid "Standard (LSD)"
 msgstr "Standaard"
 
 msgid "Results are averaged over the levels of: %s"
@@ -184,6 +185,9 @@ msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>holm</sub>"
+
+msgid "P-values are based on one-sided tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"

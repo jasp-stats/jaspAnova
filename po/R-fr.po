@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2023-07-01 03:02\n"
+"POT-Creation-Date: 2024-01-20 02:40\n"
 "PO-Revision-Date: 2023-07-06 09:49+0000\n"
 "Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -135,7 +135,8 @@ msgstr "%1$s Coefficients de contraste - %2$s"
 msgid "Post Hoc Tests"
 msgstr "Tests post-hoc"
 
-msgid "Standard"
+#, fuzzy
+msgid "Standard (LSD)"
 msgstr "Standard"
 
 msgid "Results are averaged over the levels of: %s"
@@ -184,6 +185,9 @@ msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>holm</sub>"
+
+msgid "P-values are based on one-sided tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"

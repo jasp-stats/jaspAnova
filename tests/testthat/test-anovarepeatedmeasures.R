@@ -24,7 +24,7 @@ options(list(
 
 initOpts <- function(){
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
-
+  options$multivariateModelFollowup <- FALSE
   options$repeatedMeasuresFactors <- list(
     list(name = "Drink", levels = c("Beer", "Wine", "Water")),
     list(name = "Imagery", levels = c("Positive", "Neutral", "Negative"))
@@ -353,7 +353,7 @@ test_that("Analysis handles errors", {
 # Mixed Effects
 initOpts <- function(){
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
-
+  options$multivariateModelFollowup <- FALSE
   options$repeatedMeasuresFactors <- list(
     list(name = "Looks", levels = c("Attractive", "Average" , "Ugly")),
     list(name = "Charisma", levels = c("High", "Some", "None"))
@@ -591,6 +591,8 @@ test_that("Field - Chapter 8 results match", {
   options$sphericityCorrectionHuynhFeldt <- TRUE
   options$sphericityCorrectionGreenhouseGeisser <- TRUE
 
+  options$multivariateModelFollowup <- FALSE
+
   options$postHocTerms <- "Animal"
   options$postHocPooledError <- FALSE
   options$postHocCorrectionBonferroni <- TRUE
@@ -679,6 +681,7 @@ test_that("Field - Chapter 9 match",  {
   options <- initOpts()
 
   options$sphericityTests <- TRUE
+  options$multivariateModelFollowup <- FALSE
 
   options$marginalMeanTerms <- list(
     list(components = "Charisma"),
@@ -920,6 +923,7 @@ options$restrictedModelSummaryForAllModels <- TRUE
 options$restrictedModels <- list(list(informedHypothesisTest = FALSE, marginalMean = TRUE,
                                       name = "Model 1", summary = TRUE, syntax = "contNormal..Intercept. < 0\ncontcor2.facGenderm.facExperimexperimental > 0"))
 options$restrictedHeterogeneityCorrection <- "none"
+options$multivariateModelFollowup <- FALSE
 options$withinModelTerms <- list(list(components = "fac1"), list(components = "fac2"), list(
   components = c("fac1", "fac2")))
 set.seed(1)

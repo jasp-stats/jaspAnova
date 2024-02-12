@@ -65,7 +65,7 @@ Form
 
 		Classical.SumOfSquares{}
 
-		CheckBox { name: "multivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: false }
+		CheckBox { name: "multivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: true }
 	}
 
 	Section

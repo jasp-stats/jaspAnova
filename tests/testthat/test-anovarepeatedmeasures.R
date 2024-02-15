@@ -475,7 +475,7 @@ test_that("Field - Chapter 8 marginal means match", {
   options$marginalMeanBootstrap <- TRUE
   options$marginalMeanBootstrapSamples <- 500
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = dat, # "AnovaRepeatedMeasures.csv",
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
 
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data

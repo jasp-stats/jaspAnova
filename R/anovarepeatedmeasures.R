@@ -255,7 +255,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   rmAnovaResult <- .rmAnovaComputeResults(longData, options)
 
   if (rmAnovaResult[["tryResult"]] == "try-error" && grepl(as.character(rmAnovaResult[["tryMessage"]]), pattern = "allocate vector")) {
-    rmAnovaContainer$setError(gettext('Data set too big for univariate follow-up test. Try selecting "Pool error term for follow-up tests" in the Model tab.'))
+    rmAnovaContainer$setError(gettext('Data set too big for univariate follow-up test. Try unselecting "Pool error term for follow-up tests" in the Model tab.'))
     return()
   } else if (rmAnovaResult[["tryResult"]] == "try-error") {
     rmAnovaContainer$setError(gettext("Some parameters are not estimable, most likely due to empty cells of the design."))

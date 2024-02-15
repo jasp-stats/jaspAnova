@@ -37,7 +37,7 @@ The repeated Measures ANOVA allows the user to analyze the differences between m
     - Type I: Sequential sum of squares. It is the reduction of error when each factor of the model is added to the factors already included, preserving the order of factors in the model. The results depend on the order in which the factors are added to the model. This is important to consider when the model contains more than one factor.
     - Type II: Hierarchical/partially sequential sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, except the factors where the added factor is a part of, such as interactions containing that factor. Langsrud (2003) advises to apply this type for an ANOVA with unbalanced data.
     - Type III: Partial sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default.
-- Use multivariate model for follow-up tests:  By selecting this option, the multivariate linear model, rather than the aov model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Multivariate tests likely provide a better correction for violations of sphericity.
+- Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
 
 ### Assumption checks
 - Sphericity tests: Sphericity entails that the variances of the differences of the repeated measures conditions all have the same variance.
@@ -59,15 +59,15 @@ For each repeated measures factor, a specific contrast can be selected by clicki
     - repeated: By selecting this contrast, the mean of each level is compared to the mean of the following level.
     - polynomial: This contrast tests polynomial trends in the data. The specific polynomial that will be used for the analysis depends on the number of levels of the repeated measures factor. The degree of the trend used for the analysis is the number of levels minus 1. Therefore, if the repeated measures factor consist of 2 levels, a linear trend is analysed. If the repeated measures factor consists of three levels, a quadratic trend is analysed in addition to the linear trend.
     - custom: Here, the contrast weights can be specified manually. Some weights need to be non-zero.
-- Assume equal variances: This option can be selected when the variances of the levels of the independent variable are assumed to be equal. 
-  - Confidence interval: Confidence interval for the location parameter. By default, the confidence interval is set to 95%. This can be changed into the desired percentage.
+- Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
+- Confidence interval: Confidence interval for the location parameter. By default, the confidence interval is set to 95%. This can be changed into the desired percentage.
 
 
 ### Post Hoc Tests
 - Confidence intervals: When this option is selected, the confidence interval for the mean difference is calculated. This is done for every post hoc method except for Dunn. By default this is set to 95% but this can be adjusted into the desired percentage.
 To perform a post hoc test, drag one or more factor names to the right column. Several options are available:    
 - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`.
-- Pool error term for RM factors: A pooled error term assumes that the variances of the contrast scores are approximately equal (i.e., sphericity assumption) See Morey (2008) for more details.
+- Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
 - Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:  
     - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the repeated measures have an equal sample size and variance. This method is commonly used and is selected by default.
     - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
@@ -98,6 +98,7 @@ To create a descriptive plot, select the repeated measures factor to be placed o
         - None: When this option is selected, no adjustment will be applied.
         - Bonferroni: Bonferroni correction of the confidence intervals.
         - Sidak: Sidak correction of the confidence intervals.
+- Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
 
 ### Simple Main Effects
 The simple main effects represent the effect of one repeated measure factor for each level of the other repeated measures factor, by conducting an ANOVA for each subset of the data as specified by the moderator variables.

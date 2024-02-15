@@ -78,7 +78,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     anovaContainer <- createJaspContainer()
     # we set the dependencies on the container, this means that all items inside the container automatically have these dependencies
     anovaContainer$dependOn(c("withinModelTerms", "betweenModelTerms", "repeatedMeasuresCells", "betweenSubjectFactors",
-                              "repeatedMeasuresFactors", "covariates", "sumOfSquares", "multivariateModelFollowup"))
+                              "repeatedMeasuresFactors", "covariates", "sumOfSquares", "poolErrorTermFollowup"))
     jaspResults[["rmAnovaContainer"]] <- anovaContainer
   }
 
@@ -255,7 +255,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   rmAnovaResult <- .rmAnovaComputeResults(longData, options)
 
   if (rmAnovaResult[["tryResult"]] == "try-error" && grepl(as.character(rmAnovaResult[["tryMessage"]]), pattern = "allocate vector")) {
-    rmAnovaContainer$setError(gettext('Data set too big for univariate follow-up test. Try selecting "Use multivariate model for follow-up tests" in the Model tab.'))
+    rmAnovaContainer$setError(gettext('Data set too big for univariate follow-up test. Try selecting "Pool error term for follow-up tests" in the Model tab.'))
     return()
   } else if (rmAnovaResult[["tryResult"]] == "try-error") {
     rmAnovaContainer$setError(gettext("Some parameters are not estimable, most likely due to empty cells of the design."))
@@ -274,7 +274,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   # set these options once for all afex::aov_car calls,
   # this ensures for instance that afex::aov_car always returns objects of class afex_aov.
-  if (options$multivariateModelFollowup)   followupModelType <- "multivariate" else followupModelType <- "univariate"
+  if (options$poolErrorTermFollowup)   followupModelType <- "univariate" else followupModelType <- "multivariate"
   afex::afex_options(
     check_contrasts = TRUE, correction_aov = "GG",
     emmeans_model = followupModelType, es_aov = "ges", factorize = TRUE,
@@ -290,7 +290,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       summaryResultOne <- summary(result, expand.split = FALSE)
 
       result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE,
-                              include_aov = isFALSE(options[["multivariateModelFollowup"]]))
+                              include_aov = isTRUE(options[["poolErrorTermFollowup"]]))
       summaryResult <- summary(result)
 
       # Reformat the results to make it consistent with types 2 and 3
@@ -313,7 +313,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
     tryResult <- try({
       result <- afex::aov_car(model.formula, data=dataset, type= 2, factorize = FALSE,
-                              include_aov = isFALSE(options[["multivariateModelFollowup"]]))
+                              include_aov = isTRUE(options[["poolErrorTermFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
     })
@@ -322,7 +322,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
     tryResult <- try({
       result <- afex::aov_car(model.formula, data=dataset, type= 3, factorize = FALSE,
-                              include_aov = isFALSE(options[["multivariateModelFollowup"]]))
+                              include_aov = isTRUE(options[["poolErrorTermFollowup"]]))
       summaryResult <- summary(result)
       model <- as.data.frame(unclass(summaryResult$univariate.tests))
     })
@@ -871,7 +871,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   postHocContainer$dependOn(c("postHocTerms", "postHocEffectSize", "postHocCorrectionBonferroni",
                               "postHocCorrectionHolm", "postHocCorrectionScheffe", "postHocCorrectionTukey",
                               "postHocSignificanceFlag", "postHocCi",
-                              "postHocCiLevel", "postHocPooledError"))
+                              "postHocCiLevel"))
 
   rmAnovaContainer[["postHocStandardContainer"]] <- postHocContainer
 
@@ -893,8 +893,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   referenceGrid <- rmAnovaContainer[["referenceGrid"]]$object
   fullModel <- rmAnovaContainer[["anovaResult"]]$object$fullModel
   allNames <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name)) # Factornames
-
-  balancedDesign <-   all(sapply(unlist(options$betweenModelTerms), function(x) length(unique(table(dataset[[.v(x)]]))) == 1))
 
   for (var in variables) {
 
@@ -928,36 +926,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     indexofOrderFactors <- match(allNames,orderOfTerms)
 
     if (any(var == .v(allNames))) {     ## If the variable is a repeated measures factor
-
-      if (!options$postHocPooledError && balancedDesign) {
-
-       # Loop over all the levels within factor and do pairwise t.tests on them
-        for (compIndex in seq_along(comparisons)) {
-
-          levelANoDots <- gsub(.unv(comparisons[[compIndex]][1]), pattern = "\\.", replacement = " ")
-          levelBNoDots <- gsub(.unv(comparisons[[compIndex]][2]), pattern = "\\.", replacement = " ")
-          facLevelNoDots <- gsub(longData[[var]], pattern = "\\.", replacement = " ")
-
-          # gsubs necessary to deal with X and "." introduced to level names by emmeans
-          x <- subset(longData, gsub("X", "", facLevelNoDots) == gsub("X", "", levelANoDots))
-          x <- tapply(x[[.BANOVAdependentName]], x[[.BANOVAsubjectName]], mean)
-          y <- subset(longData, gsub("X", "", facLevelNoDots) == gsub("X", "", levelBNoDots))
-          y <- tapply(y[[.BANOVAdependentName]], y[[.BANOVAsubjectName]], mean)
-
-          tResult <- t.test(x, y, paired = TRUE, var.equal = FALSE, conf.level = bonfAdjustCIlevel)
-          tResult <- unname(unlist(tResult[c("estimate", "statistic", "p.value", "conf.int")]))
-          resultPostHoc[compIndex, c("estimate", "t.ratio", "p.value", "lower.CL", "upper.CL")] <- tResult
-
-        }
-
-        resultPostHoc[["SE"]] <- resultPostHoc[["estimate"]] / resultPostHoc[["t.ratio"]]
-        resultPostHoc[["bonferroni"]] <- p.adjust(resultPostHoc[["p.value"]], method = "bonferroni")
-        resultPostHoc[["holm"]] <- p.adjust(resultPostHoc[["p.value"]], method = "holm")
-
-      } else if (!options$postHocPooledError) {
-        postHocContainer$setError(gettext("Unpooled error term only allowed in balanced designs."))
-        return()
-      }
 
       resultPostHoc[["scheffe"]] <- "."
       resultPostHoc[["tukey"]] <-  "."
@@ -1057,9 +1025,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   if (isTRUE(options$postHocTypeStandardEffectSize) || isTRUE(options$postHocEffectSize)) {
     postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
 
-    if (isFALSE(options$postHocPooledError))
-      postHocTable$addFootnote(gettext("Computation of Cohen's d based on pooled error."))
-
     if (options$postHocCi) {
       thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$postHocCiLevel * 100)
       postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
@@ -1103,7 +1068,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return()
 
   contrastContainer <- createJaspContainer(title = gettext("Contrast Tables"))
-  contrastContainer$dependOn(c("contrasts", "contrastEqualVariance", "contrastCiLevel",
+  contrastContainer$dependOn(c("contrasts", "contrastCiLevel",
                                "contrastCi", "customContrasts"))
 
   for (contrast in options$contrasts) {
@@ -1193,36 +1158,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       contrastResult <- cbind(contrastResult, confint(contrastResult, level = options$contrastCiLevel)[,5:6])
       contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
-
-      if (options$contrastEqualVariance == FALSE && contrast$variable %in% unlist(options$withinModelTerms) &&
-          length(contrast$variable) == 1 && contrast$decoded != "custom") {
-
-        newDF <- do.call(data.frame, tapply(longData[[.BANOVAdependentName]], longData[[.v(contrast$variable)]], cbind))
-        ssNr <- tapply(longData[[.BANOVAsubjectName]], longData[[.v(contrast$variable)]], cbind)
-
-        for (i in 1:ncol(newDF)) {
-          newDF[[i]] <- tapply(newDF[[i]], ssNr[[i]], mean)
-        }
-        newDF <- newDF[1:length(unique(ssNr[[1]])), ]
-
-        allTestResults <- list()
-
-        for (coefIndex in 1:length(contrCoef)) {
-          allTestResults[[coefIndex]] <- t.test(as.matrix(newDF) %*% contrCoef[[coefIndex]])
-        }
-
-        contrastResult[["estimate"]]<- sapply(allTestResults, function(x) x[["estimate"]])
-        contrastResult[["t.ratio"]] <- sapply(allTestResults, function(x) x[["statistic"]])
-        contrastResult[["df"]]      <- sapply(allTestResults, function(x) x[["parameter"]])
-        contrastResult[["SE"]]      <- sapply(allTestResults, function(x) x[["estimate"]] /  x[["statistic"]])
-        contrastResult[["p.value"]] <- sapply(allTestResults, function(x) x[["p.value"]])
-
-      } else if (options$contrastEqualVariance == FALSE) {
-
-        contrastContainer[[contrastContainerName]]$setError(gettext("Unequal variances only available for main effects of within subjects factors"))
-        return()
-
-      }
 
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)

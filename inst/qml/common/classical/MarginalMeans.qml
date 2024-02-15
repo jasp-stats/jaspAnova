@@ -63,5 +63,14 @@ Section
 			]
 		}
 	}
+	
+	CheckBox
+	{
+		isBound: false
+		visible: analysis === Common.Type.Analysis.RMANOVA
+		label: qsTr("Pool error term for follow-up tests")
+		checked: poolErrorTermFollowup.checked
+		onCheckedChanged: poolErrorTermFollowup.checked = checked
+	}  
 
 }

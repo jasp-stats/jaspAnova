@@ -65,7 +65,13 @@ Form
 
 		Classical.SumOfSquares{}
 
-		CheckBox { name: "multivariateModelFollowup";	label: qsTr("Use multivariate model for follow-up tests");	checked: true }
+		CheckBox
+		{ 
+			id: poolErrorTermFollowup
+			name: "poolErrorTermFollowup"
+			label: qsTr("Pool error term for follow-up tests")
+			checked: false 
+		}
 	}
 
 	Section
@@ -115,7 +121,13 @@ Form
 		{
 			columns: 2
 			CheckBox { name: "postHocEffectSize";	label: qsTr("Effect size")						}
-			CheckBox { name: "postHocPooledError";	label: qsTr("Pool error term for RM factors");			checked: true	}
+			CheckBox
+			{
+				isBound: false
+				label: qsTr("Pool error term for follow-up tests")
+				checked: poolErrorTermFollowup.checked
+				onCheckedChanged: poolErrorTermFollowup.checked = checked
+			}
 		}
 
 		Group

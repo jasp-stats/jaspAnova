@@ -24,7 +24,7 @@ options(list(
 
 initOpts <- function(){
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
-  options$multivariateModelFollowup <- FALSE
+
   options$repeatedMeasuresFactors <- list(
     list(name = "Drink", levels = c("Beer", "Wine", "Water")),
     list(name = "Imagery", levels = c("Positive", "Neutral", "Negative"))
@@ -119,35 +119,200 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
   options$postHocCorrectionBonferroni <- TRUE
   options$postHocCorrectionHolm <- TRUE
 
-  options$postHocPooledError <- FALSE
+  options$poolErrorTermFollowup <- FALSE
   options$postHocCi <- TRUE
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
 
-  refTable <- list("TRUE", 2.84948954082566, 0.703009687611414, 0.362221443896782,
-                   -0.322203183269585, 1.04664607106315, "Beer", "Wine", 3.5, 0.234336562537138,
-                   -3.98021184328794, 1.22829017262714, 10.9802118432879, "FALSE",
-                   3.3351289023547, 0.0660988675936689, 0.860707145259498, 0.108019449155344,
-                   1.61339484136365, "Beer", "Water", 8.31666666666667, 0.0440659117291126,
-                   -0.438399936264868, 2.49365674016224, 17.0717332695982, "TRUE",
-                   1.1164571680934, 0.00112213065327869, 0.498485701362716, -0.199590871891703,
-                   1.19656227461713, "Wine", "Water", 4.81666666666667, 0.00112213065327869,
-                   1.88584835284471, 4.31424223366509, 7.74748498048862)
+  refTable <- list("TRUE", 2.84948954082566, 0.703009687611415, 0.362221443896783,
+                   -0.427137554801075, 1.15158044259464, "Beer", "Wine", 3.5, 0.234336562537138,
+                   -3.98021184328793, 1.22829017262714, 10.9802118432879, "FALSE",
+                   3.3351289023547, 0.0660988675936689, 0.860707145259498, -0.116698645024244,
+                   1.83811293554324, "Beer", "Water", 8.31666666666667, 0.0440659117291126,
+                   -0.438399936264863, 2.49365674016224, 17.0717332695982, "TRUE",
+                   1.1164571680934, 0.00112213065327869, 0.498485701362715, 0.128265517717469,
+                   0.868705885007961, "Wine", "Water", 4.81666666666667, 0.00112213065327869,
+                   1.88584835284472, 4.31424223366509, 7.74748498048862)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)
 
 
-  refTable <- list("TRUE", 1.11255461788524, 8.64627761186188e-10, 1.37299175877066,
-                   0.670396659452184, 2.07558685808914, "Positive", "Neutral",
-                   13.2666666666667, 5.76418507457459e-10, 10.3460929604728, 11.9245082024684,
+  refTable <- list("TRUE", 1.11255461788524, 8.64627761186185e-10, 1.37299175877066,
+                   0.714799874120407, 2.03118364342092, "Positive", "Neutral",
+                   13.2666666666667, 5.76418507457457e-10, 10.3460929604728, 11.9245082024684,
                    16.1872403728605, "FALSE", 1.91462133431161, 5.36180351283324e-11,
-                   2.77875593389389, 1.99539484787656, 3.56211701991122, "Positive",
+                   2.77875593389389, 1.9137049465132, 3.64380692127458, "Positive",
                    "Negative", 26.85, 5.36180351283324e-11, 21.8239162137161, 14.0236607201777,
-                   31.8760837862839, "TRUE", 1.97985098972636, 4.54655986206157e-06,
-                   1.40576417512323, 0.956611951019807, 1.85491639922665, "Neutral",
-                   "Negative", 13.5833333333333, 1.51551995402052e-06, 8.38601479290266,
+                   31.8760837862839, "TRUE", 1.97985098972637, 4.54655986206157e-06,
+                   1.40576417512323, 0.857440646887211, 1.95408770335925, "Neutral",
+                   "Negative", 13.5833333333333, 1.51551995402052e-06, 8.38601479290267,
                    6.86078568731614, 18.780651873764)
+
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[3]]$data
+  jaspTools::expect_equal_tables(table, refTable)
+
+
+  refTable <- list("TRUE", 3.46721486893565, 1, -0.445014916787477, -1.81373548045414,
+                   0.923705646879189, "Beer, Positive", "Wine, Positive", -4.30000000000001,
+                   0.922662837497563, -17.2656041481929, -1.24018849784179, 8.6656041481929,
+                   "FALSE", 3.75939174811424, 1, 0.377745220063787, -1.095098448011,
+                   1.85058888813857, "Beer, Positive", "Water, Positive", 3.65,
+                   1, -10.4081957238189, 0.970901742770191, 17.7081957238188, "FALSE",
+                   2.66603885153513, 0.0198201447121736, 1.1435848443027, -0.0997231522906254,
+                   2.38689284089602, "Beer, Positive", "Beer, Neutral", 11.05,
+                   0.00825839363007232, 1.08038297325989, 4.14472579558896, 21.0196170267401,
+                   "FALSE", 3.34065861769801, 0.399051281084609, 0.972823306465644,
+                   -0.448352572155917, 2.39399918508721, "Beer, Positive", "Wine, Neutral",
+                   9.4, 0.121932335886964, -3.09234872040626, 2.81381639841947,
+                   21.8923487204063, "FALSE", 3.64193413044859, 0.00212064208374063,
+                   1.93529742881995, 0.100950399557992, 3.76964445808191, "Beer, Positive",
+                   "Water, Neutral", 18.7, 0.00117813449096702, 5.08103548405554,
+                   5.1346343262108, 32.3189645159445, "FALSE", 3.23907069193749,
+                   0.00216685898320669, 1.71796456248188, 0.0877920219702268, 3.34813710299354,
+                   "Beer, Positive", "Beer, Negative", 16.6, 0.00117813449096702,
+                   4.48753798446683, 5.12492673942553, 28.7124620155332, "FALSE",
+                   3.06720771352296, 5.6165754362217e-08, 3.42040534879676, 2.10440771856973,
+                   4.73640297902379, "Beer, Positive", "Wine, Negative", 33.05,
+                   4.83649551452424e-08, 21.5802173193464, 10.7752728497279, 44.5197826806536,
+                   "FALSE", 3.59742232277794, 2.85560149977802e-06, 3.13062819367934,
+                   1.55209869024117, 4.7091576971175, "Beer, Positive", "Water, Negative",
+                   30.25, 2.06237886095079e-06, 16.7974868001677, 8.40879865799043,
+                   43.7025131998323, "TRUE", 2.22482997576278, 0.0730045740515507,
+                   0.822760136851263, -0.172462854620356, 1.81798312832288, "Wine, Positive",
+                   "Water, Positive", 7.95, 0.0283906676867142, -0.369722270811851,
+                   3.5733067634862, 16.2697222708119, "FALSE", 3.09181857573551,
+                   0.00309676924424363, 1.58859976109018, 0.0522315422126434, 3.12496797996771,
+                   "Wine, Positive", "Beer, Neutral", 15.35, 0.00146236325422616,
+                   3.78818532558322, 4.96471562738716, 26.9118146744168, "FALSE",
+                   1.87378030504618, 2.23616547272198e-05, 1.41783822325312, 0.292836386008158,
+                   2.54284006049808, "Wine, Positive", "Wine, Neutral", 13.7, 1.55289268939026e-05,
+                   6.69302333017313, 7.31142277624824, 20.7069766698269, "FALSE",
+                   1.60262941837206, 4.30058246593928e-10, 2.38031234560743, 0.808786558672926,
+                   3.95183813254193, "Wine, Positive", "Water, Neutral", 23, 3.94220059377767e-10,
+                   17.006988484899, 14.3514150784547, 28.993011515101, "FALSE",
+                   4.74890569112063, 0.011052375943825, 2.16297947926936, -0.0951987256471951,
+                   4.42115768418591, "Wine, Positive", "Beer, Negative", 20.9,
+                   0.00491216708614447, 3.14152997270924, 4.40101390917875, 38.6584700272908,
+                   "FALSE", 2.48709828811345, 1.94121686860167e-10, 3.86542026558424,
+                   2.58913664033462, 5.14170389083386, "Wine, Positive", "Wine, Negative",
+                   37.35, 1.88729417780718e-10, 28.0495288436721, 15.0175005863284,
+                   46.6504711563279, "FALSE", 2.36807161164833, 3.22326890748401e-10,
+                   3.57564311046681, 2.20892896511485, 4.94235725581878, "Wine, Positive",
+                   "Water, Negative", 34.55, 3.04419841262379e-10, 25.6946275261761,
+                   14.5899304016195, 43.4053724738239, "TRUE", 3.12830877463745,
+                   1, 0.765839624238912, -0.530912899083633, 2.06259214756146,
+                   "Water, Positive", "Beer, Neutral", 7.4, 0.230354980867463,
+                   -4.29826929062482, 2.36549539482643, 19.0982692906248, "FALSE",
+                   1.68565932750988, 0.105471813829176, 0.595078086401858, -0.150500827453272,
+                   1.34065700025699, "Water, Positive", "Wine, Neutral", 5.75,
+                   0.038087043882758, -0.553500762244738, 3.41112815986023, 12.0535007622447,
+                   "FALSE", 1.65985890332503, 8.95625360209062e-07, 1.55755220875617,
+                   0.415016344793981, 2.70008807271835, "Water, Positive", "Water, Neutral",
+                   15.05, 6.71719020156797e-07, 8.84297958278184, 9.06703574011734,
+                   21.2570204172182, "FALSE", 4.7386845831884, 0.47583632133112,
+                   1.3402193424181, -0.665816349121889, 3.34625503395808, "Water, Positive",
+                   "Beer, Negative", 12.95, 0.132176755925311, -4.77024832935314,
+                   2.732825908258, 30.6702483293531, "FALSE", 2.18415345518337,
+                   1.30969584816634e-09, 3.04266012873298, 2.13192840866075, 3.9533918488052,
+                   "Water, Positive", "Wine, Negative", 29.4, 1.16417408725897e-09,
+                   21.2323870399446, 13.4605926750379, 37.5676129600554, "FALSE",
+                   1.6389984104549, 4.91844300671117e-11, 2.75288297361555, 1.93596124750842,
+                   3.56980469972268, "Water, Positive", "Water, Negative", 26.6,
+                   4.91844300671117e-11, 20.470987119988, 16.229423915437, 32.729012880012,
+                   "TRUE", 3.02557084652937, 1, -0.170761537837055, -1.34624990673336,
+                   1.00472683105925, "Beer, Neutral", "Wine, Neutral", -1.65, 1,
+                   -12.9640821671819, -0.545351632368059, 9.66408216718189, "FALSE",
+                   3.03425617348236, 0.748384942811422, 0.791712584517254, -0.476982389768982,
+                   2.06040755880349, "Beer, Neutral", "Water, Neutral", 7.65, 0.187096235702856,
+                   -3.69656083245846, 2.52121098635526, 18.9965608324585, "FALSE",
+                   2.60412122767375, 1, 0.574379718179184, -0.491964315738882,
+                   1.64072375209725, "Beer, Neutral", "Beer, Negative", 5.55, 0.324433942639524,
+                   -4.188076891176, 2.13123718704823, 15.288076891176, "FALSE",
+                   2.20406323340373, 1.95183637425166e-07, 2.27682050449406, 1.41464206030051,
+                   3.13899894868762, "Beer, Neutral", "Wine, Negative", 22, 1.57231263481384e-07,
+                   13.757934687598, 9.9815648056637, 30.242065312402, "FALSE",
+                   2.93401108597626, 0.000103833214494514, 1.98704334937664, 0.850452142396452,
+                   3.12363455635682, "Beer, Neutral", "Water, Negative", 19.2,
+                   6.63378870381617e-05, 8.22830434652135, 6.54394255419503, 30.1716956534786,
+                   "TRUE", 1.39566999568025, 8.13249630417116e-05, 0.962474122354309,
+                   0.167089182192478, 1.75785906251614, "Wine, Neutral", "Water, Neutral",
+                   9.3, 5.42166420278077e-05, 4.08091050900022, 6.66346631279924,
+                   14.5190894909998, "FALSE", 4.84637683440451, 1, 0.745141256016239,
+                   -1.18413805977333, 2.6744205718058, "Wine, Neutral", "Beer, Negative",
+                   7.2, 0.922662837497563, -10.9229620785372, 1.48564592602191,
+                   25.3229620785372, "FALSE", 2.39217474278114, 2.27680923691313e-07,
+                   2.44758204233112, 1.52153444862556, 3.37362963603667, "Wine, Neutral",
+                   "Wine, Negative", 23.65, 1.77085162871022e-07, 14.7044941860708,
+                   9.88640151450833, 32.5955058139292, "FALSE", 2.01347434733309,
+                   1.07662631203344e-07, 2.15780488721369, 1.3635418886875, 2.95206788573988,
+                   "Wine, Neutral", "Water, Negative", 20.85, 8.97188593361198e-08,
+                   13.320639306506, 10.3552349835579, 28.379360693494, "TRUE",
+                   4.99678844227391, 1, -0.21733286633807, -2.15561081603155, 1.72094508335541,
+                   "Water, Neutral", "Beer, Negative", -2.1, 1, -20.7854242969594,
+                   -0.420269944237292, 16.5854242969594, "FALSE", 2.43578043259024,
+                   0.00040741668068189, 1.48510791997681, 0.364551143384814, 2.6056646965688,
+                   "Water, Neutral", "Wine, Negative", 14.35, 0.000248976860416711,
+                   5.24143128571844, 5.89133560972902, 23.4585687142816, "FALSE",
+                   2.04357143514151, 0.000681887975826525, 1.19533076485938, 0.295094811547108,
+                   2.09556671817166, "Water, Neutral", "Water, Negative", 11.55,
+                   0.000397767985898806, 3.90809164468282, 5.65186995736228, 19.1919083553172,
+                   "TRUE", 3.26744306920967, 0.00264983094672072, 1.70244078631488,
+                   0.352002031252378, 3.05287954137738, "Beer, Negative", "Wine, Negative",
+                   16.45, 0.00132491547336036, 4.23143985488445, 5.03451771050411,
+                   28.6685601451155, "FALSE", 4.32938247693351, 0.188595268759247,
+                   1.41266363119745, -0.289165924357466, 3.11449318675237, "Beer, Negative",
+                   "Water, Negative", 13.65, 0.0628650895864158, -2.53966851606586,
+                   3.15287458955769, 29.8396685160659, "TRUE", 1.89264504415326,
+                   1, -0.289777155117426, -1.04304119549722, 0.463486885262369,
+                   "Wine, Negative", "Water, Negative", -2.8, 0.922662837497563,
+                   -9.87752111223013, -1.47941105420149, 4.27752111223013)
+
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[2]]$data
+  jaspTools::expect_equal_tables(table, refTable)
+
+})
+
+test_that("Post-hoc tests match (pooled errors)", {
+  options <- initOpts()
+
+  options$postHocTerms <- list(list(components = "Drink"),
+                               list(components = "Imagery"),
+                               list(components = c("Drink", "Imagery")))
+  options$postHocEffectSize <- TRUE
+  options$postHocCorrectionBonferroni <- TRUE
+  options$postHocCorrectionHolm <- TRUE
+
+  options$poolErrorTermFollowup <- TRUE
+  options$postHocCi <- TRUE
+
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
+                                    options = options)
+
+  refTable <- list("TRUE", 2.61337279180141, 0.565320794343042, 0.362221443896782,
+                   -0.322203183269585, 1.04664607106315, "Beer", "Wine", 3.49999999999999,
+                   0.188440264781014, -3.04548944633882, 1.33926549284514, 10.0454894463388,
+                   "FALSE", 2.61337279180141, 0.00873013088303192, 0.860707145259498,
+                   0.108019449155344, 1.61339484136365, "Beer", "Water", 8.31666666666667,
+                   0.00873013088303192, 1.77117722032785, 3.18234990918917, 14.8621561130055,
+                   "TRUE", 2.61337279180141, 0.219382129920764, 0.498485701362716,
+                   -0.199590871891703, 1.19656227461714, "Wine", "Water", 4.81666666666667,
+                   0.146254753280509, -1.72882277967214, 1.84308441634403, 11.3621561130055)
+
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[1]]$data
+  jaspTools::expect_equal_tables(table, refTable)
+
+
+  refTable <-list("TRUE", 1.71496963754459, 7.62555340826258e-09, 1.37299175877066,
+                  0.670396659452183, 2.07558685808914, "Positive", "Neutral",
+                  13.2666666666667, 2.89922577241315e-09, 8.971330119751, 7.73580264992986,
+                  17.5620032135823, "FALSE", 1.71496963754458, 1.10774185836497e-17,
+                  2.77875593389389, 1.99539484787656, 3.56211701991122, "Positive",
+                  "Negative", 26.85, 1.10774185836497e-17, 22.5546634530843, 15.6562538555741,
+                  31.1453365469156, "TRUE", 1.71496963754459, 4.34883865861973e-09,
+                  1.40576417512323, 0.956611951019805, 1.85491639922665, "Neutral",
+                  "Negative", 13.5833333333333, 2.89922577241315e-09, 9.28799678641767,
+                  7.92045120564427, 17.878669880249)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[3]]$data
   jaspTools::expect_equal_tables(table, refTable)
@@ -274,6 +439,7 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
 
 })
 
+
 test_that("Descriptives Match", {
   options <- initOpts()
 
@@ -282,33 +448,34 @@ test_that("Descriptives Match", {
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
                             options = options)
 
-  refTable <- list("Beer", "Negative", 4.45, 20, 17.3037111930543, 3.86922744906933,
-                   3.88847442540545, "Beer", "Neutral", 10, 20, 10.295630140987,
-                   2.30217288664427, 1.0295630140987, "Beer", "Positive", 21.05,
-                   20, 13.0079934938807, 2.90867577031922, 0.617956935576279, "Water",
-                   "Negative", -9.2, 20, 6.8024763292882, 1.52107994876217, -0.739399601009587,
-                   "Water", "Neutral", 2.35, 20, 6.83855170878193, 1.52914664884837,
-                   2.91002200373699, "Water", "Positive", 17.4, 20, 7.07404447704126,
-                   1.58180443265212, 0.406554280289727, "Wine", "Negative", -12,
-                   20, 6.18146635643918, 1.38221789736259, -0.515122196369932, "Wine",
-                   "Neutral", 11.65, 20, 6.24310145596511, 1.39599992459659, 0.535888536992713,
-                   "Wine", "Positive", 25.35, 20, 6.73775692801786, 1.50660825069181,
-                   0.265789227929699)
+  refTable <- list("Beer", "Positive", 21.05, 20, 13.0079934938807, 2.90867577031922,
+                   0.617956935576279, "Beer", "Neutral", 10, 20, 10.295630140987,
+                   2.30217288664427, 1.0295630140987, "Beer", "Negative", 4.45,
+                   20, 17.3037111930543, 3.86922744906933, 3.88847442540545, "Wine",
+                   "Positive", 25.35, 20, 6.73775692801786, 1.50660825069181, 0.265789227929698,
+                   "Wine", "Neutral", 11.65, 20, 6.24310145596511, 1.39599992459659,
+                   0.535888536992713, "Wine", "Negative", -12, 20, 6.18146635643918,
+                   1.3822178973626, -0.515122196369932, "Water", "Positive", 17.4,
+                   20, 7.07404447704126, 1.58180443265212, 0.406554280289727, "Water",
+                   "Neutral", 2.35, 20, 6.83855170878193, 1.52914664884837, 2.91002200373699,
+                   "Water", "Negative", -9.2, 20, 6.8024763292882, 1.52107994876217,
+                   -0.739399601009587)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_descriptivesContainer$collection$rmAnovaContainer_descriptivesContainer_tableDescriptives$data
   jaspTools::expect_equal_tables(table, refTable)
 })
 
 test_that("Field - Chapter 8 marginal means match", {
-
-  # compared to SPSS, we pool the standard errors in marginal means
+  # Field does not use bootstrapped marginal means, so these results are not in the book
+  # including the results here to have a unit test for bootstrapped means
+  # unaffected by whether we use the pooled error
   options <- initOpts()
 
   options$marginalMeanTerms <- options$withinModelTerms[3]
   options$marginalMeanBootstrap <- TRUE
   options$marginalMeanBootstrapSamples <- 500
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = dat, # "AnovaRepeatedMeasures.csv",
                             options = options)
 
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
@@ -416,12 +583,14 @@ test_that("Homogeneity tests correct", {
 
 test_that("Contrast table match", {
   options <- initOpts()
+  options$poolErrorTermFollowup <- TRUE
 
   options$contrasts <- list(list(contrast = "repeated", variable = "Looks"),
                             list(contrast = "difference", variable = "Charisma"))
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = "AnovaMixedEffects.csv", options = options)
+                            dataset = "AnovaMixedEffects.csv",
+                            options = options)
 
   # Difference contrast
   refTable <- list("Some - High", 1.08612650363252, 36, -12.8, 6.48261408516436e-14,
@@ -591,8 +760,6 @@ test_that("Field - Chapter 8 results match", {
   options$sphericityCorrectionHuynhFeldt <- TRUE
   options$sphericityCorrectionGreenhouseGeisser <- TRUE
 
-  options$multivariateModelFollowup <- FALSE
-
   options$postHocTerms <- "Animal"
   options$postHocPooledError <- FALSE
   options$postHocCorrectionBonferroni <- TRUE
@@ -601,7 +768,7 @@ test_that("Field - Chapter 8 results match", {
 
   options$friedmanWithinFactor <- "Animal"
   options$conoverTest <- TRUE
-  
+
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                             dataset = "AnovaRepeatedMeasuresOneWay.csv",
                             options = options)
@@ -632,35 +799,35 @@ test_that("Field - Chapter 8 results match", {
   # post hoc tests (bonferroni, confidence intervals, se not pooled)
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[1]]$data
   refTable <- list("TRUE", 0.811469126250126, 0.0121396972553231, 1.56917133617844,
-                   -0.405503836463409, 3.5438465088203, "Stick", "Kangaroo", 3.875,
-                   0.0101164143794359, 0.924654528093315, 4.77528950227193, 6.82534547190668,
-                   "FALSE", 0.7319250547114, 0.00564485983507568, 1.61978976637775,
-                   -0.37869346860645, 3.61827300136195, "Stick", "Fish", 4, 0.00564485983507568,
-                   1.33886145376625, 5.46504040851179, 6.66113854623375, "FALSE",
-                   1.79222029098785, 1, 0.961750173786788, -0.769854396896755,
-                   2.69335474447033, "Stick", "Grub", 2.375, 0.906918466006362,
-                   -4.14116783575007, 1.32517191772833, 8.89116783575007, "TRUE",
-                   1.20174723988509, 1, 0.0506184301993047, -1.51715763808039,
-                   1.618394498479, "Kangaroo", "Fish", 0.125, 0.920074728368496,
-                   -4.24432153408686, 0.104015217053423, 4.49432153408686, "FALSE",
-                   1.33630620956212, 1, -0.607421162391656, -2.24224022162526,
-                   1.02739789684195, "Kangaroo", "Grub", -1.5, 0.906918466006362,
-                   -6.3585520347291, -1.12249721603218, 3.3585520347291, "TRUE",
-                   1.82186619392628, 1, -0.658039592590961, -2.30429909272349,
-                   0.988219907541572, "Fish", "Grub", -1.625, 0.906918466006362,
-                   -8.24895462968414, -0.891942561653216, 4.99895462968414)
+                   -0.367925917593048, 3.50626858994993, "Stick", "Kangaroo", 3.875,
+                   0.0101164143794359, 0.924654528093316, 4.77528950227193, 6.82534547190668,
+                   "FALSE", 0.7319250547114, 0.00564485983507569, 1.61978976637775,
+                   -0.287731746731882, 3.52731127948737, "Stick", "Fish", 4, 0.00564485983507569,
+                   1.33886145376625, 5.46504040851178, 6.66113854623374, "FALSE",
+                   1.79222029098785, 1, 0.961750173786787, -1.83755985804869, 3.76106020562226,
+                   "Stick", "Grub", 2.375, 0.906918466006363, -4.14116783575006,
+                   1.32517191772833, 8.89116783575006, "TRUE", 1.20174723988509,
+                   1, 0.0506184301993042, -1.71941068744157, 1.82064754784018,
+                   "Kangaroo", "Fish", 0.124999999999999, 0.920074728368497, -4.24432153408686,
+                   0.104015217053423, 4.49432153408686, "FALSE", 1.33630620956212,
+                   1, -0.607421162391655, -2.66150784457404, 1.44666551979073,
+                   "Kangaroo", "Grub", -1.5, 0.906918466006363, -6.35855203472909,
+                   -1.12249721603218, 3.35855203472909, "TRUE", 1.82186619392628,
+                   1, -0.65803959259096, -3.41555353532226, 2.09947435014034, "Fish",
+                   "Grub", -1.625, 0.906918466006363, -8.24895462968413, -0.891942561653215,
+                   4.99895462968413)
 
   jaspTools::expect_equal_tables(table, refTable)
-  
-  
+
+
   # Friedman Test
   # Kendall W now also verified by case presented in
   # https://github.com/jasp-stats/jasp-issues/issues/1473
-  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_friedmanTable$data 
-  
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_friedmanTable$data
+
   refTable <- list("Animal", 11.5263157894737, 3, 0.480263157894737, 0.00919516147593829)
   jaspTools::expect_equal_tables(table, refTable)
-  
+
   # Connover Test
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_Animal$data
   refTable <- list("Stick", "Kangaroo", 0.0473184822848627, 21, 0.0473184822848627,
@@ -681,7 +848,7 @@ test_that("Field - Chapter 9 match",  {
   options <- initOpts()
 
   options$sphericityTests <- TRUE
-  options$multivariateModelFollowup <- FALSE
+  options$poolErrorTermFollowup <- FALSE
 
   options$marginalMeanTerms <- list(
     list(components = "Charisma"),
@@ -711,91 +878,85 @@ test_that("Field - Chapter 9 match",  {
 
   # marginal charisma
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
-  refTable <- list("High", 82.1000000000002, 0.792376225226709, 80.5111143833479,
-                   83.6888856166524, "TRUE", "Some", 69.3000000000002, 0.792376225226709,
-                   67.7111143833479, 70.8888856166524, "FALSE", "None", 54.3000000000002,
-                   0.792376225226709, 52.7111143833479, 55.8888856166524, "FALSE")
+  refTable <- list("TRUE", "High", 1.00998105348321, 79.9781085445112, 82.1, 84.2218914554887,
+                   "FALSE", "Some", 0.73156352095029, 67.7630420749992, 69.3, 70.8369579250008,
+                   "FALSE", "None", 0.573003781255703, 53.0961637268184, 54.3,
+                   55.5038362731816)
 
   jaspTools::expect_equal_tables(table, refTable)
 
   # gender (strategy) * looks interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[6]]$data
-  refTable <- list("Female", "Attractive", 76.1666666666668, 1.00705331467645, 74.1441569164011,
-                   78.1891764169326, "TRUE", "Female", "Average", 68.1000000000002,
-                   1.00705331467645, 66.0774902497344, 70.1225097502659, "FALSE",
-                   "Female", "Ugly", 61.3333333333335, 1.00705331467645, 59.3108235830677,
-                   63.3558430835992, "FALSE", "Male", "Attractive", 88.0333333333335,
-                   1.00705331467645, 86.0108235830677, 90.0558430835993, "TRUE",
-                   "Male", "Average", 67.4666666666668, 1.00705331467645, 65.4441569164011,
-                   69.4891764169326, "FALSE", "Male", "Ugly", 50.3000000000002,
-                   1.00705331467645, 48.2774902497344, 52.3225097502659, "FALSE")
+  refTable <- list("TRUE", "Attractive", 0.922757542088647, "Female", 74.228025008694,
+                   76.1666666666667, 78.1053083246393, "FALSE", "Average", 1.15910246247626,
+                   "Female", 65.664816089686, 68.1, 70.535183910314, "FALSE", "Ugly",
+                   0.920580868692409, "Female", 59.3992646964732, 61.3333333333333,
+                   63.2674019701935, "TRUE", "Attractive", 0.922757542088647, "Male",
+                   86.0946916753607, 88.0333333333333, 89.971974991306, "FALSE",
+                   "Average", 1.15910246247626, "Male", 65.0314827563526, 67.4666666666667,
+                   69.9018505769807, "FALSE", "Ugly", 0.920580868692409, "Male",
+                   48.3659313631399, 50.3, 52.2340686368601)
 
   jaspTools::expect_equal_tables(table, refTable)
 
   # gender (strategy) * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[3]]$data
-  refTable <- list("Female", "High", 88.2333333333335, 1.12058920421761, 85.9863097452043,
-                   90.4803569214627, "TRUE", "Female", "Some", 69.0666666666668,
-                   1.12058920421761, 66.8196430785377, 71.313690254796, "FALSE",
-                   "Female", "None", 48.3000000000002, 1.12058920421761, 46.052976411871,
-                   50.5470235881293, "FALSE", "Male", "High", 75.9666666666669,
-                   1.12058920421761, 73.7196430785377, 78.213690254796, "TRUE",
-                   "Male", "Some", 69.5333333333335, 1.12058920421761, 67.2863097452043,
-                   71.7803569214627, "FALSE", "Male", "None", 60.3000000000002,
-                   1.12058920421761, 58.052976411871, 62.5470235881293, "FALSE")
+  refTable <- list("TRUE", "High", 1.42832890357583, "Female", 85.2325256590976,
+                   88.2333333333333, 91.2341410075691, "FALSE", "Some", 1.03458705306531,
+                   "Female", 66.8930799243337, 69.0666666666667, 71.2402534089996,
+                   "FALSE", "None", 0.810349718742881, "Female", 46.59751841559,
+                   48.3, 50.00248158441, "TRUE", "High", 1.42832890357583, "Male",
+                   72.9658589924309, 75.9666666666667, 78.9674743409024, "FALSE",
+                   "Some", 1.03458705306531, "Male", 67.3597465910004, 69.5333333333333,
+                   71.7069200756663, "FALSE", "None", 0.810349718742881, "Male",
+                   58.59751841559, 60.3, 62.00248158441)
 
   jaspTools::expect_equal_tables(table, refTable)
 
   # looks * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[5]]$data
-  refTable <- list("TRUE", "High", "Attractive", 1.23097873335623, 86.5185279595704,
-                   88.9500000000002, 91.38147204043, "FALSE", "High", "Average",
-                   1.23097873335623, 83.1685279595704, 85.6000000000002, 88.0314720404299,
-                   "FALSE", "High", "Ugly", 1.23097873335623, 69.3185279595704,
-                   71.7500000000002, 74.1814720404299, "TRUE", "Some", "Attractive",
-                   1.23097873335623, 85.3685279595704, 87.8000000000002, 90.2314720404299,
-                   "FALSE", "Some", "Average", 1.23097873335623, 67.9185279595704,
-                   70.3500000000002, 72.7814720404299, "FALSE", "Some", "Ugly",
-                   1.23097873335623, 47.3185279595704, 49.7500000000002, 52.1814720404299,
-                   "TRUE", "None", "Attractive", 1.23097873335623, 67.1185279595704,
-                   69.5500000000002, 71.9814720404299, "FALSE", "None", "Average",
-                   1.23097873335623, 44.9685279595704, 47.4000000000001, 49.8314720404299,
-                   "FALSE", "None", "Ugly", 1.23097873335623, 43.5185279595704,
-                   45.9500000000002, 48.3814720404299)
+  refTable <- list("TRUE", "High", "Attractive", 1.38293166859393, 86.0445683773036,
+                   88.95, 91.8554316226963, "FALSE", "High", "Average", 1.72078793321871,
+                   81.98475870452, 85.6, 89.21524129548, "FALSE", "High", "Ugly",
+                   1.24911079483678, 69.1257156004244, 71.75, 74.3742843995756,
+                   "TRUE", "Some", "Attractive", 1.40771682758524, 84.8424966905079,
+                   87.8, 90.757503309492, "FALSE", "Some", "Average", 1.17201156611661,
+                   67.8876950693282, 70.35, 72.8123049306718, "FALSE", "Some",
+                   "Ugly", 1.2107160415776, 47.2063799837762, 49.75, 52.2936200162238,
+                   "TRUE", "None", "Attractive", 1.01885011437186, 67.409475339014,
+                   69.55, 71.6905246609859, "FALSE", "None", "Average", 0.887568463712957,
+                   45.5352878523626, 47.4, 49.2647121476374, "FALSE", "None", "Ugly",
+                   0.746287105907937, 44.3821089708503, 45.95, 47.5178910291497)
   jaspTools::expect_equal_tables(table, refTable)
 
   # gender (strategy) * looks * charisma interaction
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[2]]$data
-  refTable <- list("Female", "Attractive", "High", 89.6000000000002, 1.74086681970523,
-                   86.1613792638934, 93.0386207361069, "TRUE", "Female", "Attractive",
-                   "Some", 87.1000000000002, 1.74086681970523, 83.6613792638934,
-                   90.5386207361069, "FALSE", "Female", "Attractive", "None", 51.8000000000002,
-                   1.74086681970523, 48.3613792638934, 55.2386207361069, "FALSE",
-                   "Female", "Average", "High", 88.4000000000002, 1.74086681970523,
-                   84.9613792638934, 91.8386207361069, "TRUE", "Female", "Average",
-                   "Some", 68.9000000000002, 1.74086681970523, 65.4613792638934,
-                   72.3386207361069, "FALSE", "Female", "Average", "None", 47.0000000000001,
-                   1.74086681970523, 43.5613792638934, 50.4386207361069, "FALSE",
-                   "Female", "Ugly", "High", 86.7000000000001, 1.74086681970523,
-                   83.2613792638934, 90.1386207361069, "TRUE", "Female", "Ugly",
-                   "Some", 51.2000000000001, 1.74086681970523, 47.7613792638934,
-                   54.6386207361069, "FALSE", "Female", "Ugly", "None", 46.1000000000002,
-                   1.74086681970523, 42.6613792638934, 49.5386207361069, "FALSE",
-                   "Male", "Attractive", "High", 88.3000000000002, 1.74086681970523,
-                   84.8613792638934, 91.738620736107, "TRUE", "Male", "Attractive",
-                   "Some", 88.5000000000002, 1.74086681970524, 85.0613792638934,
-                   91.9386207361069, "FALSE", "Male", "Attractive", "None", 87.3000000000002,
-                   1.74086681970524, 83.8613792638934, 90.738620736107, "FALSE",
-                   "Male", "Average", "High", 82.8000000000002, 1.74086681970523,
-                   79.3613792638934, 86.238620736107, "TRUE", "Male", "Average",
-                   "Some", 71.8000000000002, 1.74086681970523, 68.3613792638934,
-                   75.2386207361069, "FALSE", "Male", "Average", "None", 47.8000000000001,
-                   1.74086681970523, 44.3613792638934, 51.2386207361069, "FALSE",
-                   "Male", "Ugly", "High", 56.8000000000002, 1.74086681970523,
-                   53.3613792638934, 60.2386207361069, "TRUE", "Male", "Ugly",
-                   "Some", 48.3000000000002, 1.74086681970523, 44.8613792638934,
-                   51.7386207361069, "FALSE", "Male", "Ugly", "None", 45.8000000000002,
-                   1.74086681970523, 42.3613792638934, 49.2386207361069, "FALSE")
+  refTable <- list("TRUE", "High", "Attractive", 1.9557607215608, "Female", 85.4910991946352,
+                   89.6, 93.7089008053648, "FALSE", "Some", "Attractive", 1.99081222955188,
+                   "Female", 82.917458708953, 87.1, 91.2825412910469, "FALSE",
+                   "None", "Attractive", 1.44087164977007, "Female", 48.7728409938396,
+                   51.8, 54.8271590061604, "TRUE", "High", "Average", 2.43356163312586,
+                   "Female", 83.2872767286809, 88.4, 93.5127232713191, "FALSE",
+                   "Some", "Average", 1.65747465206024, "Female", 65.4177749723458,
+                   68.9, 72.3822250276542, "FALSE", "None", "Average", 1.25521135891752,
+                   "Female", 44.3628987908893, 47, 49.6371012091107, "TRUE", "High",
+                   "Ugly", 1.76650942696481, "Female", 82.988701410596, 86.7, 90.4112985894039,
+                   "FALSE", "Some", "Ugly", 1.71221104618171, "Female", 47.6027780755327,
+                   51.2, 54.7972219244673, "FALSE", "None", "Ugly", 1.05540934659917,
+                   "Female", 43.8826672422534, 46.1, 48.3173327577466, "TRUE",
+                   "High", "Attractive", 1.9557607215608, "Male", 84.1910991946352,
+                   88.3, 92.4089008053648, "FALSE", "Some", "Attractive", 1.99081222955188,
+                   "Male", 84.317458708953, 88.5, 92.6825412910469, "FALSE", "None",
+                   "Attractive", 1.44087164977007, "Male", 84.2728409938396, 87.3,
+                   90.3271590061604, "TRUE", "High", "Average", 2.43356163312586,
+                   "Male", 77.6872767286809, 82.8, 87.9127232713191, "FALSE", "Some",
+                   "Average", 1.65747465206024, "Male", 68.3177749723458, 71.8,
+                   75.2822250276542, "FALSE", "None", "Average", 1.25521135891752,
+                   "Male", 45.1628987908893, 47.8, 50.4371012091107, "TRUE", "High",
+                   "Ugly", 1.76650942696481, "Male", 53.0887014105961, 56.8, 60.511298589404,
+                   "FALSE", "Some", "Ugly", 1.71221104618171, "Male", 44.7027780755327,
+                   48.3, 51.8972219244673, "FALSE", "None", "Ugly", 1.05540934659917,
+                   "Male", 43.5826672422534, 45.8, 48.0173327577466)
 
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -809,7 +970,7 @@ options$simpleMainEffectModeratorFactorOne <- "Drink"
 options$descriptivePlotErrorBar <- TRUE
 options$descriptivePlotHorizontalAxis <- "Drink"
 options$descriptivePlotSeparateLines <- "Imagery"
-options$postHocPooledError <- FALSE
+options$poolErrorTermFollowup <- FALSE
 options$postHocCorrectionBonferroni <- TRUE
 options$postHocCorrectionHolm <- FALSE
 options$repeatedMeasuresCells <- c("beerpos", "beerneut", "beerneg", "winepos", "wineneut", "wineneg", "waterpos", "waterneu", "waterneg")

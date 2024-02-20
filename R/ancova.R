@@ -958,7 +958,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     if (isTRUE(options[["postHocLetterTable"]])) {
       letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
                                     method = "pairwise",
-                                    Letters = LETTERS,
+                                    Letters = letters,
                                     alpha = options[["postHocLetterAlpha"]])
       letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
       colnames(letterResult)[ncol(letterResult)] <- "Letter"

@@ -902,7 +902,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
                                       "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples",
-                                      "postHocCi", "postHocCiLevel"))
+                                      "postHocCi", "postHocCiLevel", "postHocLetterTable", "postHocLetterAlpha"))
 
   postHocContainer[["postHocStandardContainer"]] <- postHocStandardContainer
 
@@ -916,7 +916,20 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     postHocStandardContainer[[thisVarName]] <- .createPostHocStandardTable(thisVarName, interactionTerm, options,
                                                                            options$postHocTypeStandardBootstrap)
-  }
+    if (options$postHocLetterTable) {
+      letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
+      for (letterVar in postHocVariables[[postHocVarIndex]])
+        letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
+
+      letterTable$addColumnInfo(name="Letter", type="string")
+      letterTable$addFootnote("If two or more means share the same grouping symbol,
+      then we cannot show them to be different, but we also did not show them to be the same. ")
+      letterTable$showSpecifiedColumnsOnly <- TRUE
+
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
+    }
+
+  postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]}
 
   for (postHocVarIndex in 1:length(postHocVariables)) {
 
@@ -941,6 +954,17 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                         sigma = sqrt(mean(sigma(model)^2)),
                                                         edf = df.residual(model),
                                                         level = bonfAdjustCIlevel))
+
+    if (isTRUE(options[["postHocLetterTable"]])) {
+      letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
+                                    method = "pairwise",
+                                    Letters = LETTERS,
+                                    alpha = options[["postHocLetterAlpha"]])
+      letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
+      colnames(letterResult)[ncol(letterResult)] <- "Letter"
+      letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
+    }
 
     allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
 

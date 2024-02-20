@@ -30,5 +30,19 @@ Group
 		childrenOnSameRow:	true
 		CIField { name: "postHocCiLevel" }
 	}
-	CheckBox { name: "postHocSignificanceFlag";	label: qsTr("Flag Significant Comparisons") }
+	CheckBox { name: "postHocSignificanceFlag";	label: qsTr("Flag significant comparisons") }
+	CheckBox 
+	{ 
+		name: "postHocLetterTable"	
+		label: qsTr("Letter-based grouping table")
+		childrenOnSameRow:	true
+		DoubleField 
+		{ 
+			name: "postHocLetterAlpha" 
+			label: qsTr("α-level:")
+			min: 0
+          	max: 1
+          	defaultValue: 0.05} 
+	}
+
 }

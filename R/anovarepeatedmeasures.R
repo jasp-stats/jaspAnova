@@ -1048,7 +1048,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   if (isTRUE(options$postHocCorrectionSidak))
     postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>sidak</sub>"), type="pvalue")
 
-
   postHocTable$showSpecifiedColumnsOnly <- TRUE
 
   return(postHocTable)

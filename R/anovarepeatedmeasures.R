@@ -733,7 +733,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return()
 
   rmAnovaLevenesTable$setExpectedSize(length(options$repeatedMeasuresCells))
-  if (length(options$betweenModelTerms) == 0) {
+  if (length(options[["betweenSubjectFactors"]]) == 0) {
     rmAnovaLevenesTable$setError(gettext("Cannot perform homogeneity tests because there are no between subjects factors specified."))
     return()
   }

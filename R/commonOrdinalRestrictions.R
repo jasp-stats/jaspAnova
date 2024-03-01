@@ -113,7 +113,7 @@
   }
 
   if(isTryError(syntax)) {
-    stop(gettext("There are errors in the restriction syntax for %s. The syntax could not be decoded!", modelName))
+    stop(gettextf("There are errors in the restriction syntax for %s. The syntax could not be decoded!", modelName))
   }
 
   return(syntax)

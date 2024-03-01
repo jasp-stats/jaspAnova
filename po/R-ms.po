@@ -636,7 +636,7 @@ msgstr ""
 msgid "P(M|data)"
 msgstr ""
 
-msgid "error %"
+msgid "error %%"
 msgstr ""
 
 msgid ""

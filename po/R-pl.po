@@ -696,8 +696,8 @@ msgstr "P(M)"
 msgid "P(M|data)"
 msgstr "P(M|dane)"
 
-msgid "error %"
-msgstr "błąd %"
+msgid "error %%"
+msgstr "błąd %%"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "

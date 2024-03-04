@@ -686,8 +686,8 @@ msgid "P(M|data)"
 msgstr "P(M|data)"
 
 #, fuzzy
-msgid "error %"
-msgstr "ошибка %"
+msgid "error %%"
+msgstr "ошибка %%"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "

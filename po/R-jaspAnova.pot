@@ -566,7 +566,7 @@ msgstr ""
 msgid "P(M|data)"
 msgstr ""
 
-msgid "error %"
+msgid "error %%"
 msgstr ""
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"

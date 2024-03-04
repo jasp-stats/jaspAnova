@@ -765,7 +765,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   modelTable$addColumnInfo(name = "P(M|data)", title = gettext("P(M|data)"), type = "number")
   modelTable$addColumnInfo(name = "BFM",       title = bfm.title,            type = "number")
   modelTable$addColumnInfo(name = "BF10",      title = bf.title,             type = "number")
-  modelTable$addColumnInfo(name = "error %",   title = gettext("error %"),   type = "number")
+  modelTable$addColumnInfo(name = "error %",   title = gettextf("error %%"), type = "number")
 
   return(modelTable)
 }
@@ -1009,7 +1009,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                            position = 2.5)
 
   issuesTable$addColumnInfo(name = "Models",           title = gettext("Affected model"),      type = "string")
-  issuesTable$addColumnInfo(name = "percentageSucces", title = gettext("%% useful samples"),    type = "number")
+  issuesTable$addColumnInfo(name = "percentageSucces", title = gettextf("%% useful samples"),  type = "number")
   issuesTable$addColumnInfo(name = "noSuccess",        title = gettext("Useful samples"),      type = "integer")
   issuesTable$addColumnInfo(name = "total",            title = gettext("Total samples drawn"), type = "integer")
 
@@ -1297,7 +1297,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     postHocTable$addColumnInfo(name = "Prior Odds",     type = "number", title = gettext("Prior Odds"))
     postHocTable$addColumnInfo(name = "Posterior Odds", type = "number", title = gettext("Posterior Odds"))
     postHocTable$addColumnInfo(name = "BF",             type = "number", title = bf.title)
-    postHocTable$addColumnInfo(name = "error %",        type = "number", title = gettext("error %"))
+    postHocTable$addColumnInfo(name = "error %",        type = "number", title = gettextf("error %%"))
 
     postHocTable$dependOn(optionContainsValue = list("postHocTerms" = posthoc.var))
 

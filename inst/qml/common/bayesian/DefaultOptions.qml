@@ -68,7 +68,7 @@ Group
 		}
 	}
 
-	GroupBox
+	Group
 	{
 		title: qsTr("Plots")
 		CheckBox {

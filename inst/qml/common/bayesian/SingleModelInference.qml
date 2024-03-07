@@ -40,14 +40,14 @@ Section
 	GridLayout
 	{
 
-		GroupBox
+		Group
 		{
 			title: qsTr("Tables")
 			CheckBox { label: qsTr("Estimates"); name: "singleModelEstimates"}
 			CheckBox { label: qsTr("R\u00B2");   name: "singleModelCriTable" }
 		}
 
-		GroupBox
+		Group
 		{
 			title: qsTr("Plots")
 			CheckBox {

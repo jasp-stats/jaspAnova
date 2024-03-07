@@ -1130,8 +1130,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
 
-    postHocTable$addFootnote(message = gettext("P-values are based on one-sided tests."))
-
     return(postHocTable)
   }
 

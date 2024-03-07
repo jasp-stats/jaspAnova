@@ -391,7 +391,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
     result['SSt'] <- unlist(summary(aov(as.formula(paste(options$dependent, "~ 1")),
                                         data = model$model))[[1]]["Sum Sq"])
-    
+
 
   }
 
@@ -602,7 +602,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 .anovaContrastsTable <- function(anovaContainer, dataset, options, ready) {
   if (!ready || is.null(options$contrasts))
     return()
-    
+
   #contrasts are encoded so first decode that so we can later check for things like "none" and "custom"
   decodedContrasts <- list()
   for (i in 1:length(options$contrasts)) {
@@ -1129,7 +1129,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
-    
+
     postHocTable$addFootnote(message = gettext("P-values are based on one-sided tests."))
 
     return(postHocTable)
@@ -1766,33 +1766,59 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
 
   anovaContainer[["kruskalContainer"]] <- createJaspContainer(title = gettext("Kruskal-Wallis Test"),
-                                                              dependencies = "kruskalWallisFactors")
+                                                              dependencies = c("kruskalWallisFactors", "kruskalCiLevel",
+                                                                               "kruskalEpsilon", "kruskalEta",
+                                                                               "kruskalEffectSizeEstimates"))
   kruskalTable <- createJaspTable(title = gettext("Kruskal-Wallis Test"))
 
   anovaContainer[["kruskalContainer"]][["kruskalTable"]] <- kruskalTable
 
-  kruskalTable$addColumnInfo(name = "Factor",    title=gettext("Factor"),    type = "string")
-  kruskalTable$addColumnInfo(name = "Statistic", title=gettext("Statistic"), type = "number")
+  kruskalTable$addColumnInfo(name = "factor",    title=gettext("Factor"),    type = "string")
+  kruskalTable$addColumnInfo(name = "statistic", title=gettext("Statistic"), type = "number")
   kruskalTable$addColumnInfo(name = "df",        title=gettext("df"),        type = "integer")
   kruskalTable$addColumnInfo(name = "p",         title=gettext("p"),         type = "pvalue")
+
+  if (options[["kruskalEpsilon"]] && options[["kruskalEffectSizeEstimates"]]) {
+    kruskalTable$addColumnInfo(name = "epsiSqr", title=gettext("Rank \u03B5\u00B2"), type = "number")
+    thisOverTitle <- gettextf("%s%% CI for Rank \u03B5\u00B2", options$kruskalCiLevel * 100)
+    kruskalTable$addColumnInfo(name="lowerEpsiCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+    kruskalTable$addColumnInfo(name="upperEpsiCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+  }
+
+  if (options[["kruskalEta"]] && options[["kruskalEffectSizeEstimates"]]) {
+    kruskalTable$addColumnInfo(name = "etaSqr", title=gettext("Rank \u03B7\u00B2"), type = "number")
+    thisOverTitle <- gettextf("%s%% CI for Rank \u03B7\u00B2", options$kruskalCiLevel * 100)
+    kruskalTable$addColumnInfo(name="lowerEtaCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+    kruskalTable$addColumnInfo(name="upperEtaCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+  }
+
+  kruskalTable$showSpecifiedColumnsOnly <- TRUE
 
 
   if (!ready || anovaContainer$getError())
     return()
 
   kruskalFactors <- options$kruskalWallisFactors
-  kruskalResultsList <- list()
+  kruskalResultsList <- kruskalEtaList <- kruskalEpsilonList <- list()
 
   for (term in kruskalFactors) {
 
-    kruskalResultsList[[term]] <- kruskal.test(dataset[[.v(options$dependent)]], dataset[[.v(term)]])
+    kruskalResultsList[[term]] <- kruskal.test(dataset[[options$dependent]], dataset[[term]])
+    kruskalEpsilonList[[term]] <- effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]])
+    kruskalEtaList[[term]] <- effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]])
 
   }
 
-  kruskalTable$setData(data.frame(Factor = names(kruskalResultsList),
-                                  Statistic = sapply(kruskalResultsList, function(x) x$statistic),
+  kruskalTable$setData(data.frame(factor = names(kruskalResultsList),
+                                  statistic = sapply(kruskalResultsList, function(x) x$statistic),
                                   df = sapply(kruskalResultsList, function(x) x$parameter),
-                                  p = sapply(kruskalResultsList, function(x) x$p.value)))
+                                  p = sapply(kruskalResultsList, function(x) x$p.value),
+                                  epsiSqr = sapply(kruskalEpsilonList, function(x) x$rank_epsilon_squared),
+                                  lowerEpsiCI = sapply(kruskalEpsilonList, function(x) x$CI_low),
+                                  upperEpsiCI = sapply(kruskalEpsilonList, function(x) x$CI_high),
+                                  etaSqr = sapply(kruskalEtaList, function(x) x$rank_eta_squared),
+                                  lowerEtaCI = sapply(kruskalEtaList, function(x) x$CI_low),
+                                  upperEtaCI = sapply(kruskalEtaList, function(x) x$CI_high)))
 
   return()
 }

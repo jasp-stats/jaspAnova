@@ -126,6 +126,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
 
 ### Nonparametrics
 - Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the dependent variable, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
+- Estimates of effect size: request effect size estimates for the Kruskal-Wallis test: rank epsilon squared and rank eta squared, including their bootstrapped confidence interval. Based on the effectsize package. 
 
 ### Output 
 ---
@@ -280,6 +281,7 @@ Independent variable on the x-axis and dependent variable on the y-axis. If othe
 - afex
 - boot
 - car
+- effectsize
 - emmeans
 - ggplot2
 - lmtest

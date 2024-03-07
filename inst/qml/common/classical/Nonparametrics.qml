@@ -31,4 +31,12 @@ Section
 		AvailableVariablesList	{ name: "kruskalWallisAvailableFactors";	title: qsTr("Kruskal-Wallis Test");	id: availableTerms	}
 		AssignedVariablesList	{ name: "kruskalWallisFactors";				title: " "												}
 	}
+
+	CheckBox {
+		name: "kruskalEffectSizeEstimates";	label: qsTr("Estimates of effect size")
+		columns: 3
+		CheckBox { name: "kruskalEpsilon"; label: qsTr("ε²"); checked: true	}
+		CheckBox { name: "kruskalEta"; label: qsTr("η²")		}
+		CIField {name: "kruskalCiLevel"; label: qsTr("Confidence") }
+	}
 }

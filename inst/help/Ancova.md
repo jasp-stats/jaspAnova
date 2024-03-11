@@ -213,6 +213,7 @@ Dunn's Post Hoc Comparisons:
 - z: The value for the z-statistic. 
 - W<sub>i</sub>: The mean ranking of the first level/group of the comparison. 
 - W<sub>j</sub>: The mean ranking of the second level/group of the comparison.  
+- Rank biserial correlation: The value for the rank biserial correlation, based on pairwise Mann-Whitney U tests. 
 - p: The p-value.  
 - p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
 - p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons. 

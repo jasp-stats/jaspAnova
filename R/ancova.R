@@ -1126,6 +1126,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="z",                                             type="number")
     postHocTable$addColumnInfo(name="wA",         title=gettext("W<sub>i</sub>"),    type="number")
     postHocTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
+    postHocTable$addColumnInfo(name="rbs", title=gettext("Rank-Biserial Correlation"), type="number")
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
@@ -1140,6 +1141,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                              z = numeric(),
                              wA = numeric(),
                              wB = numeric(),
+                             rbs = numeric(),
                              pval = numeric(),
                              bonferroni = numeric(),
                              holm = numeric())
@@ -1149,8 +1151,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     nPerGroup <- unname(unlist(table(dataset[[ .v(dunnVar) ]])))
     bigN <- sum(nPerGroup)
 
-    fullRanks <- rank(dataset[[ .v(dependentVar) ]])
-    ranksPerGroup <- by(fullRanks, dataset[[ .v(dunnVar) ]], list)
+    fullRanks <- rank(dataset[[ dependentVar ]])
+    ranksPerGroup <- by(fullRanks, dataset[[ dunnVar ]], list)
     sumPerGroup <- unlist(lapply(ranksPerGroup, FUN = sum))
     meanPerGroup <- unname(sumPerGroup/nPerGroup)
 
@@ -1168,10 +1170,16 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         zAB <- (meanPerGroup[i] - meanPerGroup[j]) / sigmaAB
         pValAB <- 2 * pnorm(abs(zAB), lower.tail = FALSE) # make two-sided p-value
 
+        a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
+        b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
+        u <- wilcox.test(a, b)$statistic
+        rbs <- abs(as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j])))
+
         dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
                                                    z = zAB,
                                                    wA = meanPerGroup[i],
                                                    wB = meanPerGroup[j],
+                                                   rbs = rbs,
                                                    pval = pValAB,
                                                    bonferroni = pValAB,
                                                    holm = pValAB))
@@ -1185,6 +1193,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     dunnResult[["holm"]] <- p.adjust(allP, method = "holm")
 
     postHocDunnContainer[[dunnVar]]$setData(dunnResult)
+    postHocDunnContainer[[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
 
     if (options$postHocSignificanceFlag)
       .anovaAddSignificanceSigns(someTable = postHocDunnContainer[[dunnVar]],

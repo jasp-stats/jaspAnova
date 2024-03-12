@@ -16,6 +16,7 @@ Imports:
   car,
   colorspace,
   emmeans (>= 1.7.4),
+  effectsize,
   ggplot2,
   jaspBase,
   jaspDescriptives,

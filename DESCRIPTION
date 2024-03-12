@@ -26,6 +26,7 @@ Imports:
   multcomp,
   onewaytests,
   plyr,
+  Restrictor,
   stringi,
   stringr
 Remotes:

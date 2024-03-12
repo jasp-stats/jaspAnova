@@ -1173,11 +1173,12 @@
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-    constraints = list(syntax),
+    # constraints = list(syntax),
+    hypotheses  = list(syntax),
     comparison  = "none",
     type        = "gorica"
   )
-
+# browser()
   fit <- do.call(restriktor::goric, args)
   fit <- fit[["objectList"]][[1]]
 
@@ -1199,7 +1200,7 @@
   args[["VCOV"]]       <- models[["unrestricted"]][["parsForGorica"]][["vcov"]]
   args[["comparison"]] <- comparison
   args[["type"]]       <- "gorica"
-  args[["constraints"]] <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
+  args[["hypotheses"]] <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
 
   modelComparison <- do.call(restriktor::goric, args)
   return(modelComparison)

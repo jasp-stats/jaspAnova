@@ -26,9 +26,9 @@ Imports:
   multcomp,
   onewaytests,
   plyr,
-  Restrictor,
   stringi,
-  stringr
+  stringr,
+  restriktor
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspDescriptives,

@@ -34,7 +34,13 @@ Section
 		Component
 		{
 			id: equalVarianceAssumption
-			CheckBox { name: "contrastEqualVariance"; label: qsTr("Assume equal variances"); checked: true }
+			CheckBox
+			{
+				isBound: false
+				label: qsTr("Pool error term for follow-up tests")
+				checked: poolErrorTermFollowup.checked
+				onCheckedChanged: poolErrorTermFollowup.checked = checked
+			}		
 		}
 		sourceComponent: analysis === Common.Type.Analysis.RMANOVA ? equalVarianceAssumption : undefined
 	}

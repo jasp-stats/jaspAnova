@@ -148,10 +148,6 @@ msgid "Model terms"
 msgstr "モデル項"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "フォローアップ検定のため多変量モデルを使用"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "仮定のチェック"
 
@@ -186,10 +182,6 @@ msgstr "事後検定"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "効果量"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "反復測定要因のプール誤差項"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -957,11 +949,6 @@ msgstr ""
 
 #, fuzzy
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "等分散を仮定"
-
-#, fuzzy
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "信頼区間"
 
@@ -1260,4 +1247,16 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
 msgstr ""

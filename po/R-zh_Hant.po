@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -310,9 +310,10 @@ msgid ""
 "between subjects factors."
 msgstr "請為RM因子命名一個不同於受試者間因子的名稱"
 
+#, fuzzy
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 "資料太大以致於無法進行後續單變量分析。請試著在模型選單處，選擇\"使用多邊量模"
 "型進行後續分析\""
@@ -383,9 +384,6 @@ msgid ""
 "factor, or because the SSP matrix is singular."
 msgstr "無法執行球形檢驗，因為RM因子只有兩個水準，或者因為 SSP 矩陣為奇異值。"
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr "僅有平衡設計可出現未合併誤差項。"
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -416,9 +414,6 @@ msgstr "偏誤"
 msgid "Cohen's d"
 msgstr "Cohen's d"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr "Cohen's d 效果量計算是基於合併誤差。"
-
 msgid "%s%% CI for Cohen's d"
 msgstr "Cohen's d 效果量的%s%% 信賴區間"
 
@@ -427,10 +422,6 @@ msgstr "<sub>Scheffe</sub> p值"
 
 msgid "p<sub>sidak</sub>"
 msgstr "<sub>Sidak</sub>p值"
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
-msgstr "不等方差僅適用於受試者內主效果"
 
 msgid "Marginal Means -"
 msgstr "邊際平均數"
@@ -1059,3 +1050,14 @@ msgstr "設計矩陣無反矩陣。這可能是因為與依變數的共線性所
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "虛無模型（包括 %s 與隨機斜率）"
+
+#~ msgid "Unpooled error term only allowed in balanced designs."
+#~ msgstr "僅有平衡設計可出現未合併誤差項。"
+
+#~ msgid "Computation of Cohen's d based on pooled error."
+#~ msgstr "Cohen's d 效果量計算是基於合併誤差。"
+
+#~ msgid ""
+#~ "Unequal variances only available for main effects of within subjects "
+#~ "factors"
+#~ msgstr "不等方差僅適用於受試者內主效果"

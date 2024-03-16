@@ -149,10 +149,6 @@ msgid "Effect size"
 msgstr "Tamanho de efeito"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "Termo de erro de grupo para fatores de RM"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
 msgstr "Correção"
 
@@ -291,10 +287,6 @@ msgstr "Tabelas ANOVA"
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Razão p máxima de Vovk-Sellke"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "Use modelo multivariado para testes de acompanhamento"
 
 msgctxt "Description|"
 msgid "ANOVA"
@@ -900,10 +892,6 @@ msgid "Contrasts"
 msgstr "Contrastes"
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "Assumir variâncias iguais"
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Intervalos de confiança"
 
@@ -1150,4 +1138,16 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
 msgstr ""

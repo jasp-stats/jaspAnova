@@ -162,11 +162,6 @@ msgstr "Модель"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "Использовать многофакторную модель для последующих критериев"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Проверка допущений"
 
@@ -203,11 +198,6 @@ msgstr "Апостериорные сравнения"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "Размер эффекта"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "Объединить ошибки факторов"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -883,11 +873,6 @@ msgstr "Контрасты"
 
 #, fuzzy
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "Предположить равенство дисперсий"
-
-#, fuzzy
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Доверительные интервалы"
 
@@ -1251,3 +1236,15 @@ msgstr "Сумма квадратов"
 msgctxt "SumOfSquares|"
 msgid "Type %1"
 msgstr "Тип %1"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

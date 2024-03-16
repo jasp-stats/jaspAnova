@@ -150,10 +150,6 @@ msgid "Model terms"
 msgstr "Model terimleri"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr ""
 
@@ -187,10 +183,6 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
@@ -905,10 +897,6 @@ msgid "Contrasts"
 msgstr ""
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr ""
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr ""
 
@@ -1157,4 +1145,16 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
 msgstr ""

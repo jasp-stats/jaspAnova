@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2024-03-07 09:01+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -325,9 +325,10 @@ msgstr ""
 "Proszę wybrać nazwę dla czynników wewnątrzobiektowych, która różni się od "
 "nazwy czynników międzyobiektowych."
 
+#, fuzzy
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 "Zbiór danych jest zbyt duży, by przeprowadzić jednowymiarowy test kontrolny. "
 "Spróbuj wybrać opcję „Użyj modelu wielowymiarowego do testów kontrolnych” "
@@ -406,10 +407,6 @@ msgstr ""
 "Nie można wykonać testów sferyczności, ponieważ istnieją tylko dwa poziomy "
 "czynnika PP lub macierz SSP jest singularna."
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr ""
-"Niezgrupowany składnik błędu jest dozwolony tylko w planach równoważonych."
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -443,9 +440,6 @@ msgstr "stronniczość"
 msgid "Cohen's d"
 msgstr "d Cohena"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr "Obliczenie d Cohena na podstawie średniego błędu."
-
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% PU dla d Cohena"
 
@@ -454,12 +448,6 @@ msgstr "p<sub>scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>sidak</sub>"
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
-msgstr ""
-"Nierówne wariancje są dostępne tylko dla efektów głównych czynników "
-"wewnątrzobiektowych"
 
 msgid "Marginal Means -"
 msgstr "Średnie brzegowe -"
@@ -1116,3 +1104,17 @@ msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Model zerowy (w tym %s i losowe nachylenia)"
 msgstr[1] "Modele zerowe (w tym %s i losowe nachylenia)"
 msgstr[2] "Modeli zerowych (w tym %s i losowe nachylenia)"
+
+#~ msgid "Unpooled error term only allowed in balanced designs."
+#~ msgstr ""
+#~ "Niezgrupowany składnik błędu jest dozwolony tylko w planach równoważonych."
+
+#~ msgid "Computation of Cohen's d based on pooled error."
+#~ msgstr "Obliczenie d Cohena na podstawie średniego błędu."
+
+#~ msgid ""
+#~ "Unequal variances only available for main effects of within subjects "
+#~ "factors"
+#~ msgstr ""
+#~ "Nierówne wariancje są dostępne tylko dla efektów głównych czynników "
+#~ "wewnątrzobiektowych"

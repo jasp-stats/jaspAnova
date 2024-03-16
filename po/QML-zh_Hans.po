@@ -156,10 +156,6 @@ msgid "Model terms"
 msgstr "模型的项(Terms)"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "使用多元模型进行后续检验"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "假设检验"
 
@@ -194,10 +190,6 @@ msgstr "事后检验(Post Hoc)"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "效应量"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "RM 因子的池(Pool)误差项"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -906,10 +898,6 @@ msgid "Contrasts"
 msgstr "对比"
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "假设方差齐（相等）"
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "置信区间"
 
@@ -1160,3 +1148,15 @@ msgstr "不限制"
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr "显示最优的"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

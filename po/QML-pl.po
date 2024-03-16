@@ -149,10 +149,6 @@ msgid "Model terms"
 msgstr "Składniki modelu"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "Użyj modelu wielowymiarowego do testów kontrolnych"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Weryfikacja założeń"
 
@@ -187,10 +183,6 @@ msgstr "Testy post-hoc"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "Wielkość efektu"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "Błąd puli dla czynników RM"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -917,10 +909,6 @@ msgid "Contrasts"
 msgstr "Kontrasty"
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "Załóż równość wariancji"
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Przedziały ufności"
 
@@ -1168,3 +1156,15 @@ msgstr "Nie"
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr "Tak, pokaż najlepsze"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

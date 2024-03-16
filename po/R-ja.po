@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -321,8 +321,8 @@ msgid ""
 msgstr "参加者間要因とは異なる反復測定要因の名前を選択してください。"
 
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 
 msgid ""
@@ -396,9 +396,6 @@ msgstr ""
 "反復測定因子が２水準だけか，SSP行列が特異であるため，球面性の検定は実行できま"
 "せん。"
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -431,9 +428,6 @@ msgstr "バイアス"
 msgid "Cohen's d"
 msgstr "コーエン(Cohen)のd"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr "プールされた誤差に基づくCohen's dの計算."
-
 msgid "%s%% CI for Cohen's d"
 msgstr "Cohen's d における %s%% CI"
 
@@ -442,10 +436,6 @@ msgstr "p <sub>シェッフェ</sub>"
 
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>シダック</sub>"
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
-msgstr "参加者内要因の主効果に対してのみ利用可能な不等分散"
 
 msgid "Marginal Means -"
 msgstr "周辺平均 -"
@@ -1079,6 +1069,17 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "帰無モデル (%s含む)"
+
+#~ msgid "Unpooled error term only allowed in balanced designs."
+#~ msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"
+
+#~ msgid "Computation of Cohen's d based on pooled error."
+#~ msgstr "プールされた誤差に基づくCohen's dの計算."
+
+#~ msgid ""
+#~ "Unequal variances only available for main effects of within subjects "
+#~ "factors"
+#~ msgstr "参加者内要因の主効果に対してのみ利用可能な不等分散"
 
 #~ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 #~ msgstr ""

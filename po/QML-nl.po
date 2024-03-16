@@ -149,10 +149,6 @@ msgid "Model terms"
 msgstr "Modeltermen"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "Gebruik multivariate model voor opvolgende toetsen"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Verificatie van aannames"
 
@@ -187,10 +183,6 @@ msgstr "Post-hoc toetsen"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "Effectgrootte"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "Samengevoegde foutterm voor BP-factoren"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -916,10 +908,6 @@ msgid "Contrasts"
 msgstr "Contrasten"
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "Veronderstel gelijke varianties"
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Betrouwbaarheidsintervallen"
 
@@ -1167,3 +1155,15 @@ msgstr "Nee"
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr "Ja, beste"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

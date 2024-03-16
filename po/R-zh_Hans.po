@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -308,9 +308,10 @@ msgid ""
 "between subjects factors."
 msgstr "请为 RM 因子选择一个与组间因子不同的名称。"
 
+#, fuzzy
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 "数据集太大，无法进行单变量后续检验。尝试在“模型”选项卡中选择“使用多元模型进行"
 "跟踪检验”。"
@@ -381,9 +382,6 @@ msgid ""
 msgstr ""
 "无法执行球形检验，因为 RM 因子只有两个水平，或者因为 SSP 矩阵是畸形的。"
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr "未合并误差项仅在平衡设计中允许。"
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -414,9 +412,6 @@ msgstr "偏差"
 msgid "Cohen's d"
 msgstr "Cohen's d"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr "基于合并误差计算 Cohen's d ."
-
 msgid "%s%% CI for Cohen's d"
 msgstr "Cohen's d 的 %s%% 置信区间"
 
@@ -425,10 +420,6 @@ msgstr "p<sub>scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>sidak</sub>"
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
-msgstr "不等方差仅适用于组内(被试内)因子的主效应"
 
 msgid "Marginal Means -"
 msgstr "边际均值 -"
@@ -1032,6 +1023,17 @@ msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造�
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "Unpooled error term only allowed in balanced designs."
+#~ msgstr "未合并误差项仅在平衡设计中允许。"
+
+#~ msgid "Computation of Cohen's d based on pooled error."
+#~ msgstr "基于合并误差计算 Cohen's d ."
+
+#~ msgid ""
+#~ "Unequal variances only available for main effects of within subjects "
+#~ "factors"
+#~ msgstr "不等方差仅适用于组内(被试内)因子的主效应"
 
 #~ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 #~ msgstr "!all(names(isNuisance) %in% colnames(posterior)) 不正确。"

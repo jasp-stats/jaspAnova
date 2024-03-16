@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2023-03-26 15:37+0000\n"
 "Last-Translator: Катя <katakxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -346,8 +346,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 "Данные слишком объемные для использования последующего одномерного критерия. "
 "Попробуйте использовать многомерную модель для последующих критериев в "
@@ -424,9 +424,6 @@ msgid ""
 "factor, or because the SSP matrix is singular."
 msgstr ""
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr ""
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -456,9 +453,6 @@ msgstr ""
 msgid "Cohen's d"
 msgstr "d Коэна"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr ""
-
 #, fuzzy
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% ДИ для d Коэна"
@@ -467,10 +461,6 @@ msgid "p<sub>scheffe</sub>"
 msgstr ""
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
 msgstr ""
 
 msgid "Marginal Means -"

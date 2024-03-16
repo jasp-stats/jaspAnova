@@ -156,10 +156,6 @@ msgid "Model terms"
 msgstr "模型設定"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "以多變數模型進行後續分析"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "檢查統計技術假設"
 
@@ -194,10 +190,6 @@ msgstr "事後比較檢定"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "效果量"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "合併RM因子的誤差項"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -646,10 +638,6 @@ msgstr "殘差Q-Q圖"
 msgctxt "Contrasts|"
 msgid "Contrasts"
 msgstr "比較"
-
-msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "假設變異數相等"
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
@@ -1155,3 +1143,15 @@ msgstr "否"
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr "是，呈現最佳組合"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

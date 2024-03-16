@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-01-20 02:40\n"
+"POT-Creation-Date: 2024-03-16 02:37\n"
 "PO-Revision-Date: 2024-02-05 17:01+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -330,9 +330,10 @@ msgstr ""
 "Bitte wähle einen Namen für die MW-Faktoren, der sich von denen der "
 "Zwischensubjektfaktoren unterscheidet."
 
+#, fuzzy
 msgid ""
-"Data set too big for univariate follow-up test. Try selecting \"Use "
-"multivariate model for follow-up tests\" in the Model tab."
+"Data set too big for univariate follow-up test. Try unselecting \"Pool error "
+"term for follow-up tests\" in the Model tab."
 msgstr ""
 "Der Datensatz ist zu groß für univariate Folgetests. Versuchen Sie, auf der "
 "Registerkarte Modell die Option \"Multivariates Modell für Folgetests "
@@ -412,9 +413,6 @@ msgstr ""
 "Sphärizitätstests können nicht durchgeführt werden, weil es nur zwei Stufen "
 "des MW-Faktors gibt oder weil die SSP-Matrix singulär ist."
 
-msgid "Unpooled error term only allowed in balanced designs."
-msgstr "Ungepoolter Fehlerterm nur für balancierte Designs erlaubt."
-
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
@@ -447,9 +445,6 @@ msgstr "Bias"
 msgid "Cohen's d"
 msgstr "Cohens d"
 
-msgid "Computation of Cohen's d based on pooled error."
-msgstr "Berechnung von Cohens d basiert auf gepooltem Fehler."
-
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% KI für Cohens d"
 
@@ -458,11 +453,6 @@ msgstr "p<sub>Scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>Sidak</sub>"
-
-msgid ""
-"Unequal variances only available for main effects of within subjects factors"
-msgstr ""
-"Ungleiche Varianzen nur für Haupteffekte oder Innersubjektfaktoren verfügbar"
 
 msgid "Marginal Means -"
 msgstr "Randmittelwerte -"
@@ -1123,6 +1113,19 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nullmodell (inkl. %s und zufällige Steigungen)"
 msgstr[1] "Nullmodell (inkl. %s, und zufällige Steigungen)"
+
+#~ msgid "Unpooled error term only allowed in balanced designs."
+#~ msgstr "Ungepoolter Fehlerterm nur für balancierte Designs erlaubt."
+
+#~ msgid "Computation of Cohen's d based on pooled error."
+#~ msgstr "Berechnung von Cohens d basiert auf gepooltem Fehler."
+
+#~ msgid ""
+#~ "Unequal variances only available for main effects of within subjects "
+#~ "factors"
+#~ msgstr ""
+#~ "Ungleiche Varianzen nur für Haupteffekte oder Innersubjektfaktoren "
+#~ "verfügbar"
 
 #~ msgid "!all(names(isNuisance) %in% colnames(posterior)) was not true."
 #~ msgstr "!all(names(isNuisance) %in% colnames(posterior)) war nicht wahr."

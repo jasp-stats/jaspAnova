@@ -149,10 +149,6 @@ msgid "Model terms"
 msgstr "Ketentuan model"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Use multivariate model for follow-up tests"
-msgstr "Gunakan model multivariat untuk uji tindak lanjut"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
 msgstr "Pemeriksaan Asumsi"
 
@@ -187,10 +183,6 @@ msgstr "Uji Pos Hoc"
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
 msgstr "Besaran efek"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for RM factors"
-msgstr "Kumpulan galat untuk faktor pengukuran berulang"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
@@ -898,10 +890,6 @@ msgid "Contrasts"
 msgstr "Kontras"
 
 msgctxt "Contrasts|"
-msgid "Assume equal variances"
-msgstr "Asumsikan varians setara"
-
-msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr "Interval kepercayaan"
 
@@ -1156,3 +1144,15 @@ msgstr "Tidak"
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr "Ya, tunjukkan yang terbaik"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""

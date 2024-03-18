@@ -8,7 +8,6 @@ context("Repeated Measures ANOVA")
 opts <- options()
 on.exit(options(opts))
 options(list(
-  jaspLegacyRngKind = FALSE,
   afex.type = 3,
   afex.set_data_arg = FALSE,
   afex.check_contrasts = TRUE,

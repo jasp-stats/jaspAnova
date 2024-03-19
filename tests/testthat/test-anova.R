@@ -1,5 +1,7 @@
 context("ANOVA")
 
+options(list(jaspLegacyRngKind = FALSE))
+
 # does not test
 # - if analysis handles too few observations
 
@@ -375,7 +377,7 @@ test_that("Simple Main Effects table results match", {
   options$simpleMainEffectModeratorFactorTwo <- ""
   options$homogeneityTests <- TRUE
   options$vovkSellke <- TRUE
-  results <- jaspTools::runAnalysis("Anova", "debug.csv", options)
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results$results$anovaContainer$collection$anovaContainer_simpleEffectsContainer$collection$anovaContainer_simpleEffectsContainer_simpleEffectsTable$data
   jaspTools::expect_equal_tables(table, list(1, 0.350864897951646, 1, 0.350864897951646, 0.310783783968887,
                                   0.578524772558188, "TRUE", 2, 2.72259751707838, 1, 2.72259751707838,
@@ -398,12 +400,13 @@ test_that("Nonparametric table results match", {
   options$kruskalEffectSizeEstimates <- TRUE
   options$kruskalEpsilon <- TRUE
   options$kruskalEta <- TRUE
+  set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   jaspTools::expect_equal_tables(table,
-                                 list(4, 0.034303030303031, 0, "facFive", 0.0136223440813413, 0, 0.493866894607854,
+                                 list(4, 0.034303030303031, 0, "facFive", 0.0146000066735164, 0, 0.493866894607854,
                                       3.39600000000007, 1, 1, 1, 0.0103733573357337, 0.000275126288139123,
-                                      "facExperim", 0.000108823080490378, 0, 0.310873187457312, 1.02696237623763,
+                                      "facExperim", 0.000197690969408362, 0, 0.310873187457312, 1.02696237623763,
                                       1, 1)
   )
 })
@@ -631,27 +634,27 @@ test_that("Field - Chapter 7 results match", {
   # removed both post hoc table and contrast table because bootstrap results are now in same table
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Alcohol$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.392000159227314, -0.00376914898826786, 0.230950085511107,
-                                      0, 1, -0.769579725829724, -1.48733254329573, -1.8129965586672,
-                                      0.177726007657148, 0.0548973391001529, "FALSE", 0.435378856593833,
-                                      0.0142934574412505, 0.00359956767679779, 0, 2, -1.43536324786325,
-                                      -2.31465226049576, -3.47491007077881, 0.00337043014651417, -0.602581004497449,
-                                      "FALSE", 0.407611902363181, 0.0180626064295184, 0.311931949521,
-                                      1, 2, -0.690674603174603, -1.43846891737073, -1.66191351211161,
-                                      0.231712504393661, 0.214248742598683))
+                                 list("TRUE", 0.401687373925304, 0.0354232559445596, 0.230950085511108,
+                                      0, 1, -0.727777777777779, -1.5653877474834, -1.8129965586672,
+                                      0.177726007657148, -0.0098350625646543, "FALSE", 0.413720056350643,
+                                      0.00431583631008547, 0.00359956767679781, 0, 2, -1.44285714285714,
+                                      -2.23665781102074, -3.47491007077881, 0.00337043014651439, -0.588351113167294,
+                                      "FALSE", 0.391179032341453, -0.0326449300699304, 0.311931949521002,
+                                      1, 2, -0.71172161172161, -1.42142509792647, -1.6619135121116,
+                                      0.231712504393662, 0.0972179707548742))
 
 
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
-                      list("TRUE", 0, 0, 0.609481794897967, -0.000576109837874483, 2.18310354552326,
-                           3.5, 4.69446190218147, "FALSE", 0, 1, 0.319660323889613, -0.0167382728382766,
-                           5.87621516465174, 6.33333333333334, 7.1687561775422, "TRUE",
-                           1, 0, 0.449084420277268, -0.0233288832082961, 4.0377465550776,
-                           4.83974358974359, 6, "FALSE", 1, 1, 0.320922728447883, -0.0138867382617391,
-                           5.8674346198034, 6.5, 7.14559278996064, "TRUE", 2, 0, 0.388994937578588,
-                           -0.0390126855170978, 6, 6.57142857142858, 7.5, "FALSE", 2, 1,
-                           0.395829403830131, 0.0118089133089123, 5.4, 6.14285714285714,
-                           7))
+                                 list("TRUE", 0, 0, 0.55886142597889, -0.0173594211344223, 2.33649540247486,
+                                      3.50000000000001, 4.5, "FALSE", 0, 1, 0.293712126411636, 0.00456074383132865,
+                                      5.85714285714286, 6.36363636363637, 7.17576464814294, "TRUE",
+                                      1, 0, 0.44132880794487, -0.00420317182817254, 4, 4.85714285714286,
+                                      5.88101842296747, "FALSE", 1, 1, 0.3209386765531, 0.0190154123654116,
+                                      6, 6.5, 7.15251463011962, "TRUE", 2, 0, 0.378239614144453, 0.0297937199740801,
+                                      5.875, 6.63636363636363, 7.40000000000001, "FALSE", 2, 1, 0.394464775253101,
+                                      0.0246186868686884, 5.375, 6.14285714285715, 6.92978924908256
+                                 ))
 
 })
 

@@ -8,6 +8,7 @@ context("Repeated Measures ANOVA")
 opts <- options()
 on.exit(options(opts))
 options(list(
+  jaspLegacyRngKind = FALSE,
   afex.type = 3,
   afex.set_data_arg = FALSE,
   afex.check_contrasts = TRUE,
@@ -480,20 +481,19 @@ test_that("Field - Chapter 8 marginal means match", {
 
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
 
-  refTable <- list("TRUE", "Beer", "Positive", 2.86790158635509, -0.0460999999999991,
-                   15.1685266947136, 21.175, 26.25, "FALSE", "Wine", "Positive",
-                   1.41905772950904, -0.0319000000000109, 22.9361390320419, 25.175,
-                   28.6430839948096, "FALSE", "Water", "Positive", 1.58643387977874,
-                   -0.0897000000000041, 14.75, 17.25, 21.6153338048902, "TRUE",
-                   "Beer", "Neutral", 2.34101761568637, 0.111499999999999, 4.7,
-                   10.15, 14.65, "FALSE", "Wine", "Neutral", 1.3919678368834, -0.0413000000000014,
-                   8.8, 11.625, 14.343210748311, "FALSE", "Water", "Neutral", 1.52816109840729,
-                   -0.0160999999999998, -1.22882903409489, 2.35, 4.97026637231203,
-                   "TRUE", "Beer", "Negative", 3.86263448961985, 0.156299999999999,
-                   -3.10608796464486, 4.7, 11.6087735468859, "FALSE", "Wine", "Negative",
-                   1.35802704867387, 0.0551000000000013, -14.6, -12, -9.23433523639166,
-                   "FALSE", "Water", "Negative", 1.4412391684524, 0.0619999999999994,
-                   -12.1205808938415, -9.15, -6.41577672130789)
+  refTable <-list("TRUE", "Beer", "Positive", 2.74919025425819, 0.0852000000000004,
+                  15.5681220692832, 21.15, 26.8, "FALSE", "Wine", "Positive",
+                  1.40443213051341, 0.0904999999999916, 22.35, 25.4, 28.2981621076002,
+                  "FALSE", "Water", "Positive", 1.4815937195803, 0.072699999999994,
+                  14.65, 17.5, 20.5, "TRUE", "Beer", "Neutral", 2.25181217603785,
+                  0.101800000000001, 5.65, 10.025, 14.4, "FALSE", "Wine", "Neutral",
+                  1.34478645562128, 0.0626999999999978, 9.27473930703558, 11.65,
+                  14.3279565483134, "FALSE", "Water", "Neutral", 1.48031172582373,
+                  0.0772000000000004, -1.41044222785047, 2.475, 4.7, "TRUE", "Beer",
+                  "Negative", 3.6137360122084, -0.0461000000000009, -2.46540565371265,
+                  4.3, 12.108259520673, "FALSE", "Wine", "Negative", 1.33705700809119,
+                  -0.081999999999999, -14.6, -12.1, -9.15, "FALSE", "Water", "Negative",
+                  1.45036204449794, -0.1052, -11.5967397884745, -9.35, -6.01115276404678)
 
   jaspTools::expect_equal_tables(table, refTable)
 })

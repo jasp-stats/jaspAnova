@@ -1786,15 +1786,15 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   kruskalTable$addColumnInfo(name = "p",         title=gettext("p"),         type = "pvalue")
 
   if (options[["kruskalEpsilon"]] && options[["kruskalEffectSizeEstimates"]]) {
-    kruskalTable$addColumnInfo(name = "epsiSqr", title=gettext("Rank \u03B5\u00B2"), type = "number")
-    thisOverTitle <- gettextf("%s%% CI for Rank \u03B5\u00B2", options$kruskalCiLevel * 100)
+    kruskalTable$addColumnInfo(name = "epsiSqr", title=gettextf("Rank %s", "\u03B5\u00B2"), type = "number")
+    thisOverTitle <- gettextf("%i%% CI for Rank %s", options$kruskalCiLevel * 100, "\u03B5\u00B2")
     kruskalTable$addColumnInfo(name="lowerEpsiCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
     kruskalTable$addColumnInfo(name="upperEpsiCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
   }
 
   if (options[["kruskalEta"]] && options[["kruskalEffectSizeEstimates"]]) {
-    kruskalTable$addColumnInfo(name = "etaSqr", title=gettext("Rank \u03B7\u00B2"), type = "number")
-    thisOverTitle <- gettextf("%s%% CI for Rank \u03B7\u00B2", options$kruskalCiLevel * 100)
+    kruskalTable$addColumnInfo(name = "etaSqr", title=gettextf("Rank %s", "\u03B7\u00B2"), type = "number")
+    thisOverTitle <- gettextf("%i%% CI for Rank %s", options$kruskalCiLevel * 100, "\u03B7\u00B2")
     kruskalTable$addColumnInfo(name="lowerEtaCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
     kruskalTable$addColumnInfo(name="upperEtaCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
   }

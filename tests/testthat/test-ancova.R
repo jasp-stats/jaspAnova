@@ -1,7 +1,5 @@
 context("ANCOVA")
 
-options(list(jaspLegacyRngKind = FALSE))
-
 # does not test
 # - descriptives table/plot & Q-Q plot & raincloud plot (uses same code as ANOVA)
 # - if analysis handles too few observations
@@ -260,7 +258,7 @@ test_that("Simple Main Effects table results match", {
   options$homogeneityTests <- TRUE
   options$sumOfSquares <- "type1"
   options$vovkSellke <- TRUE
-  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+  results <- jaspTools::runAnalysis("Ancova", "debug.csv", options)
   # table <- results[["results"]][["simpleEffects"]][["data"]]
   table <- results$results$anovaContainer$collection$anovaContainer_simpleEffectsContainer$collection$anovaContainer_simpleEffectsContainer_simpleEffectsTable$data
   jaspTools::expect_equal_tables(table, list(1, 0.350864897951646, 1, 0.350864897951646, 0.307765411627339,
@@ -335,11 +333,11 @@ test_that("Field - Chapter 6 results match", {
   # marginal means bootstrapping
   table <- results$results$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 1, 0.426855861621427, 0.0305965379994717, 2.20737613138352,
-                                      2.93796801475495, 3.86784316396308, "FALSE", 2, 0.366131381770835,
-                                      0.008481830796641, 4.09294861930627, 4.7201477136961, 5.51162667639513,
-                                      "FALSE", 3, 0.656257507075414, -0.0205655028518459, 4.03470940036646,
-                                      5.09904223402137, 6.73226505984082))
+                      list(1, 2.89513297007949, 0.00291277082733199, 0.454016672951108, 2.24194236484924,
+                           4.40152013882763, "TRUE", 2, 4.7532347036809, 0.0469177160983509,
+                           0.374655789875328, 3.87665072858526, 5.46307279640562, "FALSE",
+                           3, 5.13975121640456, 0.0363834639636114, 0.660396429197245,
+                           4.00063237957797, 6.57588583114463, "FALSE"))
 
   # contrast
   table <- results$results$anovaContainer$collection$anovaContainer_contrastContainer$collection[[1]]$collection[[1]]$data
@@ -355,12 +353,13 @@ test_that("Field - Chapter 6 results match", {
   # The rest of the results matched up
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.49127400598727, 0.0105279527676434, 1, 2, -1.80147176733557,
-                                      -2.76337103148091, 0.129983128349044, -2.1023947223315, -0.704338322869679,
-                                      "FALSE", 0.696840055573721, 0.0521720094416191, 1, 3, -2.1343064466314,
-                                      -3.9578055154796, 0.0302155022603601, -2.77136409916095, -1.07367746708582,
-                                      "FALSE", 0.67465399495242, 0.041644056673976, 2, 3, -0.354632556469433,
-                                      -2.03040298924732, 0.932499470707816, -0.541407321622226, 0.736134885562446))
+                                 list("TRUE", 0.538336190074754, -0.0194100366350722, 1, 2, -1.78324124481148,
+                                      -2.83630538964887, 0.129983128349044, -2.1023947223315, -0.858078871455782,
+                                      "FALSE", 0.763324066789791, -0.0155779657803694, 1, 3, -2.18556663740395,
+                                      -3.97107607430337, 0.0302155022603601, -2.77136409916095, -0.844312084720958,
+                                      "FALSE", 0.775278163963213, 0.00383207085470289, 2, 3, -0.410252544853603,
+                                      -2.12122714048355, 0.932499470707816, -0.541407321622228, 0.972524781215359
+                                 ))
 
   # interaction with covariate
   options <- initClassicalAnovaOptions("Ancova")

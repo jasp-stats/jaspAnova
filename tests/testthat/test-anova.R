@@ -398,6 +398,7 @@ test_that("Nonparametric table results match", {
   options$kruskalEffectSizeEstimates <- TRUE
   options$kruskalEpsilon <- TRUE
   options$kruskalEta <- TRUE
+  set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   jaspTools::expect_equal_tables(table,

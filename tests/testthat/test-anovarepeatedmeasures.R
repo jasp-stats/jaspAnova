@@ -22,7 +22,7 @@ options(list(
   afex.include_aov = TRUE
 ))
 
-initOpts <- function(){
+initOptsAnovaRepeatedMeasures <- function(){
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 
   options$repeatedMeasuresFactors <- list(
@@ -43,7 +43,7 @@ initOpts <- function(){
 }
 
 test_that("Within subjects table results match", {
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$sphericityCorrectionNone <- TRUE
   options$sphericityCorrectionHuynhFeldt <- TRUE
@@ -89,7 +89,7 @@ test_that("Within subjects table results match", {
 })
 
 test_that("Sphericity Assumptions table match (Field Chapter 8)", {
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$sphericityTests <- TRUE
 
@@ -110,7 +110,7 @@ test_that("Sphericity Assumptions table match (Field Chapter 8)", {
 })
 
 test_that("Post-hoc tests match (Field Chapter 8)", {
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$postHocTerms <- list(list(components = "Drink"),
                                         list(components = "Imagery"),
@@ -274,7 +274,7 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
 })
 
 test_that("Post-hoc tests match (pooled errors)", {
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$postHocTerms <- list(list(components = "Drink"),
                                list(components = "Imagery"),
@@ -441,7 +441,7 @@ test_that("Post-hoc tests match (pooled errors)", {
 
 
 test_that("Descriptives Match", {
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$descriptives <- TRUE
 
@@ -469,31 +469,32 @@ test_that("Field - Chapter 8 marginal means match", {
   # Field does not use bootstrapped marginal means, so these results are not in the book
   # including the results here to have a unit test for bootstrapped means
   # unaffected by whether we use the pooled error
-  options <- initOpts()
+  options <- initOptsAnovaRepeatedMeasures()
 
   options$marginalMeanTerms <- options$withinModelTerms[3]
   options$marginalMeanBootstrap <- TRUE
   options$marginalMeanBootstrapSamples <- 500
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = "AnovaRepeatedMeasures.csv",
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset = testthat::test_path("AnovaRepeatedMeasures.csv"),
                             options = options)
 
   table <- results$results$rmAnovaContainer$collection$rmAnovaContainer_marginalMeansContainer$collection[[1]]$data
 
   refTable <- list("TRUE", "Beer", "Positive", 2.86790158635509, -0.0460999999999991,
                    15.1685266947136, 21.175, 26.25, "FALSE", "Wine", "Positive",
-                   1.41905772950904, -0.0319000000000109, 22.9361390320419, 25.175,
-                   28.6430839948096, "FALSE", "Water", "Positive", 1.58643387977874,
+                   1.41905772950904, -0.0319000000000074, 22.8465962270579, 25.175,
+                   28.5280824858423, "FALSE", "Water", "Positive", 1.58643387977874,
                    -0.0897000000000041, 14.75, 17.25, 21.6153338048902, "TRUE",
-                   "Beer", "Neutral", 2.34101761568637, 0.111499999999999, 4.7,
-                   10.15, 14.65, "FALSE", "Wine", "Neutral", 1.3919678368834, -0.0413000000000014,
-                   8.8, 11.625, 14.343210748311, "FALSE", "Water", "Neutral", 1.52816109840729,
-                   -0.0160999999999998, -1.22882903409489, 2.35, 4.97026637231203,
-                   "TRUE", "Beer", "Negative", 3.86263448961985, 0.156299999999999,
-                   -3.10608796464486, 4.7, 11.6087735468859, "FALSE", "Wine", "Negative",
-                   1.35802704867387, 0.0551000000000013, -14.6, -12, -9.23433523639166,
-                   "FALSE", "Water", "Negative", 1.4412391684524, 0.0619999999999994,
-                   -12.1205808938415, -9.15, -6.41577672130789)
+                   "Beer", "Neutral", 2.34101761568637, 0.111499999999999, 4.74075144739576,
+                   10.15, 14.65, "FALSE", "Wine", "Neutral", 1.39196783688339,
+                   -0.0413000000000014, 8.8, 11.625, 14.3296850141834, "FALSE",
+                   "Water", "Neutral", 1.52816109840729, -0.0160999999999993, -1.27414552469888,
+                   2.35, 4.91555056576276, "TRUE", "Beer", "Negative", 3.86263448961985,
+                   0.156299999999999, -3.10608796464486, 4.7, 11.6087735468859,
+                   "FALSE", "Wine", "Negative", 1.35802704867387, 0.0550999999999995,
+                   -14.5990420776466, -12, -9.20288430671126, "FALSE", "Water",
+                   "Negative", 1.4412391684524, 0.0619999999999976, -12.0849185109411,
+                   -9.15, -6.4)
 
   jaspTools::expect_equal_tables(table, refTable)
 })
@@ -517,7 +518,7 @@ test_that("Analysis handles errors", {
 
 
 # Mixed Effects
-initOpts <- function(){
+initOptsMixed <- function(){
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
   options$multivariateModelFollowup <- FALSE
   options$repeatedMeasuresFactors <- list(
@@ -542,7 +543,7 @@ initOpts <- function(){
 }
 
 test_that("Between Subjects table match", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
@@ -557,7 +558,7 @@ test_that("Between Subjects table match", {
 })
 
 test_that("Homogeneity tests correct", {
-  options <- initOpts()
+  options <- initOptsMixed()
 
   options$homogeneityTests <- TRUE
 
@@ -581,7 +582,7 @@ test_that("Homogeneity tests correct", {
 
 
 test_that("Contrast table match", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$poolErrorTermFollowup <- TRUE
 
   options$contrasts <- list(list(contrast = "repeated", variable = "Looks"),
@@ -607,7 +608,7 @@ test_that("Contrast table match", {
 })
 
 test_that("Descriptives Plots match", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
   options$descriptivePlotHorizontalAxis <- "Charisma"
@@ -647,7 +648,7 @@ test_that("Descriptives Plots match", {
 })
 
 test_that("Raincloud Plots match", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
   options$rainCloudHorizontalAxis <- "Charisma"
@@ -662,7 +663,7 @@ test_that("Raincloud Plots match", {
 })
 
 test_that("Raincloud Plots match for between subjects", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
   options$rainCloudHorizontalAxis <- "gender"
@@ -710,7 +711,7 @@ test_that("Effect Size Calculation correct", {
 
 
 test_that("Simple Effects table match", {
-  options <- initOpts()
+  options <- initOptsMixed()
 
   options$betweenSubjectFactors <- "gender"
   options$betweenModelTerms <- list(
@@ -844,7 +845,7 @@ test_that("Field - Chapter 8 results match", {
 
 
 test_that("Field - Chapter 9 match",  {
-  options <- initOpts()
+  options <- initOptsMixed()
 
   options$sphericityTests <- TRUE
   options$poolErrorTermFollowup <- FALSE

@@ -129,6 +129,7 @@ ANOVA allows the user to analyze the difference between multiple group means.
 
 ### Nonparametrics 
 - Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the dependent variable, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
+- Estimates of effect size: request effect size estimates for the Kruskal-Wallis test: rank epsilon squared and rank eta squared, including their bootstrapped confidence interval. Based on the effectsize package. 
 
 ### Output 
 ---
@@ -215,6 +216,7 @@ Dunn's Post Hoc Comparisons:
 - z: The value for the z-statistic. 
 - W<sub>i</sub>: The mean ranking of the first level/group of the comparison. 
 - W<sub>j</sub>: The mean ranking of the second level/group of the comparison.  
+- Rank biserial correlation: The value for the rank biserial correlation, based on pairwise Mann-Whitney U tests. 
 - p: The p-value.  
 - p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
 - p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons. 
@@ -291,6 +293,7 @@ Independent variable on the x-axis and dependent variable on the y-axis. If othe
 - boot
 - car
 - emmeans
+- effectsize
 - ggplot2
 - lmtest
 - MASS

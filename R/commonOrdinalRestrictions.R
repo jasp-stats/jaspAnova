@@ -802,7 +802,7 @@
                      "restrictedBootstrapCiLevel")
   )
 
-  if(length(options[["restrictedMarginalMeanTerms"]]) == 0 || options[["restrictedMarginalMeanTerms"]] == "") {
+  if(length(options[["restrictedMarginalMeanTerms"]]) == 0 || all(options[["restrictedMarginalMeanTerms"]] == "")) {
     # settting an error on empty container does not show up, so we will make an empty table
     marginalMeansContainer[["table"]] <- createJaspTable(title = gettext("Marginal Means"))
     marginalMeansContainer$setError(gettext("No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."))

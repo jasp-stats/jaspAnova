@@ -83,6 +83,12 @@ Form
 		source: ["fixedFactors", "randomFactors"]
 	}
 
+	Common.BarPlots
+	{ 
+		source: ["fixedFactors", "randomFactors"] 
+		framework:	form.framework
+	}
+
 	Common.RainCloudPlots
 	{
 		source: ["fixedFactors", "randomFactors"]

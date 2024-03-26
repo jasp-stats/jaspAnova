@@ -148,6 +148,14 @@ Form
 		TextField	{ name: "descriptivePlotYAxisLabel";		label: qsTr("Label y-axis"); fieldWidth: 200	}
 		CheckBox	{ name: "descriptivePlotErrorBarPooled";	label: qsTr("Average across unused RM factors")	}
 	}
+	
+	Common.BarPlots
+	{
+		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		framework:	form.framework
+		TextField 	{ name: "labelYAxisTwo"; 			label: qsTr("Label y-axis"); 	fieldWidth: 200 }
+		CheckBox 	{ name: "usePooledStandErrorCITwo"; label: qsTr("Average across unused RM factors") }
+	}
 
 	Common.RainCloudPlots
 	{

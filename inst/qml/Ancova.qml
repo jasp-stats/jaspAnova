@@ -85,6 +85,12 @@ Form
 	{
 		source: ["fixedFactors", "randomFactors", "covariates"]
 	}
+
+	Common.BarPlots
+	{
+		source: ["fixedFactors", "randomFactors", "covariates"]
+		framework:	form.framework
+	}
 	
 	Common.RainCloudPlots
 	{

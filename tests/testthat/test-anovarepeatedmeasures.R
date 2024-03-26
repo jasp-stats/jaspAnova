@@ -648,7 +648,7 @@ test_that("Descriptives Plots match", {
 })
 
 test_that("Bar Plots match", {
-  options <- initOpts()
+  options <- initOptsMixed()
   options$sphericityCorrections <- TRUE
   options$sphericityTests <- TRUE
   options$barPlotHorizontalAxis <- "Charisma"

@@ -97,6 +97,13 @@ Form
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
 		TextField	{ name: "descriptivePlotYAxisLabel";	label: qsTr("Label y-axis"); fieldWidth: 200	}
 	}
+	
+	Common.BarPlots
+	{
+		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		framework:	form.framework
+		TextField{ name: 	"labelYAxisTwo"; label: 	qsTr("Label y-axis"); fieldWidth: 	200 }
+	}
 
 	Common.RainCloudPlots
 	{

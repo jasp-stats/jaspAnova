@@ -52,6 +52,12 @@ Form
 	Bayesian.PostHocTests { source: "fixedFactors" }
 
 	Bayesian.DescriptivesPlots { source: "fixedFactors" }
+	
+	Common.BarPlots 
+	{ 
+		source: ["fixedFactors", "randomFactors"]
+		framework:	form.framework
+	}
 
 	Common.RainCloudPlots { source: ["fixedFactors", "randomFactors"] }
 

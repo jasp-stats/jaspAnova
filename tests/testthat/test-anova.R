@@ -338,6 +338,32 @@ test_that("Descriptives plots match", {
   jaspTools::expect_equal_plots(testPlot, "descriptives-se")
 })
 
+test_that("Bar plots match", {
+  options <- initClassicalAnovaOptions("Anova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- c("facFive", "contBinom")
+  options$wlsWeights <- "facFifty"
+  options$modelTerms <- list(
+    list(components="facFive"),
+    list(components="contBinom"),
+    list(components=c("facFive", "contBinom"))
+  )
+  options$barPlotHorizontalAxis <- "contBinom"
+  options$barPlotSeparatePlots <- "facFive"
+  options$barPlotHorizontalZeroFix <- TRUE
+  options$barPlotErrorBars <- TRUE
+  options$barPlotCiInterval <- 0.90
+  options$barPlotErrorBarType <- "confidenceInterval"
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
+  testPlot <- results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(testPlot, "barPlot-ci")
+
+  options$barPlotErrorBarType <- "standardError"
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
+  testPlot <- results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(testPlot, "barPlot-se")
+})
+
 test_that("Raincloud plots match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"

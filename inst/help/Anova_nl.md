@@ -102,6 +102,17 @@ Met een ANOVA berekent men het verschil tussen meerdere groepsgemiddelden.
 		- Betrouwbaarheidsinterval: Dit is de standaardoptie. Met deze optie geven de foutmarges betrouwbaarheidsintervallen van het gemiddelde van elke combinatie van onafhankelijke variabelen weer. De standaardoptie is een interval van 95%. Dit kan tot het gewenste percentage worden aangepast.
         - Stanaardfout: Als u deze optie selecteert, geven de foutmarges de standaardfouten van de gemiddelden van elke combinatie van niveaus van de onafhankelijke variabele weer. 
 
+### Staafdiagram
+- Om een staafdiagram te maken, selecteert u de onafhankelijke variabele die op de horizontale as moet worden geplaatst. Als er meer dan één onafhankelijke variabele is, kunnen de variabelen in afzonderlijke plots worden weergegeven door de andere variabele te selecteren in het vakje Separate plots.
+  - Factoren: De onafhankelijke variabelen die in de analyse zijn opgenomen.
+  - Horizontale as: Selecteer de onafhankelijke variabele die op de horizontale as van de plot moet worden weergegeven.
+  - Aparte grafieken: Door een onafhankelijke variabele in dit vak te plaatsen, worden verschillende plots weergegeven die overeenkomen met de verschillende niveaus van de onafhankelijke variabele.
+- Weergeven:
+    - Foutbalken weergeven: Door deze optie te selecteren, zullen foutbalken in de plot worden weergegeven. De foutbalken kunnen betrouwbaarheidsintervallen of standaardfouten weergeven. 
+        - Betrouwbaarheidsinterval: Deze optie is standaard geselecteerd. Met deze optie geven de foutbalken betrouwbaarheidsintervallen weer van het gemiddelde van elke niveaucombinatie van de onafhankelijke variabelen. Standaard is het betrouwbaarheidsinterval ingesteld op 95%, maar dit kan worden gewijzigd in het gewenste percentage.  
+        - Standaardfout: Door deze optie te selecteren, zullen de foutbalken standaardfouten weergeven van het gemiddelde van elke niveaucombinatie van de onafhankelijke variabelen.
+    - Fix horizontale as op 0: Forceert de grafieken om de standaard x-as op y = 0 te tonen.
+
 ### Marginale Gemiddelden 
 - Marginale gemiddelden: Als u deze optie selecteert, wordt het gemiddelde van elk niveau van de onafhankelijke variabele gecorrigeerd voor alle andere variabelen in het model. 
 - Vergelijk marginale gemiddelden met 0: Als u deze optie selecteert, worden de gecorrigeerde gemiddelden vergeleken met 0 en worden de betrouwbaarheidsintervallen voor de gecorrigeerde gemiddelden berekend.  
@@ -267,6 +278,8 @@ Beschrijvende statisteken - afhankelijke variabele:
 #### Beschrijvende Statistieken Grafiek 
 Onafhankelijke variabele op de x-as en afhankelijke variabele op de y-as. Als er meerdere onafhankelijke variabelen mee worden genomen, worden deze weergegeven door verschillende lijnen of verschillende grafieken.
 
+#### Staafdiagram
+Onafhankelijke variabele op de x-as en afhankelijke variabele op de y-as. Als andere onafhankelijke variabelen zijn opgenomen, worden verschillende plots weergegeven die verschillende waarden van de andere onafhankelijke variabele vertegenwoordigen.
 
 ### Referenties 
 --- 

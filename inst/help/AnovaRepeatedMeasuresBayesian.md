@@ -76,6 +76,18 @@ To create a descriptive plot, place the independent variable on the horizontal a
 - Display:
     - Credible interval: When this option is selected, the plot will contain credible intervals. By default this is set to 95%. This can be changed into the desired percentage.
 
+### Bar Plots
+- To create a bar plot, place the independent variable on the horizontal axis. If there is more than one independent variable, the variables can be displayed in separate plots by dragging the other variable in the box `Separate plots`.
+  - Factors: The independent variables included in the analysis.
+  - Horizontal axis: Place here the independent variable that should be displayed on the horizontal axis of the plot.
+  - Separate plots: By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.
+  - Label y-axis: The label of the y-axis can be changed manually.
+- Display:
+    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can represent either credible intervals or standard errors. 
+        - Credible interval: This option is selected by default. When this option is selected, the plot will contain central credible intervals. By default this is set to 95%. This can be changed into the desired percentage.  
+        - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the independent variables.
+    - Fix horizontal axis to 0: Forces the graphs to show the default x-axis at y = 0.
+
 ### Additional Options
 - Prior: Here it is possible to set the prior distributions for the fixed and random effect sizes.
     - r scale fixed effects: The shape parameter of the prior distribution for the fixed effects. This is set to 0.5 by default, but this can be changed into the desired value. 
@@ -167,6 +179,7 @@ Descriptives - dependent variable:
 
 #### Descriptives Plots
 - Descriptives plot: Repeated measures factor on the x-axis and dependent variable on the y-axis. If other repeated measures factors are included, either different lines representing different values of the other repeated measures factor are displayed in the same plot, or different plots representing different values of the other repeated measures factor are displayed.
+- Bar plot: Repeated measures factor on the x-axis and dependent variable on the y-axis. If other repeated measures factors are included, different plots representing different values of the other repeated measures factor are displayed.
 
 ### References
 ---

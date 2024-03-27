@@ -78,6 +78,19 @@ Met de Bayesiaanse Herhaalde Metingen ANOVA kan men verschillen tussen gemiddeld
   - geloofwaardigheidsinterval: Als u deze optie selecteert bevat de grafiek geloofwaardigheidsintervallen. De standaardoptie is 95%. Dit kan tot behoeven worden aangepast.
 
 
+### Staafdiagram
+- Om een staafdiagram te maken, plaatst u de onafhankelijke variabele op de horizontale as. Als er meer dan één onafhankelijke variabele is, kunnen de variabelen in afzonderlijke plots worden weergegeven door de andere variabele in het vak `Separate plots` te slepen.
+  - Factoren: De onafhankelijke variabelen die in de analyse zijn opgenomen.
+  - Horizontale as: Plaats hier de onafhankelijke variabele die op de horizontale as van de plot moet worden weergegeven.
+  - Aparte grafieken: Door een onafhankelijke variabele in dit vak te plaatsen, worden verschillende plots weergegeven die overeenkomen met de verschillende niveaus van de onafhankelijke variabele.
+  - Label y-as: Het label van de y-as kan handmatig worden gewijzigd.
+- Weergeven:
+    - Foutbalken weergeven: Door deze optie te selecteren, worden er foutbalken in de plot weergegeven. De foutbalken kunnen zowel geloofwaardige intervallen als standaardfouten weergeven. 
+        - Geloofwaardigheidsinterval: Deze optie is standaard geselecteerd. Als deze optie is geselecteerd, bevat de grafiek centrale geloofwaardigheidsintervallen. Standaard is dit ingesteld op 95%. Dit kan worden veranderd in het gewenste percentage.  
+        - Standaardfout: Door deze optie te selecteren, zullen de foutbalken standaardfouten weergeven van het gemiddelde van elke niveaucombinatie van de onafhankelijke variabelen.
+    - Fix horizontale as op 0: Forceert de grafieken om de standaard x-as op y = 0 te tonen.
+
+
 ### Aanvullende opties 
 - Prior: Hier kunt u de prior verdelingen voor de aselecte en vaste effectgroottes bepalen.
 	- r schaal gefixeerde effecten: De vorm parameter van de prior verdeling voor gefixeerde effecten. De standaardwaarde is .5, maar u kunt dit naar behoeven aanpassen.
@@ -170,6 +183,9 @@ Afhankelijke variabele:
 #### Beschrijvende grafieken
 Beschrijvende grafiek: 
 - Onafhankelijke variabele op de x-as en afhankelijke variabele op de y-as. Als andere onafhankelijke variabelen worden meegenomen kunnen verschillende lijnen in dezelfde grafiek de andere onafhankelijke variabele weergeven, of kunnen er verschillende grafieken worden gemaakt voor verschillende onafhankelijke variabelen. 
+
+Staafdiagram:
+- Factor met herhaalde meting op de x-as en afhankelijke variabele op de y-as. Als andere herhaalde-maatregelenfactoren zijn opgenomen, worden verschillende plots weergegeven die verschillende waarden van de andere herhaalde-maatregelenfactor vertegenwoordigen.
 
 ### Referenties
 ---

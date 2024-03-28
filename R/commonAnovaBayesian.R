@@ -1476,9 +1476,10 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     jaspResults[["descriptivesContainer"]] <- descriptivesContainer
   }
 
-  .BANOVAdescriptivesTable(descriptivesContainer, dataset, options, errors, analysisType)
-  .BANOVAdescriptivesPlots(descriptivesContainer, dataset, options, errors, analysisType)
-  .BANOVArainCloudPlots   (descriptivesContainer, dataset, options, errors, analysisType)
+  .BANOVAdescriptivesTable   (descriptivesContainer, dataset, options, errors, analysisType)
+  .BANOVAdescriptivesPlots   (descriptivesContainer, dataset, options, errors, analysisType)
+  .BANOVAbarPlots            (descriptivesContainer, dataset, options, errors, analysisType)
+  .BANOVArainCloudPlots      (descriptivesContainer, dataset, options, errors, analysisType)
   return()
 
 }
@@ -1837,6 +1838,132 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return()
 }
 
+.BANOVAbarPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
+
+  if (length(options[["barPlotHorizontalAxis"]]) == 0L
+      || options[["barPlotHorizontalAxis"]] == ""
+      || !is.null(jaspContainer[["containerBarPlots"]]))
+    return()
+
+  barPlotContainer <- createJaspContainer(title = gettext("Bar plots"))
+  barPlotContainer$position <- 3
+  jaspContainer[["containerBarPlots"]] <- barPlotContainer
+
+  plotErrorBars <- options[["barPlotErrorBars"]]
+  errorBarType  <- options[["barPlotErrorBarType"]]
+  confInterval <- options[["barPlotCiInterval"]]
+  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
+                              "barPlotHorizontalZeroFix", "barPlotCiInterval", "usePooledStandErrorCITwo"))
+
+  usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
+  barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
+  barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
+
+  if (errors$noVariables) {
+    barPlotContainer[["dummyplot"]] <- createJaspPlot(title = gettext("Bar Plot"))
+    return()
+  }
+
+  groupVars <- c(options[["barPlotHorizontalAxis"]], options[["barPlotSeparatePlots"]])
+  groupVars <- groupVars[groupVars != ""]
+  if (analysisType == "RM-ANOVA") {
+    dependent <- .BANOVAdependentName
+    yLabel <- options[["labelYAxisTwo"]]
+  } else {
+    dependent<- options[["dependent"]]
+    yLabel <- options[["dependent"]]
+  }
+
+  betweenSubjectFactors <- groupVars[groupVars %in% options[["betweenSubjectFactors"]]]
+  repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options[["repeatedMeasuresFactors"]], `[[`, "name")]
+
+  if (length(repeatedMeasuresFactors) == 0) {
+    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+                                         conf.interval = confInterval, na.rm = TRUE, .drop = FALSE,
+                                         errorBarType = errorBarType, dependentName = .BANOVAdependentName,
+                                         subjectName = .BANOVAsubjectName)
+  } else {
+    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar = .BANOVAdependentName,
+                                               betweenvars = betweenSubjectFactors,
+                                               withinvars = repeatedMeasuresFactors,
+                                               idvar = .BANOVAsubjectName,
+                                               conf.interval = confInterval,
+                                               na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
+                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               subjectName = .BANOVAsubjectName)
+  }
+
+  colnames(summaryStat)[colnames(summaryStat) == dependent] <- "dependent"
+
+  if (options[["barPlotHorizontalAxis"]] != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options[["barPlotHorizontalAxis"]]] <- "barPlotHorizontalAxis"
+  }
+
+  if (options[["barPlotSeparatePlots"]] != "") {
+    colnames(summaryStat)[colnames(summaryStat) == options[["barPlotSeparatePlots"]]] <- "barPlotSeparatePlots"
+    subsetPlots <- levels(summaryStat[, "barPlotSeparatePlots"])
+    nPlots <- length(subsetPlots)
+  } else {
+    nPlots <- 1L
+  }
+
+  for (i in seq_len(nPlots)) {
+
+    title <- if (nPlots > 1L) {
+      paste0(options[["barPlotSeparatePlots"]], ": ", subsetPlots[i])
+    } else {
+      ""
+    }
+    barPlot <- createJaspPlot(title = title)
+    barPlotContainer[[title]] <- barPlot
+
+    barPlot$height <- 500
+    barPlot$width <- 500
+
+    if (options[["barPlotSeparatePlots"]] != "") {
+      summaryStatSubset <- subset(summaryStat, summaryStat[, "barPlotSeparatePlots"] == subsetPlots[i])
+    } else {
+      summaryStatSubset <- summaryStat
+    }
+
+    error <- NULL
+    if (plotErrorBars) {
+      pd <- ggplot2::position_dodge(.2)
+      error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
+                                      colour = "black", width = .2, position = pd)
+    }
+
+    values <- 1.1 * range(summaryStat[["dependent"]])
+    if (barPlotHorizontalZeroFix)
+      values <- c(0, values)
+
+    if (plotErrorBars) {
+      ci.pos <- c(summaryStat[,"dependent"],
+                  summaryStat[,"dependent"]-summaryStat[,"ci"],
+                  summaryStat[,"dependent"]+summaryStat[,"ci"],
+                  min(summaryStat[,"dependent"])*1.1,
+                  max(summaryStat[,"dependent"])*1.1)
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(values, ci.pos))
+    } else {
+      yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)
+    }
+    pd2 <- ggplot2::position_dodge2(preserve = "single")
+
+    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = barPlotHorizontalAxis, y = dependent, group = 1)) +
+      ggplot2::geom_hline(yintercept = 0, color = "#858585", size = 0.3) +
+      ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) +
+      error +
+      ggplot2::labs(y = yLabel, x = options[["barPlotHorizontalAxis"]]) +
+      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks), oob = scales::rescale_none) +
+      ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[, "barPlotHorizontalAxis"])) +
+      jaspGraphs::geom_rangeframe(sides = "l") +
+      jaspGraphs::themeJaspRaw()
+
+    barPlot$plotObject <- p
+  }
+  return()
+}
+
 .BANOVArainCloudPlots <- function(jaspContainer, dataset, options, errors, analysisType) {
 
   if (length(options[["rainCloudHorizontalAxis"]]) == 0L
@@ -1845,7 +1972,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     return()
 
   rainCloudPlotsContainer <- createJaspContainer(title = gettext("Raincloud plots"))
-  rainCloudPlotsContainer$position <- 3
+  rainCloudPlotsContainer$position <- 4
   jaspContainer[["containerRainCloudPlots"]] <- rainCloudPlotsContainer
   rainCloudPlotsContainer$dependOn(c("dependent", "rainCloudHorizontalAxis", "rainCloudSeparatePlots",
                                      "rainCloudYAxisLabel", "rainCloudHorizontalDisplay"))

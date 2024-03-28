@@ -1,7 +1,7 @@
 context("ANCOVA")
 
 # does not test
-# - descriptives table/plot & Q-Q plot & raincloud plot (uses same code as ANOVA)
+# - descriptives table/plot & Q-Q plot & bar plot & raincloud plot (uses same code as ANOVA)
 # - if analysis handles too few observations
 
 # Main results ----

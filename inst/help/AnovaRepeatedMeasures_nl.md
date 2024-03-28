@@ -88,6 +88,19 @@ Sleep een of meer namen van factoren naar de rechter kolom om een post-hoc test 
         - Standaardfout: Als u deze optie selecteert geven de foutmarges de standaardfouten van de gemiddelden van elke combinatie van niveaus van de onafhankelijke variabele weer. 
     - Gemiddelde over ongebruikte binnen-proefpersoon factoren: Wanneer er meerdere binnen-proefpersoon factoren in het model zijn maar u slechts één van de factoren plot wordt het gemiddelde over de ongebruikte binnen-proefpersoon factoren genomen. Als er bijvoorbeeld twee binnen-proefpersoon factoren zijn met twee niveaus, A(1&2) en B (1&2), en alleen A geselecteerd wordt voor de grafiek wordt het gemiddelde van B over de niveaus genomen. Dit betekent dat wanneer het gemiddelde van A1 wordt geplot, het eigenlijk het gemiddelde is van A1B1 en A1B2. Deze procedure wordt beschreven in Loftus & Masson (1994). Wanneer dit veld niet is aangevinkt worden de gemiddelden niet genomen en worden de kolommen A1B1 en A1B2 simpelweg geconcateneerd.
   
+### Staafdiagram
+- Om een staafdiagram te maken, selecteert u de factor met herhaalde metingen die op de horizontale as moet worden geplaatst. Als er meer dan één factor voor herhaalde metingen is, kunnen de variabelen in afzonderlijke plots worden weergegeven door de andere variabele te selecteren in het vakje Separate plots.
+  - Factoren: De factor voor herhaalde metingen die in de analyse is opgenomen.
+  - Horizontale as: Selecteer de factor voor herhaalde metingen die moet worden weergegeven op de horizontale as van de plot.
+  - Aparte grafieken: Door een repeated measures factor in dit vak te plaatsen, worden verschillende plots weergegeven die overeenkomen met de verschillende niveaus van de repeated measures factor.
+  - Label y-as: Het label van de y-as kan handmatig worden gewijzigd.
+- Weergeven:
+    - Foutbalken weergeven: Door deze optie te selecteren, worden er foutbalken in de plot weergegeven. De foutbalken kunnen betrouwbaarheidsintervallen of standaardfouten weergeven. Om nauwkeurige betrouwbaarheidsintervallen en standaardfouten te krijgen, worden de gegevens genormaliseerd door de gemiddelde prestatie van de desbetreffende deelnemer van elke observatie af te trekken, en dan de grote gemiddelde score bij elke observatie op te tellen. De varianties van de resulterende genormaliseerde waarden in elke conditie, en dus de grootte van de balken, hangen niet langer af van de deelnemerseffecten en zijn daarom een meer accurate weergave van de experimentele manipulatie. Zie Morey (2008) voor een grondige bespreking van deze procedure.
+        - Betrouwbaarheidsinterval: Deze optie is standaard geselecteerd. Met deze optie geven de foutbalken betrouwbaarheidsintervallen weer van het gemiddelde van elke niveaucombinatie van de herhaalde metingen. Standaard is het betrouwbaarheidsinterval ingesteld op 95%, maar dit kan worden gewijzigd in het gewenste percentage.
+        - Standaardfout: Door deze optie te selecteren, zullen de foutbalken standaardfouten weergeven van het gemiddelde van elke niveaucombinatie van de herhaalde metingen factor.
+    - Fix horizontale as op 0: Forceert de grafieken om de standaard x-as op y = 0 te tonen.
+    - Gemiddelde over ongebruikte RM-factoren: Wanneer er meerdere RM-factoren in het model zijn, maar slechts een deelverzameling van deze factoren wordt geplot, wordt het gemiddelde genomen over de ongebruikte RM-factoren. Bijvoorbeeld, wanneer er twee RM factoren met twee niveaus in het model zijn, A (1&2) en B (1&2), en alleen A is geselecteerd om te worden uitgezet, wordt het gemiddelde genomen van B over zijn niveaus. Dit betekent dat wanneer het gemiddelde van A1 wordt uitgezet, dit eigenlijk het gemiddelde is van A1B1 en A1B2). Deze procedure wordt besproken door Loftus & Masson (1994). Als het vakje niet is aangevinkt, worden de gemiddelden niet genomen en worden de kolommen A1B1 en A1B2 gewoon samengevoegd.
+  
 ### Marginal Gemiddelden
 - Marginale gemiddelden: Als u deze optie selecteert wordt het gemiddelde van elk niveau van de onafhankelijke variabele gecorrigeerd voor alle andere variabelen in het model. 
 - Van `...` bootstraps: Als u deze optie selecteert worden de ge-bootstrapte marginale gemiddelde berekend. De standaard hoeveelheid iteraties is 1000. U kunt dit aanpassen tot het gewenste aantal.
@@ -218,6 +231,9 @@ Conover's post-hoc Vergelijkingen:
 
 #### Beschrijvende grafieken 
 De onafhankelijke variabele op de x-as en afhankelijke variabele op de y-as. Als er meerdere binnen-proefpersoon factoren worden meegenomen in de analyse kunnen deze ofwel met verschillende lijnen, ofwel in verschillende grafieken worden weergegeven.
+
+#### Staafdiagram
+De onafhankelijke variabele / de factor met herhaalde metingen op de x-as en de afhankelijke variabele op de y-as. Als andere herhaalde-maatregelenfactoren zijn opgenomen, worden verschillende plots weergegeven die verschillende waarden van de andere herhaalde-maatregelenfactor vertegenwoordigen.
 
 ### Referenties
 ---

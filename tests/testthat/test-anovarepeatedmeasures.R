@@ -647,6 +647,46 @@ test_that("Descriptives Plots match", {
 
 })
 
+test_that("Bar Plots match", {
+  options <- initOptsMixed()
+  options$sphericityCorrections <- TRUE
+  options$sphericityTests <- TRUE
+  options$barPlotHorizontalAxis <- "Charisma"
+  options$barPlotSeparatePlots <- "gender"
+  options$barPlotHorizontalZeroFix <- TRUE
+  options$barPlotErrorBars <- TRUE
+  options$barPlotCiInterval <- 0.95
+
+  options$usePooledStandErrorCITwo <- FALSE
+  options$barPlotErrorBarType <- "confidenceInterval"
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv", options = options)
+  barPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA1Bar")
+
+  options$usePooledStandErrorCITwo <- TRUE
+  options$barPlotErrorBarType <- "confidenceInterval"
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv", options = options)
+  barPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA2Bar")
+
+  options$usePooledStandErrorCITwo <- FALSE
+  options$barPlotErrorBarType <- "standardError"
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv", options = options)
+  barPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA3Bar")
+
+  options$usePooledStandErrorCITwo <- TRUE
+  options$barPlotErrorBarType <- "standardError"
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv", options = options)
+  barPlot <-  results$state$figures[[1]]$obj
+  jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA4Bar")
+
+})
+
 test_that("Raincloud Plots match", {
   options <- initOptsMixed()
   options$sphericityCorrections <- TRUE

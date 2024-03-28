@@ -25,6 +25,7 @@ Imports:
   KernSmooth,
   matrixStats,
   multcomp,
+  multcompView,
   onewaytests,
   plyr,
   stringi,

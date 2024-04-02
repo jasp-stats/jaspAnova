@@ -19,6 +19,7 @@
 import QtQuick
 import JASP
 import JASP.Controls
+import "../." as Common
 
 Section
 {

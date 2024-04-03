@@ -51,4 +51,8 @@ Section
 		childrenOnSameRow: true
 		CIField {	name: "contrastCiLevel" }
 	}
+	CheckBox
+	{
+		name: "contrastEffectSize"; label: qsTr("Effect size")
+	}
 }

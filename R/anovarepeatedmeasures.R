@@ -391,14 +391,22 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   MSm <- sortedModel[["Mean Sq"]]
   df <- sortedModel[["num Df"]]
 
-  omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) +
-                                                                     (df / (n * (df + 1))) * (MSm - MSr))
-  sortedModel[["omega"]] <- sapply(omega, max, 0)
+  # omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) +
+  #                                                                    (df / (n * (df + 1))) * (MSm - MSr))
+  # sortedModel[["omega"]] <- sapply(omega, max, 0)
   for (i in seq_along(summaryResult)) {
     if (any(rownames(summaryResult[[i]]) == "(Intercept)"))
       summaryResult[[i]] <- summaryResult[[i]][-1, ]
   }
+# browser()
+  partEtaResult <- effectsize::F_to_eta2(sortedModel[["F value"]], df = sortedModel[["num Df"]],df_error = sortedModel[["den Df"]],
+                             ci = options[["effectSizeCiLevel"]])[, c(1, 3, 4)]
+  partOmegaResult <- effectsize::F_to_omega2(sortedModel[["F value"]], df = sortedModel[["num Df"]], df_error = sortedModel[["den Df"]],
+                                 ci = options[["effectSizeCiLevel"]])[, c(1, 3, 4)]
+  colnames(partEtaResult) <- c("partialEta", "partialEtaLow", "partialEtaHigh")
+  colnames(partOmegaResult) <- c("partialOmega", "partialOmegaLow", "partialOmegaHigh")
 
+  sortedModel <- cbind(sortedModel, partEtaResult, partOmegaResult)
   # Now we include the results from the corrections
   withinAnovaTable <- ggTable <- hfTable <- subset(sortedModel, isWithinTerm == TRUE)
   withinAnovaTable[["correction"]] <- "None"
@@ -542,15 +550,26 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     if (options$effectSizeEtaSquared)
       betweenTable$addColumnInfo(title = "\u03B7\u00B2", name = "eta", type = "number")
 
-    if (options$effectSizePartialEtaSquared)
+    if (options$effectSizePartialEtaSquared) {
       betweenTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
 
     if (options$effectSizeGeneralEtaSquared)
       betweenTable$addColumnInfo(title = gettextf("%s<sub>G</sub>", "\u03B7\u00B2"), name = "genEta", type = "number")
 
-    if (options$effectSizeOmegaSquared)
-      betweenTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
-
+    if (options$effectSizeOmegaSquared) {
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "partialOmega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
   }
 
   betweenTable$showSpecifiedColumnsOnly <- TRUE
@@ -587,7 +606,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   anovaTable$showSpecifiedColumnsOnly <- TRUE
   anovaTable$dependOn(c("sphericityCorrectionGreenhouseGeisser", "sphericityCorrectionHuynhFeldt",
                         "sphericityCorrectionNone", "vovkSellke", "effectSizeEstimates", "effectSizeEtaSquared",
-                        "effectSizePartialEtaSquared", "effectSizeGeneralEtaSquared", "effectSizeOmegaSquared"))
+                        "effectSizePartialEtaSquared", "effectSizeGeneralEtaSquared", "effectSizeOmegaSquared",
+                        "effectSizeCiLevel", "effectSizeCi"))
 
   corrections <- c("None", "Greenhouse-Geisser", "Huynh-Feldt")[c(options$sphericityCorrectionNone,
                                                                  options$sphericityCorrectionGreenhouseGeisser,
@@ -621,6 +641,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
     if (options$effectSizePartialEtaSquared) {
       anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
     if(options$effectSizeGeneralEtaSquared) {
@@ -628,7 +653,12 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     }
 
     if (options$effectSizeOmegaSquared) {
-      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "partialOmega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
   }
@@ -1133,10 +1163,16 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         contrCoef         <- apply(contrastMatrix, 1, list)
       }
 
-      contrastResult    <- try(emmeans::contrast(referenceGrid[[paste(.v(contrast$variable), collapse = ":")]], contrCoef),
+      contrastResult    <- try(emmeans::contrast(referenceGrid[[paste(contrast$variable, collapse = ":")]], contrCoef),
                                silent = TRUE)
       contrCoefEmmeans <- coef(contrastResult)
       colnames(contrCoefEmmeans) <- c(contrast$variable, paste("Comparison", 1: (ncol(contrCoefEmmeans) - length(contrast$variable))))
+
+      fullModel <- rmAnovaContainer[["anovaResult"]]$object$fullModel
+      effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[paste(contrast$variable, collapse = ":")]],
+                                                          sigma = sqrt(mean(sigma(fullModel$lm)^2)),
+                                                          edf = df.residual(fullModel$lm),
+                                                          level = options[["contrastCiLevel"]]))
 
       if (contrast$decoded == "custom") {
         if (isTryError(contrastResult)) {
@@ -1157,7 +1193,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
           message = gettextf("Results are averaged over the levels of: %s", paste(.unv(contrastResult@misc$avgd.over), collapse = ", ")))
 
       contrastResult <- cbind(contrastResult, confint(contrastResult, level = options$contrastCiLevel)[,5:6])
-      contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
+      contrastResult[["Comparison"]] <- contrastResult[["contrast"]]
+
+      contrastResult[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      contrastResult[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      contrastResult[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
 
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)

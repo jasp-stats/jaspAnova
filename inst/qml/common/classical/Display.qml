@@ -29,9 +29,9 @@ Group
 	CheckBox { name: "descriptives";	label: qsTr("Descriptive statistics")	}
 	CheckBox {
 		name: "effectSizeEstimates";	label: qsTr("Estimates of effect size")
-		columns: 3
-		CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²"); checked: true	}
-		CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")		}
+		columns: 4
+		CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²")	}
+		CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")	; checked: true	}
 		Loader
 		{
 			Component
@@ -43,7 +43,14 @@ Group
 			active: analysis === Common.Type.Analysis.RMANOVA
 		}
 
-		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")				}
+		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")				}			
+		CheckBox
+		{
+			name: "effectSizeCi"; label: qsTr("Confidence intervals")
+			CIField {	name: "effectSizeCiLevel" }
+			childrenOnSameRow: true
+			visible: analysis === Common.Type.Analysis.RMANOVA
+		}
 	}
 	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio") }
 }

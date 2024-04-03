@@ -820,6 +820,16 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   contrastTable$addColumnInfo(name = "t.ratio", title = gettext("t"),  type = "number")
   contrastTable$addColumnInfo(name = "p.value", title = gettext("p"),  type = "pvalue")
 
+  if (isTRUE(options$contrastEffectSize)) {
+    contrastTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
+
+    if (isTRUE(options$contrastCi)) {
+      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$contrastCiLevel * 100)
+      contrastTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
+      contrastTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
+    }
+  }
+
   contrastTable$showSpecifiedColumnsOnly <- TRUE
 
   return(contrastTable)

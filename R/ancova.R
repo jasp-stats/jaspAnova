@@ -407,17 +407,26 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   if (options$effectSizeEstimates) {
 
-      SSt <- result['SSt']
-      SSr <- result["Residuals", "Sum Sq"]
-      MSr <- SSr/result["Residuals", "Df"]
+      # Legacy code (without CI):
+      # SSt <- result['SSt']
+      # SSr <- result["Residuals", "Sum Sq"]
+      # MSr <- SSr/result["Residuals", "Df"]
+      #
+      # eta <- result[['Sum Sq']] / result[['SSt']]
+      # etaPart <- result[['Sum Sq']] / (result[['Sum Sq']] + SSr)
+      # omega <- (result[['Sum Sq']] - (result[['Df']] * MSr)) / (SSt + MSr)
+      # omega <- sapply(omega[,1], function(x) max(x, 0))
 
-      eta <- result[['Sum Sq']] / result[['SSt']]
-      etaPart <- result[['Sum Sq']] / (result[['Sum Sq']] + SSr)
-      omega <- (result[['Sum Sq']] - (result[['Df']] * MSr)) / (SSt + MSr)
-      omega <- sapply(omega[,1], function(x) max(x, 0))
+      omegaResult <- effectsize::omega_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+      partOmegaResult <- effectsize::omega_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
+      etaResult <- effectsize::eta_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+      partEtaResult <- effectsize::eta_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
 
-      result[, c("eta", "etaPart", "omega")] <- cbind(eta, etaPart, omega)
-      result["Residuals", c("eta", "etaPart", "omega")] <- NA
+      effectSizeColnames <- paste0(rep(c("eta", "partialEta", "omega", "partialOmega"), each = 3), c("", "Low", "High"))
+      relColumns <- c(2, 4:5)
+      result[partOmegaResult$Parameter, effectSizeColnames] <- cbind(etaResult[ , relColumns], partEtaResult[, relColumns],
+                                                                     omegaResult[, relColumns], partOmegaResult[, relColumns])
+      result["Residuals", effectSizeColnames] <- NA
 
   }
 
@@ -510,7 +519,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaContainer[["anovaResult"]] <- createJaspState(object = anovaResult)
   anovaContainer[["anovaResult"]]$dependOn(c("sumOfSquares", "homogeneityCorrectionBrown", "homogeneityCorrectionWelch",
                                              "homogeneityCorrectionNone", "effectSizeEstimates", "effectSizeEtaSquared",
-                                              "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
+                                             "effectSizePartialEtaSquared", "effectSizeOmegaSquared", "effectSizePartialOmegaSquared",
+                                             "effectSizeCi", "effectSizeCiLevel"))
 }
 
 .anovaTable <- function(anovaContainer, options, ready) {
@@ -549,14 +559,38 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     if (options$effectSizeEtaSquared) {
       anovaTable$addColumnInfo(title = "\u03B7\u00B2", name = "eta", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="etaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="etaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
     if (options$effectSizePartialEtaSquared) {
-      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
+      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "partialEta", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
     if (options$effectSizeOmegaSquared) {
       anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="omegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="omegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
+
+    if (options$effectSizePartialOmegaSquared) {
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2\u209A", name = "partialOmega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
   }
@@ -613,7 +647,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     return()
 
   contrastContainer <- createJaspContainer(title = gettext("Contrast Tables"))
-  contrastContainer$dependOn(c("contrasts", "contrastCiLevel",
+  contrastContainer$dependOn(c("contrasts", "contrastCiLevel", "contrastEffectSize",
                                "contrastCi", "customContrasts"))
 
   for (contrast in options$contrasts) {
@@ -686,6 +720,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       contrastResult    <- try(emmeans::contrast(referenceGrid, contrCoef), silent = TRUE)
       # is input the same as used by emmeans?
       # all(as.matrix( coef(contrastResult)[, -(1:length(v)) ]) == t(contrastMatrix))
+      fullModel <- model
+      effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid,
+                                                          sigma = sqrt(mean(sigma(model)^2)),
+                                                          edf = df.residual(model),
+                                                          method = contrCoef,
+                                                          level = options[["contrastCiLevel"]]))
 
       if (contrast$decoded == "custom") {
         if (isTryError(contrastResult)) {
@@ -707,6 +747,11 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       contrastResult <- cbind(contrastResult, confint(contrastResult, level = options$contrastCiLevel)[,5:6])
       contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
       contrastResult[[".isNewGroup"]] <- c(TRUE, rep(FALSE, nrow(contrastResult)-1))
+
+      contrastResult[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      contrastResult[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      contrastResult[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+
 
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)

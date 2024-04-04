@@ -29,22 +29,14 @@ Section
 
 	ContrastsList { id: contrasts }
 
-	Loader
+	CheckBox
 	{
-		Component
-		{
-			id: equalVarianceAssumption
-			CheckBox
-			{
-				isBound: false
-				label: qsTr("Pool error term for follow-up tests")
-				checked: poolErrorTermFollowup.checked
-				onCheckedChanged: poolErrorTermFollowup.checked = checked
-			}		
-		}
-		sourceComponent: analysis === Common.Type.Analysis.RMANOVA ? equalVarianceAssumption : undefined
+		isBound: false
+		label: qsTr("Pool error term for follow-up tests")
+		checked: poolErrorTermFollowup.checked
+		onCheckedChanged: poolErrorTermFollowup.checked = checked
+		visible: analysis === Common.Type.Analysis.RMANOVA
 	}
-
 	CheckBox
 	{
 		name: "contrastCi"; label: qsTr("Confidence intervals")

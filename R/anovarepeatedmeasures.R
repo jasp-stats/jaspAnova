@@ -266,70 +266,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   rmAnovaContainer[["anovaResult"]] <- createJaspState(object = rmAnovaResult)
 }
 
-# .getBootstrapResultsRmAnova <- function(dataset, options, formula) {
-#
-#   startProgressbar(options[["effectSizeBootstrapSamples"]],
-#                    label = gettext("Bootstrapping Effect Sizes"))
-#
-#
-#   bootstrapEffectSizes <- try(boot::boot(data = dataset, statistic = .bootstrapEffectSizesRmAnova,
-#                                            R = options[["effectSizeBootstrapSamples"]],
-#                                            options = options,
-#                                            formula = formula), silent = TRUE)
-# # browser()
-#   # if (class(bootstrapEffectSizes) == "try-error") {
-#   #   marginalMeansContainer[[termBase64]]$setError(bootstrapMarginalMeans)
-#   #   next
-#   # }
-#
-#   bootstrapSummary <- summary(bootstrapEffectSizes)
-#
-#   ci.fails <- FALSE
-#   # bootstrapMarginalMeansCI <- confint(bootstrapMarginalMeans, level = 0.95, type = c("bca"))
-#   bootstrapEffectSizeCI <- t(sapply(1:nrow(bootstrapSummary), function(index){
-#     res <- try(boot::boot.ci(boot.out = bootstrapMarginalMeans, conf = 0.95, type = "bca",
-#                              index = index)[['bca']][1,4:5])
-#     if (!inherits(res, "try-error")){
-#       return(res)
-#     } else {
-#       ci.fails <<- TRUE
-#       return(c(NA, NA))
-#     }
-#   }))
-#
-#   # if (ci.fails)
-#   #   marginalMeansContainer[[termBase64]]$addFootnote(message = gettext("Some confidence intervals could not be computed. Possibly too few bootstrap replicates."))
-#
-#   effectSizeResult <- data.frame()
-#   effectSizeResult[["lower.CL"]] <- bootstrapMarginalMeansCI[,1]
-#   effectSizeResult[["upper.CL"]] <- bootstrapMarginalMeansCI[,2]
-#
-#   effectSizeResult[["lsmean"]]   <- bootstrapSummary[["bootMed"]]
-#   effectSizeResult[["bias"]]     <- bootstrapSummary[["bootBias"]]
-#   effectSizeResult[["SE"]]       <- bootstrapSummary[["bootSE"]]
-#
-#   return(effectSizeResult)
-# }
-
-.bootstrapEffectSizesRmAnova <- function(data, indices, options, nRows, formula) {
-
-  resamples <- data[indices, , drop=TRUE]
-
-  # dataset <- .shortToLong(resamples, options$repeatedMeasuresFactors, options$repeatedMeasuresCells,
-  #                         c(options$betweenSubjectFactors, options$covariates),
-  #                         dependentName = .BANOVAdependentName, subjectName = .BANOVAsubjectName)
-  anovaModelBoots <- .rmAnovaComputeResults(resamples, options, returnResultsEarly = TRUE)$result # refit model
-  if (!is.null(anovaModelBoots[["tryResult"]]) || is.null(anovaModelBoots))
-    return(rep(NA, termLength))
-
-  resultBoots <- omega_squared(anovaModelBoots, ci = 0.95)
-
-  # progressbarTick()
-
-    return(resultBoots$Omega2)
-
-}
-
 .rmAnovaComputeResults <- function(dataset, options, returnResultsEarly = FALSE) {
 
   modelDef <- .rmModelFormula(options)
@@ -447,7 +383,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   MSr <- SSr/sortedModel[["den Df"]]
 
   sortedModel[["eta"]]     <- sortedModel[["Sum Sq"]] / (sum(sortedModel[["Sum Sq"]]) + sum(residualResults[["Sum Sq"]]))
-  sortedModel[["etaPart"]] <- sortedModel[["Sum Sq"]] / (sortedModel[["Sum Sq"]] + SSr)
+  sortedModel[["partialEta"]] <- sortedModel[["Sum Sq"]] / (sortedModel[["Sum Sq"]] + SSr)
   sortedModel[["genEta"]]  <- result[["anova_table"]][["ges"]][idxValid]
 
   n <- interceptRow[["den Df"]] + 1
@@ -455,48 +391,18 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   MSm <- sortedModel[["Mean Sq"]]
   df <- sortedModel[["num Df"]]
 
-  # omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) +
-  #                                                                    (df / (n * (df + 1))) * (MSm - MSr))
-  # sortedModel[["omega"]] <- sapply(omega, max, 0)
-  # for (i in seq_along(summaryResult)) {
-  #   if (any(rownames(summaryResult[[i]]) == "(Intercept)"))
-  #     summaryResult[[i]] <- summaryResult[[i]][-1, ]
-  # }
-  # bootstrapEffectSizes <- try(boot::boot(data = dataset, statistic = .bootstrapEffectSizesRmAnova,
-  #                                        R = options[["effectSizeBootstrapSamples"]],
-  #                                        options = options,
-  #                                        formula = formula),
-  #                             silent = TRUE)
-  # bootstrapSummary <- summary(bootstrapEffectSizes)
-  # bootstrapEffectSizeCI <- t(sapply(2:nrow(bootstrapSummary), function(index){
-  #   res <- try(boot::boot.ci(boot.out = bootstrapEffectSizes, conf = 0.95, type = "bca",
-  #                            index = index)[['bca']][1,4:5])
-  #   if (!inherits(res, "try-error")){
-  #     return(res)
-  #   } else {
-  #     ci.fails <<- TRUE
-  #     return(c(NA, NA))
-  #   }
-  # }))
-  # browser()
+  omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) +
+                                                                     (df / (n * (df + 1))) * (MSm - MSr))
+  sortedModel[["omega"]] <- sapply(omega, max, 0)
+  for (i in seq_along(summaryResult)) {
+    if (any(rownames(summaryResult[[i]]) == "(Intercept)"))
+      summaryResult[[i]] <- summaryResult[[i]][-1, ]
+  }
 
-  # partEtaResult <- effectsize::F_to_eta2(sortedModel[["F value"]], df = sortedModel[["num Df"]],df_error = sortedModel[["den Df"]],
-                             # ci = options[["effectSizeCiLevel"]], alternative = "two.sided")[, c(1, 3, 4)]
-  # MBESS::ci.omega2(F.value = sortedModel[["F value"]][i], df.1 = sortedModel[["num Df"]][i], df.2 = sortedModel[["den Df"]][i], N =  100,
-  #                  alpha.lower = 0.025, alpha.upper = 0.025)
+  partOmegaResult <- effectsize::omega_squared(result,  ci = options[["effectSizeCiLevel"]], partial = TRUE, alternative = "two.sided")
+  effectSizeIndexMap <- .mapAnovaTermsToTerms(partOmegaResult[["Parameter"]], rownames(sortedModel))
+  sortedModel[["partialOmega"]] <- partOmegaResult[["Omega2_partial"]][effectSizeIndexMap]
 
-  partEtaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], partial = TRUE, alternative = "two.sided")
-  partOmegaResult <- effectsize::omega_squared(result,  ci = options[["effectSizeCiLevel"]], partial = FALSE, alternative = "two.sided")
-
-  effectSizeIndexMap <- .mapAnovaTermsToTerms(partEtaResult[["Parameter"]], rownames(sortedModel))
-  partEtaResult <- partEtaResult[effectSizeIndexMap, ]
-  partOmegaResult <- partOmegaResult[effectSizeIndexMap, ]
-
-
-  colnames(partEtaResult) <- c("partialEta", "partialEtaLow", "partialEtaHigh")
-  colnames(partOmegaResult) <- c("partialOmega", "partialOmegaLow", "partialOmegaHigh")
-
-  sortedModel <- cbind(sortedModel, partEtaResult, partOmegaResult)
   # Now we include the results from the corrections
   withinAnovaTable <- ggTable <- hfTable <- subset(sortedModel, isWithinTerm == TRUE)
   withinAnovaTable[["correction"]] <- "None"
@@ -642,11 +548,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       betweenTable$addColumnInfo(title = "\u03B7\u00B2", name = "eta", type = "number")
 
     if (options$effectSizePartialEtaSquared) {
-      betweenTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
-      if (options$effectSizeCi) {
+      betweenTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "partialEta", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
         thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
-        anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
-        anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+        betweenTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        betweenTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
       }
     }
 
@@ -654,11 +560,20 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       betweenTable$addColumnInfo(title = gettextf("%s<sub>G</sub>", "\u03B7\u00B2"), name = "genEta", type = "number")
 
     if (options$effectSizeOmegaSquared) {
-      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "partialOmega", type = "number")
-      if (options$effectSizeCi) {
+      betweenTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
         thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
-        anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
-        anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+        betweenTable$addColumnInfo(name="omegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        betweenTable$addColumnInfo(name="omegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
+
+    if (options$effectSizePartialOmegaSquared) {
+      betweenTable$addColumnInfo(title = "\u03C9\u00B2\u209A", name = "partialOmega", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options$effectSizeCiLevel * 100)
+        betweenTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        betweenTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
       }
     }
   }
@@ -731,8 +646,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     }
 
     if (options$effectSizePartialEtaSquared) {
-      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
-      if (options$effectSizeCi) {
+      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "partialEta", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
         thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
         anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
         anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
@@ -744,9 +659,18 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     }
 
     if (options$effectSizeOmegaSquared) {
-      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "partialOmega", type = "number")
-      if (options$effectSizeCi) {
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
         thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="omegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="omegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
+
+    if (options$effectSizePartialOmegaSquared) {
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2\u209A", name = "partialOmega", type = "number")
+      if (options$effectSizeCi && !is.null(options$dependent)) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options$effectSizeCiLevel * 100)
         anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
         anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
       }
@@ -1286,6 +1210,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       contrastResult <- cbind(contrastResult, confint(contrastResult, level = options$contrastCiLevel)[,5:6])
       contrastResult[["Comparison"]] <- contrastResult[["contrast"]]
+      contrastResult[["df"]] <- round(contrastResult[["df"]], 3)
 
       contrastResult[["cohenD"]] <- effectSizeResult[["effect.size"]]
       contrastResult[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]

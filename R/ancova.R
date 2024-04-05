@@ -531,7 +531,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaTable <- createJaspTable(title = title, position = 1,
                            dependencies = c("homogeneityCorrectionWelch", "homogeneityCorrectionBrown", "homogeneityCorrectionNone",
                                             "vovkSellke", "effectSizeEstimates", "effectSizeEtaSquared",
-                                            "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
+                                            "effectSizePartialEtaSquared", "effectSizeOmegaSquared",  "effectSizePartialOmegaSquared",
+                                            "effectSizeCi", "effectSizeCiLevel"))
 
   corrections <- c("None", "Brown-Forsythe", "Welch")[c(options$homogeneityCorrectionNone,
                                                         options$homogeneityCorrectionBrown,

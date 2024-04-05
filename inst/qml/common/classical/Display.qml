@@ -48,6 +48,8 @@ Group
 			name: "effectSizeCi"; label: qsTr("Confidence intervals")
 			CIField {	name: "effectSizeCiLevel" }
 			childrenOnSameRow: true
+			visible: analysis === Common.Type.Analysis.ANOVA ||  analysis === Common.Type.Analysis.ANCOVA
+
 		}
 	}
 	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio") }

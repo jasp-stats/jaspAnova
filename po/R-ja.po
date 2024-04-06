@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2024-03-16 02:37\n"
+"POT-Creation-Date: 2024-04-06 02:37\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -172,13 +172,16 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>ボンフェロー二</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>ホルム</sub>"
 
-msgid "P-values are based on one-sided tests."
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
 
 msgid "Games-Howell"
@@ -281,6 +284,13 @@ msgstr "要因"
 
 msgid "Statistic"
 msgstr "統計量"
+
+msgid "Rank %s"
+msgstr ""
+
+#, fuzzy
+msgid "%i%% CI for Rank %s"
+msgstr "Cohen's d における %s%% CI"
 
 msgid "Q-Q Plot"
 msgstr "Q-Qプロット"
@@ -772,6 +782,13 @@ msgstr "記述統計量プロット"
 
 msgid "Descriptives Plot"
 msgstr "記述統計量プロット"
+
+msgid "Bar plots"
+msgstr ""
+
+#, fuzzy
+msgid "Bar Plot"
+msgstr "Q-Qプロット"
 
 msgid "Raincloud plots"
 msgstr "雨雲プロット"

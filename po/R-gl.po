@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-03-16 02:37\n"
+"POT-Creation-Date: 2024-04-06 02:37\n"
 "PO-Revision-Date: 2024-03-21 09:48+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,14 +187,17 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>Holm</sub>"
 
-msgid "P-values are based on one-sided tests."
-msgstr "Os valores p baséanse en probas unilaterais."
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -297,6 +300,13 @@ msgstr "Factor"
 
 msgid "Statistic"
 msgstr "Estatístico"
+
+msgid "Rank %s"
+msgstr ""
+
+#, fuzzy
+msgid "%i%% CI for Rank %s"
+msgstr "IC do %s%% para a D de Cohen"
 
 msgid "Q-Q Plot"
 msgstr "Gráfica Q-Q"
@@ -811,6 +821,13 @@ msgstr "Gráficas descritivas"
 msgid "Descriptives Plot"
 msgstr "Gráfica dos Descritivos"
 
+msgid "Bar plots"
+msgstr ""
+
+#, fuzzy
+msgid "Bar Plot"
+msgstr "Gráfica Q-Q"
+
 msgid "Raincloud plots"
 msgstr "Gráficas de nube chovendo"
 
@@ -1114,6 +1131,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modelo nulo (incl. %s e pendentes aleatorias)"
 msgstr[1] "Modelo nulo (incl. %s, e pendentes aleatorias)"
+
+#~ msgid "P-values are based on one-sided tests."
+#~ msgstr "Os valores p baséanse en probas unilaterais."
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr ""

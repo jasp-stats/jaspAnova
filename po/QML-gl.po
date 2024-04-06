@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-21 09:48+0000\n"
-"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/gl/>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: gl_ES\n"
 "X-Source-Language: C\n"
 "X-Qt-Contexts: true\n"
@@ -1171,3 +1165,69 @@ msgstr "Agrupar termos de erro para probas sucesivas"
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
 msgstr "Agrupar termos de erro para probas sucesivas"
+
+msgctxt "BarPlots|"
+msgid "Bar Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Factors"
+msgstr "Factores"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Horizontal Axis"
+msgstr "Eixe Horizontal"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Separate Plots"
+msgstr "Gráficas Separadas"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display"
+msgstr "Presentar"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display error bars"
+msgstr "Presentar as barras de erro"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "Intervalo de credibilidade"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Standard error"
+msgstr "Erro padrón"
+
+msgctxt "BarPlots|"
+msgid "Fix horizontal axis to 0"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Estimates of effect size"
+msgstr "Estimacións da magnitude do efecto"
+
+msgctxt "Nonparametrics|"
+msgid "ε²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Nonparametrics|"
+msgid "Confidence"
+msgstr ""

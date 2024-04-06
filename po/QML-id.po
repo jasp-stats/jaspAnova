@@ -1156,3 +1156,69 @@ msgstr ""
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
 msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Bar Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Factors"
+msgstr "Faktor"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Horizontal Axis"
+msgstr "Aksis Horizontal"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Separate Plots"
+msgstr "Plot Terpisah"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display"
+msgstr "Tampilkan"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display error bars"
+msgstr "Tampilkan batang galat"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Confidence interval"
+msgstr "Interval kepercayaan"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "Interval kredibel"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Standard error"
+msgstr "Galat baku"
+
+msgctxt "BarPlots|"
+msgid "Fix horizontal axis to 0"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Estimates of effect size"
+msgstr "Estimasi besaran efek"
+
+msgctxt "Nonparametrics|"
+msgid "ε²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Nonparametrics|"
+msgid "Confidence"
+msgstr ""

@@ -1160,3 +1160,69 @@ msgstr ""
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
 msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Bar Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Factors"
+msgstr "因子"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Horizontal Axis"
+msgstr "横轴"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Separate Plots"
+msgstr "分隔绘图"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display"
+msgstr "显示"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display error bars"
+msgstr "显示误差线"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Confidence interval"
+msgstr "置信区间"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "可信区间"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Standard error"
+msgstr "标准误"
+
+msgctxt "BarPlots|"
+msgid "Fix horizontal axis to 0"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Estimates of effect size"
+msgstr "效应量估计"
+
+msgctxt "Nonparametrics|"
+msgid "ε²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Nonparametrics|"
+msgid "Confidence"
+msgstr ""

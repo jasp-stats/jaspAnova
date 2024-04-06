@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-03-16 02:37\n"
+"POT-Creation-Date: 2024-04-06 02:37\n"
 "PO-Revision-Date: 2024-03-07 09:01+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -176,14 +176,17 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>holm</sub>"
 
-msgid "P-values are based on one-sided tests."
-msgstr "Wartości p wyliczone dla testów jednostronnych."
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -284,6 +287,13 @@ msgstr "Czynnik"
 
 msgid "Statistic"
 msgstr "Statystyka"
+
+msgid "Rank %s"
+msgstr ""
+
+#, fuzzy
+msgid "%i%% CI for Rank %s"
+msgstr "%s%% PU dla d Cohena"
 
 msgid "Q-Q Plot"
 msgstr "Wykres K-K"
@@ -802,6 +812,13 @@ msgstr "Wykresy opisowe"
 msgid "Descriptives Plot"
 msgstr "Wykresy opisowe"
 
+msgid "Bar plots"
+msgstr ""
+
+#, fuzzy
+msgid "Bar Plot"
+msgstr "Wykres K-K"
+
 msgid "Raincloud plots"
 msgstr "Wykresy chmury deszczowej"
 
@@ -1104,6 +1121,9 @@ msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Model zerowy (w tym %s i losowe nachylenia)"
 msgstr[1] "Modele zerowe (w tym %s i losowe nachylenia)"
 msgstr[2] "Modeli zerowych (w tym %s i losowe nachylenia)"
+
+#~ msgid "P-values are based on one-sided tests."
+#~ msgstr "Wartości p wyliczone dla testów jednostronnych."
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr ""

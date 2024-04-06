@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-03-16 02:37\n"
+"POT-Creation-Date: 2024-04-06 02:37\n"
 "PO-Revision-Date: 2024-02-24 02:36+0000\n"
 "Last-Translator: Jean-Louis Warin <jlwkhi@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -180,14 +180,17 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
 msgstr "p<sub>holm</sub>"
 
-msgid "P-values are based on one-sided tests."
-msgstr "Les valeurs de P sont basées sur des tests unilatéraux."
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -290,6 +293,13 @@ msgstr "Facteur"
 
 msgid "Statistic"
 msgstr "Statistiques"
+
+msgid "Rank %s"
+msgstr ""
+
+#, fuzzy
+msgid "%i%% CI for Rank %s"
+msgstr "IC %s%% pour le d de Cohen"
 
 msgid "Q-Q Plot"
 msgstr "Diagramme Q-Q"
@@ -815,6 +825,13 @@ msgstr "Graphiques descriptifs"
 msgid "Descriptives Plot"
 msgstr "Graphique descriptif"
 
+msgid "Bar plots"
+msgstr ""
+
+#, fuzzy
+msgid "Bar Plot"
+msgstr "Diagramme Q-Q"
+
 msgid "Raincloud plots"
 msgstr "Graphiques en nuages de points"
 
@@ -1125,6 +1142,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modèle nul ( inclus %s et pentes aléatoires)"
 msgstr[1] "Modèles nuls ( inclus %s et pentes aléatoires)"
+
+#~ msgid "P-values are based on one-sided tests."
+#~ msgstr "Les valeurs de P sont basées sur des tests unilatéraux."
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr ""

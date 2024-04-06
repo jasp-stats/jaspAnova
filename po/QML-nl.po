@@ -1167,3 +1167,67 @@ msgstr ""
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
 msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Bar Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Factors"
+msgstr "Factoren"
+
+msgctxt "BarPlots|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display"
+msgstr "Weergeven"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Display error bars"
+msgstr "Geef foutmarges weer"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Confidence interval"
+msgstr "Betrouwbaarheidsinterval"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "Geloofwaardigheidsinterval"
+
+#, fuzzy
+msgctxt "BarPlots|"
+msgid "Standard error"
+msgstr "Standaardfout"
+
+msgctxt "BarPlots|"
+msgid "Fix horizontal axis to 0"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "Estimates of effect size"
+msgstr "Schattingen van effectgrootte"
+
+msgctxt "Nonparametrics|"
+msgid "ε²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Nonparametrics|"
+msgid "η²"
+msgstr "η²"
+
+msgctxt "Nonparametrics|"
+msgid "Confidence"
+msgstr ""

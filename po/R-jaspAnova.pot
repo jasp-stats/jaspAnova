@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.18.3\n"
-"POT-Creation-Date: 2024-03-16 02:37\n"
+"POT-Creation-Date: 2024-04-06 02:37\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,13 +146,16 @@ msgstr ""
 msgid "W<sub>j</sub>"
 msgstr ""
 
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
 msgid "p<sub>bonf</sub>"
 msgstr ""
 
 msgid "p<sub>holm</sub>"
 msgstr ""
 
-msgid "P-values are based on one-sided tests."
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
 
 msgid "Games-Howell"
@@ -243,6 +246,12 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
+msgstr ""
+
+msgid "Rank %s"
+msgstr ""
+
+msgid "%i%% CI for Rank %s"
 msgstr ""
 
 msgid "Q-Q Plot"
@@ -639,6 +648,12 @@ msgid "Descriptives plots"
 msgstr ""
 
 msgid "Descriptives Plot"
+msgstr ""
+
+msgid "Bar plots"
+msgstr ""
+
+msgid "Bar Plot"
 msgstr ""
 
 msgid "Raincloud plots"

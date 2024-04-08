@@ -166,7 +166,7 @@ Form
 
 	Classical.MarginalMeans
 	{
-		source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates" }]
+		source: ["withinModelTerms", { name: "betweenModelTerms", discard: "covariates", combineWithOtherModels: true }]
 	}
 
 	Classical.SimpleMainEffects

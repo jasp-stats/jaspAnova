@@ -1598,7 +1598,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     df <- b * k - b - t + 1
 
     S2 <- 1 / ( 1 * t -1 ) * (sum(rij^2) - t * b * ( t + 1)^2 / 4)
-    T2 <- 1 / S2 * (sum(Rj) - b * ((t + 1) / 2)^2)
+    T2 <- 1 / S2 * (sum((Rj - b * (t + 1) / 2)^2))
     A <- S2 * (2 * b * (t - 1)) / ( b * t - t - b + 1)
     B <- 1 - T2 / (b * (t- 1))
     denom <- sqrt(A) * sqrt(B)

@@ -395,6 +395,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   }
 
+  # calculate effect sizes before altering results structure
+  omegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+  partOmegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
+  etaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+  partEtaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
+
   # Make sure that the order of the result is same order as reordered modelterms
   result <- result[.mapAnovaTermsToTerms(c(termsBase64, "Residuals"), rownames(result) ), ]
   result[['cases']] <- c(termsNormal, "Residuals")
@@ -416,11 +422,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       # etaPart <- result[['Sum Sq']] / (result[['Sum Sq']] + SSr)
       # omega <- (result[['Sum Sq']] - (result[['Df']] * MSr)) / (SSt + MSr)
       # omega <- sapply(omega[,1], function(x) max(x, 0))
-
-      omegaResult <- effectsize::omega_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
-      partOmegaResult <- effectsize::omega_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
-      etaResult <- effectsize::eta_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
-      partEtaResult <- effectsize::eta_squared(model, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
 
       effectSizeColnames <- paste0(rep(c("eta", "partialEta", "omega", "partialOmega"), each = 3), c("", "Low", "High"))
       relColumns <- c(2, 4:5)

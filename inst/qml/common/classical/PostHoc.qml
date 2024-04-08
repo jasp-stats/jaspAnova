@@ -61,7 +61,6 @@ Section
 		}
 		CheckBox { name: "postHocTypeGames";		label: qsTr("Games-Howell")				}
 		CheckBox { name: "postHocTypeDunnet";		label: qsTr("Dunnett")					}
-		CheckBox { name: "postHocTypeDunn";			label: qsTr("Dunn")						}
 	}
 
 

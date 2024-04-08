@@ -374,7 +374,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     result <- car::Anova(model, type=2)
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
-    result['SSt'] <- sum(result[['Sum Sq']], na.rm = TRUE)
 
   } else if (options$sumOfSquares == "type3") {
 
@@ -389,10 +388,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     result <- car::Anova(model, type=3, singular.ok=FALSE)
     result <- result[-1, ]
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
-    result['SSt'] <- unlist(summary(aov(as.formula(paste(options$dependent, "~ 1")),
-                                        data = model$model))[[1]]["Sum Sq"])
-
-
   }
 
   # calculate effect sizes before altering results structure

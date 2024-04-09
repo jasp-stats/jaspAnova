@@ -99,11 +99,13 @@ To create a descriptive plot, select the repeated measures factor to be placed o
   - Separate plots: By placing a repeated measures factor in this box, different plots corresponding to the different levels of the repeated measures factor will be displayed.
   - Label y-axis: The label of the y-axis can be changed manually.
 - Display:
-    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. In order to get accurate confidence intervals and standard errors, the data are normalized by subtracting the appropriate participantʹs mean performance from each observation, and then adding the grand mean score to every observation. The variances of the resulting normalized values in each condition, and thus the size of the bars, no longer depend on the participant effects and are therefore a more accurate representation of the experimental manipulation. See Morey (2008) for a thorough discussion of this procedure.
+    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. 
         - Confidence interval: This option is selected by default. With this option, the error bars will represent confidence intervals of the mean of each level combination of the repeated measures factors. By default the confidence interval is set to 95%, but this can be changed  into the desired percentage.
         - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the repeated measures factor.
     - Fix horizontal axis to 0: Forces the graphs to show the default x-axis at y = 0.
     - Average across unused RM factors: When there are multiple RM factors in the model, but only plotting a subset of these factors, the mean is taken across the unused RM factors. For instance, when there are two RM factors with two levels in the model, A (1&2) and B (1&2), and only A is selected to be plotted, the average is taken of B across its levels. This means that when the mean of A1 is plotted, it is actually the average of A1B1 and A1B2). This procedure is discussed by Loftus & Masson (1994). When the box is not ticked, the averages are not taken, and the columns A1B1 and A1B2 are simply concatenated.
+    - Normalize error bars: Same as for descriptive plots. 
+
 
 ### Marginal Means
 - Marginal means: When this option is selected, the mean for each level of the repeated measures factor, adjusted for all the other variables in the model, is calculated.

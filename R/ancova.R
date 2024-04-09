@@ -1893,63 +1893,15 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   if (!ready || anovaContainer$getError())
     return()
 
-  model <- anovaContainer[["model"]]$object
-  standResid <- as.data.frame(stats::qqnorm(rstandard(model), plot.it=FALSE))
-
-  standResid <- na.omit(standResid)
-  xVar <- standResid$x
-  yVar <- standResid$y
-
-  # Format x ticks
-  xlow <- min(pretty(xVar))
-  xhigh <- max(pretty(xVar))
-  xticks <- pretty(c(xlow, xhigh))
-
-  # format x labels
-  xLabs <- vector("character", length(xticks))
-  for (i in seq_along(xticks)) {
-    if (xticks[i] < 10^6) {
-      xLabs[i] <- format(xticks[i], digits= 3, scientific = FALSE)
-    } else {
-      xLabs[i] <- format(xticks[i], digits= 3, scientific = TRUE)
-    }
+  if (is.null(options[["dependent"]])) { # If RM ANOVA
+    residuals <- residuals(anovaContainer[["anovaResult"]][["object"]][["fullModel"]])
+  } else {
+    residuals <- anovaContainer[["model"]][["object"]][["residuals"]]
   }
 
-  # Format y ticks
-  ylow <- min(pretty(yVar))
-  yhigh <- max(pretty(yVar))
-  yticks <- pretty(c(ylow, yhigh))
+  # standResid <- as.data.frame(stats::qqnorm(rstandard(model), plot.it=FALSE))
+  qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals)
 
-  # format axes labels
-  xLabs <- jaspGraphs::axesLabeller(xticks)
-  yLabs <- jaspGraphs::axesLabeller(yticks)
-
-  # format y labels
-  yLabs <- vector("character", length(yticks))
-  for (i in seq_along(yticks)) {
-    if (yticks[i] < 10^6) {
-      yLabs[i] <- format(yticks[i], digits= 3, scientific = FALSE)
-    } else {
-      yLabs[i] <- format(yticks[i], digits= 3, scientific = TRUE)
-    }
-  }
-
-  p <- jaspGraphs::drawAxis(xName = gettext("Theoretical Quantiles"),
-                            yName = gettext("Standardized Residuals"),
-                            xBreaks = xticks,
-                            yBreaks = xticks,
-                            yLabels = xLabs,
-                            xLabels = xLabs,
-                            force = TRUE)
-
-  p <- p + ggplot2::geom_line(data = data.frame(x = c(min(xticks), max(xticks)), y = c(min(xticks), max(xticks))),
-                              mapping = ggplot2::aes(x = x, y = y),
-                              col = "darkred",
-                              size = 1)
-
-  p <- jaspGraphs::drawPoints(p, dat = data.frame(xVar, yVar), size = 3)
-
-  qqPlot$plotObject <- jaspGraphs::themeJasp(p)
 
   return()
 }

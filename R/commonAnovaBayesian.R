@@ -1856,10 +1856,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   plotErrorBars <- options[["barPlotErrorBars"]]
   errorBarType  <- options[["barPlotErrorBarType"]]
   confInterval <- options[["barPlotCiInterval"]]
-  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
+  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType", "applyMoreyCorrectionErrorBarsBarplot",
                               "barPlotHorizontalZeroFix", "barPlotCiInterval", "usePooledStandErrorCITwo"))
 
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
+  useMoreyCorrection <- if (is.null(options[["applyMoreyCorrectionErrorBarsBarplot"]])) TRUE else options[["applyMoreyCorrectionErrorBarsBarplot"]]
+
   barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
   barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
 
@@ -1893,7 +1895,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                idvar = .BANOVAsubjectName,
                                                conf.interval = confInterval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
-                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               usePooledSE = usePooledSE,
+                                               useMoreyCorrection =  useMoreyCorrection,
+                                               dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }
 

@@ -746,11 +746,14 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   rmAnovaContainer[["assumptionsContainer"]] <- assumptionsContainer
 
-    if (options$homogeneityTests == TRUE)
+  if (options$homogeneityTests == TRUE)
     .rmAnovaLevenesTable(rmAnovaContainer, dataset, options, ready)
 
   if (options$sphericityTests == TRUE)
     .rmAnovaSphericityTable(rmAnovaContainer, dataset, options, ready)
+
+  if (options$qqPlot == TRUE)
+    .qqPlot(rmAnovaContainer, dataset, options, ready)
 
   return()
 }

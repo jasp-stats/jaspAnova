@@ -406,6 +406,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   # see where a new block starts, where block 1 = main, block 2 = two-way inter, block 3 = three-way, etc.
   termCount <- sapply(strsplit(as.character(rownames(result)), ":"), function(x) length(x) - 1)
   newGroupIndices <- c(1, diff(termCount)) != 0
+  newGroupIndices[length(newGroupIndices)] <- TRUE
   result[[".isNewGroup"]] <- newGroupIndices
 
   # Identify indices where changes occur (diffs is not equal to 0)
@@ -507,7 +508,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     }
     anovaResult[["welchFootnote"]] <- welchFootnote
-
     anovaResult[['welchResult']] <- welchResult
   }
 

@@ -218,28 +218,30 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   if(length(options$modelTerms) > 0) {
 
+    orderedModelTerms <- options$modelTerms[order(sapply(options$modelTerms, function(x) length(x$components)))]
+
     fixedFactors <- list()
     covariates <- list()
 
     k <- 1
     l <- 1
 
-    for(i in 1:length(options$modelTerms)) {
-      if (sum(unlist(options$modelTerms[[i]]$components) %in% options$covariates) > 0) {
-        covariates[[k]] <- options$modelTerms[[i]]
+    for(i in 1:length(orderedModelTerms)) {
+      if (sum(unlist(orderedModelTerms[[i]]$components) %in% options$covariates) > 0) {
+        covariates[[k]] <- orderedModelTerms[[i]]
         k <- k + 1
       } else {
-        fixedFactors[[l]] <- options$modelTerms[[i]]
+        fixedFactors[[l]] <- orderedModelTerms[[i]]
         l <- l + 1
       }
     }
 
-    if(length(covariates) > length(options$covariates)) {
-      modelTerms <- options$modelTerms
+    if (length(covariates) > length(options$covariates)) {
+      modelTerms <- orderedModelTerms
       interactions <- TRUE
     } else {
       modelTerms <- c(fixedFactors, covariates)
-      modelTerms <- modelTerms[match(modelTerms, options$modelTerms)]
+      modelTerms <- modelTerms[match(modelTerms, orderedModelTerms)]
       interactions <- FALSE
     }
 
@@ -400,10 +402,14 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   result <- result[.mapAnovaTermsToTerms(c(termsBase64, "Residuals"), rownames(result) ), ]
   result[['cases']] <- c(termsNormal, "Residuals")
   result <- as.data.frame(result)
-  result[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-2), TRUE)
-  if (length(options$covariates) > 0)
-    result[.v(options$covariates), ][[".isNewGroup"]] <- TRUE
 
+  # see where a new block starts, where block 1 = main, block 2 = two-way inter, block 3 = three-way, etc.
+  termCount <- sapply(strsplit(as.character(rownames(result)), ":"), function(x) length(x) - 1)
+  newGroupIndices <- c(1, diff(termCount)) != 0
+  result[[".isNewGroup"]] <- newGroupIndices
+
+  # Identify indices where changes occur (diffs is not equal to 0)
+  change_indices <-
   result[1, 'correction'] <- "None"
 
   if (options$effectSizeEstimates) {
@@ -444,9 +450,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     brownResult <- result
     brownResult[[1, 'correction']] <- "Brown-Forsythe"
 
-    if (options$homogeneityCorrectionNone)
-      brownResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
-
     brownResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
     brownResult[[termsBase64, 'Pr(>F)']] <- tempResult[['p.value']]
     brownResult[[termsBase64, 'F value']] <- tempResult[['statistic']]
@@ -466,9 +469,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     tempResult <- stats::oneway.test(as.formula(modelDef$model.def), model$model, var.equal = FALSE)
     welchResult <- result
     welchResult[[1, 'correction']] <- "Welch"
-
-    if (options$homogeneityCorrectionNone || options$homogeneityCorrectionBrown)
-      welchResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
 
     welchResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
     welchResult[[termsBase64, 'Pr(>F)']] <- tempResult[['p.value']]

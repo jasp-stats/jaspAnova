@@ -614,6 +614,7 @@ test_that("Descriptives Plots match", {
   options$descriptivePlotHorizontalAxis <- "Charisma"
   options$descriptivePlotSeparateLines <- "gender"
   options$descriptivePlotErrorBar <- TRUE
+  options$applyMoreyCorrectionErrorBars <- TRUE
 
   options$descriptivePlotErrorBarPooled <- FALSE
   options$descriptivePlotErrorBarType <- "ci"

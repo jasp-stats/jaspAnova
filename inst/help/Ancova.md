@@ -22,9 +22,10 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
 #### Display: 
 - Descriptive statistics: When this option is selected, the mean, standard deviation, and the sample size will be displayed for each level combination of the independent variables. 
 - Estimates of effect size: By selecting this option, the specific types of calculations to estimate the effect size can be specified. 
-    - &eta;<sup>2</sup> : When this option is selected, the eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018).       
-    - partial &eta;<sup>2</sup> : When this option is selected, the partial eta-squared is calculated as an estimate of the effect size. This method is considered to solve the problem of overestimation of the population variance, which makes it less difficult to compare the effect of the same variable from different studies (Goss-Sampson, 2018). 
-    - &omega;<sup>2</sup> : When this option is selected, the Omega squared is calculated as an estimate of the effect size. This is considered a good estimate when the sample size is small (Goss-Sampson, 2018). 
+    - &omega;<sup>2</sup> : Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to  &eta;<sup>2</sup> . (Kroes & Finley, 2023). 
+    - partial &omega;<sup>2</sup> : Partial Omega squared is calculated as an estimate of the effect size.  Partial &omega;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+    - &eta;<sup>2</sup> : Eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018; Kroes & Finley, 2023).       
+    - partial &eta;<sup>2</sup> : Partial eta-squared is calculated as an estimate of the effect size. Partial &eta;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
 - Vovk-Selke maximum p-ratio: The bound 1/(-e p log(p)) is derived from the shape of the p-value distribution. Under the null hypothesis (H<sub>0</sub>) it is uniform (0,1), and under the alternative (H<sub>1</sub>) it is decreasing in p, e.g., a beta (α, 1) distribution, where 0 < α < 1. The Vovk-Sellke MPR is obtained by choosing the shape α of the distribution under H1 such that the obtained p-value is maximally diagnostic. The value is then the ratio of the densities at point p under H<sub>0</sub> and H<sub>1</sub>. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H<sub>0</sub>. More information can be found in this <a href="https://jasp-stats.org/2017/06/12/mysterious-vs-mpr/">blogpost</a>. 
 
 
@@ -65,7 +66,9 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
       - repeated: By selecting this contrast, the mean of each level is compared to the mean of the following level. 
       - polynomial: This contrast tests polynomial trends in the data. The specific polynomial that will be used for the analysis depends on the number of levels of the independent variable. The degree of the trend used for the analysis is the number of levels minus 1. Therefore, if the independent variable consist of 2 levels, a linear trend is analysed. If the independent variable consists of three levels, a quadratic trend is analysed in addition to the linear trend. 
       - custom: Here, the contrast weights can be specified manually. Some restrictions apply here: (1) some weights need to be non-zero (2) The maximum number of contrasts is the number of factor levels - 1 (3) for factors with more than 2 levels, at least 2 contrasts need to be specified.
-- Confidence Intervals: By selecting this option, confidence intervals for the estimated mean difference will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage. 
+- Confidence Intervals: By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage. 
+- Effect size: Include standardized mean differences, based on the effectsize function in the emmeans package. 
+
 
 ### Post Hoc Tests
 - To perform a post hoc test, drag one or more factor names to the right column. Several options are available:    
@@ -287,6 +290,7 @@ Independent variable on the x-axis and dependent variable on the y-axis. If othe
 -	Field, A. (2009). *Discovering Statistics using SPSS (3rd ed.)*. Sage Publishing.
 -	Field, A., Miles, J., & Field, Z. (2012). Discovering statistics using R. Sage Publishing.
 -	Goss-Sampson, M. A. (2018). *Statistical Analysis in JASP: A Guide for Students*. Version 2, October 2018. 
+- Kroes, A. D. A., & Finley, J. R. (2023). Demystifying omega squared: Practical guidance for effect size in common analysis of variance designs. Psychological Methods.
 -	Langsrud, Ø. (2003). ANOVA for unbalanced data: Use Type II instead of Type III sums of squares. *Statistics and Computing, 13*(2), 163-167.
 -	Moore, D.S., McCabe, G.P., & Craig, B.A. (2012). *Introduction to the practice of statistics (7th ed.)*. New York, NY: W.H. Freeman and Company.
 -	Sellke, T., Bayarri, M. J., & Berger, J. O. (2001). Calibration of p values for testing precise null hypotheses. *The American Statistician, 55*(1), 62-71.

@@ -1618,14 +1618,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plotErrorBars <- options$descriptivePlotCi
     errorBarType  <- "ci"
     conf.interval <- options$descriptivePlotCiLevel
+    moreyCorrection <- TRUE
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
     plotErrorBars <- options$descriptivePlotErrorBar
     errorBarType  <- options$descriptivePlotErrorBarType
     conf.interval <- options$descriptivePlotCiLevel
+    moreyCorrection <-  if (is.null(options[["applyMoreyCorrectionErrorBars"]])) FALSE else options[["applyMoreyCorrectionErrorBars"]]
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotErrorBar", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
-                                         "descriptivePlotErrorBarPooled"))
+                                         "descriptivePlotErrorBarPooled", "applyMoreyCorrectionErrorBars"))
 
   }
   usePooledSE <- if (is.null(options[["descriptivePlotErrorBarPooled"]])) FALSE else options[["descriptivePlotErrorBarPooled"]]
@@ -1662,7 +1664,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                idvar = .BANOVAsubjectName,
                                                conf.interval = conf.interval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
-                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               usePooledSE = usePooledSE,
+                                               useMoreyCorrection = moreyCorrection,
+                                               dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }
 

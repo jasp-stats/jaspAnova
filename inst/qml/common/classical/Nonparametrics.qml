@@ -44,7 +44,7 @@ Section
 	CheckBox 
 	{ 
 		name: "postHocTypeDunn"
-		qsTr("Dunn's post hoc tests")						
+		label: qsTr("Dunn's post hoc tests")						
 	}
 
 }

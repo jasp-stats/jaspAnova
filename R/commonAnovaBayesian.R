@@ -1654,12 +1654,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+    summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
                                          subjectName = .BANOVAsubjectName)
   } else {
-    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
+    summaryStat <- jaspTTests::.summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
                                                betweenvars = betweenSubjectFactors,
                                                withinvars = repeatedMeasuresFactors,
                                                idvar = .BANOVAsubjectName,
@@ -1885,12 +1885,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options[["repeatedMeasuresFactors"]], `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+    summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = confInterval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
                                          subjectName = .BANOVAsubjectName)
   } else {
-    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar = .BANOVAdependentName,
+    summaryStat <- jaspTTests::.summarySEwithin(as.data.frame(dataset), measurevar = .BANOVAdependentName,
                                                betweenvars = betweenSubjectFactors,
                                                withinvars = repeatedMeasuresFactors,
                                                idvar = .BANOVAsubjectName,

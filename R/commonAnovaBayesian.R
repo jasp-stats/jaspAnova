@@ -1210,7 +1210,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plot$plotObject <- jaspGraphs::plotQQnorm(
       residuals = model[["posteriors"]][["weightedResidSumStats"]][,"mean"],
       lower     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.2.5%"],
-      upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"]
+      upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"],
+      ablineColor = "darkred"
     )
     plot$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
   }
@@ -3638,7 +3639,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     p <- jaspGraphs::plotQQnorm(
       residuals = model$residSumStats[,"mean"],
       lower     = model$residSumStats[,"cri.2.5%"],
-      upper     = model$residSumStats[,"cri.97.5%"]
+      upper     = model$residSumStats[,"cri.97.5%"],
+      ablineColor = "darkred"
     )
   }
   plot <- createJaspPlot(

@@ -742,7 +742,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return()
 
   assumptionsContainer <- createJaspContainer(title = gettext("Assumption Checks"),
-                                              dependencies = c("homogeneityTests", "sphericityTests"))
+                                              dependencies = c("homogeneityTests", "sphericityTests", "qqPlot"))
 
   rmAnovaContainer[["assumptionsContainer"]] <- assumptionsContainer
 
@@ -753,7 +753,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     .rmAnovaSphericityTable(rmAnovaContainer, dataset, options, ready)
 
   if (options$qqPlot == TRUE)
-    .qqPlot(rmAnovaContainer, dataset, options, ready)
+    .qqPlotFreqAnova(rmAnovaContainer, dataset, options, ready)
 
   return()
 }
@@ -1014,94 +1014,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   return()
 }
 
-.getCorrectionFootnoteAnova <- function(postHocObject, includeCI = FALSE) {
-
-  pvalAdjust <- attr(postHocObject, "mesg")[grep(attr(postHocObject, "mesg"), pattern = "P value adjustment")]
-  nEstimates <- regmatches(pvalAdjust, gregexpr("[[:digit:]]+", pvalAdjust))[[1]]
-  confAdjust <- attr(postHocObject, "mesg")[grep(attr(postHocObject, "mesg"), pattern = "Conf-level")]
-  confAdjust <- gsub(x = confAdjust, pattern = "Conf-level adjustment: ", "")
-  confAdjust <- strsplit(confAdjust, " ")[[1]][1]
-
-  if (!includeCI) {
-    correctionFootnote <- gettextf("P-value adjusted for comparing a family of %s", as.character(nEstimates))
-  } else {
-    correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method).", nEstimates, confAdjust)
-  }
-
-  return(correctionFootnote)
-}
-
-.computeBonferroniConfidence <- function(confidenceLevel, numberOfLevels) {
-
-  bonfAdjustCIlevel <- 1 - ((1-confidenceLevel) /
-                              choose(numberOfLevels, 2))
-  return(bonfAdjustCIlevel)
-}
-
-.createPostHocStandardTable <- function(myTitle, interactionTerm, options, makeBootstrapTable = FALSE) {
-
-  preTitle <- if (!makeBootstrapTable) gettext("Post Hoc Comparisons - ") else gettext("Bootstrapped Post Hoc Comparisons - ")
-  postHocTable <- createJaspTable(title = paste0(preTitle, myTitle)) #this paste is ok
-
-  postHocTable$addColumnInfo(name="contrast_A", title=" ", type="string", combine = TRUE)
-  postHocTable$addColumnInfo(name="contrast_B", title=" ", type="string")
-
-  postHocTable$addColumnInfo(name="estimate", title=gettext("Mean Difference"), type="number")
-
-  if (options$postHocCi || makeBootstrapTable) {
-
-    if (makeBootstrapTable) {
-      thisOverTitle <- gettextf("%1$s%% bca%2$s CI", options$postHocCiLevel * 100, "\u2020")
-    } else {
-      thisOverTitle <- gettextf("%s%% CI for Mean Difference", options$postHocCiLevel * 100)
-    }
-
-    postHocTable$addColumnInfo(name="lower.CL", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
-    postHocTable$addColumnInfo(name="upper.CL", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
-  }
-
-  postHocTable$addColumnInfo(name="SE", title=gettext("SE"), type="number")
-
-  if (makeBootstrapTable)
-    postHocTable$addColumnInfo(name="bias", title=gettext("bias"), type="number")
-
-
-  postHocTable$addColumnInfo(name="t.ratio", title=gettext("t"), type="number")
-
-  # postHocTypeStandardEffectSize is from AN(C)OVA
-  # postHocEffectSize is from RMANOVA
-  if (isTRUE(options$postHocTypeStandardEffectSize) || isTRUE(options$postHocEffectSize)) {
-    postHocTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
-
-    if (options$postHocCi) {
-      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$postHocCiLevel * 100)
-      postHocTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
-      postHocTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
-    }
-  }
-
-  if (options$postHocCorrectionTukey)
-    postHocTable$addColumnInfo(name="tukey",    title=gettext("p<sub>tukey</sub>"), type="pvalue")
-
-  if (options$postHocCorrectionScheffe)
-    postHocTable$addColumnInfo(name="scheffe", title=gettext("p<sub>scheffe</sub>"), type="pvalue")
-
-  if (options$postHocCorrectionBonferroni)
-    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
-
-  if (options$postHocCorrectionHolm)
-    postHocTable$addColumnInfo(name="holm", title=gettext("p<sub>holm</sub>"), type="pvalue")
-
-  # Sidak option does not exist in RM-ANOVA
-  if (isTRUE(options$postHocCorrectionSidak))
-    postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>sidak</sub>"), type="pvalue")
-
-
-  postHocTable$showSpecifiedColumnsOnly <- TRUE
-
-  return(postHocTable)
-}
-
 .rmAnovaContrastTable <- function(rmAnovaContainer, longData, options, ready) {
   if (!ready || is.null(options$contrasts))
       return()
@@ -1222,9 +1134,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)
         weightType <-  if (all(apply(contrastMatrix, 2, function(x) x %% 1 == 0))) "integer" else "number"
-        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createCoefficientsTableAnova(contrast,
-                                                                                                         contrCoefEmmeans,
-                                                                                                         weightType)
+        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createContrastCoefficientsTableAnova(contrast,
+                                                                                                                 contrCoefEmmeans,
+                                                                                                                 weightType)
       }
       contrastContainer[[contrastContainerName]][["contrastTable"]]$setData(contrastResult)
 
@@ -1339,49 +1251,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   }
 
   return()
-}
-
-.createMarginalMeansTableAnova <- function(myTitle, options, individualTerms, makeBootstrapTable = FALSE, dfType = "integer" ) {
-
-  preTitle <- if (!makeBootstrapTable) gettext("Marginal Means - ") else gettext("Bootstrapped Marginal Means - ")
-  marginalMeansTable <- createJaspTable(title = paste0(preTitle, myTitle))
-
-  for (i in 1:length(individualTerms))
-    marginalMeansTable$addColumnInfo(name=individualTerms[i], type="string", combine = TRUE)
-
-  marginalMeansTable$addColumnInfo(name="lsmean", title=gettext("Marginal Mean"), type="number")
-
-  if (makeBootstrapTable) {
-    thisOverTitle <- gettextf("95%% bca%s CI", "\u2020")
-    marginalMeansTable$addColumnInfo(name="bias", title=gettext("bias"), type="number")
-
-    marginalMeansTable$addFootnote(message = gettext("Marginal Means estimate is based on the median of the bootstrap distribution."))
-    marginalMeansTable$addFootnote(symbol = "\u2020", message = gettext("Bias corrected accelerated."))
-
-  } else {
-    thisOverTitle <- gettextf("95%% CI for Mean Difference")
-  }
-
-  marginalMeansTable$addColumnInfo(name="lower.CL", type = "number", title = gettext("Lower"), overtitle = thisOverTitle, )
-  marginalMeansTable$addColumnInfo(name="upper.CL", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
-
-  marginalMeansTable$addColumnInfo(name="SE", title=gettext("SE"), type="number")
-
-  if (options$marginalMeanComparedToZero) {
-    marginalMeansTable$addColumnInfo(name="t.ratio", title=gettext("t"),  type="number")
-    marginalMeansTable$addColumnInfo(name="df",      title=gettext("df"), type=dfType)
-    marginalMeansTable$addColumnInfo(name="p.value", title=gettext("p"),  type="pvalue")
-
-    if (options$marginalMeanCiCorrection == "bonferroni") {
-      marginalMeansTable$addFootnote(message = gettext("Bonferroni CI adjustment"))
-    } else if (options$marginalMeanCiCorrection == "sidak") {
-      marginalMeansTable$addFootnote(message = gettext("Sidak CI adjustment"))
-    }
-  }
-
-  marginalMeansTable$showSpecifiedColumnsOnly <- TRUE
-
-  return(marginalMeansTable)
 }
 
 .bootstrapMarginalMeansRmAnova <- function(data, indices, options, nRows, termLength, formula){
@@ -1826,13 +1695,4 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   simpleEffectsTable$setData(simpleEffectResult)
 
   return()
-}
-
-.addSumSquaresFootnote <- function(table, options)
-{
-  typeFootnote <- switch(options$sumOfSquares,
-                         type1 = gettext("Type I Sum of Squares"),
-                         type2 = gettext("Type II Sum of Squares"),
-                         type3 = gettext("Type III Sum of Squares"))
-  table$addFootnote(message = typeFootnote)
 }

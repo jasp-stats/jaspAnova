@@ -595,11 +595,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaTable$showSpecifiedColumnsOnly <- TRUE
 
   # set the type footnote already
-  typeFootnote <- switch(options$sumOfSquares,
-                         type1 = gettext("Type I Sum of Squares"),
-                         type2 = gettext("Type II Sum of Squares"),
-                         type3 = gettext("Type III Sum of Squares"))
-  anovaTable$addFootnote(typeFootnote)
+  .addSumSquaresFootnote(anovaTable, options)
 
   anovaContainer[["anovaTable"]] <- anovaTable
 
@@ -753,9 +749,9 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)
         weightType <-  if (all(apply(contrastMatrix, 2, function(x) x %% 1 == 0))) "integer" else "number"
-        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createCoefficientsTableAnova(contrast,
-                                                                                                         contrCoef,
-                                                                                                         weightType)
+        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createContrastCoefficientsTableAnova(contrast,
+                                                                                                                 contrCoef,
+                                                                                                                 weightType)
       }
 
       contrastContainer[[contrastContainerName]][["contrastTable"]]$setData(contrastResult)
@@ -840,64 +836,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   contr
-}
-
-
-.createContrastTableAnova <- function(myTitle, options, dfType = "integer") {
-
-  contrastTable <- createJaspTable(title = myTitle)
-  contrastTable$addColumnInfo(name = "Comparison", type = "string")
-  contrastTable$addColumnInfo(name = "estimate", title=gettext("Estimate"), type = "number")
-
-  if (options$contrastCi) {
-
-    thisOverTitle <- gettextf("%s%% CI for Mean Difference", options$contrastCiLevel * 100)
-    contrastTable$addColumnInfo(name="lower.CL", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
-    contrastTable$addColumnInfo(name="upper.CL", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
-
-  }
-
-  contrastTable$addColumnInfo(name = "SE", title=gettext("SE"), type = "number")
-  contrastTable$addColumnInfo(name = "df",      title = gettext("df"), type = dfType)
-  contrastTable$addColumnInfo(name = "t.ratio", title = gettext("t"),  type = "number")
-  contrastTable$addColumnInfo(name = "p.value", title = gettext("p"),  type = "pvalue")
-
-  if (isTRUE(options$contrastEffectSize)) {
-    contrastTable$addColumnInfo(name="cohenD", title=gettext("Cohen's d"), type="number")
-
-    if (isTRUE(options$contrastCi)) {
-      thisOverTitleCohenD <- gettextf("%s%% CI for Cohen's d", options$contrastCiLevel * 100)
-      contrastTable$addColumnInfo(name="cohenD_LowerCI", type = "number", title = gettext("Lower"), overtitle = thisOverTitleCohenD)
-      contrastTable$addColumnInfo(name="cohenD_UpperCI", type = "number", title = gettext("Upper"), overtitle = thisOverTitleCohenD)
-    }
-  }
-
-  contrastTable$showSpecifiedColumnsOnly <- TRUE
-
-  return(contrastTable)
-}
-
-.createCoefficientsTableAnova <- function(contrast, contrCoef, weightType = "number") {
-
-  contrastType <- unlist(strsplit(contrast$contrast, ""))
-  contrastType[1] <- toupper(contrastType[1])
-  contrastType <- paste0(contrastType, collapse = "")
-
-  myTitle <-  gettextf("%1$s Contrast Coefficients - %2$s",
-                       contrastType,
-                       paste(contrast$variable, collapse = " \u273B "))
-
-  coefTable <- createJaspTable(title = myTitle)
-
-  for (thisVar in names(contrCoef)[1:length(contrast$variable)])
-    coefTable$addColumnInfo(name = thisVar, type = "string", combine = TRUE)
-
-  for (thisComp in paste("Comparison", 1: (ncol(contrCoef) - length(contrast$variable))))
-    coefTable$addColumnInfo(name = thisComp, type = weightType)
-
-  coefTable$setData(contrCoef)
-
-  return(coefTable)
 }
 
 .postHocContrasts <- function(variableLevels, dataset, options) {
@@ -1096,41 +1034,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaAddSignificanceSigns <- function(someTable, allPvalues, resultRowNames) {
-
-  threeStarSignif <- twoStarSignif <- oneStarSignif <- FALSE
-
-  for (thisP in colnames(allPvalues)) {
-
-    signifComparisonsThreeStars <- resultRowNames[allPvalues[, thisP] < 0.001]
-    signifComparisonsTwoStars <- resultRowNames[allPvalues[, thisP] < 0.01 & allPvalues[, thisP] >= 0.001]
-    signifComparisonsOneStar <- resultRowNames[allPvalues[, thisP] < 0.05 & allPvalues[, thisP] >= 0.01]
-
-    if (length(signifComparisonsThreeStars) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsThreeStars))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsThreeStars, symbol = "***")
-      threeStarSignif <- TRUE
-    }
-
-    if (length(signifComparisonsTwoStars) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsTwoStars))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsTwoStars, symbol = "**")
-      twoStarSignif <- TRUE
-    }
-
-    if (length(signifComparisonsOneStar) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsOneStar))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsOneStar, symbol = "*")
-      oneStarSignif <- TRUE
-    }
-
-  }
-
-  signifMessage <- c("* p < .05", "** p < .01", "*** p < .001")[c(oneStarSignif, twoStarSignif, threeStarSignif)]
-
-  if (length(signifMessage) > 0)
-    someTable$addFootnote(message = paste0(signifMessage, collapse = ", "), symbol = " ")
-}
 
 .bootstrapPostHoc <- function(data, indices, options, nComparisons, postHocVariablesListV, postHocVarIndex) {
 
@@ -1427,74 +1330,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaDescriptivesTable <- function(anovaContainer, dataset, options, ready) {
-  if (options$descriptives == FALSE || !is.null(anovaContainer[["descriptivesTable"]]) || !ready)
-    return()
-
-  descriptivesTable <- createJaspTable(title = paste0("Descriptives - ", options$dependent))
-  anovaContainer[["descriptivesTable"]] <- descriptivesTable
-
-  for (variable in options$fixedFactors) {
-
-    name <- paste0(variable, "_DescriptivesVar")  # in case variable is "Mean", "SD" or "N"
-    descriptivesTable$addColumnInfo(title = variable, name = name, type = "string", combine = TRUE)
-
-  }
-
-  descriptivesTable$addColumnInfo(name = "N",               title = gettext("N"),               type = "integer")
-  descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),            type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),              type = "number")
-  descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),              type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("Coefficient of Variation"), type = "number")
-
-  lvls <- list()
-  factors <- list()
-
-  for (variable in options$fixedFactors) {
-
-    factor <- dataset[[ .v(variable) ]]
-    factors[[length(factors)+1]] <- factor
-    lvls[[ variable ]] <- levels(factor)
-
-  }
-
-  descriptiveResult <- rev(expand.grid(rev(lvls), stringsAsFactors = FALSE))
-  descriptiveResult[[".isNewGroup"]] <- FALSE
-
-  columnNames <- paste0(unlist(options$fixedFactors), "_DescriptivesVar")
-  nSubsetVars <- length(columnNames)
-
-  allSubsets <- list()
-
-  for (i in 1:nrow(descriptiveResult)) {
-    # Here we generate a logical statement to make of a subset of all relevant variables
-    subsetStatement  <- eval(parse(text=paste("dataset$", .v(unlist(options$fixedFactors)), " == \"",
-                                              descriptiveResult[i, 1:nSubsetVars],
-                                              "\"", sep = "", collapse = " & ")))
-
-    # Now we use that statement to make a subset and store in the list of all subsets
-    allSubsets[[i]] <- base::subset(dataset, subsetStatement, select = .v(options$dependent))[[1]]
-
-    if (descriptiveResult[i, nSubsetVars] == lvls[[ nSubsetVars ]][1]) {
-      descriptiveResult[[i, ".isNewGroup"]] <- TRUE
-    }
-  }
-
-  allMeans <- sapply(allSubsets, mean)
-  descriptiveResult[["Mean"]]             <- ifelse(is.nan(allMeans), NA, allMeans)
-  descriptiveResult[["N"]]                <- sapply(allSubsets, length)
-  descriptiveResult[["SD"]]               <- sapply(allSubsets, sd)
-  descriptiveResult[["SE"]]               <- descriptiveResult[["SD"]] / sqrt(descriptiveResult[["N"]])
-  descriptiveResult[["coefOfVariation"]]  <- descriptiveResult[["SD"]] / descriptiveResult[["Mean"]]
-
-
-  colnames(descriptiveResult)[1:nSubsetVars] <- columnNames
-
-  descriptivesTable$setData(descriptiveResult)
-
-  return()
-}
-
 .anovaAssumptionsContainer <- function(anovaContainer, dataset, options, ready) {
   if (!is.null(anovaContainer[["assumptionsContainer"]]))
     return()
@@ -1508,7 +1343,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     .anovaLevenesTable(anovaContainer, dataset, options, ready)
 
   if (options$qqPlot == TRUE)
-    .qqPlot(anovaContainer, dataset, options, ready)
+    .qqPlotFreqAnova(anovaContainer, dataset, options, ready)
 
   return()
 }
@@ -1882,26 +1717,3 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.qqPlot <- function(anovaContainer, dataset, options, ready) {
-
-  # create the jaspPlot object
-  qqPlot <- createJaspPlot(title = gettext("Q-Q Plot"), width = options$plotWidthQQPlot, height = options$plotHeightQQPlot)
-
-  # now we assign the plot to jaspResults
-  anovaContainer[["assumptionsContainer"]][["qqPlot"]] <- qqPlot
-
-  if (!ready || anovaContainer$getError())
-    return()
-
-  if (is.null(options[["dependent"]])) { # If RM ANOVA
-    residuals <- residuals(anovaContainer[["anovaResult"]][["object"]][["fullModel"]])
-  } else {
-    residuals <- anovaContainer[["model"]][["object"]][["residuals"]]
-  }
-
-  # standResid <- as.data.frame(stats::qqnorm(rstandard(model), plot.it=FALSE))
-  qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals)
-
-
-  return()
-}

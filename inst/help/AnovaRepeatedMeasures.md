@@ -20,10 +20,11 @@ The repeated Measures ANOVA allows the user to analyze the differences between m
 #### Display
 - Descriptive statistics: When this option is selected, the mean, standard deviation, and the sample size will be displayed for each level combination of the repeated measures factors.
 - Estimates of effect size: By selecting this option, the specific types of calculations to estimate the effect size can be specified.
-    - &eta;<sup>2</sup> : When this option is selected, the eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018).
-    - partial &eta;<sup>2</sup> : When this option is selected, the Partial eta-squared is calculated as an estimate of the effect size. This method is considered to solve the problem of overestimation of the population variance, which makes it less difficult to compare the effect of the same variable from different studies (Goss-Sampson, 2018).
-    - general &eta;<sup>2</sup> : When this option is selected, the Generalized eta-squared is calculated as an estimate of the effect size.
-    - &omega;<sup>2</sup> : When this option is selected, the Omega squared is calculated as an estimate of the effect size. This is considered a good estimate when the sample size is small (Goss-Sampson, 2018).
+     - &omega;<sup>2</sup> : Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to  &eta;<sup>2</sup> . (Kroes & Finley, 2023). 
+    - partial &omega;<sup>2</sup> : Partial Omega squared is calculated as an estimate of the effect size.  Partial &omega;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+    - &eta;<sup>2</sup> : Eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018; Kroes & Finley, 2023).       
+    - partial &eta;<sup>2</sup> : Partial eta-squared is calculated as an estimate of the effect size. Partial &eta;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+    - general &eta;<sup>2</sup> : Generalized eta-squared is calculated as an estimate of the effect size. Generalized eta squared accounts for the effect size in both between-subjects and within-subjects designs, adjusting for the total variance across all conditions, making it suitable for mixed designs, unlike traditional eta squared which does not specifically adjust for these differing design types (Olejnik & Algina, 2003).
 - Vovk-Selke maximum p-ratio: The bound 1/(-e p log(p)) is derived from the shape of the p-value distribution. Under the null hypothesis (H<sub>0</sub>) it is uniform (0,1), and under the alternative (H<sub>1</sub>) it is decreasing in p, e.g., a beta (α, 1) distribution, where 0 < α < 1. The Vovk-Sellke MPR is obtained by choosing the shape α of the distribution under H1 such that the obtained p-value is maximally diagnostic. The value is then the ratio of the densities at point p under H<sub>0</sub> and H<sub>1</sub>. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H<sub>0</sub>.
 
 ### Model
@@ -60,7 +61,8 @@ For each repeated measures factor, a specific contrast can be selected by clicki
     - polynomial: This contrast tests polynomial trends in the data. The specific polynomial that will be used for the analysis depends on the number of levels of the repeated measures factor. The degree of the trend used for the analysis is the number of levels minus 1. Therefore, if the repeated measures factor consist of 2 levels, a linear trend is analysed. If the repeated measures factor consists of three levels, a quadratic trend is analysed in addition to the linear trend.
     - custom: Here, the contrast weights can be specified manually. Some weights need to be non-zero.
 - Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
-- Confidence interval: Confidence interval for the location parameter. By default, the confidence interval is set to 95%. This can be changed into the desired percentage.
+- Confidence interval: Confidence interval for the location parameter and effect size. By default, the confidence interval is set to 95%. This can be changed into the desired percentage.
+- Effect size: Include standardized mean differences, based on the effectsize function in the emmeans package. 
 
 
 ### Post Hoc Tests
@@ -84,10 +86,11 @@ To create a descriptive plot, select the repeated measures factor to be placed o
 - Separate plots: By placing a repeated measures factor in this box, different plots corresponding to the different levels of the repeated measures factor will be displayed.
 - Label y-axis: The label of the y-axis can be changed manually.
 - Display:
-    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. In order to get accurate confidence intervals and standard errors, the data are normalized by subtracting the appropriate participantʹs mean performance from each observation, and then adding the grand mean score to every observation. The variances of the resulting normalized values in each condition, and thus the size of the bars, no longer depend on the participant effects and are therefore a more accurate representation of the experimental manipulation. See Morey (2008) for a thorough discussion of this procedure.
+    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. 
         - Confidence interval: This option is selected by default. With this option, the error bars will represent confidence intervals of the mean of each level combination of the repeated measures factors. By default the confidence interval is set to 95%, but this can be changed  into the desired percentage.
         - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the repeated measures factor.
     - Average across unused RM factors: When there are multiple RM factors in the model, but only plotting a subset of these factors, the mean is taken across the unused RM factors. For instance, when there are two RM factors with two levels in the model, A (1&2) and B (1&2), and only A is selected to be plotted, the average is taken of B across its levels. This means that when the mean of A1 is plotted, it is actually the average of A1B1 and A1B2). This procedure is discussed by Loftus & Masson (1994). When the box is not ticked, the averages are not taken, and the columns A1B1 and A1B2 are simply concatenated.
+    - Normalize error bars: In order to get accurate confidence intervals and standard errors, the data are normalized by subtracting the appropriate participantʹs mean performance from each observation, and then adding the grand mean score to every observation. The variances of the resulting normalized values in each condition, and thus the size of the bars, no longer depend on the participant effects and are therefore a more accurate representation of the experimental manipulation. See Morey (2008) for a thorough discussion of this procedure.
 
 ### Bar Plots
 - To create a bar plot, select the repeated measures factor to be placed on the horizontal axis. If there are more than one repeated measures factor, the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.
@@ -96,11 +99,13 @@ To create a descriptive plot, select the repeated measures factor to be placed o
   - Separate plots: By placing a repeated measures factor in this box, different plots corresponding to the different levels of the repeated measures factor will be displayed.
   - Label y-axis: The label of the y-axis can be changed manually.
 - Display:
-    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. In order to get accurate confidence intervals and standard errors, the data are normalized by subtracting the appropriate participantʹs mean performance from each observation, and then adding the grand mean score to every observation. The variances of the resulting normalized values in each condition, and thus the size of the bars, no longer depend on the participant effects and are therefore a more accurate representation of the experimental manipulation. See Morey (2008) for a thorough discussion of this procedure.
+    - Display error bars: By selecting this option, error bars will be displayed in the plot. The error bars can either represent confidence intervals or standard errors. 
         - Confidence interval: This option is selected by default. With this option, the error bars will represent confidence intervals of the mean of each level combination of the repeated measures factors. By default the confidence interval is set to 95%, but this can be changed  into the desired percentage.
         - Standard error: By selecting this option, the error bars will represent standard errors of the mean of each level combination of the repeated measures factor.
     - Fix horizontal axis to 0: Forces the graphs to show the default x-axis at y = 0.
     - Average across unused RM factors: When there are multiple RM factors in the model, but only plotting a subset of these factors, the mean is taken across the unused RM factors. For instance, when there are two RM factors with two levels in the model, A (1&2) and B (1&2), and only A is selected to be plotted, the average is taken of B across its levels. This means that when the mean of A1 is plotted, it is actually the average of A1B1 and A1B2). This procedure is discussed by Loftus & Masson (1994). When the box is not ticked, the averages are not taken, and the columns A1B1 and A1B2 are simply concatenated.
+    - Normalize error bars: Same as for descriptive plots. 
+
 
 ### Marginal Means
 - Marginal means: When this option is selected, the mean for each level of the repeated measures factor, adjusted for all the other variables in the model, is calculated.
@@ -235,10 +240,12 @@ The independent variable / repeated measures factor on the x-axis and dependent 
 ### References
 ---
 - Conover,W. J. (1999). *Practical nonparametric Statistics, 3rd. Edition*, Wiley.
--	Field, A., Miles, J., & Field, Z. (2012). Discovering statistics using R. Sage Publishing.
-- Morey, R. D. (2008) Confidence Intervals from Normalized Data: A correction to Cousineau (2005). Tutorial in *Quantatitative Methods for Psychology, 4*(2), 61-64.
+- Field, A., Miles, J., & Field, Z. (2012). Discovering statistics using R. Sage Publishing.
+- Kroes, A. D. A., & Finley, J. R. (2023). Demystifying omega squared: Practical guidance for effect size in common analysis of variance designs. Psychological Methods.
 - Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. *Psychonomic Bulletin and Review, 1*, 476–490.
--  Maxwell, S. E. (1980). Pairwise Multiple Comparisons in Repeated Measures Designs. *Journal of Educational Statistics*, 5(3), 269–287.
+- Maxwell, S. E. (1980). Pairwise Multiple Comparisons in Repeated Measures Designs. *Journal of Educational Statistics*, 5(3), 269–287.
+- Morey, R. D. (2008) Confidence Intervals from Normalized Data: A correction to Cousineau (2005). Tutorial in *Quantatitative Methods for Psychology, 4*(2), 61-64.
+- Olejnik, S., & Algina, J. (2003). Generalized eta and omega squared statistics: Measures of effect size for some common research designs. Psychological Methods, 8(4), 434–447.
 
 
 ### R-packages

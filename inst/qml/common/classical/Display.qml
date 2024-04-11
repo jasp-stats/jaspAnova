@@ -29,21 +29,28 @@ Group
 	CheckBox { name: "descriptives";	label: qsTr("Descriptive statistics")	}
 	CheckBox {
 		name: "effectSizeEstimates";	label: qsTr("Estimates of effect size")
-		columns: 3
-		CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²"); checked: true	}
-		CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")		}
-		Loader
-		{
-			Component
-			{
-				id: effectSizeGeneralEtaSquared
-				CheckBox { name: "effectSizeGeneralEtaSquared";	label: qsTr("general η²")	}
-			}
-			sourceComponent: effectSizeGeneralEtaSquared
-			active: analysis === Common.Type.Analysis.RMANOVA
-		}
+		columns: 2
+		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")	; checked: true			}			
+		CheckBox { name: "effectSizePartialOmegaSquared";		label: qsTr("partial ω²")		}
+		CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²")	}
+		CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")}
 
-		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")				}
+		CheckBox 
+		{ 
+			name: "effectSizeGeneralEtaSquared"
+			label: qsTr("general η²")
+			visible: analysis === Common.Type.Analysis.RMANOVA
+		}
+	
+			
+		CheckBox
+		{
+			name: "effectSizeCi"; label: qsTr("Confidence intervals")
+			CIField {	name: "effectSizeCiLevel" }
+			childrenOnSameRow: true
+			visible: analysis === Common.Type.Analysis.ANOVA ||  analysis === Common.Type.Analysis.ANCOVA
+
+		}
 	}
 	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio") }
 }

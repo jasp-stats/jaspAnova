@@ -19,6 +19,7 @@
 import QtQuick
 import JASP
 import JASP.Controls
+import "../." as Common
 
 Section
 {
@@ -52,7 +53,19 @@ Section
 					childrenOnSameRow:	true
 					CIField { name: "descriptivePlotCiLevel" }
 				}
-				RadioButton { value: "se";	label: qsTr("Standard error") }
+				RadioButton 
+				{ 
+					value: "se"
+					label: qsTr("Standard error") 
+				}
+				
+				CheckBox 
+				{ 
+					name: "applyMoreyCorrectionErrorBars"
+					label: qsTr("Normalize error bars")
+					checked:			true
+					visible: analysis === Common.Type.Analysis.RMANOVA
+				}
 			}
 		}
 	}

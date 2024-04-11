@@ -614,6 +614,7 @@ test_that("Descriptives Plots match", {
   options$descriptivePlotHorizontalAxis <- "Charisma"
   options$descriptivePlotSeparateLines <- "gender"
   options$descriptivePlotErrorBar <- TRUE
+  options$applyMoreyCorrectionErrorBars <- TRUE
 
   options$descriptivePlotErrorBarPooled <- FALSE
   options$descriptivePlotErrorBarType <- "ci"
@@ -733,6 +734,8 @@ test_that("Effect Size Calculation correct", {
   options$effectSizeEtaSquared <- TRUE
   options$effectSizePartialEtaSquared <- TRUE
   options$effectSizeOmegaSquared <- TRUE
+  options$effectSizePartialOmegaSquared <- TRUE
+
   options$effectSizeGeneralEtaSquared <- TRUE
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
@@ -740,10 +743,10 @@ test_that("Effect Size Calculation correct", {
                             options = options)
 
   refTable <- list(1, 1, 1, 1, 1, 1, "TRUE", 3.79380603096984, 27.7083333333333,
-                   83.1249999999999, "Animal", 0.351479915433404, 0.351479915433404,
-                   0.327424913835549, 3, 0.238785176929506, 0.0255702968630395,
-                   "TRUE", "", 7.30357142857143, 153.375, "Residuals", "", "",
-                   "", 21, "", "")
+                   83.1249999999999, "Animal", 0.351479915433403, 0.327424913835549,
+                   3, 0.238785176929506, 0.0255702968630395, 0.351479915433403,
+                   0.238785176929506, "TRUE", "", 7.30357142857143, 153.375, "Residuals",
+                   "", "", 21, "", "")
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
   jaspTools::expect_equal_tables(table, refTable)
@@ -870,16 +873,16 @@ test_that("Field - Chapter 8 results match", {
 
   # Connover Test
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_Animal$data
-  refTable <- list("Stick", "Kangaroo", 0.0473184822848627, 21, 0.0473184822848627,
-                   0.00788641371414379, 2.93636897778917, 29, 14, "Stick", "Fish",
-                   0.07351563317191, 21, 0.0612630276432583, 0.0122526055286517,
-                   2.74061104593656, 29, 15, "Stick", "Grub", 1, 21, 0.555190969714741,
-                   0.18506365657158, 1.37030552296828, 29, 22, "Kangaroo", "Fish",
-                   1, 21, 0.846681455685693, 0.846681455685693, 0.195757931852611,
-                   14, 15, "Kangaroo", "Grub", 0.793676144068488, 21, 0.529117429378992,
-                   0.132279357344748, 1.56606345482089, 14, 22, "Fish", "Grub",
-                   1, 21, 0.555190969714741, 0.18506365657158, 1.37030552296828,
-                   15, 22)
+  refTable <- list("Stick", "Kangaroo", 0.0053568257851033, 21, 0.0053568257851033,
+                   0.000892804297517217, 3.86685035210436, 29, 14, "Stick", "Fish",
+                   0.00988691933819582, 21, 0.00823909944849651, 0.0016478198896993,
+                   3.60906032863074, 29, 15, "Stick", "Grub", 0.513063268547429,
+                   21, 0.256531634273715, 0.0855105447579049, 1.80453016431537,
+                   29, 22, "Kangaroo", "Fish", 1, 21, 0.799078360641179, 0.799078360641179,
+                   0.257790023473624, 14, 15, "Kangaroo", "Grub", 0.310592694973537,
+                   21, 0.207061796649025, 0.0517654491622562, 2.06232018778899,
+                   14, 22, "Fish", "Grub", 0.513063268547429, 21, 0.256531634273715,
+                   0.0855105447579049, 1.80453016431537, 15, 22)
   jaspTools::expect_equal_tables(table, refTable)
 })
 

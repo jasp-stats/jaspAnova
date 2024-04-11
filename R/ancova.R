@@ -218,28 +218,30 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   if(length(options$modelTerms) > 0) {
 
+    orderedModelTerms <- options$modelTerms[order(sapply(options$modelTerms, function(x) length(x$components)))]
+
     fixedFactors <- list()
     covariates <- list()
 
     k <- 1
     l <- 1
 
-    for(i in 1:length(options$modelTerms)) {
-      if (sum(unlist(options$modelTerms[[i]]$components) %in% options$covariates) > 0) {
-        covariates[[k]] <- options$modelTerms[[i]]
+    for(i in 1:length(orderedModelTerms)) {
+      if (sum(unlist(orderedModelTerms[[i]]$components) %in% options$covariates) > 0) {
+        covariates[[k]] <- orderedModelTerms[[i]]
         k <- k + 1
       } else {
-        fixedFactors[[l]] <- options$modelTerms[[i]]
+        fixedFactors[[l]] <- orderedModelTerms[[i]]
         l <- l + 1
       }
     }
 
-    if(length(covariates) > length(options$covariates)) {
-      modelTerms <- options$modelTerms
+    if (length(covariates) > length(options$covariates)) {
+      modelTerms <- orderedModelTerms
       interactions <- TRUE
     } else {
       modelTerms <- c(fixedFactors, covariates)
-      modelTerms <- modelTerms[match(modelTerms, options$modelTerms)]
+      modelTerms <- modelTerms[match(modelTerms, orderedModelTerms)]
       interactions <- FALSE
     }
 
@@ -374,7 +376,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     result <- car::Anova(model, type=2)
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
-    result['SSt'] <- sum(result[['Sum Sq']], na.rm = TRUE)
 
   } else if (options$sumOfSquares == "type3") {
 
@@ -389,35 +390,46 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     result <- car::Anova(model, type=3, singular.ok=FALSE)
     result <- result[-1, ]
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
-    result['SSt'] <- unlist(summary(aov(as.formula(paste(options$dependent, "~ 1")),
-                                        data = model$model))[[1]]["Sum Sq"])
-
-
   }
+
+  # calculate effect sizes before altering results structure
+  omegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+  partOmegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
+  etaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = FALSE)
+  partEtaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], alternative = "two.sided", partial = TRUE)
 
   # Make sure that the order of the result is same order as reordered modelterms
   result <- result[.mapAnovaTermsToTerms(c(termsBase64, "Residuals"), rownames(result) ), ]
   result[['cases']] <- c(termsNormal, "Residuals")
   result <- as.data.frame(result)
-  result[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-2), TRUE)
-  if (length(options$covariates) > 0)
-    result[.v(options$covariates), ][[".isNewGroup"]] <- TRUE
 
+  # see where a new block starts, where block 1 = main, block 2 = two-way inter, block 3 = three-way, etc.
+  termCount <- sapply(strsplit(as.character(rownames(result)), ":"), function(x) length(x) - 1)
+  newGroupIndices <- c(1, diff(termCount)) != 0
+  newGroupIndices[length(newGroupIndices)] <- TRUE
+  result[[".isNewGroup"]] <- newGroupIndices
+
+  # Identify indices where changes occur (diffs is not equal to 0)
+  change_indices <-
   result[1, 'correction'] <- "None"
 
   if (options$effectSizeEstimates) {
 
-      SSt <- result['SSt']
-      SSr <- result["Residuals", "Sum Sq"]
-      MSr <- SSr/result["Residuals", "Df"]
+      # Legacy code (without CI):
+      # SSt <- result['SSt']
+      # SSr <- result["Residuals", "Sum Sq"]
+      # MSr <- SSr/result["Residuals", "Df"]
+      #
+      # eta <- result[['Sum Sq']] / result[['SSt']]
+      # etaPart <- result[['Sum Sq']] / (result[['Sum Sq']] + SSr)
+      # omega <- (result[['Sum Sq']] - (result[['Df']] * MSr)) / (SSt + MSr)
+      # omega <- sapply(omega[,1], function(x) max(x, 0))
 
-      eta <- result[['Sum Sq']] / result[['SSt']]
-      etaPart <- result[['Sum Sq']] / (result[['Sum Sq']] + SSr)
-      omega <- (result[['Sum Sq']] - (result[['Df']] * MSr)) / (SSt + MSr)
-      omega <- sapply(omega[,1], function(x) max(x, 0))
-
-      result[, c("eta", "etaPart", "omega")] <- cbind(eta, etaPart, omega)
-      result["Residuals", c("eta", "etaPart", "omega")] <- NA
+      effectSizeColnames <- paste0(rep(c("eta", "partialEta", "omega", "partialOmega"), each = 3), c("", "Low", "High"))
+      relColumns <- c(2, 4:5)
+      result[partOmegaResult$Parameter, effectSizeColnames] <- cbind(etaResult[ , relColumns], partEtaResult[, relColumns],
+                                                                     omegaResult[, relColumns], partOmegaResult[, relColumns])
+      result["Residuals", effectSizeColnames] <- NA
 
   }
 
@@ -439,9 +451,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     brownResult <- result
     brownResult[[1, 'correction']] <- "Brown-Forsythe"
 
-    if (options$homogeneityCorrectionNone)
-      brownResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
-
     brownResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
     brownResult[[termsBase64, 'Pr(>F)']] <- tempResult[['p.value']]
     brownResult[[termsBase64, 'F value']] <- tempResult[['statistic']]
@@ -461,9 +470,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     tempResult <- stats::oneway.test(as.formula(modelDef$model.def), model$model, var.equal = FALSE)
     welchResult <- result
     welchResult[[1, 'correction']] <- "Welch"
-
-    if (options$homogeneityCorrectionNone || options$homogeneityCorrectionBrown)
-      welchResult[['.isNewGroup']] <- c(TRUE, rep(FALSE, nrow(result)-1))
 
     welchResult[[termsBase64, 'Df']] <- tempResult[['parameter']][[1]]
     welchResult[[termsBase64, 'Pr(>F)']] <- tempResult[['p.value']]
@@ -502,7 +508,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     }
     anovaResult[["welchFootnote"]] <- welchFootnote
-
     anovaResult[['welchResult']] <- welchResult
   }
 
@@ -510,7 +515,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaContainer[["anovaResult"]] <- createJaspState(object = anovaResult)
   anovaContainer[["anovaResult"]]$dependOn(c("sumOfSquares", "homogeneityCorrectionBrown", "homogeneityCorrectionWelch",
                                              "homogeneityCorrectionNone", "effectSizeEstimates", "effectSizeEtaSquared",
-                                              "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
+                                             "effectSizePartialEtaSquared", "effectSizeOmegaSquared", "effectSizePartialOmegaSquared",
+                                             "effectSizeCi", "effectSizeCiLevel"))
 }
 
 .anovaTable <- function(anovaContainer, options, ready) {
@@ -521,7 +527,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaTable <- createJaspTable(title = title, position = 1,
                            dependencies = c("homogeneityCorrectionWelch", "homogeneityCorrectionBrown", "homogeneityCorrectionNone",
                                             "vovkSellke", "effectSizeEstimates", "effectSizeEtaSquared",
-                                            "effectSizePartialEtaSquared", "effectSizeOmegaSquared"))
+                                            "effectSizePartialEtaSquared", "effectSizeOmegaSquared",  "effectSizePartialOmegaSquared",
+                                            "effectSizeCi", "effectSizeCiLevel"))
 
   corrections <- c("None", "Brown-Forsythe", "Welch")[c(options$homogeneityCorrectionNone,
                                                         options$homogeneityCorrectionBrown,
@@ -549,14 +556,38 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     if (options$effectSizeEtaSquared) {
       anovaTable$addColumnInfo(title = "\u03B7\u00B2", name = "eta", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="etaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="etaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
     if (options$effectSizePartialEtaSquared) {
-      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "etaPart", type = "number")
+      anovaTable$addColumnInfo(title = "\u03B7\u00B2\u209A", name = "partialEta", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialEtaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
     if (options$effectSizeOmegaSquared) {
       anovaTable$addColumnInfo(title = "\u03C9\u00B2", name = "omega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="omegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="omegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
+    }
+
+    if (options$effectSizePartialOmegaSquared) {
+      anovaTable$addColumnInfo(title = "\u03C9\u00B2\u209A", name = "partialOmega", type = "number")
+      if (options$effectSizeCi) {
+        thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options$effectSizeCiLevel * 100)
+        anovaTable$addColumnInfo(name="partialOmegaLow", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+        anovaTable$addColumnInfo(name="partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+      }
     }
 
   }
@@ -564,11 +595,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaTable$showSpecifiedColumnsOnly <- TRUE
 
   # set the type footnote already
-  typeFootnote <- switch(options$sumOfSquares,
-                         type1 = gettext("Type I Sum of Squares"),
-                         type2 = gettext("Type II Sum of Squares"),
-                         type3 = gettext("Type III Sum of Squares"))
-  anovaTable$addFootnote(typeFootnote)
+  .addSumSquaresFootnote(anovaTable, options)
 
   anovaContainer[["anovaTable"]] <- anovaTable
 
@@ -613,7 +640,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     return()
 
   contrastContainer <- createJaspContainer(title = gettext("Contrast Tables"))
-  contrastContainer$dependOn(c("contrasts", "contrastCiLevel",
+  contrastContainer$dependOn(c("contrasts", "contrastCiLevel", "contrastEffectSize",
                                "contrastCi", "customContrasts"))
 
   for (contrast in options$contrasts) {
@@ -686,6 +713,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       contrastResult    <- try(emmeans::contrast(referenceGrid, contrCoef), silent = TRUE)
       # is input the same as used by emmeans?
       # all(as.matrix( coef(contrastResult)[, -(1:length(v)) ]) == t(contrastMatrix))
+      fullModel <- model
+      effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid,
+                                                          sigma = sqrt(mean(sigma(model)^2)),
+                                                          edf = df.residual(model),
+                                                          method = contrCoef,
+                                                          level = options[["contrastCiLevel"]]))
 
       if (contrast$decoded == "custom") {
         if (isTryError(contrastResult)) {
@@ -708,12 +741,17 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       contrastResult[["Comparison"]] <- .unv(contrastResult[["contrast"]])
       contrastResult[[".isNewGroup"]] <- c(TRUE, rep(FALSE, nrow(contrastResult)-1))
 
+      contrastResult[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      contrastResult[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      contrastResult[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+
+
       if (contrast$decoded == "custom" | length(contrast$variable) > 1) {
         contrastResult$Comparison <- 1:nrow(contrastResult)
         weightType <-  if (all(apply(contrastMatrix, 2, function(x) x %% 1 == 0))) "integer" else "number"
-        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createCoefficientsTableAnova(contrast,
-                                                                                                         contrCoef,
-                                                                                                         weightType)
+        contrastContainer[[contrastContainerName]][["customCoefTable"]] <- .createContrastCoefficientsTableAnova(contrast,
+                                                                                                                 contrCoef,
+                                                                                                                 weightType)
       }
 
       contrastContainer[[contrastContainerName]][["contrastTable"]]$setData(contrastResult)
@@ -798,54 +836,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   contr
-}
-
-
-.createContrastTableAnova <- function(myTitle, options, dfType = "integer") {
-
-  contrastTable <- createJaspTable(title = myTitle)
-  contrastTable$addColumnInfo(name = "Comparison", type = "string")
-  contrastTable$addColumnInfo(name = "estimate", title=gettext("Estimate"), type = "number")
-
-  if (options$contrastCi) {
-
-    thisOverTitle <- gettextf("%s%% CI for Mean Difference", options$contrastCiLevel * 100)
-    contrastTable$addColumnInfo(name="lower.CL", type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
-    contrastTable$addColumnInfo(name="upper.CL", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
-
-  }
-
-  contrastTable$addColumnInfo(name = "SE", title=gettext("SE"), type = "number")
-  contrastTable$addColumnInfo(name = "df",      title = gettext("df"), type = dfType)
-  contrastTable$addColumnInfo(name = "t.ratio", title = gettext("t"),  type = "number")
-  contrastTable$addColumnInfo(name = "p.value", title = gettext("p"),  type = "pvalue")
-
-  contrastTable$showSpecifiedColumnsOnly <- TRUE
-
-  return(contrastTable)
-}
-
-.createCoefficientsTableAnova <- function(contrast, contrCoef, weightType = "number") {
-
-  contrastType <- unlist(strsplit(contrast$contrast, ""))
-  contrastType[1] <- toupper(contrastType[1])
-  contrastType <- paste0(contrastType, collapse = "")
-
-  myTitle <-  gettextf("%1$s Contrast Coefficients - %2$s",
-                       contrastType,
-                       paste(contrast$variable, collapse = " \u273B "))
-
-  coefTable <- createJaspTable(title = myTitle)
-
-  for (thisVar in names(contrCoef)[1:length(contrast$variable)])
-    coefTable$addColumnInfo(name = thisVar, type = "string", combine = TRUE)
-
-  for (thisComp in paste("Comparison", 1: (ncol(contrCoef) - length(contrast$variable))))
-    coefTable$addColumnInfo(name = thisComp, type = weightType)
-
-  coefTable$setData(contrCoef)
-
-  return(coefTable)
 }
 
 .postHocContrasts <- function(variableLevels, dataset, options) {
@@ -1044,41 +1034,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaAddSignificanceSigns <- function(someTable, allPvalues, resultRowNames) {
-
-  threeStarSignif <- twoStarSignif <- oneStarSignif <- FALSE
-
-  for (thisP in colnames(allPvalues)) {
-
-    signifComparisonsThreeStars <- resultRowNames[allPvalues[, thisP] < 0.001]
-    signifComparisonsTwoStars <- resultRowNames[allPvalues[, thisP] < 0.01 & allPvalues[, thisP] >= 0.001]
-    signifComparisonsOneStar <- resultRowNames[allPvalues[, thisP] < 0.05 & allPvalues[, thisP] >= 0.01]
-
-    if (length(signifComparisonsThreeStars) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsThreeStars))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsThreeStars, symbol = "***")
-      threeStarSignif <- TRUE
-    }
-
-    if (length(signifComparisonsTwoStars) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsTwoStars))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsTwoStars, symbol = "**")
-      twoStarSignif <- TRUE
-    }
-
-    if (length(signifComparisonsOneStar) > 0 && !any(allPvalues[, thisP] == ".")) {
-      colNames <- rep(thisP, length(signifComparisonsOneStar))
-      someTable$addFootnote(colNames = colNames, rowNames = signifComparisonsOneStar, symbol = "*")
-      oneStarSignif <- TRUE
-    }
-
-  }
-
-  signifMessage <- c("* p < .05", "** p < .01", "*** p < .001")[c(oneStarSignif, twoStarSignif, threeStarSignif)]
-
-  if (length(signifMessage) > 0)
-    someTable$addFootnote(message = paste0(signifMessage, collapse = ", "), symbol = " ")
-}
 
 .bootstrapPostHoc <- function(data, indices, options, nComparisons, postHocVariablesListV, postHocVarIndex) {
 
@@ -1375,74 +1330,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaDescriptivesTable <- function(anovaContainer, dataset, options, ready) {
-  if (options$descriptives == FALSE || !is.null(anovaContainer[["descriptivesTable"]]) || !ready)
-    return()
-
-  descriptivesTable <- createJaspTable(title = paste0("Descriptives - ", options$dependent))
-  anovaContainer[["descriptivesTable"]] <- descriptivesTable
-
-  for (variable in options$fixedFactors) {
-
-    name <- paste0(variable, "_DescriptivesVar")  # in case variable is "Mean", "SD" or "N"
-    descriptivesTable$addColumnInfo(title = variable, name = name, type = "string", combine = TRUE)
-
-  }
-
-  descriptivesTable$addColumnInfo(name = "N",               title = gettext("N"),               type = "integer")
-  descriptivesTable$addColumnInfo(name = "Mean",            title = gettext("Mean"),            type = "number")
-  descriptivesTable$addColumnInfo(name = "SD",              title = gettext("SD"),              type = "number")
-  descriptivesTable$addColumnInfo(name = "SE",              title = gettext("SE"),              type = "number")
-  descriptivesTable$addColumnInfo(name = "coefOfVariation", title = gettext("Coefficient of Variation"), type = "number")
-
-  lvls <- list()
-  factors <- list()
-
-  for (variable in options$fixedFactors) {
-
-    factor <- dataset[[ .v(variable) ]]
-    factors[[length(factors)+1]] <- factor
-    lvls[[ variable ]] <- levels(factor)
-
-  }
-
-  descriptiveResult <- rev(expand.grid(rev(lvls), stringsAsFactors = FALSE))
-  descriptiveResult[[".isNewGroup"]] <- FALSE
-
-  columnNames <- paste0(unlist(options$fixedFactors), "_DescriptivesVar")
-  nSubsetVars <- length(columnNames)
-
-  allSubsets <- list()
-
-  for (i in 1:nrow(descriptiveResult)) {
-    # Here we generate a logical statement to make of a subset of all relevant variables
-    subsetStatement  <- eval(parse(text=paste("dataset$", .v(unlist(options$fixedFactors)), " == \"",
-                                              descriptiveResult[i, 1:nSubsetVars],
-                                              "\"", sep = "", collapse = " & ")))
-
-    # Now we use that statement to make a subset and store in the list of all subsets
-    allSubsets[[i]] <- base::subset(dataset, subsetStatement, select = .v(options$dependent))[[1]]
-
-    if (descriptiveResult[i, nSubsetVars] == lvls[[ nSubsetVars ]][1]) {
-      descriptiveResult[[i, ".isNewGroup"]] <- TRUE
-    }
-  }
-
-  allMeans <- sapply(allSubsets, mean)
-  descriptiveResult[["Mean"]]             <- ifelse(is.nan(allMeans), NA, allMeans)
-  descriptiveResult[["N"]]                <- sapply(allSubsets, length)
-  descriptiveResult[["SD"]]               <- sapply(allSubsets, sd)
-  descriptiveResult[["SE"]]               <- descriptiveResult[["SD"]] / sqrt(descriptiveResult[["N"]])
-  descriptiveResult[["coefOfVariation"]]  <- descriptiveResult[["SD"]] / descriptiveResult[["Mean"]]
-
-
-  colnames(descriptiveResult)[1:nSubsetVars] <- columnNames
-
-  descriptivesTable$setData(descriptiveResult)
-
-  return()
-}
-
 .anovaAssumptionsContainer <- function(anovaContainer, dataset, options, ready) {
   if (!is.null(anovaContainer[["assumptionsContainer"]]))
     return()
@@ -1456,7 +1343,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     .anovaLevenesTable(anovaContainer, dataset, options, ready)
 
   if (options$qqPlot == TRUE)
-    .qqPlot(anovaContainer, dataset, options, ready)
+    .qqPlotFreqAnova(anovaContainer, dataset, options, ready)
 
   return()
 }
@@ -1830,74 +1717,3 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.qqPlot <- function(anovaContainer, dataset, options, ready) {
-
-  # create the jaspPlot object
-  qqPlot <- createJaspPlot(title = gettext("Q-Q Plot"), width = options$plotWidthQQPlot, height = options$plotHeightQQPlot)
-
-  # now we assign the plot to jaspResults
-  anovaContainer[["assumptionsContainer"]][["qqPlot"]] <- qqPlot
-
-  if (!ready || anovaContainer$getError())
-    return()
-
-  model <- anovaContainer[["model"]]$object
-  standResid <- as.data.frame(stats::qqnorm(rstandard(model), plot.it=FALSE))
-
-  standResid <- na.omit(standResid)
-  xVar <- standResid$x
-  yVar <- standResid$y
-
-  # Format x ticks
-  xlow <- min(pretty(xVar))
-  xhigh <- max(pretty(xVar))
-  xticks <- pretty(c(xlow, xhigh))
-
-  # format x labels
-  xLabs <- vector("character", length(xticks))
-  for (i in seq_along(xticks)) {
-    if (xticks[i] < 10^6) {
-      xLabs[i] <- format(xticks[i], digits= 3, scientific = FALSE)
-    } else {
-      xLabs[i] <- format(xticks[i], digits= 3, scientific = TRUE)
-    }
-  }
-
-  # Format y ticks
-  ylow <- min(pretty(yVar))
-  yhigh <- max(pretty(yVar))
-  yticks <- pretty(c(ylow, yhigh))
-
-  # format axes labels
-  xLabs <- jaspGraphs::axesLabeller(xticks)
-  yLabs <- jaspGraphs::axesLabeller(yticks)
-
-  # format y labels
-  yLabs <- vector("character", length(yticks))
-  for (i in seq_along(yticks)) {
-    if (yticks[i] < 10^6) {
-      yLabs[i] <- format(yticks[i], digits= 3, scientific = FALSE)
-    } else {
-      yLabs[i] <- format(yticks[i], digits= 3, scientific = TRUE)
-    }
-  }
-
-  p <- jaspGraphs::drawAxis(xName = gettext("Theoretical Quantiles"),
-                            yName = gettext("Standardized Residuals"),
-                            xBreaks = xticks,
-                            yBreaks = xticks,
-                            yLabels = xLabs,
-                            xLabels = xLabs,
-                            force = TRUE)
-
-  p <- p + ggplot2::geom_line(data = data.frame(x = c(min(xticks), max(xticks)), y = c(min(xticks), max(xticks))),
-                              mapping = ggplot2::aes(x = x, y = y),
-                              col = "darkred",
-                              size = 1)
-
-  p <- jaspGraphs::drawPoints(p, dat = data.frame(xVar, yVar), size = 3)
-
-  qqPlot$plotObject <- jaspGraphs::themeJasp(p)
-
-  return()
-}

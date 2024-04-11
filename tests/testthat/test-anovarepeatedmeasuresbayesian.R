@@ -332,6 +332,8 @@ options$repeatedMeasuresFactors <- list(list(levels = c("Beer", "Wine", "Water")
     list(levels = c("Positive", "Neutral", "Negative"), name = "Imagery"))
 options$modelTerms <- list(list(components = "Drink", isNuisance = FALSE), list(components = "Imagery",
     isNuisance = FALSE))
+options$applyMoreyCorrectionErrorBars <- TRUE
+
 set.seed(1)
 results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
 

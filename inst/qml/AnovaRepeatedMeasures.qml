@@ -34,7 +34,7 @@ Form
 	{
 		preferredHeight: 520 * preferencesModel.uiScale
 		AvailableVariablesList			{ name: "allVariablesList" }
-		FactorLevelList					{ name: "repeatedMeasuresFactors";	title: qsTr("Repeated Measures Factors");	height: 180 * preferencesModel.uiScale;	factorName: qsTr("RM Factor")	}
+		FactorLevelList					{ name: "repeatedMeasuresFactors";	title: qsTr("RepeatedMeasures Factors");	height: 180 * preferencesModel.uiScale;	factorName: qsTr("RM Factor")	}
 		AssignedRepeatedMeasuresCells	{ name: "repeatedMeasuresCells";	title: qsTr("Repeated Measures Cells");		source: "repeatedMeasuresFactors"										}
 		AssignedVariablesList			{ name: "betweenSubjectFactors";	title: qsTr("Between Subject Factors");		suggestedColumns: ["ordinal", "nominal"];	itemType: "fixedFactors"	}
 		AssignedVariablesList			{ name: "covariates";				title: qsTr("Covariates");					suggestedColumns: ["scale"]												}
@@ -90,6 +90,7 @@ Form
 				CheckBox { name: "sphericityCorrectionHuynhFeldt";			label: qsTr("Huynh-Feldt");			checked: false }
 			}
 			CheckBox { name: "homogeneityTests"; label: qsTr("Homogeneity tests") }
+			CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals") }
 		}
 	}
 
@@ -155,6 +156,7 @@ Form
 		framework:	form.framework
 		TextField 	{ name: "labelYAxisTwo"; 			label: qsTr("Label y-axis"); 	fieldWidth: 200 }
 		CheckBox 	{ name: "usePooledStandErrorCITwo"; label: qsTr("Average across unused RM factors") }
+		CheckBox	{ name: "applyMoreyCorrectionErrorBarsBarplot";	label: qsTr("Normalize error bars"); checked: true}
 	}
 
 	Common.RainCloudPlots

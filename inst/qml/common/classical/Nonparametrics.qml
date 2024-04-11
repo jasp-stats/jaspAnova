@@ -32,11 +32,19 @@ Section
 		AssignedVariablesList	{ name: "kruskalWallisFactors";				title: " "												}
 	}
 
-	CheckBox {
+	CheckBox 
+	{
 		name: "kruskalEffectSizeEstimates";	label: qsTr("Estimates of effect size")
 		columns: 3
 		CheckBox { name: "kruskalEpsilon"; label: qsTr("ε²"); checked: true	}
 		CheckBox { name: "kruskalEta"; label: qsTr("η²")		}
 		CIField {name: "kruskalCiLevel"; label: qsTr("Confidence") }
 	}
+
+	CheckBox 
+	{ 
+		name: "postHocTypeDunn"
+		label: qsTr("Dunn's post hoc tests")						
+	}
+
 }

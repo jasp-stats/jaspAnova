@@ -1210,7 +1210,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plot$plotObject <- jaspGraphs::plotQQnorm(
       residuals = model[["posteriors"]][["weightedResidSumStats"]][,"mean"],
       lower     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.2.5%"],
-      upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"]
+      upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"],
+      ablineColor = "darkred"
     )
     plot$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
   }
@@ -1618,14 +1619,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plotErrorBars <- options$descriptivePlotCi
     errorBarType  <- "ci"
     conf.interval <- options$descriptivePlotCiLevel
+    moreyCorrection <- TRUE
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
     plotErrorBars <- options$descriptivePlotErrorBar
     errorBarType  <- options$descriptivePlotErrorBarType
     conf.interval <- options$descriptivePlotCiLevel
+    moreyCorrection <-  if (is.null(options[["applyMoreyCorrectionErrorBars"]])) FALSE else options[["applyMoreyCorrectionErrorBars"]]
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotErrorBar", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
-                                         "descriptivePlotErrorBarPooled"))
+                                         "descriptivePlotErrorBarPooled", "applyMoreyCorrectionErrorBars"))
 
   }
   usePooledSE <- if (is.null(options[["descriptivePlotErrorBarPooled"]])) FALSE else options[["descriptivePlotErrorBarPooled"]]
@@ -1651,18 +1654,20 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+    summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
                                          subjectName = .BANOVAsubjectName)
   } else {
-    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
+    summaryStat <- jaspTTests::.summarySEwithin(as.data.frame(dataset), measurevar= .BANOVAdependentName,
                                                betweenvars = betweenSubjectFactors,
                                                withinvars = repeatedMeasuresFactors,
                                                idvar = .BANOVAsubjectName,
                                                conf.interval = conf.interval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
-                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               usePooledSE = usePooledSE,
+                                               useMoreyCorrection = moreyCorrection,
+                                               dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }
 
@@ -1852,10 +1857,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   plotErrorBars <- options[["barPlotErrorBars"]]
   errorBarType  <- options[["barPlotErrorBarType"]]
   confInterval <- options[["barPlotCiInterval"]]
-  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType",
+  barPlotContainer$dependOn(c("dependent", "barPlotErrorBars", "barPlotErrorBarType", "applyMoreyCorrectionErrorBarsBarplot",
                               "barPlotHorizontalZeroFix", "barPlotCiInterval", "usePooledStandErrorCITwo"))
 
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
+  useMoreyCorrection <- if (is.null(options[["applyMoreyCorrectionErrorBarsBarplot"]])) TRUE else options[["applyMoreyCorrectionErrorBarsBarplot"]]
+
   barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
   barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
 
@@ -1878,18 +1885,20 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options[["repeatedMeasuresFactors"]], `[[`, "name")]
 
   if (length(repeatedMeasuresFactors) == 0) {
-    summaryStat <- jaspTTests::summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
+    summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = confInterval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
                                          subjectName = .BANOVAsubjectName)
   } else {
-    summaryStat <- jaspTTests::summarySEwithin(as.data.frame(dataset), measurevar = .BANOVAdependentName,
+    summaryStat <- jaspTTests::.summarySEwithin(as.data.frame(dataset), measurevar = .BANOVAdependentName,
                                                betweenvars = betweenSubjectFactors,
                                                withinvars = repeatedMeasuresFactors,
                                                idvar = .BANOVAsubjectName,
                                                conf.interval = confInterval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
-                                               usePooledSE = usePooledSE, dependentName = .BANOVAdependentName,
+                                               usePooledSE = usePooledSE,
+                                               useMoreyCorrection =  useMoreyCorrection,
+                                               dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }
 
@@ -3630,7 +3639,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     p <- jaspGraphs::plotQQnorm(
       residuals = model$residSumStats[,"mean"],
       lower     = model$residSumStats[,"cri.2.5%"],
-      upper     = model$residSumStats[,"cri.97.5%"]
+      upper     = model$residSumStats[,"cri.97.5%"],
+      ablineColor = "darkred"
     )
   }
   plot <- createJaspPlot(

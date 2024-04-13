@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2024-04-06 02:37\n"
-"PO-Revision-Date: 2024-03-21 09:48+0000\n"
+"PO-Revision-Date: 2024-04-11 15:17+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -188,7 +188,7 @@ msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
 msgid "Rank-Biserial Correlation"
-msgstr ""
+msgstr "Correlación de Rango Biserial"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
@@ -198,6 +198,7 @@ msgstr "p<sub>Holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Correlación de rango biserial baseada en probas de Mann-Whitney individuais."
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -302,11 +303,10 @@ msgid "Statistic"
 msgstr "Estatístico"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Rango %s"
 
-#, fuzzy
 msgid "%i%% CI for Rank %s"
-msgstr "IC do %s%% para a D de Cohen"
+msgstr "IC do %i%% para o Rango %s"
 
 msgid "Q-Q Plot"
 msgstr "Gráfica Q-Q"
@@ -822,11 +822,10 @@ msgid "Descriptives Plot"
 msgstr "Gráfica dos Descritivos"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Gráficas de barras"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Gráfica Q-Q"
+msgstr "Gráfica de barras"
 
 msgid "Raincloud plots"
 msgstr "Gráficas de nube chovendo"

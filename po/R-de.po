@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2024-04-06 02:37\n"
-"PO-Revision-Date: 2024-03-30 02:37+0000\n"
+"PO-Revision-Date: 2024-04-19 14:03+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -181,7 +181,7 @@ msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
 msgid "Rank-Biserial Correlation"
-msgstr ""
+msgstr "Rang-Biseriale Korrelation"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
@@ -191,6 +191,7 @@ msgstr "p<sub>Holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Rang-Biseriale Korrelation basierend auf individuellen Mann-Whitney-Tests."
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -294,11 +295,10 @@ msgid "Statistic"
 msgstr "Statistik"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Rang %s"
 
-#, fuzzy
 msgid "%i%% CI for Rank %s"
-msgstr "%s%% KI für Cohens d"
+msgstr "%i%% KI für Rang %s"
 
 msgid "Q-Q Plot"
 msgstr "Q-Q-Diagramm"
@@ -813,11 +813,10 @@ msgid "Descriptives Plot"
 msgstr "Deskriptive Diagramme"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Balkendiagramme"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Q-Q-Diagramm"
+msgstr "Balkendiagramm"
 
 msgid "Raincloud plots"
 msgstr "Regenwolken-Plots"

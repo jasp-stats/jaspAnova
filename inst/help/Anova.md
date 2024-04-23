@@ -89,6 +89,8 @@ ANOVA allows the user to analyze the difference between multiple group means.
       </details> 
     
       -  Dunn: This is a non-parametric test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
+  - Flag significant comparisons: Add asterisks to the table to indicate 3 levels of significance.
+  - Letter-based grouping table: Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans. 
 
 ### Descriptive Plots
 - To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.

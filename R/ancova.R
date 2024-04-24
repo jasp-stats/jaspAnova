@@ -298,7 +298,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   model <- aov(model.formula, dataset, weights=WLS)
 
-  modelError <- try(silent = TRUE, lm(model.formula, dataset, weights=WLS, singular.ok = FALSE))
+  modelError <- try(silent = TRUE, lm(model.formula, dataset, weights=WLS, singular.ok = TRUE))
 
   # Make afex model for later use in contrasts
   if (!isTryError(modelError)) {
@@ -335,7 +335,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     } else if (.extractErrorMessage(model$modelError) == "residual sum of squares is 0 (within rounding error)") {
       anovaContainer$setError(gettext("Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"))
       return()
-    } else {
+    } else if (grepl(x = .extractErrorMessage(model$modelError), "Rank deficient model matrix")) {
+      anovaContainer[["model"]] <- createJaspState(object = model$model)
+      return()
+    }else {
       anovaContainer$setError(gettextf("An error occurred while computing the ANOVA: %s", .extractErrorMessage(model$modelError)))
       return()
     }
@@ -667,9 +670,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   anovaContainer[["contrastContainer"]] <- contrastContainer
 
-  if (!ready || anovaContainer$getError())
+  if (!ready || anovaContainer$getError()) {
     return()
-
+  } else if(is.null(anovaContainer[["afexModel"]]$object)) {
+    contrastContainer$setError(gettext("Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"))
+    return()
+  }
   afexModel <- anovaContainer[["afexModel"]]$object
 
   ## Computation
@@ -879,21 +885,18 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   if (options$postHocTypeStandard)
-    .anovaPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object, anovaContainer[["afexModel"]]$object)
 
   if (options$postHocTypeGames)
-    gamesPostHoc <- .anovaGamesTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaGamesTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
 
   if (options$postHocTypeDunnet)
-    dunnettPostHoc <- .anovaDunnettTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
-
-  if (options$postHocTypeDunn)
-    dunnPostHoc <- .anovaDunnTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaDunnettTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
 
   return()
 }
 
-.anovaPostHocTable <- function(postHocContainer, dataset, options, model) {
+.anovaPostHocTable <- function(postHocContainer, dataset, options, model, afexModel = NULL) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
@@ -902,7 +905,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
                                       "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples",
-                                      "postHocCi", "postHocCiLevel"))
+                                      "postHocCi", "postHocCiLevel", "postHocLetterTable", "postHocLetterAlpha"))
 
   postHocContainer[["postHocStandardContainer"]] <- postHocStandardContainer
 
@@ -916,7 +919,20 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     postHocStandardContainer[[thisVarName]] <- .createPostHocStandardTable(thisVarName, interactionTerm, options,
                                                                            options$postHocTypeStandardBootstrap)
-  }
+    if (options$postHocLetterTable) {
+      letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
+      for (letterVar in postHocVariables[[postHocVarIndex]])
+        letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
+
+      letterTable$addColumnInfo(name="Letter", type="string")
+      letterTable$addFootnote("If two or more means share the same grouping symbol,
+      then we cannot show them to be different, but we also did not show them to be the same. ")
+      letterTable$showSpecifiedColumnsOnly <- TRUE
+
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
+    }
+
+  postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]}
 
   for (postHocVarIndex in 1:length(postHocVariables)) {
 
@@ -937,10 +953,16 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
                                                       numberOfLevels = numberOfLevels)
 
-    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
-                                                        sigma = sqrt(mean(sigma(model)^2)),
-                                                        edf = df.residual(model),
-                                                        level = bonfAdjustCIlevel))
+    if (isTRUE(options[["postHocLetterTable"]])) {
+      letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
+                                    method = "pairwise",
+                                    Letters = letters,
+                                    alpha = options[["postHocLetterAlpha"]])
+      letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
+      colnames(letterResult)[ncol(letterResult)] <- "Letter"
+      letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
+    }
 
     allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
 
@@ -962,9 +984,17 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["contrast_A"]] <- lapply(allContrasts, `[[`, 1L)
     resultPostHoc[["contrast_B"]] <- lapply(allContrasts, `[[`, 2L)
 
-    resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
-    resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
-    resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    if (isFALSE(is.null(afexModel))) {
+      effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
+                                                          sigma = sqrt(mean(sigma(model)^2)),
+                                                          edf = df.residual(model),
+                                                          level = bonfAdjustCIlevel))
+      resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    } else {
+      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Some parameters were not estimable due to missingness."))
+    }
 
     if (options$postHocTypeStandardBootstrap) {
 
@@ -1059,105 +1089,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 }
 
-.anovaDunnTable <- function(postHocContainer, dataset, options, model) {
-  if (!is.null(postHocContainer[["postHocDunnContainer"]]))
-    return()
-
-  postHocDunnContainer <- createJaspContainer(title = gettext("Dunn"))
-  postHocDunnContainer$dependOn(c("postHocTypeDunn", "postHocSignificanceFlag"))
-  postHocContainer[["postHocDunnContainer"]] <- postHocDunnContainer
-
-  postHocVariables <- unlist(options$postHocTerms, recursive = FALSE)
-  postHocVariablesListV <- unname(lapply(postHocVariables, .v))
-
-  dunnVariables <- unique(unlist(options$postHocTerms))
-  dependentVar <- options$dependent
-
-  .createPostHocDunnTable <- function(myTitle) {
-
-    postHocTable <- createJaspTable(title = gettextf("Dunn's Post Hoc Comparisons - %s", myTitle))
-
-    postHocTable$addColumnInfo(name="contrast",   title=gettext("Comparison"),       type="string")
-    postHocTable$addColumnInfo(name="z",                                             type="number")
-    postHocTable$addColumnInfo(name="wA",         title=gettext("W<sub>i</sub>"),    type="number")
-    postHocTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
-    postHocTable$addColumnInfo(name="rbs", title=gettext("Rank-Biserial Correlation"), type="number")
-    postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
-    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
-    postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
-
-    return(postHocTable)
-  }
-
-  for (dunnVar in dunnVariables) {
-
-    postHocDunnContainer[[dunnVar]] <- .createPostHocDunnTable(dunnVar)
-    dunnResult <- data.frame(contrast = character(),
-                             z = numeric(),
-                             wA = numeric(),
-                             wB = numeric(),
-                             rbs = numeric(),
-                             pval = numeric(),
-                             bonferroni = numeric(),
-                             holm = numeric())
-
-    variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
-    nLevels <- length(variableLevels)
-    nPerGroup <- unname(unlist(table(dataset[[ .v(dunnVar) ]])))
-    bigN <- sum(nPerGroup)
-
-    fullRanks <- rank(dataset[[ dependentVar ]])
-    ranksPerGroup <- by(fullRanks, dataset[[ dunnVar ]], list)
-    sumPerGroup <- unlist(lapply(ranksPerGroup, FUN = sum))
-    meanPerGroup <- unname(sumPerGroup/nPerGroup)
-
-    tab <- table(unlist(ranksPerGroup))
-    nTies <- tab[tab > 1]
-    nTies <- sum(nTies^3 - nTies)
-
-    for (i in 1:(nLevels - 1)) {
-
-      for (j in (i + 1):nLevels) {
-
-        contrast <- paste0(variableLevels[[i]], " - ", variableLevels[[j]])
-
-        sigmaAB <- sqrt( ( (bigN * (bigN + 1))/12 - nTies/(12 * (bigN - 1)) ) * (1/nPerGroup[i] + 1/nPerGroup[j] )  )
-        zAB <- (meanPerGroup[i] - meanPerGroup[j]) / sigmaAB
-        pValAB <- 2 * pnorm(abs(zAB), lower.tail = FALSE) # make two-sided p-value
-
-        a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
-        b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
-        u <- wilcox.test(a, b)$statistic
-        rbs <- abs(as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j])))
-
-        dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
-                                                   z = zAB,
-                                                   wA = meanPerGroup[i],
-                                                   wB = meanPerGroup[j],
-                                                   rbs = rbs,
-                                                   pval = pValAB,
-                                                   bonferroni = pValAB,
-                                                   holm = pValAB))
-
-      }
-
-    }
-
-    allP <- dunnResult[["pval"]]
-    dunnResult[["bonferroni"]] <- p.adjust(allP, method = "bonferroni")
-    dunnResult[["holm"]] <- p.adjust(allP, method = "holm")
-
-    postHocDunnContainer[[dunnVar]]$setData(dunnResult)
-    postHocDunnContainer[[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
-
-    if (options$postHocSignificanceFlag)
-      .anovaAddSignificanceSigns(someTable = postHocDunnContainer[[dunnVar]],
-                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm")]),
-                                 resultRowNames = rownames(dunnResult))
-  }
-
-  return()
-}
 
 .anovaGamesTable <- function(postHocContainer, dataset, options, model) {
   if (!is.null(postHocContainer[["postHocGamesContainer"]]))
@@ -1661,7 +1592,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   anovaContainer[["kruskalContainer"]] <- createJaspContainer(title = gettext("Kruskal-Wallis Test"),
                                                               dependencies = c("kruskalWallisFactors", "kruskalCiLevel",
-                                                                               "kruskalEpsilon", "kruskalEta",
+                                                                               "kruskalEpsilon", "kruskalEta", "postHocTypeDunn",
                                                                                "kruskalEffectSizeEstimates"))
   kruskalTable <- createJaspTable(title = gettext("Kruskal-Wallis Test"))
 
@@ -1687,7 +1618,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   kruskalTable$showSpecifiedColumnsOnly <- TRUE
-
+  if (length(options[["kruskalWallisFactors"]]) > 1)
+    kruskalTable$addFootnote(gettext("Tests are conducted separately for each variable, without accounting for multivariate effects."))
 
   if (!ready || anovaContainer$getError())
     return()
@@ -1714,6 +1646,107 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                   lowerEtaCI = sapply(kruskalEtaList, function(x) x$CI_low),
                                   upperEtaCI = sapply(kruskalEtaList, function(x) x$CI_high)))
 
+  if (options$postHocTypeDunn)
+    .anovaDunnTable(anovaContainer[["kruskalContainer"]], dataset, options,  anovaContainer[["model"]]$object)
+
+
+
   return()
 }
+
+.anovaDunnTable <- function(kruskalContainer, dataset, options, model) {
+  if (!is.null(kruskalContainer[["dunnContainer"]]))
+    return()
+
+  kruskalContainer[["dunnContainer"]] <- createJaspContainer(title = gettext("Dunn"))
+
+  dunnVariables <- options[["kruskalWallisFactors"]]
+  dependentVar <- options[["dependent"]]
+
+  .createPostHocDunnTable <- function(myTitle) {
+
+    postHocTable <- createJaspTable(title = gettextf("Dunn's Post Hoc Comparisons - %s", myTitle))
+
+    postHocTable$addColumnInfo(name="contrast",   title=gettext("Comparison"),       type="string")
+    postHocTable$addColumnInfo(name="z",                                             type="number")
+    postHocTable$addColumnInfo(name="wA",         title=gettext("W<sub>i</sub>"),    type="number")
+    postHocTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
+    postHocTable$addColumnInfo(name="rbs", title=gettext("Rank-Biserial Correlation"), type="number")
+    postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
+    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
+
+    return(postHocTable)
+  }
+
+  for (dunnVar in dunnVariables) {
+
+    kruskalContainer[["dunnContainer"]][[dunnVar]] <- .createPostHocDunnTable(dunnVar)
+    dunnResult <- data.frame(contrast = character(),
+                             z = numeric(),
+                             wA = numeric(),
+                             wB = numeric(),
+                             rbs = numeric(),
+                             pval = numeric(),
+                             bonferroni = numeric(),
+                             holm = numeric())
+
+    variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
+    nLevels <- length(variableLevels)
+    nPerGroup <- unname(unlist(table(dataset[[ .v(dunnVar) ]])))
+    bigN <- sum(nPerGroup)
+
+    fullRanks <- rank(dataset[[ dependentVar ]])
+    ranksPerGroup <- by(fullRanks, dataset[[ dunnVar ]], list)
+    sumPerGroup <- unlist(lapply(ranksPerGroup, FUN = sum))
+    meanPerGroup <- unname(sumPerGroup/nPerGroup)
+
+    tab <- table(unlist(ranksPerGroup))
+    nTies <- tab[tab > 1]
+    nTies <- sum(nTies^3 - nTies)
+
+    for (i in 1:(nLevels - 1)) {
+
+      for (j in (i + 1):nLevels) {
+
+        contrast <- paste0(variableLevels[[i]], " - ", variableLevels[[j]])
+
+        sigmaAB <- sqrt( ( (bigN * (bigN + 1))/12 - nTies/(12 * (bigN - 1)) ) * (1/nPerGroup[i] + 1/nPerGroup[j] )  )
+        zAB <- (meanPerGroup[i] - meanPerGroup[j]) / sigmaAB
+        pValAB <- 2 * pnorm(abs(zAB), lower.tail = FALSE) # make two-sided p-value
+
+        a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
+        b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
+        u <- wilcox.test(a, b)$statistic
+        rbs <- abs(as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j])))
+
+        dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
+                                                   z = zAB,
+                                                   wA = meanPerGroup[i],
+                                                   wB = meanPerGroup[j],
+                                                   rbs = rbs,
+                                                   pval = pValAB,
+                                                   bonferroni = pValAB,
+                                                   holm = pValAB))
+
+      }
+
+    }
+
+    allP <- dunnResult[["pval"]]
+    dunnResult[["bonferroni"]] <- p.adjust(allP, method = "bonferroni")
+    dunnResult[["holm"]] <- p.adjust(allP, method = "holm")
+
+    kruskalContainer[["dunnContainer"]][[dunnVar]]$setData(dunnResult)
+    kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
+
+    if (options$postHocSignificanceFlag)
+      .anovaAddSignificanceSigns(someTable = kruskalContainer[["dunnContainer"]][[dunnVar]],
+                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm")]),
+                                 resultRowNames = rownames(dunnResult))
+  }
+
+  return()
+}
+
 

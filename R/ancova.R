@@ -298,7 +298,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   model <- aov(model.formula, dataset, weights=WLS)
 
-  modelError <- try(silent = TRUE, lm(model.formula, dataset, weights=WLS, singular.ok = FALSE))
+  modelError <- try(silent = TRUE, lm(model.formula, dataset, weights=WLS, singular.ok = TRUE))
 
   # Make afex model for later use in contrasts
   if (!isTryError(modelError)) {
@@ -335,7 +335,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     } else if (.extractErrorMessage(model$modelError) == "residual sum of squares is 0 (within rounding error)") {
       anovaContainer$setError(gettext("Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"))
       return()
-    } else {
+    } else if (grepl(x = .extractErrorMessage(model$modelError), "Rank deficient model matrix")) {
+      anovaContainer[["model"]] <- createJaspState(object = model$model)
+      return()
+    }else {
       anovaContainer$setError(gettextf("An error occurred while computing the ANOVA: %s", .extractErrorMessage(model$modelError)))
       return()
     }
@@ -667,9 +670,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   anovaContainer[["contrastContainer"]] <- contrastContainer
 
-  if (!ready || anovaContainer$getError())
+  if (!ready || anovaContainer$getError()) {
     return()
-
+  } else if(is.null(anovaContainer[["afexModel"]]$object)) {
+    contrastContainer$setError(gettext("Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"))
+    return()
+  }
   afexModel <- anovaContainer[["afexModel"]]$object
 
   ## Computation
@@ -879,7 +885,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   if (options$postHocTypeStandard)
-    .anovaPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object, anovaContainer[["afexModel"]]$object)
 
   if (options$postHocTypeGames)
     .anovaGamesTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
@@ -890,7 +896,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaPostHocTable <- function(postHocContainer, dataset, options, model) {
+.anovaPostHocTable <- function(postHocContainer, dataset, options, model, afexModel = NULL) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
@@ -947,11 +953,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
                                                       numberOfLevels = numberOfLevels)
 
-    effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
-                                                        sigma = sqrt(mean(sigma(model)^2)),
-                                                        edf = df.residual(model),
-                                                        level = bonfAdjustCIlevel))
-
     if (isTRUE(options[["postHocLetterTable"]])) {
       letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
                                     method = "pairwise",
@@ -983,9 +984,17 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     resultPostHoc[["contrast_A"]] <- lapply(allContrasts, `[[`, 1L)
     resultPostHoc[["contrast_B"]] <- lapply(allContrasts, `[[`, 2L)
 
-    resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
-    resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
-    resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    if (isFALSE(is.null(afexModel))) {
+      effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
+                                                          sigma = sqrt(mean(sigma(model)^2)),
+                                                          edf = df.residual(model),
+                                                          level = bonfAdjustCIlevel))
+      resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+    } else {
+      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Some parameters were not estimable due to missingness."))
+    }
 
     if (options$postHocTypeStandardBootstrap) {
 

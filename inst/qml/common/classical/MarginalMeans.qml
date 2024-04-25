@@ -36,7 +36,8 @@ Section
 
 	CheckBox
 	{
-		name:				"marginalMeanBootstrap";
+		name:				"marginalMeanBootstrap"
+		id : marginalMeanBootstrap
 		label:				qsTr("From")
 		childrenOnSameRow:	true
 		IntegerField
@@ -53,16 +54,19 @@ Section
 	{
 		name:	"marginalMeanComparedToZero";
 		label:	qsTr("Compare marginal means to 0")
-		DropDown
-		{
-			name:	"marginalMeanCiCorrection"
-			label:	qsTr("Confidence interval adjustment")
-			values:	[
-				{ label:	qsTr("None"),	value:	"none"},
-				{ label:	"Bonferroni",	value:	"bonferroni"},
-				{ label:	"Šidák",		value:	"sidak"}
-			]
-		}
+	}
+
+	DropDown
+	{
+		name:	"marginalMeanCiCorrection"
+		label:	qsTr("Confidence interval adjustment")
+		values:	[
+			{ label:	qsTr("None"),	value:	"none"},
+			{ label:	"Bonferroni",	value:	"bonferroni"},
+			{ label:	"Šidák",		value:	"sidak"}
+		]
+        enabled: !marginalMeanBootstrap.checked
+		
 	}
 	
 	CheckBox

@@ -176,14 +176,15 @@
     marginalMeansTable$addColumnInfo(name="t.ratio", title=gettext("t"),  type="number")
     marginalMeansTable$addColumnInfo(name="df",      title=gettext("df"), type=dfType)
     marginalMeansTable$addColumnInfo(name="p.value", title=gettext("p"),  type="pvalue")
+  }
 
+  if (isFALSE(options$marginalMeanBootstrap)) {
     if (options$marginalMeanCiCorrection == "bonferroni") {
       marginalMeansTable$addFootnote(message = gettext("Bonferroni CI adjustment"))
     } else if (options$marginalMeanCiCorrection == "sidak") {
       marginalMeansTable$addFootnote(message = gettext("Sidak CI adjustment"))
     }
   }
-
   marginalMeansTable$showSpecifiedColumnsOnly <- TRUE
 
   return(marginalMeansTable)

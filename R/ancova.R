@@ -968,7 +968,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     if (nrow(resultPostHoc[[1]]) > 1)
       postHocStandardContainer[[thisVarName]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
-                                                                                      options$postHocCi))
+                                                                                      (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
 
     avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
     if (length(avFootnote) != 0) {

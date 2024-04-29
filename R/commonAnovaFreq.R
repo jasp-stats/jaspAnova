@@ -65,7 +65,7 @@
   return(coefTable)
 }
 
-.createPostHocStandardTable <- function(myTitle, byVariable, options, makeBootstrapTable = FALSE) {
+.createPostHocStandardTable <- function(myTitle, byVariable = NULL, options, makeBootstrapTable = FALSE) {
 
   preTitle <- if (!makeBootstrapTable) gettext("Post Hoc Comparisons - ") else gettext("Bootstrapped Post Hoc Comparisons - ")
   postHocTable <- createJaspTable(title = paste0(preTitle, myTitle)) #this paste is ok

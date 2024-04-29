@@ -932,7 +932,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
     interactionTerm <- length(postHocVariables[[postHocVarIndex]]) > 1
 
-    postHocContainer[[variables[postHocVarIndex]]] <- .createPostHocStandardTable(thisVarName, interactionTerm, options)
+    postHocContainer[[variables[postHocVarIndex]]] <- .createPostHocStandardTable(thisVarName, byVariable = NULL, options)
   }
 
   if (!ready || rmAnovaContainer$getError())

@@ -1005,7 +1005,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
         startProgressbar(options[["postHocTypeStandardBootstrapSamples"]] * length(postHocVariables),
                          label = gettext("Bootstrapping Post Hoc Test"))
-# browser()x
+
         ## Computation
         bootstrapPostHoc <- try(boot::boot(data = dataset, statistic = .bootstrapPostHoc,
                                            R = options[["postHocTypeStandardBootstrapSamples"]],

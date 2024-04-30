@@ -65,11 +65,15 @@
   return(coefTable)
 }
 
-.createPostHocStandardTable <- function(myTitle, interactionTerm, options, makeBootstrapTable = FALSE) {
+.createPostHocStandardTable <- function(myTitle, byVariable = NULL, options, makeBootstrapTable = FALSE) {
 
   preTitle <- if (!makeBootstrapTable) gettext("Post Hoc Comparisons - ") else gettext("Bootstrapped Post Hoc Comparisons - ")
   postHocTable <- createJaspTable(title = paste0(preTitle, myTitle)) #this paste is ok
 
+  if (isFALSE(is.null(byVariable))) {
+    postHocTable$addColumnInfo(name=byVariable,   title=byVariable, type="string", combine = TRUE)
+    postHocTable$title <- paste0(preTitle, myTitle, " - Conditional on ", byVariable)
+  }
   postHocTable$addColumnInfo(name="contrast_A", title=" ", type="string", combine = TRUE)
   postHocTable$addColumnInfo(name="contrast_B", title=" ", type="string")
 

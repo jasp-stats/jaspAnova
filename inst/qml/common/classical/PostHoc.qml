@@ -58,6 +58,7 @@ Section
 				}
 			}
 			CheckBox { name: "postHocTypeStandardEffectSize";	label: qsTr("Effect size") }
+			CheckBox { name: "postHocConditionalTable";	label: qsTr("Conditional comparisons for interactions") }
 		}
 		CheckBox { name: "postHocTypeGames";		label: qsTr("Games-Howell")				}
 		CheckBox { name: "postHocTypeDunnet";		label: qsTr("Dunnett")					}

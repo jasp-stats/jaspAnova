@@ -904,7 +904,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
-                                      "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples",
+                                      "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples", "postHocConditionalTable",
                                       "postHocCi", "postHocCiLevel", "postHocLetterTable", "postHocLetterAlpha"))
 
   postHocContainer[["postHocStandardContainer"]] <- postHocStandardContainer
@@ -917,147 +917,150 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
     interactionTerm <- length(postHocVariables[[postHocVarIndex]]) > 1
 
-    postHocStandardContainer[[thisVarName]] <- .createPostHocStandardTable(thisVarName, interactionTerm, options,
-                                                                           options$postHocTypeStandardBootstrap)
-    if (options$postHocLetterTable) {
-      letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
-      for (letterVar in postHocVariables[[postHocVarIndex]])
-        letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
+    for (termIndex in seq_along(postHocVariables[[postHocVarIndex]])) {
+      thisVarNameRef <- paste0(thisVarName, termIndex)
+      byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
 
-      letterTable$addColumnInfo(name="Letter", type="string")
-      letterTable$addFootnote("If two or more means share the same grouping symbol,
+      postHocStandardContainer[[thisVarNameRef]] <- .createPostHocStandardTable(thisVarName,
+                                                                                byVariable[termIndex],
+                                                                                options,
+                                                                                options$postHocTypeStandardBootstrap)
+      if (options$postHocLetterTable) {
+        letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
+        for (letterVar in postHocVariables[[postHocVarIndex]])
+          letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
+
+        letterTable$addColumnInfo(name="Letter", type="string")
+        letterTable$addFootnote("If two or more means share the same grouping symbol,
       then we cannot show them to be different, but we also did not show them to be the same. ")
-      letterTable$showSpecifiedColumnsOnly <- TRUE
+        letterTable$showSpecifiedColumnsOnly <- TRUE
 
-      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
-    }
-
-  postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]}
-
-  for (postHocVarIndex in 1:length(postHocVariables)) {
-
-    thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
-    interactionTerm <- length(postHocVariables[[postHocVarIndex]]) > 1
-    postHocInterval  <- options$postHocCiLevel
-
-    postHocRef <- emmeans::lsmeans(model, postHocVariablesListV)
-
-    postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")
-
-    ## Computation
-    resultPostHoc <- lapply(postHocCorrections, function(x)
-      summary(emmeans::contrast(postHocRef[[postHocVarIndex]], method = "pairwise", enhance.levels = FALSE),
-              adjust = x, infer = c(TRUE, TRUE), level = options$postHocCiLevel))
-
-    numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
-    bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
-                                                      numberOfLevels = numberOfLevels)
-
-    if (isTRUE(options[["postHocLetterTable"]])) {
-      letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
-                                    method = "pairwise",
-                                    Letters = letters,
-                                    alpha = options[["postHocLetterAlpha"]])
-      letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
-      colnames(letterResult)[ncol(letterResult)] <- "Letter"
-      letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
-      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
-    }
-
-    allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
-
-    if (nrow(resultPostHoc[[1]]) > 1)
-      postHocStandardContainer[[thisVarName]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
-                                                                                      (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
-
-    avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
-    if (length(avFootnote) != 0) {
-      avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
-                               ", ")[[1]])
-      postHocStandardContainer[[thisVarName]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
-    }
-
-    allPvalues <- do.call(cbind, lapply(resultPostHoc, function(x) x$p.value))
-    colnames(allPvalues) <- postHocCorrections
-    resultPostHoc <- cbind(resultPostHoc[[1]], allPvalues)
-
-    resultPostHoc[["contrast_A"]] <- lapply(allContrasts, `[[`, 1L)
-    resultPostHoc[["contrast_B"]] <- lapply(allContrasts, `[[`, 2L)
-
-    if (isFALSE(is.null(afexModel))) {
-      effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
-                                                          sigma = sqrt(mean(sigma(model)^2)),
-                                                          edf = df.residual(model),
-                                                          level = bonfAdjustCIlevel))
-      resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
-      resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
-      resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
-    } else {
-      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Some parameters were not estimable due to missingness."))
-    }
-
-    if (options$postHocTypeStandardBootstrap) {
-
-      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTypeStandardBootstrapSamples']])))
-      postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Mean Difference estimate is based on the median of the bootstrap distribution."))
-      postHocStandardContainer[[thisVarName]]$addFootnote(symbol = "\u2020", message = gettext("Bias corrected accelerated."))
-
-      startProgressbar(options[["postHocTypeStandardBootstrapSamples"]] * length(postHocVariables),
-                       label = gettext("Bootstrapping Post Hoc Test"))
-
-      ## Computation
-      bootstrapPostHoc <- try(boot::boot(data = dataset, statistic = .bootstrapPostHoc,
-                                         R = options[["postHocTypeStandardBootstrapSamples"]],
-                                         options = options,
-                                         nComparisons = nrow(resultPostHoc),
-                                         postHocVariablesListV = postHocVariablesListV,
-                                         postHocVarIndex = postHocVarIndex),
-                              silent = TRUE)
-
-      if (jaspBase::isTryError(bootstrapPostHoc)) {
-        postHocStandardContainer[[thisVarName]]$setError(bootstrapPostHoc)
-        next
+        postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
       }
 
-      bootstrapSummary <- summary(bootstrapPostHoc)
+      postHocInterval  <- options$postHocCiLevel
+      postHocRef <- emmeans::lsmeans(model, postHocVariablesListV)
+      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")
 
-      ci.fails <- FALSE
-      bootstrapPostHocConf <- t(sapply(1:nrow(bootstrapSummary), function(comparison){
-        res <- try(boot::boot.ci(boot.out = bootstrapPostHoc, conf = options$postHocCiLevel, type = "bca",
-                                 index = comparison)[['bca']][1,4:5])
+      ## Computation
+      resultPostHoc <- lapply(postHocCorrections, function(x)
+        summary(emmeans::contrast(postHocRef[[postHocVarIndex]],
+                                  method = "pairwise",
+                                  by = byVariable[termIndex],
+                                  enhance.levels = FALSE),
+                adjust = x,
+                infer = c(TRUE, TRUE),
+                level = options$postHocCiLevel))
 
-        if(!inherits(res, "try-error")){
-          return(res)
-        } else {
-          ci.fails <<- TRUE
-          return(c(NA, NA))
+      numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
+      bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
+                                                        numberOfLevels = numberOfLevels)
+      if (isTRUE(options[["postHocLetterTable"]])) {
+        letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
+                                      method = "pairwise",
+                                      Letters = letters,
+                                      alpha = options[["postHocLetterAlpha"]])
+        letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
+        colnames(letterResult)[ncol(letterResult)] <- "Letter"
+        letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
+        postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
+      }
+
+      allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
+      # if there is p-adjustment, then add footnote
+      if (nrow(resultPostHoc[[1]]) > 1 && any(grepl(attr(resultPostHoc[[1]], "mesg"), pattern = "P value adjustment")))
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
+                                                                                           (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
+      avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
+      if (length(avFootnote) != 0) {
+        avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
+                                 ", ")[[1]])
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
+      }
+      allPvalues <- do.call(cbind, lapply(resultPostHoc, function(x) x$p.value))
+      colnames(allPvalues) <- postHocCorrections
+      resultPostHoc <- cbind(resultPostHoc[[1]], allPvalues)
+
+      resultPostHoc[["contrast_A"]] <- lapply(allContrasts, `[[`, 1L)
+      resultPostHoc[["contrast_B"]] <- lapply(allContrasts, `[[`, 2L)
+
+      if (isFALSE(is.null(afexModel))) {
+        effectSizeResult <- as.data.frame(emmeans::eff_size(postHocRef[[postHocVarIndex]],
+                                                            sigma = sqrt(mean(sigma(model)^2)),
+                                                            edf = df.residual(model),
+                                                            level = bonfAdjustCIlevel,
+                                                            by = byVariable[termIndex]))
+        resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+        resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+        resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+      } else {
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettext("Some parameters were not estimable due to missingness."))
+      }
+
+      if (options$postHocTypeStandardBootstrap) {
+
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTypeStandardBootstrapSamples']])))
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettext("Mean Difference estimate is based on the median of the bootstrap distribution."))
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(symbol = "\u2020", message = gettext("Bias corrected accelerated."))
+
+        startProgressbar(options[["postHocTypeStandardBootstrapSamples"]] * length(postHocVariables),
+                         label = gettext("Bootstrapping Post Hoc Test"))
+
+        ## Computation
+        bootstrapPostHoc <- try(boot::boot(data = dataset, statistic = .bootstrapPostHoc,
+                                           R = options[["postHocTypeStandardBootstrapSamples"]],
+                                           options = options,
+                                           nComparisons = nrow(resultPostHoc),
+                                           postHocVariablesListV = postHocVariablesListV,
+                                           postHocVarIndex = postHocVarIndex,
+                                           by = byVariable[termIndex]),
+                                silent = TRUE)
+
+        if (jaspBase::isTryError(bootstrapPostHoc)) {
+          postHocStandardContainer[[thisVarNameRef]]$setError(bootstrapPostHoc)
+          next
         }
-      }))
 
-      if (ci.fails)
-        postHocStandardContainer[[thisVarName]]$addFootnote(message = gettext("Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."))
+        bootstrapSummary <- summary(bootstrapPostHoc)
 
-      resultPostHoc[["lower.CL"]] <- bootstrapPostHocConf[,1]
-      resultPostHoc[["upper.CL"]] <- bootstrapPostHocConf[,2]
+        ci.fails <- FALSE
+        bootstrapPostHocConf <- t(sapply(1:nrow(bootstrapSummary), function(comparison){
+          res <- try(boot::boot.ci(boot.out = bootstrapPostHoc, conf = options$postHocCiLevel, type = "bca",
+                                   index = comparison)[['bca']][1,4:5])
 
-      resultPostHoc[["bias"]] <- bootstrapSummary[["bootBias"]]
-      resultPostHoc[["SE"]] <- bootstrapSummary[["bootSE"]]
-      resultPostHoc[["estimate"]] <- bootstrapSummary[["bootMed"]]
+          if(!inherits(res, "try-error")){
+            return(res)
+          } else {
+            ci.fails <<- TRUE
+            return(c(NA, NA))
+          }
+        }))
+
+        if (ci.fails)
+          postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettext("Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."))
+
+        resultPostHoc[["lower.CL"]] <- bootstrapPostHocConf[,1]
+        resultPostHoc[["upper.CL"]] <- bootstrapPostHocConf[,2]
+
+        resultPostHoc[["bias"]] <- bootstrapSummary[["bootBias"]]
+        resultPostHoc[["SE"]] <- bootstrapSummary[["bootSE"]]
+        resultPostHoc[["estimate"]] <- bootstrapSummary[["bootMed"]]
+
+      }
+
+      resultPostHoc[[".isNewGroup"]] <- c(TRUE, rep(FALSE, nrow(resultPostHoc)-1))
+      postHocStandardContainer[[thisVarNameRef]]$setData(resultPostHoc)
+
+      whichPvalues <- c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe, options$postHocCorrectionBonferroni,
+                        options$postHocCorrectionHolm, options$postHocCorrectionSidak)
+      allPvalues <- as.data.frame(allPvalues)
+
+      if (options$postHocSignificanceFlag && length(postHocCorrections[whichPvalues]) > 0)
+        .anovaAddSignificanceSigns(someTable = postHocStandardContainer[[thisVarNameRef]],
+                                   allPvalues = allPvalues,
+                                   resultRowNames = rownames(resultPostHoc))
 
     }
-
-    resultPostHoc[[".isNewGroup"]] <- c(TRUE, rep(FALSE, nrow(resultPostHoc)-1))
-    postHocStandardContainer[[thisVarName]]$setData(resultPostHoc)
-
-    whichPvalues <- c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe, options$postHocCorrectionBonferroni,
-                      options$postHocCorrectionHolm, options$postHocCorrectionSidak)
-    allPvalues <- as.data.frame(allPvalues)
-
-    if (options$postHocSignificanceFlag && length(postHocCorrections[whichPvalues]) > 0)
-      .anovaAddSignificanceSigns(someTable = postHocStandardContainer[[thisVarName]],
-                                 allPvalues = allPvalues,
-                                 resultRowNames = rownames(resultPostHoc))
-
   }
 
 
@@ -1065,7 +1068,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 }
 
 
-.bootstrapPostHoc <- function(data, indices, options, nComparisons, postHocVariablesListV, postHocVarIndex) {
+.bootstrapPostHoc <- function(data, indices, options, nComparisons, postHocVariablesListV, postHocVarIndex, by) {
 
   resamples <- data[indices, , drop = FALSE] # allows boot to select sample
 
@@ -1076,7 +1079,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   )
 
   postHocTableBoots <- suppressMessages(
-    summary(emmeans::contrast(postHocRefBoots[[postHocVarIndex]], method = "pairwise"),
+    summary(emmeans::contrast(postHocRefBoots[[postHocVarIndex]], method = "pairwise", by = by),
             infer = c(FALSE, FALSE))
   )
 

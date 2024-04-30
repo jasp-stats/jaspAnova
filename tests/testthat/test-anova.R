@@ -504,7 +504,7 @@ set.seed(1)
 results <- jaspTools::runAnalysis("Anova", dataset, options)
 
 test_that("Post Hoc Comparisons - Species table results match and contrast names do not contain commas", {
-   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species"]][["data"]]
+   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species1"]][["data"]]
    jaspTools::expect_equal_tables(table,
                                   list("TRUE", 0.286589136802729, "First species", "Second species",
                                        -1.6, -5.58290526239083, 0.000324812090923943, "FALSE", 0.286589136802729,

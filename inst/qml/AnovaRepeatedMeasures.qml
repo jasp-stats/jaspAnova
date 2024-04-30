@@ -129,6 +129,12 @@ Form
 				checked: poolErrorTermFollowup.checked
 				onCheckedChanged: poolErrorTermFollowup.checked = checked
 			}
+			CheckBox 
+			{ 
+				name: "postHocConditionalTable"
+				label: qsTr("Conditional comparisons for interactions") 
+			}
+
 		}
 
 		Group

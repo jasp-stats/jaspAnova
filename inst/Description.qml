@@ -7,7 +7,7 @@ Description
 	title		: qsTr("ANOVA")
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("Evaluate the difference between multiple means")
-	version			: "0.18.3"
+	version			: "0.19.0"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"
 	website		: "jasp-stats.org"

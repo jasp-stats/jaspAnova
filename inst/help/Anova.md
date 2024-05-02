@@ -71,26 +71,27 @@ ANOVA allows the user to analyze the difference between multiple group means.
 
 ### Post Hoc Tests 
 - To perform a post hoc test, drag one or more factor names to the right column. Several options are available:    
-  - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`. 
-  - Confidence intervals: When this option is selected, the confidence interval for the mean difference is calculated. This is done for every post hoc method except for Dunn. By default this is set to 95% but this can be adjusted into the desired percentage.  
-  - From `...` bootstraps: By selecting this option, the bootstrapped post hoc test is applied. By default, the number of replications is set to 1000. This can be changed into the desired number. 
+  - Type: Different types of post hoc tests can be selected. 
+  -  Standard (LSD): Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
+      - Confidence intervals: When this option is selected, the confidence interval for the mean difference is calculated. This is done for every post hoc method except for Dunn. By default this is set to 95% but this can be adjusted into the desired percentage.  
+      - From `...` bootstraps: By selecting this option, the bootstrapped post hoc test is applied. By default, the number of replications is set to 1000. This can be changed into the desired number. 
+      - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`. 
+      - Conditional comparisons for interactions: Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect.  
+  -  Games-Howell: This method can be used when equal group/level variances are not assumed. The p-values are corrected with the Tukey method.
+  -  Dunnett: When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted. 
+  <details>
+    <summary><b>GIF demonstration: Adjust level labels </b></summary>
+    <img src="%HELP_FOLDER%/gif/labelediting.gif"/>
+  </details> 
+      
   - Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:  
       - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance. This method is commonly used and is selected by default. 
       - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative. 
       - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 
       - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method. 
-  - Type: Different types of post hoc tests can be selected. 
-      -  Standard (LSD): Pairwise t-tests are performed. All the corrections can be applied to this method. This option is selected by default. 
-      -  Games-Howell: This method can be used when equal group/level variances are not assumed. The p-values are corrected with the Tukey method.
-      -  Dunnett: When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted. 
-        <details>
-	        <summary><b>GIF demonstration: Adjust level labels </b></summary>
-	        <img src="%HELP_FOLDER%/gif/labelediting.gif"/>
-      </details> 
-    
-      -  Dunn: This is a non-parametric test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
   - Flag significant comparisons: Add asterisks to the table to indicate 3 levels of significance.
   - Letter-based grouping table: Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans. 
+
 
 ### Descriptive Plots
 - To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.
@@ -145,6 +146,7 @@ ANOVA allows the user to analyze the difference between multiple group means.
 ### Nonparametrics 
 - Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the dependent variable, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
 - Estimates of effect size: request effect size estimates for the Kruskal-Wallis test: rank epsilon squared and rank eta squared, including their bootstrapped confidence interval. Based on the effectsize package. 
+-  Dunn's post hoc tests: This is a non-parametric follow-up test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
 
 ### Output 
 ---

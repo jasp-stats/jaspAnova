@@ -928,11 +928,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   variables <- unname(sapply(postHocVariables, function(x) paste(.v(x), collapse = ":")))
 
   for (postHocVarIndex in 1:length(postHocVariables)) {
-
-    thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
-    interactionTerm <- length(postHocVariables[[postHocVarIndex]]) > 1
-
-    postHocContainer[[variables[postHocVarIndex]]] <- .createPostHocStandardTable(thisVarName, byVariable = NULL, options)
+    thisTitle <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
+    thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = ":")
+    byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
+    for (termIndex in seq_along(postHocVariables[[postHocVarIndex]]))
+      postHocContainer[[ paste0(thisVarName, termIndex)]] <- .createPostHocStandardTable(thisTitle, byVariable[termIndex], options)
   }
 
   if (!ready || rmAnovaContainer$getError())
@@ -942,73 +942,83 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   fullModel <- rmAnovaContainer[["anovaResult"]]$object$fullModel
   allNames <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name)) # Factornames
 
-  for (var in variables) {
+  for (postHocVarIndex in seq_along(variables)) {
 
-    resultPostHoc <- summary(pairs(referenceGrid[[var]], adjust="bonferroni"),
-                          infer = TRUE, level = options$postHocCiLevel)
+    thisVarName <- variables[postHocVarIndex]
 
-    numberOfLevels <- nrow(as.data.frame(referenceGrid[[var]]))
-    bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
-                                                      numberOfLevels = numberOfLevels)
+    for (termIndex in seq_along(postHocVariables[[postHocVarIndex]])) {
+      thisVarNameRef <- paste0(thisVarName, termIndex)
+      byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
 
-    effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[var]],
-                                                        sigma = sqrt(mean(sigma(fullModel$lm)^2)),
-                                                        edf = df.residual(fullModel$lm),
-                                                        level = bonfAdjustCIlevel))
+      resultPostHoc <- summary(pairs(referenceGrid[[thisVarName]], adjust="bonferroni", by = byVariable[termIndex]),
+                               infer = TRUE, level = options$postHocCiLevel)
+      numberOfLevels <- nrow(as.data.frame(referenceGrid[[thisVarName]]))
+      bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
+                                                        numberOfLevels = numberOfLevels)
 
-    resultPostHoc[["bonferroni"]] <- resultPostHoc[["p.value"]]
+      effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[thisVarName]],
+                                                          sigma = sqrt(mean(sigma(fullModel$lm)^2)),
+                                                          edf = df.residual(fullModel$lm),
+                                                          level = bonfAdjustCIlevel,
+                                                          by = byVariable[termIndex]))
 
-    resultPostHoc[["tukey"]] <-  summary(pairs(referenceGrid[[var]], adjust="tukey"))[["p.value"]]
+      resultPostHoc[["bonferroni"]] <- resultPostHoc[["p.value"]]
 
-    resultPostHoc[["scheffe"]] <-  summary(pairs(referenceGrid[[var]], adjust="scheffe"))[["p.value"]]
+      resultPostHoc[["tukey"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="tukey",
+                                                 by = byVariable[termIndex]))[["p.value"]]
 
-    resultPostHoc[["holm"]] <-  summary(pairs(referenceGrid[[var]], adjust="holm"))[["p.value"]]
+      resultPostHoc[["scheffe"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="scheffe",
+                                                   by = byVariable[termIndex]))[["p.value"]]
 
-    resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
-    resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
-    resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
+      resultPostHoc[["holm"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="holm",
+                                                by = byVariable[termIndex]))[["p.value"]]
 
-    comparisons <- strsplit(as.character(resultPostHoc$contrast), " - ")
+      resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
+      resultPostHoc[["cohenD_LowerCI"]] <- effectSizeResult[["lower.CL"]]
+      resultPostHoc[["cohenD_UpperCI"]] <- effectSizeResult[["upper.CL"]]
 
-    orderOfTerms <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name))
-    indexofOrderFactors <- match(allNames,orderOfTerms)
+      comparisons <- strsplit(as.character(resultPostHoc$contrast), " - ")
 
-    if (any(var == .v(allNames))) {     ## If the variable is a repeated measures factor
+      orderOfTerms <- unlist(lapply(options$repeatedMeasuresFactors, function(x) x$name))
+      indexofOrderFactors <- match(allNames,orderOfTerms)
 
-      resultPostHoc[["scheffe"]] <- "."
-      resultPostHoc[["tukey"]] <-  "."
-      if (options$postHocCorrectionScheffe || options$postHocCorrectionTukey) {
-        cors <- paste(c("Tukey", "Scheffe")[c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe)], collapse = " and ")
+      if (any(postHocVariables[[postHocVarIndex]] %in% allNames)) {     ## If the variable is a repeated measures factor
 
-        postHocContainer[[var]]$addFootnote(gettextf("%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012).", cors))
+        resultPostHoc[["scheffe"]] <- "."
+        resultPostHoc[["tukey"]] <-  "."
+        if (options$postHocCorrectionScheffe || options$postHocCorrectionTukey) {
+          cors <- paste(c("Tukey", "Scheffe")[c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe)], collapse = " and ")
+
+          postHocContainer[[thisVarNameRef]]$addFootnote(gettextf("%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012).", cors))
+        }
       }
-    }
 
-    resultPostHoc[["contrast_A"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[1]], "[ ,]")[[1]]),
-                                                                           collapse = ", "))
-    resultPostHoc[["contrast_B"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[2]], "[ ,]")[[1]]),
-                                                                           collapse = ", "))
+      resultPostHoc[["contrast_A"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[1]], "[ ,]")[[1]]),
+                                                                             collapse = ", "))
+      resultPostHoc[["contrast_B"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[2]], "[ ,]")[[1]]),
+                                                                             collapse = ", "))
 
-    if (nrow(resultPostHoc) > 1)
-      postHocContainer[[var]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc,
-                                                                      options$postHocCi))
+      if (nrow(resultPostHoc[[1]]) > 1 && any(grepl(attr(resultPostHoc[[1]], "mesg"), pattern = "P value adjustment")))
+        postHocContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
+                                                                                   (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
 
-    avFootnote <- attr(resultPostHoc, "mesg")[grep(attr(resultPostHoc, "mesg"), pattern = "Results are averaged")]
-    if (length(avFootnote) != 0) {
-      avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
+      avFootnote <- attr(resultPostHoc, "mesg")[grep(attr(resultPostHoc, "mesg"), pattern = "Results are averaged")]
+      if (length(avFootnote) != 0) {
+        avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
                                  ", ")[[1]])
-      postHocContainer[[var]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
+        postHocContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
+      }
+
+
+      resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])
+      postHocContainer[[thisVarNameRef]]$setData(resultPostHoc)
+
+
+      if (options$postHocSignificanceFlag)
+        .anovaAddSignificanceSigns(someTable = postHocContainer[[thisVarNameRef]],
+                                   allPvalues = resultPostHoc[c("bonferroni", "scheffe", "tukey", "holm")],
+                                   resultRowNames = rownames(resultPostHoc))
     }
-
-
-    resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])
-    postHocContainer[[var]]$setData(resultPostHoc)
-
-
-    if (options$postHocSignificanceFlag)
-      .anovaAddSignificanceSigns(someTable = postHocContainer[[var]],
-                                 allPvalues = resultPostHoc[c("bonferroni", "scheffe", "tukey", "holm")],
-                                 resultRowNames = rownames(resultPostHoc))
   }
 
   return()

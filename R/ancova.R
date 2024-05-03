@@ -917,28 +917,18 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
     interactionTerm <- length(postHocVariables[[postHocVarIndex]]) > 1
 
-    for (termIndex in seq_along(postHocVariables[[postHocVarIndex]])) {
+    # create vector to loop over for conditional post hoc tables
+    termsToLoop <- if (options[["postHocConditionalTable"]]) postHocVariables[[postHocVarIndex]] else 1
+
+    for (termIndex in seq_along(termsToLoop)) {
       thisVarNameRef <- paste0(thisVarName, termIndex)
-      byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
+      byVariable <- if (length(termsToLoop) > 1) postHocVariables[[postHocVarIndex]] else NULL
 
       postHocStandardContainer[[thisVarNameRef]] <- .createPostHocStandardTable(thisVarName,
                                                                                 byVariable[termIndex],
                                                                                 options,
                                                                                 options$postHocTypeStandardBootstrap)
-      if (options$postHocLetterTable) {
-        letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
-        for (letterVar in postHocVariables[[postHocVarIndex]])
-          letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
 
-        letterTable$addColumnInfo(name="Letter", type="string")
-        letterTable$addFootnote("If two or more means share the same grouping symbol,
-      then we cannot show them to be different, but we also did not show them to be the same. ")
-        letterTable$showSpecifiedColumnsOnly <- TRUE
-
-        postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
-      }
-
-      postHocInterval  <- options$postHocCiLevel
       postHocRef <- emmeans::lsmeans(model, postHocVariablesListV)
       postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")
 
@@ -955,16 +945,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
       bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
                                                         numberOfLevels = numberOfLevels)
-      if (isTRUE(options[["postHocLetterTable"]])) {
-        letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
-                                      method = "pairwise",
-                                      Letters = letters,
-                                      alpha = options[["postHocLetterAlpha"]])
-        letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
-        colnames(letterResult)[ncol(letterResult)] <- "Letter"
-        letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
-        postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
-      }
 
       allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
       # if there is p-adjustment, then add footnote
@@ -1060,6 +1040,26 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                    allPvalues = allPvalues,
                                    resultRowNames = rownames(resultPostHoc))
 
+    }
+    if (options$postHocLetterTable) {
+      letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))
+      for (letterVar in postHocVariables[[postHocVarIndex]])
+        letterTable$addColumnInfo(name=letterVar, type="string", combine = TRUE)
+
+      letterTable$addColumnInfo(name="Letter", type="string")
+      letterTable$addFootnote("If two or more means share the same grouping symbol,
+      then we cannot show them to be different, but we also did not show them to be the same. ")
+      letterTable$showSpecifiedColumnsOnly <- TRUE
+
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]] <- letterTable
+      letterResult <- multcomp::cld(postHocRef[[postHocVarIndex]],
+                                    method = "pairwise",
+                                    Letters = letters,
+                                    alpha = options[["postHocLetterAlpha"]])
+      letterResult <- letterResult[c(postHocVariables[[postHocVarIndex]], ".group")]
+      colnames(letterResult)[ncol(letterResult)] <- "Letter"
+      letterResult <- letterResult[order(as.numeric(rownames(letterResult))), ]
+      postHocStandardContainer[[paste0(thisVarName, "LetterTable")]]$setData(letterResult)
     }
   }
 

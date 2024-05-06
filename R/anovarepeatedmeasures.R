@@ -1024,10 +1024,13 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         postHocContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
       }
 
+      if (options[["postHocConditionalTable"]]) {
+        resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[[byVariable[termIndex]]])
+      } else {
+        resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])
+      }
 
-      resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])
       postHocContainer[[thisVarNameRef]]$setData(resultPostHoc)
-
 
       if (options$postHocSignificanceFlag)
         .anovaAddSignificanceSigns(someTable = postHocContainer[[thisVarNameRef]],

@@ -78,6 +78,7 @@ To perform a post hoc test, drag one or more factor names to the right column. S
     - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.
 - Display
     - Flag Significant Comparisons: Add asterisks to the table to indicate 3 levels of significance.
+    - Letter-based grouping table: Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans. 
 
 ### Descriptives Plots
 To create a descriptive plot, select the repeated measures factor to be placed on the horizontal axis. If there are more than one repeated measures factor, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.

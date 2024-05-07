@@ -35,6 +35,11 @@ MANOVA allows the user to analyze the difference among three, or more, group mea
   - ANOVA tables: Outputs individual ANOVA tables per dependent variable. 
   - Vovk-Sellke maximum p-ratio: The bound 1/(-e p log(p)) is derived from the shape of the p-value distribution. Under the null hypothesis (H<sub>0</sub>) it is uniform (0,1), and under the alternative (H<sub>1</sub>) it is decreasing in p, e.g., a beta (α, 1) distribution, where 0 < α < 1. The Vovk-Sellke MPR is obtained by choosing the shape α of the distribution under H1 such that the obtained p-value is maximally diagnostic. The value is then the ratio of the densities at point p under H<sub>0</sub> and H<sub>1</sub>. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H<sub>0</sub>. More information can be found in this [blogpost](https://jasp-stats.org/2017/06/12/mysterious-vs-mpr/). 
 
+- Assumption Checks:
+  - Homogeneity of covariance matrices: Box's M-test for homogeneity of covariance matrices.
+  - Multivariate normality: Generalized Shapiro-Wilk test for multivariate normality by Villasenor-Alva and Gonzalez-Estrada (2009), using the mvShapiroTest package.
+  
+
 ### Output 
 ---
 
@@ -65,6 +70,8 @@ ANOVA - dependent variable:
 --- 
 -	Field, A. (2009). *Discovering Statistics using SPSS (3rd ed.)*. Sage Publishing.
 -	Field, A., Miles, J., & Field, Z. (2012). *Discovering statistics using R*. Sage Publishing.
+-	Villasenor-Alva, J.A. and Gonzalez-Estrada, E. (2009). A generalization of Shapiro-Wilk's test for multivariate normality. *Communications in Statistics: Theory and Methods*, 38, 1870-1883.
+
 
 ### R Packages
 ---

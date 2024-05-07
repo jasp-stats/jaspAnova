@@ -26,6 +26,7 @@ Imports:
   matrixStats,
   multcomp,
   multcompView,
+  mvShapiroTest,
   onewaytests,
   plyr,
   stringi,

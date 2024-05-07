@@ -12,7 +12,7 @@ test_that("Main table results match", {
   options$includeIntercept <- TRUE
   options$vovkSellke <- TRUE
   options$testWilks <- TRUE
-
+  options$shapiroTest <- TRUE
   results <- jaspTools::runAnalysis("Manova", "test.csv", options, view = TRUE)
   table <- results[["results"]][["manovaContainer"]][["collection"]][["manovaContainer_Pillai"]][["data"]]
   jaspTools::expect_equal_tables(table,
@@ -22,5 +22,11 @@ test_that("Main table results match", {
                            2.9720945624123, 3.39021145078575, "facGender", 1, 96, 2, 0.0377850473862948,
                            0.0659699844596362, "", "", "Residuals", 97, "", "", "", ""
                            ))
-    
+
+
+  table <- results[["results"]][["assumptionsContainer"]][["collection"]][["assumptionsContainer_shapiroTable"]][["data"]]
+  jaspTools::expect_equal_tables(table,
+                                 list(0.920133622718739, 9.26266088028011e-09))
+
+
 })

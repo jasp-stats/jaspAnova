@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-19 13:03+0000\n"
+"PO-Revision-Date: 2024-05-08 18:04+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pl/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.4-rc\n"
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
 
@@ -1177,66 +1177,56 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr ""
+msgstr "Wykresy słupkowe"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Factors"
 msgstr "Czynniki"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
 msgstr "Oś pozioma"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Separate Plots"
 msgstr "Oddzielne wykresy"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Display"
 msgstr "Wyświetl"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Display error bars"
 msgstr "Wyświetl słupki błędów"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "Przedział ufności"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Credible interval"
 msgstr "Przedział wiarygodności"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Standard error"
 msgstr "Błąd standardowy"
 
 msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
-msgstr ""
+msgstr "Ustaw oś poziomą na wartości 0"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
 msgstr "Oszacowania wielkości efektu"
 
 msgctxt "Nonparametrics|"
 msgid "ε²"
-msgstr ""
+msgstr "ε²"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "η²"
 msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr ""
+msgstr "Pewność"

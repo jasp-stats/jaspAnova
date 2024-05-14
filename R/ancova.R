@@ -1633,8 +1633,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   for (term in kruskalFactors) {
 
     kruskalResultsList[[term]] <- kruskal.test(dataset[[options$dependent]], dataset[[term]])
-    kruskalEpsilonList[[term]] <- effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]])
-    kruskalEtaList[[term]] <- effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]])
+    kruskalEpsilonList[[term]] <- effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
+    kruskalEtaList[[term]] <- effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
 
   }
 

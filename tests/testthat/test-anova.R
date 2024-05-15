@@ -428,10 +428,10 @@ test_that("Nonparametric table results match", {
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   jaspTools::expect_equal_tables(table,
-                                 list(4, 0.034303030303031, 0, "facFive", 0.0135106271090705, 0, 0.493866894607854,
-                                      3.39600000000007, 1, 1, 1, 0.0103733573357337, 0.000275126288139123,
-                                      "facExperim", 0.000108823080490378, 0, 0.310873187457312, 1.02696237623763,
-                                      1, 1)
+                                 list(4, 0.034303030303031, 0, "facFive", 0.011115645383478, 0, 0.493866894607854,
+                                      3.39600000000007, 0.193550362611566, 0.14617504991631, 1, 0.0103733573357337,
+                                      0.000275126288139123, "facExperim", 1.21480398103053e-05, 0,
+                                      0.310873187457312, 1.02696237623763, 0.0878974178624286, 0.0792208198923551)
   )
 })
 

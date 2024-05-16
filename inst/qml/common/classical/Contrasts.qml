@@ -26,14 +26,13 @@ Section
 	title: qsTr("Contrasts")
 	property int analysis
 	property alias source: contrasts.source
-
 	ContrastsList { id: contrasts }
 
 	CheckBox
 	{
 		isBound: false
 		label: qsTr("Pool error term for follow-up tests")
-		checked: poolErrorTermFollowup.checked
+        checked: analysis === Common.Type.Analysis.RMANOVA && poolErrorTermFollowup.checked
 		onCheckedChanged: poolErrorTermFollowup.checked = checked
 		visible: analysis === Common.Type.Analysis.RMANOVA
 	}

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2024-01-11 18:06+0000\n"
 "Last-Translator: fiscuteancom <vladfiscutean@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -72,13 +72,22 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
+msgid "%s%% CI for η²"
 msgstr ""
 
-msgid "Type II Sum of Squares"
+msgid "Lower"
+msgstr "Inferior"
+
+msgid "Upper"
+msgstr "Superior"
+
+msgid "%s%% CI for η²ₚ"
 msgstr ""
 
-msgid "Type III Sum of Squares"
+msgid "%s%% CI for ω²"
+msgstr ""
+
+msgid "%s%% CI for ω²ₚ"
 msgstr ""
 
 msgid ""
@@ -93,6 +102,11 @@ msgstr "Tabele Contrast"
 msgid "%1$s Contrast - %2$s"
 msgstr ""
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr ""
 
@@ -100,27 +114,6 @@ msgid "Wrong number of custom contrast matrix rows."
 msgstr ""
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
-
-msgid "Estimate"
-msgstr "Estimat"
-
-msgid "%s%% CI for Mean Difference"
-msgstr ""
-
-msgid "Lower"
-msgstr "Inferior"
-
-msgid "Upper"
-msgstr "Superior"
-
-msgid "SE"
-msgstr "SE"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
 msgstr ""
 
 msgid "Post Hoc Tests"
@@ -131,6 +124,9 @@ msgid "Standard (LSD)"
 msgstr "Standard"
 
 msgid "Results are averaged over the levels of: %s"
+msgstr ""
+
+msgid "Some parameters were not estimable due to missingness."
 msgstr ""
 
 msgid "Bootstrapping based on %s successful replicates."
@@ -152,38 +148,14 @@ msgid ""
 "Possibly too few bootstrap replicates."
 msgstr ""
 
-msgid "Dunn"
-msgstr "Dunn"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
-
-msgid "Comparison"
-msgstr "Comparație"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr ""
-
-msgid "p<sub>holm</sub>"
-msgstr ""
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr ""
+
+msgid "Comparison"
+msgstr "Comparație"
 
 msgid "Mean Difference"
 msgstr ""
@@ -203,6 +175,9 @@ msgstr "Dunnett"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
 
+msgid "%s%% CI for Mean Difference"
+msgstr ""
+
 msgid "p<sub>dunnett</sub>"
 msgstr ""
 
@@ -212,18 +187,6 @@ msgid ""
 msgstr ""
 "Intervalul de încredere este prea îngust, te rog selectează un alt nivel de "
 "încredere."
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "Media"
-
-msgid "SD"
-msgstr "SD"
-
-msgid "Coefficient of Variation"
-msgstr ""
 
 msgid "Assumption Checks"
 msgstr "Verificarea Asumpțiilor"
@@ -283,13 +246,33 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr ""
 
-msgid "Q-Q Plot"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
 msgstr ""
 
-msgid "Theoretical Quantiles"
+msgid "Dunn"
+msgstr "Dunn"
+
+msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
 
-msgid "Standardized Residuals"
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr ""
+
+msgid "p<sub>holm</sub>"
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
 
 msgid ""
@@ -392,63 +375,6 @@ msgstr ""
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
-msgstr ""
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-
-msgid "Post Hoc Comparisons -"
-msgstr ""
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
-
-msgid "%1$s%% bca%2$s CI"
-msgstr ""
-
-msgid "bias"
-msgstr ""
-
-msgid "Cohen's d"
-msgstr "Cohen d"
-
-msgid "%s%% CI for Cohen's d"
-msgstr ""
-
-msgid "p<sub>scheffe</sub>"
-msgstr ""
-
-msgid "p<sub>sidak</sub>"
-msgstr ""
-
-msgid "Marginal Means -"
-msgstr ""
-
-msgid "Bootstrapped Marginal Means -"
-msgstr ""
-
-msgid "Marginal Mean"
-msgstr ""
-
-msgid "95%% bca%s CI"
-msgstr ""
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
-
-msgid "95%% CI for Mean Difference"
-msgstr ""
-
-msgid "Bonferroni CI adjustment"
-msgstr ""
-
-msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
@@ -717,6 +643,18 @@ msgstr "Descriptive"
 msgid "Descriptives - %s"
 msgstr ""
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "Media"
+
+msgid "SD"
+msgstr "SD"
+
+msgid "SE"
+msgstr "SE"
+
 msgid "Coefficient of variation"
 msgstr "Coeficient de variație"
 
@@ -777,10 +715,88 @@ msgstr ""
 msgid "Single Model Posterior Distributions"
 msgstr ""
 
+msgid "Q-Q Plot"
+msgstr ""
+
 msgid "Posterior R%s"
 msgstr ""
 
 msgid "Single Model R%s"
+msgstr ""
+
+msgid "Estimate"
+msgstr "Estimat"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "Cohen d"
+
+msgid "%s%% CI for Cohen's d"
+msgstr ""
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr ""
+
+msgid "Post Hoc Comparisons -"
+msgstr ""
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr ""
+
+msgid "%1$s%% bca%2$s CI"
+msgstr ""
+
+msgid "bias"
+msgstr ""
+
+msgid "p<sub>scheffe</sub>"
+msgstr ""
+
+msgid "p<sub>sidak</sub>"
+msgstr ""
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr ""
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr ""
+
+msgid "Bootstrapped Marginal Means -"
+msgstr ""
+
+msgid "Marginal Mean"
+msgstr ""
+
+msgid "95%% bca%s CI"
+msgstr ""
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+
+msgid "95%% CI for Mean Difference"
+msgstr ""
+
+msgid "Bonferroni CI adjustment"
+msgstr ""
+
+msgid "Sidak CI adjustment"
+msgstr ""
+
+msgid "Type I Sum of Squares"
+msgstr ""
+
+msgid "Type II Sum of Squares"
+msgstr ""
+
+msgid "Type III Sum of Squares"
 msgstr ""
 
 msgid "Order Restricted Hypotheses"

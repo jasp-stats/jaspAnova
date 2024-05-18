@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -72,14 +72,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
 
-msgid "Type I Sum of Squares"
-msgstr "一類離均差平方和"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
 
-msgid "Type II Sum of Squares"
-msgstr "二類離均差平方和"
+msgid "Lower"
+msgstr "下界"
 
-msgid "Type III Sum of Squares"
-msgstr "三類離均差平方和"
+msgid "Upper"
+msgstr "上界"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -92,6 +105,11 @@ msgstr "比較表"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s 比較 - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "請設定另一個比較"
 
@@ -100,27 +118,6 @@ msgstr "自定比較矩陣列數錯誤。"
 
 msgid "Please specify non-zero contrast weights."
 msgstr "請指定非零比較權重。"
-
-msgid "Estimate"
-msgstr "估計"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "平均數差異 %s%% 信賴區間"
-
-msgid "Lower"
-msgstr "下界"
-
-msgid "Upper"
-msgstr "上界"
-
-msgid "SE"
-msgstr "標準誤"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s 比較係數 - %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "事後比較檢定"
@@ -131,6 +128,10 @@ msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "結果為以下水準之平均值：%s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr "一些參數無法估計，很可能因為設計中有空的細格。"
 
 #, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
@@ -154,38 +155,14 @@ msgstr ""
 "一些信賴區間間無法計算。\n"
 "可能因為拔靴法複製樣本太少。"
 
-msgid "Dunn"
-msgstr "Dunn檢定"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Dunn 事後比較- %s"
-
-msgid "Comparison"
-msgstr "比較"
-
-msgid "W<sub>i</sub>"
-msgstr "組間<sub>組內</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "bonferroni p值"
-
-msgid "p<sub>holm</sub>"
-msgstr "holm p值"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Games-Howell 事後檢定 - %s"
+
+msgid "Comparison"
+msgstr "比較"
 
 msgid "Mean Difference"
 msgstr "平均數差異"
@@ -205,6 +182,9 @@ msgstr "Dunnett檢定"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Dunnett事後比較 - %s"
 
+msgid "%s%% CI for Mean Difference"
+msgstr "平均數差異 %s%% 信賴區間"
+
 msgid "p<sub>dunnett</sub>"
 msgstr "Dunnett p值"
 
@@ -212,18 +192,6 @@ msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr "信賴區間太窄，請選擇一個另一個信賴區間水準"
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "平均數"
-
-msgid "SD"
-msgstr "標準差"
-
-msgid "Coefficient of Variation"
-msgstr "變異係數"
 
 msgid "Assumption Checks"
 msgstr "前提假設檢查"
@@ -284,14 +252,34 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "Cohen's d 效果量的%s%% 信賴區間"
 
-msgid "Q-Q Plot"
-msgstr "Q-Q 圖"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "理論分位值"
+msgid "Dunn"
+msgstr "Dunn檢定"
 
-msgid "Standardized Residuals"
-msgstr "標準化殘差"
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "Dunn 事後比較- %s"
+
+msgid "W<sub>i</sub>"
+msgstr "組間<sub>組內</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "bonferroni p值"
+
+msgid "p<sub>holm</sub>"
+msgstr "holm p值"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -399,64 +387,6 @@ msgid ""
 "tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
 "%s 校正後的 p 值不適用於重複量數事後檢驗（Maxwell，1980；Field，2012）。"
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr "P 值經過調整，用於比較 %s 群"
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-"調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
-
-msgid "Post Hoc Comparisons -"
-msgstr "事後比較 -"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "拔靴法事後比較 -"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% 偏誤加速校正%2$s 信賴區間"
-
-msgid "bias"
-msgstr "偏誤"
-
-msgid "Cohen's d"
-msgstr "Cohen's d"
-
-msgid "%s%% CI for Cohen's d"
-msgstr "Cohen's d 效果量的%s%% 信賴區間"
-
-msgid "p<sub>scheffe</sub>"
-msgstr "<sub>Scheffe</sub> p值"
-
-msgid "p<sub>sidak</sub>"
-msgstr "<sub>Sidak</sub>p值"
-
-msgid "Marginal Means -"
-msgstr "邊際平均數"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "拔靴法邊際平均數"
-
-msgid "Marginal Mean"
-msgstr "邊際平均數"
-
-msgid "95%% bca%s CI"
-msgstr "偏誤加速校正%s 95%%信賴區間"
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr "邊際平均數估計值是基於拔學法分配之中位數。"
-
-msgid "95%% CI for Mean Difference"
-msgstr "平均差的95%% 信賴區間"
-
-msgid "Bonferroni CI adjustment"
-msgstr "Bonferroni 信賴區間調整"
-
-msgid "Sidak CI adjustment"
-msgstr "Sidak 信賴區間調整"
 
 msgid "Nonparametrics"
 msgstr "無母數"
@@ -751,6 +681,18 @@ msgstr "敘述統計量"
 msgid "Descriptives - %s"
 msgstr "描述統計 - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "平均數"
+
+msgid "SD"
+msgstr "標準差"
+
+msgid "SE"
+msgstr "標準誤"
+
 msgid "Coefficient of variation"
 msgstr "變異係數"
 
@@ -819,6 +761,9 @@ msgstr "變數"
 msgid "Single Model Posterior Distributions"
 msgstr "單一模式後驗分配"
 
+msgid "Q-Q Plot"
+msgstr "Q-Q 圖"
+
 #, fuzzy
 msgid "Posterior R%s"
 msgstr "後驗 R%s"
@@ -826,6 +771,82 @@ msgstr "後驗 R%s"
 #, fuzzy
 msgid "Single Model R%s"
 msgstr "單一模型 R%s"
+
+msgid "Estimate"
+msgstr "估計"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "Cohen's d"
+
+msgid "%s%% CI for Cohen's d"
+msgstr "Cohen's d 效果量的%s%% 信賴區間"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s 比較係數 - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "事後比較 -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "拔靴法事後比較 -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% 偏誤加速校正%2$s 信賴區間"
+
+msgid "bias"
+msgstr "偏誤"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "<sub>Scheffe</sub> p值"
+
+msgid "p<sub>sidak</sub>"
+msgstr "<sub>Sidak</sub>p值"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "P 值經過調整，用於比較 %s 群"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
+
+msgid "Marginal Means -"
+msgstr "邊際平均數"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "拔靴法邊際平均數"
+
+msgid "Marginal Mean"
+msgstr "邊際平均數"
+
+msgid "95%% bca%s CI"
+msgstr "偏誤加速校正%s 95%%信賴區間"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr "邊際平均數估計值是基於拔學法分配之中位數。"
+
+msgid "95%% CI for Mean Difference"
+msgstr "平均差的95%% 信賴區間"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni 信賴區間調整"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak 信賴區間調整"
+
+msgid "Type I Sum of Squares"
+msgstr "一類離均差平方和"
+
+msgid "Type II Sum of Squares"
+msgstr "二類離均差平方和"
+
+msgid "Type III Sum of Squares"
+msgstr "三類離均差平方和"
 
 msgid "Order Restricted Hypotheses"
 msgstr "序受限假設"
@@ -1067,6 +1088,15 @@ msgstr "設計矩陣無反矩陣。這可能是因為與依變數的共線性所
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "虛無模型（包括 %s 與隨機斜率）"
+
+#~ msgid "Coefficient of Variation"
+#~ msgstr "變異係數"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "理論分位值"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "標準化殘差"
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr "僅有平衡設計可出現未合併誤差項。"

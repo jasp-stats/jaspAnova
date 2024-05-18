@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -83,14 +83,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "Soma dos quadrados Tipo I"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "%s%% IC para diferença média"
 
-msgid "Type II Sum of Squares"
-msgstr "Soma dos quadrados Tipo II"
+msgid "Lower"
+msgstr "Inferior"
 
-msgid "Type III Sum of Squares"
-msgstr "Soma dos quadrados Tipo III"
+msgid "Upper"
+msgstr "Superior"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "%s%% IC para diferença média"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "%s%% IC para diferença média"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "%s%% IC para diferença média"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -104,6 +117,11 @@ msgstr "Tabela de Contrastes"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Contraste - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "Especifique um contraste adicional."
 
@@ -112,27 +130,6 @@ msgstr "Número errado de linhas de matriz de contraste personalizadas."
 
 msgid "Please specify non-zero contrast weights."
 msgstr "Especifique pesos de contraste diferentes de zero."
-
-msgid "Estimate"
-msgstr "Estimativa"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "%s%% IC para diferença média"
-
-msgid "Lower"
-msgstr "Inferior"
-
-msgid "Upper"
-msgstr "Superior"
-
-msgid "SE"
-msgstr "EP"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s Coeficientes de contraste - %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "Testes Post Hoc"
@@ -143,6 +140,12 @@ msgstr "Padrão"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Os resultados são calculados em média nos níveis de:%s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr ""
+"Alguns parâmetros não são estimáveis, provavelmente devido a células vazias "
+"do design."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping baseado em %s replicações bem-sucedidas."
@@ -167,38 +170,14 @@ msgstr ""
 "Alguns intervalos de confiança não puderam ser calculados.\n"
 "Possivelmente, poucas réplicas de bootstrap."
 
-msgid "Dunn"
-msgstr "Dunn"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Comparações Post Hoc de Dunn - %s"
-
-msgid "Comparison"
-msgstr "Comparação"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "p<sub>bonf</sub>"
-
-msgid "p<sub>holm</sub>"
-msgstr "p<sub>holm</sub>"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Comparações Post Hoc Games-Howell - %s"
+
+msgid "Comparison"
+msgstr "Comparação"
 
 msgid "Mean Difference"
 msgstr "Diferença média"
@@ -218,6 +197,9 @@ msgstr "Dunnett"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Comparações pós-hoc de Dunnett - %s"
 
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% IC para diferença média"
+
 msgid "p<sub>dunnett</sub>"
 msgstr "p<sub>dunnett</sub>"
 
@@ -227,19 +209,6 @@ msgid ""
 msgstr ""
 "O intervalo de confiança é muito estreito, selecione um nível de confiança "
 "diferente."
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "Média"
-
-msgid "SD"
-msgstr "DP"
-
-#, fuzzy
-msgid "Coefficient of Variation"
-msgstr "Comparação de Modelo"
 
 msgid "Assumption Checks"
 msgstr "Verificar pressupostos"
@@ -304,14 +273,34 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "%s%% IC para diferença média"
 
-msgid "Q-Q Plot"
-msgstr "Diagrama Q-Q"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "Quantis teóricos"
+msgid "Dunn"
+msgstr "Dunn"
 
-msgid "Standardized Residuals"
-msgstr "Resíduos padronizados"
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "Comparações Post Hoc de Dunn - %s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -428,69 +417,6 @@ msgid ""
 msgstr ""
 "Os valores p corrigidos de %s não são apropriados para testes post-hoc de "
 "medidas repetidas (Maxwell, 1980; Field, 2012)."
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr "Valor P ajustado para comparar uma família de %s"
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-"Valor P e intervalos de confiança ajustados para comparar uma família de "
-"estimativas de %1$s (intervalos de confiança corrigidos usando o método "
-"%2$s)."
-
-msgid "Post Hoc Comparisons -"
-msgstr "Comparações Post Hoc -"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "Comparações Post Hoc por Bootstrapp -"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s IC"
-
-msgid "bias"
-msgstr "viés"
-
-msgid "Cohen's d"
-msgstr "D de Cohen"
-
-#, fuzzy
-msgid "%s%% CI for Cohen's d"
-msgstr "%s%% IC para diferença média"
-
-msgid "p<sub>scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
-
-msgid "p<sub>sidak</sub>"
-msgstr "p<sub>sidak</sub>"
-
-msgid "Marginal Means -"
-msgstr "Médias Marginais -"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "Médias marginais por Bootstrapp -"
-
-msgid "Marginal Mean"
-msgstr "Médias marginais"
-
-msgid "95%% bca%s CI"
-msgstr "95%% bca%s IC"
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
-"A estimativa das médias marginais é baseada na mediana da distribuição "
-"bootstrap."
-
-msgid "95%% CI for Mean Difference"
-msgstr "IC 95%% para Diferença Média"
-
-msgid "Bonferroni CI adjustment"
-msgstr "Bonferroni Ajuste para o IC"
-
-msgid "Sidak CI adjustment"
-msgstr "Sidak Ajuste para o IC"
 
 msgid "Nonparametrics"
 msgstr "Não paramétricos"
@@ -791,6 +717,18 @@ msgstr "Descritivas"
 msgid "Descriptives - %s"
 msgstr "Descritivas - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "Média"
+
+msgid "SD"
+msgstr "DP"
+
+msgid "SE"
+msgstr "EP"
+
 #, fuzzy
 msgid "Coefficient of variation"
 msgstr "Comparação de Modelo"
@@ -860,11 +798,95 @@ msgstr "Variável"
 msgid "Single Model Posterior Distributions"
 msgstr "distribuição a posteriori de um único modelo"
 
+msgid "Q-Q Plot"
+msgstr "Diagrama Q-Q"
+
 msgid "Posterior R%s"
 msgstr "R Posterior%s"
 
 msgid "Single Model R%s"
 msgstr "Modelo único R%s"
+
+msgid "Estimate"
+msgstr "Estimativa"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "D de Cohen"
+
+#, fuzzy
+msgid "%s%% CI for Cohen's d"
+msgstr "%s%% IC para diferença média"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s Coeficientes de contraste - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "Comparações Post Hoc -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "Comparações Post Hoc por Bootstrapp -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s IC"
+
+msgid "bias"
+msgstr "viés"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p<sub>scheffe</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>sidak</sub>"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "Valor P ajustado para comparar uma família de %s"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"Valor P e intervalos de confiança ajustados para comparar uma família de "
+"estimativas de %1$s (intervalos de confiança corrigidos usando o método "
+"%2$s)."
+
+msgid "Marginal Means -"
+msgstr "Médias Marginais -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "Médias marginais por Bootstrapp -"
+
+msgid "Marginal Mean"
+msgstr "Médias marginais"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s IC"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+"A estimativa das médias marginais é baseada na mediana da distribuição "
+"bootstrap."
+
+msgid "95%% CI for Mean Difference"
+msgstr "IC 95%% para Diferença Média"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni Ajuste para o IC"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak Ajuste para o IC"
+
+msgid "Type I Sum of Squares"
+msgstr "Soma dos quadrados Tipo I"
+
+msgid "Type II Sum of Squares"
+msgstr "Soma dos quadrados Tipo II"
+
+msgid "Type III Sum of Squares"
+msgstr "Soma dos quadrados Tipo III"
 
 msgid "Order Restricted Hypotheses"
 msgstr ""
@@ -1098,6 +1120,16 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modelo nulo (incl. %s)"
 msgstr[1] "Modelo nulo (incl. %s)"
+
+#, fuzzy
+#~ msgid "Coefficient of Variation"
+#~ msgstr "Comparação de Modelo"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "Quantis teóricos"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "Resíduos padronizados"
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr ""

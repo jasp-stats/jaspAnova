@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-30 09:07+0000\n"
-"Last-Translator: Cochrane <cunyikang@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"jasp/jaspanova-qml/zh_Hans/>\n"
-"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.2\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -1054,10 +1048,6 @@ msgid "Dunnett"
 msgstr "Dunnett 检验"
 
 msgctxt "PostHoc|"
-msgid "Dunn"
-msgstr "Dunn 检验"
-
-msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "校正"
 
@@ -1088,10 +1078,6 @@ msgstr "显示"
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "置信区间"
-
-msgctxt "PostHocDisplay|"
-msgid "Flag Significant Comparisons"
-msgstr "标记具显著性比较结果"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
@@ -1231,4 +1217,55 @@ msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Q-Q plot of residuals"
+msgstr "残差 QQ 图"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Normalize error bars"
+msgstr ""
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Effect size"
+msgstr "效应量"
+
+msgctxt "DescriptivePlots|"
+msgid "Normalize error bars"
+msgstr ""
+
+msgctxt "Display|"
+msgid "partial ω²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Confidence intervals"
+msgstr "置信区间"
+
+msgctxt "Nonparametrics|"
+msgid "Dunn's post hoc tests"
+msgstr ""
+
+msgctxt "PostHoc|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Flag significant comparisons"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Letter-based grouping table"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "α-level:"
 msgstr ""

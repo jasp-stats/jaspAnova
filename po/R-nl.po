@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2023-08-25 13:53+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -81,14 +81,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "Type I Kwadratensom"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "%s%% BI voor Cohen's d"
 
-msgid "Type II Sum of Squares"
-msgstr "Type II Kwadratensom"
+msgid "Lower"
+msgstr "Onder"
 
-msgid "Type III Sum of Squares"
-msgstr "Type III Kwadratensom"
+msgid "Upper"
+msgstr "Boven"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "%s%% BI voor Cohen's d"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "%s%% BI voor Cohen's d"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "%s%% BI voor Cohen's d"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -102,6 +115,11 @@ msgstr "Geplande contrasten"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Contrast - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "Specificeer a.u.b. een toegevoegd contrast."
 
@@ -110,27 +128,6 @@ msgstr "Onjuist aantal aangepaste contrastmatrixrijen."
 
 msgid "Please specify non-zero contrast weights."
 msgstr "Specificeer contrastgewichten ongelijk aan 0."
-
-msgid "Estimate"
-msgstr "Schatting"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "%s%% BI voor Gemiddelde Verschil"
-
-msgid "Lower"
-msgstr "Onder"
-
-msgid "Upper"
-msgstr "Boven"
-
-msgid "SE"
-msgstr "Std. Fout"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s Contrast Coëfficiënten - %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "Post-Hoc Toetsen"
@@ -141,6 +138,12 @@ msgstr "Standaard"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Resultaten zijn gemiddeld over de levels van: %s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr ""
+"Sommige parameters kunnen niet worden geschat, waarschijnlijk door lege "
+"cellen in het ontwerp."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping gebaseerd op %s succesvolle replicaties."
@@ -165,38 +168,14 @@ msgstr ""
 "Sommige betrouwbaarheidsintervallen konden niet worden berekend. \n"
 "Er zijn mogelijk te weinig bootstrap replicaties."
 
-msgid "Dunn"
-msgstr "Dunn"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Dunn's Post-Hoc vergelijkingen - %s"
-
-msgid "Comparison"
-msgstr "Vergelijking"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "p<sub>bonf</sub>"
-
-msgid "p<sub>holm</sub>"
-msgstr "p<sub>holm</sub>"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Games-Howell Post-Hoc Vergelijkingen - %s"
+
+msgid "Comparison"
+msgstr "Vergelijking"
 
 msgid "Mean Difference"
 msgstr "Gemiddeld Verschil"
@@ -216,6 +195,9 @@ msgstr "Dunnett"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Dunnett Post-Hoc Vergelijkingen - %s"
 
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% BI voor Gemiddelde Verschil"
+
 msgid "p<sub>dunnett</sub>"
 msgstr "p<sub>dunnett</sub>"
 
@@ -224,18 +206,6 @@ msgid ""
 "level."
 msgstr ""
 "Betrouwbaarheidsinterval is te smal, kies een ander betrouwbaarheidslevel."
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "Gemiddelde"
-
-msgid "SD"
-msgstr "SD"
-
-msgid "Coefficient of Variation"
-msgstr "Coefficiënt van Variatie"
 
 msgid "Assumption Checks"
 msgstr "Verificatie van aannames"
@@ -300,14 +270,34 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "%s%% BI voor Cohen's d"
 
-msgid "Q-Q Plot"
-msgstr "Q-Q plot"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "Theoretische Kwantielen"
+msgid "Dunn"
+msgstr "Dunn"
 
-msgid "Standardized Residuals"
-msgstr "Gestandaardiseerde Residuen"
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "Dunn's Post-Hoc vergelijkingen - %s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -428,68 +418,6 @@ msgid ""
 msgstr ""
 "%s gecorrigeerde p-waarden zijn niet geschikt voor herhaalde metingen post-"
 "hoc toetsen (Maxwell, 1980; Field, 2012)."
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr "P-waarde aangepast om een familie van %s te vergelijken"
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-"P-waarde en betrouwbaarheidsintervallen aangepast om een familie van %1$s "
-"schattingen te vergelijken (betrouwbaarheidsintervallen gecorrigeerd met de "
-"%2$s methode)."
-
-msgid "Post Hoc Comparisons -"
-msgstr "Post-Hoc Vergelijkingen -"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "Gebootstrapte Post-Hoc Vergelijkingen -"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s BI"
-
-msgid "bias"
-msgstr "onzuiverheid"
-
-msgid "Cohen's d"
-msgstr "Cohen's d"
-
-msgid "%s%% CI for Cohen's d"
-msgstr "%s%% BI voor Cohen's d"
-
-msgid "p<sub>scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
-
-msgid "p<sub>sidak</sub>"
-msgstr "p<sub>sidak</sub>"
-
-msgid "Marginal Means -"
-msgstr "Marginale Gemiddeldes -"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "Gebootstrapte Marginale Gemiddeldes -"
-
-msgid "Marginal Mean"
-msgstr "Marginaal Gemiddelde"
-
-msgid "95%% bca%s CI"
-msgstr "95%% bca%s BI"
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
-"Marginale Gemiddelden schatting is gebaseerd op de mediaan van de "
-"bootstrapverdeling."
-
-msgid "95%% CI for Mean Difference"
-msgstr "95%% BI voor Gemiddeld Verschil"
-
-msgid "Bonferroni CI adjustment"
-msgstr "Bonferroni BI aanpassing"
-
-msgid "Sidak CI adjustment"
-msgstr "Sidak BI aanpassing"
 
 msgid "Nonparametrics"
 msgstr "Niet parametrisch"
@@ -794,6 +722,18 @@ msgstr "Beschrijvende statistiek"
 msgid "Descriptives - %s"
 msgstr "Beschrijvingen - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgid "SD"
+msgstr "SD"
+
+msgid "SE"
+msgstr "Std. Fout"
+
 msgid "Coefficient of variation"
 msgstr "Coefficiënt van Variatie"
 
@@ -863,11 +803,94 @@ msgstr "Variabele"
 msgid "Single Model Posterior Distributions"
 msgstr "Enkel Model Posterior Verdelingen"
 
+msgid "Q-Q Plot"
+msgstr "Q-Q plot"
+
 msgid "Posterior R%s"
 msgstr "Posterior R%s"
 
 msgid "Single Model R%s"
 msgstr "Enkel Model R%s"
+
+msgid "Estimate"
+msgstr "Schatting"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "Cohen's d"
+
+msgid "%s%% CI for Cohen's d"
+msgstr "%s%% BI voor Cohen's d"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s Contrast Coëfficiënten - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "Post-Hoc Vergelijkingen -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "Gebootstrapte Post-Hoc Vergelijkingen -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s BI"
+
+msgid "bias"
+msgstr "onzuiverheid"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p<sub>scheffe</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>sidak</sub>"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "P-waarde aangepast om een familie van %s te vergelijken"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"P-waarde en betrouwbaarheidsintervallen aangepast om een familie van %1$s "
+"schattingen te vergelijken (betrouwbaarheidsintervallen gecorrigeerd met de "
+"%2$s methode)."
+
+msgid "Marginal Means -"
+msgstr "Marginale Gemiddeldes -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "Gebootstrapte Marginale Gemiddeldes -"
+
+msgid "Marginal Mean"
+msgstr "Marginaal Gemiddelde"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s BI"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+"Marginale Gemiddelden schatting is gebaseerd op de mediaan van de "
+"bootstrapverdeling."
+
+msgid "95%% CI for Mean Difference"
+msgstr "95%% BI voor Gemiddeld Verschil"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni BI aanpassing"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak BI aanpassing"
+
+msgid "Type I Sum of Squares"
+msgstr "Type I Kwadratensom"
+
+msgid "Type II Sum of Squares"
+msgstr "Type II Kwadratensom"
+
+msgid "Type III Sum of Squares"
+msgstr "Type III Kwadratensom"
 
 msgid "Order Restricted Hypotheses"
 msgstr "Orderbeperkte Hypothesen"
@@ -1116,6 +1139,15 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nulmodel (incl. %s en willekeurige hellingen)"
 msgstr[1] "Nulmodel (incl. %s, en willekeurige hellingen)"
+
+#~ msgid "Coefficient of Variation"
+#~ msgstr "Coefficiënt van Variatie"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "Theoretische Kwantielen"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "Gestandaardiseerde Residuen"
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr "Aparte fout term enkel toegestaan bij gebalanceerde designs."

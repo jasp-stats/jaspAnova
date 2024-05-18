@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -76,14 +76,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "タイプI平方和"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "Cohen's d における %s%% CI"
 
-msgid "Type II Sum of Squares"
-msgstr "タイプ II 平方和"
+msgid "Lower"
+msgstr "下限"
 
-msgid "Type III Sum of Squares"
-msgstr "タイプ III 平方和"
+msgid "Upper"
+msgstr "上限"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "Cohen's d における %s%% CI"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "Cohen's d における %s%% CI"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "Cohen's d における %s%% CI"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -96,6 +109,11 @@ msgstr "コントラスト表"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s コントラスト - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "追加のコントラストを指定してください。"
 
@@ -104,27 +122,6 @@ msgstr "カスタムのコントラスト行列の行数が正しくありませ
 
 msgid "Please specify non-zero contrast weights."
 msgstr "ゼロ以外のコントラストの重みを指定してください。"
-
-msgid "Estimate"
-msgstr "推定"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "平均値差の %s%% 信頼区間"
-
-msgid "Lower"
-msgstr "下限"
-
-msgid "Upper"
-msgstr "上限"
-
-msgid "SE"
-msgstr "標準誤差"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s コントラスト係数 - %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "事後検定"
@@ -135,6 +132,12 @@ msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "結果は次のレベルで平均化されています: %s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr ""
+"一部のパラメーターが推定できません。おそらく，デザインのセルが空であることが"
+"原因です。"
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
@@ -157,38 +160,14 @@ msgstr ""
 "いくつかの信頼区間が計算できませんでした。\n"
 "ブートストラップの再標本が少なすぎる可能性があります。"
 
-msgid "Dunn"
-msgstr "ダン(Dunn)"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "ダンの事後比較-%s"
-
-msgid "Comparison"
-msgstr "比較"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "p<sub>ボンフェロー二</sub>"
-
-msgid "p<sub>holm</sub>"
-msgstr "p<sub>ホルム</sub>"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "ゲームス・ハウエル(Games-Howell)"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "ゲームス・ハウエルの事後比較 - %s"
+
+msgid "Comparison"
+msgstr "比較"
 
 msgid "Mean Difference"
 msgstr "平均値差"
@@ -208,6 +187,9 @@ msgstr "ダネット(Dunnett)"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "ダネットの事後比較 - %s"
 
+msgid "%s%% CI for Mean Difference"
+msgstr "平均値差の %s%% 信頼区間"
+
 msgid "p<sub>dunnett</sub>"
 msgstr "p<sub>ダネット</sub>"
 
@@ -215,19 +197,6 @@ msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr "信頼区間が狭すぎるので，別の信頼水準を選択してください。"
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "平均値"
-
-msgid "SD"
-msgstr "標準偏差"
-
-#, fuzzy
-msgid "Coefficient of Variation"
-msgstr "係数"
 
 msgid "Assumption Checks"
 msgstr "仮定のチェック"
@@ -292,14 +261,34 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "Cohen's d における %s%% CI"
 
-msgid "Q-Q Plot"
-msgstr "Q-Qプロット"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "理論上の分位数"
+msgid "Dunn"
+msgstr "ダン(Dunn)"
 
-msgid "Standardized Residuals"
-msgstr "標準化された残差"
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "ダンの事後比較-%s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>ボンフェロー二</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>ホルム</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -412,65 +401,6 @@ msgid ""
 msgstr ""
 "%s 修正されたp値は，反復測定の事後検定には適していません（Maxwell、1980; "
 "Field、2012）。"
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr "%s のファミーを比較するために調整された P 値"
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-"%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
-"て修正された信頼区間）。"
-
-msgid "Post Hoc Comparisons -"
-msgstr "事後比較-"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "ブートストラップ事後比較-"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s 信頼区間"
-
-msgid "bias"
-msgstr "バイアス"
-
-msgid "Cohen's d"
-msgstr "コーエン(Cohen)のd"
-
-msgid "%s%% CI for Cohen's d"
-msgstr "Cohen's d における %s%% CI"
-
-msgid "p<sub>scheffe</sub>"
-msgstr "p <sub>シェッフェ</sub>"
-
-msgid "p<sub>sidak</sub>"
-msgstr "p<sub>シダック</sub>"
-
-msgid "Marginal Means -"
-msgstr "周辺平均 -"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "ブートストラップ周辺平均 -"
-
-msgid "Marginal Mean"
-msgstr "周辺平均"
-
-msgid "95%% bca%s CI"
-msgstr "95%% bca%s 信頼区間"
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr "周辺平均の推定値は，ブートストラップ分布の中央値に基づく。"
-
-msgid "95%% CI for Mean Difference"
-msgstr "平均値差の95%%信頼区間"
-
-msgid "Bonferroni CI adjustment"
-msgstr "ボンフェローニの信頼区間調整"
-
-msgid "Sidak CI adjustment"
-msgstr "シダックの信頼区間調整"
 
 msgid "Nonparametrics"
 msgstr "ノンパラメトリック"
@@ -765,6 +695,18 @@ msgstr "記述統計量"
 msgid "Descriptives - %s"
 msgstr "記述統計量 - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "平均値"
+
+msgid "SD"
+msgstr "標準偏差"
+
+msgid "SE"
+msgstr "標準誤差"
+
 #, fuzzy
 msgid "Coefficient of variation"
 msgstr "係数"
@@ -835,11 +777,91 @@ msgstr "変数"
 msgid "Single Model Posterior Distributions"
 msgstr "単一モデルの事後分布"
 
+msgid "Q-Q Plot"
+msgstr "Q-Qプロット"
+
 msgid "Posterior R%s"
 msgstr "事後分布 R%s"
 
 msgid "Single Model R%s"
 msgstr "単一モデル R%s"
+
+msgid "Estimate"
+msgstr "推定"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "コーエン(Cohen)のd"
+
+msgid "%s%% CI for Cohen's d"
+msgstr "Cohen's d における %s%% CI"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s コントラスト係数 - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "事後比較-"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "ブートストラップ事後比較-"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s 信頼区間"
+
+msgid "bias"
+msgstr "バイアス"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p <sub>シェッフェ</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>シダック</sub>"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "%s のファミーを比較するために調整された P 値"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
+"て修正された信頼区間）。"
+
+msgid "Marginal Means -"
+msgstr "周辺平均 -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "ブートストラップ周辺平均 -"
+
+msgid "Marginal Mean"
+msgstr "周辺平均"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s 信頼区間"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr "周辺平均の推定値は，ブートストラップ分布の中央値に基づく。"
+
+msgid "95%% CI for Mean Difference"
+msgstr "平均値差の95%%信頼区間"
+
+msgid "Bonferroni CI adjustment"
+msgstr "ボンフェローニの信頼区間調整"
+
+msgid "Sidak CI adjustment"
+msgstr "シダックの信頼区間調整"
+
+msgid "Type I Sum of Squares"
+msgstr "タイプI平方和"
+
+msgid "Type II Sum of Squares"
+msgstr "タイプ II 平方和"
+
+msgid "Type III Sum of Squares"
+msgstr "タイプ III 平方和"
 
 #, fuzzy
 msgid "Order Restricted Hypotheses"
@@ -1086,6 +1108,16 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "帰無モデル (%s含む)"
+
+#, fuzzy
+#~ msgid "Coefficient of Variation"
+#~ msgstr "係数"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "理論上の分位数"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "標準化された残差"
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr "プールしていない誤差項は，均衡デザインでのみ許容されます。"

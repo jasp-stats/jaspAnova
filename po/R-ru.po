@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2023-03-26 15:37+0000\n"
 "Last-Translator: Катя <katakxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -75,14 +75,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "Сумма квадратов I типа"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "%s%% ДИ для d Коэна"
 
-msgid "Type II Sum of Squares"
-msgstr "Сумма квадратов II типа"
+msgid "Lower"
+msgstr "Нижняя граница"
 
-msgid "Type III Sum of Squares"
-msgstr "Сумма квадратов III типа"
+msgid "Upper"
+msgstr "Верхняя граница"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "%s%% ДИ для d Коэна"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "%s%% ДИ для d Коэна"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "%s%% ДИ для d Коэна"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -96,6 +109,11 @@ msgstr "Таблицы контрастов"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Контраст - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "Пожалуйста, определите дополнительный контраст."
 
@@ -106,28 +124,6 @@ msgstr "Неправильное число контрастов в рядах �
 msgid "Please specify non-zero contrast weights."
 msgstr "Пожалуйста, определите ненулевые веса контрастов."
 
-msgid "Estimate"
-msgstr "Оценка"
-
-#, fuzzy
-msgid "%s%% CI for Mean Difference"
-msgstr "%s%% ДИ для разницы средних"
-
-msgid "Lower"
-msgstr "Нижняя граница"
-
-msgid "Upper"
-msgstr "Верхняя граница"
-
-msgid "SE"
-msgstr "SE"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s Коэффициенты контрастов - %2$s"
-
 msgid "Post Hoc Tests"
 msgstr "Апостериорные сравнения"
 
@@ -137,6 +133,12 @@ msgstr "T-критерий"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Результаты усреднены по всем уровням фактора: %s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr ""
+"Некоторые параметры не могут быть рассчитаны, скорее всего из-за наличия "
+"пустых ячеек для данного дизайна."
 
 #, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
@@ -164,40 +166,15 @@ msgstr ""
 "Некоторые доверительные интервалы не могут быть рассчитаны.\n"
 "Возможно здесь слишком мало бутстрэп-выборок."
 
-msgid "Dunn"
-msgstr "Данн"
-
-#, fuzzy
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "Апостериорные сравнения с помощью критерия Данна - %s"
-
-msgid "Comparison"
-msgstr "Сравнение"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "p<sub>bonf</sub>"
-
-msgid "p<sub>holm</sub>"
-msgstr "p<sub>holm</sub>"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Геймс-Хоуэлл"
 
 #, fuzzy
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Апостериорные сравнения с помощью критерия Геймс-Хоуэлла - %s"
+
+msgid "Comparison"
+msgstr "Сравнение"
 
 msgid "Mean Difference"
 msgstr "Разница средних"
@@ -218,6 +195,10 @@ msgstr "Даннетт"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Апостериорные сравнения с помощью критерия Даннета - %s"
 
+#, fuzzy
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% ДИ для разницы средних"
+
 msgid "p<sub>dunnett</sub>"
 msgstr ""
 
@@ -228,19 +209,6 @@ msgid ""
 msgstr ""
 "Доверительные интервалы слишком малы. Пожалуйста, выберите другие границы "
 "доверительного интервала."
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "Среднее"
-
-msgid "SD"
-msgstr "SD"
-
-#, fuzzy
-msgid "Coefficient of Variation"
-msgstr "Коэффициент изменчивости"
 
 msgid "Assumption Checks"
 msgstr "Проверка допущений"
@@ -310,14 +278,35 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "%s%% ДИ для d Коэна"
 
-msgid "Q-Q Plot"
-msgstr "К-К график"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "Теоретические квантили"
+msgid "Dunn"
+msgstr "Данн"
 
-msgid "Standardized Residuals"
-msgstr "Стандартизированные остатки"
+#, fuzzy
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "Апостериорные сравнения с помощью критерия Данна - %s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -437,65 +426,6 @@ msgstr ""
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
-msgstr ""
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-
-msgid "Post Hoc Comparisons -"
-msgstr "Апостериорные сравнения -"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "Апостериорные сравнения (бутстрэппинг) -"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr ""
-
-msgid "bias"
-msgstr ""
-
-#, fuzzy
-msgid "Cohen's d"
-msgstr "d Коэна"
-
-#, fuzzy
-msgid "%s%% CI for Cohen's d"
-msgstr "%s%% ДИ для d Коэна"
-
-msgid "p<sub>scheffe</sub>"
-msgstr ""
-
-msgid "p<sub>sidak</sub>"
-msgstr ""
-
-msgid "Marginal Means -"
-msgstr "Маргинальные средние -"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "Маргинальные средние (бутстрэппинг) -"
-
-msgid "Marginal Mean"
-msgstr "Маргинальное среднее"
-
-msgid "95%% bca%s CI"
-msgstr ""
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
-
-msgid "95%% CI for Mean Difference"
-msgstr "95%% ДИ для разницы средних"
-
-msgid "Bonferroni CI adjustment"
-msgstr ""
-
-msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
@@ -772,6 +702,18 @@ msgstr "Описательные статистики"
 msgid "Descriptives - %s"
 msgstr "Описательные статистики - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "Среднее"
+
+msgid "SD"
+msgstr "SD"
+
+msgid "SE"
+msgstr "SE"
+
 msgid "Coefficient of variation"
 msgstr "Коэффициент изменчивости"
 
@@ -837,11 +779,91 @@ msgstr "Переменная"
 msgid "Single Model Posterior Distributions"
 msgstr ""
 
+msgid "Q-Q Plot"
+msgstr "К-К график"
+
 msgid "Posterior R%s"
 msgstr ""
 
 msgid "Single Model R%s"
 msgstr ""
+
+msgid "Estimate"
+msgstr "Оценка"
+
+msgid "t"
+msgstr "t"
+
+#, fuzzy
+msgid "Cohen's d"
+msgstr "d Коэна"
+
+#, fuzzy
+msgid "%s%% CI for Cohen's d"
+msgstr "%s%% ДИ для d Коэна"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s Коэффициенты контрастов - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "Апостериорные сравнения -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "Апостериорные сравнения (бутстрэппинг) -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr ""
+
+msgid "bias"
+msgstr ""
+
+msgid "p<sub>scheffe</sub>"
+msgstr ""
+
+msgid "p<sub>sidak</sub>"
+msgstr ""
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr ""
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr "Маргинальные средние -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "Маргинальные средние (бутстрэппинг) -"
+
+msgid "Marginal Mean"
+msgstr "Маргинальное среднее"
+
+msgid "95%% bca%s CI"
+msgstr ""
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+
+msgid "95%% CI for Mean Difference"
+msgstr "95%% ДИ для разницы средних"
+
+msgid "Bonferroni CI adjustment"
+msgstr ""
+
+msgid "Sidak CI adjustment"
+msgstr ""
+
+msgid "Type I Sum of Squares"
+msgstr "Сумма квадратов I типа"
+
+msgid "Type II Sum of Squares"
+msgstr "Сумма квадратов II типа"
+
+msgid "Type III Sum of Squares"
+msgstr "Сумма квадратов III типа"
 
 msgid "Order Restricted Hypotheses"
 msgstr ""
@@ -1063,3 +1085,13 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+#~ msgid "Coefficient of Variation"
+#~ msgstr "Коэффициент изменчивости"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "Теоретические квантили"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "Стандартизированные остатки"

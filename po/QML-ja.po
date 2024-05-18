@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-11 15:17+0000\n"
-"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/ja/>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
@@ -422,7 +416,8 @@ msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
-msgstr "Ctrl + Enter で適用されます。上の青いボタンをクリックすると、制限構文のヘルプ"
+msgstr ""
+"Ctrl + Enter で適用されます。上の青いボタンをクリックすると、制限構文のヘルプ"
 "が表示されます"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -1141,11 +1136,6 @@ msgstr "ダネット(Dunnett)"
 
 #, fuzzy
 msgctxt "PostHoc|"
-msgid "Dunn"
-msgstr "ダン(Dunn)"
-
-#, fuzzy
-msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "補正"
 
@@ -1183,10 +1173,6 @@ msgstr "表示"
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "信頼区間"
-
-msgctxt "PostHocDisplay|"
-msgid "Flag Significant Comparisons"
-msgstr ""
 
 #, fuzzy
 msgctxt "SimpleMainEffects|"
@@ -1332,4 +1318,55 @@ msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Q-Q plot of residuals"
+msgstr "残差のQ-Qプロット"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Normalize error bars"
+msgstr ""
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Effect size"
+msgstr "効果量"
+
+msgctxt "DescriptivePlots|"
+msgid "Normalize error bars"
+msgstr ""
+
+msgctxt "Display|"
+msgid "partial ω²"
+msgstr ""
+
+#, fuzzy
+msgctxt "Display|"
+msgid "Confidence intervals"
+msgstr "信頼区間"
+
+msgctxt "Nonparametrics|"
+msgid "Dunn's post hoc tests"
+msgstr ""
+
+msgctxt "PostHoc|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Flag significant comparisons"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Letter-based grouping table"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "α-level:"
 msgstr ""

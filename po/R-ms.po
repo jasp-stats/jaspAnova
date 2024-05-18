@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2022-02-04 03:58+0000\n"
 "Last-Translator: Harris Abd Hamid <harris75@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -78,14 +78,25 @@ msgstr "k"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "Jumlah Kuasa Dua Jenis I"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "%s%% JK untuk Perbezaan Min"
 
-msgid "Type II Sum of Squares"
-msgstr "Jumlah Kuasa Dua Jenis II"
+msgid "Lower"
+msgstr "Bawah"
 
-msgid "Type III Sum of Squares"
-msgstr "Jumlah Kuasa Dua Jenis III"
+msgid "Upper"
+msgstr "Atas"
+
+msgid "%s%% CI for η²ₚ"
+msgstr ""
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "%s%% JK untuk Perbezaan Min"
+
+msgid "%s%% CI for ω²ₚ"
+msgstr ""
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -97,6 +108,11 @@ msgstr "Jadual-jadual Kontras"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Kontras - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "Sila tentukan kontras tambahan."
 
@@ -106,27 +122,6 @@ msgstr "Bilangan yang salah bagi baris-baris kontras matrik tersuai."
 msgid "Please specify non-zero contrast weights."
 msgstr "Sila tentukan pemberat-pemberat kontras yang bukan sifar."
 
-msgid "Estimate"
-msgstr "Anggaran"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "%s%% JK untuk Perbezaan Min"
-
-msgid "Lower"
-msgstr "Bawah"
-
-msgid "Upper"
-msgstr "Atas"
-
-msgid "SE"
-msgstr "RP"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
-
 msgid "Post Hoc Tests"
 msgstr ""
 
@@ -134,6 +129,9 @@ msgid "Standard (LSD)"
 msgstr ""
 
 msgid "Results are averaged over the levels of: %s"
+msgstr ""
+
+msgid "Some parameters were not estimable due to missingness."
 msgstr ""
 
 msgid "Bootstrapping based on %s successful replicates."
@@ -155,37 +153,13 @@ msgid ""
 "Possibly too few bootstrap replicates."
 msgstr ""
 
-msgid "Dunn"
-msgstr "Dunn"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
-
-msgid "Comparison"
-msgstr ""
-
-msgid "W<sub>i</sub>"
-msgstr ""
-
-msgid "W<sub>j</sub>"
-msgstr ""
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr ""
-
-msgid "p<sub>holm</sub>"
-msgstr ""
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr ""
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
+msgstr ""
+
+msgid "Comparison"
 msgstr ""
 
 msgid "Mean Difference"
@@ -206,6 +180,9 @@ msgstr "Dunnett"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
 
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% JK untuk Perbezaan Min"
+
 msgid "p<sub>dunnett</sub>"
 msgstr ""
 
@@ -213,19 +190,6 @@ msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr ""
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "Min"
-
-msgid "SD"
-msgstr "SP"
-
-#, fuzzy
-msgid "Coefficient of Variation"
-msgstr "Pekali"
 
 msgid "Assumption Checks"
 msgstr "Semakan Andaian"
@@ -288,13 +252,33 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "%s%% JK untuk Perbezaan Min"
 
-msgid "Q-Q Plot"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
 msgstr ""
 
-msgid "Theoretical Quantiles"
+msgid "Dunn"
+msgstr "Dunn"
+
+msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
 
-msgid "Standardized Residuals"
+msgid "W<sub>i</sub>"
+msgstr ""
+
+msgid "W<sub>j</sub>"
+msgstr ""
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr ""
+
+msgid "p<sub>holm</sub>"
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
 
 msgid ""
@@ -397,63 +381,6 @@ msgstr ""
 msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
-msgstr ""
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-
-msgid "Post Hoc Comparisons -"
-msgstr ""
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
-
-msgid "%1$s%% bca%2$s CI"
-msgstr ""
-
-msgid "bias"
-msgstr ""
-
-msgid "Cohen's d"
-msgstr "d Cohen"
-
-msgid "%s%% CI for Cohen's d"
-msgstr ""
-
-msgid "p<sub>scheffe</sub>"
-msgstr ""
-
-msgid "p<sub>sidak</sub>"
-msgstr ""
-
-msgid "Marginal Means -"
-msgstr ""
-
-msgid "Bootstrapped Marginal Means -"
-msgstr ""
-
-msgid "Marginal Mean"
-msgstr ""
-
-msgid "95%% bca%s CI"
-msgstr ""
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
-
-msgid "95%% CI for Mean Difference"
-msgstr ""
-
-msgid "Bonferroni CI adjustment"
-msgstr ""
-
-msgid "Sidak CI adjustment"
 msgstr ""
 
 msgid "Nonparametrics"
@@ -722,6 +649,18 @@ msgstr "Deskriptif"
 msgid "Descriptives - %s"
 msgstr ""
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "Min"
+
+msgid "SD"
+msgstr "SP"
+
+msgid "SE"
+msgstr "RP"
+
 #, fuzzy
 msgid "Coefficient of variation"
 msgstr "Pekali"
@@ -783,11 +722,89 @@ msgstr ""
 msgid "Single Model Posterior Distributions"
 msgstr ""
 
+msgid "Q-Q Plot"
+msgstr ""
+
 msgid "Posterior R%s"
 msgstr ""
 
 msgid "Single Model R%s"
 msgstr ""
+
+msgid "Estimate"
+msgstr "Anggaran"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "d Cohen"
+
+msgid "%s%% CI for Cohen's d"
+msgstr ""
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr ""
+
+msgid "Post Hoc Comparisons -"
+msgstr ""
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr ""
+
+msgid "%1$s%% bca%2$s CI"
+msgstr ""
+
+msgid "bias"
+msgstr ""
+
+msgid "p<sub>scheffe</sub>"
+msgstr ""
+
+msgid "p<sub>sidak</sub>"
+msgstr ""
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr ""
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr ""
+
+msgid "Bootstrapped Marginal Means -"
+msgstr ""
+
+msgid "Marginal Mean"
+msgstr ""
+
+msgid "95%% bca%s CI"
+msgstr ""
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+
+msgid "95%% CI for Mean Difference"
+msgstr ""
+
+msgid "Bonferroni CI adjustment"
+msgstr ""
+
+msgid "Sidak CI adjustment"
+msgstr ""
+
+msgid "Type I Sum of Squares"
+msgstr "Jumlah Kuasa Dua Jenis I"
+
+msgid "Type II Sum of Squares"
+msgstr "Jumlah Kuasa Dua Jenis II"
+
+msgid "Type III Sum of Squares"
+msgstr "Jumlah Kuasa Dua Jenis III"
 
 msgid "Order Restricted Hypotheses"
 msgstr ""
@@ -1017,6 +1034,10 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] ""
+
+#, fuzzy
+#~ msgid "Coefficient of Variation"
+#~ msgstr "Pekali"
 
 #~ msgid "Syntax error: %1$s%2$s."
 #~ msgstr "Ralat sintaks: %1$s%2$s."

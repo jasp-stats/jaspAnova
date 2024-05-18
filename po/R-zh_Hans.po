@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-04-06 02:37\n"
+"POT-Creation-Date: 2024-05-18 02:39\n"
 "PO-Revision-Date: 2024-04-30 08:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -72,14 +72,27 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-msgid "Type I Sum of Squares"
-msgstr "I 型平方和"
+#, fuzzy
+msgid "%s%% CI for η²"
+msgstr "Cohen's d 的 %s%% 置信区间"
 
-msgid "Type II Sum of Squares"
-msgstr "II 型平方和"
+msgid "Lower"
+msgstr "下界"
 
-msgid "Type III Sum of Squares"
-msgstr "III 型平方和"
+msgid "Upper"
+msgstr "上界"
+
+#, fuzzy
+msgid "%s%% CI for η²ₚ"
+msgstr "Cohen's d 的 %s%% 置信区间"
+
+#, fuzzy
+msgid "%s%% CI for ω²"
+msgstr "Cohen's d 的 %s%% 置信区间"
+
+#, fuzzy
+msgid "%s%% CI for ω²ₚ"
+msgstr "Cohen's d 的 %s%% 置信区间"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -91,6 +104,11 @@ msgstr "对比表"
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s 对比 - %2$s"
 
+msgid ""
+"Insufficient data to estimate full model/contrasts. Likely empty cells in "
+"between-subjects design (i.e., bad data structure)"
+msgstr ""
+
 msgid "Please specify an additional contrast."
 msgstr "请指定额外的对比。"
 
@@ -99,27 +117,6 @@ msgstr "自定义对比矩阵行数有错误。"
 
 msgid "Please specify non-zero contrast weights."
 msgstr "请指定非零的对比度权重。"
-
-msgid "Estimate"
-msgstr "估计"
-
-msgid "%s%% CI for Mean Difference"
-msgstr "%s%% 平均差的置信区间"
-
-msgid "Lower"
-msgstr "下界"
-
-msgid "Upper"
-msgstr "上界"
-
-msgid "SE"
-msgstr "SE"
-
-msgid "t"
-msgstr "t"
-
-msgid "%1$s Contrast Coefficients - %2$s"
-msgstr "%1$s 对比度系数 - %2$s"
 
 msgid "Post Hoc Tests"
 msgstr "事后检验(Post Hoc)"
@@ -130,6 +127,10 @@ msgstr "标准(Standard)"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "结果在以下水平上取平均值：%s"
+
+#, fuzzy
+msgid "Some parameters were not estimable due to missingness."
+msgstr "某些参数无法估计，很可能是由于设计中有空单元。"
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "基于 %s 次样本的Bootstrap抽样已成功复刻。"
@@ -152,38 +153,14 @@ msgstr ""
 "某些置信区间无法计算。\n"
 "可能是自助抽样(bootstrap)量复刻太少。"
 
-msgid "Dunn"
-msgstr "Dunn"
-
-msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr "邓恩的事后比较 - %s"
-
-msgid "Comparison"
-msgstr "比较"
-
-msgid "W<sub>i</sub>"
-msgstr "W<sub>i</sub>"
-
-msgid "W<sub>j</sub>"
-msgstr "W<sub>j</sub>"
-
-msgid "Rank-Biserial Correlation"
-msgstr ""
-
-msgid "p<sub>bonf</sub>"
-msgstr "p<sub>bonf</sub>"
-
-msgid "p<sub>holm</sub>"
-msgstr "p<sub>holm</sub>"
-
-msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
-
 msgid "Games-Howell"
 msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr "Games-Howell 的事后比较 - %s"
+
+msgid "Comparison"
+msgstr "比较"
 
 msgid "Mean Difference"
 msgstr "平均差"
@@ -203,6 +180,9 @@ msgstr "Dunnett"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Dunnett 事后比较 - %s"
 
+msgid "%s%% CI for Mean Difference"
+msgstr "%s%% 平均差的置信区间"
+
 msgid "p<sub>dunnett</sub>"
 msgstr "p<sub>dunnett</sub>"
 
@@ -210,18 +190,6 @@ msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
 msgstr "置信区间太窄，请选择其他的置信水平。"
-
-msgid "N"
-msgstr "N"
-
-msgid "Mean"
-msgstr "均值"
-
-msgid "SD"
-msgstr "标准差"
-
-msgid "Coefficient of Variation"
-msgstr "变异系数"
 
 msgid "Assumption Checks"
 msgstr "假设检验"
@@ -282,14 +250,34 @@ msgstr ""
 msgid "%i%% CI for Rank %s"
 msgstr "Cohen's d 的 %s%% 置信区间"
 
-msgid "Q-Q Plot"
-msgstr "Q-Q 图"
+msgid ""
+"Tests are conducted separately for each variable, without accounting for "
+"multivariate effects."
+msgstr ""
 
-msgid "Theoretical Quantiles"
-msgstr "理论分位数( Theoretical Quantile)"
+msgid "Dunn"
+msgstr "Dunn"
 
-msgid "Standardized Residuals"
-msgstr "标准化残差"
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "邓恩的事后比较 - %s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "Rank-Biserial Correlation"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr "p<sub>bonf</sub>"
+
+msgid "p<sub>holm</sub>"
+msgstr "p<sub>holm</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -396,65 +384,6 @@ msgid ""
 "%s corrected p-values are not appropriate for repeated measures post-hoc "
 "tests (Maxwell, 1980; Field, 2012)."
 msgstr "%s 中校正的 p 值不适用于重复测量事后检验(Maxwell, 1980; Field, 2012)。"
-
-msgid "P-value adjusted for comparing a family of %s"
-msgstr "为比较 %s 族而调整的 P 值"
-
-msgid ""
-"P-value and confidence intervals adjusted for comparing a family of %1$s "
-"estimates (confidence intervals corrected using the %2$s method)."
-msgstr ""
-"为比较 %1$s 估计值系列而调整的 P 值和置信区间（使用 %2$s 方法校正的置信区"
-"间）。"
-
-msgid "Post Hoc Comparisons -"
-msgstr "事后比较 -"
-
-msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr "自举的(Bootstrap)事后比较 -"
-
-msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s CI"
-
-msgid "bias"
-msgstr "偏差"
-
-msgid "Cohen's d"
-msgstr "Cohen's d"
-
-msgid "%s%% CI for Cohen's d"
-msgstr "Cohen's d 的 %s%% 置信区间"
-
-msgid "p<sub>scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
-
-msgid "p<sub>sidak</sub>"
-msgstr "p<sub>sidak</sub>"
-
-msgid "Marginal Means -"
-msgstr "边际均值 -"
-
-msgid "Bootstrapped Marginal Means -"
-msgstr "自举(Bootstrap)的边际均值 -"
-
-msgid "Marginal Mean"
-msgstr "边际均值"
-
-msgid "95%% bca%s CI"
-msgstr "95%% bca%s CI"
-
-msgid ""
-"Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr "边际均值估计基于自举(bootstrap)分布的中位数。"
-
-msgid "95%% CI for Mean Difference"
-msgstr "平均差的 95%% 置信区间"
-
-msgid "Bonferroni CI adjustment"
-msgstr "Bonferroni 置信区间调整"
-
-msgid "Sidak CI adjustment"
-msgstr "Sidak 置信区间调整"
 
 msgid "Nonparametrics"
 msgstr "非参数检验"
@@ -742,6 +671,18 @@ msgstr "描述统计"
 msgid "Descriptives - %s"
 msgstr "描述统计 - %s"
 
+msgid "N"
+msgstr "N"
+
+msgid "Mean"
+msgstr "均值"
+
+msgid "SD"
+msgstr "标准差"
+
+msgid "SE"
+msgstr "SE"
+
 msgid "Coefficient of variation"
 msgstr "变异系数"
 
@@ -806,11 +747,91 @@ msgstr "变量"
 msgid "Single Model Posterior Distributions"
 msgstr "单一模型后验分布"
 
+msgid "Q-Q Plot"
+msgstr "Q-Q 图"
+
 msgid "Posterior R%s"
 msgstr "后验 R%s"
 
 msgid "Single Model R%s"
 msgstr "单一模型 R%s"
+
+msgid "Estimate"
+msgstr "估计"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "Cohen's d"
+
+msgid "%s%% CI for Cohen's d"
+msgstr "Cohen's d 的 %s%% 置信区间"
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "%1$s 对比度系数 - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "事后比较 -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "自举的(Bootstrap)事后比较 -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s CI"
+
+msgid "bias"
+msgstr "偏差"
+
+msgid "p<sub>scheffe</sub>"
+msgstr "p<sub>scheffe</sub>"
+
+msgid "p<sub>sidak</sub>"
+msgstr "p<sub>sidak</sub>"
+
+msgid "P-value adjusted for comparing a family of %s"
+msgstr "为比较 %s 族而调整的 P 值"
+
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"为比较 %1$s 估计值系列而调整的 P 值和置信区间（使用 %2$s 方法校正的置信区"
+"间）。"
+
+msgid "Marginal Means -"
+msgstr "边际均值 -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "自举(Bootstrap)的边际均值 -"
+
+msgid "Marginal Mean"
+msgstr "边际均值"
+
+msgid "95%% bca%s CI"
+msgstr "95%% bca%s CI"
+
+msgid ""
+"Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr "边际均值估计基于自举(bootstrap)分布的中位数。"
+
+msgid "95%% CI for Mean Difference"
+msgstr "平均差的 95%% 置信区间"
+
+msgid "Bonferroni CI adjustment"
+msgstr "Bonferroni 置信区间调整"
+
+msgid "Sidak CI adjustment"
+msgstr "Sidak 置信区间调整"
+
+msgid "Type I Sum of Squares"
+msgstr "I 型平方和"
+
+msgid "Type II Sum of Squares"
+msgstr "II 型平方和"
+
+msgid "Type III Sum of Squares"
+msgstr "III 型平方和"
 
 msgid "Order Restricted Hypotheses"
 msgstr "序约束假设"
@@ -1040,6 +1061,15 @@ msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造�
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "Coefficient of Variation"
+#~ msgstr "变异系数"
+
+#~ msgid "Theoretical Quantiles"
+#~ msgstr "理论分位数( Theoretical Quantile)"
+
+#~ msgid "Standardized Residuals"
+#~ msgstr "标准化残差"
 
 #~ msgid "Unpooled error term only allowed in balanced designs."
 #~ msgstr "未合并误差项仅在平衡设计中允许。"

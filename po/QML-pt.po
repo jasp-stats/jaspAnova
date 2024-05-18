@@ -1040,10 +1040,6 @@ msgid "Dunnett"
 msgstr "Dunnett"
 
 msgctxt "PostHoc|"
-msgid "Dunn"
-msgstr "Dunn"
-
-msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "Correção"
 
@@ -1074,10 +1070,6 @@ msgstr "Exibir"
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "Intervalos de Confiança"
-
-msgctxt "PostHocDisplay|"
-msgid "Flag Significant Comparisons"
-msgstr "Sinalizar comparações significantes"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
@@ -1216,4 +1208,54 @@ msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Q-Q plot of residuals"
+msgstr "Gráfico Q-Q dos resíduos"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Normalize error bars"
+msgstr ""
+
+#, fuzzy
+msgctxt "Contrasts|"
+msgid "Effect size"
+msgstr "Tamanho de efeito"
+
+msgctxt "DescriptivePlots|"
+msgid "Normalize error bars"
+msgstr ""
+
+msgctxt "Display|"
+msgid "partial ω²"
+msgstr ""
+
+msgctxt "Display|"
+msgid "Confidence intervals"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "Dunn's post hoc tests"
+msgstr ""
+
+msgctxt "PostHoc|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Flag significant comparisons"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "Letter-based grouping table"
+msgstr ""
+
+msgctxt "PostHocDisplay|"
+msgid "α-level:"
 msgstr ""

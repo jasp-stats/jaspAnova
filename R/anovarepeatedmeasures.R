@@ -999,8 +999,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       if (any(postHocVariables[[postHocVarIndex]] %in% allNames)) {     ## If the variable is a repeated measures factor
 
-        resultPostHoc[["scheffe"]] <- "."
-        resultPostHoc[["tukey"]] <-  "."
+        resultPostHoc[["scheffe"]] <- ""
+        resultPostHoc[["tukey"]] <-  ""
         if (options$postHocCorrectionScheffe || options$postHocCorrectionTukey) {
           cors <- paste(c("Tukey", "Scheffe")[c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe)], collapse = " and ")
 

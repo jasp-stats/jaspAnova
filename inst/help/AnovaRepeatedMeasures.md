@@ -227,8 +227,9 @@ Conover's Post Hoc Comparisons:
 - The first two columns represent the levels/groups of the repeated measures factor that are compared to each other.
   - T-Stat: The test statistic that follows the t-distribution.
 - df: Degrees of Freedom.
-- W<sub>i</sub>: Sum of the aggregated ranks of level 1
-- W<sub>j</sub>: Sum of the aggregated ranks of level 2
+- W<sub>i</sub>: Sum of the aggregated ranks of level 1.
+- W<sub>j</sub>: Sum of the aggregated ranks of level 2.
+- r<sub>rb</sub>: Matched rank-biserial correlation.
 - p: The p-value.
 - p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
 - p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons.

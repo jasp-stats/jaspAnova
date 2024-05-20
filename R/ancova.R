@@ -1674,7 +1674,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="z",                                             type="number")
     postHocTable$addColumnInfo(name="wA",         title=gettext("W<sub>i</sub>"),    type="number")
     postHocTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
-    postHocTable$addColumnInfo(name="rbs", title=gettext("Rank-Biserial Correlation"), type="number")
+    postHocTable$addColumnInfo(name="rbs",        title=gettext("r<sub>rb</sub>"),   type="number")
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")

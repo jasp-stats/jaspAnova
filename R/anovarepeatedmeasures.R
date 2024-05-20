@@ -1470,6 +1470,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     conoverTable$addColumnInfo(name="df",         title=gettext("df"),               type="integer")
     conoverTable$addColumnInfo(name="wA",         title=gettext("W<sub>i</sub>"),    type="number")
     conoverTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
+    conoverTable$addColumnInfo(name="rbs",        title=gettext("r<sub>rb</sub>"),   type="number")
     conoverTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     conoverTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
     conoverTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
@@ -1524,6 +1525,15 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         tval <- diff / denom
         pval <- 2 * pt(q = abs(tval), df = df, lower.tail=FALSE)
 
+        # Rank biserial correlation calculation
+        y1 <- y[groups == levels(groups)[i]]
+        y2 <- y[groups == levels(groups)[j]]
+        res <- stats::wilcox.test(y1, y2, paired = TRUE, conf.int = FALSE)$statistic
+        nd   <- sum(y1 - y2 != 0)
+        maxw <- (nd * (nd + 1)) / 2
+        rbs    <- as.numeric((res / maxw) * 2 - 1)
+        # rbs <- (Rj[i] - n_i * (n_i + 1) / 2 - (Rj[j] - n_j * (n_j + 1) / 2)) / (n_i * n_j)
+
         row[["t"]] <- tval
         row[["wA"]]  <- Rj[i]
         row[["wB"]] <- Rj[j]
@@ -1531,6 +1541,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         row[["bonferroni"]] <- pval
         row[["holm"]] <- pval
         row[["df"]] <- df
+        row[["rbs"]] <- rbs
 
         rows[[length(rows)+1]] <- row
 

@@ -214,7 +214,7 @@ Bootstrapped Marginal Means - Repeated measures factor:
 #### Nonparametrics
 Friedman Test / Durbin Test:
 - Factor: The repeated measures factor included in the analysis.
-- Chi-square: The chi-squared test statistic.
+- \u03a7\u00b2<sub>F</sub>: The Friedman chi-squared test statistic.
 - df: Degrees of Freedom.
 - p: The p-value.
 - Kendall's W: Kendall’s W Test is referred to the normalization of the Friedman/Durbin statistic.

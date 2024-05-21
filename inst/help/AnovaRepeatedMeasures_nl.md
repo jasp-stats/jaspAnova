@@ -210,7 +210,7 @@ Ge-bootstrapte marginale gemiddelden - binnen-proefpersoon variabele:
 #### Verdelingsvrije toetsen
 Friedman Toets / Durbin Toets:
 - Factor: The binnen-proefpersoon factor van de analyse.
-- Chi-kwadraat: De chi-squared toets statistiek.
+- \u03a7\u00b2<sub>F</sub>: De Friedman chi-squared toets statistiek.
 - vg: vrijheidsgraden.
 - p: De p-waarde.
 - Kendall's W: Kendall’s W Test kan worden gezien als normalisatie van de Friedman/Durbin statistiek.
@@ -225,6 +225,7 @@ Conover's post-hoc Vergelijkingen:
 - vg: Vrijheidsgraden.
 - W<sub>i</sub>: Som van de opgetelde rangen van niveau 1.
 - W<sub>j</sub>: Som van de opgetelde rangen van niveau 2.
+- r<sub>rb</sub>: Matched rank-biserial correlatie.
 - p: De p-waarde.
 - p<sub>bonf</sub>: Bonferroni gecorrigeerde p-waarde voor meerdere vergelijkingen.
 - p<sub>holm</sub>: Holm's Gecorrigeerde p-waarde voor meerdere vergelijkingen. 

@@ -1326,7 +1326,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   friedmanTable <- createJaspTable(title = gettext("Friedman Test"))
   friedmanTable$addColumnInfo(name="Factor",  title=gettext("Factor"),      type="string")
-  friedmanTable$addColumnInfo(name="chiSqr",  title=gettext("Chi-Squared"), type="number")
+  friedmanTable$addColumnInfo(name="chiSqr",  title=gettext("\u03a7\u00b2<sub>F</sub>"), type="number")
   friedmanTable$addColumnInfo(name="df",      title=gettext("df"),          type="integer")
   friedmanTable$addColumnInfo(name="p",       title=gettext("p"),           type="pvalue")
   friedmanTable$addColumnInfo(name="kendall", title=gettext("Kendall's W"), type="number")
@@ -1492,6 +1492,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     conoverTable <- createConoverTable(groupingVar)
     noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", blockingVar)
     conoverTable$addFootnote(gettextf("Grouped by %s.", noteBlockName))
+    conoverTable$addFootnote(message = gettext("Rank-biserial correlation based on individual signed-rank tests."))
 
     rows <- list()
 

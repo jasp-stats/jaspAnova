@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-05-22 13:53+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"PO-Revision-Date: 2024-05-22 15:17+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/es/>\n"
 "Language: es\n"
@@ -1226,7 +1226,7 @@ msgstr "Confianza"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico QQ residual"
+msgstr "Gráfico Q-Q de los errores"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
@@ -1254,7 +1254,7 @@ msgstr "Intervalos de confianza"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr ""
+msgstr "Contrastes post hoc de Dunn"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
@@ -1266,8 +1266,8 @@ msgstr "Marcar comparaciones significativas"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr ""
+msgstr "Tabla de agrupación basada en letras"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "Nivel α:"

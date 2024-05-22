@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-05-22 13:53+0000\n"
+"PO-Revision-Date: 2024-05-22 15:17+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/gl/>\n"
@@ -1226,46 +1226,44 @@ msgstr "Gráfica Q-Q dos erros"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Comparacións condicionais para interaccións"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizar as barras de erro"
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Effect size"
 msgstr "Magnitude do efecto"
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizar as barras de erro"
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr ""
+msgstr "ω² parcial"
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Confidence intervals"
 msgstr "Intervalos de confianza"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr ""
+msgstr "Probas post hoc de Dunn"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Comparacións condicionais para interaccións"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr ""
+msgstr "Marcar comparacións significativas"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr ""
+msgstr "Táboa de agrupación baseada en letras"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "Nivel α:"

@@ -19,10 +19,18 @@
 
 Anova <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
           formula = NULL,
+          applyMoreyCorrectionErrorBars = TRUE,
+          barPlotCiInterval = 0.95,
+          barPlotErrorBarType = "ci",
+          barPlotErrorBars = FALSE,
+          barPlotHorizontalAxis = "",
+          barPlotHorizontalZeroFix = TRUE,
+          barPlotSeparatePlots = "",
           contrastCi = FALSE,
           contrastCiLevel = 0.95,
+          contrastEffectSize = FALSE,
           contrasts = list(),
           customContrasts = list(),
           dependent = "",
@@ -33,15 +41,23 @@ Anova <- function(
           descriptivePlotSeparateLines = "",
           descriptivePlotSeparatePlot = "",
           descriptives = FALSE,
+          effectSizeCi = FALSE,
+          effectSizeCiLevel = 0.95,
           effectSizeEstimates = FALSE,
-          effectSizeEtaSquared = TRUE,
-          effectSizeOmegaSquared = FALSE,
+          effectSizeEtaSquared = FALSE,
+          effectSizeGeneralEtaSquared = FALSE,
+          effectSizeOmegaSquared = TRUE,
           effectSizePartialEtaSquared = FALSE,
+          effectSizePartialOmegaSquared = FALSE,
           fixedFactors = list(),
           homogeneityCorrectionBrown = FALSE,
           homogeneityCorrectionNone = TRUE,
           homogeneityCorrectionWelch = FALSE,
           homogeneityTests = FALSE,
+          kruskalCiLevel = 0.95,
+          kruskalEffectSizeEstimates = FALSE,
+          kruskalEpsilon = TRUE,
+          kruskalEta = FALSE,
           kruskalWallisFactors = list(),
           marginalMeanBootstrap = FALSE,
           marginalMeanBootstrapSamples = 1000,
@@ -59,11 +75,14 @@ Anova <- function(
           plotWidthQQPlot = 300,
           postHocCi = FALSE,
           postHocCiLevel = 0.95,
+          postHocConditionalTable = FALSE,
           postHocCorrectionBonferroni = FALSE,
           postHocCorrectionHolm = FALSE,
           postHocCorrectionScheffe = FALSE,
           postHocCorrectionSidak = FALSE,
           postHocCorrectionTukey = TRUE,
+          postHocLetterAlpha = 0.05,
+          postHocLetterTable = FALSE,
           postHocSignificanceFlag = FALSE,
           postHocTerms = list(),
           postHocTypeDunn = FALSE,
@@ -92,7 +111,7 @@ Anova <- function(
           restrictedModelComparisonCoefficients = FALSE,
           restrictedModelComparisonCoefficientsHighlight = TRUE,
           restrictedModelComparisonMatrix = FALSE,
-          restrictedModelComparisonReference = "complement",
+          restrictedModelComparisonReference = "Model 1",
           restrictedModelComparisonWeights = TRUE,
           restrictedModelSummaryForAllModels = FALSE,
           restrictedModels = list(list(informedHypothesisTest = FALSE, marginalMean = FALSE, name = "Model 1", summary = FALSE, syntax = "")),
@@ -119,7 +138,7 @@ Anova <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("contrasts", "customContrasts", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "kruskalWallisFactors", "marginalMeanCiCorrection", "marginalMeanTerms", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "wlsWeights")
+   optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "contrasts", "customContrasts", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "kruskalWallisFactors", "marginalMeanCiCorrection", "marginalMeanTerms", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "wlsWeights")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 

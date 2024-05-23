@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2024-05-18 02:39\n"
-"PO-Revision-Date: 2023-08-25 13:53+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"PO-Revision-Date: 2024-05-23 16:46+0000\n"
+"Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -81,9 +81,8 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-#, fuzzy
 msgid "%s%% CI for η²"
-msgstr "%s%% BI voor Cohen's d"
+msgstr "%s%% BI voor η²"
 
 msgid "Lower"
 msgstr "Onder"
@@ -91,17 +90,14 @@ msgstr "Onder"
 msgid "Upper"
 msgstr "Boven"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "%s%% BI voor Cohen's d"
+msgstr "%s%% BI voor η²ₚ"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "%s%% BI voor Cohen's d"
+msgstr "%s%% BI voor ω²"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "%s%% BI voor Cohen's d"
+msgstr "%s%% BI voor ω²ₚ"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -119,6 +115,9 @@ msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Onvoldoende gegevens om volledig model/contrasten te schatten. "
+"Waarschijnlijk lege cellen in ontwerp tussen proefpersonen (d.w.z. slechte "
+"gegevensstructuur)"
 
 msgid "Please specify an additional contrast."
 msgstr "Specificeer a.u.b. een toegevoegd contrast."
@@ -132,18 +131,14 @@ msgstr "Specificeer contrastgewichten ongelijk aan 0."
 msgid "Post Hoc Tests"
 msgstr "Post-Hoc Toetsen"
 
-#, fuzzy
 msgid "Standard (LSD)"
-msgstr "Standaard"
+msgstr "Standaard (LSD)"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Resultaten zijn gemiddeld over de levels van: %s"
 
-#, fuzzy
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
-"Sommige parameters kunnen niet worden geschat, waarschijnlijk door lege "
-"cellen in het ontwerp."
+msgstr "Sommige parameters konden niet worden geschat omdat er iets ontbreekt."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping gebaseerd op %s succesvolle replicaties."
@@ -264,16 +259,17 @@ msgid "Statistic"
 msgstr "Statistiek"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Rang %s"
 
-#, fuzzy
 msgid "%i%% CI for Rank %s"
-msgstr "%s%% BI voor Cohen's d"
+msgstr "%i%% BI voor Rang %s"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
 msgstr ""
+"Tests worden voor elke variabele afzonderlijk uitgevoerd, zonder rekening te "
+"houden met multivariate effecten."
 
 msgid "Dunn"
 msgstr "Dunn"
@@ -288,7 +284,7 @@ msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
 msgid "Rank-Biserial Correlation"
-msgstr ""
+msgstr "Rang-Biseriële Correlatie"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -298,6 +294,7 @@ msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Rang-biseriële correlatie gebaseerd op individuele Mann-Whitney toetsen."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -330,13 +327,12 @@ msgstr ""
 "Kies een naam voor de BP factoren die verschilt van die voor de tussen-"
 "proefpersoon factoren."
 
-#, fuzzy
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
 "term for follow-up tests\" in the Model tab."
 msgstr ""
-"Dataset te groot voor univariate opvolgtest. Probeer \"Use multivariate "
-"model for follow-up tests\" te selecteren in het Model tabblad."
+"Dataset te groot voor univariate vervolgtoets. Probeer \"Foutterm "
+"samenvoegen voor vervolgtests\" uit te vinken in het Model tabblad."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -751,11 +747,10 @@ msgid "Descriptives Plot"
 msgstr "Beschrijvende Diagram"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Staafdiagrammen"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Q-Q plot"
+msgstr "Staafdiagram"
 
 msgid "Raincloud plots"
 msgstr "Raincloud Plots"

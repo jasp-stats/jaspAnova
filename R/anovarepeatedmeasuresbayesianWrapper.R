@@ -19,7 +19,13 @@
 
 AnovaRepeatedMeasuresBayesian <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
+          barPlotCiInterval = 0.95,
+          barPlotErrorBarType = "ci",
+          barPlotErrorBars = FALSE,
+          barPlotHorizontalAxis = "",
+          barPlotHorizontalZeroFix = TRUE,
+          barPlotSeparatePlots = "",
           bayesFactorOrder = "bestModelTop",
           bayesFactorType = "BF10",
           bernoulliParameter = 0.5,
@@ -33,7 +39,7 @@ AnovaRepeatedMeasuresBayesian <- function(
           covariates = list(),
           credibleInterval = 0.95,
           criTable = FALSE,
-          customPriorSpecification = list(),
+          customPriorSpecification = list(list(components = "RM Factor 1", inclusionProbability = 0.5, scaleFixedEffects = 0.5)),
           descriptivePlotCi = FALSE,
           descriptivePlotCiLevel = 0.95,
           descriptivePlotHorizontalAxis = "",
@@ -48,10 +54,11 @@ AnovaRepeatedMeasuresBayesian <- function(
           groupPosterior = "grouped",
           hideNuisanceParameters = TRUE,
           integrationMethod = "automatic",
+          labelYAxisTwo = "",
           legacyResults = FALSE,
           modelAveragedPosteriorPlot = FALSE,
           modelPrior = "uniform",
-          modelTerms = list(),
+          modelTerms = list(list(components = "RM Factor 1", isNuisance = FALSE)),
           modelsShown = "limited",
           numModelsShown = 10,
           plotHeight = 320,
@@ -65,7 +72,7 @@ AnovaRepeatedMeasuresBayesian <- function(
           rainCloudHorizontalDisplay = FALSE,
           rainCloudSeparatePlots = "",
           rainCloudYAxisLabel = "",
-          repeatedMeasuresCells = list(),
+          repeatedMeasuresCells = list("", ""),
           repeatedMeasuresFactors = list(list(levels = list("Level 1", "Level 2"), name = "RM Factor 1")),
           rsqPlot = FALSE,
           samplesMCMC = 1000,
@@ -80,7 +87,7 @@ AnovaRepeatedMeasuresBayesian <- function(
           singleModelPosteriorPlot = FALSE,
           singleModelQqPlot = FALSE,
           singleModelRsqPlot = FALSE,
-          singleModelTerms = list(),
+          singleModelTerms = list(list(components = "RM Factor 1")),
           wilsonParameterLambda = 1) {
 
    defaultArgCalls <- formals(jaspAnova::AnovaRepeatedMeasuresBayesian)
@@ -92,7 +99,7 @@ AnovaRepeatedMeasuresBayesian <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
-   optionsWithFormula <- c("betweenSubjectFactors", "covariates", "customPriorSpecification", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "singleModelTerms")
+   optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "betweenSubjectFactors", "covariates", "customPriorSpecification", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "singleModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 

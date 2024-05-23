@@ -19,9 +19,15 @@
 
 AncovaBayesian <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
           formula = NULL,
           isNuisance = NULL,
+          barPlotCiInterval = 0.95,
+          barPlotErrorBarType = "ci",
+          barPlotErrorBars = FALSE,
+          barPlotHorizontalAxis = "",
+          barPlotHorizontalZeroFix = TRUE,
+          barPlotSeparatePlots = "",
           bayesFactorOrder = "bestModelTop",
           bayesFactorType = "BF10",
           bernoulliParameter = 0.5,
@@ -100,7 +106,7 @@ AncovaBayesian <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("isNuisance", "covariates", "customPriorSpecification", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "singleModelTerms")
+   optionsWithFormula <- c("isNuisance", "barPlotHorizontalAxis", "barPlotSeparatePlots", "covariates", "customPriorSpecification", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "singleModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 

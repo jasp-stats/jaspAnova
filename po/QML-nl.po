@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-05-23 16:45+0000\n"
+"PO-Revision-Date: 2024-05-23 21:53+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-qml/"
 "nl/>\n"
@@ -1180,7 +1180,7 @@ msgstr "Horizontale As"
 
 msgctxt "BarPlots|"
 msgid "Separate Plots"
-msgstr "Aparte Figuren"
+msgstr "Afzonderlijke Grafieken"
 
 msgctxt "BarPlots|"
 msgid "Display"
@@ -1224,7 +1224,7 @@ msgstr "Betrouwbaarheid"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr "Q-Q figuur van residuen"
+msgstr "Q-Q grafiek van residuen"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"

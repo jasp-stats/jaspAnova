@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.0\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,7 +230,7 @@ msgstr ""
 msgid "W<sub>j</sub>"
 msgstr ""
 
-msgid "Rank-Biserial Correlation"
+msgid "r<sub>rb</sub>"
 msgstr ""
 
 msgid "p<sub>bonf</sub>"
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Friedman Test"
 msgstr ""
 
-msgid "Chi-Squared"
+msgid "Χ²<sub>F</sub>"
 msgstr ""
 
 msgid "Kendall's W"
@@ -369,6 +369,9 @@ msgid "T-Stat"
 msgstr ""
 
 msgid "Grouped by %s."
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"

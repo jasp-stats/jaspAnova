@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -269,8 +269,9 @@ msgstr "組間<sub>組內</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr ""
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "組間<sub>組內</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "bonferroni p值"
@@ -394,8 +395,9 @@ msgstr "無母數"
 msgid "Friedman Test"
 msgstr "Friedman 考驗"
 
-msgid "Chi-Squared"
-msgstr "卡方"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "<sub>F</sub> p值"
 
 msgid "Kendall's W"
 msgstr "Kendall's W"
@@ -429,6 +431,9 @@ msgstr "T統計數"
 
 msgid "Grouped by %s."
 msgstr "根據%s分群"
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "調節因子也須出現在模型項中！"
@@ -1088,6 +1093,9 @@ msgstr "設計矩陣無反矩陣。這可能是因為與依變數的共線性所
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "虛無模型（包括 %s 與隨機斜率）"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "卡方"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "變異係數"

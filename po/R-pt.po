@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2023-07-14 12:40+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -290,8 +290,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr ""
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -424,8 +425,9 @@ msgstr "Não paramétricos"
 msgid "Friedman Test"
 msgstr "Teste de Friedman"
 
-msgid "Chi-Squared"
-msgstr "Qui-quadrado"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "W de Kendall"
@@ -459,6 +461,9 @@ msgstr "Estatística-T"
 
 msgid "Grouped by %s."
 msgstr "Agrupado por %s."
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Fatores moderadores também devem aparecer nos termos do modelo!"
@@ -1120,6 +1125,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modelo nulo (incl. %s)"
 msgstr[1] "Modelo nulo (incl. %s)"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "Qui-quadrado"
 
 #, fuzzy
 #~ msgid "Coefficient of Variation"

@@ -6,11 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-05-22 15:17+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-r/gl/>\n"
+"Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
+"r/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,8 +291,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr "Correlación de Rango Biserial"
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
@@ -431,8 +432,9 @@ msgstr "Non Paramétricos"
 msgid "Friedman Test"
 msgstr "Proba de Friedman"
 
-msgid "Chi-Squared"
-msgstr "Khi-cadrado"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "W de Kendall"
@@ -466,6 +468,11 @@ msgstr "Estatístico-T"
 
 msgid "Grouped by %s."
 msgstr "Agrupado consonte %s."
+
+#, fuzzy
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
+"Correlación de rango biserial baseada en probas de Mann-Whitney individuais."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Os factores de moderación deben aparecer tamén nos termos do modelo!"
@@ -1150,6 +1157,12 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modelo nulo (incl. %s e pendentes aleatorias)"
 msgstr[1] "Modelo nulo (incl. %s, e pendentes aleatorias)"
+
+#~ msgid "Rank-Biserial Correlation"
+#~ msgstr "Correlación de Rango Biserial"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "Khi-cadrado"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "Coeficiente de Variación"

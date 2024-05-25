@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-04-30 08:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -267,8 +267,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr ""
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -391,8 +392,9 @@ msgstr "非参数检验"
 msgid "Friedman Test"
 msgstr "Friedman 检验"
 
-msgid "Chi-Squared"
-msgstr "卡方"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "Kendall's W"
@@ -426,6 +428,9 @@ msgstr "T-Stat"
 
 msgid "Grouped by %s."
 msgstr "按 %s 分组。"
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "调节因子（Moderator factor）也必须出现在模型项中！"
@@ -1061,6 +1066,9 @@ msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造�
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "卡方"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "变异系数"

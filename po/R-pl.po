@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-05-08 18:04+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -281,8 +281,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr "Korelacja rangowo-dwuseryjna"
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -419,8 +420,9 @@ msgstr "Nieparametryczne"
 msgid "Friedman Test"
 msgstr "Test Friedmana"
 
-msgid "Chi-Squared"
-msgstr "Chi-kwadrat"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "W Kendalla"
@@ -454,6 +456,10 @@ msgstr "Statystyka t"
 
 msgid "Grouped by %s."
 msgstr "Pogrupowane według %s."
+
+#, fuzzy
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr "Korelacja rangowo-dwuseryjna bazująca na testach Manna-Whitneya."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
@@ -1142,6 +1148,12 @@ msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Model zerowy (w tym %s i losowe nachylenia)"
 msgstr[1] "Modele zerowe (w tym %s i losowe nachylenia)"
 msgstr[2] "Modeli zerowych (w tym %s i losowe nachylenia)"
+
+#~ msgid "Rank-Biserial Correlation"
+#~ msgstr "Korelacja rangowo-dwuseryjna"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "Chi-kwadrat"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "Współczynnik zmienności"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-05-23 16:46+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -283,8 +283,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr "Rang-Biseriële Correlatie"
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -421,8 +422,9 @@ msgstr "Niet parametrisch"
 msgid "Friedman Test"
 msgstr "Friedman Toets"
 
-msgid "Chi-Squared"
-msgstr "Chi-Kwadraat"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "Kendalls W"
@@ -456,6 +458,11 @@ msgstr "T-Stat"
 
 msgid "Grouped by %s."
 msgstr "Gegroepeerd met %s."
+
+#, fuzzy
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
+"Rang-biseriële correlatie gebaseerd op individuele Mann-Whitney toetsen."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Modererende factoren moeten ook voorkomen in de modeltermen!"
@@ -1134,6 +1141,12 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nulmodel (incl. %s en willekeurige hellingen)"
 msgstr[1] "Nulmodel (incl. %s, en willekeurige hellingen)"
+
+#~ msgid "Rank-Biserial Correlation"
+#~ msgstr "Rang-Biseriële Correlatie"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "Chi-Kwadraat"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "Coefficiënt van Variatie"

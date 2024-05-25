@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-02-24 02:36+0000\n"
 "Last-Translator: Jean-Louis Warin <jlwkhi@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -288,8 +288,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr ""
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -428,8 +429,9 @@ msgstr "Non-paramétriques"
 msgid "Friedman Test"
 msgstr "Test de Friedman"
 
-msgid "Chi-Squared"
-msgstr "Chi-Deux"
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "p<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "W de Kendall"
@@ -464,6 +466,9 @@ msgstr "Statistique t"
 
 msgid "Grouped by %s."
 msgstr "Groupé par %s."
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
@@ -1165,6 +1170,9 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modèle nul ( inclus %s et pentes aléatoires)"
 msgstr[1] "Modèles nuls ( inclus %s et pentes aléatoires)"
+
+#~ msgid "Chi-Squared"
+#~ msgstr "Chi-Deux"
 
 #~ msgid "Coefficient of Variation"
 #~ msgstr "Coefficient de variation"

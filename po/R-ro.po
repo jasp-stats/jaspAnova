@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-05-18 02:39\n"
+"POT-Creation-Date: 2024-05-25 02:39\n"
 "PO-Revision-Date: 2024-01-11 18:06+0000\n"
 "Last-Translator: fiscuteancom <vladfiscutean@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -263,8 +263,9 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-msgid "Rank-Biserial Correlation"
-msgstr ""
+#, fuzzy
+msgid "r<sub>rb</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr ""
@@ -383,8 +384,9 @@ msgstr ""
 msgid "Friedman Test"
 msgstr ""
 
-msgid "Chi-Squared"
-msgstr ""
+#, fuzzy
+msgid "Χ²<sub>F</sub>"
+msgstr "W<sub>i</sub>"
 
 msgid "Kendall's W"
 msgstr ""
@@ -417,6 +419,9 @@ msgid "T-Stat"
 msgstr ""
 
 msgid "Grouped by %s."
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
 
 msgid "Moderator factors must also appear in the model terms!"

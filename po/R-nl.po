@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2024-05-25 02:39\n"
-"PO-Revision-Date: 2024-05-23 16:46+0000\n"
+"PO-Revision-Date: 2024-05-27 09:02+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "nl/>\n"
@@ -283,9 +283,8 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-#, fuzzy
 msgid "r<sub>rb</sub>"
-msgstr "W<sub>i</sub>"
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -422,9 +421,8 @@ msgstr "Niet parametrisch"
 msgid "Friedman Test"
 msgstr "Friedman Toets"
 
-#, fuzzy
 msgid "Χ²<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "Kendalls W"
@@ -459,10 +457,8 @@ msgstr "T-Stat"
 msgid "Grouped by %s."
 msgstr "Gegroepeerd met %s."
 
-#, fuzzy
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
-"Rang-biseriële correlatie gebaseerd op individuele Mann-Whitney toetsen."
+msgstr "Rang-biseriële correlatie gebaseerd op individuele signed-rank toetsen."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Modererende factoren moeten ook voorkomen in de modeltermen!"

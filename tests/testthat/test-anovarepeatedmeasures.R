@@ -149,7 +149,7 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
                    "Negative", 13.5833333333333, 1.51551995402052e-06, 8.38601479290267,
                    6.86078568731614, 18.780651873764)
 
-  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[4]]$data
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[3]]$data
   jaspTools::expect_equal_tables(table, refTable)
 
 
@@ -314,7 +314,7 @@ test_that("Post-hoc tests match (pooled errors)", {
                   "Negative", 13.5833333333333, 2.89922577241315e-09, 9.28799678641767,
                   7.92045120564427, 17.878669880249)
 
-  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[4]]$data
+  table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_postHocStandardContainer$collection[[3]]$data
   jaspTools::expect_equal_tables(table, refTable)
 
 

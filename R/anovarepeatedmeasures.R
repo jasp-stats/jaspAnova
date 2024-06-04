@@ -931,7 +931,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     thisTitle <- paste(postHocVariables[[postHocVarIndex]], collapse = " \u273B ")
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = ":")
     byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
-    for (termIndex in seq_along(postHocVariables[[postHocVarIndex]]))
+    termsToLoop <- if (options[["postHocConditionalTable"]]) postHocVariables[[postHocVarIndex]] else 1
+    for (termIndex in seq_along(termsToLoop))
       postHocContainer[[ paste0(thisVarName, termIndex)]] <- .createPostHocStandardTable(thisTitle, byVariable[termIndex], options)
 
     if (options[["postHocLetterTable"]]) {

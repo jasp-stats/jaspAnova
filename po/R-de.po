@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2024-05-25 02:39\n"
-"PO-Revision-Date: 2024-04-19 14:03+0000\n"
+"PO-Revision-Date: 2024-06-09 16:09+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -82,9 +82,8 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPQ%s"
 
-#, fuzzy
 msgid "%s%% CI for η²"
-msgstr "%s%% KI für Cohens d"
+msgstr "%s%% KI für η²"
 
 msgid "Lower"
 msgstr "Untergrenze"
@@ -92,17 +91,14 @@ msgstr "Untergrenze"
 msgid "Upper"
 msgstr "Obergrenze"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "%s%% KI für Cohens d"
+msgstr "%s%% KI für η²ₚ"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "%s%% KI für Cohens d"
+msgstr "%s%% KI für ω²"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "%s%% KI für Cohens d"
+msgstr "%s%% KI für ω²ₚ"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -120,6 +116,8 @@ msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Unzureichende Daten zur Schätzung des Gesamtmodells / der Kontraste. Leere "
+"Zellen im Zwischensubjekt-Design (d. h., schlechte Datenstruktur)"
 
 msgid "Please specify an additional contrast."
 msgstr "Bitte spezifiziere einen weiteren Kontrast."
@@ -139,11 +137,8 @@ msgstr "Standard (LSD)"
 msgid "Results are averaged over the levels of: %s"
 msgstr "Ergebnisse sind gemittelt über die Stufen von: %s"
 
-#, fuzzy
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
-"Einige Parameter sind nicht schätzbar, wahrscheinlich durch leere Zellen im "
-"Design."
+msgstr "Einige Parameter waren wegen fehlender Daten nicht schätzbar."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping basierend auf %s erfolgreichen Wiederholungen."
@@ -273,6 +268,8 @@ msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
 msgstr ""
+"Die Tests werden für jede Variable einzeln durchgeführt, ohne "
+"Berücksichtigung multivariater Effekte."
 
 msgid "Dunn"
 msgstr "Dunn"
@@ -286,9 +283,8 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-#, fuzzy
 msgid "r<sub>rb</sub>"
-msgstr "W<sub>i</sub>"
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
@@ -298,7 +294,7 @@ msgstr "p<sub>Holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
-"Rang-Biseriale Korrelation basierend auf individuellen Mann-Whitney-Tests."
+"Rangbiseriale Korrelation basierend auf individuellen Mann-Whitney-Tests."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -426,9 +422,8 @@ msgstr "Nichtparametrisch"
 msgid "Friedman Test"
 msgstr "Friedman-Test"
 
-#, fuzzy
 msgid "Χ²<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "Kendalls W"
@@ -463,10 +458,9 @@ msgstr "T-Stat"
 msgid "Grouped by %s."
 msgstr "Gruppiert mit %s."
 
-#, fuzzy
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
-"Rang-Biseriale Korrelation basierend auf individuellen Mann-Whitney-Tests."
+"Rangbiseriale Korrelation basiert auf individuellen Vorzeichen-Rang-Tests."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Moderatorfaktoren müssen auch in den Modelltermen vorkommen!"

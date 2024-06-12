@@ -1673,7 +1673,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
     splitScatterOptions                                       <- options
-    splitScatterOptions[["colorPalette"]]                     <- "colorblind2"
+    splitScatterOptions[["colorPalette"]]                     <- "colorblind3"
     splitScatterOptions[["scatterPlotLegend"]]                <- TRUE
     splitScatterOptions[["scatterPlotRegressionLine"]]        <- TRUE
     splitScatterOptions[["scatterPlotRegressionLineCi"]]      <- plotErrorBars

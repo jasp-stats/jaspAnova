@@ -41,7 +41,7 @@ Section
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "descriptivePlotErrorBar"; label: qsTr("Display error bars")
+			name: "descriptivePlotErrorBar"; label: qsTr("Error bars")
 			RadioButtonGroup
 			{
 				name: "descriptivePlotErrorBarType"

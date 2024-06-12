@@ -44,7 +44,7 @@ Section
 		CheckBox
 		{
 			name: 	"barPlotErrorBars"
-			label: 	qsTr("Display error bars")
+			label: 	qsTr("Error bars")
 			
 			RadioButtonGroup
 			{

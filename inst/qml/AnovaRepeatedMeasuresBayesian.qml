@@ -72,14 +72,15 @@ Form
 		{
 			name: "betweenSubjectFactors"
 			title: qsTr("Between Subject Factors")
-			suggestedColumns: ["ordinal", "nominal"]
+			allowedColumns: ["nominal"]
+			minLevels: 2
 			itemType: "fixedFactors"
 		}
 		AssignedVariablesList
 		{
 			name: "covariates"
 			title: qsTr("Covariates")
-			suggestedColumns: ["scale"]
+			allowedColumns: ["scale"]
 			id: covariates
 		}
 	}

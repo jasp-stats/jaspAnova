@@ -38,9 +38,9 @@ Form
 	VariablesForm
 	{
 		AvailableVariablesList	{ name: "allVariablesList"																							}
-		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	suggestedColumns: ["scale"]; singleVariable: true	}
-		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		suggestedColumns: ["ordinal", "nominal"]			}
-		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		suggestedColumns: ["ordinal", "nominal"]			}
+		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"]; singleVariable: true	}
+		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2			}
+		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2			}
 	}
 
 	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}

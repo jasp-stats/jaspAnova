@@ -41,11 +41,11 @@ Form
 	{
 		preferredHeight:	400 * preferencesModel.uiScale
 		AvailableVariablesList	{ name: "allVariablesList" }
-		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"];				singleVariable: true	}
-		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]							}
-		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"];	debug: true				}
+		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"]; 		singleVariable: true	}
+		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2						}
+		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2;	debug: true				}
 		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			allowedColumns: ["scale"]											}
-		AssignedVariablesList	{ name: "wlsWeights";		title: qsTr("WLS Weights");			allowedColumns: ["scale"];				singleVariable: true	}
+		AssignedVariablesList	{ name: "wlsWeights";		title: qsTr("WLS Weights");			allowedColumns: ["scale"];		singleVariable: true	}
 	}
 
 	Classical.Display

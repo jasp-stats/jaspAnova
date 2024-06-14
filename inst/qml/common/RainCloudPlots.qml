@@ -25,7 +25,7 @@ Section
 	property alias	source:				availableTerms.source
 	property bool	enableHorizontal:	true
 	property bool	enableYAxisLabel:	false
-	property var	suggested:			(enableYAxisLabel) ? [] : ["ordinal", "nominal"]
+	property var	allowed:			(enableYAxisLabel) ? [] : ["nominal"]
 	
 	title: qsTr("Raincloud Plots")
 
@@ -33,8 +33,8 @@ Section
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
 		AvailableVariablesList	{ name: "rainCloudAvailableFactors";		title: qsTr("Factors"); id: availableTerms }
-		AssignedVariablesList	{ name: "rainCloudHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; suggestedColumns: suggested }
-		AssignedVariablesList	{ name: "rainCloudSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; suggestedColumns: suggested }
+		AssignedVariablesList	{ name: "rainCloudHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; allowedColumns: allowed }
+		AssignedVariablesList	{ name: "rainCloudSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; allowedColumns: allowed }
 	}
 
 	CheckBox

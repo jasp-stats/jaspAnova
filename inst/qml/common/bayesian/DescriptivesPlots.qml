@@ -32,8 +32,8 @@ Section
 
 		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");		id: descriptivePlotsVariables	}
 		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";	title: qsTr("Horizontal Axis");	singleVariable: true		}
-		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";		title: qsTr("Separate Lines");	singleVariable: true;		suggestedColumns: ["ordinal", "nominal"];	allowedColumns: ["ordinal", "nominal"];}
-		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";		title: qsTr("Separate Plots");	singleVariable: true;		suggestedColumns: ["ordinal", "nominal"];	allowedColumns: ["ordinal", "nominal"];}
+		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";		title: qsTr("Separate Lines");	singleVariable: true;		allowedColumns: ["nominal"]}
+		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";		title: qsTr("Separate Plots");	singleVariable: true;		allowedColumns: ["nominal"]}
 	}
 
 	Group

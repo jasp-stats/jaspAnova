@@ -33,8 +33,8 @@ Section
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
 		AvailableVariablesList { name: "barPlotVariables"; 				title: qsTr("Factors"); 			id: availableTerms }
-		AssignedVariablesList { name: "barPlotHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true }
-		AssignedVariablesList { name: "barPlotSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true }
+		AssignedVariablesList { name: "barPlotHorizontalAxis";			title: qsTr("Horizontal Axis"); 	singleVariable: true; allowedColumns: ["nominal"] }
+		AssignedVariablesList { name: "barPlotSeparatePlots";			title: qsTr("Separate Plots");		singleVariable: true; allowedColumns: ["nominal"] }
 	}
 
 	Group

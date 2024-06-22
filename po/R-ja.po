@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2024-05-25 02:39\n"
-"PO-Revision-Date: 2023-07-14 12:40+0000\n"
-"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"r/ja/>\n"
+"PO-Revision-Date: 2024-06-20 17:09+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -44,7 +44,8 @@ msgstr "デザインに空のセルが含まれています.別の種類の平�
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr ""
+msgstr "'1$s' は '%2$s' の次の水準でグループ化した後では分散がゼロなので、ウェルチ補"
+"正を計算できなかった: %3$s"
 
 msgid "ANOVA"
 msgstr "分散分析"
@@ -76,9 +77,8 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-#, fuzzy
 msgid "%s%% CI for η²"
-msgstr "Cohen's d における %s%% CI"
+msgstr "η²の %s%% CI"
 
 msgid "Lower"
 msgstr "下限"
@@ -86,17 +86,14 @@ msgstr "下限"
 msgid "Upper"
 msgstr "上限"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "Cohen's d における %s%% CI"
+msgstr "η²ₚ の %s%% CI"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "Cohen's d における %s%% CI"
+msgstr "ω² の %s%% CI"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "Cohen's d における %s%% CI"
+msgstr "ω²ₚ の %s%% CI"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -112,7 +109,8 @@ msgstr "%1$s コントラスト - %2$s"
 msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
-msgstr ""
+msgstr "完全なモデル/対比を推定するためのデータが不十分である。被験者間デザインで空セ"
+"ルが多い(i.e., データ構造が悪い)"
 
 msgid "Please specify an additional contrast."
 msgstr "追加のコントラストを指定してください。"
@@ -126,18 +124,14 @@ msgstr "ゼロ以外のコントラストの重みを指定してください。
 msgid "Post Hoc Tests"
 msgstr "事後検定"
 
-#, fuzzy
 msgid "Standard (LSD)"
-msgstr "標準"
+msgstr "標準 (LSD)"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "結果は次のレベルで平均化されています: %s"
 
-#, fuzzy
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
-"一部のパラメーターが推定できません。おそらく，デザインのセルが空であることが"
-"原因です。"
+msgstr "一部のパラメーターが推定できません。おそらく，欠損性のためです."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
@@ -179,7 +173,7 @@ msgid "p<sub>tukey</sub>"
 msgstr "p<sub>テューキー</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "補正なしの平均値に基づく結果."
 
 msgid "Dunnett"
 msgstr "ダネット(Dunnett)"
@@ -255,16 +249,15 @@ msgid "Statistic"
 msgstr "統計量"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "順位 %s"
 
-#, fuzzy
 msgid "%i%% CI for Rank %s"
-msgstr "Cohen's d における %s%% CI"
+msgstr "順位 %s の %i%% CI"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
-msgstr ""
+msgstr "検定は、多変量効果を考慮せず、各変数について個別に実施した."
 
 msgid "Dunn"
 msgstr "ダン(Dunn)"
@@ -278,9 +271,8 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-#, fuzzy
 msgid "r<sub>rb</sub>"
-msgstr "W<sub>i</sub>"
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>ボンフェロー二</sub>"
@@ -289,7 +281,7 @@ msgid "p<sub>holm</sub>"
 msgstr "p<sub>ホルム</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "順位-バイシリアル相関は個々のマンホイットニー検定に基づいています."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -323,7 +315,8 @@ msgstr "参加者間要因とは異なる反復測定要因の名前を選択し
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
 "term for follow-up tests\" in the Model tab."
-msgstr ""
+msgstr "単変量追加の検定にはデータが大きすぎます. "
+"モデルタブ内の追加の検定の誤差項をプールするを選択しないでください。"
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -409,9 +402,8 @@ msgstr "ノンパラメトリック"
 msgid "Friedman Test"
 msgstr "フリードマン(Friedman)検定"
 
-#, fuzzy
 msgid "Χ²<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "ケンドール(Kendall)のW"
@@ -421,7 +413,7 @@ msgstr ""
 "フリードマン(Friedman)/ダービン(Durbin)検定に適切な項を指定してください。"
 
 msgid "Not an unreplicated complete block design."
-msgstr ""
+msgstr "非複製された完備型ブロック計画ではありません."
 
 msgid "Durbin Test"
 msgstr "ダービン(Durbin)検定"
@@ -448,7 +440,7 @@ msgid "Grouped by %s."
 msgstr "%sでグループ化。"
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
+msgstr "順位-バイシリアル相関は個別の符号順位検定に基づいています."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "調整要因もモデル項に含まれている必要があります!"
@@ -469,7 +461,7 @@ msgid "Duplicate variables encountered in %s"
 msgstr "%s に重複した変数が見つかりました"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "モデルの項に重複する参加者の列を追加しました, %s"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
@@ -505,9 +497,12 @@ msgid ""
 "estimate. However, we recommend using the automatic integration method to "
 "obtain the final results."
 msgstr ""
+"Laplace の近似は自動方法より速いが、正確ではないです。 "
+"データを探索し、大体の推定値を得るには良いです。 "
+"ただし、最終結果を得るために、自動統合方法を使用することをお勧めします."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "ラプラス近似は常に誤差推定を提供するわけではありません."
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -518,14 +513,14 @@ msgstr ""
 
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
-msgstr ""
+msgstr "すべてのモデルには %s "
+"が含まれており、すべての反復測定要因に対して変量傾きが含まれています."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "すべての反復測定要因に対する変量傾きは除外されました."
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "すべてのモデルには%sが含まれます"
+msgstr "すべてのモデルには %s が含まれます."
 
 msgid "Analysis of Effects - %s"
 msgstr "効果の分析 - %s"
@@ -712,17 +707,14 @@ msgstr "標準偏差"
 msgid "SE"
 msgstr "標準誤差"
 
-#, fuzzy
 msgid "Coefficient of variation"
-msgstr "係数"
+msgstr "変動係数"
 
-#, fuzzy
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%1$g out of "
 "%2$g combinations are unobserved)."
-msgstr ""
-"要因の組み合わせのいくつかは観測されないため，除外されます（%gの組み合わせの"
-"うち%gは観測されません）。"
+msgstr "要因の組み合わせのいくつかは観測されないため，除外されます( %2$g "
+"の組み合わせのうち %1$g は観測されません)."
 
 msgid "Descriptives plots"
 msgstr "記述統計量プロット"
@@ -731,17 +723,16 @@ msgid "Descriptives Plot"
 msgstr "記述統計量プロット"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "棒グラフ"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Q-Qプロット"
+msgstr "棒グラフ"
 
 msgid "Raincloud plots"
 msgstr "雨雲プロット"
 
 msgid "Dependent"
-msgstr ""
+msgstr "従属"
 
 msgid "Sampling posteriors"
 msgstr "事後分布のサンプリング"
@@ -757,7 +748,7 @@ msgstr ""
 "サンプル数を増やしましょう。"
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "%2$d モデルのうち、最良の %1$d を表示しています."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""
@@ -868,9 +859,8 @@ msgstr "タイプ II 平方和"
 msgid "Type III Sum of Squares"
 msgstr "タイプ III 平方和"
 
-#, fuzzy
 msgid "Order Restricted Hypotheses"
-msgstr "順序制約"
+msgstr "順序制約仮説"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
@@ -881,15 +871,13 @@ msgstr ""
 "\n"
 "いくつかの制約が重複しています!"
 
-#, fuzzy
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
-msgstr "%sの制約シンタックスにエラーがあります."
+msgstr "%s の制約シンタックスにエラーがあります. シンタックスをデコードできません!"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "ブートストラップ制約周辺平均:"
+msgstr "ブートストラップ非制約モデル"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
@@ -925,16 +913,13 @@ msgid "Complement"
 msgstr "補完"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "シンタックス情報"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "制約行列で利用可能な係数"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"ベイズファクターはモデルで計算できませんでした: %1$s。\n"
-"エラー・メッセージは%2$sです。"
+msgstr "モデル比較を計算できませんでした! エラーメッセージ: %s"
 
 msgid "Model Comparison Table"
 msgstr "モデル比較表"
@@ -943,7 +928,7 @@ msgid "Model"
 msgstr "モデル"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "対数尤度"
 
 msgid "Penalty"
 msgstr "ペナルティ"
@@ -991,18 +976,17 @@ msgid "The following models were excluded: %s."
 msgstr "すべてのモデルには%sが含まれます"
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "相対的 %s 重み"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
-msgstr ""
+msgstr "比較対象のモデルが1つしかありません: 相対重み行列を計算できません"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "係数"
+msgstr "係数比較"
 
 msgid "Coefficient"
 msgstr "係数"
@@ -1019,10 +1003,10 @@ msgid "Restriction Matrix"
 msgstr "制約"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "左辺"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "右辺"
 
 msgid "Coefficients"
 msgstr "係数"
@@ -1036,28 +1020,25 @@ msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "係数表が算出できません. エラーメッセージ: %s"
 
-#, fuzzy
 msgid "Informative Hypothesis Tests"
 msgstr "情報仮説検定"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "仮説"
 
-#, fuzzy
 msgid "Test"
-msgstr "検定のタイプ"
+msgstr "検定"
 
-#, fuzzy
 msgid "Test Statistic"
-msgstr "統計量"
+msgstr "検定統計量"
 
 msgid "Type %s"
-msgstr ""
+msgstr "タイプ %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "情報仮設検定を計算できません. エラーメッセージ: %s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
@@ -1090,14 +1071,13 @@ msgid ""
 msgstr "'制約あり周辺平均'のセクションで要約するモデル項を選択してください."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "周辺平均が計算できません. エラーメッセージ: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "結果は次のレベルで平均化されています: %s"
+msgstr "結果は次の水準で平均化されています: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "共変量 (%s) は平均値で固定されています."
 
 msgid "MANOVA"
 msgstr "多変量分散分析"
@@ -1109,10 +1089,9 @@ msgstr ""
 "デザイン行列が正則ではありません。これは，共線従属変数が原因である可能性があ"
 "ります。"
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] "帰無モデル (%s含む)"
+msgstr[0] "帰無モデル (%s と含む変量傾きを含む)"
 
 #~ msgid "Chi-Squared"
 #~ msgstr "カイ二乗"

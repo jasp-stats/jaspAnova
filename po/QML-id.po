@@ -918,10 +918,6 @@ msgid "Display"
 msgstr "Tampilkan"
 
 msgctxt "DescriptivePlots|"
-msgid "Display error bars"
-msgstr "Tampilkan batang galat"
-
-msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Interval kepercayaan"
 
@@ -1174,11 +1170,6 @@ msgstr "Tampilkan"
 
 #, fuzzy
 msgctxt "BarPlots|"
-msgid "Display error bars"
-msgstr "Tampilkan batang galat"
-
-#, fuzzy
-msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "Interval kepercayaan"
 
@@ -1262,4 +1253,12 @@ msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
 msgstr ""

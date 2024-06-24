@@ -905,11 +905,6 @@ msgctxt "DescriptivePlots|"
 msgid "Display"
 msgstr "Отобразить"
 
-#, fuzzy
-msgctxt "DescriptivePlots|"
-msgid "Display error bars"
-msgstr "Отобразить погрешность"
-
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Доверительный интервал"
@@ -1265,11 +1260,6 @@ msgstr "Отобразить"
 
 #, fuzzy
 msgctxt "BarPlots|"
-msgid "Display error bars"
-msgstr "Отобразить погрешность"
-
-#, fuzzy
-msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "Доверительный интервал"
 
@@ -1354,4 +1344,12 @@ msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
 msgstr ""

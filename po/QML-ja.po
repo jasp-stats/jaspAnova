@@ -986,11 +986,6 @@ msgstr "表示"
 
 #, fuzzy
 msgctxt "DescriptivePlots|"
-msgid "Display error bars"
-msgstr "エラーバーの表示"
-
-#, fuzzy
-msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "信頼区間"
 
@@ -1280,11 +1275,6 @@ msgstr "表示"
 
 #, fuzzy
 msgctxt "BarPlots|"
-msgid "Display error bars"
-msgstr "エラーバーの表示"
-
-#, fuzzy
-msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "信頼区間"
 
@@ -1369,4 +1359,12 @@ msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
 msgstr ""

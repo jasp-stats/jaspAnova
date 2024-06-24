@@ -920,10 +920,6 @@ msgid "Display"
 msgstr "Exibir"
 
 msgctxt "DescriptivePlots|"
-msgid "Display error bars"
-msgstr "Exibir barras de erro"
-
-msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Intervalo de Confiança"
 
@@ -1170,11 +1166,6 @@ msgstr "Exibir"
 
 #, fuzzy
 msgctxt "BarPlots|"
-msgid "Display error bars"
-msgstr "Exibir barras de erro"
-
-#, fuzzy
-msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "Intervalo de Confiança"
 
@@ -1258,4 +1249,12 @@ msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
 msgstr ""

@@ -936,10 +936,6 @@ msgid "Display"
 msgstr "Weergeven"
 
 msgctxt "DescriptivePlots|"
-msgid "Display error bars"
-msgstr "Geef foutmarges weer"
-
-msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
 msgstr "Betrouwbaarheidsinterval"
 
@@ -1181,10 +1177,6 @@ msgid "Display"
 msgstr "Weergeven"
 
 msgctxt "BarPlots|"
-msgid "Display error bars"
-msgstr "Geef foutmarges weer"
-
-msgctxt "BarPlots|"
 msgid "Confidence interval"
 msgstr "Betrouwbaarheidsinterval"
 
@@ -1263,3 +1255,11 @@ msgstr "Groeperingstabel op basis van letters"
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
 msgstr "α-niveau:"
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
+msgstr ""

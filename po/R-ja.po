@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2024-05-25 02:39\n"
-"PO-Revision-Date: 2024-06-20 17:09+0000\n"
+"PO-Revision-Date: 2024-06-23 15:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/ja/>\n"
@@ -880,31 +880,35 @@ msgid "Bootstrapping unrestricted model"
 msgstr "ブートストラップ非制約モデル"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
-msgstr ""
+msgstr "%1$s でエラーが発生しました - "
+"モデルシンタックスをエンコードできませんでした！エラー・メッセージ: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s でエラーが発生しました - モデル内のシンタックスエラー! "
+"エラー・メッセージ: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s でエラーが発生しました - モデルが推定できません! エラー・メッセージ: "
+"%2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "ブートストラップ制約周辺平均:"
+msgstr "ブートストラップ制約モデル"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
-msgstr ""
+msgstr "非制約モデルの当てはめができません."
+"その結果、制約モデルも推定できません。エラー・メッセージ %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
-msgstr ""
+msgstr "非制約モデルのためのブートストラップが得られません。その結果、制約モデルのブ"
+"ートストラップも実行できませんでした。エラーメッセージ: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "指定された制約モデルのどれも当てはめできませんでした。理由: %s"
 
 msgid "Unconstrained"
 msgstr "制約なし"
@@ -942,9 +946,8 @@ msgstr "重み"
 msgid "GORICA"
 msgstr "GORICA"
 
-#, fuzzy
 msgid "Weights ratio"
-msgstr "重み"
+msgstr "重み比"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
@@ -959,21 +962,19 @@ msgstr ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation (一"
 "般化順序制約情報量規準近似)."
 
-#, fuzzy
 msgid ""
 "Weights ratios indicate the relative weight for each model against the "
 "\"%1$s\" model. %2$s"
-msgstr "比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
+msgstr "重みの比率は、\"%1$s\" モデルに対する各モデルの相対的な重みを示します. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "重みを計算できません!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr "モデル '%s' は空なので、参照モデルにはできません!"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "すべてのモデルには%sが含まれます"
+msgstr "次のモデルは除外されました: %s."
 
 msgid "Relative %s-Weights"
 msgstr "相対的 %s 重み"
@@ -994,13 +995,11 @@ msgstr "係数"
 msgid "Coefficients differ from unconstrained model."
 msgstr "係数は、制約のないモデルとは異なります."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "モデル要約"
+msgstr "モデルの概要"
 
-#, fuzzy
 msgid "Restriction Matrix"
-msgstr "制約"
+msgstr "制約行列"
 
 msgid "Left-hand side (lhs)"
 msgstr "左辺"
@@ -1011,13 +1010,11 @@ msgstr "右辺"
 msgid "Coefficients"
 msgstr "係数"
 
-#, fuzzy
 msgid "%s%% CI"
-msgstr "%.0f%% CI"
+msgstr "%s%% CI"
 
-#, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr "%s 回成功した再標本に基づいてブートストラップを実施しました。"
+msgstr "%s の成功したブートストラップの複製に基づいて推定します."
 
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr "係数表が算出できません. エラーメッセージ: %s"
@@ -1043,32 +1040,36 @@ msgstr "情報仮設検定を計算できません. エラーメッセージ: %s
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
-msgstr ""
+msgstr "H%1$s： すべての等値制約が有効 (==), H%2$s： 少なくとも 1 "
+"つの等値制約が違反しています."
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s： すべてのパラメータが等しい制約 (==), H%2$s： 少なくとも 1 "
+"つの不等式制約が厳密にTRUE (>)."
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s： すべての制約が等式 (==), H%2$s： 少なくとも 1 "
+"つの不等式制約が厳密にTRUE (>)."
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
-msgstr ""
+msgstr "H%1$s： すべての制約が成り立つ, H%2$s： 少なくとも1つの制限が違反."
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
-msgstr ""
+msgstr "H%1$s： 少なくとも1つの制約が偽または有効 (==), H%2$s： "
+"すべての制約が厳密に真 (>)."
 
-#, fuzzy
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
-msgstr "'制約あり周辺平均'のセクションで要約するモデル項を選択してください."
+msgstr "周辺平均項が指定されていません。制約寿つき周辺平均のセクションでモデル項を選"
+"択してください."
 
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "周辺平均が計算できません. エラーメッセージ: %s"

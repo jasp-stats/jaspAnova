@@ -262,8 +262,8 @@ msgstr "Estadístico"
 msgid "Rank %s"
 msgstr "Rango %s"
 
-msgid "%i%% CI for Rank %s"
-msgstr "IC del %i%% para el Rango %s"
+msgid "%1$i%% CI for Rank %2$s"
+msgstr "IC del %1$i%% para el Rango %2$s"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "

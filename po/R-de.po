@@ -261,8 +261,8 @@ msgstr "Statistik"
 msgid "Rank %s"
 msgstr "Rang %s"
 
-msgid "%i%% CI for Rank %s"
-msgstr "%i%% KI für Rang %s"
+msgid "%1$i%% CI for Rank %2$s"
+msgstr "%1$i%% KI für Rang %2$s"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "

@@ -44,7 +44,7 @@ msgstr "デザインに空のセルが含まれています.別の種類の平�
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr "'1$s' は '%2$s' の次の水準でグループ化した後では分散がゼロなので、ウェルチ補"
+msgstr "'%1$s' は '%2$s' の次の水準でグループ化した後では分散がゼロなので、ウェルチ補"
 "正を計算できなかった: %3$s"
 
 msgid "ANOVA"
@@ -251,8 +251,8 @@ msgstr "統計量"
 msgid "Rank %s"
 msgstr "順位 %s"
 
-msgid "%i%% CI for Rank %s"
-msgstr "順位 %s の %i%% CI"
+msgid "%1$i%% CI for Rank %2$s"
+msgstr "順位 %2$s の %1$i%% CI"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "

@@ -248,9 +248,8 @@ msgstr ""
 msgid "Rank %s"
 msgstr ""
 
-#, fuzzy
-msgid "%i%% CI for Rank %s"
-msgstr "%s%% JK untuk Perbezaan Min"
+msgid "%1$i%% CI for Rank %2$s"
+msgstr ""
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "

@@ -212,7 +212,7 @@ msgstr ""
 msgid "Rank %s"
 msgstr ""
 
-msgid "%i%% CI for Rank %s"
+msgid "%1$i%% CI for Rank %2$s"
 msgstr ""
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."

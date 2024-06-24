@@ -274,9 +274,8 @@ msgstr "Статистика"
 msgid "Rank %s"
 msgstr ""
 
-#, fuzzy
-msgid "%i%% CI for Rank %s"
-msgstr "%s%% ДИ для d Коэна"
+msgid "%1$i%% CI for Rank %2$s"
+msgstr ""
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "

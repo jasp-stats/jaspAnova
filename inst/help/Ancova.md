@@ -85,7 +85,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
     <img src="%HELP_FOLDER%/gif/labelediting.gif"/>
   </details> 
       
-  - Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:  
+  - Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value and confidence interval for mean difference are available (note that the confidence intervals for effect sizes can only be adjusted using the Bonferroni method):  
       - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance. This method is commonly used and is selected by default. 
       - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative. 
       - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 

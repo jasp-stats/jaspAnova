@@ -133,7 +133,7 @@
   return(postHocTable)
 }
 
-.getCorrectionFootnoteAnova <- function(postHocObject, includeCI = FALSE) {
+.getCorrectionFootnoteAnova <- function(postHocObject, includeCI = FALSE, includeEffectSize = FALSE, isBetween = FALSE) {
 
   pvalAdjust <- attr(postHocObject, "mesg")[grep(attr(postHocObject, "mesg"), pattern = "P value adjustment")]
   nEstimates <- regmatches(pvalAdjust, gregexpr("[[:digit:]]+", pvalAdjust))[[1]]
@@ -143,8 +143,11 @@
 
   if (!includeCI) {
     correctionFootnote <- gettextf("P-value adjusted for comparing a family of %s", as.character(nEstimates))
-  } else {
+  } else if (isFALSE(includeEffectSize) || isFALSE(isBetween)) {
     correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method).", nEstimates, confAdjust)
+  } else {
+    correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method).",
+                                   nEstimates, confAdjust)
   }
 
   return(correctionFootnote)

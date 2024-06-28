@@ -42,7 +42,7 @@ Form
 		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"];  singleVariable: true	}
 		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2}
 		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2}
-		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			allowedColumns: ["scale"];	id: covariates		}
+		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			allowedColumns: ["scale"];	id: covariates; minNumericLevels: 2		}
 	}
 
 	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}

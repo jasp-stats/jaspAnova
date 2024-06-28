@@ -82,6 +82,7 @@ Form
 			title: qsTr("Covariates")
 			allowedColumns: ["scale"]
 			id: covariates
+			minNumericLevels: 2
 		}
 	}
 

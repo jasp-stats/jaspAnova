@@ -37,7 +37,7 @@ Form
 		FactorLevelList					{ name: "repeatedMeasuresFactors";	title: qsTr("Repeated Measures Factors");	height: 180 * preferencesModel.uiScale;	factorName: qsTr("RM Factor")	}
 		AssignedRepeatedMeasuresCells	{ name: "repeatedMeasuresCells";	title: qsTr("Repeated Measures Cells");		source: "repeatedMeasuresFactors"										}
 		AssignedVariablesList			{ name: "betweenSubjectFactors";	title: qsTr("Between Subject Factors");		allowedColumns: ["nominal"]; minLevels: 2;	itemType: "fixedFactors"	}
-		AssignedVariablesList			{ name: "covariates";				title: qsTr("Covariates");					allowedColumns: ["scale"]												}
+		AssignedVariablesList			{ name: "covariates";				title: qsTr("Covariates");					allowedColumns: ["scale"]; minNumericLevels: 2							}
 	}
 
 	Classical.Display

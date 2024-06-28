@@ -966,7 +966,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       thisVarNameRef <- paste0(thisVarName, termIndex)
       byVariable <- if (length(termsToLoop) > 1) postHocVariables[[postHocVarIndex]] else NULL
 
-      resultPostHoc <- summary(pairs(referenceGrid[[thisVarName]], adjust="bonferroni", by = byVariable[termIndex]),
+      resultPostHoc <- summary(pairs(referenceGrid[[thisVarName]], adjust="holm", by = byVariable[termIndex]),
                                infer = TRUE, level = options$postHocCiLevel)
       numberOfLevels <- nrow(as.data.frame(referenceGrid[[thisVarName]]))
       bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
@@ -978,7 +978,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
                                                           level = bonfAdjustCIlevel,
                                                           by = byVariable[termIndex]))
 
-      resultPostHoc[["bonferroni"]] <- resultPostHoc[["p.value"]]
+      resultPostHoc[["holm"]] <- resultPostHoc[["p.value"]]
 
       resultPostHoc[["tukey"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="tukey",
                                                  by = byVariable[termIndex]))[["p.value"]]
@@ -986,7 +986,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       resultPostHoc[["scheffe"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="scheffe",
                                                    by = byVariable[termIndex]))[["p.value"]]
 
-      resultPostHoc[["holm"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="holm",
+      resultPostHoc[["bonferroni"]] <-  summary(pairs(referenceGrid[[thisVarName]], adjust="bonferroni",
                                                 by = byVariable[termIndex]))[["p.value"]]
 
       resultPostHoc[["cohenD"]] <- effectSizeResult[["effect.size"]]
@@ -1014,9 +1014,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       resultPostHoc[["contrast_B"]] <- lapply(comparisons, function(x) paste(.unv(strsplit(x[[2]], "[ ,]")[[1]]),
                                                                              collapse = ", "))
 
-      if (nrow(resultPostHoc[[1]]) > 1 && any(grepl(attr(resultPostHoc[[1]], "mesg"), pattern = "P value adjustment")))
-        postHocContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
-                                                                                   (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
+      if (nrow(resultPostHoc) > 1 && any(grepl(attr(resultPostHoc, "mesg"), pattern = "P value adjustment")))
+        postHocContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc, options[["postHocCi"]], options[["postHocEffectSize"]]))
 
       avFootnote <- attr(resultPostHoc, "mesg")[grep(attr(resultPostHoc, "mesg"), pattern = "Results are averaged")]
       if (length(avFootnote) != 0) {

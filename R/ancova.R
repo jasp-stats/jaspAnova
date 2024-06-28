@@ -930,7 +930,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                                                 options$postHocTypeStandardBootstrap)
 
       postHocRef <- emmeans::lsmeans(model, postHocVariablesListV)
-      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")
+      wantsCorrections <- c(options[["postHocCorrectionTukey"]], options[["postHocCorrectionScheffe"]],
+                            options[["postHocCorrectionBonferroni"]], options[["postHocCorrectionHolm"]],
+                            options[["postHocCorrectionSidak"]])
+      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")[wantsCorrections]
 
       ## Computation
       resultPostHoc <- lapply(postHocCorrections, function(x)
@@ -950,7 +953,9 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       # if there is p-adjustment, then add footnote
       if (nrow(resultPostHoc[[1]]) > 1 && any(grepl(attr(resultPostHoc[[1]], "mesg"), pattern = "P value adjustment")))
         postHocStandardContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
-                                                                                           (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap))))
+                                                                                           (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap)),
+                                                                                           includeEffectSize = options[["postHocTypeStandardEffectSize"]],
+                                                                                           isBetween = TRUE))
       avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
       if (length(avFootnote) != 0) {
         avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),

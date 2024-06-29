@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-05-25 02:39\n"
+"POT-Creation-Date: 2024-06-29 02:41\n"
 "PO-Revision-Date: 2024-04-30 08:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -247,7 +247,7 @@ msgid "Rank %s"
 msgstr ""
 
 #, fuzzy
-msgid "%i%% CI for Rank %s"
+msgid "%1$i%% CI for Rank %2$s"
 msgstr "Cohen's d 的 %s%% 置信区间"
 
 msgid ""
@@ -800,6 +800,15 @@ msgstr "为比较 %s 族而调整的 P 值"
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"为比较 %1$s 估计值系列而调整的 P 值和置信区间（使用 %2$s 方法校正的置信区"
+"间）。"
+
+#, fuzzy
+msgid ""
+"P-value and confidence intervals adjusted for comparing a family of %1$s "
+"estimates (ci for mean difference corrected using the %2$s method; ci for "
+"effect size corrected using the bonferroni method)."
 msgstr ""
 "为比较 %1$s 估计值系列而调整的 P 值和置信区间（使用 %2$s 方法校正的置信区"
 "间）。"

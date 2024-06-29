@@ -2,904 +2,1047 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.0\n"
 "POT-Creation-Date: 2024-06-29 02:41\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-30 10:00+0000\n"
+"Last-Translator: Marco Capozzi <giammarcous@yahoo.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"I pesi WLS contengono valori negativi e/o zero. (sono consentiti solo pesi "
+"WLS positivi)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"Trovata singolarità nel modello; Una o più variabili predittive sono una "
+"combinazione lineare di altre variabili predittive"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"La somma dei quadrati dei residui è 0; ciò potrebbe essere causato da una "
+"varianza estremamente bassa della variabile dipendente"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Errore nel calcolo dell'ANOVA: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
 msgstr ""
+"Il tuo progetto contiene celle vuote. Prego provare una somma di quadrati "
+"diversa."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"Non è stato possibile calcolare la correzione di Welch inquinato '%1$s' ha "
+"varianza nulla a seguito del raggruppamento dei seguenti livelli '%2$s': %3$s"
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Correzione del'omogeinità"
 
 msgid "Cases"
-msgstr ""
+msgstr "Casi"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Somma dei Quadrati"
 
 msgid "df"
-msgstr ""
+msgstr "Gradi di libertà"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Media quadratica"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "%s%% Intervallo di confidenza per η²"
 
 msgid "Lower"
-msgstr ""
+msgstr "Inferiore"
 
 msgid "Upper"
-msgstr ""
+msgstr "Superiore"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "%s%% Intervallo di confidenza per η²ₚ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "%s%% Intervallo di confidenza per ω²"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "%s%% Intervallo di confidenza per ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"Le correzioni di Brown-Forsyth e Welch sono disponibili solo per l'ANOVA ad "
+"una via"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Tavole di contrasto"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Contrasto - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Dati insufficienti per stimare il modello intero / contrasti. Probabili "
+"celle vuote nell'analisi della variabilità interna (cioè struttura dati non "
+"buona)"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Prego specificare un contrasto addizionale."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Numero errato di righe di contrasto personalizzata."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Prego specificare pesi di contrasto non nulli."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Post Hoc Test"
 
 msgid "Standard (LSD)"
-msgstr ""
+msgstr "Standard (LSD)"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "I risultati sono mediati sui livelli di: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "Alcuni parametri non sono stati stimati a causa di dati mancanti."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Bootstrap basato su %s repliche."
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"La stima della differenza media è basata sul valore mediano della "
+"distribuzione bootstrap."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "correzione distorsione accelerata."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Bootstrapping Post Hoc Test"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"Alcuni intervalli di confidenza non sono stati calcolati. \n"
+"Causa probabile troppo poche repliche di bootstrap."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Confronto Post Hoc Games-Howell- %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "Confronto"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Differenza Media"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "Intervallo di confidenza per la differenza media %.0f%%"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Risultati basati su una media distorta."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Confronto Post Hoc Dunnett -%s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "Intervallo di confidenza per la Differenza delle Medie %s%%"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>dunnett</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
+"L'intervallo di confidenza è troppo ristretto, prego selezionarne uno "
+"diverso."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Controllo delle assunzioni"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Test dell'eguaglianza delle varianze (Levene's)"
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"F-value nullo indicante adattamento perfetto.<br><br>(I test di Levene su "
+"adattamenti essenzialmente perfetti non sono affidabili)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Medie Marginali"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Bootstrap Medie Marginali"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"Alcuni intervalli di confidenza non sono stati calcolati, possibile causa "
+"numero di repliche basso nel bootstrap."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Bootstap basato su %s repliche."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Effetto Principale Singolo"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Effetti Principali Singoli - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Livello di %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Non ci sono sufficienti osservazioni nelle celle %s."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Test di Kruskal-Wallis"
 
 msgid "Factor"
-msgstr ""
+msgstr "Fattore"
 
 msgid "Statistic"
-msgstr ""
+msgstr "Statistica"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Rank %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1$i%% intervallo di confidenza Rank %2$s"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"Gli esperimenti sono condotti separatamente per ciascuna variabile, senza "
+"tener conto degli effetti multivariati."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Confronto Post Hoc di Dunn - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"La correlazione punto-biseriale basata sul test individuali di Mann-Whitney."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Errore nel caricamento dati. Prego verificare le osservazioni sulle misure "
+"ripetute."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Il fattore: <em>%s</em> contiene un numero di livelli inferiore a due."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Il fattore: <em>%s</em>, contiene meno di due livelli."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La misura ripetuta: <em>%s</em>, contiene valori infiniti."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "La misura ripetuta: <em>%s</em>, contiene valori infiniti."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "La covariata: <em>%s</em>, contiene valori infiniti."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "La coartata: <em>%s</em>, contiene valori infiniti."
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
+"Prego scegliere un nome per i fattori RM che sia differente da quello per i "
+"fattori fra i gruppi."
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
 msgstr ""
+"Serie di dati troppo grande per test di follow-up univariato. Provare a "
+"deselezionare \"Combinare i termini di errore per il test follow-up\" nel "
+"tab Model."
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""
+"Alcuni parametri non possono essere stimati, molto probabilmente a cause di "
+"celle vuote nel progetto."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Effetti fra i soggetti"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Effetti entro soggetti"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Correzione sfericità"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "Correzioni di sfericità non disponibili per fattori con due livelli."
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
 msgstr ""
+"Il test di sfericità di Mauchly indica che l'assunzione di sfericità è "
+"violata (p<.05)."
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
 msgstr ""
+"Non è possibile performare il test di omogeneità perché non sono stati "
+"specificati i fattori entro soggetti."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Test di sfericità"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W di Mauchly"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Approx. %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "valore p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Limite inferiore %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
+"Non è possibile effettuare il test di sfericità perché ci sono solo due "
+"livelli del fattore RM, oppure perché la matrice SSP è singolare."
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
+"I valori p corretti non sono adatti per post-hoc test con misure ripetute ("
+"Maxwell, 1980; Field, 2012)."
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Non parametrico"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Test di Friedman"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W di Kendall"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "Prego specificare termini appropriati per il test di Friedman/Durbin."
 
 msgid "Not an unreplicated complete block design."
-msgstr ""
+msgstr "Non è un progetto a blocchi completo senza repliche."
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Test di Durbin"
 
 msgid "df num"
-msgstr ""
+msgstr "df num"
 
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Test di Conover"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Confronto post hoc di Conover - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "T-Stat"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Raggruppato in base a %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"Correlazione rango-biseriale basata su singoli test dei ranghi con segno."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
+"I fattori di moderazione devono comparire anche nei termini del modello!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "Infinito riscontrato nelle celle a misure ripetute."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "Il numero di osservazioni è < %s nelle celle a misure ripetute"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "La varianze nelle celle a misure ripetute è 0."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "Variabili duplicate nelle celle a misure ripetute, %s"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Variabili duplicate trovate in %s"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "Colonna partecipanti duplicata aggiunta ai termini del modello, %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"L'effetto di interazione di %1$s non ha osservazioni per la/e combinazione/i:"
+" %2$s. Prego correggere il modello e rimuovere le interazioni con celle "
+"mancanti"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"L'effetto di interazione di %1$s non ha osservazioni per la/e combinazione/i:"
+" %2$s. Vengono mostrate solo le prime 10 combinazioni mancanti. Prego "
+"correggere il modello e rimuovere le interazioni con le celle mancanti"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
+"Il fattore di Bayes è indefinito: tutti gli effetti sono specificati come "
+"non significativi."
 
 msgid "Null model"
-msgstr ""
+msgstr "Modello nullo"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Modello nullo (incl. %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Calcolo fattori di Bayes"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
 msgstr ""
+"L'approssimazione di Laplace è più veloce ma anche meno precisa del metodo "
+"automatico. Questo va bene quando si esplorano i dati e si ottiene una stima "
+"approssimativa. Tuttavia, si consiglia di utilizzare il metodo di "
+"integrazione automatica per ottenere i risultati finali."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "L'approssimazione di Laplace non sempre fornisce una stima dell'errore."
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
 msgstr ""
+"Non è stato possibile calcolare il fattore di Bayes per il modello: %1$s.\n"
+"Il messaggio di errore era: %2$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Tutti i modelli includono %s e inclinazioni casuali per tutti i fattori a "
+"misure ripetute."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "Sono escluse le pendenze casuali per i fattori a misure ripetute."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Tutti i modelli includono %s."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Analisi degli effetti - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Analisi degli Effetti"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>incl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>excl</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>incl</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "Effetti"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(incl)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(excl)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|data)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(excl|data)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"Confronta i modelli che contengono l'effetto con modelli equivalenti privi "
+"dell'effetto. Sono escluse le interazioni di ordine superiore. Analisi "
+"suggerita da Sebastiaan Math%st."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"Non è stato possibile calcolare alcuni fattori di Bayes. Le probabilità di "
+"inclusione e i fattori di Bayes sono calcolati escludendo questi modelli. I "
+"risultati potrebbero non essere interpretabili!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Confronto Modelli"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Modelli"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|dati)"
 
 msgid "error %%"
-msgstr ""
+msgstr "errore %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b><em>Avvertimento.</em></b> Non è stato possibile calcolare alcuni fattori "
+"di Bayes. L'inferenza multi-modello è stata valutata escludendo questi "
+"modelli. I risultati potrebbero non essere interpretabili!"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Sommario a posteriori dei modelli mediati"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% Intervallo Credibile"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "R del modello mediato"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b><em>Attenzione: incontrati problemi nel campionamento!</em></b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "Modello interessato"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% campioni utili"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "Campioni utili"
 
 msgid "Total samples drawn"
-msgstr ""
+msgstr "Numero di campioni totali"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"Per alcuni modelli interessati, oltre il 75% dei campioni posteriori non ha "
+"funzionato o sono rimasti meno di 1000 campioni per i risultati successivi. "
+"Tutti i risultati medi del modello possono essere distorti e non "
+"interpretabili. Controllare le specifiche del modello e i dati per "
+"individuare eventuali schemi anomali."
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Avvertimento.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "Distribuzioni a posteriori della mediazione statistica"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Distribuzione a posteriori"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"Impossibile tracciare la distribuzione posteriore. Verificare se si è "
+"verificato un errore per i modelli che includono questo parametro."
 
 msgid "Level"
-msgstr ""
+msgstr "Livello"
 
 msgid "Density"
-msgstr ""
+msgstr "Densità"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "Grafico Q-Q del modello Mediato"
 
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "R del Modello Mediato a Posteriori %s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"Le probabilità a posteriori sono state corrette per i test multipli fissando "
+"a 0,5 la probabilità preliminare che l'ipotesi nulla sia valida per tutti i "
+"confronti (Westfall, Johnson, & Utts, 1997). I confronti individuali si "
+"basano sul t-test predefinito con un priore di Cauchy (0, r = 1/sqrt(2)). La "
+"\"U\" nel fattore di Bayes indica che non è corretto."
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "Probabilità precedenti"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "Probabilità a posteriori"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Descrittive"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Descrittive - %s"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "Media"
 
 msgid "SD"
-msgstr ""
+msgstr "SD"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Coefficiente di variazione"
 
 msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
+"Alcune combinazioni di fattori non sono osservate e quindi omesse (%1$g su "
+"%2$g combinazioni non sono osservate)."
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Diagrammi Descrittivi"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Diagrammi Descrittivi"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Diagramma a barre"
 
 msgid "Bar Plot"
-msgstr ""
+msgstr "Diagramma a Barre"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "Diagramma a nuvola"
 
 msgid "Dependent"
-msgstr ""
+msgstr "Dipendente"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "Campionamento a posteriori"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "la lunghezza dei campioni deve essere uguale alla lunghezza dei pesi!"
 
 msgid "All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."
 msgstr ""
+"Tutte le stime hanno una varianza pari a zero. Controllare che i predittori "
+"non presentino anomalie o aumentare il numero di campioni posteriori."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Mostrando i migliori %1$d su %2$d modelli."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr ""
+"Si è verificato il seguente errore in Bayes Factor::enumerateGeneralModels: %"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferenza Modello Singolo"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"Errore nell'inferenza del modello singolo:\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "Sommario del Modello Singolo a Posteriori"
 
 msgid "Variable"
-msgstr ""
+msgstr "Variabile"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "Distribuzioni a modello singolo a posteriori"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Diagramma Q-Q"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "R Posteriori %s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "R del Modello Singolo %s"
 
 msgid "Estimate"
-msgstr ""
+msgstr "Stima"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d di Cohen"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "Intervallo di confidenza per il d di Cohen %s%%"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Coefficienti di Contrasto - %2$s"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Confronti Post Hoc -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Confronti Post Hoc con Bootstrap -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "Intervallo di Confidenza %1$s%% bca%2$s"
 
 msgid "bias"
-msgstr ""
+msgstr "scostamento"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "p<sub>scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "p<sub>sidak</sub>"
 
 msgid "P-value adjusted for comparing a family of %s"
-msgstr ""
+msgstr "Valore P aggiustato per il confronto di una famiglia di %s"
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
+"Valore P e intervalli di confidenza corretti per il confronto di una "
+"famiglia di stime %1$s (intervalli di confidenza corretti con il metodo "
+"%2$s)."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method)."
 msgstr ""
+"Valore P e intervalli di confidenza aggiustati per confrontare una famiglia "
+"di stime %1$s (Intervallo di confidenza per differenza media corretto con il "
+"metodo %2$s; Intervallo di confidenza per dimensione dell'effetto corretto "
+"con il metodo Bonferroni)."
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Medie Marginali -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Medie Marginali Bootstrap"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Media Marginale"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "Intervallo di Confidenza 95%% bca%s"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"La stima della media marginale si basa sul valore mediano della "
+"distribuzione bootstrap."
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "Intervallo di Confidenza del 95%% per la Differenza Media"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "Aggiustamento di Bonferroni dell'intervallo di confidenza"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "Aggiustamento dell'intervallo di confidenza di Sidak"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Somma dei quadrati di tipo I"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Somma dei quadrati di tipo II"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Somma dei quadrati di tipo III"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Ipotesi di ordine ristretto"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"Errore di sintassi nel modello %1$s.\n"
+"\n"
+"Alcune restrizioni sono duplicate!"
 
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
 msgstr ""
+"Ci sono errori nella sintassi della restrizione per %s. Non è stato "
+"possibile decodificare la sintassi!"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "Bootstrapping del modello non ristretto"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Errore in %1$s - Impossibile codificare la sintassi del modello! Messaggio "
+"di errore: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
 msgstr ""
+"Errore in %1$s - Errore di sintassi nel modello! Messaggio di errore: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
 msgstr ""
+"Errore in %1$s - Impossibile stimare il modello! Messaggio di errore: %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "Bootstrapping di modelli ristretti"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
 msgstr ""
+"Non è stato possibile adattare il modello non ristretto. Di conseguenza, non "
+"è stato possibile stimare nessuno dei modelli ristretti. Messaggio di errore:"
+" %s."
 
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
+"Non è stato possibile ottenere il bootstrapping per il modello non "
+"ristretto. Di conseguenza, non è stato possibile eseguire il bootstrapping "
+"per i modelli ristretti. Messaggio di errore: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"Non è stato possibile inserire nessuno dei modelli limitati specificati. "
+"Motivo(i): %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Non vincolato"
 
 msgid "Complement"
-msgstr ""
+msgstr "Complemento"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Informazione di sintassi"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Coefficienti disponibili per la sintassi delle restrizioni"
 
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "Impossibile calcolare il confronto tra modelli! Messaggio di errore: %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "Tavola di Confronto Modelli"
 
 msgid "Model"
-msgstr ""
+msgstr "Modello"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Probabilità Logaritmica"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Penalità"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Peso"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "Rapporto dei pesi"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"I rapporti ponderali indicano il peso relativo di ciascun modello rispetto "
+"al modello \"%1$s\". %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Impossibile calcolare i pesi!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
+"Il modello '%s' non può essere un modello di riferimento perché è vuoto!"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "Sono stati esclusi i seguenti modelli: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Pesi relativi -%s"
 
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Solo un modello nel confronto: Impossibile calcolare la matrice dei pesi "
+"relativi"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "Confronto dei Coefficienti"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Coefficiente"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "I coefficienti differiscono dal modello non vincolato."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Sommario del Modello"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "Matrice di restrizione"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Lato sinistro (LHS)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Lato destro (RHS)"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Coefficienti"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "Intervallo di Confidenza %s%%"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "Stime basate su %s repliche valide di bootstrap."
 
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr ""
+"Impossibile calcolare la tabella dei coefficienti. Messaggio di errore: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "Test di ipotesi informativo"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Ipotesi"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "Statistica di prova"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Tip %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
+"Impossibile calcolare i test di ipotesi informativi. Messaggio di errore: %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
 msgstr ""
+"H%1$s: Tutte le restrizioni di uguaglianza sono attive (==), H%2$s: Almeno "
+"una restrizione di uguaglianza è violata."
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Tutti i parametri sono limitati ad essere uguali (==), H%2$s: Almeno "
+"una restrizione di disuguaglianza è strettamente vera (>)."
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Tutte le restrizioni sono uguaglianze (==), H%2$s: Almeno una "
+"restrizione di disuguaglianza è strettamente vera (>)."
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Tutte le restrizioni sono valide, H%2$s: Almeno una restrizione è "
+"violata."
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Almeno una restrizione è falsa o attiva (==), H%2$s: Tutte le "
+"restrizioni sono strettamente vere (>)."
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
 msgstr ""
+"Non sono stati specificati i termini delle medie marginali. Selezionare i "
+"termini del modello nella sezione \"Mezzi marginali limitati\"."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Impossibile calcolare le medie marginali. Messaggio di errore: %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "I risultati sono mediati sui livelli di: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "Le covariate (%s) sono state mantenute fisse ai loro valori medi."
 
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"La matrice di progetto non è invertibile. Ciò potrebbe essere dovuto alla "
+"presenza di variabili dipendenti collineari."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Modello nullo (incl. %s e pendenza casuale)"
+msgstr[1] "Modello nullo (incl. %s e pendenze casuali)"

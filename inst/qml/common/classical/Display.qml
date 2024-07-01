@@ -29,20 +29,23 @@ Group
 	CheckBox { name: "descriptives";	label: qsTr("Descriptive statistics")	}
 	CheckBox {
 		name: "effectSizeEstimates";	label: qsTr("Estimates of effect size")
-		columns: 2
-		CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")	; checked: true			}			
-		CheckBox { name: "effectSizePartialOmegaSquared";		label: qsTr("partial ω²")		}
-		CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²")	}
-		CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")}
+		Group
+		{
+			columns: 2
+			CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")	; checked: true			}
+			CheckBox { name: "effectSizePartialOmegaSquared";		label: qsTr("partial ω²")		}
+			CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²")	}
+			CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²")}
+		}
 
-		CheckBox 
-		{ 
+		CheckBox
+		{
 			name: "effectSizeGeneralEtaSquared"
 			label: qsTr("general η²")
 			visible: analysis === Common.Type.Analysis.RMANOVA
 		}
-	
-			
+
+
 		CheckBox
 		{
 			name: "effectSizeCi"; label: qsTr("Confidence intervals")

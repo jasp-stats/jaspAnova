@@ -57,11 +57,11 @@ Form
 	
 	Common.BarPlots 
 	{ 
-		source: ["fixedFactors", "covariates"] 
+		source: ["fixedFactors"] 
 		framework:	form.framework
 	}
 
-	Common.RainCloudPlots { source: ["fixedFactors", "covariates"] }
+	Common.RainCloudPlots { source: ["fixedFactors"] }
 
 	Bayesian.AdditionalOptions { analysis: form.analysis; id: additionalOptions; covariates: covariates }
 

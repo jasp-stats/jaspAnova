@@ -88,13 +88,13 @@ Form
 
 	Common.BarPlots
 	{
-		source: ["fixedFactors", "randomFactors", "covariates"]
+		source: ["fixedFactors", "randomFactors"]
 		framework:	form.framework
 	}
 	
 	Common.RainCloudPlots
 	{
-		source: ["fixedFactors", "randomFactors", "covariates"]
+		source: ["fixedFactors", "randomFactors"]
 	}
 
 	Classical.MarginalMeans

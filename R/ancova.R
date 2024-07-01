@@ -161,9 +161,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     infinity.target      = c(options$dependent, options$covariates, allComponents, options$wlsWeights),
     factorLevels.target  = options[["fixedFactors"]],
     factorLevels.amount  = "< 2",
-    observations.target  = options[["dependent"]],
-    observations.grouping = options[["fixedFactors"]],
-    observations.amount  = "< 2",
     exitAnalysisIfErrors = TRUE
   )
 

@@ -190,7 +190,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     componentsToGroupOn <- factorModelTerms
   }
 
-  observations.amount <- paste("<", length(options[["dependent"]]))
+  observations.amount <- paste("<", (length(options[["dependent"]])+all(nWayInteractions == 1L)))
   for(i in rev(seq_along(componentsToGroupOn))) {
 
     componentsToGroupBy <- componentsToGroupOn[[i]][["components"]]

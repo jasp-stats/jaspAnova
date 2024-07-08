@@ -14,9 +14,19 @@
       "Version": "0.9.12-4.7",
       "Source": "Repository"
     },
+    "Deriv": {
+      "Package": "Deriv",
+      "Version": "4.1.3",
+      "Source": "Repository"
+    },
     "Formula": {
       "Package": "Formula",
       "Version": "1.2-5",
+      "Source": "Repository"
+    },
+    "GPArotation": {
+      "Package": "GPArotation",
+      "Version": "2024.3-1",
       "Source": "Repository"
     },
     "Hmisc": {
@@ -46,7 +56,7 @@
     },
     "RcppArmadillo": {
       "Package": "RcppArmadillo",
-      "Version": "0.12.8.4.0",
+      "Version": "14.0.0-1",
       "Source": "Repository"
     },
     "RcppEigen": {
@@ -56,7 +66,7 @@
     },
     "SparseM": {
       "Package": "SparseM",
-      "Version": "1.83",
+      "Version": "1.84",
       "Source": "Repository"
     },
     "TH.data": {
@@ -216,7 +226,12 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.35",
+      "Version": "0.6.36",
+      "Source": "Repository"
+    },
+    "doBy": {
+      "Package": "doBy",
+      "Version": "4.6.22",
       "Source": "Repository"
     },
     "dplyr": {
@@ -226,7 +241,7 @@
     },
     "effectsize": {
       "Package": "effectsize",
-      "Version": "0.8.8",
+      "Version": "0.8.9",
       "Source": "Repository"
     },
     "elliptic": {
@@ -236,7 +251,7 @@
     },
     "emmeans": {
       "Package": "emmeans",
-      "Version": "1.10.2",
+      "Version": "1.10.3",
       "Source": "Repository"
     },
     "estimability": {
@@ -347,7 +362,7 @@
     },
     "ggpp": {
       "Package": "ggpp",
-      "Version": "0.5.7",
+      "Version": "0.5.8-1",
       "Source": "Repository"
     },
     "ggrain": {
@@ -469,7 +484,7 @@
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspBase",
       "RemoteRef": "HEAD",
-      "RemoteSha": "c5936d63c775841d2ebc6fc097fe96ff2b06d21b"
+      "RemoteSha": "e7b21a684768ac8853057a935ff21bcba3314212"
     },
     "jaspDescriptives": {
       "Package": "jaspDescriptives",
@@ -480,7 +495,7 @@
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspDescriptives",
       "RemoteRef": "HEAD",
-      "RemoteSha": "300d2baf211efee186f272eaa7e222b9ebf197c1"
+      "RemoteSha": "29e39eee3e792320ca85c0ab05663211093f410d"
     },
     "jaspGraphs": {
       "Package": "jaspGraphs",
@@ -491,7 +506,7 @@
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspGraphs",
       "RemoteRef": "HEAD",
-      "RemoteSha": "09e2fecf1b921a00a203a442207591ecd3db2821"
+      "RemoteSha": "5c6cb6a4723197ca3befd3d0a5fab5b8291c08a2"
     },
     "jaspTTests": {
       "Package": "jaspTTests",
@@ -502,7 +517,7 @@
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspTTests",
       "RemoteRef": "HEAD",
-      "RemoteSha": "7722375c147c824437cebdda05ab5fc92b5c9a1f"
+      "RemoteSha": "3c60e478508aaa50147895bf7c189c34f9a05c4c"
     },
     "jpeg": {
       "Package": "jpeg",
@@ -531,7 +546,7 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.47",
+      "Version": "1.48",
       "Source": "Repository"
     },
     "labeling": {
@@ -561,7 +576,7 @@
     },
     "lme4": {
       "Package": "lme4",
-      "Version": "1.1-35.4",
+      "Version": "1.1-35.5",
       "Source": "Repository"
     },
     "lmerTest": {
@@ -609,6 +624,11 @@
       "Version": "2.0.1",
       "Source": "Repository"
     },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.4.10",
+      "Source": "Repository"
+    },
     "mime": {
       "Package": "mime",
       "Version": "0.12",
@@ -622,6 +642,11 @@
     "mnormt": {
       "Package": "mnormt",
       "Version": "2.1.1",
+      "Source": "Repository"
+    },
+    "modelr": {
+      "Package": "modelr",
+      "Version": "0.1.11",
       "Source": "Repository"
     },
     "modeltools": {
@@ -666,7 +691,7 @@
     },
     "nloptr": {
       "Package": "nloptr",
-      "Version": "2.1.0",
+      "Version": "2.1.1",
       "Source": "Repository"
     },
     "nortest": {
@@ -721,7 +746,7 @@
     },
     "pbkrtest": {
       "Package": "pbkrtest",
-      "Version": "0.5.2",
+      "Version": "0.5.3",
       "Source": "Repository"
     },
     "performance": {
@@ -776,12 +801,12 @@
     },
     "ps": {
       "Package": "ps",
-      "Version": "1.7.6",
+      "Version": "1.7.7",
       "Source": "Repository"
     },
     "psych": {
       "Package": "psych",
-      "Version": "2.4.3",
+      "Version": "2.4.6.26",
       "Source": "Repository"
     },
     "purrr": {
@@ -1032,7 +1057,7 @@
     },
     "yaml": {
       "Package": "yaml",
-      "Version": "2.3.8",
+      "Version": "2.3.9",
       "Source": "Repository"
     },
     "zip": {

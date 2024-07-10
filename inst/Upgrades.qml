@@ -807,4 +807,23 @@ Upgrades
 		ChangeRename {	from: "VovkSellkeMPR";					to: "vovkSellke"	}
 
 	}
+
+	Upgrade
+	{
+		functionName:		"AnovaRepeatedMeasures"
+		fromVersion:		"0.18.3"
+		toVersion:			"0.19.0"
+
+		ChangeJS
+		{
+			name:		"poolErrorTermFollowup"
+			isNewOption: true
+			jsFunction:	function(options)
+			{
+				return !options["multivariateModelFollowup"];
+			}
+		}
+
+	}
+
 }

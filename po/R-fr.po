@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2024-06-29 02:41\n"
-"PO-Revision-Date: 2024-02-24 02:36+0000\n"
-"Last-Translator: Jean-Louis Warin <jlwkhi@gmail.com>\n"
+"PO-Revision-Date: 2024-07-11 15:09+0000\n"
+"Last-Translator: Florent Michelot <internet@florent.michelot.info>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fr/>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -91,34 +91,35 @@ msgstr "Inférieur"
 msgid "Upper"
 msgstr "Supérieur"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "IC %s%% pour le d de Cohen"
+msgstr "IC %s%% pour le η²ₚ"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "IC %s%% pour le d de Cohen"
+msgstr "IC %s%% pour le ω²"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "IC %s%% pour le d de Cohen"
+msgstr "IC %s%% pour le ω²ₚ"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
-"Les corrections Brown-Forsythe et Welch ne sont disponibles que pour l'ANOVA "
-"à un facteur"
+"Les corrections de Brown-Forsythe et de Welch ne sont disponibles que pour "
+"l'ANOVA à un facteur"
 
 msgid "Contrast Tables"
-msgstr "Tables de contraste"
+msgstr "Tableau de contraste"
 
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s Contraste - %2$s"
 
+#, fuzzy
 msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Données insuffisantes pour estimer le modèle complet/les contrastes. Il est "
+"probable que des cellules soient vides dans le plan inter-sujets (p. ex. du "
+"à une mauvaise structure des données)."
 
 msgid "Please specify an additional contrast."
 msgstr "Veuillez spécifier un contraste supplémentaire."
@@ -161,12 +162,13 @@ msgstr "Correction de biais accélérée."
 msgid "Bootstrapping Post Hoc Test"
 msgstr "Contrast Post Hoc avec Bootstrap"
 
+#, fuzzy
 msgid ""
 "Some confidence intervals could not be computed.\n"
 "Possibly too few bootstrap replicates."
 msgstr ""
 "Certains intervalles de confiance n'ont pas pu être calculés.\n"
-"Il y a possiblement pas assez de réplications bootstrap."
+"Il y n'a probablement pas assez de réplications bootstrap."
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -218,7 +220,7 @@ msgid "df1"
 msgstr "dl1"
 
 msgid "df2"
-msgstr "ddl2"
+msgstr "dl2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -270,10 +272,13 @@ msgstr ""
 msgid "%1$i%% CI for Rank %2$s"
 msgstr ""
 
+#, fuzzy
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
 msgstr ""
+"Les tests sont effectués séparément pour chaque variable, sans tenir compte "
+"des effets multivariés."
 
 msgid "Dunn"
 msgstr "Dunn"

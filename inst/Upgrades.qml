@@ -813,17 +813,7 @@ Upgrades
 		functionName:		"AnovaRepeatedMeasures"
 		fromVersion:		"0.18.3"
 		toVersion:			"0.19.0"
-
-		ChangeJS
-		{
-			name:		"poolErrorTermFollowup"
-			isNewOption: true
-			jsFunction:	function(options)
-			{
-				return !options["multivariateModelFollowup"];
-			}
-		}
-
+		msg:				"From JASP 0.19 onward, the RM ANOVA uses the unpooled error terms for follow-up tests as the default, to better handle possible violations of sphericity. If you were previously using the pooled error term, this means your post hoc, contrast, and marginal mean results can slightly differ when refreshing the results. In order to use the pooled error term, you can tick the checkbox labelled 'Pool error term for follow-up tests'."
 	}
 
 }

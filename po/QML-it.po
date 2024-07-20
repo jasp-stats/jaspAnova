@@ -410,9 +410,10 @@ msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
 msgstr ""
 
+#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr ""
+msgstr "Opzioni Aggiuntive"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -710,13 +711,15 @@ msgctxt "ModelTerms|"
 msgid "Components"
 msgstr "Componenti"
 
+#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Test di Post Hoc"
 
+#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr ""
+msgstr "Correzione"
 
 msgctxt "PostHocTests|"
 msgid "Null control"
@@ -778,9 +781,10 @@ msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr ""
 
+#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Test di Omogeneità"
 
 #, fuzzy
 msgctxt "AssumptionChecks|"
@@ -818,9 +822,10 @@ msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr ""
 
+#, fuzzy
 msgctxt "Contrasts|"
 msgid "Effect size"
-msgstr ""
+msgstr "Dimensioni dell'effetto"
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
@@ -907,9 +912,10 @@ msgctxt "Display|"
 msgid "Confidence intervals"
 msgstr ""
 
+#, fuzzy
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "p-ratio massima di Vovk-Sellke"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
@@ -952,9 +958,10 @@ msgctxt "Models|"
 msgid "Components"
 msgstr "Componenti"
 
+#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Termini del Modello"
 
 #, fuzzy
 msgctxt "Nonparametrics|"
@@ -1157,9 +1164,10 @@ msgctxt "OrderRestrictions|"
 msgid "Terms"
 msgstr ""
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Test di Post Hoc"
 
 #, fuzzy
 msgctxt "PostHoc|"
@@ -1181,9 +1189,10 @@ msgctxt "PostHoc|"
 msgid "bootstraps"
 msgstr "bootstrap"
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr ""
+msgstr "Dimensioni dell'effetto"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
@@ -1199,9 +1208,10 @@ msgctxt "PostHoc|"
 msgid "Dunnett"
 msgstr "Dunnett"
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr ""
+msgstr "Correzione"
 
 #, fuzzy
 msgctxt "PostHoc|"

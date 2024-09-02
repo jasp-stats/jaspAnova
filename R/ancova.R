@@ -885,18 +885,18 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   if (options$postHocTypeStandard)
-    .anovaPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object, anovaContainer[["afexModel"]]$object)
+    .anovaStandardPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object, anovaContainer[["afexModel"]]$object)
 
   if (options$postHocTypeGames)
-    .anovaGamesTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaGamesPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
 
   if (options$postHocTypeDunnet)
-    .anovaDunnettTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
+    .anovaDunnettPostHocTable(postHocContainer, dataset, options,  anovaContainer[["model"]]$object)
 
   return()
 }
 
-.anovaPostHocTable <- function(postHocContainer, dataset, options, model, afexModel = NULL) {
+.anovaStandardPostHocTable <- function(postHocContainer, dataset, options, model, afexModel = NULL) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
@@ -958,8 +958,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                                                            isBetween = TRUE))
       avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
       if (length(avFootnote) != 0) {
-        avTerms <- .unv(strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
-                                 ", ")[[1]])
+        avTerms <- strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
+                                 ", ")[[1]]
         postHocStandardContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
       }
       allPvalues <- do.call(cbind, lapply(resultPostHoc, function(x) x$p.value))
@@ -1098,7 +1098,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 }
 
 
-.anovaGamesTable <- function(postHocContainer, dataset, options, model) {
+.anovaGamesPostHocTable <- function(postHocContainer, dataset, options, model) {
   if (!is.null(postHocContainer[["postHocGamesContainer"]]))
     return()
 
@@ -1197,7 +1197,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   return()
 }
 
-.anovaDunnettTable <- function(postHocContainer, dataset, options, model) {
+.anovaDunnettPostHocTable <- function(postHocContainer, dataset, options, model) {
   if (!is.null(postHocContainer[["postHocDunnettContainer"]]))
     return()
 

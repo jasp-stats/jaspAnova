@@ -1024,7 +1024,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         postHocContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
       }
 
-      if (options[["postHocConditionalTable"]]) {
+      if (options[["postHocConditionalTable"]] & isFALSE(is.null(byVariable))) {
         resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[[byVariable[termIndex]]])
       } else {
         resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])

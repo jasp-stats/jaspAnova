@@ -1000,8 +1000,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       if (any(postHocVariables[[postHocVarIndex]] %in% allNames)) {     ## If the variable is a repeated measures factor
 
-        resultPostHoc[["scheffe"]] <- ""
-        resultPostHoc[["tukey"]] <-  ""
+        resultPostHoc[["scheffe"]] <- "."
+        resultPostHoc[["tukey"]] <-  "."
         if (options$postHocCorrectionScheffe || options$postHocCorrectionTukey) {
           cors <- paste(c("Tukey", "Scheffe")[c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe)], collapse = " and ")
 
@@ -1024,7 +1024,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         postHocContainer[[thisVarNameRef]]$addFootnote(gettextf("Results are averaged over the levels of: %s", paste(avTerms, collapse = ", ")))
       }
 
-      if (options[["postHocConditionalTable"]]) {
+      if (options[["postHocConditionalTable"]] & isFALSE(is.null(byVariable))) {
         resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[[byVariable[termIndex]]])
       } else {
         resultPostHoc[[".isNewGroup"]] <- !duplicated(resultPostHoc[["contrast_A"]])

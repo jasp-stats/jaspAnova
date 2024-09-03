@@ -142,7 +142,7 @@
   confAdjust <- strsplit(confAdjust, " ")[[1]][1]
 
   if (!includeCI) {
-    correctionFootnote <- gettextf("P-value adjusted for comparing a family of %s", as.character(nEstimates))
+    correctionFootnote <- gettextf("P-value adjusted for comparing a family of %s estimates.", as.character(nEstimates))
   } else if (isFALSE(includeEffectSize) || isFALSE(isBetween)) {
     correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method).", nEstimates, confAdjust)
   } else {

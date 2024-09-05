@@ -61,7 +61,7 @@ Section
 				
 				CheckBox 
 				{ 
-					name: "applyMoreyCorrectionErrorBars"
+					name: "normalizeErrorBarsDescriptives"
 					label: qsTr("Normalize error bars")
 					checked:			true
 					visible: analysis === Common.Type.Analysis.RMANOVA

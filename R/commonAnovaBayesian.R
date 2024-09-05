@@ -1619,16 +1619,16 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     plotErrorBars <- options$descriptivePlotCi
     errorBarType  <- "ci"
     conf.interval <- options$descriptivePlotCiLevel
-    moreyCorrection <- TRUE
+    normalizeErrorBars <- TRUE
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotCi", "descriptivePlotCiLevel"))
 
   } else {
     plotErrorBars <- options$descriptivePlotErrorBar
     errorBarType  <- options$descriptivePlotErrorBarType
     conf.interval <- options$descriptivePlotCiLevel
-    moreyCorrection <-  if (is.null(options[["applyMoreyCorrectionErrorBars"]])) FALSE else options[["applyMoreyCorrectionErrorBars"]]
+    normalizeErrorBars <-  if (is.null(options[["normalizeErrorBarsDescriptives"]])) FALSE else options[["normalizeErrorBarsDescriptives"]]
     descriptivesPlotContainer$dependOn(c("dependent", "descriptivePlotErrorBar", "descriptivePlotErrorBarType", "descriptivePlotCiLevel",
-                                         "descriptivePlotErrorBarPooled", "applyMoreyCorrectionErrorBars"))
+                                         "descriptivePlotErrorBarPooled", "normalizeErrorBarsDescriptives"))
 
   }
   usePooledSE <- if (is.null(options[["descriptivePlotErrorBarPooled"]])) FALSE else options[["descriptivePlotErrorBarPooled"]]
@@ -1653,7 +1653,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   betweenSubjectFactors <- groupVars[groupVars %in% options$betweenSubjectFactors]
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options$repeatedMeasuresFactors, `[[`, "name")]
 
-  if (length(repeatedMeasuresFactors) == 0) {
+  if (length(repeatedMeasuresFactors) == 0 || isFALSE(normalizeErrorBars)) {
     summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = conf.interval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
@@ -1666,7 +1666,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                conf.interval = conf.interval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
                                                usePooledSE = usePooledSE,
-                                               useMoreyCorrection = moreyCorrection,
                                                dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }
@@ -1861,7 +1860,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                               "barPlotHorizontalZeroFix", "barPlotCiInterval", "usePooledStandErrorCITwo"))
 
   usePooledSE <- if (is.null(options[["usePooledStandErrorCITwo"]])) FALSE else options[["usePooledStandErrorCITwo"]]
-  useMoreyCorrection <- if (is.null(options[["applyMoreyCorrectionErrorBarsBarplot"]])) TRUE else options[["applyMoreyCorrectionErrorBarsBarplot"]]
+  normalizeErrorBars <- if (is.null(options[["normalizeErrorBarsBarplot"]])) TRUE else options[["normalizeErrorBarsBarplot"]]
 
   barPlotHorizontalZeroFix <- options[["barPlotHorizontalZeroFix"]]
   barPlotContainer$dependOn(c("barPlotHorizontalAxis", "barPlotSeparatePlots", "labelYAxisTwo"))
@@ -1884,7 +1883,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   betweenSubjectFactors <- groupVars[groupVars %in% options[["betweenSubjectFactors"]]]
   repeatedMeasuresFactors <- groupVars[groupVars %in% sapply(options[["repeatedMeasuresFactors"]], `[[`, "name")]
 
-  if (length(repeatedMeasuresFactors) == 0) {
+  if (length(repeatedMeasuresFactors) == 0 || isFALSE(normalizeErrorBars)) {
     summaryStat <- jaspTTests::.summarySE(as.data.frame(dataset), measurevar = dependent, groupvars = groupVars,
                                          conf.interval = confInterval, na.rm = TRUE, .drop = FALSE,
                                          errorBarType = errorBarType, dependentName = .BANOVAdependentName,
@@ -1897,7 +1896,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
                                                conf.interval = confInterval,
                                                na.rm=TRUE, .drop = FALSE, errorBarType = errorBarType,
                                                usePooledSE = usePooledSE,
-                                               useMoreyCorrection =  useMoreyCorrection,
                                                dependentName = .BANOVAdependentName,
                                                subjectName = .BANOVAsubjectName)
   }

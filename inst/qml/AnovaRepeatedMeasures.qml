@@ -162,7 +162,7 @@ Form
 		framework:	form.framework
 		TextField 	{ name: "labelYAxisTwo"; 			label: qsTr("Label y-axis"); 	fieldWidth: 200 }
 		CheckBox 	{ name: "usePooledStandErrorCITwo"; label: qsTr("Average across unused RM factors") }
-		CheckBox	{ name: "applyMoreyCorrectionErrorBarsBarplot";	label: qsTr("Normalize error bars"); checked: true}
+		CheckBox	{ name: "normalizeErrorBarsBarplot";	label: qsTr("Normalize error bars"); checked: true}
 	}
 
 	Common.RainCloudPlots

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-06-29 02:41\n"
+"POT-Creation-Date: 2024-09-07 02:47\n"
 "PO-Revision-Date: 2024-07-14 14:09+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -848,7 +848,8 @@ msgstr "p<sub>Scheffe</sub>"
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>Sidak</sub>"
 
-msgid "P-value adjusted for comparing a family of %s"
+#, fuzzy
+msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "P-Wert angepasst, um eine Familie von %s zu vergleichen"
 
 msgid ""

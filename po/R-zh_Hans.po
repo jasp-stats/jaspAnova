@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-06-29 02:41\n"
+"POT-Creation-Date: 2024-09-07 02:47\n"
 "PO-Revision-Date: 2024-04-30 08:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -794,7 +794,8 @@ msgstr "p<sub>scheffe</sub>"
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>sidak</sub>"
 
-msgid "P-value adjusted for comparing a family of %s"
+#, fuzzy
+msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "为比较 %s 族而调整的 P 值"
 
 msgid ""

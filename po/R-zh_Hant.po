@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-06-29 02:41\n"
+"POT-Creation-Date: 2024-09-07 02:47\n"
 "PO-Revision-Date: 2023-12-25 04:07+0000\n"
 "Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -809,7 +809,8 @@ msgstr "<sub>Scheffe</sub> p值"
 msgid "p<sub>sidak</sub>"
 msgstr "<sub>Sidak</sub>p值"
 
-msgid "P-value adjusted for comparing a family of %s"
+#, fuzzy
+msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "P 值經過調整，用於比較 %s 群"
 
 msgid ""

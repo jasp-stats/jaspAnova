@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.0\n"
-"POT-Creation-Date: 2024-06-29 02:41\n"
+"POT-Creation-Date: 2024-09-07 02:47\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -674,7 +674,7 @@ msgstr ""
 msgid "p<sub>sidak</sub>"
 msgstr ""
 
-msgid "P-value adjusted for comparing a family of %s"
+msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr ""
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."

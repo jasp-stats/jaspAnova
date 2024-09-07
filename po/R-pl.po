@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-06-29 02:41\n"
+"POT-Creation-Date: 2024-09-07 02:47\n"
 "PO-Revision-Date: 2024-09-05 15:09+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -835,7 +835,8 @@ msgstr "p<sub>scheffe</sub>"
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>sidak</sub>"
 
-msgid "P-value adjusted for comparing a family of %s"
+#, fuzzy
+msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "Wartość p skorygowana w celu porównania rodziny %s"
 
 msgid ""

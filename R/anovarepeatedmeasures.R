@@ -932,8 +932,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     thisVarName <- paste(postHocVariables[[postHocVarIndex]], collapse = ":")
     byVariable <- if (options[["postHocConditionalTable"]] && length(postHocVariables[[postHocVarIndex]]) > 1) postHocVariables[[postHocVarIndex]] else NULL
     termsToLoop <- if (options[["postHocConditionalTable"]]) postHocVariables[[postHocVarIndex]] else 1
+    dfType <- if (options[["poolErrorTermFollowup"]] && (length(postHocVariables[[postHocVarIndex]]) > 1)) "number" else "integer"
     for (termIndex in seq_along(termsToLoop))
-      postHocContainer[[ paste0(thisVarName, termIndex)]] <- .createPostHocStandardTable(thisTitle, byVariable[termIndex], options)
+      postHocContainer[[ paste0(thisVarName, termIndex)]] <- .createPostHocStandardTable(thisTitle, byVariable[termIndex], options, dfType = dfType)
 
     if (options[["postHocLetterTable"]]) {
       letterTable <- createJaspTable(title = paste0("Letter-Based Grouping - ", thisVarName))

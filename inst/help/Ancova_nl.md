@@ -77,7 +77,7 @@ Met een ANCOVA kan men het verschil tussen meerdere groepsgemiddelden analyseren
       - Bonferroni: Deze correctie wordt gezien als vrij conservatief. Het risico op een type 1 fout wordt verminderd, maar de statistische kracht (power) wordt ook lager.
       - Holm: Deze methode wordt ook wel sequentiële Bonferroni genoemd, en wordt gezien als minder conservatief dan de Bonferroni methode.
   - Type: Er kunnen verschillende typen post-hoc toetsen worden geselecteerd. 
-	  -  Standaard (LSD): Paarsgewijze t-toetsen worden uitgevoerd. Alle correcties kunnen op deze methode worden toegepast. Dit is de standaardoptie.
+	  -  Standaard: Paarsgewijze t-toetsen worden uitgevoerd. Alle correcties kunnen op deze methode worden toegepast. Als Tukey's p-waarde correctie is geselecteerd, is dit equivalent aan Tukey's HSD. Dit is de standaardoptie.
       -  Games-Howell: Deze methode kan worden gebruikt wanneer groeps-/niveauvarianties niet gelijk zijn. De p-waarden worden gecorrigeerd met de Tukey methode.
       -  Dunett: Als u deze methode selecteert, worden alle niveaus vergeleken met een specifiek niveau, bijvoorbeeld met de controlegroep. Momenteel is het nog niet mogelijk om handmatig te specificeren met welk niveau de andere niveaus worden vergeleken, maar dit is gebaseerd op de volgorde van de niveaus. Om de volgorde aan te passen kunnen de niveaulabels worden veranderd.
         <details>

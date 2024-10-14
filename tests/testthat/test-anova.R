@@ -659,14 +659,14 @@ test_that("Field - Chapter 7 results match", {
   # removed both post hoc table and contrast table because bootstrap results are now in same table
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Alcohol$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.392000159227314, -0.00376914898826786, 0.230950085511107,
-                                      0, 1, -0.769579725829724, -1.48733254329573, -1.8129965586672,
-                                      0.177726007657148, 0.0548973391001529, "FALSE", 0.435378856593833,
-                                      0.0142934574412505, 0.00359956767679779, 0, 2, -1.43536324786325,
-                                      -2.31465226049576, -3.47491007077881, 0.00337043014651417, -0.602581004497449,
-                                      "FALSE", 0.407611902363181, 0.0180626064295184, 0.311931949521, 42, 42, 42,
-                                      1, 2, -0.690674603174603, -1.43846891737073, -1.66191351211161,
-                                      0.231712504393661, 0.214248742598683))
+                                 list("TRUE", 0.392000159227314, -0.00376914898826863, 0.230950085511108,
+                                      0, 1, 42, -0.769579725829724, -1.48733254329573, -1.8129965586672,
+                                      0.177726007657148, 0.0548973391001528, "FALSE", 0.435378856593833,
+                                      0.014293457441249, 0.00359956767679781, 0, 2, 42, -1.43536324786325,
+                                      -2.31465226049576, -3.47491007077881, 0.00337043014651439, -0.602581004497448,
+                                      "FALSE", 0.407611902363181, 0.0180626064295178, 0.311931949521002,
+                                      1, 2, 42, -0.690674603174603, -1.43846891737072, -1.6619135121116,
+                                      0.231712504393662, 0.214248742598684))
 
 
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data

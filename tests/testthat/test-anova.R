@@ -507,11 +507,12 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species1"]][["data"]]
    jaspTools::expect_equal_tables(table,
                                   list("TRUE", 0.286589136802729, "First species", "Second species",
-                                       -1.6, -5.58290526239083, 0.000324812090923943, "FALSE", 0.286589136802729,
-                                       "First species", "Third species", -1.54, -5.37354631505117, 12, 12, 12,
-                                       0.000453440993214982, "FALSE", 0.286589136802729, "Second species",
-                                       "Third species", 0.0599999999999998, 0.209358947339655, 0.976174158311121
-                                  ))
+                                       12, -1.6, -5.58290526239083, 0.000324812090923943, "FALSE",
+                                       0.286589136802729, "First species", "Third species", 12, -1.54,
+                                       -5.37354631505117, 0.000453440993215093, "FALSE", 0.286589136802729,
+                                       "Second species", "Third species", 12, 0.0600000000000003, 0.209358947339657,
+                                       0.97617415831112)
+                                  )
 
    # following https://github.com/jasp-stats/jasp-issues/issues/1295, assert that these names do not contain commas.
    contrast_A <- vapply(table, `[[`, "contrast_A", FUN.VALUE = character(1L))
@@ -581,11 +582,11 @@ test_that("Field - Chapter 5 results match", {
   # standard post hoc (tukey)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Dose$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.886942313043338, 1, 2, -1, -3.36624115850686, -1.12746904200424,
-                                      0.516276123508473, 1.36624115850686, "FALSE", 0.886942313043338,
-                                      1, 3, -2.8, -5.16624115850687, -3.15691331761188, 0.0209243994922408,
-                                      -0.433758841493136, "FALSE", 0.886942313043338, 2, 3, -1.8, 12 ,12,
-                                      -4.16624115850686, -2.02944427560764, 0.147457622995377, 0.566241158506864
+                                 list("TRUE", 0.886942313043338, 1, 2, 12, -1, -3.36624115850687, -1.12746904200424,
+                                      0.516276123508473, 1.36624115850687, "FALSE", 0.886942313043338,
+                                      1, 3, 12, -2.8, -5.16624115850687, -3.15691331761188, 0.020924399492241,
+                                      -0.433758841493132, "FALSE", 0.886942313043338, 2, 3, 12, -1.8,
+                                      -4.16624115850687, -2.02944427560764, 0.147457622995377, 0.566241158506867
                                  ))
 
   # games-howell post hoc

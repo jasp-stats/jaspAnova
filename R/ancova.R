@@ -900,7 +900,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   if (!is.null(postHocContainer[["postHocStandardContainer"]]))
     return()
 
-  postHocStandardContainer <- createJaspContainer(title = gettext("Standard (LSD)"))
+  myTitle <- if (options[["postHocCorrectionTukey"]])  gettext("Standard (HSD)") else  gettext("Standard")
+  postHocStandardContainer <- createJaspContainer(title = myTitle)
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
                                       "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
@@ -933,6 +934,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       wantsCorrections <- c(options[["postHocCorrectionTukey"]], options[["postHocCorrectionScheffe"]],
                             options[["postHocCorrectionBonferroni"]], options[["postHocCorrectionHolm"]],
                             options[["postHocCorrectionSidak"]])
+      if (sum(wantsCorrections) == 0)
+        wantsCorrections <- "none"
       postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")[wantsCorrections]
 
       ## Computation

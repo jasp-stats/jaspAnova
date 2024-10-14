@@ -65,7 +65,7 @@
   return(coefTable)
 }
 
-.createPostHocStandardTable <- function(myTitle, byVariable = NULL, options, makeBootstrapTable = FALSE) {
+.createPostHocStandardTable <- function(myTitle, byVariable = NULL, options, makeBootstrapTable = FALSE, dfType = "integer") {
 
   preTitle <- if (!makeBootstrapTable) gettext("Post Hoc Comparisons - ") else gettext("Bootstrapped Post Hoc Comparisons - ")
   postHocTable <- createJaspTable(title = paste0(preTitle, myTitle)) #this paste is ok
@@ -92,6 +92,7 @@
   }
 
   postHocTable$addColumnInfo(name="SE", title=gettext("SE"), type="number")
+  postHocTable$addColumnInfo(name="df", title=gettext("df"), type = dfType)
 
   if (makeBootstrapTable)
     postHocTable$addColumnInfo(name="bias", title=gettext("bias"), type="number")

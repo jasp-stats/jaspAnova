@@ -150,7 +150,7 @@ test_that("Post Hoc table results match", {
   table <- results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_contBinom$data
   jaspTools::expect_equal_tables(table,
                                  list("TRUE", 0.214904085649005, 0.448976320466698, 0.15401876311258,
-                                      -0.24864690950018, 0.55668443572534, 0, 1, 0.163364220743842,
+                                      -0.24864690950018, 0.55668443572534, 0, 1, 0.163364220743842, 98,
                                       0.448976320466698, -0.263105943067512, 0.448976320466698, 0.448976320466698,
                                       0.760172707980336, 0.448976320466698, 0.589834384555196)
     )
@@ -507,11 +507,12 @@ test_that("Post Hoc Comparisons - Species table results match and contrast names
    table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Species1"]][["data"]]
    jaspTools::expect_equal_tables(table,
                                   list("TRUE", 0.286589136802729, "First species", "Second species",
-                                       -1.6, -5.58290526239083, 0.000324812090923943, "FALSE", 0.286589136802729,
-                                       "First species", "Third species", -1.54, -5.37354631505117,
-                                       0.000453440993214982, "FALSE", 0.286589136802729, "Second species",
-                                       "Third species", 0.0599999999999998, 0.209358947339655, 0.976174158311121
-                                  ))
+                                       12, -1.6, -5.58290526239083, 0.000324812090923943, "FALSE",
+                                       0.286589136802729, "First species", "Third species", 12, -1.54,
+                                       -5.37354631505117, 0.000453440993215093, "FALSE", 0.286589136802729,
+                                       "Second species", "Third species", 12, 0.0600000000000003, 0.209358947339657,
+                                       0.97617415831112)
+                                  )
 
    # following https://github.com/jasp-stats/jasp-issues/issues/1295, assert that these names do not contain commas.
    contrast_A <- vapply(table, `[[`, "contrast_A", FUN.VALUE = character(1L))
@@ -581,11 +582,11 @@ test_that("Field - Chapter 5 results match", {
   # standard post hoc (tukey)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Dose$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.886942313043338, 1, 2, -1, -3.36624115850686, -1.12746904200424,
-                                      0.516276123508473, 1.36624115850686, "FALSE", 0.886942313043338,
-                                      1, 3, -2.8, -5.16624115850687, -3.15691331761188, 0.0209243994922408,
-                                      -0.433758841493136, "FALSE", 0.886942313043338, 2, 3, -1.8,
-                                      -4.16624115850686, -2.02944427560764, 0.147457622995377, 0.566241158506864
+                                 list("TRUE", 0.886942313043338, 1, 2, 12, -1, -3.36624115850687, -1.12746904200424,
+                                      0.516276123508473, 1.36624115850687, "FALSE", 0.886942313043338,
+                                      1, 3, 12, -2.8, -5.16624115850687, -3.15691331761188, 0.020924399492241,
+                                      -0.433758841493132, "FALSE", 0.886942313043338, 2, 3, 12, -1.8,
+                                      -4.16624115850687, -2.02944427560764, 0.147457622995377, 0.566241158506867
                                  ))
 
   # games-howell post hoc
@@ -658,14 +659,14 @@ test_that("Field - Chapter 7 results match", {
   # removed both post hoc table and contrast table because bootstrap results are now in same table
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_Alcohol$data
   jaspTools::expect_equal_tables(table,
-                                 list("TRUE", 0.392000159227314, -0.00376914898826786, 0.230950085511107,
-                                      0, 1, -0.769579725829724, -1.48733254329573, -1.8129965586672,
-                                      0.177726007657148, 0.0548973391001529, "FALSE", 0.435378856593833,
-                                      0.0142934574412505, 0.00359956767679779, 0, 2, -1.43536324786325,
-                                      -2.31465226049576, -3.47491007077881, 0.00337043014651417, -0.602581004497449,
-                                      "FALSE", 0.407611902363181, 0.0180626064295184, 0.311931949521,
-                                      1, 2, -0.690674603174603, -1.43846891737073, -1.66191351211161,
-                                      0.231712504393661, 0.214248742598683))
+                                 list("TRUE", 0.392000159227314, -0.00376914898826863, 0.230950085511108,
+                                      0, 1, 42, -0.769579725829724, -1.48733254329573, -1.8129965586672,
+                                      0.177726007657148, 0.0548973391001528, "FALSE", 0.435378856593833,
+                                      0.014293457441249, 0.00359956767679781, 0, 2, 42, -1.43536324786325,
+                                      -2.31465226049576, -3.47491007077881, 0.00337043014651439, -0.602581004497448,
+                                      "FALSE", 0.407611902363181, 0.0180626064295178, 0.311931949521002,
+                                      1, 2, 42, -0.690674603174603, -1.43846891737072, -1.6619135121116,
+                                      0.231712504393662, 0.214248742598684))
 
 
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data

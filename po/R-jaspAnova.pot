@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jaspAnova 0.19.0\n"
-"POT-Creation-Date: 2024-09-07 02:47\n"
+"Project-Id-Version: jaspAnova 0.19.2\n"
+"POT-Creation-Date: 2024-10-19 02:51\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,10 @@ msgstr ""
 msgid "Post Hoc Tests"
 msgstr ""
 
-msgid "Standard (LSD)"
+msgid "Standard (HSD)"
+msgstr ""
+
+msgid "Standard"
 msgstr ""
 
 msgid "Results are averaged over the levels of: %s"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2024-09-07 02:47\n"
+"POT-Creation-Date: 2024-10-19 02:51\n"
 "PO-Revision-Date: 2024-06-23 15:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -126,7 +126,12 @@ msgstr "ゼロ以外のコントラストの重みを指定してください。
 msgid "Post Hoc Tests"
 msgstr "事後検定"
 
-msgid "Standard (LSD)"
+#, fuzzy
+msgid "Standard (HSD)"
+msgstr "標準 (LSD)"
+
+#, fuzzy
+msgid "Standard"
 msgstr "標準 (LSD)"
 
 msgid "Results are averaged over the levels of: %s"

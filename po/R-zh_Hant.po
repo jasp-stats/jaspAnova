@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2024-09-07 02:47\n"
+"POT-Creation-Date: 2024-10-19 02:51\n"
 "PO-Revision-Date: 2024-10-18 03:19+0000\n"
 "Last-Translator: OVO <ruby940813@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -123,7 +123,11 @@ msgid "Post Hoc Tests"
 msgstr "事後比較檢定"
 
 #, fuzzy
-msgid "Standard (LSD)"
+msgid "Standard (HSD)"
+msgstr "標準"
+
+#, fuzzy
+msgid "Standard"
 msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"

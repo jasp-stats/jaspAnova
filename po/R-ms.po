@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-09-07 02:47\n"
+"POT-Creation-Date: 2024-10-19 02:51\n"
 "PO-Revision-Date: 2022-02-04 03:58+0000\n"
 "Last-Translator: Harris Abd Hamid <harris75@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -125,7 +125,10 @@ msgstr "Sila tentukan pemberat-pemberat kontras yang bukan sifar."
 msgid "Post Hoc Tests"
 msgstr ""
 
-msgid "Standard (LSD)"
+msgid "Standard (HSD)"
+msgstr ""
+
+msgid "Standard"
 msgstr ""
 
 msgid "Results are averaged over the levels of: %s"

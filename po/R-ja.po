@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2024-10-19 02:51\n"
-"PO-Revision-Date: 2024-06-23 15:09+0000\n"
-"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
-"r/ja/>\n"
+"PO-Revision-Date: 2024-10-25 01:15+0000\n"
+"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -126,13 +126,11 @@ msgstr "ゼロ以外のコントラストの重みを指定してください。
 msgid "Post Hoc Tests"
 msgstr "事後検定"
 
-#, fuzzy
 msgid "Standard (HSD)"
-msgstr "標準 (LSD)"
+msgstr "標準 (HSD)"
 
-#, fuzzy
 msgid "Standard"
-msgstr "標準 (LSD)"
+msgstr "標準"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "結果は次のレベルで平均化されています: %s"
@@ -825,9 +823,8 @@ msgstr "p <sub>シェッフェ</sub>"
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>シダック</sub>"
 
-#, fuzzy
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr "%s のファミーを比較するために調整された P 値"
+msgstr "%s の推定値の族を比較する調整された p 値"
 
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
@@ -836,14 +833,13 @@ msgstr ""
 "%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
 "て修正された信頼区間）。"
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the bonferroni method)."
 msgstr ""
-"%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
-"て修正された信頼区間）。"
+"%1$s 推定値の族を比較する調整されたp値と信頼区間（%2$s 法を用いて修正された信"
+"頼区間。すなわちボンフェローニの方法を使って補正された効果量）。"
 
 msgid "Marginal Means -"
 msgstr "周辺平均 -"

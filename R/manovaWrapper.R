@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2022 University of Amsterdam
+# Copyright (C) 2013-2024 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,14 +19,14 @@
 
 Manova <- function(
           data = NULL,
-          version = "0.19",
+          version = "0.19.2",
           formula = NULL,
           anovaTables = FALSE,
           boxMTest = FALSE,
-          dependent = list(),
-          fixedFactors = list(),
+          dependent = list(types = list(), value = NULL),
+          fixedFactors = list(types = list(), value = NULL),
           includeIntercept = TRUE,
-          modelTerms = list(),
+          modelTerms = list(optionKey = "components", types = list(), value = list()),
           plotHeight = 320,
           plotHeightDescriptivesPlotLegend = 300,
           plotHeightDescriptivesPlotNoLegend = 300,
@@ -35,7 +35,7 @@ Manova <- function(
           plotWidthDescriptivesPlotLegend = 430,
           plotWidthDescriptivesPlotNoLegend = 350,
           plotWidthQQPlot = 300,
-          randomFactors = list(),
+          randomFactors = list(types = list(), value = NULL),
           shapiroTest = FALSE,
           testHotellingLawley = FALSE,
           testPillai = TRUE,

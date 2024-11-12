@@ -44,6 +44,6 @@ Section
 	}
 	CheckBox
 	{
-		name: "contrastEffectSize"; label: qsTr("Effect size")
+		name: "contrastEffectSize"; label: qsTr("Effect size (cohen's d)")
 	}
 }

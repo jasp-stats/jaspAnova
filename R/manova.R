@@ -287,10 +287,13 @@ ManovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   if (isTryError(tryResult)) {
     result <- NULL
-    if (grepl(tryResult[[1]], pattern = "singular"))
+    if (grepl(tryResult[[1]], pattern = "singular")) {
       errors <- gettext("The design matrix is not invertible. This might be due to collinear dependent variables.")
-    else
+    } else if (grepl(tryResult[[1]], pattern = "sample size")) {
+      errors <- gettext("Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations.")
+    } else {
       errors <- .extractErrorMessage(tryResult)
+    }
   } else {
     errors <- NULL
   }

@@ -2731,7 +2731,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     idx <- is.na(gg)
     if (all(idx)) {
       # this means that either the posterior sampling failed or the input data is bogus.
-      .quitAnalysis(gettext("All predictions had zero variance. Check the predictors for anomalies or increase the number of posterior samples."))
+      .quitAnalysis(gettext("All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."))
     } else {
       # this shouldn't happen, but is necessary because otherwise stuff will crash downstream.
       gg[is.na(gg)] <- mean(gg, na.rm = TRUE)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2024-10-19 02:51\n"
+"POT-Creation-Date: 2024-11-23 02:52\n"
 "PO-Revision-Date: 2024-04-30 08:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -726,8 +726,9 @@ msgstr "抽样后验"
 msgid "length of samples must be equal to length of weights!"
 msgstr "样本的长度必须等于权重的长度！"
 
+#, fuzzy
 msgid ""
-"All predictions had zero variance. Check the predictors for anomalies or "
+"All predictions had zero variance. Check the predictors/DV for anomalies or "
 "increase the number of posterior samples."
 msgstr "所有预测的方差为零。检查异常的预测变量或增加后验样本的数量。"
 
@@ -1075,6 +1076,11 @@ msgid ""
 "The design matrix is not invertible. This might be due to collinear "
 "dependent variables."
 msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造成的。"
+
+msgid ""
+"Results unavailable due to sample size (must be between 3 and 5000) or "
+"perfect correlations."
+msgstr ""
 
 #, fuzzy
 msgid "Null model (incl. %s and random slopes)"

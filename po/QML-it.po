@@ -822,11 +822,6 @@ msgctxt "Contrasts|"
 msgid "Confidence intervals"
 msgstr ""
 
-#, fuzzy
-msgctxt "Contrasts|"
-msgid "Effect size"
-msgstr "Dimensioni dell'effetto"
-
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
 msgstr ""
@@ -1316,3 +1311,7 @@ msgstr ""
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
 msgstr "Asse Etichetta-y"
+
+msgctxt "Contrasts|"
+msgid "Effect size (cohen's d)"
+msgstr ""

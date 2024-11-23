@@ -1220,10 +1220,6 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
 msgstr "Normaliseer foutbalken"
 
-msgctxt "Contrasts|"
-msgid "Effect size"
-msgstr "Effectgrootte"
-
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
 msgstr "Normaliseer foutbalken"
@@ -1263,3 +1259,7 @@ msgstr "Foutbalken"
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
 msgstr "Foutbalken"
+
+msgctxt "Contrasts|"
+msgid "Effect size (cohen's d)"
+msgstr ""

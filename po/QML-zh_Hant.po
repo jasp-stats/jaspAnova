@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-12-29 08:00+0000\n"
+"PO-Revision-Date: 2024-12-30 16:00+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-qml/zh_Hant/>\n"
@@ -287,23 +287,23 @@ msgstr "指定先驗係數"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "固定與隨機效果項"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "個別效果項"
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr ""
+msgstr "先驗係數"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "r 尺規固定效果"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "r 尺規隨機效果"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"

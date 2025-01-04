@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2024-12-30 16:00+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspanova-qml/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
@@ -231,10 +237,9 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
 msgstr "因子"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr "其他分組因子"
+msgstr "可選的分組因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
@@ -282,23 +287,23 @@ msgstr "指定先驗係數"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "固定與隨機效果項"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "個別效果項"
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr ""
+msgstr "先驗係數"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
-msgstr ""
+msgstr "r 尺規固定效果"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
-msgstr ""
+msgstr "r 尺規隨機效果"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"

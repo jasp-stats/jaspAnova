@@ -1729,7 +1729,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
         b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
         u <- wilcox.test(a, b)$statistic
-        rbs <- abs(as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j])))
+        rbs <- as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j]))
 
         dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
                                                    z = zAB,

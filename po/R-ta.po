@@ -2,910 +2,1028 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-01-09 07:03+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"WLS எடைகள் எதிர்மறை மற்றும்/அல்லது சுழிய மதிப்புகளைக் கொண்டுள்ளன. <br> <br> (நேர்மறை "
+"WLS எடைகள் மட்டுமே அனுமதிக்கப்படுகின்றன)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"ஒற்றை பொருத்தம் ஏற்பட்டது; ஒன்று அல்லது அதற்கு மேற்பட்ட முன்கணிப்பு மாறிகள் மற்ற முன்கணிப்பு "
+"மாறிகளின் நேரியல் கலவையாகும்"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"சதுரங்களின் எஞ்சிய தொகை 0; இது உங்கள் சார்பு மாறியின் மிகக் குறைந்த மாறுபாடு காரணமாக "
+"இருக்கலாம்"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "ANOVA ஐ கணக்கிடும்போது பிழை ஏற்பட்டது: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
 msgstr ""
+"உங்கள் வடிவமைப்பில் வெற்று செல்கள் உள்ளன. தயவுசெய்து வேறு வகையான சதுரங்களை முயற்சிக்கவும்."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"வெல்ச் திருத்தத்தை கணக்கிட முடியவில்லை, ஏனெனில் '%1$s' '%2$s' இன் பின்வரும் மட்டத்தில் "
+"(கள்) தொகுக்கப்பட்ட பிறகு சுழிய மாறுபாட்டைக் கொண்டுள்ளது:%3$s"
 
 msgid "ANOVA"
-msgstr ""
+msgstr "அனோவா"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "அன்கோவா"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "ஒரேவிதமான திருத்தம்"
 
 msgid "Cases"
-msgstr ""
+msgstr "வழக்குகள்"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "சதுரங்களின் தொகை"
 
 msgid "df"
-msgstr ""
+msgstr "டி.எஃப்"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "சராசரி நாற்கை"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "ப"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "Vs-mpr%s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "η²² க்கு % S % % தொஒ"
 
 msgid "Lower"
-msgstr ""
+msgstr "கீழ்"
 
 msgid "Upper"
-msgstr ""
+msgstr "மேல்"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "η²ₚ க்கு %s %% தொஒ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "ω² க்கு %s %% தொஒ"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "S %% தொஒ க்கு ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"பிரவுன்-ஃபார்ச் சைக்கேத் மற்றும் வெல்ச் திருத்தங்கள் ஒரு வழி ANOVA க்கு மட்டுமே கிடைக்கின்றன"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "மாறுபட்ட அட்டவணைகள்"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s கான்ட்ராச்ட் - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"முழு மாதிரி/முரண்பாடுகளை மதிப்பிடுவதற்கு போதுமான தரவு. பாடங்களுக்கு இடையில் உள்ள "
+"வெற்று செல்கள் (அதாவது, மோசமான தரவு அமைப்பு)"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "கூடுதல் மாறுபாட்டைக் குறிப்பிடவும்."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "தனிப்பயன் மாறுபட்ட மேட்ரிக்ச் வரிசைகளின் தவறான எண்ணிக்கை."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "பூச்சியமற்ற மாறுபட்ட எடைகளைக் குறிப்பிடவும்."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "பிந்தைய தற்காலிக சோதனைகள்"
 
 msgid "Standard (HSD)"
-msgstr ""
+msgstr "தரநிலை (எச்.எச்.டி)"
 
 msgid "Standard"
-msgstr ""
+msgstr "தரநிலை"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "முடிவுகள் சராசரியாக உள்ளன: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "காணாமல் போனதால் சில அளவுருக்கள் மதிப்பிடப்படவில்லை."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "%s வெற்றிகரமான பிரதிகளின் அடிப்படையில் பூட்ச்ட்ராப்பிங்."
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"சராசரி வேறுபாடு மதிப்பீடு தொடக்கவார் விநியோகத்தின் சராசரியை அடிப்படையாகக் கொண்டது."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "சார்பு சரி செய்யப்பட்டது."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "பூட்ச்ட்ராப்பிங் பிந்தைய தற்காலிக சோதனை"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"சில நம்பிக்கை இடைவெளிகளைக் கணக்கிட முடியவில்லை.\n"
+" தொடக்கவார் பிரதிகள் மிகக் குறைவு."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "கேம்ச்-ஓவல்"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "விளையாட்டுகள் -ஓவல் பிந்தைய தற்காலிக ஒப்பீடுகள் - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "ஒப்பீடு"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "சராசரி வேறுபாடு"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "சராசரி வேறுபாட்டிற்கு%.0f %% தொஒ"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "பி <சப்> டுகே </துணை>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "சரி செய்யப்படாத வழிமுறைகளின் அடிப்படையில் முடிவுகள்."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "டன்னெட்"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "டன்னெட் போச்ட் ஓக் ஒப்பீடுகள் - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "சராசரி வேறுபாட்டிற்கு%s %% தொஒ"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "பி <சப்> டன்னெட் </துணை>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
+"நம்பிக்கை இடைவெளி மிகவும் குறுகியது, தயவுசெய்து வேறு நம்பிக்கை நிலையைத் "
+"தேர்ந்தெடுக்கவும்."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "அனுமானம் காசோலைகள்"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "மாறுபாடுகளின் சமத்துவத்திற்கான சோதனை (லெவேன்ச்)"
 
 msgid "df1"
-msgstr ""
+msgstr "டி.எஃப் 1"
 
 msgid "df2"
-msgstr ""
+msgstr "டி.எஃப் 2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"பூச்சியத்திற்கு சமமான எஃப்-மதிப்பு சரியான பொருத்தத்தைக் குறிக்கிறது. <br> <br> "
+"(அடிப்படையில் சரியான பொருத்தத்தில் லெவனின் சோதனைகள் நம்பமுடியாதவை)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "விளிம்பு வழிமுறைகள்"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "பூட்ச்ட்ராப்பிங் விளிம்பு வழிமுறைகள்"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"சில நம்பிக்கை இடைவெளிகளைக் கணக்கிட முடியவில்லை. தொடக்கவார் பிரதிகள் மிகக் குறைவு."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "%s பிரதிகளின் அடிப்படையில் பூட்ச்ட்ராப்பிங்."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "எளிய முக்கிய விளைவுகள்"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "எளிய முக்கிய விளைவுகள் - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "%s நிலை"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "செல்கள் %s இல் போதுமான அவதானிப்புகள் இல்லை."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "க்ருச்கல்-வாலிச் சோதனை"
 
 msgid "Factor"
-msgstr ""
+msgstr "காரணி"
 
 msgid "Statistic"
-msgstr ""
+msgstr "புள்ளிவிவரம்"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "தரவரிசை %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1 $ i %% தொஒ தரவரிசை%2$s"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"பன்முக விளைவுகளை கணக்கிடாமல், ஒவ்வொரு மாறிக்கும் சோதனைகள் தனித்தனியாக நடத்தப்படுகின்றன."
 
 msgid "Dunn"
-msgstr ""
+msgstr "டன்"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "டன்னின் பிந்தைய தற்காலிக ஒப்பீடுகள் - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W <துணை> நான் </sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W <சப்> சே </sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "ஆர் <சப்> ஆர்.பி </துணை>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "பி <சப்> போன் </சப்>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "பி <சப்> ஓல்ம் </துணை>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"தனிப்பட்ட மான்-விட்னி சோதனைகளின் அடிப்படையில் தரவரிசை-பைனீரியல் தொடர்பு."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"தரவை ஏற்றும்போது பிழை. உங்கள் தொடர்ச்சியான நடவடிக்கைகள் அவதானிப்புகளை சரிபார்க்கவும்."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "காரணி: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளது."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "காரணிகள்: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளன."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
 msgstr ""
+"மீண்டும் மீண்டும் நடவடிக்கை: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
 msgstr ""
+"மீண்டும் மீண்டும் நடவடிக்கைகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "கோவாரியட்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "கோவாரியட்டுகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
+"பாடங்களுக்கு இடையிலான காரணிகளிடமிருந்து வேறுபடும் RM காரணிகளுக்கான பெயரைத் "
+"தேர்வுசெய்க."
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
 msgstr ""
+"ஒரே மாதிரியான பின்தொடர்தல் சோதனைக்கு தரவு மிகப் பெரியது. மாதிரி தாவலில் "
+"\"பின்தொடர்தல் சோதனைகளுக்கான பூல் பிழை காலத்தை\" தேர்வுசெய்ய முயற்சிக்கவும்."
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""
+"சில அளவுருக்கள் மதிப்பிடப்படவில்லை, பெரும்பாலும் வடிவமைப்பின் வெற்று செல்கள் காரணமாக "
+"இருக்கலாம்."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "கிரீன்அவுச் செல்கிறது"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "உய்ன்-ஃபெல்ட்"
 
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "பாட விளைவுகளுக்கு இடையில்"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s <சப்> ஐயா </துணை>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "பாட விளைவுகளுக்குள்"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "கோள திருத்தம்"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "2 நிலைகளைக் கொண்ட காரணிகளுக்கு கோள திருத்தங்கள் கிடைக்கவில்லை."
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
 msgstr ""
+"ம uch ச்லியின் கோளத்தின் சோதனை, கோளத்தின் அனுமானம் மீறப்படுவதைக் குறிக்கிறது (ப <.05)."
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
 msgstr ""
+"குறிப்பிடப்பட்ட பாட காரணிகளுக்கு இடையில் எதுவும் இல்லாததால், ஒரேவிதமான சோதனைகளைச் செய்"
+"ய முடியாது."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "கோளத்தின் சோதனை"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "ம uch ச்லியின் டபிள்யூ"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "தோராயமாக. %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "பி-மதிப்பு"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "கிரீன்ச்அவுச்-ஐனியர்%s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "உய்ன்-ஃபெல்ட் %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "குறைந்த பிணைப்பு %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
+"ஆர்.எம் காரணியின் இரண்டு நிலைகள் மட்டுமே இருப்பதால், அல்லது எச்எச்பி மேட்ரிக்ச் ஒருமை "
+"என்பதால் கோள சோதனைகளைச் செய்ய முடியாது."
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
+"பி-மீண்டும் மீண்டும் நடவடிக்கைகளுக்கு பி-மதிப்புகள் பொருத்தமானவை அல்ல (மேக்ச்வெல், 1980; "
+"புலம், 2012)."
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nonparametrics"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "ப்ரீட்மேன் சோதனை"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ² <சப்> எஃப் </sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "கெண்டலின் டபிள்யூ"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "ப்ரீட்மேன்/டர்பின் சோதனைக்கு பொருத்தமான விதிமுறைகளைக் குறிப்பிடவும்."
 
 msgid "Not an unreplicated complete block design."
-msgstr ""
+msgstr "பயன்படுத்தப்படாத முழுமையான தொகுதி வடிவமைப்பு அல்ல."
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "டர்பின் சோதனை"
 
 msgid "df num"
-msgstr ""
+msgstr "டி.எஃப் எண்"
 
 msgid "df den"
-msgstr ""
+msgstr "டி.எஃப் டென்"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "பி <சப்> எஃப் </துணை>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "கோனோவர் சோதனை"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "கோனோவரின் பிந்தைய தற்காலிக ஒப்பீடுகள் - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "டி-ச்டேட்"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "%s ஆல் தொகுக்கப்பட்டுள்ளது."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"தனிப்பட்ட கையொப்பமிடப்பட்ட தரவரிசை சோதனைகளின் அடிப்படையில் தரவரிசை-பைனீரியல் தொடர்பு."
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "மாதிரி சொற்களிலும் மதிப்பீட்டாளர் காரணிகள் தோன்ற வேண்டும்!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "மீண்டும் மீண்டும் நடவடிக்கைகள் உயிரணுக்களில் முடிவிலி காணப்படுகிறது."
 
 msgid "Number of observations is < %s in repeated measures cells"
 msgstr ""
+"அவதானிப்புகளின் எண்ணிக்கை மீண்டும் மீண்டும் நடவடிக்கைகளின் கலங்களில் < %s ஆகும்"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "மீண்டும் மீண்டும் நடவடிக்கைகள் கலங்களில் உள்ள மாறுபாடு 0 ஆகும்."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
+"மீண்டும் மீண்டும் நடவடிக்கைகள் செல்கள், %s ஆகியவற்றில் எதிர்கொள்ளும் நகல் மாறிகள்"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "%s இல் எதிர்கொள்ளும் நகல் மாறிகள்"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "மாதிரி விதிமுறைகளில் சேர்க்கப்பட்ட நகல் பங்கேற்பாளர் நெடுவரிசை, %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"%1$s இன் தொடர்பு விளைவு சேர்க்கைக்கு (கள்) எந்த அவதானிப்புகளையும் கொண்டிருக்கவில்லை: %2$"
+"s. தயவுசெய்து மாதிரியை சரிசெய்து, காணாமல் போன கலங்களுடன் எந்த தொடர்புகளையும் அகற்றவும்"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"%1$s இன் தொடர்பு விளைவு சேர்க்கைக்கு (கள்) எந்த அவதானிப்புகளையும் கொண்டிருக்கவில்லை: %2$"
+"s. காணாமல் போன முதல் 10 சேர்க்கைகள் மட்டுமே காட்டப்பட்டுள்ளன. தயவுசெய்து மாதிரியை "
+"சரிசெய்து, காணாமல் போன கலங்களுடன் எந்த தொடர்புகளையும் அகற்றவும்"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
+"பேயச் காரணி வரையறுக்கப்படவில்லை - அனைத்து விளைவுகளும் தொல்லை என குறிப்பிடப்படுகின்றன."
 
 msgid "Null model"
-msgstr ""
+msgstr "சுழிய மாதிரி"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "சுழிய மாதிரி (உள்ளிட்ட. %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "பேயச் காரணிகளைக் கணக்கிடுதல்"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
 msgstr ""
+"லாப்லேச் தோராயமானது வேகமானது, ஆனால் தானியங்கி முறையை விட குறைவான துல்லியமானது. "
+"தரவை ஆராய்ந்து தோராயமான மதிப்பீட்டைப் பெறும்போது இது நன்றாக இருக்கும். இருப்பினும், இறுதி"
+" முடிவுகளைப் பெற தானியங்கி ஒருங்கிணைப்பு முறையைப் பயன்படுத்த பரிந்துரைக்கிறோம்."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "லாப்லேச் தோராயமானது எப்போதும் பிழை மதிப்பீட்டை வழங்காது."
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
 msgstr ""
+"மாதிரிக்கு பேயச் காரணி கணக்கிட முடியவில்லை: %1$s.\n"
+" பிழை செய்தி: %2$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"அனைத்து மாடல்களிலும் %s மற்றும் அனைத்து தொடர்ச்சியான நடவடிக்கைகளின் காரணிகளுக்கும் சீரற்ற "
+"சரிவுகள் உள்ளன."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
+"மீண்டும் மீண்டும் நடவடிக்கைகளுக்கான சீரற்ற சரிவுகள் காரணிகள் விலக்கப்படுகின்றன."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "அனைத்து மாடல்களிலும் %s அடங்கும்."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "விளைவுகளின் பகுப்பாய்வு - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "விளைவுகளின் பகுப்பாய்வு"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log (bf <துணை> உள்ளிட்ட </sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "Bf <sub> exch </sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "Bf <sub> incl </sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "விளைவுகள்"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "பி (உள்ளடக்கியது)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "பி (எக்ச்க்)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "பி (உள்ளிட்ட | தரவு)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "பி (எக்ச்ட் | தரவு)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"விளைவைக் கட்டுப்படுத்தும் மாதிரிகளை ஒப்பிடுகிறது. உயர்-வரிசை இடைவினைகள் விலக்கப்பட்டுள்"
+"ளன. பகுப்பாய்வு செபாச்டியன் கணிதம்%ச்டம்ப் பரிந்துரைத்தது."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"சில பேயச் காரணிகளைக் கணக்கிட முடியவில்லை. இந்த மாதிரிகளைத் தவிர்த்து சேர்க்கும் "
+"நிகழ்தகவுகள் மற்றும் பேயச் காரணிகள் கணக்கிடப்படுகின்றன. முடிவுகள் புரிந்துகொள்ள முடியாததா"
+"க இருக்கலாம்!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "மாதிரி ஒப்பீடு"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "பி.எஃப் <சப்> எம் </துணை>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "பி.எஃப் <சப்> 10 </ சப்>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "பி.எஃப் <சப்> 01 </ சப்>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "பதிவு (பி.எஃப் <சப்> எம் </துணை>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "பதிவு (பி.எஃப் <சப்> 10 </ சப்>)"
 
 msgid "Models"
-msgstr ""
+msgstr "மாதிரிகள்"
 
 msgid "P(M)"
-msgstr ""
+msgstr "பி (மீ)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "பி (எம் | தரவு)"
 
 msgid "error %%"
-msgstr ""
+msgstr "பிழை %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b> <em> எச்சரிக்கை. </em> </b> சில பேயச் காரணிகளைக் கணக்கிட முடியவில்லை. இந்த "
+"மாதிரிகளைத் தவிர்த்து பல மாதிரி அனுமானம் மேற்கொள்ளப்படுகிறது. முடிவுகள் புரிந்துகொள்ள "
+"முடியாததாக இருக்கலாம்!"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "மாதிரி சராசரி பின்புற சுருக்கம்"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s %% நம்பகமான இடைவெளி"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "மாதிரி சராசரி r%s"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b> <em> எச்சரிக்கை: மாதிரி சிக்கல்கள் எதிர்கொள்ளப்பட்டன! </em> </b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "பாதிக்கப்பட்ட மாதிரி"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% பயனுள்ள மாதிரிகள்"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "பயனுள்ள மாதிரிகள்"
 
 msgid "Total samples drawn"
-msgstr ""
+msgstr "வரையப்பட்ட மொத்த மாதிரிகள்"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"சில பாதிக்கப்பட்ட மாடல்களுக்கு, பின்புற மாதிரிகளில் 75% க்கும் அதிகமானவை தோல்வியடைந்தன, "
+"அல்லது 1000 க்கும் குறைவான மாதிரிகள் அடுத்தடுத்த முடிவுகளுக்கு இருந்தன. அனைத்து மாதிரி"
+" சராசரி வெளியீடும் பக்கச்சார்பானதாகவும் புரிந்துகொள்ள முடியாததாகவும் இருக்கலாம். எந்த "
+"ஒற்றைப்படை வடிவங்களுக்கும் மாதிரி விவரக்குறிப்பு மற்றும் தரவை சரிபார்க்கவும்."
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b> <em> எச்சரிக்கை. </em> </b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "மாதிரி சராசரி பின்புற விநியோகங்கள்"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "பின்புற வழங்கல்"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"பின்புற விநியோகத்தை சூழ்ச்சி செய்ய முடியவில்லை. இந்த அளவுரு உள்ளிட்ட மாதிரிகளுக்கு பிழை"
+" ஏற்பட்டதா என்று சரிபார்க்கவும்."
 
 msgid "Level"
-msgstr ""
+msgstr "நிலை"
 
 msgid "Density"
-msgstr ""
+msgstr "அடர்த்தி"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "மாதிரி சராசரி Q-Q சூழ்ச்சி"
 
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "மாதிரி சராசரி பின்புற ஆர்%s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"அனைத்து ஒப்பீடுகளிலும் (வெச்ட்பால், சான்சன், & உட்ச், 1997) சுழிய கருதுகோள் வைத்திருக்கும் "
+"முன் நிகழ்தகவு 0.5 ஐ நிர்ணயிப்பதன் மூலம் பல சோதனைக்கு பின்புற முரண்பாடுகள் சரி "
+"செய்யப்பட்டுள்ளன. தனிப்பட்ட ஒப்பீடுகள் இயல்புநிலை டி-சோதனையை அடிப்படையாகக் கொண்டவை (0, r "
+"= 1/sqrt (2)) முன். பேயச் காரணியில் உள்ள \"யு\" அது சரி செய்யப்படாதது என்பதைக் "
+"குறிக்கிறது."
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "முன் முரண்பாடுகள்"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "பின்புற முரண்பாடுகள்"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "விளக்கமான"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "விளக்கங்கள் - %s"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "இடை, சராசரி"
 
 msgid "SD"
-msgstr ""
+msgstr "எச்.டி."
 
 msgid "SE"
-msgstr ""
+msgstr "உடன்"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "மாறுபாட்டின் குணகம்"
 
 msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
+"காரணிகளின் சில சேர்க்கைகள் கவனிக்கப்படவில்லை, எனவே தவிர்க்கப்பட்டுள்ளன ( %2 $ g "
+"சேர்க்கைகளில் %1 $ g கவனிக்கப்படாது)."
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "விளக்கங்கள் அடுக்கு"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "விளக்கங்கள் சூழ்ச்சி"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "பார் அடுக்கு"
 
 msgid "Bar Plot"
-msgstr ""
+msgstr "பார் சூழ்ச்சி"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "ரெயின்க்ளூட் அடுக்கு"
 
 msgid "Dependent"
-msgstr ""
+msgstr "சார்ந்தது"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "மாதிரி போச்டரியர்கள்"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "மாதிரிகளின் நீளம் எடைகளின் நீளத்திற்கு சமமாக இருக்க வேண்டும்!"
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
 msgstr ""
+"எல்லா கணிப்புகளும் சுழிய மாறுபாட்டைக் கொண்டிருந்தன. முரண்பாடுகளுக்கு "
+"முன்னறிவிப்பாளர்கள்/டி.வி.யை சரிபார்க்கவும் அல்லது பின்புற மாதிரிகளின் எண்ணிக்கையை "
+"அதிகரிக்கவும்."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "%2$d மாடல்களில் சிறந்த %1$d ஐக் காட்டுகிறது."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "பேய்ச்பாக்டரில் பின்வரும் பிழை ஏற்பட்டது :: enumategeneralmodels: %s"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "ஒற்றை மாதிரி அனுமானம்"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"ஒற்றை மாதிரி அனுமானத்தில் பிழை:\n"
+" %s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "ஒற்றை மாதிரி பின்புற சுருக்கம்"
 
 msgid "Variable"
-msgstr ""
+msgstr "மாறக்கூடிய"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "ஒற்றை மாதிரி பின்புற விநியோகங்கள்"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Q-Q சூழ்ச்சி"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "பின்புற ஆர்%s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "ஒற்றை மாதிரி r%s"
 
 msgid "Estimate"
-msgstr ""
+msgstr "மதிப்பீடு"
 
 msgid "t"
-msgstr ""
+msgstr "டி"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "கோஅனின் டி"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "கோஅனின் டி க்கு%s %% தொஒ"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s கான்ட்ராச்ட் குணகங்கள் - %2$s"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "பிந்தைய தற்காலிக ஒப்பீடுகள் -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "தொடக்கவார் செய்யப்பட்ட பிந்தைய தற்காலிக ஒப்பீடுகள் -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s %% BCA%$ 2"
 
 msgid "bias"
-msgstr ""
+msgstr "சார்பு"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "பி <சப்> சிப்ட்ச் </ துணை>"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "பி <b> ஆய்வு </b>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr ""
+"%s மதிப்பீடுகளின் குடும்பத்தை ஒப்பிடுவதற்கு பி-மதிப்பு சரிசெய்யப்பட்டது."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
+"பி-மதிப்பு மற்றும் நம்பிக்கை இடைவெளிகள் %1$s மதிப்பீடுகளின் குடும்பத்தை ஒப்பிடுவதற்கு "
+"சரிசெய்யப்படுகின்றன ( %2$s முறையைப் பயன்படுத்தி நம்பிக்கை இடைவெளிகள் சரி செய்யப்பட்டன)."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method)."
 msgstr ""
+"பி-மதிப்பு மற்றும் நம்பிக்கை இடைவெளிகள் %1$s மதிப்பீடுகளின் குடும்பத்தை ஒப்பிட்டுப் பார்க்க "
+"சரிசெய்யப்படுகின்றன ( %2$s முறையைப் பயன்படுத்தி சரிசெய்யப்பட்ட சராசரி வேறுபாட்டிற்கான "
+"சிஐ; விளைவு அளவிற்கு தொஒ போன்பெரோரோனி முறையைப் பயன்படுத்தி சரி செய்யப்பட்டது)."
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "விளிம்பு வழிமுறைகள் -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "தொடக்கவார் செய்யப்பட்ட விளிம்பு வழிமுறைகள் -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "விளிம்பு சராசரி"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95 %% BCA%"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"விளிம்பு என்றால் மதிப்பீடு தொடக்கவார் விநியோகத்தின் சராசரியை அடிப்படையாகக் கொண்டது."
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "சராசரி வேறுபாட்டிற்கு 95 %% தொஒ"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "போன்பெரோரோனா தொஒ சரிசெய்தல்"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "சிடக் தொஒ சரிசெய்தல்"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "வகை I சதுரங்களின் வகை"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "வகை II சதுரங்களின் தொகை"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "வகை III சதுரங்களின் தொகை"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "தடைசெய்யப்பட்ட கருதுகோள்களை ஒழுங்கு"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"மாதிரி %1$s இல் காணப்படும் தொடரியல் பிழை.\n"
+"\n"
+" சில கட்டுப்பாடுகள் நகல்!"
 
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
 msgstr ""
+"%s க்கான கட்டுப்பாட்டு தொடரியல் பிழைகள் உள்ளன. தொடரியல் டிகோட் செய்ய முடியவில்லை!"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "பூட்ச்ட்ராப்பிங் கட்டுப்பாடற்ற மாதிரி"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"%1$s இல் பிழை - மாதிரி தொடரியல் குறியாக்க முடியவில்லை! பிழை செய்தி: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s இல் பிழை - மாதிரியில் தொடரியல் பிழை! பிழை செய்தி: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "%1$s இல் பிழை - மாதிரியை மதிப்பிட முடியவில்லை! பிழை செய்தி: %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "பூட்ச்ட்ராப்பிங் தடைசெய்யப்பட்ட மாதிரிகள்"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
 msgstr ""
+"கட்டுப்பாடற்ற மாதிரிக்கு பொருந்த முடியவில்லை. இதன் விளைவாக, தடைசெய்யப்பட்ட மாதிரிகள் "
+"எதுவும் மதிப்பிடப்படவில்லை. பிழை செய்தி: %s."
 
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
+"கட்டுப்பாடற்ற மாதிரிக்கு பூட்ச்ட்ராப்பிங் பெற முடியவில்லை. இதன் விளைவாக, தடைசெய்யப்பட்ட "
+"மாடல்களுக்கான பூட்ச்ட்ராப்பிங் செய்ய முடியவில்லை. பிழை செய்தி: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"குறிப்பிட்ட தடைசெய்யப்பட்ட மாதிரிகள் எதையும் பொருத்த முடியவில்லை. காரணம் (கள்): %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "கட்டுப்பாடற்ற"
 
 msgid "Complement"
-msgstr ""
+msgstr "நிறைவு"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "தொடரியல் செய்தி"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "கட்டுப்பாடு தொடரியல் கிடைக்கும் குணகங்கள்"
 
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "மாதிரி ஒப்பீட்டைக் கணக்கிட முடியவில்லை! பிழை செய்தி: %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "மாதிரி ஒப்பீட்டு அட்டவணை"
 
 msgid "Model"
-msgstr ""
+msgstr "மாதிரியுரு"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "பதிவு-சாத்தியக்கூறு"
 
 msgid "Penalty"
-msgstr ""
+msgstr "தண்டம்"
 
 msgid "GORIC"
-msgstr ""
+msgstr "கோலிக்"
 
 msgid "Weight"
-msgstr ""
+msgstr "எடை"
 
 msgid "GORICA"
-msgstr ""
+msgstr "மலை"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "எடை விகிதம்"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"Goric = பொதுமைப்படுத்தப்பட்ட ஒழுங்கு-தடைசெய்யப்பட்ட செய்தி அளவுகோல் (KUIPER, HOIJTINK, "
+"& silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
+msgstr "கோரிகா = பொதுவான ஆர்டர்-தடைசெய்யப்பட்ட செய்தி அளவுகோல் தோராயமானது."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"எடைகள் விகிதங்கள் ஒவ்வொரு மாதிரிக்கும் \"%1$s\" மாதிரிக்கு எதிராக ஒப்பீட்டு எடையைக் "
+"குறிக்கின்றன. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "எடைகளை கணக்கிட முடியவில்லை!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "மாதிரி '%s' காலியாக இருப்பதால் குறிப்பு மாதிரியாக இருக்க முடியாது!"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "பின்வரும் மாதிரிகள் விலக்கப்பட்டன: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "உறவினர் %s- எடை"
 
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
-msgstr ""
+msgstr "ஒப்பீட்டில் ஒரே ஒரு மாதிரி: உறவினர் எடைகள் மேட்ரிக்சை கணக்கிட முடியாது"
 
 msgid "vs."
-msgstr ""
+msgstr "Vs."
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "குணகங்கள் ஒப்பீடு"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "கெழு"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "குணகங்கள் கட்டுப்படுத்தப்படாத மாதிரியிலிருந்து வேறுபடுகின்றன."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "மாதிரி சுருக்கம்"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "கட்டுப்பாடு அணி"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "இடது கை (எல்.எச்.எச்)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "வலது கை (RHS)"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "குணகங்கள்"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s %% தொஒ"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "%s வெற்றிகரமான தொடக்கவார் பிரதிகளின் அடிப்படையில் மதிப்பீடுகள்."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "குணகங்களின் அட்டவணையை கணக்கிட முடியவில்லை. பிழை செய்தி: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "செய்தி கருதுகோள் சோதனைகள்"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "கருதுகோள்"
 
 msgid "Test"
-msgstr ""
+msgstr "தேர்வு"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "சோதனை புள்ளிவிவரம்"
 
 msgid "Type %s"
-msgstr ""
+msgstr "வகை %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "செய்தி கருதுகோள் சோதனைகளை கணக்கிட முடியவில்லை. பிழை செய்தி: %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
 msgstr ""
+"H%1$s: அனைத்து சமத்துவ கட்டுப்பாடுகளும் செயலில் உள்ளன (==), h%2$s: குறைந்தது ஒரு "
+"சமத்துவ கட்டுப்பாடு மீறப்படுகிறது."
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: அனைத்து அளவுருக்களும் சமமாக (==), h%2$s: குறைந்தது ஒரு சமத்துவமின்மை "
+"கட்டுப்பாடு கண்டிப்பாக உண்மை (>)."
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: அனைத்து கட்டுப்பாடுகளும் சமத்துவங்கள் (==), h%2$s: குறைந்தது ஒரு சமத்துவமின்மை "
+"கட்டுப்பாடு கண்டிப்பாக உண்மை (>)."
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: அனைத்து கட்டுப்பாடுகளும் உள்ளன, h%2$s: குறைந்தது ஒரு கட்டுப்பாடு மீறப்படுகிறது."
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: குறைந்தது ஒரு கட்டுப்பாடு தவறானது அல்லது செயலில் உள்ளது (==), h%2$s: அனைத்து "
+"கட்டுப்பாடுகளும் கண்டிப்பாக உண்மை (>)."
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
 msgstr ""
+"விளிம்பு பொருள் சொற்கள் குறிப்பிடப்படவில்லை. தயவுசெய்து, 'தடைசெய்யப்பட்ட விளிம்பு "
+"வழிமுறைகள்' பிரிவில் மாதிரி விதிமுறைகளைத் தேர்ந்தெடுக்கவும்."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "விளிம்பு வழிமுறைகளை கணக்கிட முடியவில்லை. பிழை செய்தி: %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "முடிவுகள் சராசரியாக உள்ளன: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "கோவாரியட்டுகள் (%s) அவற்றின் சராசரி மதிப்புகளில் சரி செய்யப்படுகின்றன."
 
 msgid "MANOVA"
-msgstr ""
+msgstr "மனோவா"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"வடிவமைப்பு மேட்ரிக்ச் தலைகீழ் அல்ல. இது கோலைனியர் சார்ந்த மாறிகள் காரணமாக இருக்கலாம்."
 
 msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
 msgstr ""
+"மாதிரி அளவு (3 முதல் 5000 வரை இருக்க வேண்டும்) அல்லது சரியான தொடர்புகள் காரணமாக "
+"முடிவுகள் கிடைக்கவில்லை."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "சுழிய மாதிரி (உள்ளிட்ட %s மற்றும் சீரற்ற சரிவுகள்)"
+msgstr[1] "சுழிய மாதிரி (உள்ளிட்ட %s, மற்றும் சீரற்ற சரிவுகள்)"

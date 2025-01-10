@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-01-10 07:53+0000\n"
-"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"PO-Revision-Date: 2025-01-11 02:50+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ta/>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
-"WLS எடைகள் எதிர்மறை மற்றும்/அல்லது சுழிய மதிப்புகளைக் கொண்டுள்ளன. <br> <br> (நேர்மறை "
+"WLS எடைகள் எதிர்மறை மற்றும்/அல்லது சுழிய மதிப்புகளைக் கொண்டுள்ளன. <br><br> (நேர்மறை "
 "WLS எடைகள் மட்டுமே அனுமதிக்கப்படுகின்றன)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
@@ -71,7 +71,7 @@ msgid "VS-MPR%s"
 msgstr "Vs-mpr%s"
 
 msgid "%s%% CI for η²"
-msgstr "η²² க்கு %s%% தொஒ"
+msgstr "%s%% η² இதற்கு தொஒ"
 
 msgid "Lower"
 msgstr "கீழ்"
@@ -161,7 +161,7 @@ msgid "%.0f%% CI for Mean Difference"
 msgstr "சராசரி வேறுபாட்டிற்கு%.0f %% தொஒ"
 
 msgid "p<sub>tukey</sub>"
-msgstr "பி <சப்> டுகே </துணை>"
+msgstr "பி<sub> டுகே </sub>"
 
 msgid "Results based on uncorrected means."
 msgstr "சரி செய்யப்படாத வழிமுறைகளின் அடிப்படையில் முடிவுகள்."
@@ -176,7 +176,7 @@ msgid "%s%% CI for Mean Difference"
 msgstr "சராசரி வேறுபாட்டிற்கு%s %% தொஒ"
 
 msgid "p<sub>dunnett</sub>"
-msgstr "பி <சப்> டன்னெட் </துணை>"
+msgstr "பி <sub> டன்னெட் </sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
@@ -197,8 +197,8 @@ msgstr "டி.எஃப் 2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
-"பூச்சியத்திற்கு சமமான எஃப்-மதிப்பு சரியான பொருத்தத்தைக் குறிக்கிறது. <br> <br> "
-"(அடிப்படையில் சரியான பொருத்தத்தில் லெவனின் சோதனைகள் நம்பமுடியாதவை)"
+"F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
+"essentially perfect fit are unreliable)"
 
 msgid "Marginal Means"
 msgstr "விளிம்பு வழிமுறைகள்"
@@ -251,19 +251,19 @@ msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr "டன்னின் பிந்தைய தற்காலிக ஒப்பீடுகள் - %s"
 
 msgid "W<sub>i</sub>"
-msgstr "W <துணை> நான் </sub>"
+msgstr "W <sub> நான் </sub>"
 
 msgid "W<sub>j</sub>"
-msgstr "W <சப்> சே </sub>"
+msgstr "W <sub> சே </sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr "ஆர் <சப்> ஆர்.பி </துணை>"
+msgstr "ஆர் <sub> ஆர்.பி </sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr "பி <சப்> போன் </சப்>"
+msgstr "பி <sub> போன் </sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr "பி <சப்> ஓல்ம் </துணை>"
+msgstr "பி <sub> ஓல்ம் </sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
@@ -280,12 +280,10 @@ msgid "Factors: <em>%s</em>, contain fewer than two levels."
 msgstr "காரணிகள்: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளன."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
-"மீண்டும் மீண்டும் நடவடிக்கை: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
+msgstr "மீண்டும் நடவடிக்கை: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
-"மீண்டும் மீண்டும் நடவடிக்கைகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
+msgstr "மீண்டும் நடவடிக்கைகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
 msgstr "கோவாரியட்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
@@ -321,7 +319,7 @@ msgid "Between Subjects Effects"
 msgstr "பாட விளைவுகளுக்கு இடையில்"
 
 msgid "%s<sub>G</sub>"
-msgstr "%s <சப்> ஐயா </துணை>"
+msgstr "%s <sub> ஐயா </sub>"
 
 msgid "Within Subjects Effects"
 msgstr "பாட விளைவுகளுக்குள்"
@@ -379,7 +377,7 @@ msgid "Friedman Test"
 msgstr "ப்ரீட்மேன் சோதனை"
 
 msgid "Χ²<sub>F</sub>"
-msgstr "Χ² <சப்> எஃப் </sub>"
+msgstr "Χ² <sub> எஃப் </sub>"
 
 msgid "Kendall's W"
 msgstr "கெண்டலின் டபிள்யூ"
@@ -400,7 +398,7 @@ msgid "df den"
 msgstr "டி.எஃப் டென்"
 
 msgid "p<sub>F</sub>"
-msgstr "பி <சப்> எஃப் </துணை>"
+msgstr "பி <sub> எஃப் </sub>"
 
 msgid "Conover Test"
 msgstr "கோனோவர் சோதனை"
@@ -422,18 +420,17 @@ msgid "Moderator factors must also appear in the model terms!"
 msgstr "மாதிரி சொற்களிலும் மதிப்பீட்டாளர் காரணிகள் தோன்ற வேண்டும்!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr "மீண்டும் மீண்டும் நடவடிக்கைகள் உயிரணுக்களில் முடிவிலி காணப்படுகிறது."
+msgstr "மீண்டும் நடவடிக்கைகள் உயிரணுக்களில் முடிவிலி காணப்படுகிறது."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
-"அவதானிப்புகளின் எண்ணிக்கை மீண்டும் மீண்டும் நடவடிக்கைகளின் கலங்களில் < %s ஆகும்"
+msgstr "அவதானிப்புகளின் எண்ணிக்கை மீண்டும் நடவடிக்கைகளின் கலங்களில் < %s ஆகும்"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr "மீண்டும் மீண்டும் நடவடிக்கைகள் கலங்களில் உள்ள மாறுபாடு 0 ஆகும்."
+msgstr "மீண்டும் நடவடிக்கைகள் கலங்களில் உள்ள மாறுபாடு 0 ஆகும்."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
-"மீண்டும் மீண்டும் நடவடிக்கைகள் செல்கள், %s ஆகியவற்றில் எதிர்கொள்ளும் நகல் மாறிகள்"
+"மீண்டும் நடவடிக்கைகள் செல்கள், %s ஆகியவற்றில் எதிர்கொள்ளும் நகல் மாறிகள்"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "%s இல் எதிர்கொள்ளும் நகல் மாறிகள்"
@@ -485,8 +482,7 @@ msgstr ""
 "சரிவுகள் உள்ளன."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
-"மீண்டும் மீண்டும் நடவடிக்கைகளுக்கான சீரற்ற சரிவுகள் காரணிகள் விலக்கப்படுகின்றன."
+msgstr "மீண்டும் நடவடிக்கைகளுக்கான சீரற்ற சரிவுகள் காரணிகள் விலக்கப்படுகின்றன."
 
 msgid "All models include %s."
 msgstr "அனைத்து மாடல்களிலும் %s அடங்கும்."
@@ -498,7 +494,7 @@ msgid "Analysis of Effects"
 msgstr "விளைவுகளின் பகுப்பாய்வு"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr "Log (bf <துணை> உள்ளிட்ட </sub>)"
+msgstr "Log (bf <sub> உள்ளிட்ட </sub>)"
 
 msgid "BF<sub>excl</sub>"
 msgstr "Bf <sub> exch </sub>"
@@ -536,19 +532,19 @@ msgid "Model Comparison"
 msgstr "மாதிரி ஒப்பீடு"
 
 msgid "BF<sub>M</sub>"
-msgstr "பி.எஃப் <சப்> எம் </துணை>"
+msgstr "பி.எஃப் <sub> எம் </sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr "பி.எஃப் <சப்> 10 </ சப்>"
+msgstr "பி.எஃப் <sub> 10 </sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr "பி.எஃப் <சப்> 01 </ சப்>"
+msgstr "பி.எஃப் <sub> 01 </sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr "பதிவு (பி.எஃப் <சப்> எம் </துணை>)"
+msgstr "பதிவு (பி.எஃப் <sub> எம் </sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr "பதிவு (பி.எஃப் <சப்> 10 </ சப்>)"
+msgstr "பதிவு (பி.எஃப் <sub> 10 </sub>)"
 
 msgid "Models"
 msgstr "மாதிரிகள்"
@@ -755,10 +751,10 @@ msgid "bias"
 msgstr "சார்பு"
 
 msgid "p<sub>scheffe</sub>"
-msgstr "பி <சப்> சிப்ட்ச் </ துணை>"
+msgstr "பி <sub> சிப்ட்ச் </sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr "பி <b> ஆய்வு </b>"
+msgstr "பி <sub> ஆய்வு </sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr ""

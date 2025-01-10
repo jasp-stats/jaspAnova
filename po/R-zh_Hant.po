@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2024-10-18 03:19+0000\n"
-"Last-Translator: OVO <ruby940813@gmail.com>\n"
+"PO-Revision-Date: 2025-01-10 07:53+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -72,9 +72,8 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
 
-#, fuzzy
 msgid "%s%% CI for η²"
-msgstr "Cohen's d 效果量的%s%% 信賴區間"
+msgstr "η² 效果量的%s%% 信賴區間"
 
 msgid "Lower"
 msgstr "下界"
@@ -82,17 +81,14 @@ msgstr "下界"
 msgid "Upper"
 msgstr "上界"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "Cohen's d 效果量的%s%% 信賴區間"
+msgstr "淨η² 效果量的%s%% 信賴區間"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "Cohen's d 效果量的%s%% 信賴區間"
+msgstr "ω²效果量的%s%% 信賴區間"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "Cohen's d 效果量的%s%% 信賴區間"
+msgstr "淨ω² 效果量的%s%% 信賴區間"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -101,9 +97,8 @@ msgstr "Brown-Forsythe 與 Welch 校正僅使用於單因子變異數分析"
 msgid "Contrast Tables"
 msgstr "比較表"
 
-#, fuzzy
 msgid "%1$s Contrast - %2$s"
-msgstr "%1$s 比較 - %2$s"
+msgstr "%1$s 對比 - %2$s"
 
 msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
@@ -122,9 +117,8 @@ msgstr "請指定非零比較權重。"
 msgid "Post Hoc Tests"
 msgstr "事後比較檢定"
 
-#, fuzzy
 msgid "Standard (HSD)"
-msgstr "標準"
+msgstr "標準 (HSD檢定)"
 
 #, fuzzy
 msgid "Standard"
@@ -133,13 +127,11 @@ msgstr "標準"
 msgid "Results are averaged over the levels of: %s"
 msgstr "結果為以下水準之平均值：%s"
 
-#, fuzzy
 msgid "Some parameters were not estimable due to missingness."
-msgstr "一些參數無法估計，很可能因為設計中有空的細格。"
+msgstr "由於存在遺漏植，導致某些參數將無法被估計。"
 
-#, fuzzy
 msgid "Bootstrapping based on %s successful replicates."
-msgstr "拔靴法結果是基於%s的成功取樣"
+msgstr "拔靴法已進行%s次的成功取樣"
 
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
@@ -226,13 +218,13 @@ msgid ""
 msgstr "無法計算某些信賴區間，可能因為拔靴法樣本太少。"
 
 msgid "Bootstrapping based on %s replicates."
-msgstr "拔靴法結果是基於%s的成功樣本。"
+msgstr "拔靴法已進行%s次的成功取樣。"
 
 msgid "Simple Main Effects"
-msgstr "簡單主要效果"
+msgstr "單純主要效果"
 
 msgid "Simple Main Effects - %s"
-msgstr "簡單主要效果 - %s"
+msgstr "單純主要效果 - %s"
 
 msgid "Level of %s"
 msgstr "%s水準"
@@ -241,24 +233,24 @@ msgid "Not enough observations in cells %s."
 msgstr "%s 細格中樣本數不足"
 
 msgid "Kruskal-Wallis Test"
-msgstr "Kruskal-Wallis 考驗"
+msgstr "Kruskal-Wallis檢定"
 
 msgid "Factor"
 msgstr "因子"
 
 msgid "Statistic"
-msgstr "統計"
+msgstr "統計量"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Rank %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "Rank %2$s 的 %1$i%% 信賴區間"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
-msgstr ""
+msgstr "每個變數分別進行檢定，而未考慮多變量效果。"
 
 msgid "Dunn"
 msgstr "Dunn檢定"
@@ -283,7 +275,7 @@ msgid "p<sub>holm</sub>"
 msgstr "holm p值"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "以 Mann-Whitney檢定為基礎，計算等級二系列相關。"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -719,7 +711,7 @@ msgid "Descriptives Plot"
 msgstr "描述統計圖"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "長條圖"
 
 #, fuzzy
 msgid "Bar Plot"
@@ -867,7 +859,7 @@ msgid "Type III Sum of Squares"
 msgstr "三類離均差平方和"
 
 msgid "Order Restricted Hypotheses"
-msgstr "序受限假設"
+msgstr "順序限制假設"
 
 #, fuzzy
 msgid ""

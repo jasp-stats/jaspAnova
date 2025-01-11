@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-01-10 21:19+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspanova-qml/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
@@ -65,7 +71,7 @@ msgstr "共變數"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "加權最小平方法 (WLS)"
+msgstr "WLS權重"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
@@ -101,7 +107,7 @@ msgstr "隨機因子"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr "加權最小平方法 (WLS)"
+msgstr "WLS權重"
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
@@ -157,7 +163,7 @@ msgstr "模型設定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr "檢查統計技術假設"
+msgstr "前提假設的檢驗"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
@@ -193,7 +199,7 @@ msgstr "效果量"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr "校正"
+msgstr "族系校正方法"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
@@ -551,7 +557,7 @@ msgstr "事後比較檢定"
 
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr "校正"
+msgstr "族系校正方法"
 
 #, fuzzy
 msgctxt "PostHocTests|"
@@ -608,11 +614,11 @@ msgstr "事後 R²"
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr "檢查統計技術假設"
+msgstr "前提假設的檢驗"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr "同質性考驗"
+msgstr "同質性檢定"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
@@ -664,7 +670,7 @@ msgstr "分別畫圖"
 
 msgctxt "DescriptivePlots|"
 msgid "Display"
-msgstr "呈現"
+msgstr "顯示"
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
@@ -704,7 +710,7 @@ msgstr "ω²"
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke最大p值比率"
+msgstr "Vovk-Sellke 最大 p 比率"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
@@ -712,7 +718,7 @@ msgstr "邊際平均數"
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr ""
+msgstr "由"
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
@@ -753,7 +759,7 @@ msgstr "Kruskal-Wallis 檢定"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "順序限制假設"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -765,10 +771,17 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
+"一列輸入一個限制假設，例如：\n"
+"factorLow == factorMid\n"
+"factorMid < factorHigh\n"
+"其中，'factor' 是因子(或共變量)的名稱，'Low'/'Mid'/'High'則是因子的水準名稱。"
+"\n"
+"按綠色的 '加號+' 圖示可以新增假設。\n"
+"按藍色的 '訊息' 圖示可以學習更多設定限制假設的範例。"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
+msgstr "按此圖示，可以學習更多設定順序限制假設的語法。"
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
@@ -781,60 +794,60 @@ msgstr "包含截距"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr ""
+msgstr "顯示可用的係數"
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr ""
+msgstr "設定至所有模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr ""
+msgstr "模型摘要"
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "邊際平均數"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr ""
+msgstr "知情假設檢定(Informed hypothesis tests)"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Model1"
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
-msgstr ""
+msgstr "按Ctrl + Enter 以執行。按上方藍色圖示則可協助編寫順序限制假設的語法"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr ""
+msgstr "%1的摘要"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr ""
+msgstr "%1的邊際平均數"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr ""
+msgstr "%1的知情假設檢定"
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr ""
+msgstr "模型比較"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr ""
+msgstr "互補模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr ""
+msgstr "未受限模型"
 
 #, fuzzy
 msgctxt "OrderRestrictions|"
@@ -843,63 +856,63 @@ msgstr "無"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr ""
+msgstr "新增比較"
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr ""
+msgstr "加入權重比例"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr ""
+msgstr "參照模型"
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr ""
+msgstr "相對權重矩陣"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr ""
+msgstr "比較模型係數"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr ""
+msgstr "關注作用中的限制"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr ""
+msgstr "不確定性量化"
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr ""
+msgstr "異質性校正"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
@@ -915,11 +928,11 @@ msgstr "信賴區間"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "限制性邊際平均數"
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr ""
+msgstr "項目"
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
@@ -935,7 +948,7 @@ msgstr "標準"
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr ""
+msgstr "由"
 
 msgctxt "PostHoc|"
 msgid "bootstraps"
@@ -955,7 +968,7 @@ msgstr "Dunnett"
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr "校正"
+msgstr "族系校正方法"
 
 msgctxt "PostHoc|"
 msgid "Tukey"
@@ -987,7 +1000,7 @@ msgstr "信賴區間"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "簡單主要效果"
+msgstr "單純主要效果"
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
@@ -1016,7 +1029,7 @@ msgstr "類型%1"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr "雲雨圖"
+msgstr "雨雲圖"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
@@ -1092,7 +1105,7 @@ msgstr "Roy"
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr "檢查統計技術假設"
+msgstr "前提假設的檢驗"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
@@ -1112,7 +1125,7 @@ msgstr "變異數分析表"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke 對大p值比率"
+msgstr "Vovk-Sellke 最大 p 比率"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
@@ -1144,7 +1157,7 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr ""
+msgstr "長條圖"
 
 #, fuzzy
 msgctxt "BarPlots|"
@@ -1163,7 +1176,7 @@ msgstr "分別畫圖"
 
 msgctxt "BarPlots|"
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 #, fuzzy
 msgctxt "BarPlots|"
@@ -1200,7 +1213,7 @@ msgstr "η² 效果量"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr ""
+msgstr "信賴區間"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
@@ -1209,7 +1222,7 @@ msgstr "殘差Q-Q圖"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "交互作用項的條件式比較"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
@@ -1230,19 +1243,19 @@ msgstr "信賴區間"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr ""
+msgstr "Dunn 事後檢定"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "交互作用項的條件式比較"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr ""
+msgstr "標示顯著的比較結果"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr ""
+msgstr "字母標記分組表"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
@@ -1250,12 +1263,12 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "誤差棒"
 
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "誤差棒"
 
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
-msgstr ""
+msgstr "效果量 (Cohen's d)"

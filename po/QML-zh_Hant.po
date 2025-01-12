@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-12 14:00+0000\n"
+"PO-Revision-Date: 2025-01-14 00:00+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-qml/zh_Hant/>\n"
@@ -131,7 +131,7 @@ msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "重複量數細格"
+msgstr "受試者內變數"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
@@ -223,7 +223,7 @@ msgstr "Y軸標籤"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "將為使用的RM因子取平均值"
+msgstr "將未使用的重複量數因子也納入取平均值"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
@@ -267,7 +267,7 @@ msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "重複量數細格"
+msgstr "受試者內變數"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
@@ -698,11 +698,11 @@ msgstr "η² 效果量"
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr "淨η² 效果量"
+msgstr "淨η² 效果量( η²ₚ)"
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr "廣義 η² 效果量"
+msgstr "廣義 η² 效果量(η²G)"
 
 msgctxt "Display|"
 msgid "ω²"
@@ -1008,7 +1008,7 @@ msgstr "因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "簡單效果因子"
+msgstr "單純效果因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
@@ -1117,7 +1117,7 @@ msgstr "多變量常態分配"
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr "呈現"
+msgstr "顯示"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
@@ -1229,11 +1229,11 @@ msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "常態化誤差棒"
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr "淨 ω² 效果量"
+msgstr "淨 ω² 效果量(ω²ₚ)"
 
 #, fuzzy
 msgctxt "Display|"
@@ -1258,7 +1258,7 @@ msgstr "字母標記分組表"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "顯著水準(α)"
 
 msgctxt "BarPlots|"
 msgid "Error bars"

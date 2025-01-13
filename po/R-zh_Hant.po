@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-01-10 07:53+0000\n"
+"PO-Revision-Date: 2025-01-13 06:00+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -55,13 +55,13 @@ msgid "Cases"
 msgstr "個案"
 
 msgid "Sum of Squares"
-msgstr "離均差平方和"
+msgstr "離差平方和"
 
 msgid "df"
 msgstr "自由度"
 
 msgid "Mean Square"
-msgstr "離均差平方平均值"
+msgstr "均方和"
 
 msgid "F"
 msgstr "F"
@@ -193,7 +193,7 @@ msgid "Assumption Checks"
 msgstr "驗證假設"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr "(Levene)變異數同質檢定"
+msgstr "變異數同質檢定 (Levene 法)"
 
 msgid "df1"
 msgstr "自由度1"
@@ -353,7 +353,7 @@ msgid ""
 msgstr "無法執行同質性檢驗，因未指定受試者間因子。"
 
 msgid "Test of Sphericity"
-msgstr "球形測試"
+msgstr "球形檢定"
 
 msgid "Mauchly's W"
 msgstr "Mauchly's W"

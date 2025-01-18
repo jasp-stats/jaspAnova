@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-01-14 00:00+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspanova-qml/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
@@ -125,7 +131,7 @@ msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "重複量數細格"
+msgstr "受試者內變數"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
@@ -181,7 +187,7 @@ msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr "同質性檢定"
+msgstr "變異數同質性檢定"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
@@ -217,7 +223,7 @@ msgstr "Y軸標籤"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "將為使用的RM因子取平均值"
+msgstr "將未使用的重複量數因子也納入取平均值"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
@@ -261,7 +267,7 @@ msgstr "重複量數因子"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "重複量數細格"
+msgstr "受試者內變數"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
@@ -503,7 +509,7 @@ msgstr "依個別水準分別繪圖"
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr "殘差Q-Q圖"
+msgstr "殘差常態 Q-Q 圖"
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
@@ -600,7 +606,7 @@ msgstr "依個別水準分別繪圖"
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr "殘差Q-Q圖"
+msgstr "殘差常態 Q-Q 圖"
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
@@ -612,11 +618,11 @@ msgstr "前提假設的檢驗"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr "同質性檢定"
+msgstr "變異數同質性檢定"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr "同質性修正"
+msgstr "變異數同質性修正"
 
 msgctxt "AssumptionChecks|"
 msgid "None"
@@ -624,7 +630,7 @@ msgstr "無"
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr "Brown-Forsythe"
+msgstr "Brown-Forsythe 檢定"
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
@@ -632,11 +638,11 @@ msgstr "Welch"
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr "殘差Q-Q圖"
+msgstr "殘差常態 Q-Q 圖"
 
 msgctxt "Contrasts|"
 msgid "Contrasts"
-msgstr "比較"
+msgstr "對比"
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
@@ -680,7 +686,7 @@ msgstr "顯示"
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "描述統計數"
+msgstr "描述性統計"
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
@@ -692,15 +698,15 @@ msgstr "η² 效果量"
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr "η² 淨效果量"
+msgstr "淨η² 效果量( η²ₚ)"
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr "一般η² 效果量"
+msgstr "廣義 η² 效果量(η²G)"
 
 msgctxt "Display|"
 msgid "ω²"
-msgstr "ω²"
+msgstr "ω² 效果量"
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
@@ -1002,7 +1008,7 @@ msgstr "因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "簡單效果因子"
+msgstr "單純效果因子"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
@@ -1014,7 +1020,7 @@ msgstr "調節因子2"
 
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
-msgstr "均差平方和"
+msgstr "離差平方和"
 
 #, qt-format
 msgctxt "SumOfSquares|"
@@ -1103,7 +1109,7 @@ msgstr "前提假設的檢驗"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr "共變數矩陣同質性"
+msgstr "共變數矩陣的同質性"
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
@@ -1111,7 +1117,7 @@ msgstr "多變量常態分配"
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr "呈現"
+msgstr "顯示"
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
@@ -1139,15 +1145,15 @@ msgstr "是，呈現最佳組合"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "合併誤差項以進行後續檢定"
 
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "合併誤差項以進行後續檢定"
 
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "合併誤差項以進行後續檢定"
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
@@ -1209,10 +1215,9 @@ msgctxt "Nonparametrics|"
 msgid "Confidence"
 msgstr "信賴區間"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr "殘差Q-Q圖"
+msgstr "殘差常態 Q-Q 圖"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
@@ -1224,11 +1229,11 @@ msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "常態化誤差棒"
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr ""
+msgstr "淨 ω² 效果量(ω²ₚ)"
 
 #, fuzzy
 msgctxt "Display|"
@@ -1253,7 +1258,7 @@ msgstr "字母標記分組表"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "顯著水準(α)"
 
 msgctxt "BarPlots|"
 msgid "Error bars"

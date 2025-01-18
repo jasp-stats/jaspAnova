@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-01-10 07:53+0000\n"
+"PO-Revision-Date: 2025-01-15 02:49+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -39,8 +39,7 @@ msgstr "您的研究設計有空白細格。請嘗試不同類型的差方和。
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
-msgstr ""
-"無法計算 Welch 校正，因為以“%2$s”分組後，“%1$s”的變異數在以下水準為零：%3$s"
+msgstr "無法計算 Welch 校正，因為以“%2$s”分組後，“%1$s”的變異數在以下水準中為零：%3$s"
 
 msgid "ANOVA"
 msgstr "變異數分析"
@@ -55,13 +54,13 @@ msgid "Cases"
 msgstr "個案"
 
 msgid "Sum of Squares"
-msgstr "離均差平方和"
+msgstr "離差平方和"
 
 msgid "df"
 msgstr "自由度"
 
 msgid "Mean Square"
-msgstr "離均差平方平均值"
+msgstr "均方和"
 
 msgid "F"
 msgstr "F"
@@ -103,7 +102,8 @@ msgstr "%1$s 對比 - %2$s"
 msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
-msgstr ""
+msgstr "數據不足，導致無法估算完整模型或對比。可能的原因是受試間因子中的某些細格是空"
+"的（即數據結構不良）"
 
 msgid "Please specify an additional contrast."
 msgstr "請設定另一個比較"
@@ -120,7 +120,6 @@ msgstr "事後比較檢定"
 msgid "Standard (HSD)"
 msgstr "標準 (HSD檢定)"
 
-#, fuzzy
 msgid "Standard"
 msgstr "標準"
 
@@ -193,7 +192,7 @@ msgid "Assumption Checks"
 msgstr "驗證假設"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr "(Levene)變異數同質檢定"
+msgstr "變異數同質檢定 (Levene 法)"
 
 msgid "df1"
 msgstr "自由度1"
@@ -264,7 +263,6 @@ msgstr "組間<sub>組內</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-#, fuzzy
 msgid "r<sub>rb</sub>"
 msgstr "組間<sub>組內</sub>"
 
@@ -304,13 +302,11 @@ msgid ""
 "between subjects factors."
 msgstr "請為RM因子命名一個不同於受試者間因子的名稱"
 
-#, fuzzy
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
 "term for follow-up tests\" in the Model tab."
-msgstr ""
-"資料太大以致於無法進行後續單變量分析。請試著在模型選單處，選擇\"使用多邊量模"
-"型進行後續分析\""
+msgstr "資料太大以致於無法進行後續單變量分析。請試著在模型選單處，"
+"選擇\"使用多邊量模型進行後續分析\""
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -335,7 +331,6 @@ msgstr "%s<sub>G</sub>"
 msgid "Within Subjects Effects"
 msgstr "受試者內效果"
 
-#, fuzzy
 msgid "Sphericity Correction"
 msgstr "球形校正"
 
@@ -353,7 +348,7 @@ msgid ""
 msgstr "無法執行同質性檢驗，因未指定受試者間因子。"
 
 msgid "Test of Sphericity"
-msgstr "球形測試"
+msgstr "球形檢定"
 
 msgid "Mauchly's W"
 msgstr "Mauchly's W"
@@ -390,7 +385,6 @@ msgstr "無母數"
 msgid "Friedman Test"
 msgstr "Friedman 考驗"
 
-#, fuzzy
 msgid "Χ²<sub>F</sub>"
 msgstr "<sub>F</sub> p值"
 
@@ -428,7 +422,7 @@ msgid "Grouped by %s."
 msgstr "根據%s分群"
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
+msgstr "基於個別符號等級檢定的等級雙序列相關。"
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "調節因子也須出現在模型項中！"
@@ -504,15 +498,12 @@ msgstr "所有模型都包括 %s 和所有重複量數因子的隨機斜率。"
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr "排除重複量數因子的隨機斜率。"
 
-#, fuzzy
 msgid "All models include %s."
 msgstr "所有模型包括%s。"
 
-#, fuzzy
 msgid "Analysis of Effects - %s"
 msgstr "效果分析 - %s"
 
-#, fuzzy
 msgid "Analysis of Effects"
 msgstr "效果分析"
 
@@ -615,7 +606,6 @@ msgstr "%% 可用樣本"
 msgid "Useful samples"
 msgstr "可用樣本"
 
-#, fuzzy
 msgid "Total samples drawn"
 msgstr "抽取樣本總數"
 
@@ -629,7 +619,6 @@ msgstr ""
 "續結果。所有基於模型平均的報表都可能有偏誤且無法解釋。檢查模型設定和數據是否"
 "存在奇怪的模式。"
 
-#, fuzzy
 msgid "<b><em>Warning.</em></b>"
 msgstr "<b><em>警告。</em></b>"
 
@@ -650,11 +639,9 @@ msgstr "水準"
 msgid "Density"
 msgstr "密度"
 
-#, fuzzy
 msgid "Model Averaged Q-Q Plot"
 msgstr "模型平均 Q-Q 圖"
 
-#, fuzzy
 msgid "Model Averaged Posterior R%s"
 msgstr "模型平均後驗 R%s"
 
@@ -696,32 +683,26 @@ msgstr "標準誤"
 msgid "Coefficient of variation"
 msgstr "變異係數"
 
-#, fuzzy
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%1$g out of "
 "%2$g combinations are unobserved)."
 msgstr "未觀察到某些因子組合，因此省略（未觀察到 %g 組合中的 %g）。"
 
-#, fuzzy
 msgid "Descriptives plots"
-msgstr "描述統計圖"
+msgstr "描述性統計圖"
 
-#, fuzzy
 msgid "Descriptives Plot"
-msgstr "描述統計圖"
+msgstr "描述性統計圖"
 
 msgid "Bar plots"
 msgstr "長條圖"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Q-Q 圖"
+msgstr "長條圖"
 
-#, fuzzy
 msgid "Raincloud plots"
 msgstr "雨雲圖"
 
-#, fuzzy
 msgid "Dependent"
 msgstr "依賴"
 
@@ -731,7 +712,6 @@ msgstr "事後抽樣"
 msgid "length of samples must be equal to length of weights!"
 msgstr "樣本長度與權重長度相同！"
 
-#, fuzzy
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
 "increase the number of posterior samples."
@@ -765,11 +745,9 @@ msgstr "單一模式後驗分配"
 msgid "Q-Q Plot"
 msgstr "Q-Q 圖"
 
-#, fuzzy
 msgid "Posterior R%s"
 msgstr "後驗 R%s"
 
-#, fuzzy
 msgid "Single Model R%s"
 msgstr "單一模型 R%s"
 
@@ -806,7 +784,6 @@ msgstr "<sub>Scheffe</sub> p值"
 msgid "p<sub>sidak</sub>"
 msgstr "<sub>Sidak</sub>p值"
 
-#, fuzzy
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "P 值經過調整，用於比較 %s 群"
 
@@ -816,13 +793,11 @@ msgid ""
 msgstr ""
 "調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the bonferroni method)."
-msgstr ""
-"調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
+msgstr "調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
 
 msgid "Marginal Means -"
 msgstr "邊際平均數"
@@ -861,7 +836,6 @@ msgstr "三類離均差平方和"
 msgid "Order Restricted Hypotheses"
 msgstr "順序限制假設"
 
-#, fuzzy
 msgid ""
 "Syntax error found in model %1$s.\n"
 "\n"
@@ -871,7 +845,6 @@ msgstr ""
 "\n"
 "有些限制是重複的！"
 
-#, fuzzy
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
@@ -880,15 +853,12 @@ msgstr "%s 的限制語法存在錯誤。語法無法解碼！"
 msgid "Bootstrapping unrestricted model"
 msgstr "拔靴不受限模型"
 
-#, fuzzy
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr "%1$s 中的錯誤 - 無法對模型語法進行編碼！錯誤訊息： %2$s"
 
-#, fuzzy
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
 msgstr "%1$s 中的錯誤 - 模型中的語法錯誤！錯誤訊息： %2$s"
 
-#, fuzzy
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
 msgstr "%1$s 中的錯誤 - 無法估計模型！錯誤訊息： %2$s"
 
@@ -914,19 +884,15 @@ msgstr "無法配任何設定的受限模型。原因：%s"
 msgid "Unconstrained"
 msgstr "不設限的"
 
-#, fuzzy
 msgid "Complement"
 msgstr "補足"
 
-#, fuzzy
 msgid "Syntax information"
 msgstr "語法資訊"
 
-#, fuzzy
 msgid "Available coefficients for restriction syntax"
 msgstr "限制語法的可用係數"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
 msgstr "無法計算模型比較！錯誤訊息： %s"
 
@@ -939,7 +905,6 @@ msgstr "模型"
 msgid "Log-likelihood"
 msgstr "對數概度"
 
-#, fuzzy
 msgid "Penalty"
 msgstr "懲罰"
 
@@ -976,14 +941,12 @@ msgstr "無法計算權重！"
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr "模型“%s”不能作為參考模型，因為是空模型！"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
 msgstr "排除了以下模型：%s。"
 
 msgid "Relative %s-Weights"
 msgstr "相對 %s 權重"
 
-#, fuzzy
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr "比較中只有一個模型：無法計算相對權重矩陣"
@@ -991,11 +954,9 @@ msgstr "比較中只有一個模型：無法計算相對權重矩陣"
 msgid "vs."
 msgstr "比較"
 
-#, fuzzy
 msgid "Coefficients Comparison"
 msgstr "係數比較"
 
-#, fuzzy
 msgid "Coefficient"
 msgstr "係數"
 
@@ -1005,15 +966,12 @@ msgstr "係數與不設限模型不同。"
 msgid "Model Summary"
 msgstr "模型摘要"
 
-#, fuzzy
 msgid "Restriction Matrix"
 msgstr "限制矩陣"
 
-#, fuzzy
 msgid "Left-hand side (lhs)"
 msgstr "左側 (lhs)"
 
-#, fuzzy
 msgid "Right-hand side (rhs)"
 msgstr "右側 (rhs)"
 
@@ -1098,7 +1056,8 @@ msgstr "設計矩陣無反矩陣。這可能是因為與依變數的共線性所
 msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
-msgstr ""
+msgstr "由於樣本數量不足（必須在 3 到 5000 "
+"之間）或存在完全相關，導致無法提供分析結果。"
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"

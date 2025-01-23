@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-01-21 18:00+0000\n"
+"PO-Revision-Date: 2025-01-23 22:44+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -69,7 +69,7 @@ msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr "VS-MPR (Vovk-Sellke maximum p-ratio) %s"
+msgstr "VS-MPR (Vovk-Sellke最大p-比率) %s"
 
 msgid "%s%% CI for η²"
 msgstr "η² 效果量的%s%% 信賴區間"
@@ -94,7 +94,7 @@ msgid ""
 msgstr "Brown-Forsythe 與 Welch 校正僅使用於單因子變異數分析"
 
 msgid "Contrast Tables"
-msgstr "比較表"
+msgstr "對比分析表"
 
 msgid "%1$s Contrast - %2$s"
 msgstr "%1$s 對比 - %2$s"
@@ -189,7 +189,7 @@ msgid ""
 msgstr "信賴區間太窄，請選擇一個另一個信賴區間水準"
 
 msgid "Assumption Checks"
-msgstr "驗證假設"
+msgstr "前提假設的檢驗"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr "變異數同質檢定 (Levene 法)"
@@ -663,7 +663,7 @@ msgid "Posterior Odds"
 msgstr "後驗勝率"
 
 msgid "Descriptives"
-msgstr "敘述統計量"
+msgstr "描述性統計"
 
 msgid "Descriptives - %s"
 msgstr "描述統計 - %s"
@@ -743,7 +743,7 @@ msgid "Single Model Posterior Distributions"
 msgstr "單一模式後驗分配"
 
 msgid "Q-Q Plot"
-msgstr "Q-Q 圖"
+msgstr "常態Q-Q 圖"
 
 msgid "Posterior R%s"
 msgstr "後驗 R%s"
@@ -831,7 +831,7 @@ msgid "Type II Sum of Squares"
 msgstr "二類離均差平方和"
 
 msgid "Type III Sum of Squares"
-msgstr "三類離均差平方和"
+msgstr "型三離差平方和"
 
 msgid "Order Restricted Hypotheses"
 msgstr "順序限制假設"

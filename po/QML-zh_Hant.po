@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-01-25 20:47+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspanova-qml/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
@@ -13,7 +19,7 @@ msgstr "變異數分析"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr "比較多個平均數之差異"
+msgstr "平均數比較─三群組以上"
 
 msgctxt "Description|"
 msgid "Classical"
@@ -704,7 +710,7 @@ msgstr "ω² 效果量"
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke 最大 p 比率"
+msgstr "Vovk-Sellke 最大p-比率"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
@@ -1119,7 +1125,7 @@ msgstr "變異數分析表"
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke 最大 p 比率"
+msgstr "Vovk-Sellke 最大p-比率"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"

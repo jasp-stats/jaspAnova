@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-02-07 00:02+0000\n"
+"PO-Revision-Date: 2025-02-09 10:01+0000\n"
 "Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
-msgstr "加權最小平方法 (WLS)的權重為有負值或零（WLS權數須為正值）"
+msgstr "加權最小平方法 (WLS)的權重為有負值或零（WLS權數須為正值）。"
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
@@ -69,7 +69,7 @@ msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr "VS-MPR (Vovk-Sellke最大p-比率) %s"
+msgstr "VS-MPR %s"
 
 msgid "%s%% CI for η²"
 msgstr "η² 效果量的%s%% 信賴區間"
@@ -106,7 +106,7 @@ msgstr "數據不足，導致無法估算完整模型或對比。可能的原因
 "的（即數據結構不良）"
 
 msgid "Please specify an additional contrast."
-msgstr "請設定另一個比較"
+msgstr "請設定其他的對比。"
 
 msgid "Wrong number of custom contrast matrix rows."
 msgstr "自定比較矩陣列數錯誤。"
@@ -130,15 +130,15 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "由於存在遺漏植，導致某些參數將無法被估計。"
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr "拔靴法已進行%s次的成功取樣"
+msgstr "拔靴法已進行%s次的成功取樣。"
 
 msgid ""
 "Mean Difference estimate is based on the median of the bootstrap "
 "distribution."
-msgstr "平均數差異估計值是基於拔靴法分配的中位數"
+msgstr "平均數差異之估計值是基於拔靴法分配的中位數。"
 
 msgid "Bias corrected accelerated."
-msgstr "偏誤加速校正"
+msgstr "偏誤加速校正(BCa)。"
 
 msgid "Bootstrapping Post Hoc Test"
 msgstr "拔靴法事後檢定"
@@ -166,10 +166,10 @@ msgid "%.0f%% CI for Mean Difference"
 msgstr "平均數差異的 %.0f%% 信賴區間"
 
 msgid "p<sub>tukey</sub>"
-msgstr "Tukey p值"
+msgstr "<sub>Tukey</sub> p值"
 
 msgid "Results based on uncorrected means."
-msgstr "基於未校正的平均數"
+msgstr "基於未校正的平均數。"
 
 msgid "Dunnett"
 msgstr "Dunnett檢定"
@@ -181,12 +181,12 @@ msgid "%s%% CI for Mean Difference"
 msgstr "平均數差異之%s%%信賴區間上界"
 
 msgid "p<sub>dunnett</sub>"
-msgstr "Dunnett p值"
+msgstr "<sub>Dunnettt</sub> p值"
 
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
 "level."
-msgstr "信賴區間太窄，請選擇一個另一個信賴區間水準"
+msgstr "信賴區間太窄，請選擇其他的信賴區間。"
 
 msgid "Assumption Checks"
 msgstr "前提假設的檢驗"
@@ -229,7 +229,7 @@ msgid "Level of %s"
 msgstr "%s水準"
 
 msgid "Not enough observations in cells %s."
-msgstr "%s 細格中樣本數不足"
+msgstr "細格%s 中樣本數不足。"
 
 msgid "Kruskal-Wallis Test"
 msgstr "Kruskal-Wallis檢定"
@@ -267,10 +267,10 @@ msgid "r<sub>rb</sub>"
 msgstr "組間<sub>組內</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr "bonferroni p值"
+msgstr "<sub>bonferroni</sub> p值"
 
 msgid "p<sub>holm</sub>"
-msgstr "holm p值"
+msgstr "<sub>holmt</sub> p值"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr "以 Mann-Whitney檢定為基礎，計算等級二系列相關。"
@@ -280,33 +280,33 @@ msgid ""
 msgstr "載入資料時發生錯誤。請驗證您的重複量數觀察值。"
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "因子：<em>%s</em>, 水準數少於2"
+msgstr "因子：<em>%s</em>，水準數少於2。"
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "因子：<em>%s</em>, 水準數少於2"
+msgstr "因子：<em>%s</em>，水準數少於2。"
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "重複量數: <em>%s</em> , 內含無限值"
+msgstr "重複量數: <em>%s</em> ，內含無限值。"
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "重複量數: <em>%s</em> , 內含無限值"
+msgstr "重複量數: <em>%s</em> ，內含無限值。"
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "共變數: <em>%s</em> , 內含無限值"
+msgstr "共變數: <em>%s</em>，內含無限值。"
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "共變數: <em>%s</em> , 內含無限值"
+msgstr "共變數: <em>%s</em>，內含無限值。"
 
 msgid ""
 "Please choose a name for the RM factors that differs from those for the "
 "between subjects factors."
-msgstr "請為RM因子命名一個不同於受試者間因子的名稱"
+msgstr "請為重複量數因子，命名一個不同於受試者間因子的名稱。"
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
 "term for follow-up tests\" in the Model tab."
-msgstr "資料太大以致於無法進行後續單變量分析。請試著在模型選單處，"
-"選擇\"使用多邊量模型進行後續分析\""
+msgstr "資料集過大，無法進行單變量後續測試。請嘗試在「模型」標籤中取消選擇「後續測試"
+"合併誤差項」。"
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -419,7 +419,7 @@ msgid "T-Stat"
 msgstr "T統計數"
 
 msgid "Grouped by %s."
-msgstr "根據%s分群"
+msgstr "根據%s分組。"
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr "基於個別符號等級檢定的等級雙序列相關。"
@@ -461,7 +461,7 @@ msgstr ""
 "除任何有缺失值細格的交互作用"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
-msgstr "未定義貝氏因子——所有效果皆為多餘的"
+msgstr "貝氏因子未定義——所有效果均被指定為干擾項。"
 
 msgid "Null model"
 msgstr "虛無模型"
@@ -666,7 +666,7 @@ msgid "Descriptives"
 msgstr "描述性統計"
 
 msgid "Descriptives - %s"
-msgstr "描述統計 - %s"
+msgstr "描述性統計 - %s"
 
 msgid "N"
 msgstr "N"
@@ -785,7 +785,7 @@ msgid "p<sub>sidak</sub>"
 msgstr "<sub>Sidak</sub>p值"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr "P 值經過調整，用於比較 %s 群"
+msgstr "針對比較一組%s估計值，而調整P值。"
 
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
@@ -928,7 +928,7 @@ msgstr ""
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr "GORICA = 廣義序限制資訊準則近似"
+msgstr "GORICA = 廣義序限制資訊準則近似。"
 
 msgid ""
 "Weights ratios indicate the relative weight for each model against the "

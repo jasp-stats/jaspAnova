@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-23 20:15+0000\n"
+"PO-Revision-Date: 2025-03-24 01:54+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/sr/>\n"
@@ -789,7 +789,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "Узорци"
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"

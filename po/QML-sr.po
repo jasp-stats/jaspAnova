@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-23 18:29+0000\n"
+"PO-Revision-Date: 2025-03-23 20:15+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/sr/>\n"
@@ -19,7 +19,7 @@ msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "Класична"
+msgstr "Класичан"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
@@ -143,7 +143,7 @@ msgstr "Компоненте поновљених мера"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
@@ -151,7 +151,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
@@ -275,7 +275,7 @@ msgstr "Компоненте"
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr "Компоненте"
+msgstr "Услови за модел"
 
 msgctxt "Manova|"
 msgid "Include intercept"
@@ -631,7 +631,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr ""
+msgstr "Графикон „Plots“"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -837,7 +837,7 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr ""
+msgstr "Графикон „Plots“"
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
@@ -993,7 +993,7 @@ msgstr "Компоненте"
 
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-24 23:56+0000\n"
+"PO-Revision-Date: 2025-03-25 01:47+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/sr/>\n"
@@ -551,7 +551,7 @@ msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr "Bernoulli"
+msgstr "Бернули"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
@@ -611,7 +611,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr "Дескриптиви"
+msgstr "Дескриптивна статистика"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"

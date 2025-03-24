@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-24 01:54+0000\n"
+"PO-Revision-Date: 2025-03-24 17:05+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/sr/>\n"
@@ -155,7 +155,7 @@ msgstr "Услови за модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
@@ -307,7 +307,7 @@ msgstr ""
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
@@ -611,7 +611,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Дескриптиви"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
@@ -861,7 +861,7 @@ msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"

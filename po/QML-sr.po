@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-24 17:05+0000\n"
+"PO-Revision-Date: 2025-03-24 23:56+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/sr/>\n"
@@ -331,7 +331,7 @@ msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr ""
+msgstr "Графикони кишног облака"
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
@@ -547,11 +547,11 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
@@ -655,7 +655,7 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Дескриптивни графикони"
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
@@ -897,7 +897,7 @@ msgstr "Интервали поверења"
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Дескриптивни графикони"
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
@@ -1142,7 +1142,7 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr ""
+msgstr "Графикони трака"
 
 msgctxt "BarPlots|"
 msgid "Factors"

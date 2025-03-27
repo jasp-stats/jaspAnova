@@ -2,18 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-28 12:20+0000\n"
+"Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
+"Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"WLS weights садрже негативне и/или нулте вредности. <br><br>(дозвољени су "
+"само позитивни WLS weights)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
@@ -31,58 +35,58 @@ msgid "The Welch correction could not be computed because '%1$s' has zero varian
 msgstr ""
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Корекција хомогености"
 
 msgid "Cases"
-msgstr ""
+msgstr "Случајеви"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Збир квадрата"
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Средњи квадрат"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "%s%% CI за η²"
 
 msgid "Lower"
-msgstr ""
+msgstr "Ниже"
 
 msgid "Upper"
-msgstr ""
+msgstr "Горњи"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "%s%% CI за η²ₚ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "%s%% CI за ω²"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "%s%% CI за ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Контрастне табеле"
 
 msgid "%1$s Contrast - %2$s"
 msgstr ""
@@ -106,7 +110,7 @@ msgid "Standard (HSD)"
 msgstr ""
 
 msgid "Standard"
-msgstr ""
+msgstr "Стандард"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr ""
@@ -136,16 +140,16 @@ msgid "Games-Howell Post Hoc Comparisons - %s"
 msgstr ""
 
 msgid "Comparison"
-msgstr ""
+msgstr "Поређење"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Средња разлика"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "%.0f%% CI за Средњу разлику"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
 msgstr ""
@@ -211,7 +215,7 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Rank %s"
 msgstr ""
@@ -508,7 +512,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr ""
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% веродостојан интервал"
 
 msgid "Model Averaged R%s"
 msgstr ""
@@ -544,7 +548,7 @@ msgid "Could not plot posterior distribution. Check if an error occurred for mod
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Ниво"
 
 msgid "Density"
 msgstr ""
@@ -574,7 +578,7 @@ msgid "N"
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Аритметичка средина"
 
 msgid "SD"
 msgstr ""
@@ -859,7 +863,7 @@ msgid "Hypothesis"
 msgstr ""
 
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 msgid "Test Statistic"
 msgstr ""

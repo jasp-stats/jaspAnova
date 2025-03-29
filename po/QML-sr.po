@@ -1,235 +1,233 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-03-26 01:12+0000\n"
+"Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
+"Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/sr/>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Language: eo\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr ""
-
-msgctxt "Description|"
-msgid "Evaluate the difference between multiple means"
-msgstr ""
+msgstr "ANOVA"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "Класичан"
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr ""
+msgstr "ANOVA за поновљена мерења"
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "Бајесов"
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr ""
+msgstr "Bayesian ANOVA"
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr ""
+msgstr "Bayesian ANOVA са поновљеним мерењима"
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr ""
+msgstr "Bayesian ANCOVA"
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Зависна променљива"
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Фиксни фактори"
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Случајни фактори"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr ""
+msgstr "Коваријансе"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "WLS тежина"
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr ""
+msgstr "Провера независности факторске коваријације"
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Зависна променљива"
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Фиксни фактори"
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Случајни фактори"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr ""
+msgstr "Коваријансе"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Зависна променљива"
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Фиксни фактори"
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Случајни фактори"
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr ""
+msgstr "WLS тежина"
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Зависна променљива"
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Фиксни фактори"
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Случајни фактори"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "RM Factor"
-msgstr ""
+msgstr "Фактори поновљених мера"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Ћелије поновљених мера"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Фактори међу субјекатима"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr ""
+msgstr "Коваријансе"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr ""
+msgstr "Компоненте поновљених мера"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr ""
+msgstr "Компоненте између субјеката"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr ""
+msgstr "Тестови сферичности"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr ""
+msgstr "Корекције сферичности"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr ""
+msgstr "Ништа"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Тестови хомогености"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Post Hoc тестови"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr ""
+msgstr "Величина ефекта"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr ""
+msgstr "Исправка"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Бонферони"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffé"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr ""
+msgstr "Фактори"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Означите y-осу"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr ""
+msgstr "Просек преко неискоришћених RM фактора"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr ""
+msgstr "Обједини изразе грешака"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Непараметријски"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr "RM фактор"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
@@ -241,71 +239,43 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "RM Factor"
-msgstr ""
+msgstr "Фактори поновљених мера"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr ""
+msgstr "Ћелије поновљених мера"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr ""
+msgstr "Фактори међу субјекатима"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Raincloud Plots"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Factors"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal Axis"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Separate Plots"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal display"
-msgstr ""
-
-msgctxt "RainCloudPlots|"
-msgid "Label y-axis"
-msgstr ""
+msgstr "Коваријансе"
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr ""
+msgstr "Зависне варијабле"
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr ""
+msgstr "Фиксни фактори"
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr ""
+msgstr "Случајни фактори"
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgctxt "Manova|"
 msgid "Components"
-msgstr ""
+msgstr "Компоненте"
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "Manova|"
 msgid "Include intercept"
@@ -317,7 +287,7 @@ msgstr ""
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 msgctxt "Manova|"
 msgid "Pillai"
@@ -337,7 +307,7 @@ msgstr ""
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
@@ -359,9 +329,45 @@ msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr ""
 
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr "Графикони кишног облака"
+
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr "Фактори"
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr "Означите y-осу"
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr "Процени разлику између вишеструких средњих вредности"
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Scheffé"
+msgstr "Scheffé"
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr "RM фактор"
+
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr ""
+msgstr "Модел 1"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
@@ -377,7 +383,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr ""
+msgstr "Ништа"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
@@ -541,15 +547,15 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Бернули"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
@@ -581,7 +587,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr ""
+msgstr "Табле"
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
@@ -605,11 +611,11 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr ""
+msgstr "Дескриптивна статистика"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Интервал веродостојности"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -625,7 +631,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr ""
+msgstr "Графикон „Plots“"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -641,7 +647,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Q-Q графикон резидуала"
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
@@ -649,11 +655,11 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Дескриптивни графикони"
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Фактори"
 
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
@@ -673,15 +679,15 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Интервал веродостојности"
 
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgctxt "ModelTerms|"
 msgid "Components"
-msgstr ""
+msgstr "Компоненте"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
@@ -712,11 +718,11 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Резиме модела"
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Маргиналне средње вредности"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
@@ -783,11 +789,11 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "Узорци"
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Интервали поверења"
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
@@ -795,31 +801,31 @@ msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Post Hoc тестови"
 
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr ""
+msgstr "Исправка"
 
 msgctxt "PostHocTests|"
 msgid "Null control"
-msgstr ""
+msgstr "Нулта контрола"
 
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Закључак једног модела"
 
 msgctxt "SingleModelInference|"
 msgid "Components"
-msgstr ""
+msgstr "Компоненте"
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
-msgstr ""
+msgstr "Посебни услови модела"
 
 msgctxt "SingleModelInference|"
 msgid "Tables"
-msgstr ""
+msgstr "Табле"
 
 msgctxt "SingleModelInference|"
 msgid "Estimates"
@@ -831,7 +837,7 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr ""
+msgstr "Графикон „Plots“"
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
@@ -847,7 +853,7 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Q-Q графикон резидуала"
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
@@ -855,31 +861,31 @@ msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Провере претпоставке"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr ""
+msgstr "Тестови хомогености"
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr ""
+msgstr "Корекције хомогености"
 
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr ""
+msgstr "Ништа"
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr ""
+msgstr "Браун-Форсајт"
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr ""
+msgstr "Welch"
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Q-Q графикон резидуала"
 
 msgctxt "Contrasts|"
 msgid "Contrasts"
@@ -887,15 +893,15 @@ msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Интервали поверења"
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr ""
+msgstr "Дескриптивни графикони"
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Фактори"
 
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
@@ -919,7 +925,7 @@ msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
-msgstr ""
+msgstr "Стандардна грешка"
 
 msgctxt "Display|"
 msgid "Display"
@@ -931,11 +937,11 @@ msgstr ""
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Процене величине ефекта"
 
 msgctxt "Display|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Display|"
 msgid "partial η²"
@@ -955,11 +961,11 @@ msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Маргиналне средње вредности"
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr ""
+msgstr "Из"
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
@@ -975,35 +981,35 @@ msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr ""
+msgstr "Ништа"
 
 msgctxt "Models|"
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgctxt "Models|"
 msgid "Components"
-msgstr ""
+msgstr "Компоненте"
 
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr ""
+msgstr "Услови за модел"
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Непараметријски"
 
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kruskal-Wallis тест"
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Post Hoc тестови"
 
 msgctxt "PostHoc|"
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgctxt "PostHoc|"
 msgid "Standard"
@@ -1011,47 +1017,48 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr ""
+msgstr "Из"
 
+#, fuzzy
 msgctxt "PostHoc|"
 msgid "bootstraps"
-msgstr ""
+msgstr "bootstraps"
 
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr ""
+msgstr "Величина ефекта"
 
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr ""
+msgstr "Исправка"
 
 msgctxt "PostHoc|"
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgctxt "PostHoc|"
 msgid "Scheffé"
-msgstr ""
+msgstr "Scheffé"
 
 msgctxt "PostHoc|"
 msgid "Bonferroni"
-msgstr ""
+msgstr "Бонферони"
 
 msgctxt "PostHoc|"
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgctxt "PostHoc|"
 msgid "Šidák"
-msgstr ""
+msgstr "Šidák"
 
 msgctxt "PostHocDisplay|"
 msgid "Display"
@@ -1059,7 +1066,7 @@ msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Интервали поверења"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
@@ -1067,7 +1074,7 @@ msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
-msgstr ""
+msgstr "Фактори"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
@@ -1100,15 +1107,15 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr ""
+msgstr "Аутоматски"
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
-msgstr ""
+msgstr "Лапласова апроксимација"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Означите y-осу"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
@@ -1136,11 +1143,11 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr ""
+msgstr "Графикони трака"
 
 msgctxt "BarPlots|"
 msgid "Factors"
-msgstr ""
+msgstr "Фактори"
 
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
@@ -1160,39 +1167,40 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Интервал веродостојности"
 
 msgctxt "BarPlots|"
 msgid "Standard error"
-msgstr ""
+msgstr "Стандардна грешка"
 
 msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
-msgstr ""
+msgstr "Фиксирај хоризонталну осу на 0"
 
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
-msgstr ""
+msgstr "Процене величине ефекта"
 
 msgctxt "Nonparametrics|"
 msgid "ε²"
 msgstr ""
 
+#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "η²"
-msgstr ""
+msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr ""
+msgstr "Поверење"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr ""
+msgstr "Q-Q графикон резидуала"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Условна поређења за интеракције"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
@@ -1208,7 +1216,7 @@ msgstr ""
 
 msgctxt "Display|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Интервали поверења"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
@@ -1216,11 +1224,11 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Условна поређења за интеракције"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr ""
+msgstr "Означите значајна поређења"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"

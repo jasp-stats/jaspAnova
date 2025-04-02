@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-03-17 13:06+0000\n"
-"Last-Translator: MikeWinny <winny63@gmail.com>\n"
+"PO-Revision-Date: 2025-04-02 18:58+0000\n"
+"Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "ru/>\n"
 "Language: ru\n"
@@ -199,7 +199,6 @@ msgstr "Даннетт"
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "Апостериорные сравнения с помощью критерия Даннета - %s"
 
-#, fuzzy
 msgid "%s%% CI for Mean Difference"
 msgstr "%s%% ДИ для разницы средних"
 
@@ -618,9 +617,8 @@ msgstr "Модели"
 msgid "P(M)"
 msgstr "P(M)"
 
-#, fuzzy
 msgid "P(M|data)"
-msgstr "P(M|data)"
+msgstr "P(M|данные)"
 
 #, fuzzy
 msgid "error %%"
@@ -1003,9 +1001,8 @@ msgstr "Коэффициент"
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Сводка"
+msgstr "Сводка по Модели"
 
 msgid "Restriction Matrix"
 msgstr ""
@@ -1019,7 +1016,6 @@ msgstr ""
 msgid "Coefficients"
 msgstr "Коэффициенты"
 
-#, fuzzy
 msgid "%s%% CI"
 msgstr "%s%% ДИ"
 

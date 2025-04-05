@@ -3,459 +3,255 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Language: ru\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr "Дисперсионный анализ"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "Классический анализ"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr "ДА с повторными измерениями"
+msgstr ""
 
-#, fuzzy
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr "Ковариационный анализ (ANCOVA)"
+msgstr ""
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr "Многофакторный ДА"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr "Байесовский анализ"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr "Байесовский ДА"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "Байесовский ДА с повторными измерениями"
+msgstr ""
 
-#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr "Байесовский анализ ковариаций"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr "Зависимая переменная"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr "Фиксированные факторы"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr "Случайные факторы"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr "Ковариаты"
+msgstr ""
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "Взвешенный метод наименьших квадратов"
+msgstr ""
 
-#, fuzzy
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr "Проверка независимости факторов"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr "Зависимая переменная"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr "Фиксированные факторы"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr "Случайные факторы"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr "Ковариаты"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr "Зависимая переменная"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr "Фиксированные факторы"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr "Случайные факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr "Взвешенный метод наименьших квадратов"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr "Зависимая переменная"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr "Фиксированные факторы"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr "Случайные факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr "Факторы"
+msgstr ""
 
-#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr ""
+
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "Измерения факторов"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr "Межгрупповые факторы"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr "Ковариаты"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr "Факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr "Межгрупповые факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr "Проверка допущений"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr "Критерий сферичности (однородности дисперсий)"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr "Коррекции нарушения сферичности"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr "Не требуется"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
-msgstr "Гринхаус-Гессер"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
-msgstr "Хюйн-Фельдт"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr "Критерии гомогенности"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Q-Q plot of residuals"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "Апостериорные сравнения"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr "Размер эффекта"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr "Коррекция"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
-msgstr "Холм"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr "Бонферрони"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr "Тьюки"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Factors"
-msgstr "Факторы"
+msgid "Scheffé"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr "Надпись на оси \"y\""
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "Усреднить по неиспользованным факторам"
+msgstr ""
 
-#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Normalize error bars"
+msgstr ""
+
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr "Объединить ошибки"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr "Непараметрические критерии"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
-msgid "RM Factor"
-msgstr "Фактор"
+msgid "Factors"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr "Группирующий фактор"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr "Апостериорные критерии Коновера"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Repeated Measures Factors"
-msgstr "Факторы"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Repeated Measures Cells"
-msgstr "Измерения факторов"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Between Subject Factors"
-msgstr "Межгрупповые факторы"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Covariates"
-msgstr "Ковариаты"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Label y-axis"
 msgstr ""
-
-msgctxt "Manova|"
-msgid "Dependent Variables"
-msgstr "Зависимые переменные"
-
-msgctxt "Manova|"
-msgid "Fixed Factors"
-msgstr "Фиксированные факторы"
-
-msgctxt "Manova|"
-msgid "Random Factors"
-msgstr "Случайные факторы"
-
-msgctxt "Manova|"
-msgid "Model"
-msgstr "Модель"
-
-msgctxt "Manova|"
-msgid "Components"
-msgstr "Компоненты"
-
-#, fuzzy
-msgctxt "Manova|"
-msgid "Model Terms"
-msgstr "Условия"
-
-#, fuzzy
-msgctxt "Manova|"
-msgid "Include intercept"
-msgstr "Учесть свободные коэффициенты"
-
-msgctxt "Manova|"
-msgid "Additional Options"
-msgstr "Дополнительные параметры"
-
-msgctxt "Manova|"
-msgid "Test"
-msgstr "Критерии"
-
-msgctxt "Manova|"
-msgid "Pillai"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Wilks"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Hotelling-Lawley"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Roy"
-msgstr ""
-
-msgctxt "Manova|"
-msgid "Assumption Checks"
-msgstr "Проверка допущений"
-
-#, fuzzy
-msgctxt "Manova|"
-msgid "Homogeneity of covariance matrices"
-msgstr "Гомогенность ковариационных матриц"
-
-#, fuzzy
-msgctxt "Manova|"
-msgid "Multivariate normality"
-msgstr "Многомерная нормальность"
-
-msgctxt "Manova|"
-msgid "Display"
-msgstr "Отобразить"
-
-msgctxt "Manova|"
-msgid "ANOVA tables"
-msgstr "Таблицы дисперсионного анализа"
-
-msgctxt "Manova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Максимальное p-отношение Вовк-Селлке"
-
-msgctxt "RainCloudPlots|"
-msgid "Raincloud Plots"
-msgstr "График дождевых облаков"
-
-msgctxt "RainCloudPlots|"
-msgid "Factors"
-msgstr "Факторы"
-
-msgctxt "RainCloudPlots|"
-msgid "Horizontal Axis"
-msgstr "Горизонтальная ось"
-
-#, fuzzy
-msgctxt "RainCloudPlots|"
-msgid "Separate Plots"
-msgstr "Разделить графики по"
-
-#, fuzzy
-msgctxt "RainCloudPlots|"
-msgid "Horizontal display"
-msgstr "Отобразить горизонтально"
-
-msgctxt "RainCloudPlots|"
-msgid "Label y-axis"
-msgstr "Подпись на оси \"y\""
-
-#, fuzzy
-msgctxt "Description|"
-msgid "Evaluate the difference between multiple means"
-msgstr "Рассчитать разницу между множественными средними"
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Scheffé"
-msgstr "Шеффе"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "RM Factor"
-msgstr "Фактор"
-
-msgctxt "OrderRestrictions|"
-msgid "Model 1"
-msgstr "Модель 1"
-
-msgctxt "OrderRestrictions|"
-msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
-
-#, fuzzy
-msgctxt "OrderRestrictions|"
-msgid "Include intercept"
-msgstr "Учесть свободные коэффициенты"
-
-msgctxt "OrderRestrictions|"
-msgid "Model comparison"
-msgstr "Сравнение моделей"
-
-msgctxt "OrderRestrictions|"
-msgid "None"
-msgstr "Не требуется"
-
-msgctxt "OrderRestrictions|"
-msgid "HC0"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC1"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC2"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC3"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC4"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC4m"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "HC5"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid "Restricted Marginal Means"
-msgstr ""
-
-msgctxt "OrderRestrictions|"
-msgid ""
-"Ctrl + Enter to apply. Click on the blue button above for help on the "
-"restriction syntax"
-msgstr ""
-"Нажмите \"Ctrl + Enter\" для применения. Нажмите на голубую кнопку сверху "
-"для помощи"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
@@ -466,9 +262,73 @@ msgid ""
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
 
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "RM Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Cells"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Between Subject Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Bar Plots"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Display"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Error bars"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Confidence interval"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Standard error"
+msgstr ""
+
+msgctxt "BarPlots|"
+msgid "Fix horizontal axis to 0"
+msgstr ""
+
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr "Дополнительные параметры"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -516,15 +376,15 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr "Авто"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Manual"
-msgstr "Вручную"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr "Кол-во выборок"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
@@ -623,66 +483,61 @@ msgctxt "AdditionalOptions|"
 msgid "r-scale"
 msgstr ""
 
-#, fuzzy
 msgctxt "BayesFactorOrder|"
 msgid "Order"
-msgstr "Расположение"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
-msgstr "Сравнить с лучшей моделью"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr "Сравнить с нулевой моделью"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr "Таблицы"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
-msgstr "Эффекты"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across all models"
-msgstr "Среди всех моделей"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
-msgstr "Среди подходящих моделей"
+msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr "Оценки"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr "Описательные статистики"
+msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Достоверный интервал"
+msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Order"
-msgstr "Расположение"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
-msgstr "Сравнить с лучшей моделью"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
-msgstr "Сравнить с нулевой моделью"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
@@ -696,10 +551,9 @@ msgctxt "DefaultOptions|"
 msgid "Yes, show best"
 msgstr ""
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr "Графики"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
@@ -715,66 +569,55 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr "К-К график остатков"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
 msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr "Графики средних значений"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr "Факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr "Горизонтальная ось"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
-msgstr "Разделить линии по"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr "Разделить линии по"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Display"
-msgstr "Отобразить"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr "Достоверный интервал"
+msgstr ""
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
 msgctxt "ModelTerms|"
 msgid "Components"
-msgstr "Компоненты"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr "Апостериорные критерии"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr "Коррекция"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Null control"
@@ -784,33 +627,29 @@ msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Components"
-msgstr "Компоненты"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Tables"
-msgstr "Таблицы"
+msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Estimates"
-msgstr "Оценки"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "R²"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr "Графики"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
@@ -824,10 +663,9 @@ msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
 msgstr ""
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr "К-К график остатков"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
@@ -835,176 +673,195 @@ msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr "Проверка допущений"
+msgstr ""
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr "Критерии гомогенности"
+msgstr ""
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr "Коррекции нарушения гомогенности"
+msgstr ""
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr "Не требуется"
+msgstr ""
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr "Браун-Форсайт"
+msgstr ""
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr "Уэлч"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr "К-К график остатков"
+msgstr ""
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Contrasts"
-msgstr "Контрасты"
+msgstr ""
 
-#, fuzzy
+msgctxt "Contrasts|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
-msgstr "Доверительные интервалы"
+msgstr ""
 
-#, fuzzy
+msgctxt "Contrasts|"
+msgid "Effect size (cohen's d)"
+msgstr ""
+
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr "Описательные графики"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Factors"
-msgstr "Факторы"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
-msgstr "Горизонтальная ось"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
-msgstr "Разделить линии по"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr "Разделить графики по"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Display"
-msgstr "Отобразить"
+msgstr ""
+
+msgctxt "DescriptivePlots|"
+msgid "Error bars"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr "Доверительный интервал"
+msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
-msgstr "Стандартная ошибка"
+msgstr ""
 
-#, fuzzy
+msgctxt "DescriptivePlots|"
+msgid "Normalize error bars"
+msgstr ""
+
 msgctxt "Display|"
 msgid "Display"
-msgstr "Отобразить"
+msgstr ""
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "Описательные статистики"
+msgstr ""
 
-#, fuzzy
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr "Расчёт размера эффекта"
+msgstr ""
 
-#, fuzzy
+msgctxt "Display|"
+msgid "ω²"
+msgstr ""
+
+msgctxt "Display|"
+msgid "partial ω²"
+msgstr ""
+
 msgctxt "Display|"
 msgid "η²"
-msgstr "η²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr "частный η²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr "общий η²"
+msgstr ""
 
-#, fuzzy
 msgctxt "Display|"
-msgid "ω²"
-msgstr "ω²"
+msgid "Confidence intervals"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Максимальное p-отношение Вовк-Селлке"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr "Средние значения по уровням каждого фактора"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr "до"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
-msgstr "бутстрэп"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
-msgstr "Средние значения по уровням каждого фактора по сравнению с 0"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
-msgstr "Коррекция доверительного интервала"
+msgstr ""
 
-#, fuzzy
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr "Не требуется"
+msgstr ""
 
-#, fuzzy
+msgctxt "MarginalMeans|"
+msgid "Pool error term for follow-up tests"
+msgstr ""
+
 msgctxt "Models|"
 msgid "Model"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Components"
-msgstr "Компоненты"
+msgstr ""
 
-#, fuzzy
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr "Модель"
+msgstr ""
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
-msgstr "Непараметрические критерии"
+msgstr ""
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
-msgstr "Критерий Крускала-Уоллиса"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "Estimates of effect size"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "ε²"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "η²"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "Confidence"
+msgstr ""
+
+msgctxt "Nonparametrics|"
+msgid "Dunn's post hoc tests"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
@@ -1022,7 +879,15 @@ msgid ""
 msgstr ""
 
 msgctxt "OrderRestrictions|"
+msgid "Click to learn more about the syntax for order restrictions."
+msgstr ""
+
+msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Include intercept"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
@@ -1035,7 +900,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr "Сводка по модели"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
@@ -1043,6 +908,16 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Model 1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid ""
+"Ctrl + Enter to apply. Click on the blue button above for help on the "
+"restriction syntax"
 msgstr ""
 
 #, qt-format
@@ -1061,11 +936,19 @@ msgid "Informed hypothesis tests for %1"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
+msgid "Model comparison"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
 msgid "Complement model"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "None"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
@@ -1101,6 +984,34 @@ msgid "Heterogeneity correction"
 msgstr ""
 
 msgctxt "OrderRestrictions|"
+msgid "HC0"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC1"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC2"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC3"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC4m"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "HC5"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
 msgstr ""
 
@@ -1108,225 +1019,84 @@ msgctxt "OrderRestrictions|"
 msgid "Samples"
 msgstr ""
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr "Доверительные интервалы"
+msgstr ""
+
+msgctxt "OrderRestrictions|"
+msgid "Restricted Marginal Means"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
 msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr "Апостериорные сравнения"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Type"
-msgstr "Критерии"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Standard"
-msgstr "t-критерий"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr "Использовать"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "bootstraps"
-msgstr "бутстрэп-выборок"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr "Размер эффекта"
+msgstr ""
 
-#, fuzzy
+msgctxt "PostHoc|"
+msgid "Conditional comparisons for interactions"
+msgstr ""
+
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr "Геймс-Хоуэлл"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr "Даннет"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr "Коррекция p-значения"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Tukey"
-msgstr "Тьюки"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Scheffé"
-msgstr "Шеффе"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Bonferroni"
-msgstr "Бонферрони"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Holm"
-msgstr "Холм"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Šidák"
-msgstr "Шидак"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Display"
-msgstr "Отобразить"
+msgstr ""
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
-msgstr "Доверительные интервалы"
-
-#, fuzzy
-msgctxt "SimpleMainEffects|"
-msgid "Simple Main Effects"
-msgstr "Графики"
-
-#, fuzzy
-msgctxt "SimpleMainEffects|"
-msgid "Factors"
-msgstr "Факторы"
-
-msgctxt "SimpleMainEffects|"
-msgid "Simple Effect Factor"
-msgstr "Фактор"
-
-msgctxt "SimpleMainEffects|"
-msgid "Moderator Factor 1"
-msgstr "Модератор 1"
-
-msgctxt "SimpleMainEffects|"
-msgid "Moderator Factor 2"
-msgstr "Модератор 2"
-
-#, fuzzy
-msgctxt "SumOfSquares|"
-msgid "Sum of squares"
-msgstr "Сумма квадратов"
-
-#, qt-format
-msgctxt "SumOfSquares|"
-msgid "Type %1"
-msgstr "Тип %1"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error term for follow-up tests"
-msgstr ""
-
-msgctxt "Contrasts|"
-msgid "Pool error term for follow-up tests"
-msgstr ""
-
-msgctxt "MarginalMeans|"
-msgid "Pool error term for follow-up tests"
-msgstr ""
-
-msgctxt "BarPlots|"
-msgid "Bar Plots"
-msgstr ""
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Factors"
-msgstr "Факторы"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Horizontal Axis"
-msgstr "Горизонтальная ось"
-
-msgctxt "BarPlots|"
-msgid "Separate Plots"
-msgstr ""
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Display"
-msgstr "Отобразить"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Confidence interval"
-msgstr "Доверительный интервал"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Credible interval"
-msgstr "Достоверный интервал"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Standard error"
-msgstr "Стандартная ошибка"
-
-msgctxt "BarPlots|"
-msgid "Fix horizontal axis to 0"
-msgstr ""
-
-#, fuzzy
-msgctxt "Nonparametrics|"
-msgid "Estimates of effect size"
-msgstr "Расчёт размера эффекта"
-
-msgctxt "Nonparametrics|"
-msgid "ε²"
-msgstr ""
-
-#, fuzzy
-msgctxt "Nonparametrics|"
-msgid "η²"
-msgstr "η²"
-
-msgctxt "Nonparametrics|"
-msgid "Confidence"
-msgstr ""
-
-#, fuzzy
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Q-Q plot of residuals"
-msgstr "К-К график остатков"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Conditional comparisons for interactions"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Normalize error bars"
-msgstr ""
-
-msgctxt "DescriptivePlots|"
-msgid "Normalize error bars"
-msgstr ""
-
-msgctxt "Display|"
-msgid "partial ω²"
-msgstr ""
-
-#, fuzzy
-msgctxt "Display|"
-msgid "Confidence intervals"
-msgstr "Доверительные интервалы"
-
-msgctxt "Nonparametrics|"
-msgid "Dunn's post hoc tests"
-msgstr ""
-
-msgctxt "PostHoc|"
-msgid "Conditional comparisons for interactions"
 msgstr ""
 
 msgctxt "PostHocDisplay|"
@@ -1341,14 +1111,131 @@ msgctxt "PostHocDisplay|"
 msgid "α-level:"
 msgstr ""
 
-msgctxt "BarPlots|"
-msgid "Error bars"
+msgctxt "SimpleMainEffects|"
+msgid "Simple Main Effects"
 msgstr ""
 
-msgctxt "DescriptivePlots|"
-msgid "Error bars"
+msgctxt "SimpleMainEffects|"
+msgid "Factors"
 msgstr ""
 
-msgctxt "Contrasts|"
-msgid "Effect size (cohen's d)"
+msgctxt "SimpleMainEffects|"
+msgid "Simple Effect Factor"
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 1"
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid "Moderator Factor 2"
+msgstr ""
+
+msgctxt "SumOfSquares|"
+msgid "Sum of squares"
+msgstr ""
+
+#, qt-format
+msgctxt "SumOfSquares|"
+msgid "Type %1"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Raincloud Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal Axis"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Separate Plots"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Horizontal display"
+msgstr ""
+
+msgctxt "RainCloudPlots|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Dependent Variables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Test"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Pillai"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Wilks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Hotelling-Lawley"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Roy"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Homogeneity of covariance matrices"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Multivariate normality"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "ANOVA tables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Vovk-Sellke maximum p-ratio"
 msgstr ""

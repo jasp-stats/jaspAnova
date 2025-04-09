@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2024-11-23 02:52\n"
-"PO-Revision-Date: 2025-04-03 07:23+0000\n"
+"PO-Revision-Date: 2025-04-10 05:00+0000\n"
 "Last-Translator: Tran Thien Truong <truongtrandds@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/vi/>\n"
@@ -33,228 +33,249 @@ msgstr "Đã xảy ra lỗi khi tính toán phân tích phương sai ANOVA: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
 msgstr ""
+"Thiết kế của bạn chứa các ô trống. Vui lòng thử một loại tổng bình phương "
+"khác."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"Không thể tính hiệu chỉnh Welch vì biến '%1$s' có phương sai bằng 0 sau khi "
+"nhóm theo cấp độ '%2$s': %3$s"
 
 msgid "ANOVA"
 msgstr "ANOVA (Phân tích phương sai)"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA (Phân tích hiệp phương sai)"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Hiệu chỉnh tính đồng nhất"
 
 msgid "Cases"
-msgstr ""
+msgstr "Trường hợp"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Tổng bình phương"
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Trung bình của bình phương"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s (Tỷ lệ p tối đa theo Vovk–Sellke)"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho η²"
 
 msgid "Lower"
-msgstr ""
+msgstr "Giới hạn dưới"
 
 msgid "Upper"
-msgstr ""
+msgstr "Giới hạn trên"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho η²ₚ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho ω²"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"Hiệu chỉnh Brown–Forsythe và Welch chỉ áp dụng cho phân tích phương sai một "
+"chiều (one-way ANOVA)"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Bảng đối chiếu"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Đối chiếu - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Không đủ dữ liệu để ước lượng đầy đủ mô hình hoặc các đối chiếu. Có thể có "
+"các ô trống trong thiết kế giữa các đối tượng (tức là cấu trúc dữ liệu không "
+"phù hợp)"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Vui lòng chỉ định thêm một đối chiếu."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Số hàng của ma trận đối chiếu tùy chỉnh không đúng."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Vui lòng chỉ định trọng số đối chiếu khác 0."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Kiểm định hậu nghiệm (Post Hoc)"
 
 msgid "Standard (HSD)"
-msgstr ""
+msgstr "Kiểm định tiêu chuẩn (HSD)"
 
 msgid "Standard"
-msgstr ""
+msgstr "Tiêu chuẩn"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "Kết quả được tính trung bình trên các mức của biến: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "Một số tham số không thể ước lượng được do dữ liệu bị thiếu."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Phép lặp bootstrap được thực hiện dựa trên %s lần lặp thành công."
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"Ước lượng Chênh lệch Trung bình được dựa trên trung vị của phân phối "
+"bootstrap."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Khoảng tin cậy hiệu chỉnh sai số và gia tốc."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Kiểm định hậu nghiệm sử dụng phương pháp bootstrap"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"Một số khoảng tin cậy không thể được tính toán.\n"
+"Có thể do số lần lặp bootstrap quá ít."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Kiểm định Games–Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "So sánh hậu nghiệm Games–Howell - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "So sánh"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Chênh lệch trung bình"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "Khoảng tin cậy %.0f%% cho chênh lệch trung bình"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>Tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Kết quả dựa trên giá trị trung bình chưa hiệu chỉnh."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Kiểm định Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "So sánh hậu nghiệm Dunnett - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho chênh lệch trung bình"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>Dunnett</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
-msgstr ""
+msgstr "Khoảng tin cậy quá hẹp, vui lòng chọn mức tin cậy khác."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Kiểm tra giả định"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Kiểm định độ đồng nhất phương sai (Levene)"
 
 msgid "df1"
-msgstr ""
+msgstr "df1 (bậc tự do thứ nhất)"
 
 msgid "df2"
-msgstr ""
+msgstr "df2 (bậc tự do thứ hai)"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"Giá trị F bằng 0 cho thấy mô hình khớp hoàn hảo.<br><br>(Kiểm định Levene "
+"trong trường hợp mô hình gần như khớp hoàn hảo là không đáng tin cậy)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Trung bình biên"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Lấy mẫu bootstrap trung bình biên"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"Một số khoảng tin cậy không thể được tính. Có thể do số lần lặp bootstrap "
+"quá ít."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Lấy mẫu bootstrap dựa trên %s lần lặp."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Hiệu ứng chính đơn giản"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Hiệu ứng chính đơn giản - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Mức của %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Không đủ quan sát trong các ô %s."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kiểm định Kruskal-Wallis"
 
 msgid "Factor"
-msgstr ""
+msgstr "Nhân tố"
 
 msgid "Statistic"
-msgstr ""
+msgstr "Thống kê"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Thứ hạng %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "Khoảng tin cậy %1$i%% cho thứ hạng %2$s"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"Các kiểm định được thực hiện riêng biệt cho từng biến, mà không xét đến ảnh "
+"hưởng đa biến."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Kiểm định Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "So sánh hậu nghiệm Dunn - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "r<sub>rb</sub> (hệ số tương quan thứ hạng r)"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub> (Giá trị p hiệu chỉnh Bonferroni)"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub> (Giá trị p hiệu chỉnh Holm)"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Tương quan thứ hạng nhị phân được tính dựa trên từng kiểm định Mann–Whitney "
+"riêng biệt."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
-msgstr ""
+msgstr "Lỗi khi tải dữ liệu. Vui lòng kiểm tra các quan sát đo lặp của bạn."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
 msgstr ""
@@ -284,10 +305,10 @@ msgid "Some parameters are not estimable, most likely due to empty cells of the 
 msgstr ""
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Hiệu chỉnh Greenhouse–Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Hiệu chỉnh Huynh–Feldt"
 
 msgid "None"
 msgstr ""
@@ -401,7 +422,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr ""
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Gặp biến trùng lặp trong %s"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
@@ -621,51 +642,56 @@ msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
 msgstr ""
+"Tất cả các giá trị dự đoán đều có phương sai bằng 0. Vui lòng kiểm tra các "
+"biến dự báo hoặc biến phụ thuộc để phát hiện bất thường, hoặc tăng số lượng "
+"mẫu hậu nghiệm."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Hiển thị %1$d mô hình tốt nhất trong tổng số %2$d mô hình."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "Lỗi sau đã xảy ra trong BayesFactor::enumerateGeneralModels: %s"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Suy luận từ một mô hình duy nhất"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"Lỗi trong quá trình suy luận từ mô hình duy nhất:\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "Tóm tắt hậu nghiệm của mô hình duy nhất"
 
 msgid "Variable"
-msgstr ""
+msgstr "Biến"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "Phân phối hậu nghiệm của mô hình duy nhất"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Biểu đồ Q–Q"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "Hậu nghiệm R%s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "Mô hình duy nhất R%s"
 
 msgid "Estimate"
-msgstr ""
+msgstr "Ước lượng"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "Cohen's d (Chỉ số hiệu ứng Cohen)"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "Khoảng tin cậy %s%% cho chỉ số Cohen’s d"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Hệ số Đối chiếu - %2$s"
 
 msgid "Post Hoc Comparisons -"
 msgstr ""

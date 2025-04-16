@@ -72,6 +72,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   .BANOVAdescriptives(anovaContainer, dataset, options, list(noVariables=FALSE), "ANCOVA", ready)
 
+  .anovaExportResiduals(anovaContainer, dataset, options, ready)
+
+  .anovaExportPredictions(anovaContainer, dataset, options, ready)
+
   return()
 }
 

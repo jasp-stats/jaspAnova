@@ -72,6 +72,7 @@ Form
 			label: qsTr("Pool error term for follow-up tests")
 			checked: false 
 		}
+
 	}
 
 	Section
@@ -198,4 +199,5 @@ Form
 		CheckBox { name: "conoverTest"; label: qsTr("Conover's post hoc tests") }
 	}
 
+	Classical.Export { id: exportComponent}
 }

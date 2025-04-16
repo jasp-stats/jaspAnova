@@ -271,3 +271,39 @@
 }
 
 
+.anovaExportResiduals <- function(container, dataset, options, ready) {
+
+  if (options[["residualsSavedToData"]] && ready && is.null(container[["residualsSavedToDataColumn"]]) &&
+    options[["residualsSavedToDataColumn"]] != "") {
+
+    model <- container[["model"]]$object
+
+    residuals <- rep(NA, nrow(dataset)) # create vector with MA to account for missinginess
+    residuals[as.numeric(rownames(model[["model"]]))] <- model[["residuals"]] # extract residuals
+
+    container[["residualsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["residualsSavedToDataColumn"]])
+    container[["residualsSavedToDataColumn"]]$dependOn(options = c("residualsSavedToDataColumn", "residualsSavedToData"))
+    container[["residualsSavedToDataColumn"]]$setScale(residuals)
+
+  }
+
+}
+
+.anovaExportPredictions <- function(container, dataset, options, ready) {
+
+  if (options[["predictionsSavedToData"]] && ready && is.null(container[["predictionsSavedToDataColumn"]]) &&
+      options[["predictionsSavedToDataColumn"]] != "") {
+
+    model <- container[["model"]]$object
+
+    predictions <- rep(NA, nrow(dataset)) # create vector with MA to account for missinginess
+    predictions[as.numeric(rownames(model[["model"]]))] <- model[["fitted.values"]] # extract predictions
+
+    container[["predictionsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["predictionsSavedToDataColumn"]])
+    container[["predictionsSavedToDataColumn"]]$dependOn(options = c("predictionsSavedToDataColumn", "predictionsSavedToData"))
+    container[["predictionsSavedToDataColumn"]]$setScale(predictions)
+
+  }
+
+}
+

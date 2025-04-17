@@ -112,4 +112,5 @@ Form
 		source: ["fixedFactors", "randomFactors"]
 	}
 
+	Classical.Export { id: exportComponent}
 }

@@ -282,7 +282,7 @@
     residuals[as.numeric(rownames(model[["model"]]))] <- model[["residuals"]] # extract residuals
 
     container[["residualsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["residualsSavedToDataColumn"]])
-    container[["residualsSavedToDataColumn"]]$dependOn(options = c("residualsSavedToDataColumn", "residualsSavedToData"))
+    container[["residualsSavedToDataColumn"]]$dependOn(options = c("residualsSavedToDataColumn", "residualsSavedToData", "modelTerms"))
     container[["residualsSavedToDataColumn"]]$setScale(residuals)
 
   }
@@ -300,7 +300,7 @@
     predictions[as.numeric(rownames(model[["model"]]))] <- model[["fitted.values"]] # extract predictions
 
     container[["predictionsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["predictionsSavedToDataColumn"]])
-    container[["predictionsSavedToDataColumn"]]$dependOn(options = c("predictionsSavedToDataColumn", "predictionsSavedToData"))
+    container[["predictionsSavedToDataColumn"]]$dependOn(options = c("predictionsSavedToDataColumn", "predictionsSavedToData", "modelTerms"))
     container[["predictionsSavedToDataColumn"]]$setScale(predictions)
 
   }

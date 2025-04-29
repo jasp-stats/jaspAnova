@@ -273,8 +273,10 @@
 
 .anovaExportResiduals <- function(container, dataset, options, ready) {
 
-  if (options[["residualsSavedToData"]] && ready && is.null(container[["residualsSavedToDataColumn"]]) &&
-    options[["residualsSavedToDataColumn"]] != "") {
+  if (ready &&
+      isTRUE(options[["residualsSavedToData"]]) &&
+      isTRUE(options[["residualsSavedToDataColumn"]] != "") &&
+      is.null(container[["residualsSavedToDataColumn"]])) {
 
     model <- container[["model"]]$object
 
@@ -291,8 +293,11 @@
 
 .anovaExportPredictions <- function(container, dataset, options, ready) {
 
-  if (options[["predictionsSavedToData"]] && ready && is.null(container[["predictionsSavedToDataColumn"]]) &&
-      options[["predictionsSavedToDataColumn"]] != "") {
+  if (ready &&
+      isTRUE(options[["predictionsSavedToData"]]) &&
+      isTRUE(options[["predictionsSavedToDataColumn"]] != "") &&
+      is.null(container[["predictionsSavedToDataColumn"]])) {
+
 
     model <- container[["model"]]$object
 

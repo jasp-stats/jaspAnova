@@ -64,10 +64,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   .BANOVAdescriptives(rmAnovaContainer, longData, options, list(noVariables=FALSE), "RM-ANOVA", ready)
 
-  .anovaExportResiduals(rmAnovaContainer, dataset, options, ready)
-
-  .anovaExportPredictions(rmAnovaContainer, dataset, options, ready)
-
   return()
 }
 

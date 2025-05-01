@@ -199,5 +199,4 @@ Form
 		CheckBox { name: "conoverTest"; label: qsTr("Conover's post hoc tests") }
 	}
 
-	Classical.Export { id: exportComponent}
 }

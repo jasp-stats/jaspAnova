@@ -169,15 +169,15 @@ test_that("Analysis handles errors", {
 test_that("Analysis fails gracefully if some models error", {
 
   options <- initOpts("AnovaRepeatedMeasuresBayesian")
-  options$covariates = list("contNormal")
-  options$betweenSubjectFactors = list("contBinom")
+  options$covariates = "contNormal"
+  options$betweenSubjectFactors = "contBinom"
   options$effects <- TRUE
-  options$modelTerms = list(list(components = list("RM_FACTOR_1"), isNuisance = FALSE),
-                            list(components = list("contBinom"), isNuisance = FALSE),
-                            list(components = list("contNormal"), isNuisance = FALSE),
-                            list(components = list("RM_FACTOR_1", "contBinom"), isNuisance = FALSE))
-  options$repeatedMeasuresCells = list("contcor1", "contcor2")
-  options$repeatedMeasuresFactors = list(list(levels = list("Level 1", "Level 2"), name = "RM_FACTOR_1"))
+  options$modelTerms = list(list(components = "RM_FACTOR_1", isNuisance = FALSE),
+                            list(components = "contBinom", isNuisance = FALSE),
+                            list(components = "contNormal", isNuisance = FALSE),
+                            list(components = c("RM_FACTOR_1", "contBinom"), isNuisance = FALSE))
+  options$repeatedMeasuresCells = c("contcor1", "contcor2")
+  options$repeatedMeasuresFactors = list(list(levels = c("Level 1", "Level 2"), name = "RM_FACTOR_1"))
 
   # NOTE: the option below makes BayesFactor return NaN as BF for models with covariates.
   # It's a nice hack to test how gracefully the analysis recovers when some but not all BFs could be computed.

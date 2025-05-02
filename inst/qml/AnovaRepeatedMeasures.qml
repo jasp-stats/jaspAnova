@@ -72,6 +72,7 @@ Form
 			label: qsTr("Pool error term for follow-up tests")
 			checked: false 
 		}
+
 	}
 
 	Section

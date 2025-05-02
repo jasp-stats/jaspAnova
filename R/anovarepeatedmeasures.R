@@ -193,9 +193,16 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   termsRM.base64 <- c()
   termsRM.normal <- c()
 
+  mainEffects <- unlist(lapply(options$withinModelTerms, function(term) {
+    if (length(term$components) == 1) term$components
+  }))
+
   for (term in options$withinModelTerms) {
 
     components <- unlist(term$components)
+    if (length(components) > 1) # make sure that interaction gets defined in same order as model terms
+      components <- mainEffects[mainEffects %in% components]
+
     termRM.base64 <- paste(.v(components), collapse=":", sep="")
     termRM.normal <- paste(components, collapse=" \u273B ", sep="")
 

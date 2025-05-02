@@ -271,3 +271,50 @@
 }
 
 
+.anovaExportResiduals <- function(container, dataset, options, ready) {
+
+  if (ready &&
+      isTRUE(options[["residualsSavedToData"]]) &&
+      isTRUE(options[["residualsSavedToDataColumn"]] != "")) {
+
+    model <- container[["model"]]$object
+
+    residuals <- rep(NA, nrow(dataset)) # create vector with MA to account for missinginess
+
+    if (options[["residualsSavedToDataType"]] == "raw") {
+      residuals[as.numeric(rownames(model[["model"]]))] <- model[["residuals"]] # extract residuals
+    } else if (options[["residualsSavedToDataType"]] == "standard") {
+      residuals[as.numeric(rownames(model[["model"]]))] <- rstandard(model)
+    } else if (options[["residualsSavedToDataType"]] == "student") {
+      residuals[as.numeric(rownames(model[["model"]]))] <- rstudent(model)
+    }
+
+    container[["residualsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["residualsSavedToDataColumn"]])
+    container[["residualsSavedToDataColumn"]]$dependOn(options = c("residualsSavedToDataColumn", "residualsSavedToData",
+                                                                   "residualsSavedToDataType",  "modelTerms"))
+    container[["residualsSavedToDataColumn"]]$setScale(residuals)
+
+  }
+
+}
+
+.anovaExportPredictions <- function(container, dataset, options, ready) {
+
+  if (ready &&
+      isTRUE(options[["predictionsSavedToData"]]) &&
+      isTRUE(options[["predictionsSavedToDataColumn"]] != "")) {
+
+
+    model <- container[["model"]]$object
+
+    predictions <- rep(NA, nrow(dataset)) # create vector with MA to account for missinginess
+    predictions[as.numeric(rownames(model[["model"]]))] <- model[["fitted.values"]] # extract predictions
+
+    container[["predictionsSavedToDataColumn"]] <- createJaspColumn(columnName = options[["predictionsSavedToDataColumn"]])
+    container[["predictionsSavedToDataColumn"]]$dependOn(options = c("predictionsSavedToDataColumn", "predictionsSavedToData", "modelTerms"))
+    container[["predictionsSavedToDataColumn"]]$setScale(predictions)
+
+  }
+
+}
+

@@ -1265,3 +1265,43 @@ msgstr "誤差棒"
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
 msgstr "效果量 (Cohen's d)"
+
+msgctxt "Export|"
+msgid "Export"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Append residuals to data"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Column name"
+msgstr ""
+
+msgctxt "Export|"
+msgid "e.g., residuals"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Residuals type"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Raw"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Studentized"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Standardized"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Append predictions to data"
+msgstr ""
+
+msgctxt "Export|"
+msgid "e.g., predictions"
+msgstr ""

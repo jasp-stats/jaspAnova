@@ -1315,3 +1315,43 @@ msgstr "Asse Etichetta-y"
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
 msgstr ""
+
+msgctxt "Export|"
+msgid "Export"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Append residuals to data"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Column name"
+msgstr ""
+
+msgctxt "Export|"
+msgid "e.g., residuals"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Residuals type"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Raw"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Studentized"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Standardized"
+msgstr ""
+
+msgctxt "Export|"
+msgid "Append predictions to data"
+msgstr ""
+
+msgctxt "Export|"
+msgid "e.g., predictions"
+msgstr ""

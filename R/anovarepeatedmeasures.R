@@ -1373,7 +1373,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     useDurbin <- any(table(groups, blocks) < 1) && length(unique(table(groups))) == 1
 
     if (any(table(groups, blocks) > 1)) {
-      friedmanTable$setError(gettextf("Not an unreplicated complete block design."))
+      friedmanTable$setError(gettextf("Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."))
       return()
     }
 

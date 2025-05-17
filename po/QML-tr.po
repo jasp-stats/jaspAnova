@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-05-16 23:05+0000\n"
+"Last-Translator: Ertuğrul Uyar <ertugruluyar.academic@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
 "X-Language: tr\n"
 "X-Qt-Contexts: true\n"
 
@@ -58,7 +64,7 @@ msgstr "Rassal Faktörler"
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr "Eşdeğişkenler"
+msgstr "Ortak Değişkenler"
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
@@ -82,7 +88,7 @@ msgstr "Rassal Faktörler"
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr "Eşdeğişkenler"
+msgstr "Ortak Değişkenler"
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
@@ -127,7 +133,7 @@ msgstr "Denekler Arası Faktörler"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr "Eşdeğişkenler"
+msgstr "Ortak Değişkenler"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
@@ -248,10 +254,9 @@ msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
 msgstr "Denekler Arası Faktörler"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr "Eşdeğişkenler"
+msgstr "Ortak Değişkenler"
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
@@ -387,7 +392,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
@@ -476,9 +481,10 @@ msgctxt "AdditionalOptions|"
 msgid "Manual"
 msgstr ""
 
+#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "Örnek yok"
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
@@ -619,7 +625,7 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Güvenilir aralık"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -683,7 +689,7 @@ msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Güvenilir aralık"
 
 #, fuzzy
 msgctxt "ModelTerms|"
@@ -727,7 +733,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Aykırı ortalamalar"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
@@ -794,7 +800,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr ""
+msgstr "Örnekler"
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
@@ -878,7 +884,7 @@ msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
@@ -966,7 +972,7 @@ msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr ""
+msgstr "Aykırı Ortalamalar"
 
 msgctxt "MarginalMeans|"
 msgid "From"
@@ -986,7 +992,7 @@ msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 #, fuzzy
 msgctxt "Models|"
@@ -1173,7 +1179,7 @@ msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Güvenilir aralık"
 
 msgctxt "BarPlots|"
 msgid "Standard error"

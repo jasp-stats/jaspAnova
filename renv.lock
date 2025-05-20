@@ -4,7 +4,7 @@
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://cloud.r-project.org"
+        "URL": "https://cran.rstudio.com"
       }
     ]
   },
@@ -238,7 +238,7 @@
     },
     "bayestestR": {
       "Package": "bayestestR",
-      "Version": "0.15.3",
+      "Version": "0.16.0",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -423,7 +423,7 @@
     },
     "datawizard": {
       "Package": "datawizard",
-      "Version": "1.0.2",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -466,7 +466,7 @@
     },
     "doBy": {
       "Package": "doBy",
-      "Version": "4.6.26",
+      "Version": "4.6.27",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -533,17 +533,17 @@
     },
     "emmeans": {
       "Package": "emmeans",
-      "Version": "1.11.0",
+      "Version": "1.11.1",
       "Source": "Repository",
       "Requirements": [
         "R",
         "estimability",
         "graphics",
         "methods",
+        "mvtnorm",
         "numDeriv",
         "stats",
-        "utils",
-        "mvtnorm"
+        "utils"
       ]
     },
     "estimability": {
@@ -703,7 +703,7 @@
     },
     "generics": {
       "Package": "generics",
-      "Version": "0.1.3",
+      "Version": "0.1.4",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -926,7 +926,7 @@
     },
     "insight": {
       "Package": "insight",
-      "Version": "1.2.0",
+      "Version": "1.3.0",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -973,7 +973,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspBase",
-      "RemoteSha": "82b4b3fd094ac3b43e4c92bc6857da7efb7530d1"
+      "RemoteSha": "812b3eb26892da316a4bda6dc2e247f8ff194596"
     },
     "jaspDescriptives": {
       "Package": "jaspDescriptives",
@@ -996,7 +996,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspDescriptives",
-      "RemoteSha": "b274b7692867f4e12db72d54f0ec3b4e8045d469"
+      "RemoteSha": "e0109e5ca47dea0eb79d51653a2bd7675cb37296"
     },
     "jaspGraphs": {
       "Package": "jaspGraphs",
@@ -1039,7 +1039,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspTTests",
-      "RemoteSha": "2a912f9ce452a9c5f138af1e5545b5436bd1cfc0"
+      "RemoteSha": "6827d1203433877a382512ae114b7d230fb6cd74"
     },
     "jpeg": {
       "Package": "jpeg",
@@ -1315,7 +1315,7 @@
     },
     "modeltools": {
       "Package": "modeltools",
-      "Version": "0.2-23",
+      "Version": "0.2-24",
       "Source": "Repository",
       "Requirements": [
         "stats",
@@ -1457,7 +1457,7 @@
     },
     "parameters": {
       "Package": "parameters",
-      "Version": "0.24.2",
+      "Version": "0.25.0",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -1714,7 +1714,7 @@
     },
     "reformulas": {
       "Package": "reformulas",
-      "Version": "0.4.0",
+      "Version": "0.4.1",
       "Source": "Repository",
       "Requirements": [
         "stats",
@@ -1859,11 +1859,16 @@
     },
     "svglite": {
       "Package": "svglite",
-      "Version": "2.1.3",
+      "Version": "2.2.1",
       "Source": "Repository",
       "Requirements": [
         "R",
+        "base64enc",
+        "cli",
+        "lifecycle",
+        "rlang",
         "systemfonts",
+        "textshaping",
         "cpp11"
       ]
     },
@@ -1875,10 +1880,11 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "1.2.2",
+      "Version": "1.2.3",
       "Source": "Repository",
       "Requirements": [
         "R",
+        "base64enc",
         "grid",
         "jsonlite",
         "lifecycle",
@@ -1889,7 +1895,7 @@
     },
     "textshaping": {
       "Package": "textshaping",
-      "Version": "1.0.0",
+      "Version": "1.0.1",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -2003,7 +2009,7 @@
     },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.2.4",
+      "Version": "1.2.5",
       "Source": "Repository",
       "Requirements": [
         "R"
@@ -2089,7 +2095,7 @@
     },
     "zip": {
       "Package": "zip",
-      "Version": "2.3.2",
+      "Version": "2.3.3",
       "Source": "Repository",
       "Requirements": []
     },

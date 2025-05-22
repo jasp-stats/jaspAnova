@@ -798,12 +798,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     idxGood <- !is.na(logbfs)
     widxGood <- which(idxGood)
-    logsumbfs <- logSumExp(logbfs[idxGood])
 
     # normalize the prior w.r.t the non-failed models
     logpriorSubset <- logpriorSubset[idxGood]
     logpriorSubset <- logpriorSubset - logSumExp(logpriorSubset)
 
+    logsumbfs <- logSumExp(logbfs[idxGood] + logpriorSubset)
     logPostProbModel <- logbfs[idxGood] + logpriorSubset - logsumbfs
     internalTable[idxGood, "P(M|data)"] <- exp(logPostProbModel)
 
@@ -2848,7 +2848,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 #' Accurately compute log(1 - exp(x))
 #'
-#' @param x numeric value of vector
+#' @param x numeric value or vector
 #'
 #' @details See https://cran.r-project.org/web/packages/Rmpfr/vignettes/log1mexp-note.pdf
 #'
@@ -3738,8 +3738,6 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   return()
 
 }
-
-
 
 # Citations ----
 .BANOVAcitations <- c(

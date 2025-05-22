@@ -782,11 +782,15 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     # no errors, proceed normally and complete the table
 
     logsumbfs <- logSumExp(logbfs + logprior)
-    internalTable[["P(M|data)"]] <-  exp(logbfs + logprior - logsumbfs)
+    logPostProbModel <- logbfs + logprior - logsumbfs
+    internalTable[["P(M|data)"]] <-  exp(logPostProbModel)
 
-    nmodels <- nrow(internalTable)
-    for (i in seq_len(nmodels)) {
-      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
+    for (i in seq_len(nrow(internalTable))) {
+      logNumPostOdds  <- logPostProbModel[i]
+      logDenPostOdds  <- log1mexp(logNumPostOdds)
+      logNumPriorOdds <- logprior[i]
+      logDenPriorOdds <- log1mexp(logNumPriorOdds)
+      internalTable[i, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
     }
 
   } else {
@@ -795,12 +799,22 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     idxGood <- !is.na(logbfs)
     widxGood <- which(idxGood)
     logsumbfs <- logSumExp(logbfs[idxGood])
-    internalTable[["P(M|data)"]] <-  exp(logbfs - logsumbfs)
+
+    # normalize the prior w.r.t the non-failed models
+    logpriorSubset <- logpriorSubset[idxGood]
+    logpriorSubset <- logpriorSubset - logSumExp(logpriorSubset)
+
+    logPostProbModel <- logbfs[idxGood] + logpriorSubset - logsumbfs
+    internalTable[idxGood, "P(M|data)"] <- exp(logPostProbModel)
 
     nmodels <- sum(idxGood)
     widxBad <- which(!idxGood)
     for (i in widxGood) {
-      internalTable[["BFM"]][i] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
+      logNumPostOdds  <- logPostProbModel[i]
+      logDenPostOdds  <- log1mexp(logNumPostOdds)
+      logNumPriorOdds <- logprior[i]
+      logDenPriorOdds <- log1mexp(logNumPriorOdds)
+      internalTable[i, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
     }
 
     internalTable[widxBad, "P(M|data)"] <- NaN
@@ -2832,6 +2846,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(interactions.matrix)
 }
 
+#' Accurately compute log(1 - exp(x))
+#'
+#' @param x numeric value of vector
+#'
+#' @details See https://cran.r-project.org/web/packages/Rmpfr/vignettes/log1mexp-note.pdf
+#'
+log1mexp <- function(x) {
+  a0 <- -0.69314718055994528623 # log(1 / 2)
+  ifelse(x < a0, log1p(-exp(x)), log(-expm1(x)))
+}
+
 # Model prior ----
 .BANOVAcomputePriorModelProbs <- function(models, nuisance, options) {
 
@@ -3713,6 +3738,8 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   return()
 
 }
+
+
 
 # Citations ----
 .BANOVAcitations <- c(

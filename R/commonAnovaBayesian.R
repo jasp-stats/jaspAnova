@@ -807,9 +807,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     logNumPostOdds  <- logPostProbModel
     logDenPostOdds  <- log1mexp(logNumPostOdds)
-    logNumPriorOdds <- logprior
+    logNumPriorOdds <- logpriorSubset
     logDenPriorOdds <- log1mexp(logNumPriorOdds)
-    internalTable[idxGood, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
+    internalTable[widxGood, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
 
     widxBad <- which(!idxGood)
 

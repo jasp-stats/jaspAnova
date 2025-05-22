@@ -785,13 +785,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     logPostProbModel <- logbfs + logprior - logsumbfs
     internalTable[["P(M|data)"]] <-  exp(logPostProbModel)
 
-    for (i in seq_len(nrow(internalTable))) {
-      logNumPostOdds  <- logPostProbModel[i]
-      logDenPostOdds  <- log1mexp(logNumPostOdds)
-      logNumPriorOdds <- logprior[i]
-      logDenPriorOdds <- log1mexp(logNumPriorOdds)
-      internalTable[i, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
-    }
+    logNumPostOdds  <- logPostProbModel
+    logDenPostOdds  <- log1mexp(logNumPostOdds)
+    logNumPriorOdds <- logprior
+    logDenPriorOdds <- log1mexp(logNumPriorOdds)
+    internalTable[["BFM"]] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
 
   } else {
     # create table excluding failed models
@@ -800,22 +798,20 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     widxGood <- which(idxGood)
 
     # normalize the prior w.r.t the non-failed models
-    logpriorSubset <- logpriorSubset[idxGood]
+    logpriorSubset <- logprior[idxGood]
     logpriorSubset <- logpriorSubset - logSumExp(logpriorSubset)
 
     logsumbfs <- logSumExp(logbfs[idxGood] + logpriorSubset)
     logPostProbModel <- logbfs[idxGood] + logpriorSubset - logsumbfs
     internalTable[idxGood, "P(M|data)"] <- exp(logPostProbModel)
 
-    nmodels <- sum(idxGood)
+    logNumPostOdds  <- logPostProbModel
+    logDenPostOdds  <- log1mexp(logNumPostOdds)
+    logNumPriorOdds <- logprior
+    logDenPriorOdds <- log1mexp(logNumPriorOdds)
+    internalTable[idxGood, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
+
     widxBad <- which(!idxGood)
-    for (i in widxGood) {
-      logNumPostOdds  <- logPostProbModel[i]
-      logDenPostOdds  <- log1mexp(logNumPostOdds)
-      logNumPriorOdds <- logprior[i]
-      logDenPriorOdds <- log1mexp(logNumPriorOdds)
-      internalTable[i, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
-    }
 
     internalTable[widxBad, "P(M|data)"] <- NaN
     internalTable[widxBad, "BFM"]       <- NaN

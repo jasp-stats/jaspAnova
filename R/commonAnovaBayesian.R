@@ -803,7 +803,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     logsumbfs <- logSumExp(logbfs[idxGood] + logpriorSubset)
     logPostProbModel <- logbfs[idxGood] + logpriorSubset - logsumbfs
-    internalTable[idxGood, "P(M|data)"] <- exp(logPostProbModel)
+    internalTable[widxGood, "P(M|data)"] <- exp(logPostProbModel)
 
     logNumPostOdds  <- logPostProbModel
     logDenPostOdds  <- log1mexp(logNumPostOdds)

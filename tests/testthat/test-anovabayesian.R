@@ -223,6 +223,12 @@ test_that("Model prior changes posterior model probabilities", {
     } else {
       jaspTools::expect_equal_tables(tableModelComparison, reference[[modelPrior]][["modelComparison"]])
       jaspTools::expect_equal_tables(tableEffects,         reference[[modelPrior]][["posteriorSummary"]])
+
+      # internal consistency check
+      BFM              <- vapply(tableModelComparison, `[[`, "BFM",       FUN.VALUE = numeric(1))
+      prior_model_prob <- vapply(tableModelComparison, `[[`, "P(M)",      FUN.VALUE = numeric(1))
+      post_model_prob  <- vapply(tableModelComparison, `[[`, "P(M|data)", FUN.VALUE = numeric(1))
+      testthat::expect_equal(BFM, post_model_prob / (1 - post_model_prob) * (1 - prior_model_prob) / prior_model_prob)
     }
   }
   if (createReference) saveRDS(reference, referencePath)

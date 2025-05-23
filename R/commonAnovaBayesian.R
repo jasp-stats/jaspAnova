@@ -782,26 +782,36 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     # no errors, proceed normally and complete the table
 
     logsumbfs <- logSumExp(logbfs + logprior)
-    internalTable[["P(M|data)"]] <-  exp(logbfs + logprior - logsumbfs)
+    logPostProbModel <- logbfs + logprior - logsumbfs
+    internalTable[["P(M|data)"]] <-  exp(logPostProbModel)
 
-    nmodels <- nrow(internalTable)
-    for (i in seq_len(nmodels)) {
-      internalTable[i, "BFM"] <- logbfs[i] - logSumExp(logbfs[-i]) + log(nmodels - 1L)
-    }
+    logNumPostOdds  <- logPostProbModel
+    logDenPostOdds  <- log1mexp(logNumPostOdds)
+    logNumPriorOdds <- logprior
+    logDenPriorOdds <- log1mexp(logNumPriorOdds)
+    internalTable[["BFM"]] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
 
   } else {
     # create table excluding failed models
 
     idxGood <- !is.na(logbfs)
     widxGood <- which(idxGood)
-    logsumbfs <- logSumExp(logbfs[idxGood])
-    internalTable[["P(M|data)"]] <-  exp(logbfs - logsumbfs)
 
-    nmodels <- sum(idxGood)
+    # normalize the prior w.r.t the non-failed models
+    logpriorSubset <- logprior[idxGood]
+    logpriorSubset <- logpriorSubset - logSumExp(logpriorSubset)
+
+    logsumbfs <- logSumExp(logbfs[idxGood] + logpriorSubset)
+    logPostProbModel <- logbfs[idxGood] + logpriorSubset - logsumbfs
+    internalTable[widxGood, "P(M|data)"] <- exp(logPostProbModel)
+
+    logNumPostOdds  <- logPostProbModel
+    logDenPostOdds  <- log1mexp(logNumPostOdds)
+    logNumPriorOdds <- logpriorSubset
+    logDenPriorOdds <- log1mexp(logNumPriorOdds)
+    internalTable[widxGood, "BFM"] <- logNumPostOdds - logDenPostOdds + logDenPriorOdds - logNumPriorOdds
+
     widxBad <- which(!idxGood)
-    for (i in widxGood) {
-      internalTable[["BFM"]][i] <- logbfs[i] - logSumExp(logbfs[-c(i, widxBad)]) + log(nmodels - 1L)
-    }
 
     internalTable[widxBad, "P(M|data)"] <- NaN
     internalTable[widxBad, "BFM"]       <- NaN
@@ -2830,6 +2840,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     diag(interactions.matrix) <- FALSE
   }
   return(interactions.matrix)
+}
+
+#' Accurately compute log(1 - exp(x))
+#'
+#' @param x numeric value or vector
+#'
+#' @details See https://cran.r-project.org/web/packages/Rmpfr/vignettes/log1mexp-note.pdf
+#'
+log1mexp <- function(x) {
+  a0 <- -0.69314718055994528623 # log(1 / 2)
+  ifelse(x < a0, log1p(-exp(x)), log(-expm1(x)))
 }
 
 # Model prior ----

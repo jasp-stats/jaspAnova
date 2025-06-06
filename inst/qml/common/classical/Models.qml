@@ -30,8 +30,8 @@ Section
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { name: "components"; title: qsTr("Components"); id: components }
-		AssignedVariablesList {  name: "modelTerms"; title: qsTr("Model Terms"); listViewType: JASP.Interaction }
+		AvailableVariablesList { name: "components"; title: qsTr("Components"); info: qsTr("All the independent variables and covariates that can be included in the model.") ;id: components }
+		AssignedVariablesList {  name: "modelTerms"; title: qsTr("Model Terms"); info: qsTr("The independent variables and covariates included in the model. By default, all the main effects and interaction effects of the specified independent variables, and the covariates are included in the model.") ; listViewType: JASP.Interaction }
 	}
 
 	Classical.SumOfSquares{}

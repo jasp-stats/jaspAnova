@@ -28,7 +28,7 @@ Section
 	columns:	1
 	property int analysis
 
-	CheckBox { name: "homogeneityTests";	label: qsTr("Homogeneity tests")			}
+	CheckBox { name: "homogeneityTests";	label: qsTr("Homogeneity tests"); info: qsTr("By selecting this option, it will be checked whether the variance of the dependent variable is equal between the groups by performing Levene's test of equal variances.")			}
 	Group
 	{
 		visible: analysis === Common.Type.Analysis.ANOVA
@@ -40,5 +40,5 @@ Section
 		CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe") ; checked: false }
 		CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")          ; checked: false }
 	}
-	CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals") }
+	CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals"); info: qsTr("Checks the validity of the distributional assumption of the data set. Specifically, the plot illustrates whether the residuals are normally distributed.") }
 }

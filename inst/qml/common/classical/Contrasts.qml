@@ -24,6 +24,7 @@ import "../." as Common
 Section
 {
 	title: qsTr("Contrasts")
+	info: qsTr("For each independent variable, a specific contrast can be selected by clicking on none in the right column.")
 	property int analysis
 	property alias source: contrasts.source
 	ContrastsList { id: contrasts }
@@ -38,12 +39,12 @@ Section
 	}
 	CheckBox
 	{
-		name: "contrastCi"; label: qsTr("Confidence intervals")
+		name: "contrastCi"; label: qsTr("Confidence intervals"); info: qsTr("By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage.")
 		childrenOnSameRow: true
 		CIField {	name: "contrastCiLevel" }
 	}
 	CheckBox
 	{
-		name: "contrastEffectSize"; label: qsTr("Effect size (cohen's d)")
+		name: "contrastEffectSize"; label: qsTr("Effect size (cohen's d)"); info: qsTr("Include standardized mean differences, based on the effectsize function in the emmeans package.")
 	}
 }

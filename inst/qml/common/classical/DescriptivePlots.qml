@@ -23,17 +23,17 @@ import "../." as Common
 
 Section
 {
-	title:		qsTr("Descriptives Plots")
+	title:		qsTr("Descriptives Plots"); info: qsTr("To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.")
 	columns:	1
 	property alias source: availableTerms.source
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");	id: availableTerms }
-		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";			title: qsTr("Horizontal Axis");	singleVariable: true }
-		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";			title: qsTr("Separate Lines");	singleVariable: true; allowedColumns: ["nominal"] }
-		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";			title: qsTr("Separate Plots");	singleVariable: true; allowedColumns: ["nominal"] }
+		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors"); info: qsTr("The independent variables included in the analysis.")	;id: availableTerms }
+		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";			title: qsTr("Horizontal Axis"); info: qsTr("Select the independent variable that should be displayed on the horizontal axis of the plot.")	;singleVariable: true }
+		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";			title: qsTr("Separate Lines"); info: qsTr("By placing an independent variable in this box, different lines corresponding to the different levels of the independent variable will be displayed.")	;singleVariable: true; allowedColumns: ["nominal"] }
+		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";			title: qsTr("Separate Plots"); info: qsTr("By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.")	;singleVariable: true; allowedColumns: ["nominal"] }
 	}
 
 	Group
@@ -41,14 +41,14 @@ Section
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "descriptivePlotErrorBar"; label: qsTr("Error bars")
+			name: "descriptivePlotErrorBar"; label: qsTr("Error bars"); info: qsTr("By selecting this option, error bars will be displayed in the plot. The error bars can represent either confidence intervals or standard errors.")
 			RadioButtonGroup
 			{
 				name: "descriptivePlotErrorBarType"
 				RadioButton
 				{
 					value:				"ci";
-					label:				qsTr("Confidence interval");
+					label:				qsTr("Confidence interval")
 					checked:			true
 					childrenOnSameRow:	true
 					CIField { name: "descriptivePlotCiLevel" }
@@ -56,7 +56,7 @@ Section
 				RadioButton 
 				{ 
 					value: "se"
-					label: qsTr("Standard error") 
+					label: qsTr("Standard error")
 				}
 				
 				CheckBox 

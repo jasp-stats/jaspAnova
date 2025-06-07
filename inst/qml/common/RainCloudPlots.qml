@@ -32,15 +32,15 @@ Section
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
-		AvailableVariablesList	{ name: "rainCloudAvailableFactors";		title: qsTr("Factors"); id: availableTerms }
-		AssignedVariablesList	{ name: "rainCloudHorizontalAxis";	title: qsTr("Horizontal Axis"); singleVariable: true; allowedColumns: allowed }
-		AssignedVariablesList	{ name: "rainCloudSeparatePlots";	title: qsTr("Separate Plots");	singleVariable: true; allowedColumns: allowed }
+		AvailableVariablesList	{ name: "rainCloudAvailableFactors";		title: qsTr("Factors"); info: qsTr("The independent variables included in the analysis.") ;id: availableTerms }
+		AssignedVariablesList	{ name: "rainCloudHorizontalAxis";	title: qsTr("Horizontal Axis"); info: qsTr("Select the independent variable that should be displayed on the horizontal axis of the plot.") ;singleVariable: true; allowedColumns: allowed }
+		AssignedVariablesList	{ name: "rainCloudSeparatePlots";	title: qsTr("Separate Plots"); info: qsTr("By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.")	;singleVariable: true; allowedColumns: allowed }
 	}
 
 	CheckBox
 	{
 		name: "rainCloudHorizontalDisplay";
-		label: qsTr("Horizontal display");
+		label: qsTr("Horizontal display"); info: qsTr("Changes the orientation of the raincloud difference plot so that the x-axis represents the dependent variable and the y-axis the difference between measures.")
 		visible: enableHorizontal 
 	}
 	

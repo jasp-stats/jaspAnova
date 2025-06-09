@@ -34,11 +34,11 @@ Section
 		visible: analysis === Common.Type.Analysis.ANOVA
 		height: visible ? implicitHeight : 0
 
-		title: qsTr("Homogeneity corrections")
+		title: qsTr("Homogeneity corrections"); info: qsTr("If the assumption of homogeneity is not met, corrections can be selected.")
 		columns: 3
-		CheckBox { name: "homogeneityCorrectionNone";		label: qsTr("None")           ; checked: true }
-		CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe") ; checked: false }
-		CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")          ; checked: false }
+		CheckBox { name: "homogeneityCorrectionNone";		label: qsTr("None")  ; info: qsTr("No homogeneity correction.")        ; checked: true }
+		CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe"); info: qsTr(" If the homogeneity assumption is not met, this correction could be used. This correction is only available for one-way ANOVA.") ; checked: false }
+		CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")    ; info: qsTr("If the homogeneity assumption is not met, this correction could be used. This correction is only available for one-way ANOVA.")      ; checked: false }
 	}
 	CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals"); info: qsTr("Checks the validity of the distributional assumption of the data set. Specifically, the plot illustrates whether the residuals are normally distributed.") }
 }

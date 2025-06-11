@@ -42,7 +42,7 @@ Form
 		AvailableVariablesList			{ name: "allVariablesList" }
 		FactorLevelList					{ name: "repeatedMeasuresFactors";	title: qsTr("Repeated Measures Factors"); info: qsTr("The within-subjects (repeated measures) variables. Here the repeated measures factors of interest and the different levels that belong to each factor can be labelled.")	; height: 180 * preferencesModel.uiScale;	factorName: qsTr("RM Factor")	}
 		AssignedRepeatedMeasuresCells	{ name: "repeatedMeasuresCells";	title: qsTr("Repeated Measures Cells"); info: qsTr("The separate columns in the data frame that represent the levels of the repeated measure(s) factor(s). These are made based on the input on the repeated measures factors box.")	;	source: "repeatedMeasuresFactors"										}
-		AssignedVariablesList			{ name: "betweenSubjectFactors";	title: qsTr("Between Subject Factors");	info: qsTr(" When the subjects have been assigned into two or more separate groups this variable can be selected.")	; allowedColumns: ["nominal"]; minLevels: 2;	itemType: "fixedFactors"	}
+		AssignedVariablesList			{ name: "betweenSubjectFactors";	title: qsTr("Between Subject Factors");	info: qsTr("When the subjects have been assigned into two or more separate groups this variable can be selected.")	; allowedColumns: ["nominal"]; minLevels: 2;	itemType: "fixedFactors"	}
 		AssignedVariablesList			{ name: "covariates";				title: qsTr("Covariates"); info: qsTr("In this box the variables that are covariates can be selected. Covariates are continuous variables that have an influence on the dependent variable but are not part of the experimental manipulation.")	;				allowedColumns: ["scale"]; minNumericLevels: 2							}
 	}
 

@@ -32,7 +32,7 @@ Section
 	CheckBox
 	{
 		isBound: false
-		label: qsTr("Pool error term for follow-up tests")
+		label: qsTr("Pool error term for follow-up tests"); info: qsTr("By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).")
         checked: analysis === Common.Type.Analysis.RMANOVA && poolErrorTermFollowup.checked
 		onCheckedChanged: poolErrorTermFollowup.checked = checked
 		visible: analysis === Common.Type.Analysis.RMANOVA

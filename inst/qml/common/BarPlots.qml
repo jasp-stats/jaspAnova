@@ -43,7 +43,7 @@ Section
 		CheckBox
 		{
 			name: 	"barPlotErrorBars"
-			label: 	qsTr("Error bars"); info: qsTr("By selecting this option, error bars will be displayed in the plot. The error bars can represent either confidence intervals or standard errors.")
+			label: 	qsTr("Error bars"); info: qsTr("By selecting this option, error bars will be displayed in the plot. The error bars can represent either confidence intervals/credible intervals or standard errors.")
 			
 			RadioButtonGroup
 			{

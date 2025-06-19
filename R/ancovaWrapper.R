@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Ancova
+#'
 Ancova <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           formula = NULL,
           barPlotCiInterval = 0.95,
           barPlotErrorBarType = "ci",
@@ -31,7 +33,7 @@ Ancova <- function(
           contrastCiLevel = 0.95,
           contrastEffectSize = FALSE,
           contrasts = list(optionKey = "variable", types = list(), value = list()),
-          covariates = list(types = list(), value = NULL),
+          covariates = list(types = list(), value = list()),
           customContrasts = list(),
           dependent = list(types = list(), value = ""),
           descriptivePlotCiLevel = 0.95,
@@ -50,7 +52,7 @@ Ancova <- function(
           effectSizePartialEtaSquared = FALSE,
           effectSizePartialOmegaSquared = FALSE,
           factorCovariateIndependenceCheck = FALSE,
-          fixedFactors = list(types = list(), value = NULL),
+          fixedFactors = list(types = list(), value = list()),
           homogeneityCorrectionBrown = FALSE,
           homogeneityCorrectionNone = TRUE,
           homogeneityCorrectionWelch = FALSE,
@@ -59,7 +61,7 @@ Ancova <- function(
           kruskalEffectSizeEstimates = FALSE,
           kruskalEpsilon = TRUE,
           kruskalEta = FALSE,
-          kruskalWallisFactors = list(types = list(), value = NULL),
+          kruskalWallisFactors = list(types = list(), value = list()),
           marginalMeanBootstrap = FALSE,
           marginalMeanBootstrapSamples = 1000,
           marginalMeanCiCorrection = "none",
@@ -94,12 +96,17 @@ Ancova <- function(
           postHocTypeStandardBootstrap = FALSE,
           postHocTypeStandardBootstrapSamples = 1000,
           postHocTypeStandardEffectSize = FALSE,
+          predictionsSavedToData = FALSE,
+          predictionsSavedToDataColumn = "",
           qqPlot = FALSE,
           rainCloudHorizontalAxis = list(types = list(), value = ""),
           rainCloudHorizontalDisplay = FALSE,
           rainCloudSeparatePlots = list(types = list(), value = ""),
           rainCloudYAxisLabel = "",
-          randomFactors = list(types = list(), value = NULL),
+          randomFactors = list(types = list(), value = list()),
+          residualsSavedToData = FALSE,
+          residualsSavedToDataColumn = "",
+          residualsSavedToDataType = "raw",
           restrictedAvailableCoefficients = FALSE,
           restrictedBootstrap = FALSE,
           restrictedBootstrapCiLevel = 0.95,
@@ -133,16 +140,20 @@ Ancova <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    if (!is.null(formula)) {
       if (!inherits(formula, "formula")) {
          formula <- as.formula(formula)
       }
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
-
    optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "contrasts", "covariates", "customContrasts", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "kruskalWallisFactors", "marginalMeanCiCorrection", "marginalMeanTerms", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "wlsWeights")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::Ancova", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "Ancova", "Ancova.qml", options, version, FALSE))
 }

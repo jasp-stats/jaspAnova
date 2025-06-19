@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,16 +15,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Manova
+#'
 Manova <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           formula = NULL,
           anovaTables = FALSE,
           boxMTest = FALSE,
-          dependent = list(types = list(), value = NULL),
-          fixedFactors = list(types = list(), value = NULL),
+          dependent = list(types = list(), value = list()),
+          fixedFactors = list(types = list(), value = list()),
           includeIntercept = TRUE,
           modelTerms = list(optionKey = "components", types = list(), value = list()),
           plotHeight = 320,
@@ -35,7 +37,7 @@ Manova <- function(
           plotWidthDescriptivesPlotLegend = 430,
           plotWidthDescriptivesPlotNoLegend = 350,
           plotWidthQQPlot = 300,
-          randomFactors = list(types = list(), value = NULL),
+          randomFactors = list(types = list(), value = list()),
           shapiroTest = FALSE,
           testHotellingLawley = FALSE,
           testPillai = TRUE,
@@ -52,16 +54,20 @@ Manova <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    if (!is.null(formula)) {
       if (!inherits(formula, "formula")) {
          formula <- as.formula(formula)
       }
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
-
    optionsWithFormula <- c("dependent", "fixedFactors", "modelTerms", "randomFactors")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::Manova", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "Manova", "Manova.qml", options, version, FALSE))
 }

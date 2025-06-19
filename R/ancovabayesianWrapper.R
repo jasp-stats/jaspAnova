@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Bayesian ANCOVA
+#'
+#' @param hideNuisanceParameters, When checked, the nuisance parameters common to all models are omitted from the model specification.
+#'    Defaults to \code{TRUE}.
+#' @param legacyResults, When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.
+#'    Defaults to \code{FALSE}.
 AncovaBayesian <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           formula = NULL,
           isNuisance = NULL,
           barPlotCiInterval = 0.95,
@@ -37,7 +43,7 @@ AncovaBayesian <- function(
           cauchyPriorScaleCovariates = 0.354,
           cauchyPriorScaleFixedEffects = 0.5,
           cauchyPriorScaleRandomEffects = 1,
-          covariates = list(types = list(), value = NULL),
+          covariates = list(types = list(), value = list()),
           credibleInterval = 0.95,
           criTable = FALSE,
           customPriorSpecification = list(optionKey = "components", types = list(), value = list()),
@@ -52,7 +58,7 @@ AncovaBayesian <- function(
           effectsType = "allModels",
           enforcePrincipleOfMarginalityFixedEffects = TRUE,
           enforcePrincipleOfMarginalityRandomSlopes = FALSE,
-          fixedFactors = list(types = list(), value = NULL),
+          fixedFactors = list(types = list(), value = list()),
           groupPosterior = "grouped",
           hideNuisanceParameters = TRUE,
           integrationMethod = "automatic",
@@ -65,7 +71,7 @@ AncovaBayesian <- function(
           plotHeight = 320,
           plotWidth = 480,
           postHocNullControl = TRUE,
-          postHocTerms = list(types = list(), value = NULL),
+          postHocTerms = list(types = list(), value = list()),
           posteriorEstimates = FALSE,
           priorSpecificationMode = "acrossParameters",
           qqPlot = FALSE,
@@ -73,7 +79,7 @@ AncovaBayesian <- function(
           rainCloudHorizontalDisplay = FALSE,
           rainCloudSeparatePlots = list(types = list(), value = ""),
           rainCloudYAxisLabel = "",
-          randomFactors = list(types = list(), value = NULL),
+          randomFactors = list(types = list(), value = list()),
           rsqPlot = FALSE,
           samplesMCMC = 1000,
           samplesNumericAccuracy = 10000,
@@ -99,16 +105,20 @@ AncovaBayesian <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    if (!is.null(formula)) {
       if (!inherits(formula, "formula")) {
          formula <- as.formula(formula)
       }
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
-
    optionsWithFormula <- c("isNuisance", "barPlotHorizontalAxis", "barPlotSeparatePlots", "covariates", "customPriorSpecification", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "singleModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::AncovaBayesian", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "AncovaBayesian", "AncovaBayesian.qml", options, version, FALSE))
 }

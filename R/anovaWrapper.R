@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2022 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Anova
+#'
 Anova <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           formula = NULL,
           barPlotCiInterval = 0.95,
           barPlotErrorBarType = "ci",
@@ -30,7 +32,7 @@ Anova <- function(
           contrastCi = FALSE,
           contrastCiLevel = 0.95,
           contrastEffectSize = FALSE,
-          contrasts = list(types = list(), value = list()),
+          contrasts = list(optionKey = "variable", types = list(), value = list()),
           customContrasts = list(),
           dependent = list(types = list(), value = ""),
           descriptivePlotCiLevel = 0.95,
@@ -48,7 +50,7 @@ Anova <- function(
           effectSizeOmegaSquared = TRUE,
           effectSizePartialEtaSquared = FALSE,
           effectSizePartialOmegaSquared = FALSE,
-          fixedFactors = list(types = list(), value = NULL),
+          fixedFactors = list(types = list(), value = list()),
           homogeneityCorrectionBrown = FALSE,
           homogeneityCorrectionNone = TRUE,
           homogeneityCorrectionWelch = FALSE,
@@ -57,13 +59,13 @@ Anova <- function(
           kruskalEffectSizeEstimates = FALSE,
           kruskalEpsilon = TRUE,
           kruskalEta = FALSE,
-          kruskalWallisFactors = list(types = list(), value = NULL),
+          kruskalWallisFactors = list(types = list(), value = list()),
           marginalMeanBootstrap = FALSE,
           marginalMeanBootstrapSamples = 1000,
           marginalMeanCiCorrection = "none",
           marginalMeanComparedToZero = FALSE,
-          marginalMeanTerms = list(types = list(), value = list()),
-          modelTerms = list(types = list(), value = list()),
+          marginalMeanTerms = list(optionKey = "variable", types = list(), value = list()),
+          modelTerms = list(optionKey = "components", types = list(), value = list()),
           normalizeErrorBarsDescriptives = TRUE,
           plotHeight = 320,
           plotHeightDescriptivesPlotLegend = 300,
@@ -84,7 +86,7 @@ Anova <- function(
           postHocLetterAlpha = 0.05,
           postHocLetterTable = FALSE,
           postHocSignificanceFlag = FALSE,
-          postHocTerms = list(types = list(), value = list()),
+          postHocTerms = list(optionKey = "variable", types = list(), value = list()),
           postHocTypeDunn = FALSE,
           postHocTypeDunnet = FALSE,
           postHocTypeGames = FALSE,
@@ -92,12 +94,17 @@ Anova <- function(
           postHocTypeStandardBootstrap = FALSE,
           postHocTypeStandardBootstrapSamples = 1000,
           postHocTypeStandardEffectSize = FALSE,
+          predictionsSavedToData = FALSE,
+          predictionsSavedToDataColumn = "",
           qqPlot = FALSE,
           rainCloudHorizontalAxis = list(types = list(), value = ""),
           rainCloudHorizontalDisplay = FALSE,
           rainCloudSeparatePlots = list(types = list(), value = ""),
           rainCloudYAxisLabel = "",
-          randomFactors = list(types = list(), value = NULL),
+          randomFactors = list(types = list(), value = list()),
+          residualsSavedToData = FALSE,
+          residualsSavedToDataColumn = "",
+          residualsSavedToDataType = "raw",
           restrictedAvailableCoefficients = FALSE,
           restrictedBootstrap = FALSE,
           restrictedBootstrapCiLevel = 0.95,
@@ -106,7 +113,7 @@ Anova <- function(
           restrictedInformedHypothesisTestForAllModels = FALSE,
           restrictedInterceptInclusion = FALSE,
           restrictedMarginalMeanForAllModels = FALSE,
-          restrictedMarginalMeanTerms = list(types = list(), value = list()),
+          restrictedMarginalMeanTerms = list(optionKey = "variable", types = list(), value = list()),
           restrictedModelComparison = "complement",
           restrictedModelComparisonCoefficients = FALSE,
           restrictedModelComparisonCoefficientsHighlight = TRUE,
@@ -131,16 +138,20 @@ Anova <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    if (!is.null(formula)) {
       if (!inherits(formula, "formula")) {
          formula <- as.formula(formula)
       }
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
-
    optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "contrasts", "customContrasts", "dependent", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "fixedFactors", "kruskalWallisFactors", "marginalMeanCiCorrection", "marginalMeanTerms", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "randomFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "wlsWeights")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::Anova", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "Anova", "Anova.qml", options, version, FALSE))
 }

@@ -23,17 +23,17 @@ import JASP.Controls
 Section
 {
 	property alias source: descriptivePlotsVariables.source
-	title:		qsTr("Descriptives Plots")
+	title:		qsTr("Descriptives Plots"); info: qsTr("To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.")
 	columns:	1
 
 	VariablesForm
 	{
 		preferredHeight: 150 * preferencesModel.uiScale
 
-		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");		id: descriptivePlotsVariables	}
-		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";	title: qsTr("Horizontal Axis");	singleVariable: true		}
-		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";		title: qsTr("Separate Lines");	singleVariable: true;		allowedColumns: ["nominal"]}
-		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";		title: qsTr("Separate Plots");	singleVariable: true;		allowedColumns: ["nominal"]}
+		AvailableVariablesList	{ name: "descriptivePlotAvailableFactors";	title: qsTr("Factors");	info: qsTr("The independent variables included in the analysis.")	;id: descriptivePlotsVariables	}
+		AssignedVariablesList	{ name: "descriptivePlotHorizontalAxis";	title: qsTr("Horizontal Axis"); info: qsTr("Select the independent variable that should be displayed on the horizontal axis of the plot.")	;singleVariable: true		}
+		AssignedVariablesList	{ name: "descriptivePlotSeparateLines";		title: qsTr("Separate Lines"); info: qsTr("By placing an independent variable in this box, different lines corresponding to the different levels of the independent variable will be displayed.")	;singleVariable: true;		allowedColumns: ["nominal"]}
+		AssignedVariablesList	{ name: "descriptivePlotSeparatePlot";		title: qsTr("Separate Plots"); info: qsTr(" By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.")	;singleVariable: true;		allowedColumns: ["nominal"]}
 	}
 
 	Group
@@ -41,7 +41,7 @@ Section
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "descriptivePlotCi"; label: qsTr("Credible interval")
+			name: "descriptivePlotCi"; label: qsTr("Credible interval"); info: qsTr("When this option is selected, the plot will contain central credible intervals. By default this is set to 95%. This can be changed into the desired percentage.")
 			childrenOnSameRow: true
 			CIField { name: "descriptivePlotCiLevel" }
 		}

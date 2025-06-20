@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Bayesian Repeated Measures ANOVA
+#'
+#' @param hideNuisanceParameters, When checked, the nuisance parameters common to all models are omitted from the model specification.
+#'    Defaults to \code{TRUE}.
+#' @param legacyResults, When checked, the random slopes of repeated measures factors are omitted as in JASP <=0.16. Omitting the random slopes may yield completely different results from the frequentist ANOVA.
+#'    Defaults to \code{FALSE}.
 AnovaRepeatedMeasuresBayesian <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           barPlotCiInterval = 0.95,
           barPlotErrorBarType = "ci",
           barPlotErrorBars = FALSE,
@@ -31,12 +37,12 @@ AnovaRepeatedMeasuresBayesian <- function(
           bernoulliParameter = 0.5,
           betaBinomialParameterA = 1,
           betaBinomialParameterB = 1,
-          betweenSubjectFactors = list(types = list(), value = NULL),
+          betweenSubjectFactors = list(types = list(), value = list()),
           castilloParameterU = 1,
           cauchyPriorScaleCovariates = 0.354,
           cauchyPriorScaleFixedEffects = 0.5,
           cauchyPriorScaleRandomEffects = 1,
-          covariates = list(types = list(), value = NULL),
+          covariates = list(types = list(), value = list()),
           credibleInterval = 0.95,
           criTable = FALSE,
           customPriorSpecification = list(optionKey = "components", types = "unknown", value = list(list(components = "RM Factor 1", inclusionProbability = 0.5, scaleFixedEffects = 0.5))),
@@ -64,7 +70,7 @@ AnovaRepeatedMeasuresBayesian <- function(
           plotHeight = 320,
           plotWidth = 480,
           postHocNullControl = TRUE,
-          postHocTerms = list(types = list(), value = NULL),
+          postHocTerms = list(types = list(), value = list()),
           posteriorEstimates = FALSE,
           priorSpecificationMode = "acrossParameters",
           qqPlot = FALSE,
@@ -99,9 +105,14 @@ AnovaRepeatedMeasuresBayesian <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "betweenSubjectFactors", "covariates", "customPriorSpecification", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "modelTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "singleModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::AnovaRepeatedMeasuresBayesian", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "AnovaRepeatedMeasuresBayesian", "AnovaRepeatedMeasuresBayesian.qml", options, version, FALSE))
 }

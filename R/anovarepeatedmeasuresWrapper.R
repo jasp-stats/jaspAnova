@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' AnovaRepeatedMeasures
+#'
 AnovaRepeatedMeasures <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           barPlotCiInterval = 0.95,
           barPlotErrorBarType = "ci",
           barPlotErrorBars = FALSE,
@@ -27,13 +29,13 @@ AnovaRepeatedMeasures <- function(
           barPlotHorizontalZeroFix = TRUE,
           barPlotSeparatePlots = list(types = list(), value = ""),
           betweenModelTerms = list(optionKey = "components", types = list(), value = list()),
-          betweenSubjectFactors = list(types = list(), value = NULL),
+          betweenSubjectFactors = list(types = list(), value = list()),
           conoverTest = FALSE,
           contrastCi = FALSE,
           contrastCiLevel = 0.95,
           contrastEffectSize = FALSE,
           contrasts = list(optionKey = "variable", types = "unknown", value = list(list(contrast = "none", variable = "RM Factor 1"))),
-          covariates = list(types = list(), value = NULL),
+          covariates = list(types = list(), value = list()),
           customContrasts = list(),
           descriptivePlotCiLevel = 0.95,
           descriptivePlotErrorBar = FALSE,
@@ -53,7 +55,7 @@ AnovaRepeatedMeasures <- function(
           effectSizePartialEtaSquared = FALSE,
           effectSizePartialOmegaSquared = FALSE,
           friedmanBetweenFactor = list(types = list(), value = ""),
-          friedmanWithinFactor = list(types = list(), value = NULL),
+          friedmanWithinFactor = list(types = list(), value = list()),
           homogeneityTests = FALSE,
           labelYAxisTwo = "",
           marginalMeanBootstrap = FALSE,
@@ -130,9 +132,14 @@ AnovaRepeatedMeasures <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "betweenModelTerms", "betweenSubjectFactors", "contrasts", "covariates", "customContrasts", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "friedmanBetweenFactor", "friedmanWithinFactor", "marginalMeanCiCorrection", "marginalMeanTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "withinModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspAnova::AnovaRepeatedMeasures", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "AnovaRepeatedMeasures", "AnovaRepeatedMeasures.qml", options, version, FALSE))
 }

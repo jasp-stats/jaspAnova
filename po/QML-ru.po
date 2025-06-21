@@ -1,10 +1,16 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-06-19 07:01+0000\n"
+"Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12.1\n"
 "X-Language: ru\n"
 "X-Qt-Contexts: true\n"
 
@@ -238,10 +244,9 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
 msgstr "Непараметрические критерии"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr "Фактор"
+msgstr "ПИ Фактор"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
@@ -308,7 +313,7 @@ msgstr "Учесть свободные коэффициенты"
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr "Дополнительные параметры"
+msgstr "Дополнительные Параметры"
 
 msgctxt "Manova|"
 msgid "Test"
@@ -394,7 +399,7 @@ msgstr "Шеффе"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr "Фактор"
+msgstr "ПИ Фактор"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
@@ -468,7 +473,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr "Дополнительные параметры"
+msgstr "Дополнительные Параметры"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -1148,16 +1153,14 @@ msgctxt "PostHoc|"
 msgid "Games-Howell"
 msgstr "Геймс-Хоуэлл"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr "Даннет"
+msgstr "Даннетт"
 
 msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "Коррекция p-значения"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Tukey"
 msgstr "Тьюки"
@@ -1191,10 +1194,9 @@ msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "Доверительные интервалы"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "Графики"
+msgstr "Простой Основной Эффекты"
 
 #, fuzzy
 msgctxt "SimpleMainEffects|"
@@ -1203,7 +1205,7 @@ msgstr "Факторы"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "Фактор"
+msgstr "Фактор Простого Эффекта"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"

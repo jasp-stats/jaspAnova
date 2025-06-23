@@ -23,6 +23,12 @@ import "./common/bayesian" as Bayesian
 
 Form
 {
+	info: qsTr("The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows to combine with between subject factors.") + "\n" +
+"## " + qsTr("Assumptions") + "\n" +
+"- " + qsTr("The dependent variable is normally distributed for every group.") + "\n" +
+"- " + qsTr("The covariate and the experiment effect are independent.") + "\n" +
+"- " + qsTr("The assumption of sphericity is met. Sphericity entails that the variances of the differences between all possible pairs of the repeated measures conditions are the same.")
+
 	id: form
 	property int analysis:	Common.Type.Analysis.RMANOVA
 	property int framework:	Common.Type.Framework.Bayesian
@@ -59,6 +65,7 @@ Form
 			id: repeatedMeasuresFactors
 			name: "repeatedMeasuresFactors"
 			title: qsTr("Repeated Measures Factors")
+			info: qsTr("The within-subjects (repeated measures variable). Here the repeated measures factors of interest and the different levels that belong to the factor can be labelled.")
 			height: 180 * preferencesModel.uiScale
 			factorName: qsTr("RM Factor")
 		}
@@ -66,12 +73,14 @@ Form
 		{
 			name: "repeatedMeasuresCells"
 			title: qsTr("Repeated Measures Cells")
+			info: qsTr("The separate columns in the data frame that represent the levels of the repeated measure(s) factor(s). These are made based on the input on the repeated measures factors box.")
 			source: "repeatedMeasuresFactors"
 		}
 		AssignedVariablesList
 		{
 			name: "betweenSubjectFactors"
 			title: qsTr("Between Subject Factors")
+			info: qsTr("Select when the subjects have been assigned into two or more separate groups")
 			allowedColumns: ["nominal"]
 			minLevels: 2
 			itemType: "fixedFactors"
@@ -80,6 +89,7 @@ Form
 		{
 			name: "covariates"
 			title: qsTr("Covariates")
+			info: qsTr("In this box the variable that is the covariate can be selected. Covariates are continuous variables that have an influence on the dependent variable but are not part of the experimental manipulation.")
 			allowedColumns: ["scale"]
 			id: covariates
 			minNumericLevels: 2

@@ -238,10 +238,9 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
 msgstr "Непараметрические критерии"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr "Фактор"
+msgstr "ПИ Фактор"
 
 #, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
@@ -308,7 +307,7 @@ msgstr "Учесть свободные коэффициенты"
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr "Дополнительные параметры"
+msgstr "Дополнительные Параметры"
 
 msgctxt "Manova|"
 msgid "Test"
@@ -394,7 +393,7 @@ msgstr "Шеффе"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr "Фактор"
+msgstr "ПИ Фактор"
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
@@ -468,7 +467,7 @@ msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr "Дополнительные параметры"
+msgstr "Дополнительные Параметры"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
@@ -1148,16 +1147,14 @@ msgctxt "PostHoc|"
 msgid "Games-Howell"
 msgstr "Геймс-Хоуэлл"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr "Даннет"
+msgstr "Даннетт"
 
 msgctxt "PostHoc|"
 msgid "Correction"
 msgstr "Коррекция p-значения"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Tukey"
 msgstr "Тьюки"
@@ -1191,10 +1188,9 @@ msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
 msgstr "Доверительные интервалы"
 
-#, fuzzy
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "Графики"
+msgstr "Простой Основной Эффекты"
 
 #, fuzzy
 msgctxt "SimpleMainEffects|"
@@ -1203,7 +1199,7 @@ msgstr "Факторы"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "Фактор"
+msgstr "Фактор Простого Эффекта"
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"

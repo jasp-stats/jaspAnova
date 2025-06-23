@@ -712,11 +712,11 @@ msgstr "邊際平均數"
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr "由"
+msgstr "進行"
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
-msgstr "拔靴法"
+msgstr "次的拔靴抽樣"
 
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
@@ -1268,40 +1268,40 @@ msgstr "效果量 (Cohen's d)"
 
 msgctxt "Export|"
 msgid "Export"
-msgstr ""
+msgstr "匯出"
 
 msgctxt "Export|"
 msgid "Append residuals to data"
-msgstr ""
+msgstr "將殘差附加到資料檔最後一欄"
 
 msgctxt "Export|"
 msgid "Column name"
-msgstr ""
+msgstr "欄位(變數)名稱"
 
 msgctxt "Export|"
 msgid "e.g., residuals"
-msgstr ""
+msgstr "例如：殘差"
 
 msgctxt "Export|"
 msgid "Residuals type"
-msgstr ""
+msgstr "殘差的類型"
 
 msgctxt "Export|"
 msgid "Raw"
-msgstr ""
+msgstr "原始"
 
 msgctxt "Export|"
 msgid "Studentized"
-msgstr ""
+msgstr "Student化"
 
 msgctxt "Export|"
 msgid "Standardized"
-msgstr ""
+msgstr "標準化"
 
 msgctxt "Export|"
 msgid "Append predictions to data"
-msgstr ""
+msgstr "將預測值附加到資料檔最後一欄"
 
 msgctxt "Export|"
 msgid "e.g., predictions"
-msgstr ""
+msgstr "例如：預測值"

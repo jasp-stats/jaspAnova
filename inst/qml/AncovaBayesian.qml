@@ -25,6 +25,15 @@ import "./common/bayesian" as Bayesian
 
 Form
 {
+	info: qsTr("The Bayesian ANCOVA allows the user to analyze the difference between multiple group means, while taking into account the effect of variables that have an influence on the dependent variable but are not part of the experimental manipulation (i.e., covariates).") + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
+	"- " + qsTr("The residuals are normally distributed for every group.") + "\n" +
+	"- " + qsTr("The independent variables are categorical, the dependent variable is continuous.") + "\n" + 
+	"- " + qsTr("The variance of the dependent variable is the same for every group. This is called homogeneity of variances.") + "\n" +
+	"- " + qsTr("The groups are independent.") + "\n" +
+	"- " + qsTr("For each independent variable, the relationship between the dependent variable and the covariate is linear.") + "\n" +
+	"- " + qsTr("The effect of the covariate on the dependent variable does not differ between groups. This is called homogeneity of the regression slopes.") 
+	
 	id: form
 	property int analysis:	Common.Type.Analysis.ANCOVA
 	property int framework:	Common.Type.Framework.Bayesian

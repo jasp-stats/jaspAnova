@@ -22,7 +22,7 @@ import JASP.Controls
 
 Section
 {
-	title: qsTr("Post Hoc Tests")
+	title: qsTr("Post Hoc Tests"); info: qsTr("To perform a post hoc test, drag the factor name to perform the post hoc test on to the right column.")
 	property alias source: postHocTestsAvailable.source
 
 	VariablesForm
@@ -35,6 +35,6 @@ Section
 	Group
 	{
 		title: qsTr("Correction")
-		CheckBox { name: "postHocNullControl"; label: qsTr("Null control"); checked: true }
+		CheckBox { name: "postHocNullControl"; label: qsTr("Null control"); info: qsTr("When selecting this option, the prior odds will be corrected for multiple testing. This option is selected by default. At the moment, no output will be generated for the post hoc test when this option is not selected.") ;checked: true }
 	}
 }

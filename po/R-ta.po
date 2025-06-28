@@ -218,7 +218,7 @@ msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
 "essentially perfect fit are unreliable)"
 msgstr ""
-"பூச்சியத்திற்கு சமமான எஃப்-மதிப்பு சரியான பொருத்தத்தைக் குறிக்கிறது. <br> <br> "
+"பூச்சியத்திற்கு சமமான எஃப்-மதிப்பு சரியான பொருத்தத்தைக் குறிக்கிறது. <br><br> "
 "(அடிப்படையில் சரியான பொருத்தத்தில் லெவனின் சோதனைகள் நம்பமுடியாதவை)"
 
 msgid "Marginal Means"

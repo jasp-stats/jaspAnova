@@ -480,7 +480,7 @@ msgstr "கையேடு"
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr "இல்லை மாதிரிகள்"
+msgstr "இல்லை. மாதிரிகள்"
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
@@ -538,7 +538,7 @@ msgstr "பீட்டா பைனோமியல்"
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr "a"
+msgstr "ஒரு"
 
 msgctxt "AdditionalOptions|"
 msgid "b"

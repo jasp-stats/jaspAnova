@@ -938,10 +938,9 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       wantsCorrections <- c(options[["postHocCorrectionTukey"]], options[["postHocCorrectionScheffe"]],
                             options[["postHocCorrectionBonferroni"]], options[["postHocCorrectionHolm"]],
                             options[["postHocCorrectionSidak"]])
-      if (sum(wantsCorrections) == 0)
-        wantsCorrections <- "none"
       postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")[wantsCorrections]
-
+      if (sum(wantsCorrections) == 0)
+        postHocCorrections <- "none"
       ## Computation
       resultPostHoc <- lapply(postHocCorrections, function(x)
         summary(emmeans::contrast(postHocRef[[postHocVarIndex]],

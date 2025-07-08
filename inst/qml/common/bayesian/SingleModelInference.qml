@@ -44,7 +44,7 @@ Section
 		{
 			title: qsTr("Tables")
 			CheckBox { label: qsTr("Estimates"); info: qsTr("A table with the posterior summary for the single model, specified in the assignment box, will be displayed. This table provides information about the single model posterior mean, the standard deviation, and the credible interval for each level of the fixed factors and their interaction included in the model. This is different from the estimate option in Output, since the estimates option provides the posterior summary averaged over all the models included in the analysis, while this option gives the posterior summary for the single specified model only.") ;name: "singleModelEstimates"}
-			CheckBox { label: qsTr("R\u00B2"); info: qsTr("Displays a table with the mean and credible inetrval for the modeel R², meaning the proportion of variance in the outcome variable explained by the specified predictor.") ; name: "singleModelCriTable" }
+			CheckBox { label: qsTr("R\u00B2"); info: qsTr("Displays a table with the mean and credible interval for the model R², meaning the proportion of variance in the outcome variable explained by the specified predictor.") ; name: "singleModelCriTable" }
 		}
 
 		Group

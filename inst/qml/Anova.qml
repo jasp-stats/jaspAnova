@@ -50,7 +50,7 @@ Form
 		AssignedVariablesList	{	name:	"dependent";		title: qsTr("Dependent Variable"); info: qsTr("The variable of interest. This is also called the outcome variable.")	;allowedColumns: ["scale"];				singleVariable: true		}
 		AssignedVariablesList	{	name:	"fixedFactors";		title: qsTr("Fixed Factors"); info: qsTr("The variables that are manipulated/define the different groups. These are also called the independent variables.")	;	allowedColumns: ["nominal"]; minLevels: 2 }
 		AssignedVariablesList	{	name:	"randomFactors";	title: qsTr("Random Factors")	;	allowedColumns: ["nominal"]; minLevels: 2;	debug:	true				}
-		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");	info: qsTr("Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed accross levels of the independent variable.")	;	allowedColumns: ["scale"];				singleVariable: true		}
+		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");	info: qsTr("Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed across levels of the independent variable.")	;	allowedColumns: ["scale"];				singleVariable: true		}
 	}
 
 	Classical.Display

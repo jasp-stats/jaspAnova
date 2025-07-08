@@ -22,7 +22,7 @@ import JASP.Controls
 
 Section
 {
-	title: qsTr("Post Hoc Tests"); info: qsTr("To perform a post hoc test, drag the factor name to perform the post hoc test on to the right column.")
+	title: qsTr("Post Hoc Tests"); info: qsTr("To conduct a post hoc test, drag the desired factor to the right box.")
 	property alias source: postHocTestsAvailable.source
 
 	VariablesForm

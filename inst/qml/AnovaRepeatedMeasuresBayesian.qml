@@ -23,7 +23,7 @@ import "./common/bayesian" as Bayesian
 
 Form
 {
-	info: qsTr("The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows to combine with between subject factors.") + "\n" +
+	info: qsTr("The Repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.") + "\n" +
 "## " + qsTr("Assumptions") + "\n" +
 "- " + qsTr("The dependent variable is normally distributed for every group.") + "\n" +
 "- " + qsTr("The covariate and the experiment effect are independent.") + "\n" +

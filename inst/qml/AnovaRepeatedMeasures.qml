@@ -24,7 +24,7 @@ import "./common/classical" as Classical
 
 Form
 {
-	info: qsTr("The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows to combine with between subject factors.") + "\n" +
+	info: qsTr("The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.") + "\n" +
 "## " + qsTr("Assumptions") + "\n" +
 "- " + qsTr("The dependent variable is normally distributed for every group.") + "\n" +
 "- " + qsTr("The covariate and the experiment effect are independent.") + "\n" +
@@ -90,7 +90,7 @@ Form
 			CheckBox { name: "sphericityTests";	label: qsTr("Sphericity tests"); info: qsTr("Sphericity entails that the variances of the differences of the repeated measures conditions are equal.") }
 			Group
 			{
-				title: qsTr("Sphericity corrections"); info: qsTr("If sphericity is not met, then the test will have increased false positive rate (Accepting the alternative when the null is true). One approach to correcting this is to reduce the degrees of freedom through sphericity corrections.")
+				title: qsTr("Sphericity corrections"); info: qsTr("If sphericity is not met, then the test will have increased false positive rate (accepting the alternative when the null is true). One approach to correcting this is to reduce the degrees of freedom through sphericity corrections.")
 				columns: 3
 				CheckBox { name: "sphericityCorrectionNone";				label: qsTr("None"); info: qsTr("No correction is performed.")	;			checked: true }
 				CheckBox { name: "sphericityCorrectionGreenhouseGeisser";	label: qsTr("Greenhouse-Geisser"); info: qsTr("This correction varies between 1/(k − 1), where k is the number of repeated-measures conditions.")	;checked: false }

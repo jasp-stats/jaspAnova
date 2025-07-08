@@ -24,7 +24,7 @@ import "./" as Classical
 
 Section
 {
-	title: qsTr("Post Hoc Tests"); info: qsTr("To perform a post hoc test, drag one or more factor names to the right column. Several options are available:")
+	title: qsTr("Post Hoc Tests"); info: qsTr("To perform a post hoc test, drag one or more factor names to the right box. Several options are available:")
 	property alias source: availableTerms.source
 
 	VariablesForm
@@ -37,7 +37,7 @@ Section
 
 	Group
 	{
-		title: qsTr("Type"); info: qsTr(" Different types of post hoc tests can be selected.")
+		title: qsTr("Type"); info: qsTr("Different types of post hoc tests can be selected.")
 		CheckBox
 		{
 			name: "postHocTypeStandard";	label: qsTr("Standard"); info: qsTr("Pairwise t-tests are performed. All the corrections can be applied to this method. When Tukey's p-value correction is selected, this is equivalent to Tukey's HSD. This option is selected by default.") ;checked: true
@@ -60,14 +60,14 @@ Section
 			CheckBox { name: "postHocTypeStandardEffectSize";	label: qsTr("Effect size"); info: qsTr("By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type Standard.") }
 			CheckBox { name: "postHocConditionalTable";	label: qsTr("Conditional comparisons for interactions"); info: qsTr("Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect.") }
 		}
-		CheckBox { name: "postHocTypeGames";		label: qsTr("Games-Howell"); info: qsTr("This method can be used when equal group/level variances are not assumed. The p-values are corrected with the Tukey method.")				}
-		CheckBox { name: "postHocTypeDunnet";		label: qsTr("Dunnett"); info: qsTr("When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted.")					}
+		CheckBox { name: "postHocTypeGames";		label: qsTr("Games-Howell"); info: qsTr("This method can be used when equal group variances cannot be assumed. The p-values are adjusted using the Tukey method.")				}
+		CheckBox { name: "postHocTypeDunnet";		label: qsTr("Dunnett"); info: qsTr("With this method, all levels are compared to the first occurring level in the data. To change which level is used as the reference group, adjust the order of the level labels in the Variable Settings.")					}
 	}
 
 
 	Group
 	{
-		title: qsTr("Correction"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value and confidence interval for mean difference are available (note that the confidence intervals for effect sizes can only be adjusted using the Bonferroni method):")
+		title: qsTr("Correction"); info: qsTr("To correct for multiple comparisons and avoid Type I errors, various methods are available for adjusting the p-value and confidence interval for mean differences. Note: confidence intervals for effect sizes can only be adjusted using the Bonferroni method.")
 		CheckBox { name: "postHocCorrectionTukey";			label: qsTr("Tukey"); info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance. This method is commonly used and is selected by default.") ;checked: true	}
 		CheckBox { name: "postHocCorrectionScheffe";		label: qsTr("Scheffé"); info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")				}
 		CheckBox { name: "postHocCorrectionBonferroni";		label: qsTr("Bonferroni"); info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")			}

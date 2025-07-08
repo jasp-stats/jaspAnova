@@ -27,7 +27,7 @@ Group
 	{
 		name:				"postHocCi";
 		label:				qsTr("Confidence intervals")
-		info: qsTr(" When this option is selected, the confidence interval for the mean difference is calculated. This is done for every post hoc method except for Dunn. By default this is set to 95% but this can be adjusted into the desired percentage.")
+		info: qsTr("When this option is selected, the confidence interval for the mean difference is calculated for every post hoc method except Dunn. By default, this is set to 95%, but it can be adjusted to the desired percentage.")
 		childrenOnSameRow:	true
 		CIField { name: "postHocCiLevel" }
 	}
@@ -35,7 +35,7 @@ Group
 	CheckBox 
 	{ 
 		name: "postHocLetterTable"	
-		label: qsTr("Letter-based grouping table"); info: qsTr("Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans.")
+		label: qsTr("Letter-based grouping table"); info: qsTr("Set up a compact letter display of all pairwise comparisons, based on 'multcomp::cld' and emmeans.")
 		childrenOnSameRow:	true
 		DoubleField 
 		{ 

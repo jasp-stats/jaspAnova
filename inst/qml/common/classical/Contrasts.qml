@@ -24,7 +24,7 @@ import "../." as Common
 Section
 {
 	title: qsTr("Contrasts")
-	info: qsTr("For each independent variable, a specific contrast can be selected by clicking on none in the right column.")
+	info: qsTr("For each independent variable, you can select a specific contrast in the right column by clicking on 'none' and choosing the desired contrast.")
 	property int analysis
 	property alias source: contrasts.source
 	ContrastsList { id: contrasts }
@@ -45,6 +45,6 @@ Section
 	}
 	CheckBox
 	{
-		name: "contrastEffectSize"; label: qsTr("Effect size (cohen's d)"); info: qsTr("Include standardized mean differences, based on the effectsize function in the emmeans package.")
+		name: "contrastEffectSize"; label: qsTr("Effect size (Cohen's d)"); info: qsTr("Include standardized mean differences, based on the effectsize function in the emmeans package.")
 	}
 }

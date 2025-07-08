@@ -40,7 +40,7 @@ Section
 	CheckBox
 	{
 		name: "rainCloudHorizontalDisplay";
-		label: qsTr("Horizontal display"); info: qsTr("Changes the orientation of the raincloud difference plot so that the x-axis represents the dependent variable and the y-axis the difference between measures.")
+		label: qsTr("Horizontal display"); info: qsTr("Changes the orientation of the raincloud difference plot so that the x-axis represents the dependent variable.")
 		visible: enableHorizontal 
 	}
 	

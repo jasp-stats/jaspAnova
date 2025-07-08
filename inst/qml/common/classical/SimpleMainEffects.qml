@@ -29,8 +29,8 @@ Section
 	{
 		preferredHeight:	170 * preferencesModel.uiScale
 		AvailableVariablesList	{ name: "simpleMainEffectAvailableFactors";		title: qsTr("Factors")	; info: qsTr("This box contains all the independent variables included in the analysis.")			; id: availableTerms }
-		AssignedVariablesList	{ name: "simpleMainEffectFactor";				title: qsTr("Simple Effect Factor") ; info: qsTr("In this box, select the independent variable to determine the effect of this variable, conditional on the levels of the moderator factor(s).") ; singleVariable: true }
-		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorOne";	title: qsTr("Moderator Factor 1")	; info: qsTr(" In this box, select the independent variable that will represent the different levels.") ;singleVariable: true }
-		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorTwo";	title: qsTr("Moderator Factor 2")	; info: qsTr(" In this box, selector an optional, additional independent variable.") ;singleVariable: true }
+		AssignedVariablesList	{ name: "simpleMainEffectFactor";				title: qsTr("Simple Effect Factor") ; info: qsTr("Select the independent variable to determine the effect of this variable, conditional on the levels of the moderator factor(s).") ; singleVariable: true }
+		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorOne";	title: qsTr("Moderator Factor 1")	; info: qsTr("Select the independent variable that will represent the different levels.") ;singleVariable: true }
+		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorTwo";	title: qsTr("Moderator Factor 2")	; info: qsTr("Select an optional, additional independent variable.") ;singleVariable: true }
 	}
 }

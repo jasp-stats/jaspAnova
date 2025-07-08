@@ -23,7 +23,7 @@ import JASP.Controls
 Section
 {
 	property alias source: descriptivePlotsVariables.source
-	title:		qsTr("Descriptives Plots"); info: qsTr("To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there are more than one independent variable, the variables can be displayed in one plot by putting the other variable in the box Separate lines, or the variables can be displayed in separate plots by selecting the other variable in the box Separate plots.")
+	title:		qsTr("Descriptives Plots"); info: qsTr("To create a descriptive plot, select the independent variable to be placed on the horizontal axis. If there is more than one independent variables, they can be visualized in a single plot by placing the second variable in 'Separate Lines', or visualized in separate plots by placing the variable in 'Separate Plots'.")
 	columns:	1
 
 	VariablesForm

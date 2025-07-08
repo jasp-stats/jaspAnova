@@ -48,7 +48,7 @@ Section
 			{
 				title: qsTr("Residuals type")
 				name: "residualsSavedToDataType"
-				RadioButton { value: "raw";			label: qsTr("Raw"); info: qsTr("Appends raw residulas, meaning the simple difference between observed values and predicted values. Selected by default.") ;checked: true	}
+				RadioButton { value: "raw";			label: qsTr("Raw"); info: qsTr("Appends raw residuals, meaning the simple difference between observed values and predicted values. Selected by default.") ;checked: true	}
 				RadioButton { value: "standard";	label: qsTr("Studentized"); info: qsTr("Divides residuals by estimate of standard error of the residuals and adjusts for the leverage of each data point. Use when there are assumption violations as it is more robust.")		}
 				RadioButton { value: "student";		label: qsTr("Standardized"); info: qsTr("Divides residuals by estimate of the standard deviation of the residuals.")		}
 			}
@@ -58,7 +58,7 @@ Section
 		{
 			id:							predictionsSavedToData
 			name:						"predictionsSavedToData"
-			info: qsTr("Save the predictions of the most complex model as a new column in the data file")
+			info: qsTr("Save the predictions of the most complex model as a new column in the data file.")
 			text:						qsTr("Append predictions to data")
 
 			ComputedColumnField

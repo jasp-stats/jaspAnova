@@ -48,12 +48,12 @@ Group
 
 		CheckBox
 		{
-			name: "effectSizeCi"; label: qsTr("Confidence intervals"); info: qsTr("Displays confidence inetrvals for the effect size. SEt at 95% by default but can be changed into the desired percentage.")
+			name: "effectSizeCi"; label: qsTr("Confidence intervals"); info: qsTr("Displays confidence intervals for the effect size. Set at 95% by default but can be changed into the desired percentage.")
 			CIField {	name: "effectSizeCiLevel" }
 			childrenOnSameRow: true
 			visible: analysis === Common.Type.Analysis.ANOVA ||  analysis === Common.Type.Analysis.ANCOVA
 
 		}
 	}
-	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio"); info: qsTr("Shows the maximum ratio of the lieklihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0") }
+	CheckBox { name: "vovkSellke"; label: qsTr("Vovk-Sellke maximum p-ratio"); info: qsTr("Shows the maximum ratio of the likelihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0") }
 }

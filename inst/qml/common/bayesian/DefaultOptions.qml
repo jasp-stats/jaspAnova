@@ -61,7 +61,7 @@ Group
 		RadioButton { value: "unlimited"; label: qsTr("No"); info: qsTr("Select this so that there is no limit.") }
 		RadioButton {
 			value: "limited"
-			label: qsTr("Yes, show best"); info: qsTr("Select this to limit the number of shown models, can be limited to a number selected by the user, set at 10 by default.")
+			label: qsTr("Yes, show best"); info: qsTr("Select this to limit the number of displayed models. Set to 10 by default, but this can be changed by the user.")
 			checked: true
 			childrenOnSameRow: true
 			IntegerField { name: "numModelsShown"; defaultValue: 10; min: 1}

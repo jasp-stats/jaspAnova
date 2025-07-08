@@ -1078,7 +1078,7 @@ msgstr "其他設定"
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr "考驗"
+msgstr "檢定方法"
 
 msgctxt "Manova|"
 msgid "Pillai"

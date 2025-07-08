@@ -558,7 +558,8 @@
   # save state
   stateObj <- createJaspState(object = model, dependencies = c(
     # does NOT depend on any factors or covariates, to facilitate reusing previous models
-    "dependent", "repeatedMeasuresCells", "samplingMethodNumericAccuracy", "samplesNumericAccuracy", "seed", "setSeed",
+    "dependent", "repeatedMeasuresCells", "samplingMethodNumericAccuracy",
+    "samplesNumericAccuracy", "seed", "setSeed", "integrationMethod",
     .BANOVArscaleDependencies(options[["priorSpecificationMode"]])
 
   ))

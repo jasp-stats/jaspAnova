@@ -1147,15 +1147,15 @@ msgstr "Tak, pokaż najlepsze"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Wspólny składnik błędu dla testów post-hoc"
 
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Wspólny składnik błędu dla testów post-hoc"
 
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Wspólny składnik błędu dla testów post-hoc"
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
@@ -1215,19 +1215,19 @@ msgstr "Wykres K-K dla reszt"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Porównania warunkowe dla interakcji"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizuj słupki błędu"
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizuj słupki błędu"
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr ""
+msgstr "cząstkowe ω²"
 
 msgctxt "Display|"
 msgid "Confidence intervals"
@@ -1235,11 +1235,11 @@ msgstr "Przedziały ufności"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr ""
+msgstr "Testy post-hoc Dunna"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Porównania warunkowe dla interakcji"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
@@ -1247,60 +1247,60 @@ msgstr "Oznacz porównania istotne"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr ""
+msgstr "Tabela grupowania"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "Poziom α:"
 
 msgctxt "BarPlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "Słupki błędów"
 
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "Słupki błędów"
 
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
-msgstr ""
+msgstr "Wielkość efektu (d Cohena)"
 
 msgctxt "Export|"
 msgid "Export"
-msgstr ""
+msgstr "Eksportuj"
 
 msgctxt "Export|"
 msgid "Append residuals to data"
-msgstr ""
+msgstr "Dołącz reszty do danych"
 
 msgctxt "Export|"
 msgid "Column name"
-msgstr ""
+msgstr "Nazwa kolumny"
 
 msgctxt "Export|"
 msgid "e.g., residuals"
-msgstr ""
+msgstr "np. reszty"
 
 msgctxt "Export|"
 msgid "Residuals type"
-msgstr ""
+msgstr "Typ reszt"
 
 msgctxt "Export|"
 msgid "Raw"
-msgstr ""
+msgstr "Surowy"
 
 msgctxt "Export|"
 msgid "Studentized"
-msgstr ""
+msgstr "Studentyzowane"
 
 msgctxt "Export|"
 msgid "Standardized"
-msgstr ""
+msgstr "Standaryzowane"
 
 msgctxt "Export|"
 msgid "Append predictions to data"
-msgstr ""
+msgstr "Dołącz prognozy do danych"
 
 msgctxt "Export|"
 msgid "e.g., predictions"
-msgstr ""
+msgstr "np. predykcje"

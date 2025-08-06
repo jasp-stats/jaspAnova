@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-08-06 07:43+0000\n"
+"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 "X-Language: pt\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -604,7 +610,7 @@ msgstr "Estimativas"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R² médio do modelo"
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
@@ -612,7 +618,7 @@ msgstr "Descritivas"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Intervalo de confiança"
+msgstr "Intervalo Credível"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -642,7 +648,6 @@ msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "Diagrama individual por nível"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
@@ -663,7 +668,6 @@ msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
 msgstr "Eixo horizontal"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "Linhas Separadas"
@@ -678,7 +682,7 @@ msgstr "Exibir"
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr "Intervalo de confiança"
+msgstr "Intervalo credível"
 
 msgctxt "ModelTerms|"
 msgid "Model"
@@ -882,7 +886,6 @@ msgctxt "AssumptionChecks|"
 msgid "Welch"
 msgstr "Welch"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
@@ -1144,37 +1147,30 @@ msgctxt "BarPlots|"
 msgid "Bar Plots"
 msgstr ""
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Factors"
 msgstr "Fatores"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo horizontal"
+msgstr "Eixo Horizontal"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Separate Plots"
-msgstr "Diagramas Separados"
+msgstr "Gráficos Separados"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Display"
 msgstr "Exibir"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Credible interval"
 msgstr "Intervalo de confiança"
 
-#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "Intervalo credível"
+
 msgctxt "BarPlots|"
 msgid "Standard error"
 msgstr "Erro padrão"
@@ -1183,7 +1179,6 @@ msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
 msgstr ""
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
 msgstr "Estimativas de tamanho de efeito"
@@ -1192,7 +1187,6 @@ msgctxt "Nonparametrics|"
 msgid "ε²"
 msgstr ""
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "η²"
 msgstr "η²"
@@ -1201,7 +1195,6 @@ msgctxt "Nonparametrics|"
 msgid "Confidence"
 msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"

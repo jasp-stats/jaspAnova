@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2025-05-10 03:00\n"
-"PO-Revision-Date: 2023-07-14 12:40+0000\n"
-"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"PO-Revision-Date: 2025-08-09 03:06+0000\n"
+"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
 "Language: pt\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -21,8 +21,8 @@ msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
 "WLS weights allowed)."
 msgstr ""
-"Os pesos WLS contêm valores negativos e/ou zero. <br> <br> (somente pesos "
-"WLS positivos são permitidos)."
+"Os pesos WLS contêm valores negativos e/ou zero.<br><br>(somente pesos WLS "
+"positivos são permitidos)."
 
 msgid ""
 "Singular fit encountered; one or more predictor variables are a linear "
@@ -52,6 +52,8 @@ msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
 "after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"A correção de Welch não pode ser computada porque '%1$s' tem variância zero "
+"após agrupamento nos seguintes níveis de '%2$s': %3$s"
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -83,9 +85,8 @@ msgstr "p"
 msgid "VS-MPR%s"
 msgstr "VS-MPR%s"
 
-#, fuzzy
 msgid "%s%% CI for η²"
-msgstr "%s%% IC para diferença média"
+msgstr "%s%% IC para η²"
 
 msgid "Lower"
 msgstr "Inferior"
@@ -93,17 +94,14 @@ msgstr "Inferior"
 msgid "Upper"
 msgstr "Superior"
 
-#, fuzzy
 msgid "%s%% CI for η²ₚ"
-msgstr "%s%% IC para diferença média"
+msgstr "%s%% IC para η²ₚ"
 
-#, fuzzy
 msgid "%s%% CI for ω²"
-msgstr "%s%% IC para diferença média"
+msgstr "%s%% IC para ω²"
 
-#, fuzzy
 msgid "%s%% CI for ω²ₚ"
-msgstr "%s%% IC para diferença média"
+msgstr "%s%% IC para ω²ₚ"
 
 msgid ""
 "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
@@ -121,6 +119,9 @@ msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Dados insuficientes para estimar o modelo/contrastes completos. "
+"Provavelmente há células vazias entre o desenho dos sujeitos (e.g., dados "
+"mal estruturados)"
 
 msgid "Please specify an additional contrast."
 msgstr "Especifique um contraste adicional."
@@ -134,22 +135,17 @@ msgstr "Especifique pesos de contraste diferentes de zero."
 msgid "Post Hoc Tests"
 msgstr "Testes Post Hoc"
 
-#, fuzzy
 msgid "Standard (HSD)"
-msgstr "Padrão"
+msgstr "Padrão (DHS)"
 
-#, fuzzy
 msgid "Standard"
 msgstr "Padrão"
 
 msgid "Results are averaged over the levels of: %s"
 msgstr "Os resultados são calculados em média nos níveis de:%s"
 
-#, fuzzy
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
-"Alguns parâmetros não são estimáveis, provavelmente devido a células vazias "
-"do design."
+msgstr "Alguns parâmetros não foram estimáveis devido à ausência deles."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr "Bootstrapping baseado em %s replicações bem-sucedidas."
@@ -184,7 +180,7 @@ msgid "Comparison"
 msgstr "Comparação"
 
 msgid "Mean Difference"
-msgstr "Diferença média"
+msgstr "Diferença Média"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr "%.0f %% IC para diferença média"
@@ -193,7 +189,7 @@ msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Resultados baseados em médias não corrigidas."
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -230,8 +226,8 @@ msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
 "essentially perfect fit are unreliable)"
 msgstr ""
-"Valor F igual a zero indicando ajuste perfeito. <br> <br> (Os testes de "
-"Levene em um ajuste essencialmente perfeito não são confiáveis)"
+"Valor F igual a zero, indicando ajuste perfeito.<br><br>(Os testes de Levene "
+"em um ajuste essencialmente perfeito não são confiáveis)"
 
 msgid "Marginal Means"
 msgstr "Médias marginais"
@@ -268,18 +264,20 @@ msgid "Factor"
 msgstr "Fator"
 
 msgid "Statistic"
-msgstr "Estatísticas"
+msgstr "Estatística"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Ranque %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1$i%% IC para o Ranque %2$s"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
 msgstr ""
+"Os testes foram conduzidos separadamente para cada variável, sem levar em "
+"consideração efeitos multivariados."
 
 msgid "Dunn"
 msgstr "Dunn"
@@ -293,9 +291,8 @@ msgstr "W<sub>i</sub>"
 msgid "W<sub>j</sub>"
 msgstr "W<sub>j</sub>"
 
-#, fuzzy
 msgid "r<sub>rb</sub>"
-msgstr "W<sub>i</sub>"
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
 msgstr "p<sub>bonf</sub>"
@@ -304,7 +301,7 @@ msgid "p<sub>holm</sub>"
 msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "Correlação ranque-bisserial baseada em testes Mann-Whitney individuais."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -341,6 +338,9 @@ msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
 "term for follow-up tests\" in the Model tab."
 msgstr ""
+"Conjunto de dados muito grande para um teste de continuidade univariado. "
+"Tente desmarcar \"Termo de erro combinado para testes de continuidade\" na "
+"aba Modelo."
 
 msgid ""
 "Some parameters are not estimable, most likely due to empty cells of the "
@@ -428,9 +428,8 @@ msgstr "Não paramétricos"
 msgid "Friedman Test"
 msgstr "Teste de Friedman"
 
-#, fuzzy
 msgid "Χ²<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
 msgstr "W de Kendall"
@@ -442,6 +441,8 @@ msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
+"Não é um desenho não replicado de blocos completos. O teste de Friedman "
+"somente está disponível como uma alternativa para a ANOVA unifatorial de MR."
 
 msgid "Durbin Test"
 msgstr "Teste de Durbin"
@@ -469,6 +470,7 @@ msgstr "Agrupado por %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"Correlação ranque-bisserial baseada em testes postos-ranque individuais."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Fatores moderadores também devem aparecer nos termos do modelo!"
@@ -489,7 +491,7 @@ msgid "Duplicate variables encountered in %s"
 msgstr "Variáveis duplicadas encontradas em %s"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "Coluna de participante duplicada adicionada aos termos do modelo, %s"
 
 msgid ""
 "The interaction effect of %1$s has no observations for the combination(s): "
@@ -529,9 +531,13 @@ msgid ""
 "estimate. However, we recommend using the automatic integration method to "
 "obtain the final results."
 msgstr ""
+"A aproximação de Laplace é mais rápida mas também menos precisa do que o "
+"método automático. Esta é uma boa opção para explorar os dados e obter uma "
+"estimativa aproximada. No entanto, recomenda-se utilizar o método da "
+"integração automática para obter os resultados finais."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "A aproximação de Laplace nem sempre fornece uma estimativa de erro."
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
@@ -543,13 +549,15 @@ msgstr ""
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Todos os modelos incluem %s, e inclinações aleatórias para todos os fatores "
+"de medidas repetidas."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
+"Inclinações aleatórias para os fatores de medidas repetidas foram excluídas."
 
-#, fuzzy
 msgid "All models include %s."
-msgstr "Todos os modelos incluem %s"
+msgstr "Todos os modelos incluem %s."
 
 msgid "Analysis of Effects - %s"
 msgstr "Análises dos Efeitos - %s"
@@ -739,17 +747,15 @@ msgstr "DP"
 msgid "SE"
 msgstr "EP"
 
-#, fuzzy
 msgid "Coefficient of variation"
-msgstr "Comparação de Modelo"
+msgstr "Coeficiente de variação"
 
-#, fuzzy
 msgid ""
 "Some combinations of factors are not observed and hence omitted (%1$g out of "
 "%2$g combinations are unobserved)."
 msgstr ""
-"Algumas combinações de fatores não são observadas e, portanto, omitidas (%g "
-"das combinações de %g não são observadas)."
+"Algumas combinações de fatores não são observadas e, portanto, omitidas (%1$"
+"g das combinações de %2$g não são observadas)."
 
 msgid "Descriptives plots"
 msgstr "Diagramas Descritivos"
@@ -758,17 +764,16 @@ msgid "Descriptives Plot"
 msgstr "Diagramas Descritivos"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Gráfico de barras"
 
-#, fuzzy
 msgid "Bar Plot"
-msgstr "Diagrama Q-Q"
+msgstr "Gráfico de Barras"
 
 msgid "Raincloud plots"
 msgstr "DiagramasRaincloud"
 
 msgid "Dependent"
-msgstr ""
+msgstr "Dependente"
 
 msgid "Sampling posteriors"
 msgstr "Amostragem posterior"
@@ -776,16 +781,15 @@ msgstr "Amostragem posterior"
 msgid "length of samples must be equal to length of weights!"
 msgstr "o comprimento das amostras deve ser igual ao comprimento dos pesos!"
 
-#, fuzzy
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
 "increase the number of posterior samples."
 msgstr ""
-"Todas as previsões tiveram variância zero. Verifique os preditores quanto a "
-"anomalias ou aumente o número de amostras posteriores."
+"Todas as previsões tiveram variância zero. Verifique os preditores/DV quanto "
+"a anomalias ou aumente o número de amostras posteriores."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Mostrando o(s) melhor(es) %1$d de %2$d modelos."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr "O seguinte erro ocorreu em BayesFactor :: enumerateGeneralModels: %s"
@@ -827,9 +831,8 @@ msgstr "t"
 msgid "Cohen's d"
 msgstr "D de Cohen"
 
-#, fuzzy
 msgid "%s%% CI for Cohen's d"
-msgstr "%s%% IC para diferença média"
+msgstr "%s%% IC para d de Cohen"
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coeficientes de contraste - %2$s"
@@ -852,9 +855,8 @@ msgstr "p<sub>scheffe</sub>"
 msgid "p<sub>sidak</sub>"
 msgstr "p<sub>sidak</sub>"
 
-#, fuzzy
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr "Valor P ajustado para comparar uma família de %s"
+msgstr "Valor-p ajustado para comparar uma família de %s estimativas."
 
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
@@ -864,15 +866,14 @@ msgstr ""
 "estimativas de %1$s (intervalos de confiança corrigidos usando o método "
 "%2$s)."
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the bonferroni method)."
 msgstr ""
-"Valor P e intervalos de confiança ajustados para comparar uma família de "
-"estimativas de %1$s (intervalos de confiança corrigidos usando o método "
-"%2$s)."
+"Valor-p e intervalos de confiança ajustados para comparar uma família de "
+"estimativas de %1$s (IC corrigidos usando o método %2$s; IC pra o tamanho de "
+"efeito corrigido usando o método de Bonferroni)."
 
 msgid "Marginal Means -"
 msgstr "Médias Marginais -"
@@ -911,221 +912,247 @@ msgid "Type III Sum of Squares"
 msgstr "Soma dos quadrados Tipo III"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Hipóteses de ordem restrita"
 
 msgid ""
 "Syntax error found in model %1$s.\n"
 "\n"
 "Some restrictions are duplicate!"
 msgstr ""
+"Erro de sintaxe encontrado no modelo %1$s.\n"
+"\n"
+"Algumas restrições estão duplicadas!"
 
 msgid ""
 "There are errors in the restriction syntax for %s. The syntax could not be "
 "decoded!"
 msgstr ""
+"Há erros na restrição de sintaxe para %s. A sintaxe não pode ser "
+"decodificada!"
 
-#, fuzzy
 msgid "Bootstrapping unrestricted model"
-msgstr "Bootstrapping para Médias marginais"
+msgstr "Bootstrapping para modelo irrestrito"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Erro em %1$s - Não foi possível codificar a sintaxe do modelo! Mensagem de "
+"erro: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Erro em %1$s - Erro de sintaxe no modelo! Mensagem de erro: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
 msgstr ""
+"Erro em %1$s - Não foi possível estimar o modelo! Mensagem de erro: %2$s"
 
-#, fuzzy
 msgid "Bootstrapping restricted models"
-msgstr "Bootstrapping para Médias marginais"
+msgstr "Bootstrapping para modelos restritos"
 
 msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+"Não foi possível ajustar o modelo irrestrito. Como resultado, nenhum dos "
+"modelos restritos pode ser estimado. Mensagem de erro: %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+"Não foi possível obter o bootstrap para o modelo irrestrito. Como resultado, "
+"não foi possível realizar o bootstrap para os modelos restritos. Mensagem de "
+"erro: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"Não foi possível ajustar nenhum dos modelos restritos especificados. "
+"Razão(ões): %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Irrestrito"
 
 msgid "Complement"
-msgstr ""
+msgstr "Complemento"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Informação de sintaxe"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Coeficientes disponíveis para restrição de sintaxe"
 
-#, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
-"O fator de Bayes não pôde ser calculado para o modelo: %1$s.\n"
-"A mensagem de erro foi: %2$s."
+msgstr "Não foi possível calcular a comparação de modelos! Mensagem de erro: %s"
 
-#, fuzzy
 msgid "Model Comparison Table"
-msgstr "Comparação de Modelo"
+msgstr "Tabela de Comparação de Modelo"
 
-#, fuzzy
 msgid "Model"
-msgstr "Modelos"
+msgstr "Modelo"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-verossimilhança"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Penalidade"
 
 msgid "GORIC"
-msgstr ""
+msgstr "CIOGR"
 
 msgid "Weight"
-msgstr ""
+msgstr "Peso"
 
 msgid "GORICA"
-msgstr ""
+msgstr "ACIOGR"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "Razão de pesos"
 
 msgid ""
 "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
 "Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"CIOGR = Critério de Informação de Ordem Generalizada Restrita (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid ""
 "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"ACIOGR = Aproximação do Critério de Informação de Ordem Generalizada "
+"Restrita."
 
 msgid ""
 "Weights ratios indicate the relative weight for each model against the "
 "\"%1$s\" model. %2$s"
 msgstr ""
+"As razões de pesos indicam o peso relativo de cada modelo em relação ao "
+"modelo \"%1$s\". %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Não foi possível computar os pesos!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
 msgstr ""
+"O modelo '%s' não pode ser usado como modelo de referência por estar vazio!"
 
-#, fuzzy
 msgid "The following models were excluded: %s."
-msgstr "Todos os modelos incluem %s"
+msgstr "Os seguintes modelos foram excluídos: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "%s pesos relativos"
 
 msgid ""
 "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Apenas um modelo na comparação: Não é possível computar a matriz de pesos "
+"relativos"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
-#, fuzzy
 msgid "Coefficients Comparison"
-msgstr "Comparação de Modelo"
+msgstr "Comparação de Coeficientes"
 
 msgid "Coefficient"
 msgstr "Coeficiente"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Os coeficientes diferem do modelo irrestrito."
 
-#, fuzzy
 msgid "Model Summary"
-msgstr "Comparação de Modelo"
+msgstr "Resumo do Modelo"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "Matriz de Restrição"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Lado esquerdo (LE)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Lado direito (LD)"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Coeficientes"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% IC"
 
-#, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr "Bootstrapping baseado em %s replicações bem-sucedidas."
+msgstr "Estimativas baseadas em %s replicatas bootstrap bem-sucedidas."
 
 msgid "Could not compute table of coefficients. Error message: %s"
 msgstr ""
+"Não foi possível computar a tabela de coeficientes. Mensagem de erro: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "Teste de Hipótese Informativa"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hipótese"
 
 msgid "Test"
-msgstr ""
+msgstr "Teste"
 
-#, fuzzy
 msgid "Test Statistic"
-msgstr "Estatísticas"
+msgstr "Estatística de Teste"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Tipo %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
+"Não foi possível computar o teste de hipótese informativa. Mensagem de erro: "
+"%s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
 msgstr ""
+"H%1$s: Todas as restrições de igualdade estão ativas (==), H%2$s: Pelo menos "
+"uma restrição de igualdade foi violada."
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Todos os parâmetros estão restritos para serem iguais (==), H%2$s: "
+"Pelo menos uma restrição de não igualdade é estritamente verdadeira (>)."
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Todas as restrições são igualdades (==), H%2$s: Pelo menos uma "
+"restrição de não igualdade é estritamente verdadeira (>)."
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Todas as restrições são válidas, H%2$s: Pelo menos uma restrição foi "
+"violada."
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Pelo menos uma restrição é falsa ou ativa (==), H%2$s: Todas as "
+"restrições são estritamente verdadeiras (>)."
 
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
 msgstr ""
+"Não há termos de médias marginais especificados. Por favor, selecione os "
+"termos do modelo na seção 'Médias Marginais Restritas'."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Não foi possível calcular as médias marginais. Mensagem de erro: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Os resultados são calculados em média nos níveis de:%s"
+msgstr "Os resultados são calculados, em média, sobre os níveis de: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "As covariantes (%s) foram mantidas fixadas em seus valores medianos."
 
 msgid "MANOVA"
 msgstr "MANOVA"
@@ -1141,12 +1168,13 @@ msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
 msgstr ""
+"Resultados indisponíveis devido ao tamanho de amostra (deve ser entre 3 e "
+"5000) ou a correlações perfeitas."
 
-#, fuzzy
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] "Modelo nulo (incl. %s)"
-msgstr[1] "Modelo nulo (incl. %s)"
+msgstr[0] "Modelo nulo (incl. %s e inclinações aleatórias)"
+msgstr[1] "Modelos nulos (incl. %s, e inclinações aleatórias)"
 
 #~ msgid "Chi-Squared"
 #~ msgstr "Qui-quadrado"

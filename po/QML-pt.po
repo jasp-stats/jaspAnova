@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-08-09 03:06+0000\n"
+"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 "X-Language: pt\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -366,7 +372,7 @@ msgstr "Modelo 1"
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr ""
+msgstr "Clique para aprender mais sobre a sintaxe para restrições de ordem."
 
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
@@ -382,35 +388,35 @@ msgstr "Nenhum"
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr ""
+msgstr "HC0"
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr ""
+msgstr "HC1"
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr ""
+msgstr "HC2"
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr ""
+msgstr "HC3"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr ""
+msgstr "HC4"
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr ""
+msgstr "HC4m"
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr ""
+msgstr "HC5"
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr ""
+msgstr "Médias Marginais Restritas"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -428,6 +434,12 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
+"Esta análise foi criada com uma versão mais antiga do JASP (ou um módulo "
+"dinâmico). Desde então, a especificação do modelo da ANOVA Bayesiana de "
+"Medidas Repetidas mudou. Por padrão, todos os modelos agora incluem "
+"inclinações aleatórias para todas as interações de medidas repetidas, exceto "
+"a de ordem mais alta, para evitar discrepâncias com a ANOVA frequentista de "
+"medidas repetidas."
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
@@ -435,15 +447,15 @@ msgstr "Opções Adicionais"
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
-msgstr ""
+msgstr "Especificar Anterior em Coeficientes"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr ""
+msgstr "Para termos fixos e aleatórios"
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr ""
+msgstr "Para cada termo individualmente"
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
@@ -479,7 +491,7 @@ msgstr "Amostras posteriores"
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
-msgstr ""
+msgstr "Resultados legados"
 
 msgctxt "AdditionalOptions|"
 msgid ""
@@ -487,88 +499,93 @@ msgid ""
 "in JASP <=0.16. Omitting the random slopes may yield completely different "
 "results from the frequentist ANOVA."
 msgstr ""
+"Quando marcada, as inclinações aleatórias dos fatores de medidas repetidas "
+"são omitidas, como no JASP <=0,16. A omissão das inclinações aleatórias pode "
+"gerar resultados completamente diferentes da ANOVA frequentista."
 
 msgctxt "AdditionalOptions|"
 msgid "Hide nuisance in model"
-msgstr ""
+msgstr "Esconder o ruído do modelo"
 
 msgctxt "AdditionalOptions|"
 msgid ""
 "When checked, the nuisance parameters common to all models are omitted from "
 "the model specification."
 msgstr ""
+"Quando marcada, os parâmetros de ruído comuns a todos os modelos são "
+"omitidos da especificação do modelo."
 
 msgctxt "AdditionalOptions|"
 msgid "Enforce the Principle of Marginality"
-msgstr ""
+msgstr "Impor o Princípio da Marginalidade"
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr ""
+msgstr "Para efeitos fixos"
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr ""
+msgstr "Para inclinações aleatórias"
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
-msgstr ""
+msgstr "Modelo Anterior"
 
 msgctxt "AdditionalOptions|"
 msgid "Uniform"
-msgstr ""
+msgstr "Uniforme"
 
 msgctxt "AdditionalOptions|"
 msgid "Beta binomial"
-msgstr ""
+msgstr "Beta binomial"
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr ""
+msgstr "a"
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr ""
+msgstr "b"
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr ""
+msgstr "Wilson"
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr ""
+msgstr "λ"
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr ""
+msgstr "Castillo"
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr ""
+msgstr "u"
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr ""
+msgstr "Termo"
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
-msgstr ""
+msgstr "Prob. incl. prévia"
 
 msgctxt "AdditionalOptions|"
 msgid "r-scale"
-msgstr ""
+msgstr "escala r"
 
 msgctxt "BayesFactorOrder|"
 msgid "Order"
@@ -604,7 +621,7 @@ msgstr "Estimativas"
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr ""
+msgstr "R² médio do modelo"
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
@@ -612,7 +629,7 @@ msgstr "Descritivas"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Intervalo de confiança"
+msgstr "Intervalo credível"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -642,7 +659,6 @@ msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
 msgstr "Diagrama individual por nível"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
@@ -663,7 +679,6 @@ msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
 msgstr "Eixo horizontal"
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
 msgstr "Linhas Separadas"
@@ -678,7 +693,7 @@ msgstr "Exibir"
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr "Intervalo de confiança"
+msgstr "Intervalo credível"
 
 msgctxt "ModelTerms|"
 msgid "Model"
@@ -690,7 +705,7 @@ msgstr "Componentes"
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Hipóteses de Ordem Restrita"
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -702,85 +717,92 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
+"Insira cada restrição de uma hipótese em uma nova linha, e.g.,\n"
+"fatorBaixo == fatorMédio\n"
+"fatorMédio < fatorAlto\n"
+"onde 'fator' é o nome do fator (ou covariável) e 'Baixo'/'Médio'/'Alto' são "
+"os nomes dos níveis dos fatores.\n"
+"Clique no ícone de 'mais' para adicionar mais hipóteses.\n"
+"Clique no ícone de informações para mais exemplos."
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr ""
+msgstr "Configurações de sintaxe"
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr ""
+msgstr "Mostrar coeficientes disponíveis"
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr ""
+msgstr "Definir para todos os modelos"
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Resumo do modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Médias marginais"
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr ""
+msgstr "Testes de hipótese informada"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr ""
+msgstr "Resumo para %1"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr ""
+msgstr "Médias marginais para %1"
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr ""
+msgstr "Testes de hipótese informada para %1"
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr ""
+msgstr "Complementar modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr ""
+msgstr "Modelo irrestrito"
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr ""
+msgstr "Adicionar à comparação"
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr ""
+msgstr "Adicionar razões de ponderação"
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr ""
+msgstr "Modelo de referência"
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr ""
+msgstr "Matriz de pesos relativos"
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr ""
+msgstr "Comparar os coeficientes do modelo"
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr ""
+msgstr "Destacar as restrições ativas"
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr ""
+msgstr "Quantificação de incerteza"
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr ""
+msgstr "Correção de heterogeneidade"
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
@@ -796,7 +818,7 @@ msgstr "Intervalos de confiança"
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr ""
+msgstr "Termos"
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
@@ -882,7 +904,6 @@ msgctxt "AssumptionChecks|"
 msgid "Welch"
 msgstr "Welch"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
@@ -921,7 +942,7 @@ msgstr "Exibir"
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
+msgstr "Intervalo de confiança"
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
@@ -933,7 +954,7 @@ msgstr "Exibir"
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "Descritivas"
+msgstr "Estatística descritiva"
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
@@ -961,7 +982,7 @@ msgstr "Razão p máxima de Vovk-Sellke"
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr "Médias marginais"
+msgstr "Médias Marginais"
 
 msgctxt "MarginalMeans|"
 msgid "From"
@@ -1069,7 +1090,7 @@ msgstr "Intervalos de Confiança"
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efeitos Principais Simples"
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
@@ -1098,202 +1119,192 @@ msgstr "Tipo %1"
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr ""
+msgstr "Coeficiente Anterior"
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
-msgstr ""
+msgstr "Método de Integração"
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
-msgstr ""
+msgstr "Aproximação de Laplace"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr ""
+msgstr "Rótulo do eixo y"
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
-msgstr ""
+msgstr "Limitar N° de modelos exibidos"
 
 msgctxt "DefaultOptions|"
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
-msgstr ""
+msgstr "Sim, mostrar o melhor"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Combinar o termo de erro para testes de acompanhamento"
 
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Combinar o termo de erro para testes de acompanhamento"
 
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
-msgstr ""
+msgstr "Combinar o termo de erro para testes de acompanhamento"
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr ""
+msgstr "Gráficos de Barras"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Factors"
 msgstr "Fatores"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo horizontal"
+msgstr "Eixo Horizontal"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Separate Plots"
-msgstr "Diagramas Separados"
+msgstr "Gráficos Separados"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Display"
 msgstr "Exibir"
 
-#, fuzzy
 msgctxt "BarPlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
-
-#, fuzzy
-msgctxt "BarPlots|"
-msgid "Credible interval"
 msgstr "Intervalo de confiança"
 
-#, fuzzy
+msgctxt "BarPlots|"
+msgid "Credible interval"
+msgstr "Intervalo credível"
+
 msgctxt "BarPlots|"
 msgid "Standard error"
 msgstr "Erro padrão"
 
 msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
-msgstr ""
+msgstr "Fixar o eixo horizontal em 0"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
 msgstr "Estimativas de tamanho de efeito"
 
 msgctxt "Nonparametrics|"
 msgid "ε²"
-msgstr ""
+msgstr "ε²"
 
-#, fuzzy
 msgctxt "Nonparametrics|"
 msgid "η²"
 msgstr "η²"
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr ""
+msgstr "Confiança"
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
 msgstr "Gráfico Q-Q dos resíduos"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Comparações condicionais para interações"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizar barras de erro"
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr ""
+msgstr "Normalizar barras de erro"
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr ""
+msgstr "ω² parcial"
 
 msgctxt "Display|"
 msgid "Confidence intervals"
-msgstr ""
+msgstr "Intervalos de confiança"
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr ""
+msgstr "Teste post hoc de Dunn"
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr ""
+msgstr "Comparações condicionais para interações"
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr ""
+msgstr "Marcar comparações significativas"
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr ""
+msgstr "Tabela de agrupamento baseada em letras"
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr ""
+msgstr "nível α:"
 
 msgctxt "BarPlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "Barras de erro"
 
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
-msgstr ""
+msgstr "Barras de erro"
 
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
-msgstr ""
+msgstr "Tamanho de efeito (d de Cohen)"
 
 msgctxt "Export|"
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgctxt "Export|"
 msgid "Append residuals to data"
-msgstr ""
+msgstr "Adicionar resíduos aos dados"
 
 msgctxt "Export|"
 msgid "Column name"
-msgstr ""
+msgstr "Nome da coluna"
 
 msgctxt "Export|"
 msgid "e.g., residuals"
-msgstr ""
+msgstr "e.g., resíduos"
 
 msgctxt "Export|"
 msgid "Residuals type"
-msgstr ""
+msgstr "Tipo dos resíduos"
 
 msgctxt "Export|"
 msgid "Raw"
-msgstr ""
+msgstr "Bruto"
 
 msgctxt "Export|"
 msgid "Studentized"
-msgstr ""
+msgstr "Estudentizado"
 
 msgctxt "Export|"
 msgid "Standardized"
-msgstr ""
+msgstr "Padronizado"
 
 msgctxt "Export|"
 msgid "Append predictions to data"
-msgstr ""
+msgstr "Adicionar previsões aos dados"
 
 msgctxt "Export|"
 msgid "e.g., predictions"
-msgstr ""
+msgstr "e.g., previsões"

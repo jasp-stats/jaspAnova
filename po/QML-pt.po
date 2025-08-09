@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-07 22:01+0000\n"
+"PO-Revision-Date: 2025-08-09 03:06+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/pt/>\n"
@@ -629,7 +629,7 @@ msgstr "Descritivas"
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Intervalo Credível"
+msgstr "Intervalo credível"
 
 msgctxt "DefaultOptions|"
 msgid "Order"
@@ -942,7 +942,7 @@ msgstr "Exibir"
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
+msgstr "Intervalo de confiança"
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
@@ -954,7 +954,7 @@ msgstr "Exibir"
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "Descritivas"
+msgstr "Estatística descritiva"
 
 msgctxt "Display|"
 msgid "Estimates of effect size"

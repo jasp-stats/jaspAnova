@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2025-05-10 03:00\n"
-"PO-Revision-Date: 2025-04-24 23:01+0000\n"
+"PO-Revision-Date: 2025-08-23 02:55+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "sr/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -554,13 +554,14 @@ msgid "Log(BF<sub>10</sub>)"
 msgstr ""
 
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
+#, fuzzy
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|подаци)"
 
 msgid "error %%"
 msgstr ""
@@ -643,7 +644,7 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Дескриптивна статистика"
 
 msgid "Descriptives - %s"
 msgstr ""
@@ -715,7 +716,7 @@ msgid "Single Model Posterior Summary"
 msgstr ""
 
 msgid "Variable"
-msgstr ""
+msgstr "Варијабла"
 
 msgid "Single Model Posterior Distributions"
 msgstr ""

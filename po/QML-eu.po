@@ -1,430 +1,423 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-24 11:01+0000\n"
-"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/pt/>\n"
-"Language: pt\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
-"X-Language: pt\n"
-"X-Source-Language: American English\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-
-msgctxt "Ancova|"
-msgid "Dependent Variable"
-msgstr "Variável Dependente"
-
-msgctxt "Ancova|"
-msgid "Fixed Factors"
-msgstr "Fatores Fixos"
-
-msgctxt "Ancova|"
-msgid "Random Factors"
-msgstr "Fatores Aleatórios"
-
-msgctxt "Ancova|"
-msgid "Covariates"
-msgstr "Covariáveis"
-
-msgctxt "Ancova|"
-msgid "WLS Weights"
-msgstr "WLS Ponderado"
-
-msgctxt "Ancova|"
-msgid "Factor covariate independence check"
-msgstr "Verificação da independência de covariável de fator"
-
-msgctxt "AncovaBayesian|"
-msgid "Dependent Variable"
-msgstr "Variável Dependente"
-
-msgctxt "AncovaBayesian|"
-msgid "Fixed Factors"
-msgstr "Fatores Fixos"
-
-msgctxt "AncovaBayesian|"
-msgid "Random Factors"
-msgstr "Fatores Aleatórios"
-
-msgctxt "AncovaBayesian|"
-msgid "Covariates"
-msgstr "Covariáveis"
-
-msgctxt "Anova|"
-msgid "Dependent Variable"
-msgstr "Variável Dependente"
-
-msgctxt "Anova|"
-msgid "Fixed Factors"
-msgstr "Fatores Fixos"
-
-msgctxt "Anova|"
-msgid "Random Factors"
-msgstr "Fatores Randômicos"
-
-msgctxt "Anova|"
-msgid "WLS Weights"
-msgstr "WLS Ponderado"
-
-msgctxt "AnovaBayesian|"
-msgid "Dependent Variable"
-msgstr "Variável Dependente"
-
-msgctxt "AnovaBayesian|"
-msgid "Fixed Factors"
-msgstr "Fatores Fixos"
-
-msgctxt "AnovaBayesian|"
-msgid "Random Factors"
-msgstr "Fatores aleatórios"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Repeated Measures Factors"
-msgstr "Fatores de medidas repetidas"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Repeated Measures Cells"
-msgstr "Células de Medidas Repetidas"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Between Subject Factors"
-msgstr "Fatores entre sujeitos"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Covariates"
-msgstr "Covariáveis"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Model"
-msgstr "Modelo"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Repeated Measures Components"
-msgstr "Componentes de Medidas Repetidas"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Model Terms"
-msgstr "Termos do Modelo"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Between Subjects Components"
-msgstr "Componentes entre sujeitos"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Model terms"
-msgstr "Termos do modelo"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Assumption Checks"
-msgstr "Verificação dos Pressupostos"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Sphericity tests"
-msgstr "Testes de Esfericidade"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Sphericity corrections"
-msgstr "Correções de Esfericidade"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "None"
-msgstr "Nenhum"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Greenhouse-Geisser"
-msgstr "Greenhouse-Geisser"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Huynh-Feldt"
-msgstr "Huynh-Feldt"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Homogeneity tests"
-msgstr "Testes de homogeneidade"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Post Hoc Tests"
-msgstr "Testes Post Hoc"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Effect size"
-msgstr "Tamanho de efeito"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Correction"
-msgstr "Correção"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Holm"
-msgstr "Holm"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Bonferroni"
-msgstr "Bonferroni"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Tukey"
-msgstr "Tukey"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Factors"
-msgstr "Fatores"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Label y-axis"
-msgstr "Rótulo eixo-y"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Average across unused RM factors"
-msgstr "Média de fatores de RM não usados"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Pool error terms"
-msgstr "Termos de erro de grupo"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Nonparametrics"
-msgstr "Não paramétricos"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "RM Factor"
-msgstr "Fator RM"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Optional Grouping Factor"
-msgstr "Fator de Agrupamento Opcional"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Conover's post hoc tests"
-msgstr "Teste post hoc de Conover"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Repeated Measures Factors"
-msgstr "Fatores de Medidas Repetidas"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Repeated Measures Cells"
-msgstr "Células de Medidas Repetidas"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Between Subject Factors"
-msgstr "Entre Fatores de Assunto"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "Covariates"
-msgstr "Covariáveis"
-
-msgctxt "Manova|"
-msgid "Dependent Variables"
-msgstr "Variáveis Dependentes"
-
-msgctxt "Manova|"
-msgid "Fixed Factors"
-msgstr "Fatores Fixos"
-
-msgctxt "Manova|"
-msgid "Random Factors"
-msgstr "Fatores aleatórios"
-
-msgctxt "Manova|"
-msgid "Model"
-msgstr "Modelo"
-
-msgctxt "Manova|"
-msgid "Components"
-msgstr "Componentes"
-
-msgctxt "Manova|"
-msgid "Model Terms"
-msgstr "Termos do Modelo"
-
-msgctxt "Manova|"
-msgid "Include intercept"
-msgstr "Incluir intercepto"
-
-msgctxt "Manova|"
-msgid "Additional Options"
-msgstr "Opções Adicionais"
-
-msgctxt "Manova|"
-msgid "Test"
-msgstr "Teste"
-
-msgctxt "Manova|"
-msgid "Pillai"
-msgstr "Pillai"
-
-msgctxt "Manova|"
-msgid "Wilks"
-msgstr "Wilks"
-
-msgctxt "Manova|"
-msgid "Hotelling-Lawley"
-msgstr "Hotelling-Lawley"
-
-msgctxt "Manova|"
-msgid "Roy"
-msgstr "Roy"
-
-msgctxt "Manova|"
-msgid "Assumption Checks"
-msgstr "Verificar pressupostos"
-
-msgctxt "Manova|"
-msgid "Homogeneity of covariance matrices"
-msgstr "Homogeneidade das matrizes de covariância"
-
-msgctxt "Manova|"
-msgid "Multivariate normality"
-msgstr "Normalidade multivariada"
-
-msgctxt "Manova|"
-msgid "Display"
-msgstr "Exibir"
-
-msgctxt "Manova|"
-msgid "ANOVA tables"
-msgstr "Tabelas ANOVA"
-
-msgctxt "Manova|"
-msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Razão p máxima de Vovk-Sellke"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr "ANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "Clássico"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr "ANOVA de medidas repetidas"
+msgstr ""
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr "ANCOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr "MANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr "Bayesiano"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr "ANOVA Bayesiana"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "ANOVA para medidas repetidas bayesianas"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr "ANCOVA Bayesiana"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "WLS Weights"
+msgstr ""
+
+msgctxt "Ancova|"
+msgid "Factor covariate independence check"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "AncovaBayesian|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Anova|"
+msgid "WLS Weights"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Dependent Variable"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "AnovaBayesian|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Cells"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subject Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Repeated Measures Components"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Between Subjects Components"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Model terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Sphericity corrections"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "None"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Greenhouse-Geisser"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Huynh-Feldt"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Homogeneity tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Effect size"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Correction"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Holm"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Bonferroni"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Tukey"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Label y-axis"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Average across unused RM factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Pool error terms"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Nonparametrics"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "RM Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Optional Grouping Factor"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "Conover's post hoc tests"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Repeated Measures Cells"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Between Subject Factors"
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "Covariates"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Dependent Variables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Fixed Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Random Factors"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Components"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Model Terms"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Additional Options"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Test"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Pillai"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Wilks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Hotelling-Lawley"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Roy"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Assumption Checks"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Homogeneity of covariance matrices"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Multivariate normality"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Display"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "ANOVA tables"
+msgstr ""
+
+msgctxt "Manova|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr "Diagramas Raincloud"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
-msgstr "Fatores"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo Horizontal"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr "Diagramas Separados"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr "Exibição horizontal"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr "Rotular eixo y"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr "Avalie a diferença entre várias médias"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr "Scheffé"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr "Fator RM"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr "Modelo 1"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr "Clique para aprender mais sobre a sintaxe para restrições de ordem."
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
-msgstr "Incluir intercepto"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr "Comparação de modelos"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr "Nenhum"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr "HC0"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr "HC1"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr "HC2"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr "HC3"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr "HC4"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr "HC4m"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr "HC5"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr "Médias Marginais Restritas"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
 msgstr ""
-"Pressione Ctrl+Enter para aplicar. Clique no botão azul acima para obter "
-"ajuda sobre a sintaxe de restrições"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
@@ -434,64 +427,58 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
-"Esta análise foi criada com uma versão mais antiga do JASP (ou um módulo "
-"dinâmico). Desde então, a especificação do modelo da ANOVA Bayesiana de "
-"Medidas Repetidas mudou. Por padrão, todos os modelos agora incluem "
-"inclinações aleatórias para todas as interações de medidas repetidas, exceto "
-"a de ordem mais alta, para evitar discrepâncias com a ANOVA frequentista de "
-"medidas repetidas."
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr "Opções Adicionais"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
-msgstr "Especificar Anterior em Coeficientes"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr "Para termos fixos e aleatórios"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr "Para cada termo individualmente"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
-msgstr "efeitos fixos da escala r"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
-msgstr "efeitos aleatórios da escala r"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
-msgstr "covariáveis da escala r"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Numerical Accuracy"
-msgstr "Acurácia numérica"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr "Auto"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Manual"
-msgstr "Manual"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr "No. de amostras"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
-msgstr "Amostras posteriores"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
-msgstr "Resultados legados"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid ""
@@ -499,213 +486,208 @@ msgid ""
 "in JASP <=0.16. Omitting the random slopes may yield completely different "
 "results from the frequentist ANOVA."
 msgstr ""
-"Quando marcada, as inclinações aleatórias dos fatores de medidas repetidas "
-"são omitidas, como no JASP <=0,16. A omissão das inclinações aleatórias pode "
-"gerar resultados completamente diferentes da ANOVA frequentista."
 
 msgctxt "AdditionalOptions|"
 msgid "Hide nuisance in model"
-msgstr "Esconder o ruído do modelo"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid ""
 "When checked, the nuisance parameters common to all models are omitted from "
 "the model specification."
 msgstr ""
-"Quando marcada, os parâmetros de ruído comuns a todos os modelos são "
-"omitidos da especificação do modelo."
 
 msgctxt "AdditionalOptions|"
 msgid "Enforce the Principle of Marginality"
-msgstr "Impor o Princípio da Marginalidade"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr "Para efeitos fixos"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr "Para inclinações aleatórias"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
-msgstr "Modelo Anterior"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Uniform"
-msgstr "Uniforme"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Beta binomial"
-msgstr "Beta binomial"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr "a"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr "b"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr "Wilson"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr "λ"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr "Castillo"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr "u"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr "Bernoulli"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr "p"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr "Personalizado"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr "Termo"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
-msgstr "Prob. incl. prévia"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r-scale"
-msgstr "escala r"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Order"
-msgstr "Ordem"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
-msgstr "Comparar com o melhor modelo"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr "Comparar com o modelo nulo"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr "Tabelas"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
-msgstr "Efeitos"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across all models"
-msgstr "Em todos os modelos"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
-msgstr "Em modelos correspondentes"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr "Estimativas"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr "R² médio do modelo"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr "Descritivas"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Intervalo credível"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Order"
-msgstr "Ordem"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
-msgstr "Comparar com o melhor modelo"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
-msgstr "Comparar com o modelo nulo"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr "Diagramas"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
-msgstr "Modelo médio posterior"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
-msgstr "Níveis de grupo num único diagrama"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
-msgstr "Diagrama individual por nível"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q dos resíduos"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
-msgstr "R² posterior"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr "Diagramas Descritivos"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr "Fatores"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo Horizontal"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
-msgstr "Linhas Separadas"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr "Diagramas Separados"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr "Intervalo credível"
+msgstr ""
 
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr "Modelo"
+msgstr ""
 
 msgctxt "ModelTerms|"
 msgid "Components"
-msgstr "Componentes"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr "Hipóteses de Ordem Restrita"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -717,594 +699,587 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
-"Insira cada restrição de uma hipótese em uma nova linha, e.g.,\n"
-"fatorBaixo == fatorMédio\n"
-"fatorMédio < fatorAlto\n"
-"onde 'fator' é o nome do fator (ou covariável) e 'Baixo'/'Médio'/'Alto' são "
-"os nomes dos níveis dos fatores.\n"
-"Clique no ícone de 'mais' para adicionar mais hipóteses.\n"
-"Clique no ícone de informações para mais exemplos."
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr "Configurações de sintaxe"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr "Mostrar coeficientes disponíveis"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr "Definir para todos os modelos"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr "Resumo do modelo"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr "Médias marginais"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr "Testes de hipótese informada"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr "Resumo para %1"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr "Médias marginais para %1"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr "Testes de hipótese informada para %1"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr "Complementar modelo"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr "Modelo irrestrito"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr "Adicionar à comparação"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr "Adicionar razões de ponderação"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr "Modelo de referência"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr "Matriz de pesos relativos"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr "Comparar os coeficientes do modelo"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr "Destacar as restrições ativas"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr "Quantificação de incerteza"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr "Correção de heterogeneidade"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr "Bootstrapping"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr "Amostras"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr "Intervalos de confiança"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr "Termos"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr "Testes Post Hoc"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr "Correção"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Null control"
-msgstr "Controle nulo"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
-msgstr "Inferência de modelo único"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Components"
-msgstr "Componentes"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
-msgstr "Termos específicos do modelo"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Tables"
-msgstr "Tabelas"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Estimates"
-msgstr "Estimativas"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "R²"
-msgstr "R²"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr "Diagramas"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
-msgstr "Posteriores marginal"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
-msgstr "Níveis de grupo num único diagrama"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
-msgstr "Diagrama individual por nível"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q dos resíduos"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
-msgstr "R² posterior"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr "Verificação de Pressupostos"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr "Testes de Homogeneidade"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr "Correções de Homogeneidade"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr "Nenhuma"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr "Brown-Forsythe"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr "Welch"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q dos resíduos"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Contrasts"
-msgstr "Contrastes"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
-msgstr "Intervalos de confiança"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr "Diagramas Descritivos"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
-msgstr "Fatores"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo Horizontal"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
-msgstr "Linhas Separadas"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr "Diagramas Separados"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de confiança"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
-msgstr "Erro padrão"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "Estatística descritiva"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr "Estimativas de tamanho de efeito"
+msgstr ""
 
 msgctxt "Display|"
 msgid "η²"
-msgstr "η²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr "η² parcial"
+msgstr ""
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr "η² geral"
+msgstr ""
 
 msgctxt "Display|"
 msgid "ω²"
-msgstr "ω²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Razão p máxima de Vovk-Sellke"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr "Médias Marginais"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr "A partir de"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
-msgstr "bootstraps"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
-msgstr "Comparar médias marginais com 0"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
-msgstr "Ajuste do intervalo de confiança"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr "Nenhum"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Model"
-msgstr "Modelo"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Components"
-msgstr "Componentes"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr "Termos do Modelo"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
-msgstr "Não paramétricos"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
-msgstr "Teste Kruskal-Wallis"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr "Testes Post Hoc"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Standard"
-msgstr "Padrão"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr "A partir de"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "bootstraps"
-msgstr "bootstraps"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr "Tamanho de efeito"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr "Games-Howell"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr "Dunnett"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr "Correção"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Tukey"
-msgstr "Tukey"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Scheffé"
-msgstr "Scheffé"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Bonferroni"
-msgstr "Bonferroni"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Holm"
-msgstr "Holm"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Šidák"
-msgstr "Šidák"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
-msgstr "Intervalos de Confiança"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "Efeitos Principais Simples"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
-msgstr "Fatores"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "Efeito Simples de Fator"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
-msgstr "Moderador Fator 1"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
-msgstr "Moderador Fator 2"
+msgstr ""
 
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
-msgstr "Soma dos quadrados"
+msgstr ""
 
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
-msgstr "Tipo %1"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr "Coeficiente Anterior"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
-msgstr "Método de Integração"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr "Automático"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
-msgstr "Aproximação de Laplace"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr "Rótulo do eixo y"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
-msgstr "Limitar N° de modelos exibidos"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "No"
-msgstr "Não"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
-msgstr "Sim, mostrar o melhor"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
-msgstr "Combinar o termo de erro para testes de acompanhamento"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
-msgstr "Combinar o termo de erro para testes de acompanhamento"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
-msgstr "Combinar o termo de erro para testes de acompanhamento"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr "Gráficos de Barras"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Factors"
-msgstr "Fatores"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
-msgstr "Eixo Horizontal"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Separate Plots"
-msgstr "Gráficos Separados"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Confidence interval"
-msgstr "Intervalo de confiança"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Credible interval"
-msgstr "Intervalo credível"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Standard error"
-msgstr "Erro padrão"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
-msgstr "Fixar o eixo horizontal em 0"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
-msgstr "Estimativas de tamanho de efeito"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "ε²"
-msgstr "ε²"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "η²"
-msgstr "η²"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr "Confiança"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr "Gráfico Q-Q dos resíduos"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr "Comparações condicionais para interações"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
-msgstr "Normalizar barras de erro"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr "Normalizar barras de erro"
+msgstr ""
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr "ω² parcial"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Confidence intervals"
-msgstr "Intervalos de confiança"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr "Teste post hoc de Dunn"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr "Comparações condicionais para interações"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr "Marcar comparações significativas"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr "Tabela de agrupamento baseada em letras"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr "nível α:"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Error bars"
-msgstr "Barras de erro"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
-msgstr "Barras de erro"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
-msgstr "Tamanho de efeito (d de Cohen)"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Export"
-msgstr "Exportar"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Append residuals to data"
-msgstr "Adicionar resíduos aos dados"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Column name"
-msgstr "Nome da coluna"
+msgstr ""
 
 msgctxt "Export|"
 msgid "e.g., residuals"
-msgstr "e.g., resíduos"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Residuals type"
-msgstr "Tipo dos resíduos"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Raw"
-msgstr "Bruto"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Studentized"
-msgstr "Estudentizado"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Standardized"
-msgstr "Padronizado"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Append predictions to data"
-msgstr "Adicionar previsões aos dados"
+msgstr ""
 
 msgctxt "Export|"
 msgid "e.g., predictions"
-msgstr "e.g., previsões"
+msgstr ""

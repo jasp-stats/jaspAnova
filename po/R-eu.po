@@ -2,910 +2,1053 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-09-18 07:01+0000\n"
+"Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
+"Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"WLS pisuek balio negatiboak eta/edo zero dituzte.<br><br>(WLS pisu "
+"positiboak bakarrik onartzen dira)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"Doikuntza singularra aurkitu da; aldagai iragarle bat edo gehiago beste "
+"aldagai iragarle batzuen konbinazio lineala dira"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"Karratuen hondar batura 0 da; baliteke zure menpeko aldagaiaren bariantza "
+"oso txikia izateagatik izatea"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Errore bat gertatu da ANOVA kalkulatzean: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares."
 msgstr ""
+"Zure diseinuak gelaxka hutsak ditu. Saiatu karratuen batura mota desberdin "
+"batekin."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"Ezin izan da Welch zuzenketa kalkulatu '%1$s'-k zero bariantza duelako "
+"'%2$s'-ren maila hauetan taldekatu ondoren: %3$s"
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Homogeneotasun Zuzenketa"
 
 msgid "Cases"
-msgstr ""
+msgstr "Kasuak"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Karratuen Batura"
 
 msgid "df"
-msgstr ""
+msgstr "ag askatasun graduak"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Batez besteko Karratua"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "%s%% KT η²-rako"
 
 msgid "Lower"
-msgstr ""
+msgstr "Behekoa"
 
 msgid "Upper"
-msgstr ""
+msgstr "Goikoa"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "%s%% KT for η²ₚ-rako"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "%s%% KT ω²ₚ-rako"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "%s%% KT ω²ₚ-rako"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"Brown-Forsythe eta Welch zuzenketak ANOVA norabide bakarrerako bakarrik "
+"daude eskuragarri"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Kontraste taulak"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "%1$s Kontrastea - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Ez dago datu nahikorik eredu/kontraste osoak kalkulatzeko. Litekeena da "
+"subjektuen arteko"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Zehaztu kontraste gehigarri bat."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Kontraste matrizearen errenkada pertsonalizatu kopuru okerra."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Zehaztu zero ez diren kontraste pisuak."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Post Hoc probak"
 
 msgid "Standard (HSD)"
-msgstr ""
+msgstr "Estandarra (HSD)"
 
 msgid "Standard"
-msgstr ""
+msgstr "Estandarra"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "Emaitzak batez besteko maila hauetan kalkulatzen dira: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "Parametro batzuk ezin izan dira kalkulatu falta zirelako."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Bootstrapping %s erreplika arrakastatsuetan oinarrituta."
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"Batez besteko Diferentziaren estimazioa bootstrap banaketaren medianaren "
+"oinarrituta dago."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Alborapen zuzendua azeleratuta."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Bootstrapping Post Hoc Proba"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"Konfiantza tarte batzuk ezin izan dira kalkulatu.\n"
+"Baliteke bootstrap erreplikazio gutxiegi egotea."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Games-Howell Post Hoc Konparaketak - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "Konparaketa"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Batez bestekoen Aldea"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "%0f%% CI Batez bestekoen Aldearentzat"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Emaitzak zuzendu gabeko batez bestekoetan oinarrituta."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Dunnett Post Hoc Konparaketak - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% CI Batez bestekoen Aldearentzat"
 
 msgid "p<sub>dunnett</sub>"
-msgstr ""
+msgstr "p<sub>dunnett</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
-msgstr ""
+msgstr "Konfiantza-tartea estuegia da, aukeratu beste konfiantza-maila bat."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Suposizioen Egiaztapenak"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Bariantzen Berdintasunerako Proba (Levene-rena)"
 
 msgid "df1"
-msgstr ""
+msgstr "ag1"
 
 msgid "df2"
-msgstr ""
+msgstr "ag2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"F-balioa zero da, egokitzapen perfektua adierazten duena.<br><br>(Levene-ren "
+"probak funtsean egokitzapen perfektu batean ez dira fidagarriak)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Batez besteko Marjinalak"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Bootstrapping bidezko Batez besteko Marjinalak"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"Konfiantza-tarte batzuk ezin izan dira kalkulatu. Baliteke bootstrap "
+"errepikapen gutxiegi egotea."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Bootstrapping %s errepikapenetan oinarrituta dago."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efektu Nagusi Sinpleak"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Efektu Nagusi Sinpleak - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "%s-ren maila"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Ez dago behaketa nahikorik %s gelaxketan."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kruskal-Wallis Proba"
 
 msgid "Factor"
-msgstr ""
+msgstr "Faktorea"
 
 msgid "Statistic"
-msgstr ""
+msgstr "Estatistikoa"
 
+#, fuzzy
 msgid "Rank %s"
-msgstr ""
+msgstr "Mailaren %s"
 
+#, fuzzy
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1$i%% CI %2$s Mailaren kasuan"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"Probak aldagai bakoitzerako bereizita egiten dira, efektu multibariableak "
+"kontuan hartu gabe."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Dunn-en Post Hoc Konparaketak - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>bonf</sub>"
-msgstr ""
+msgstr "p<sub>bonf</sub>"
 
 msgid "p<sub>holm</sub>"
-msgstr ""
+msgstr "p<sub>holm</sub>"
 
+#, fuzzy
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Mailaren korrelazio biseriala Mann-Whitney proba indibidualetan oinarrituta."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Errorea datuak kargatzean. Mesedez, egiaztatu zure neurri errepikatuen "
+"behaketak."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Faktorea: <em>%s</em>, bi maila baino gutxiago ditu."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Faktoreak: <em>%s</em>, bi maila baino gutxiago ditu."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "<em>%s</em> neurri errepikatuak balio infinituak ditu."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "<em>%s</em> neurri errepikatuek balio infinituak dituzte."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "<em>%s</em> kobarianteak balio infinituak ditu."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "<em>%s</em> kobarianteek balio infinituak dituzte."
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
+"Mesedez, aukeratu RM faktoreen izen bat, subjektuen arteko faktoreen "
+"izenetatik desberdina dena."
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
 msgstr ""
+"Datu multzoa handiegia da jarraipen-proba unibertsalerako. Saiatu "
+"\"Jarraipen-probetarako errore-termino multzoa\" desautatzen Modelo fitxan."
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""
+"Parametro batzuk ezin dira kalkulatu, ziurrenik diseinuaren gelaxka hutsak "
+"direla eta."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Subjektuen Arteko Efektuak"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Subjektuen Barruko Efektuak"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Esferizitatearen zuzenketa"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
 msgstr ""
+"Esferizitatearen zuzenketak ez daude eskuragarri 2 maila dituzten "
+"faktoreetarako."
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
 msgstr ""
+"Mauchlyren esferizitate-probak esferizitatearen hipotesia urratu dela "
+"adierazten du (p < .05)."
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
 msgstr ""
+"Ezin dira homogeneotasun-probak egin, ez baitago subjektuen arteko "
+"faktorerik zehaztuta."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Esferizitate-Proba"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "Mauchly's W"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "%s%% CI η²-rako"
 
 msgid "p-value"
-msgstr ""
+msgstr "p-balioa"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Beheko muga %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
+"Ezin dira esferikotasun probak egin RM faktorearen bi maila baino ez "
+"daudelako, edo SSP matrizea singularra delako."
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
+"%s zuzendutako p-balioak ez dira egokiak neurri errepikatuen post-hoc "
+"probetan (Maxwell, 1980; Field, 2012)."
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Ez-parametrikoak"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Friedman Proba"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "Kendall's W"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "Mesedez, zehaztu Friedman/Durbin testarako termino egokiak."
 
 msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
 msgstr ""
+"Ez da bloke osoko diseinu errepikatu gabea. Friedman testa RM ANOVA norabide "
+"bakarreko alternatiba gisa soilik dago eskuragarri."
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Durbin Proba"
 
 msgid "df num"
-msgstr ""
+msgstr "df num"
 
+#, fuzzy
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Conover Proba"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Conover-en Post Hoc konparaketak - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "T-Stat"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "%s-ren arabera taldekatuta."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"Sailkapen-biserial korrelazioa banakako zeinu-mailako probetan oinarrituta."
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "Moderatzaile faktoreak ere modeloaren terminoetan agertu behar dira!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "Infinitua aurkitu da neurri errepikatuen gelaxketan."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "Behaketa kopurua < %s da neurri errepikatuen gelaxketan"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "Neurketa errepikatuen gelaxketako bariantza 0 da."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "Behaketa kopurua < %s da neurri errepikatuen gelaxketan"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Aldagai bikoiztuak aurkitu dira %s-n"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr ""
+"Parte-hartzaile bikoiztutako zutabea gehitu da modeloaren terminoetan, %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"%1$s-ren interakzio efektuak ez du behaketarik konbinazio honetarako: %2$s. "
+"Mesedez, egokitu eredua eta kendu falta diren gelaxkekin dauden interakzioak"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"%1$s-ren interakzio efektuak ez du behaketarik konbinazio honetarako: %2$s. "
+"Lehen 10 konbinazio faltak bakarrik erakusten dira. Mesedez, egokitu eredua "
+"eta kendu falta diren gelaxkekin dauden interakzioak"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
+"Bayes faktorea zehaztu gabe dago -- efektu guztiak eragozpen gisa zehazten "
+"dira."
 
 msgid "Null model"
-msgstr ""
+msgstr "Eredu nulua"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Eredu nulua (%s barne)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Bayes faktoreak kalkulatzen"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
 msgstr ""
+"Laplace hurbilketa azkarragoa da, baina baita metodo automatikoa baino "
+"zehaztasun gutxiagokoa ere. Hori ondo dago datuak aztertzerakoan eta gutxi "
+"gorabeherako estimazio bat lortzerakoan. Hala ere, integrazio metodo "
+"automatikoa erabiltzea gomendatzen dugu azken emaitzak lortzeko."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "Laplace hurbilketak ez du beti errore estimaziorik ematen."
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
 msgstr ""
+"Ezin izan da Bayes faktorea kalkulatu %1$s ereduarentzat.\n"
+"Errore mezua hau izan zen: %2$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
-msgstr ""
+msgstr "Neurketa errepikatuen faktoreen ausazko maldak baztertuta daude."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "Neurketa errepikatuen faktoreen ausazko maldak baztertuta daude."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Modelo guztiek %s barne hartzen dute."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Efektuen Analisia - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Efektuen Analisia"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>incl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>excl</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>incl</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "Efektuak"
 
+#, fuzzy
 msgid "P(incl)"
-msgstr ""
+msgstr "P(incl)   ¿barne?"
 
+#, fuzzy
 msgid "P(excl)"
-msgstr ""
+msgstr "P(excl) baztertua???"
 
+#, fuzzy
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|data)"
 
+#, fuzzy
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(excl|data)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"Efektua duten modeloak efektua kendutako modelo baliokideekin alderatzen "
+"ditu. Goi-ordenako elkarrekintzak baztertzen dira. Sebastiaan Math%st-ek "
+"iradokitako analisia."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"Bayes faktore batzuk ezin izan dira kalkulatu. Inklusio-probabilitateak eta "
+"Bayes faktoreak modelo hauek baztertzean kalkulatzen dira. Emaitzak "
+"interpretaezinak izan daitezke!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Modeloen Konparaketa"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Ereduak"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|datuak)"
 
 msgid "error %%"
-msgstr ""
+msgstr "errorea %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b><em>Abisua.</em></b> Bayes faktore batzuk ezin izan dira kalkulatu. "
+"Modelo anitzeko inferentzia egiten da modelo hauek baztertuta. Emaitzak "
+"interpretatu ezinak izan daitezke!"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Modeloaren Batez besteko Atzeko Laburpena"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% Sinesgarritasun Tartea"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "Modeloaren batez besteko R%s"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b><em>Abisua: laginketa arazoak aurkitu dira!</em></b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "Kaltetutako modeloa"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% lagin erabilgarriak"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "Lagin erabilgarriak"
 
 msgid "Total samples drawn"
-msgstr ""
+msgstr "Ateratako lagin guztiak"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"Kaltetutako modelo batzuentzat, atzeko laginen %75 baino gehiagok huts egin "
+"dute, edo 1000 lagin baino gutxiago geratu dira ondorengo emaitzetarako. "
+"Modeloaren batez besteko irteera guztia alboratua eta interpretatu ezina "
+"izan daiteke. Egiaztatu modeloaren zehaztapena eta datuak eredu arraroak "
+"ikusteko."
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Abisua.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "Modeloaren Batez besteko Atzeko V¿Banaketak"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Atzeko banaketa"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"Ezin izan da atzeko banaketa irudikatu. Egiaztatu parametro hau barne "
+"hartzen duten modeloetan errore bat gertatu den."
 
 msgid "Level"
-msgstr ""
+msgstr "Maila"
 
 msgid "Density"
-msgstr ""
+msgstr "Dentsitatea"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "Ereduaren Batez besteko Q-Q Grafikoa"
 
+#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "Ereduaren Batez besteko Atzeko R%s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"Atzeko probabilitateak zuzendu dira hainbat probatarako, hipotesi nuluak "
+"konparazio guztietan betetzen duen aurreko probabilitatea 0,5era finkatuz ("
+"Westfall, Johnson, & Utts, 1997). Banakako konparaketak Cauchy (0, r = 1/"
+"sqrt(2)) aurreko batekin egindako t-test lehenetsian oinarritzen dira. Bayes "
+"faktorearen \"U\"-k zuzendu gabe dagoela adierazten du."
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "Aurreko Oddsa"
 
+#, fuzzy
 msgid "Posterior Odds"
-msgstr ""
+msgstr "Atzeko Probabilitateak   ¿Ondorengo Oddsa?"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskribatzaileak"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Deskribatzaileak - %s"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "Batez bestekoa"
 
 msgid "SD"
-msgstr ""
+msgstr "DE"
 
 msgid "SE"
-msgstr ""
+msgstr "EE"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Aldakortasun koefizientea"
 
 msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
+"Faktoreen konbinazio batzuk ez dira behatzen eta, beraz, ezabatzen dira (%2$"
+"g konbinazioetatik %1$g ez dira behatzen)."
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Deskribapen grafikoak"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Deskribapen grafikoa"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Barra grafikoak"
 
 msgid "Bar Plot"
-msgstr ""
+msgstr "Barra grafikoa"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "Euri-hodeien grafikoak"
 
 msgid "Dependent"
-msgstr ""
+msgstr "Menpekoa"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "Laginketa atzeko probabilitateak"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "laginen luzera pisuen luzeraren berdina izan behar da!"
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
 msgstr ""
+"Iragarpen guztiek zero bariantza zuten. Egiaztatu iragarleak/DV anomaliak "
+"dauden edo handitu atzeko laginen kopurua."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "%2$d ereduetatik %1$d onena erakusten."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "Hurrengo errorea gertatu da BayesFactor::enumerateGeneralModels-en: %s"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Eredu Bakarreko Inferentzia"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"Errorea eredu bakarreko inferentzian:\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "Eredu Bakarreko Atzeko Laburpena"
 
 msgid "Variable"
-msgstr ""
+msgstr "Aldagaia"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "Eredu Bakarreko Atzeko Banaketak"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Q-Q Grafikoa"
 
+#, fuzzy
 msgid "Posterior R%s"
-msgstr ""
+msgstr "Atzeko R%s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "Eredu Bakarreko R%s"
 
 msgid "Estimate"
-msgstr ""
+msgstr "Estimazioa"
 
+#, fuzzy
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "Cohen's d"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "%s%% KT Cohen-en d-rako"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Kontraste Koefizienteak - %2$s"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Post Hoc Konparaketak -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Bootstrapped Post Hoc Konparaketak -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s%% bca%2$s CI"
 
 msgid "bias"
-msgstr ""
+msgstr "alborapena"
 
 msgid "p<sub>scheffe</sub>"
-msgstr ""
+msgstr "p<sub>scheffe</sub>"
 
 msgid "p<sub>sidak</sub>"
-msgstr ""
+msgstr "p<sub>sidak</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr ""
+msgstr "P-balioa %s estimazioen familia bat alderatzeko doituta."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
+"P-balioa eta konfiantza-tarteak %1$s estimazioen familia bat alderatzeko "
+"doituta (konfiantza-tarteak %2$s metodoa erabiliz zuzenduta)."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method)."
 msgstr ""
+"P-balioa eta konfiantza-tarteak %1$s estimazioen familia bat alderatzeko "
+"doituta (%2$s metodoa erabiliz zuzendutako batez besteko-diferentziarako kt; "
+"bonferroni metodoa erabiliz zuzendutako efektu-tamainarako kt)."
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Batez besteko Marjinalak -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Bootstrapped Batez besteko Marjinalak -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Batez besteko Marjinala"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95%% bca%s KT"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
 msgstr ""
+"Batez besteko marjinalaren estimazioa bootstrap banaketaren medianan "
+"oinarritzen da."
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "Batez besteko diferentziarako %95eko KT"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "Bonferroni KT doikuntza"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "Sidak KT doikuntza"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "I. motako Karratuen Batura"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "II. motako Karratuen Batura"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "III. motako Karratuen Batura"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Ordena mugatutako hipotesiak"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"Sintaxi errorea aurkitu da %1$s ereduan.\n"
+"\n"
+"Murrizketa batzuk bikoiztuta daude!"
 
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
 msgstr ""
+"%s-ren murrizketa sintaxian erroreak daude. Sintaxia ezin izan da deskodetu!"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "Bootstrapping mugagabeko eredua"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Errorea %1$s-n - Ezin izan da modeloaren sintaxia kodetu! Errore-mezua: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Errorea %1$s-n - Sintaxi-errorea modeloan! Errore-mezua: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "Errorea %1$s-n - Ezin izan da modeloa kalkulatu! Errore-mezua: %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "Bootstrapping Eredu mugatuak"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
 msgstr ""
+"Ezin izan da modelo mugagabea egokitu. Ondorioz, ezin izan da modelo "
+"mugatuetako bat ere kalkulatu. Errore-mezua: %s."
 
+#, fuzzy
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
+"Ezin izan da modelo mugagabearen ¿¿bootstrapping ===abiaraztea???? lortu. "
+"Ondorioz, ezin izan da modelo mugatuen abiaraztea egin. Errore-mezua: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
+"Ezin izan da zehaztutako modelo mugatuetako bat ere egokitu. Arrazoia(k): %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Mugagabea"
 
 msgid "Complement"
-msgstr ""
+msgstr "Osagarria"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Sintaxi-informazioa"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Murrizketa-sintaxirako koefiziente eskuragarriak"
 
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "Ezin izan da modeloen konparaketa kalkulatu! Errore mezua: %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "Modeloen Konparazio Taula"
 
 msgid "Model"
-msgstr ""
+msgstr "Eredua"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-likelihood"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Zigorra"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Pisua"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "Pisuen ratioa"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Generalized Order-Restricted Information Criterion (Kuiper, "
+"Hoijtink, & Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
 msgstr ""
+"GORICA = Generalized Order-Restricted Information Criterion Approximation."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"Pisu-erlazioek \"%1$s\" ereduaren aldean eredu bakoitzaren pisu erlatiboa "
+"adierazten dute. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Ezin izan dira pisuak kalkulatu!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "'%s' eredua ezin da erreferentziazko eredua izan, hutsik dagoelako!"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "Eredu hauek baztertu dira: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "%s-Pisu Erlatiboak"
 
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Konparazioan eredu bakarra: Ezin dira pisu erlatiboen matrizea kalkulatu"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "Koefizienteen Konparaketa"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Koefizientea"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Koefizienteak mugarik gabeko eredutik desberdinak dira."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Ereduaren Laburpena"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "Murrizketa Matrizea"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Ezkerreko aldea (ezk.)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Eskuineko aldea (esk.)"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Koefizienteak"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI:"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "%s bootstrap erreplika arrakastatsuetan oinarritutako estimazioak."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "Ezin izan da koefizienteen taula kalkulatu. Errore mezua: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "Hipotesi Informatiboen Probak"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hipotesia"
 
 msgid "Test"
-msgstr ""
+msgstr "Proba"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "Proba Estatistikoa"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Mota %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
 msgstr ""
+"Ezin izan dira hipotesi informatiboen probak kalkulatu. Errore mezua: %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
 msgstr ""
+"H%1$s: Berdintasun murrizketa guztiak aktibo daude (==), H%2$s: Gutxienez "
+"berdintasun murrizketa bat urratu da."
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Parametro guztiak berdinak izatera mugatuta daude (==), H%2$s: "
+"Gutxienez desberdintasun murrizketa bat zorrotz egia da (>)."
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Murrizketa guztiak berdintasunak dira (==), H%2$s: Gutxienez "
+"desberdintasun murrizketa bat zorrotz egia da (>)."
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Murrizketa guztiak betetzen dira, H%2$s: Gutxienez murrizketa bat "
+"urratu da."
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Gutxienez murrizketa bat faltsua edo aktiboa da (==), H%2$s: "
+"Murrizketa guztiak zorrotz egia dira (>)."
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
 msgstr ""
+"Ez da marjina-batez besteko terminorik zehaztu. Mesedez, hautatu eredu "
+"terminoak 'Mugatutako Marjina-Batez bestekoak' atalean."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Ezin izan dira marjina-batez bestekoak kalkulatu. Errore mezua: %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Emaitzak batez beste kalkulatzen dira honako mailen gainean: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""
+"Kobarianteak (%s) beren batez besteko balioetan finkatuta mantentzen dira."
 
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"Diseinu matrizea ez da alderantzikagarria. Baliteke hau mendeko aldagai "
+"kolinearren ondorioz izatea."
 
 msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
 msgstr ""
+"Emaitzak ez daude eskuragarri laginaren tamainagatik (3 eta 5000 artean egon "
+"behar du) edo korrelazio perfektuengatik."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eredu nulua (%s eta ausazko maldak barne)"
+msgstr[1] "Eredu nulua (%s eta ausazko maldak barne)"

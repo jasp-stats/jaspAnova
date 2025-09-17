@@ -1,0 +1,911 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspAnova 0.95.0\n"
+"POT-Creation-Date: 2025-06-21 03:05\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
+msgstr ""
+
+msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
+msgstr ""
+
+msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
+msgstr ""
+
+msgid "An error occurred while computing the ANOVA: %s"
+msgstr ""
+
+msgid "Your design contains empty cells. Please try a different type of sum of squares."
+msgstr ""
+
+msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
+msgstr ""
+
+msgid "ANOVA"
+msgstr ""
+
+msgid "ANCOVA"
+msgstr ""
+
+msgid "Homogeneity Correction"
+msgstr ""
+
+msgid "Cases"
+msgstr ""
+
+msgid "Sum of Squares"
+msgstr ""
+
+msgid "df"
+msgstr ""
+
+msgid "Mean Square"
+msgstr ""
+
+msgid "F"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "VS-MPR%s"
+msgstr ""
+
+msgid "%s%% CI for η²"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+msgid "Upper"
+msgstr ""
+
+msgid "%s%% CI for η²ₚ"
+msgstr ""
+
+msgid "%s%% CI for ω²"
+msgstr ""
+
+msgid "%s%% CI for ω²ₚ"
+msgstr ""
+
+msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
+msgstr ""
+
+msgid "Contrast Tables"
+msgstr ""
+
+msgid "%1$s Contrast - %2$s"
+msgstr ""
+
+msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
+msgstr ""
+
+msgid "Please specify an additional contrast."
+msgstr ""
+
+msgid "Wrong number of custom contrast matrix rows."
+msgstr ""
+
+msgid "Please specify non-zero contrast weights."
+msgstr ""
+
+msgid "Post Hoc Tests"
+msgstr ""
+
+msgid "Standard (HSD)"
+msgstr ""
+
+msgid "Standard"
+msgstr ""
+
+msgid "Results are averaged over the levels of: %s"
+msgstr ""
+
+msgid "Some parameters were not estimable due to missingness."
+msgstr ""
+
+msgid "Bootstrapping based on %s successful replicates."
+msgstr ""
+
+msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
+msgstr ""
+
+msgid "Bias corrected accelerated."
+msgstr ""
+
+msgid "Bootstrapping Post Hoc Test"
+msgstr ""
+
+msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
+msgstr ""
+
+msgid "Games-Howell"
+msgstr ""
+
+msgid "Games-Howell Post Hoc Comparisons - %s"
+msgstr ""
+
+msgid "Comparison"
+msgstr ""
+
+msgid "Mean Difference"
+msgstr ""
+
+msgid "%.0f%% CI for Mean Difference"
+msgstr ""
+
+msgid "p<sub>tukey</sub>"
+msgstr ""
+
+msgid "Results based on uncorrected means."
+msgstr ""
+
+msgid "Dunnett"
+msgstr ""
+
+msgid "Dunnett Post Hoc Comparisons - %s"
+msgstr ""
+
+msgid "%s%% CI for Mean Difference"
+msgstr ""
+
+msgid "p<sub>dunnett</sub>"
+msgstr ""
+
+msgid "Confidence interval is too narrow, please select a different confidence level."
+msgstr ""
+
+msgid "Assumption Checks"
+msgstr ""
+
+msgid "Test for Equality of Variances (Levene's)"
+msgstr ""
+
+msgid "df1"
+msgstr ""
+
+msgid "df2"
+msgstr ""
+
+msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
+msgstr ""
+
+msgid "Marginal Means"
+msgstr ""
+
+msgid "Bootstrapping Marginal Means"
+msgstr ""
+
+msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
+msgstr ""
+
+msgid "Bootstrapping based on %s replicates."
+msgstr ""
+
+msgid "Simple Main Effects"
+msgstr ""
+
+msgid "Simple Main Effects - %s"
+msgstr ""
+
+msgid "Level of %s"
+msgstr ""
+
+msgid "Not enough observations in cells %s."
+msgstr ""
+
+msgid "Kruskal-Wallis Test"
+msgstr ""
+
+msgid "Factor"
+msgstr ""
+
+msgid "Statistic"
+msgstr ""
+
+msgid "Rank %s"
+msgstr ""
+
+msgid "%1$i%% CI for Rank %2$s"
+msgstr ""
+
+msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
+msgstr ""
+
+msgid "Dunn"
+msgstr ""
+
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr ""
+
+msgid "W<sub>i</sub>"
+msgstr ""
+
+msgid "W<sub>j</sub>"
+msgstr ""
+
+msgid "r<sub>rb</sub>"
+msgstr ""
+
+msgid "p<sub>bonf</sub>"
+msgstr ""
+
+msgid "p<sub>holm</sub>"
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr ""
+
+msgid "Error while loading data. Please verify your repeated measures observations."
+msgstr ""
+
+msgid "Factor: <em>%s</em>, contains fewer than two levels."
+msgstr ""
+
+msgid "Factors: <em>%s</em>, contain fewer than two levels."
+msgstr ""
+
+msgid "The repeated measure: <em>%s</em>, contains infinite values."
+msgstr ""
+
+msgid "The repeated measures: <em>%s</em>, contain infinite values."
+msgstr ""
+
+msgid "The covariate: <em>%s</em>, contains infinite values."
+msgstr ""
+
+msgid "The covariates: <em>%s</em>, contain infinite values."
+msgstr ""
+
+msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
+msgstr ""
+
+msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
+msgstr ""
+
+msgid "Some parameters are not estimable, most likely due to empty cells of the design."
+msgstr ""
+
+msgid "Greenhouse-Geisser"
+msgstr ""
+
+msgid "Huynh-Feldt"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Between Subjects Effects"
+msgstr ""
+
+msgid "%s<sub>G</sub>"
+msgstr ""
+
+msgid "Within Subjects Effects"
+msgstr ""
+
+msgid "Sphericity Correction"
+msgstr ""
+
+msgid "Sphericity corrections not available for factors with 2 levels."
+msgstr ""
+
+msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
+msgstr ""
+
+msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
+msgstr ""
+
+msgid "Test of Sphericity"
+msgstr ""
+
+msgid "Mauchly's W"
+msgstr ""
+
+msgid "Approx. %s"
+msgstr ""
+
+msgid "p-value"
+msgstr ""
+
+msgid "Greenhouse-Geisser %s"
+msgstr ""
+
+msgid "Huynh-Feldt %s"
+msgstr ""
+
+msgid "Lower Bound %s"
+msgstr ""
+
+msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
+msgstr ""
+
+msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
+msgstr ""
+
+msgid "Nonparametrics"
+msgstr ""
+
+msgid "Friedman Test"
+msgstr ""
+
+msgid "Χ²<sub>F</sub>"
+msgstr ""
+
+msgid "Kendall's W"
+msgstr ""
+
+msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgstr ""
+
+msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
+msgstr ""
+
+msgid "Durbin Test"
+msgstr ""
+
+msgid "df num"
+msgstr ""
+
+msgid "df den"
+msgstr ""
+
+msgid "p<sub>F</sub>"
+msgstr ""
+
+msgid "Conover Test"
+msgstr ""
+
+msgid "Conover's Post Hoc Comparisons - %s"
+msgstr ""
+
+msgid "T-Stat"
+msgstr ""
+
+msgid "Grouped by %s."
+msgstr ""
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr ""
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr ""
+
+msgid "Infinity found in repeated measures cells."
+msgstr ""
+
+msgid "Number of observations is < %s in repeated measures cells"
+msgstr ""
+
+msgid "The variance in the repeated measures cells is 0."
+msgstr ""
+
+msgid "Duplicate variables encountered in repeated measures cells, %s"
+msgstr ""
+
+msgid "Duplicate variables encountered in %s"
+msgstr ""
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr ""
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+
+msgid "Bayes factor is undefined -- all effects are specified as nuisance."
+msgstr ""
+
+msgid "Null model"
+msgstr ""
+
+msgid "Null model (incl. %s)"
+msgstr ""
+
+msgid "Computing Bayes factors"
+msgstr ""
+
+msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
+msgstr ""
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr ""
+
+msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
+msgstr ""
+
+msgid "All models include %s, and random slopes for all repeated measures factors."
+msgstr ""
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr ""
+
+msgid "All models include %s."
+msgstr ""
+
+msgid "Analysis of Effects - %s"
+msgstr ""
+
+msgid "Analysis of Effects"
+msgstr ""
+
+msgid "Log(BF<sub>incl</sub>)"
+msgstr ""
+
+msgid "BF<sub>excl</sub>"
+msgstr ""
+
+msgid "BF<sub>incl</sub>"
+msgstr ""
+
+msgid "Effects"
+msgstr ""
+
+msgid "P(incl)"
+msgstr ""
+
+msgid "P(excl)"
+msgstr ""
+
+msgid "P(incl|data)"
+msgstr ""
+
+msgid "P(excl|data)"
+msgstr ""
+
+msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
+msgstr ""
+
+msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
+msgstr ""
+
+msgid "Model Comparison"
+msgstr ""
+
+msgid "BF<sub>M</sub>"
+msgstr ""
+
+msgid "BF<sub>10</sub>"
+msgstr ""
+
+msgid "BF<sub>01</sub>"
+msgstr ""
+
+msgid "Log(BF<sub>M</sub>)"
+msgstr ""
+
+msgid "Log(BF<sub>10</sub>)"
+msgstr ""
+
+msgid "Models"
+msgstr ""
+
+msgid "P(M)"
+msgstr ""
+
+msgid "P(M|data)"
+msgstr ""
+
+msgid "error %%"
+msgstr ""
+
+msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
+msgstr ""
+
+msgid "Model Averaged Posterior Summary"
+msgstr ""
+
+msgid "%s%% Credible Interval"
+msgstr ""
+
+msgid "Model Averaged R%s"
+msgstr ""
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr ""
+
+msgid "Affected model"
+msgstr ""
+
+msgid "%% useful samples"
+msgstr ""
+
+msgid "Useful samples"
+msgstr ""
+
+msgid "Total samples drawn"
+msgstr ""
+
+msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
+msgstr ""
+
+msgid "<b><em>Warning.</em></b>"
+msgstr ""
+
+msgid "Model Averaged Posterior Distributions"
+msgstr ""
+
+msgid "Posterior distribution"
+msgstr ""
+
+msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "Density"
+msgstr ""
+
+msgid "Model Averaged Q-Q Plot"
+msgstr ""
+
+msgid "Model Averaged Posterior R%s"
+msgstr ""
+
+msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
+msgstr ""
+
+msgid "Prior Odds"
+msgstr ""
+
+msgid "Posterior Odds"
+msgstr ""
+
+msgid "Descriptives"
+msgstr ""
+
+msgid "Descriptives - %s"
+msgstr ""
+
+msgid "N"
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "SD"
+msgstr ""
+
+msgid "SE"
+msgstr ""
+
+msgid "Coefficient of variation"
+msgstr ""
+
+msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
+msgstr ""
+
+msgid "Descriptives plots"
+msgstr ""
+
+msgid "Descriptives Plot"
+msgstr ""
+
+msgid "Bar plots"
+msgstr ""
+
+msgid "Bar Plot"
+msgstr ""
+
+msgid "Raincloud plots"
+msgstr ""
+
+msgid "Dependent"
+msgstr ""
+
+msgid "Sampling posteriors"
+msgstr ""
+
+msgid "length of samples must be equal to length of weights!"
+msgstr ""
+
+msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
+msgstr ""
+
+msgid "Showing the best %1$d out of %2$d models."
+msgstr ""
+
+msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
+msgstr ""
+
+msgid "Single Model Inference"
+msgstr ""
+
+msgid "Error in single model inference:\n%s"
+msgstr ""
+
+msgid "Single Model Posterior Summary"
+msgstr ""
+
+msgid "Variable"
+msgstr ""
+
+msgid "Single Model Posterior Distributions"
+msgstr ""
+
+msgid "Q-Q Plot"
+msgstr ""
+
+msgid "Posterior R%s"
+msgstr ""
+
+msgid "Single Model R%s"
+msgstr ""
+
+msgid "Estimate"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "Cohen's d"
+msgstr ""
+
+msgid "%s%% CI for Cohen's d"
+msgstr ""
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr ""
+
+msgid "Post Hoc Comparisons -"
+msgstr ""
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr ""
+
+msgid "%1$s%% bca%2$s CI"
+msgstr ""
+
+msgid "bias"
+msgstr ""
+
+msgid "p<sub>scheffe</sub>"
+msgstr ""
+
+msgid "p<sub>sidak</sub>"
+msgstr ""
+
+msgid "P-value adjusted for comparing a family of %s estimates."
+msgstr ""
+
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method)."
+msgstr ""
+
+msgid "Marginal Means -"
+msgstr ""
+
+msgid "Bootstrapped Marginal Means -"
+msgstr ""
+
+msgid "Marginal Mean"
+msgstr ""
+
+msgid "95%% bca%s CI"
+msgstr ""
+
+msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr ""
+
+msgid "95%% CI for Mean Difference"
+msgstr ""
+
+msgid "Bonferroni CI adjustment"
+msgstr ""
+
+msgid "Sidak CI adjustment"
+msgstr ""
+
+msgid "Type I Sum of Squares"
+msgstr ""
+
+msgid "Type II Sum of Squares"
+msgstr ""
+
+msgid "Type III Sum of Squares"
+msgstr ""
+
+msgid "Order Restricted Hypotheses"
+msgstr ""
+
+msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
+msgstr ""
+
+msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
+msgstr ""
+
+msgid "Bootstrapping unrestricted model"
+msgstr ""
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr ""
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr ""
+
+msgid "Bootstrapping restricted models"
+msgstr ""
+
+msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
+msgstr ""
+
+msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
+msgstr ""
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr ""
+
+msgid "Unconstrained"
+msgstr ""
+
+msgid "Complement"
+msgstr ""
+
+msgid "Syntax information"
+msgstr ""
+
+msgid "Available coefficients for restriction syntax"
+msgstr ""
+
+msgid "Could not compute model comparison! Error message: %s"
+msgstr ""
+
+msgid "Model Comparison Table"
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "Log-likelihood"
+msgstr ""
+
+msgid "Penalty"
+msgstr ""
+
+msgid "GORIC"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "GORICA"
+msgstr ""
+
+msgid "Weights ratio"
+msgstr ""
+
+msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+
+msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr ""
+
+msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
+msgstr ""
+
+msgid "Could not compute weights!"
+msgstr ""
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr ""
+
+msgid "The following models were excluded: %s."
+msgstr ""
+
+msgid "Relative %s-Weights"
+msgstr ""
+
+msgid "Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr ""
+
+msgid "vs."
+msgstr ""
+
+msgid "Coefficients Comparison"
+msgstr ""
+
+msgid "Coefficient"
+msgstr ""
+
+msgid "Coefficients differ from unconstrained model."
+msgstr ""
+
+msgid "Model Summary"
+msgstr ""
+
+msgid "Restriction Matrix"
+msgstr ""
+
+msgid "Left-hand side (lhs)"
+msgstr ""
+
+msgid "Right-hand side (rhs)"
+msgstr ""
+
+msgid "Coefficients"
+msgstr ""
+
+msgid "%s%% CI"
+msgstr ""
+
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr ""
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr ""
+
+msgid "Informative Hypothesis Tests"
+msgstr ""
+
+msgid "Hypothesis"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Test Statistic"
+msgstr ""
+
+msgid "Type %s"
+msgstr ""
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr ""
+
+msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
+msgstr ""
+
+msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
+msgstr ""
+
+msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr ""
+
+msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
+msgstr ""
+
+msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
+msgstr ""
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr ""
+
+msgid "Results are averaged over the levels of: %s."
+msgstr ""
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr ""
+
+msgid "MANOVA"
+msgstr ""
+
+msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
+msgstr ""
+
+msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
+msgstr ""
+
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] ""
+msgstr[1] ""

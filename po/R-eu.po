@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: 2025-09-18 07:01+0000\n"
+"PO-Revision-Date: 2025-09-19 16:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "eu/>\n"
@@ -56,12 +56,14 @@ msgstr "Kasuak"
 msgid "Sum of Squares"
 msgstr "Karratuen Batura"
 
+#, fuzzy
 msgid "df"
-msgstr "ag askatasun graduak"
+msgstr "ag (df)"
 
 msgid "Mean Square"
 msgstr "Batez besteko Karratua"
 
+#, fuzzy
 msgid "F"
 msgstr "F"
 
@@ -137,6 +139,7 @@ msgstr ""
 "Batez besteko Diferentziaren estimazioa bootstrap banaketaren medianaren "
 "oinarrituta dago."
 
+#, fuzzy
 msgid "Bias corrected accelerated."
 msgstr "Alborapen zuzendua azeleratuta."
 
@@ -146,7 +149,7 @@ msgstr "Bootstrapping Post Hoc Proba"
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
 "Konfiantza tarte batzuk ezin izan dira kalkulatu.\n"
-"Baliteke bootstrap erreplikazio gutxiegi egotea."
+"Bootstrap erreplika gutxiegi egon daitezke."
 
 msgid "Games-Howell"
 msgstr "Games-Howell"
@@ -471,7 +474,7 @@ msgid "Null model"
 msgstr "Eredu nulua"
 
 msgid "Null model (incl. %s)"
-msgstr "Eredu nulua (%s barne)"
+msgstr "Modelo nuloa (%s barne)"
 
 msgid "Computing Bayes factors"
 msgstr "Bayes faktoreak kalkulatzen"
@@ -498,7 +501,7 @@ msgid "Random slopes for repeated measures factors are excluded."
 msgstr "Neurketa errepikatuen faktoreen ausazko maldak baztertuta daude."
 
 msgid "All models include %s."
-msgstr "Modelo guztiek %s barne hartzen dute."
+msgstr "Modelo guztiek %s barne hartzen dituzte."
 
 msgid "Analysis of Effects - %s"
 msgstr "Efektuen Analisia - %s"
@@ -518,21 +521,17 @@ msgstr "BF<sub>incl</sub>"
 msgid "Effects"
 msgstr "Efektuak"
 
-#, fuzzy
 msgid "P(incl)"
-msgstr "P(incl)   ¿barne?"
+msgstr "P(barne)"
 
-#, fuzzy
 msgid "P(excl)"
-msgstr "P(excl) baztertua???"
+msgstr "P(baztertua)"
 
-#, fuzzy
 msgid "P(incl|data)"
-msgstr "P(incl|data)"
+msgstr "P(barne|datuak)"
 
-#, fuzzy
 msgid "P(excl|data)"
-msgstr "P(excl|data)"
+msgstr "P(baztertua|datuak)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
@@ -547,7 +546,7 @@ msgstr ""
 "interpretaezinak izan daitezke!"
 
 msgid "Model Comparison"
-msgstr "Modeloen Konparaketa"
+msgstr "Ereduen Konparaketa"
 
 msgid "BF<sub>M</sub>"
 msgstr "BF<sub>M</sub>"
@@ -586,7 +585,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr "Modeloaren Batez besteko Atzeko Laburpena"
 
 msgid "%s%% Credible Interval"
-msgstr "%s%% Sinesgarritasun Tartea"
+msgstr "%s%% Sinesgarritasun tartea"
 
 msgid "Model Averaged R%s"
 msgstr "Modeloaren batez besteko R%s"
@@ -656,8 +655,9 @@ msgstr "Aurreko Oddsa"
 msgid "Posterior Odds"
 msgstr "Atzeko Probabilitateak   ¿Ondorengo Oddsa?"
 
+#, fuzzy
 msgid "Descriptives"
-msgstr "Deskribatzaileak"
+msgstr "Deskriptiboak"
 
 msgid "Descriptives - %s"
 msgstr "Deskribatzaileak - %s"
@@ -747,7 +747,6 @@ msgstr "Eredu Bakarreko R%s"
 msgid "Estimate"
 msgstr "Estimazioa"
 
-#, fuzzy
 msgid "t"
 msgstr "t"
 
@@ -968,7 +967,7 @@ msgid "Coefficients"
 msgstr "Koefizienteak"
 
 msgid "%s%% CI"
-msgstr "%s%% CI:"
+msgstr "%s%% KT"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s bootstrap erreplika arrakastatsuetan oinarritutako estimazioak."
@@ -1028,8 +1027,9 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "Ezin izan dira marjina-batez bestekoak kalkulatu. Errore mezua: %s"
 
+#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Emaitzak batez beste kalkulatzen dira honako mailen gainean: %s."
+msgstr "Emaitzak %s mailen gainean batez beste kalkulatzen dira."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""

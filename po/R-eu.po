@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: 2025-09-19 16:01+0000\n"
+"PO-Revision-Date: 2025-09-21 06:54+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "eu/>\n"
@@ -56,14 +56,12 @@ msgstr "Kasuak"
 msgid "Sum of Squares"
 msgstr "Karratuen Batura"
 
-#, fuzzy
 msgid "df"
-msgstr "ag (df)"
+msgstr "ag"
 
 msgid "Mean Square"
 msgstr "Batez besteko Karratua"
 
-#, fuzzy
 msgid "F"
 msgstr "F"
 
@@ -751,7 +749,7 @@ msgid "t"
 msgstr "t"
 
 msgid "Cohen's d"
-msgstr "Cohen's d"
+msgstr "Cohenen d"
 
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% KT Cohen-en d-rako"
@@ -967,7 +965,7 @@ msgid "Coefficients"
 msgstr "Koefizienteak"
 
 msgid "%s%% CI"
-msgstr "%s%% KT"
+msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s bootstrap erreplika arrakastatsuetan oinarritutako estimazioak."
@@ -1027,9 +1025,8 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "Ezin izan dira marjina-batez bestekoak kalkulatu. Errore mezua: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Emaitzak %s mailen gainean batez beste kalkulatzen dira."
+msgstr "Emaitzak batez bestekoa kalkulatzen dira honako mailen gainean: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""

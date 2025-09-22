@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-18 09:01+0000\n"
+"PO-Revision-Date: 2025-09-23 10:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-qml/eu/>\n"
@@ -581,7 +581,7 @@ msgstr "Terminoa"
 #, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
-msgstr "Aurrekoa proba barne ?probabilitatea"
+msgstr "Aurreko probabilitatea barne?"
 
 msgctxt "AdditionalOptions|"
 msgid "r-scale"
@@ -663,10 +663,9 @@ msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
 msgstr "Hondarren Q-Q grafikoa"
 
-#, fuzzy
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
-msgstr "Atzeko R²"
+msgstr "Ondorengo R²"
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
@@ -807,7 +806,7 @@ msgstr "Heterogeneotasun-zuzenketa"
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr "Bootstrapping"
+msgstr "Bootstrapping-a"
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
@@ -837,7 +836,6 @@ msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
 msgstr "Eredu Bakarreko Inferentzia"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "Components"
 msgstr "Osagaiak"
@@ -854,7 +852,6 @@ msgctxt "SingleModelInference|"
 msgid "Estimates"
 msgstr "Estimazioak"
 
-#, fuzzy
 msgctxt "SingleModelInference|"
 msgid "R²"
 msgstr "R²"
@@ -887,7 +884,6 @@ msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
 msgstr "Suposizio-Egiaztapenak"
 
-#, fuzzy
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
 msgstr "Homogeneotasun probak"
@@ -936,7 +932,6 @@ msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
 msgstr "Lerro Bereiziak"
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
 msgstr "Grafiko bereiziak"
@@ -1033,7 +1028,6 @@ msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
 msgstr "Post Hoc Probak"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid "Type"
 msgstr "Mota"
@@ -1086,7 +1080,6 @@ msgctxt "PostHoc|"
 msgid "Šidák"
 msgstr "Šidák"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Display"
 msgstr "Erakutsi"
@@ -1124,10 +1117,9 @@ msgctxt "SumOfSquares|"
 msgid "Type %1"
 msgstr "Mota %1"
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr "Koefiziente Aurrekoa  ¿Koefizienaren Aurrekoa?"
+msgstr "Koefizientearen Aurrekoa"
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
@@ -1162,6 +1154,7 @@ msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
 msgstr "Jarraipen-probetarako multzo-errore-terminoa"
 
+#, fuzzy
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
 msgstr "Jarraipen-probetarako multzo-errore-terminoa"
@@ -1258,7 +1251,6 @@ msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
 msgstr "Markatu konparaketa esanguratsuak"
 
-#, fuzzy
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
 msgstr "Letretan-oinarritutako taldekatze-taula"
@@ -1287,7 +1279,6 @@ msgctxt "Export|"
 msgid "Append residuals to data"
 msgstr "Hondarrak datuetara gehitu"
 
-#, fuzzy
 msgctxt "Export|"
 msgid "Column name"
 msgstr "Zutabearen izena"

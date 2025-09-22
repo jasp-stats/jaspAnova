@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: 2025-09-21 06:54+0000\n"
+"PO-Revision-Date: 2025-09-22 09:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "eu/>\n"
@@ -583,7 +583,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr "Modeloaren Batez besteko Atzeko Laburpena"
 
 msgid "%s%% Credible Interval"
-msgstr "%s%% Sinesgarritasun tartea"
+msgstr "%s%% Sinesgarritasun Tartea"
 
 msgid "Model Averaged R%s"
 msgstr "Modeloaren batez besteko R%s"
@@ -889,6 +889,7 @@ msgstr "Modeloen Konparazio Taula"
 msgid "Model"
 msgstr "Eredua"
 
+#, fuzzy
 msgid "Log-likelihood"
 msgstr "Log-likelihood"
 
@@ -965,7 +966,7 @@ msgid "Coefficients"
 msgstr "Koefizienteak"
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr "%s%% KT"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s bootstrap erreplika arrakastatsuetan oinarritutako estimazioak."

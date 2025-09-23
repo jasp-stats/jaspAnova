@@ -23,7 +23,7 @@ import "../." as Common
 
 Section
 {
-	title:		qsTr("Marginal Means")
+	title:		qsTr("Marginal Means"); info: qsTr("When this option is selected, the mean for each level of the independent variable, adjusted for all the other variables in the model, is calculated.")
 	columns:	1
 	property alias source: availableTerms.source
 
@@ -38,7 +38,7 @@ Section
 	{
 		name:				"marginalMeanBootstrap"
 		id : marginalMeanBootstrap
-		label:				qsTr("From")
+		label:				qsTr("From"); info: qsTr("When this option is selected, the bootstrapped marginal means are calculated. By default, the number of replications is set to 1000. This can be changed into the desired number.")
 		childrenOnSameRow:	true
 		IntegerField
 		{
@@ -53,7 +53,7 @@ Section
 	CheckBox
 	{
 		name:	"marginalMeanComparedToZero";
-		label:	qsTr("Compare marginal means to 0")
+		label:	qsTr("Compare marginal means to 0"); info: qsTr("By selecting this option, the adjusted means are compared to 0 and the confidence intervals of the adjusted means are calculated.")
 	}
 
 	DropDown
@@ -61,9 +61,9 @@ Section
 		name:	"marginalMeanCiCorrection"
 		label:	qsTr("Confidence interval adjustment")
 		values:	[
-			{ label:	qsTr("None"),	value:	"none"},
-			{ label:	"Bonferroni",	value:	"bonferroni"},
-			{ label:	"Šidák",		value:	"sidak"}
+			{ label:	qsTr("None"),	value:	"none", info: qsTr("When this option is selected, no adjustment will be applied.")},
+			{ label:	"Bonferroni",	value:	"bonferroni", info: qsTr("Bonferroni correction of the confidence intervals.")},
+			{ label:	"Šidák",		value:	"sidak", info: qsTr("Sidak correction of the confidence intervals.")}
 		]
         enabled: !marginalMeanBootstrap.checked
 		

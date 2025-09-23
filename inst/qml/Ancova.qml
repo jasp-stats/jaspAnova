@@ -24,6 +24,15 @@ import "./common/classical" as Classical
 
 Form
 {
+	info: qsTr("ANCOVA allows the user to analyze the difference between multiple group means, while taking into account the effect of variables that have an influence on the dependent variable but are not part of the experimental manipulation (i.e., covariates).") + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
+	"- " + qsTr("The residuals are normally distributed for every group.") + "\n" +
+	"- " + qsTr("The independent variables are categorical, the dependent variable is continuous.") + "\n" +
+	"- " + qsTr("The variance of the dependent variable is the same for every group. This is called homogeneity of variances.") + "\n" +
+	"- " + qsTr("The groups are independent.") + "\n" +
+	"- " + qsTr("The covariate and the experiment effect are independent.") + "\n" +
+	"- " + qsTr("The effect of the covariate on the dependent variable does not differ between groups. This is called homogeneity of the regression slopes.")
+
 	id: form
 	property int analysis:	Common.Type.Analysis.ANCOVA
 	property int framework:	Common.Type.Framework.Classical
@@ -41,11 +50,11 @@ Form
 	{
 		preferredHeight:	400 * preferencesModel.uiScale
 		AvailableVariablesList	{ name: "allVariablesList" }
-		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"]; 		singleVariable: true	}
-		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2						}
-		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2;	debug: true				}
-		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates");			allowedColumns: ["scale"]; minNumericLevels: 2					}
-		AssignedVariablesList	{ name: "wlsWeights";		title: qsTr("WLS Weights");			allowedColumns: ["scale"]; minNumericLevels: 2;		singleVariable: true	}
+		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable"); info: qsTr("The variable of interest. This is also called the outcome variable.") ; allowedColumns: ["scale"]; 		singleVariable: true	}
+		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors"); info: qsTr(" The variables that are manipulated/define the different groups. These are also called the independent variables.")	;	allowedColumns: ["nominal"]; minLevels: 2						}
+		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors")	; allowedColumns: ["nominal"]; minLevels: 2;	debug: true				}
+		AssignedVariablesList	{ name: "covariates";		title: qsTr("Covariates"); info: qsTr("In this box the variable that is the covariate can be selected. Covariates are continuous variables that have an influence on the dependent variable but are not part of the experimental manipulation.")	;		allowedColumns: ["scale"]; minNumericLevels: 2					}
+		AssignedVariablesList	{ name: "wlsWeights";		title: qsTr("WLS Weights");	info: qsTr("Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed across levels of the independent variable.")	;	allowedColumns: ["scale"]; minNumericLevels: 2;		singleVariable: true	}
 	}
 
 	Classical.Display

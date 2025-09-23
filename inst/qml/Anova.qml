@@ -23,6 +23,13 @@ import "./common/classical" as Classical
 
 Form
 {
+	info: qsTr("ANOVA allows the user to analyze the difference between multiple group means.") + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
+	"- " + qsTr("The residuals are normally distributed for every group.") + "\n" +
+	"- " + qsTr("The independent variables are categorical, the dependent variable is continuous.") + "\n" +
+	"- " + qsTr("The variance of the dependent variable is the same for every group. This is called homogeneity of variances.") + "\n" +
+	"- " + qsTr("The groups are independent.")
+
 	id: form
 	property int analysis:	Common.Type.Analysis.ANOVA
 	property int framework:	Common.Type.Framework.Classical
@@ -40,10 +47,10 @@ Form
 	{
 		preferredHeight: 400 * preferencesModel.uiScale
 		AvailableVariablesList	{	name:	"allVariablesList" }
-		AssignedVariablesList	{	name:	"dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"];				singleVariable: true		}
-		AssignedVariablesList	{	name:	"fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2 }
-		AssignedVariablesList	{	name:	"randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2;	debug:	true				}
-		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");			allowedColumns: ["scale"];				singleVariable: true		}
+		AssignedVariablesList	{	name:	"dependent";		title: qsTr("Dependent Variable"); info: qsTr("The variable of interest. This is also called the outcome variable.")	;allowedColumns: ["scale"];				singleVariable: true		}
+		AssignedVariablesList	{	name:	"fixedFactors";		title: qsTr("Fixed Factors"); info: qsTr("The variables that are manipulated/define the different groups. These are also called the independent variables.")	;	allowedColumns: ["nominal"]; minLevels: 2 }
+		AssignedVariablesList	{	name:	"randomFactors";	title: qsTr("Random Factors")	;	allowedColumns: ["nominal"]; minLevels: 2;	debug:	true				}
+		AssignedVariablesList	{	name:	"wlsWeights";		title: qsTr("WLS Weights");	info: qsTr("Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed across levels of the independent variable.")	;	allowedColumns: ["scale"];				singleVariable: true		}
 	}
 
 	Classical.Display

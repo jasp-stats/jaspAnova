@@ -24,6 +24,14 @@ import "./common/bayesian" as Bayesian
 
 Form
 {
+	info: qsTr("The Bayesian ANOVA allows the user to analyze the difference between multiple group means.") + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
+	"- " + qsTr("The residuals are normally distributed for every group.") + "\n" +
+	"- " + qsTr("The independent variables are categorical, the dependent variable is continuous.") + "\n" +
+	"- " + qsTr("The variance of the dependent variable is the same for every group. This is called homogeneity of variances.") + "\n" +
+	"- " + qsTr("The groups are independent.")
+	
+
 	id: form
 	property int analysis:	Common.Type.Analysis.ANOVA
 	property int framework:	Common.Type.Framework.Bayesian
@@ -38,9 +46,9 @@ Form
 	VariablesForm
 	{
 		AvailableVariablesList	{ name: "allVariablesList"																							}
-		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable");	allowedColumns: ["scale"]; singleVariable: true	}
-		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors");		allowedColumns: ["nominal"]; minLevels: 2			}
-		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors");		allowedColumns: ["nominal"]; minLevels: 2			}
+		AssignedVariablesList	{ name: "dependent";		title: qsTr("Dependent Variable"); info: qsTr("The variable of interest. This is also called the outcome variable.")	;allowedColumns: ["scale"]; singleVariable: true	}
+		AssignedVariablesList	{ name: "fixedFactors";		title: qsTr("Fixed Factors"); info: qsTr("The variables that are manipulated/define the different groups. These are also called the independent variables.")	;	allowedColumns: ["nominal"]; minLevels: 2			}
+		AssignedVariablesList	{ name: "randomFactors";	title: qsTr("Random Factors"); info: qsTr("In this box, the variable can be selected that should be included in all models, including the null model.")	;	allowedColumns: ["nominal"]; minLevels: 2			}
 	}
 
 	Bayesian.DefaultOptions { matchedModelsEnabled: additionalOptions.marginalityEnforced	}

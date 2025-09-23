@@ -32,7 +32,7 @@ Section
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
-		AvailableVariablesList { id: components; name: "components"; title: qsTr("Components")}
+		AvailableVariablesList { id: components; name: "components"; title: qsTr("Components"); info: qsTr("All the independent variables that can be included in the model.")}
 		ModelTermsList { id: modelTermsList}
 	}
 

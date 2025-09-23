@@ -952,8 +952,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                 level = options$postHocCiLevel))
 
       numberOfLevels <- nrow(as.data.frame(postHocRef[[postHocVarIndex]]))
-      bonfAdjustCIlevel <- .computeBonferroniConfidence(options$postHocCiLevel,
-                                                        numberOfLevels = numberOfLevels)
+      bonfAdjustCIlevel <- if ("none" %in% postHocCorrections) options[["postHocCiLevel"]] else .computeBonferroniConfidence(options[["postHocCiLevel"]],
+                                                                                                                             numberOfLevels = numberOfLevels)
 
       allContrasts <- strsplit(as.character(resultPostHoc[[1]]$contrast), split = " - ")
       # if there is p-adjustment, then add footnote

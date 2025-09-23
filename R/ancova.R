@@ -1230,7 +1230,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     postHocTable$addColumnInfo(name="SE", type="number")
     postHocTable$addColumnInfo(name="t", type="number")
-    postHocTable$addColumnInfo(name="p", title=gettext("p<sub>dunnett</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="p", title=gettext("p<sub>Dunnett</sub>"), type="pvalue")
 
     postHocTable$showSpecifiedColumnsOnly <- TRUE
     postHocTable$addFootnote(message = gettext("Results based on uncorrected means."))
@@ -1687,8 +1687,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
     postHocTable$addColumnInfo(name="rbs",        title=gettext("r<sub>rb</sub>"),   type="number")
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
-    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
-    postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>Bonf</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>Holm</sub>"), type="pvalue")
 
     return(postHocTable)
   }

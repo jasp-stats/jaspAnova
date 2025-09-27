@@ -162,7 +162,7 @@ msgid "Mean Difference"
 msgstr "Batez bestekoen Aldea"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr "%0f%% CI Batez bestekoen Aldearentzat"
+msgstr "%.0f%% CI Batez bestekoen Aldearentzat"
 
 msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
@@ -494,7 +494,7 @@ msgstr ""
 "Errore mezua hau izan zen: %2$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
-msgstr "Neurketa errepikatuen faktoreen ausazko maldak baztertuta daude."
+msgstr "Modelo guztiek %s eta ausazko maldak dituzte neurketa errepikatuen faktore guztietarako."
 
 msgid "Random slopes for repeated measures factors are excluded."
 msgstr "Neurketa errepikatuen faktoreen ausazko maldak baztertuta daude."
@@ -606,7 +606,7 @@ msgstr "Ateratako lagin guztiak"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
-"Kaltetutako modelo batzuentzat, atzeko laginen %75 baino gehiagok huts egin "
+"Kaltetutako modelo batzuentzat, atzeko laginen %%75 baino gehiagok huts egin "
 "dute, edo 1000 lagin baino gutxiago geratu dira ondorengo emaitzetarako. "
 "Modeloaren batez besteko irteera guztia alboratua eta interpretatu ezina "
 "izan daiteke. Egiaztatu modeloaren zehaztapena eta datuak eredu arraroak "
@@ -804,7 +804,7 @@ msgstr ""
 "oinarritzen da."
 
 msgid "95%% CI for Mean Difference"
-msgstr "Batez besteko diferentziarako %95eko KT"
+msgstr "Batez besteko diferentziarako %%95eko KT"
 
 msgid "Bonferroni CI adjustment"
 msgstr "Bonferroni KT doikuntza"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: 2025-09-19 16:01+0000\n"
+"PO-Revision-Date: 2025-09-23 10:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "eu/>\n"
@@ -56,14 +56,12 @@ msgstr "Kasuak"
 msgid "Sum of Squares"
 msgstr "Karratuen Batura"
 
-#, fuzzy
 msgid "df"
-msgstr "ag (df)"
+msgstr "ag"
 
 msgid "Mean Square"
 msgstr "Batez besteko Karratua"
 
-#, fuzzy
 msgid "F"
 msgstr "F"
 
@@ -358,8 +356,9 @@ msgstr "Esferizitate-Proba"
 msgid "Mauchly's W"
 msgstr "Mauchly's W"
 
+#, fuzzy
 msgid "Approx. %s"
-msgstr "%s%% CI η²-rako"
+msgstr "Approx. %s"
 
 msgid "p-value"
 msgstr "p-balioa"
@@ -393,7 +392,7 @@ msgid "Χ²<sub>F</sub>"
 msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr "Kendall's W"
+msgstr "Kendallen W"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr "Mesedez, zehaztu Friedman/Durbin testarako termino egokiak."
@@ -411,7 +410,7 @@ msgstr "df num"
 
 #, fuzzy
 msgid "df den"
-msgstr "df den"
+msgstr "ag den"
 
 msgid "p<sub>F</sub>"
 msgstr "p<sub>F</sub>"
@@ -510,13 +509,13 @@ msgid "Analysis of Effects"
 msgstr "Efektuen Analisia"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr "Log(BF<sub>incl</sub>)"
+msgstr "Log(BF<sub>barne</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr "BF<sub>excl</sub>"
+msgstr "BF<sub>baztertuta</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr "BF<sub>incl</sub>"
+msgstr "BF<sub>sartuta</sub>"
 
 msgid "Effects"
 msgstr "Efektuak"
@@ -585,7 +584,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr "Modeloaren Batez besteko Atzeko Laburpena"
 
 msgid "%s%% Credible Interval"
-msgstr "%s%% Sinesgarritasun tartea"
+msgstr "%s%% Sinesgarritasun Tartea"
 
 msgid "Model Averaged R%s"
 msgstr "Modeloaren batez besteko R%s"
@@ -636,9 +635,8 @@ msgstr "Dentsitatea"
 msgid "Model Averaged Q-Q Plot"
 msgstr "Ereduaren Batez besteko Q-Q Grafikoa"
 
-#, fuzzy
 msgid "Model Averaged Posterior R%s"
-msgstr "Ereduaren Batez besteko Atzeko R%s"
+msgstr "Ondorengo Ereduaren Batez besteko R%s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
@@ -651,11 +649,9 @@ msgstr ""
 msgid "Prior Odds"
 msgstr "Aurreko Oddsa"
 
-#, fuzzy
 msgid "Posterior Odds"
-msgstr "Atzeko Probabilitateak   ¿Ondorengo Oddsa?"
+msgstr "Ondorengo Oddsa"
 
-#, fuzzy
 msgid "Descriptives"
 msgstr "Deskriptiboak"
 
@@ -737,9 +733,8 @@ msgstr "Eredu Bakarreko Atzeko Banaketak"
 msgid "Q-Q Plot"
 msgstr "Q-Q Grafikoa"
 
-#, fuzzy
 msgid "Posterior R%s"
-msgstr "Atzeko R%s"
+msgstr "Ondorengo R%s"
 
 msgid "Single Model R%s"
 msgstr "Eredu Bakarreko R%s"
@@ -751,7 +746,7 @@ msgid "t"
 msgstr "t"
 
 msgid "Cohen's d"
-msgstr "Cohen's d"
+msgstr "Cohenen d"
 
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% KT Cohen-en d-rako"
@@ -766,7 +761,7 @@ msgid "Bootstrapped Post Hoc Comparisons -"
 msgstr "Bootstrapped Post Hoc Konparaketak -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr "%1$s%% bca%2$s CI"
+msgstr "%1$s%% bca%2$s KT"
 
 msgid "bias"
 msgstr "alborapena"
@@ -860,11 +855,10 @@ msgstr ""
 "Ezin izan da modelo mugagabea egokitu. Ondorioz, ezin izan da modelo "
 "mugatuetako bat ere kalkulatu. Errore-mezua: %s."
 
-#, fuzzy
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
-"Ezin izan da modelo mugagabearen ¿¿bootstrapping ===abiaraztea???? lortu. "
-"Ondorioz, ezin izan da modelo mugatuen abiaraztea egin. Errore-mezua: %s."
+"Ezin izan da modelo mugagabearen bootstrapping abiaraztealortu. Ondorioz, "
+"ezin izan da modelo mugatuen abiaraztea egin. Errore-mezua: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
@@ -1027,9 +1021,8 @@ msgstr ""
 msgid "Could not compute the marginal means. Error message: %s"
 msgstr "Ezin izan dira marjina-batez bestekoak kalkulatu. Errore mezua: %s"
 
-#, fuzzy
 msgid "Results are averaged over the levels of: %s."
-msgstr "Emaitzak %s mailen gainean batez beste kalkulatzen dira."
+msgstr "Emaitzak batez bestekoa kalkulatzen dira honako mailen gainean: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
 msgstr ""

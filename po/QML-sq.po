@@ -1,430 +1,423 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-23 10:01+0000\n"
-"Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
-"Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/eu/>\n"
-"Language: eu\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "ANOVA"
-msgstr "ANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "Klasikoa"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Repeated Measures ANOVA"
-msgstr "Neurri Errepikatuen ANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "ANCOVA"
-msgstr "ANCOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "MANOVA"
-msgstr "MANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr "Bayesiarra"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANOVA"
-msgstr "Bayesiar ANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian Repeated Measures ANOVA"
-msgstr "Bayesiar Neurri Errepikatuen ANOVA"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian ANCOVA"
-msgstr "Bayesiar ANCOVA"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Dependent Variable"
-msgstr "Menpeko Aldagaia"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Fixed Factors"
-msgstr "Faktore Finkoak"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Random Factors"
-msgstr "Ausazko Faktoreak"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Covariates"
-msgstr "Ko-aldagaiak"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "WLS Weights"
-msgstr "WLS Pisuak"
+msgstr ""
 
 msgctxt "Ancova|"
 msgid "Factor covariate independence check"
-msgstr "Faktoreen kobarianteen independentziaren egiaztapena"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
-msgstr "Menpeko Aldagaia"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Fixed Factors"
-msgstr "Faktore Finkoak"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Random Factors"
-msgstr "Ausazko Faktoreak"
+msgstr ""
 
 msgctxt "AncovaBayesian|"
 msgid "Covariates"
-msgstr "Ko-aldagaiak"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Dependent Variable"
-msgstr "Menpeko Aldagaia"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Fixed Factors"
-msgstr "Faktore Finkoak"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "Random Factors"
-msgstr "Ausazko Faktoreak"
+msgstr ""
 
 msgctxt "Anova|"
 msgid "WLS Weights"
-msgstr "WLS Pisuak"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Dependent Variable"
-msgstr "Menpeko Aldagaia"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Fixed Factors"
-msgstr "Faktore Finkoak"
+msgstr ""
 
 msgctxt "AnovaBayesian|"
 msgid "Random Factors"
-msgstr "Ausazko Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Factors"
-msgstr "Errepikatutako Neurrien Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Cells"
-msgstr "Errepikatutako Neurrien Gelaxkak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subject Factors"
-msgstr "Subjektuen Arteko Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Covariates"
-msgstr "Ko-aldagaiak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model"
-msgstr "Eredua"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Repeated Measures Components"
-msgstr "Errepikatutako Neurrien Osagaiak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model Terms"
-msgstr "Ereduaren Terminoak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Between Subjects Components"
-msgstr "Subjektuen Arteko Osagaiak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Model terms"
-msgstr "Ereduaren terminoak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Assumption Checks"
-msgstr "Suposizioen Egiaztapenak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity tests"
-msgstr "Esferizitate probak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Sphericity corrections"
-msgstr "Esferizitate zuzenketak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "None"
-msgstr "Bat ere ez"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Greenhouse-Geisser"
-msgstr "Greenhouse-Geisser"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Huynh-Feldt"
-msgstr "Huynh-Feldt"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Homogeneity tests"
-msgstr "Homogeneotasun probak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc Probak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
-msgstr "Efektuaren tamaina"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Correction"
-msgstr "Zuzenketa"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Holm"
-msgstr "Holm"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Bonferroni"
-msgstr "Bonferroni"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Tukey"
-msgstr "Tukey"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Label y-axis"
-msgstr "Etiketatu y ardatza"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Average across unused RM factors"
-msgstr "Erabili gabeko RM faktoreen batez bestekoa"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error terms"
-msgstr "Multzoko errore terminoak??"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Nonparametrics"
-msgstr "Ez-parametrikoak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "RM Factor"
-msgstr "RM Faktorea"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Optional Grouping Factor"
-msgstr "Aukerako Taldekatze Faktorea"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
-msgstr "Conoverren post hoc probak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Factors"
-msgstr "Errepikatutako Neurrien Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Repeated Measures Cells"
-msgstr "Errepikatutako Neurrien Gelaxkak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Between Subject Factors"
-msgstr "Subjektuen Arteko Faktoreak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Covariates"
-msgstr "Ko-aldagaiak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Dependent Variables"
-msgstr "Menpeko Aldagaiak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Fixed Factors"
-msgstr "Faktore Finkoak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Random Factors"
-msgstr "Ausazko Faktoreak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Model"
-msgstr "Eredua"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Components"
-msgstr "Osagaiak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Model Terms"
-msgstr "Ereduaren Terminoak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Include intercept"
-msgstr "Ebaketa-puntua barne"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Additional Options"
-msgstr "Aukera Gehiago"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Test"
-msgstr "Proba"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Pillai"
-msgstr "Pillai"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Wilks"
-msgstr "Wilks"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Hotelling-Lawley"
-msgstr "Hotelling-Lawley"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Roy"
-msgstr "Roy"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Assumption Checks"
-msgstr "Suposizioen Egiaztapenak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Homogeneity of covariance matrices"
-msgstr "Kobariantza-matrizeen homogeneotasuna"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Multivariate normality"
-msgstr "Aldagai Anitzeko Normaltasuna"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "ANOVA tables"
-msgstr "ANOVA taulak"
+msgstr ""
 
 msgctxt "Manova|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximoaren p-ratioa"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Raincloud Plots"
-msgstr "Raincloud Grafikoak"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal Axis"
-msgstr "Ardatz Horizontala"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Separate Plots"
-msgstr "Grafiko bereiziak"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Horizontal display"
-msgstr "Bistaraketa horizontala"
+msgstr ""
 
 msgctxt "RainCloudPlots|"
 msgid "Label y-axis"
-msgstr "Etiketatu y ardatza"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means"
-msgstr "Batez besteko anitzen arteko aldea ebaluatu"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Scheffé"
-msgstr "Scheffé"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "RM Factor"
-msgstr "RM Faktorea"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model 1"
-msgstr "1. Eredua"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr "Egin klik ordena murrizketen sintaxiari buruz gehiago jakiteko."
+msgstr ""
 
-#, fuzzy
 msgctxt "OrderRestrictions|"
 msgid "Include intercept"
-msgstr "Sartu ebakidura?"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model comparison"
-msgstr "Modeloen Konparaketa"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "None"
-msgstr "Bat ere ez"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC0"
-msgstr "HC0"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC1"
-msgstr "HC1"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC2"
-msgstr "HC2"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC3"
-msgstr "HC3"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC4"
-msgstr "HC4"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC4m"
-msgstr "HC4m"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "HC5"
-msgstr "HC5"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Restricted Marginal Means"
-msgstr "Batez besteko Marjinal Mugatuak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid ""
 "Ctrl + Enter to apply. Click on the blue button above for help on the "
 "restriction syntax"
 msgstr ""
-"Ktrl + Sartu aplikatzeko. Egin klik goiko botoi urdinean murrizketa "
-"sintaxiari buruzko laguntza lortzeko"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
@@ -434,63 +427,58 @@ msgid ""
 "for all but the highest order repeated-measures interaction to avoid "
 "discrepancies with the frequentist repeated measures ANOVA."
 msgstr ""
-"Analisi hau JASP-ren bertsio zaharrago batekin (edo modulu dinamiko batekin) "
-"sortu zen. Ordutik, Bayesiano Errepikatutako Neurrien ANOVAren ereduaren "
-"zehaztapena aldatu da. Berez, eredu guztiek ausazko maldak sartzen dituzte "
-"neurri errepikatuen interakzio ordena altuenerako izan ezik, maiztasun "
-"handiko neurri errepikatuen ANOVArekin desadostasunak saihesteko."
 
 msgctxt "AdditionalOptions|"
 msgid "Additional Options"
-msgstr "Aukera Gehiago"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Specify Prior on Coefficients"
-msgstr "Zehaztu Koefizienteen Aurrekoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed and random terms"
-msgstr "Termino finko eta ausazkoetarako"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For each term individually"
-msgstr "Termino bakoitzerako banan-banan"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale fixed effects"
-msgstr "r eskalako efektu finkoak"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale random effects"
-msgstr "r eskalako ausazko efektuak"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r scale covariates"
-msgstr "r eskalako kobarianteak"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Numerical Accuracy"
-msgstr "Zenbakizko Zehaztasuna"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Auto"
-msgstr "Automatikoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Manual"
-msgstr "Eskuzkoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "No. samples"
-msgstr "Lagin kopurua"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Posterior Samples"
-msgstr "Atzeko Laginak"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Legacy results"
-msgstr "Legatu emaitzak"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid ""
@@ -498,214 +486,208 @@ msgid ""
 "in JASP <=0.16. Omitting the random slopes may yield completely different "
 "results from the frequentist ANOVA."
 msgstr ""
-"Markatuta dagoenean, neurri errepikatuen faktoreen malda ausazkoek ezabatzen "
-"dute, JASP <=0.16-n bezala. Malda ausazkoek ezabatzeak ANOVA maiztasunaren "
-"emaitza guztiz desberdinak eman ditzake."
 
 msgctxt "AdditionalOptions|"
 msgid "Hide nuisance in model"
-msgstr "Ezkutatu eragozpenak ereduan"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid ""
 "When checked, the nuisance parameters common to all models are omitted from "
 "the model specification."
 msgstr ""
-"Markatuta dagoenean, modelo guztientzat komunak diren eragozpen-parametroak "
-"ezabatzen dira modeloaren zehaztapenetik."
 
 msgctxt "AdditionalOptions|"
 msgid "Enforce the Principle of Marginality"
-msgstr "Betearazi Marjinalitate Printzipioa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For fixed effects"
-msgstr "Efektu finkoetarako"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "For random slopes"
-msgstr "Malda aleatorioetarako"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Model Prior"
-msgstr "Ereduaren Aurrekoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Uniform"
-msgstr "Uniformea"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Beta binomial"
-msgstr "Beta binomiala"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr "a"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr "b"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
-msgstr "Wilson"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "λ"
-msgstr "λ"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Castillo"
-msgstr "Castillo"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "u"
-msgstr "u"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Bernoulli"
-msgstr "Bernoulli"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr "p"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
-msgstr "Pertsonalizatua"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Term"
-msgstr "Terminoa"
+msgstr ""
 
-#, fuzzy
 msgctxt "AdditionalOptions|"
 msgid "Prior incl. prob."
-msgstr "Aurreko probabilitatea barne?"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "r-scale"
-msgstr "r-eskala"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Order"
-msgstr "Ordena"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to best model"
-msgstr "Konparatu eredu onenarekin"
+msgstr ""
 
 msgctxt "BayesFactorOrder|"
 msgid "Compare to null model"
-msgstr "Konparatu eredu nuluarekin"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Tables"
-msgstr "Taulak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Effects"
-msgstr "Efektuak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across all models"
-msgstr "Eredu guztietan"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Across matched models"
-msgstr "Parekatutako ereduetan"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Estimates"
-msgstr "Estimazioak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged R²"
-msgstr "Ereduaren batez besteko R²"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Descriptives"
-msgstr "Deskribatzaileak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Credible interval"
-msgstr "Tarte sinesgarria"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Order"
-msgstr "Ordena"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to best model"
-msgstr "Konparatu modelo onenarekin"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Compare to null model"
-msgstr "Konparatu eredu nuluarekin"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Plots"
-msgstr "Grafikoak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Model averaged posteriors"
-msgstr "Ereduaren batez besteko atzeko balioak"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Group levels in single plot"
-msgstr "Taldekatu mailak grafiko bakarrean"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Individual plot per level"
-msgstr "Banakako grafikoa maila bakoitzeko"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Q-Q plot of residuals"
-msgstr "Hondarren Q-Q grafikoa"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Posterior R²"
-msgstr "Ondorengo R²"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Descriptives Plots"
-msgstr "Deskribapen Grafikoak"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Horizontal Axis"
-msgstr "Ardatz horizontala"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Lines"
-msgstr "Lerro Bereiziak"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Separate Plots"
-msgstr "Grafiko Bereiziak"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "DescriptivesPlots|"
 msgid "Credible interval"
-msgstr "Sinesgarritasun-tartea"
+msgstr ""
 
 msgctxt "ModelTerms|"
 msgid "Model"
-msgstr "Eredua"
+msgstr ""
 
 msgctxt "ModelTerms|"
 msgid "Components"
-msgstr "Osagaiak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Order Restricted Hypotheses"
-msgstr "Ordenatu Mugatutako Hipotesiak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid ""
@@ -717,596 +699,587 @@ msgid ""
 "Click on the 'plus' icon to add more hypotheses. \n"
 "Click the information icon for more examples."
 msgstr ""
-"Sartu hipotesi baten murrizketa bakoitza lerro berri batean, adibidez,\n"
-"faktoreBaxua == faktoreErtaina\n"
-"faktoreErtaina < faktoreAltua\n"
-"non 'faktorea' faktorearen (edo kobariantearen) izena den eta "
-"'Baxua'/'Ertaina'/'Altua' faktore-mailaren izenak diren.\n"
-"Egin klik 'gehi' ikonoan hipotesi gehiago gehitzeko.\n"
-"Egin klik informazio-ikonoan adibide gehiago ikusteko."
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"
-msgstr "Sintaxi-ezarpenak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Show available coefficients"
-msgstr "Erakutsi eskuragarri dauden koefizienteak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Set for all models"
-msgstr "Ezarri eredu guztietarako"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Model summary"
-msgstr "Ereduaren laburpena"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Marginal means"
-msgstr "Batez besteko marjinalak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests"
-msgstr "Hipotesi informatuen probak"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Summary for %1"
-msgstr "%1-erako laburpena"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Marginal means for %1"
-msgstr "Batez besteko marjinalak %1-erako"
+msgstr ""
 
 #, qt-format
 msgctxt "OrderRestrictions|"
 msgid "Informed hypothesis tests for %1"
-msgstr "Hipotesi informatuen probak %1-erako"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Complement model"
-msgstr "Osagarri eredua ???"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Unconstrained model"
-msgstr "Mugarik gabeko eredua"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Add to comparison"
-msgstr "Gehitu konparaziora"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Add weight ratios"
-msgstr "Gehitu pisu ratioak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Reference model"
-msgstr "Erreferentzia-eredua"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Relative weights matrix"
-msgstr "Pisu erlatiboen matrizea"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Compare model coefficients"
-msgstr "Konparatu eredu koefizienteak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Highlight active restrictions"
-msgstr "Nabarmendu murrizketa aktiboak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Uncertainty quantification"
-msgstr "Ziurgabetasunaren kuantifikazioa"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Heterogeneity correction"
-msgstr "Heterogeneotasun-zuzenketa"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Bootstrapping"
-msgstr "Bootstrapping-a"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Samples"
-msgstr "Laginak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Confidence intervals"
-msgstr "Konfiantza-tarteak"
+msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Terms"
-msgstr "Terminoak"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc Probak"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Correction"
-msgstr "Zuzenketa"
+msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Null control"
-msgstr "Kontrol nulua"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Single Model Inference"
-msgstr "Eredu Bakarreko Inferentzia"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Components"
-msgstr "Osagaiak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Specific Model Terms"
-msgstr "Ereduaren Termino Espezifikoak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Tables"
-msgstr "Taulak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Estimates"
-msgstr "Estimazioak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "R²"
-msgstr "R²"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Plots"
-msgstr "Grafikoak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Marginal posteriors"
-msgstr "Atzeko marjinalak"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Group levels in single plot"
-msgstr "Talde-mailak grafiko bakarrean"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Individual plot per level"
-msgstr "Maila bakoitzeko banakako grafikoa"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Q-Q plot of residuals"
-msgstr "Hondarren Q-Q grafikoa"
+msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid "Posterior R²"
-msgstr "Atzeko R²"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Assumption Checks"
-msgstr "Suposizio-Egiaztapenak"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity tests"
-msgstr "Homogeneotasun probak"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Homogeneity corrections"
-msgstr "Homogeneotasun zuzenketak"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "None"
-msgstr "Bat ere ez"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Brown-Forsythe"
-msgstr "Brown-Forsythe"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Welch"
-msgstr "Welch"
+msgstr ""
 
 msgctxt "AssumptionChecks|"
 msgid "Q-Q plot of residuals"
-msgstr "Hondarren Q-Q grafikoa"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Contrasts"
-msgstr "Kontrasteak"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Confidence intervals"
-msgstr "Konfiantza tarteak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Descriptives Plots"
-msgstr "Deskribapen-grafikoak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Horizontal Axis"
-msgstr "Ardatz horizontala"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Lines"
-msgstr "Lerro Bereiziak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Separate Plots"
-msgstr "Grafiko bereiziak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Confidence interval"
-msgstr "Konfiantza tartea"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Standard error"
-msgstr "Errore estandarra"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Descriptive statistics"
-msgstr "Estatistiko deskribatzaileak"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Estimates of effect size"
-msgstr "Efektu-tamainaren estimazioak"
+msgstr ""
 
 msgctxt "Display|"
 msgid "η²"
-msgstr "η²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "partial η²"
-msgstr "η² partziala"
+msgstr ""
 
 msgctxt "Display|"
 msgid "general η²"
-msgstr "η² orokorra"
+msgstr ""
 
 msgctxt "Display|"
 msgid "ω²"
-msgstr "ω²"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Vovk-Sellke maximoaren p-ratioa"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Marginal Means"
-msgstr "Batez besteko Marjinalak"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "From"
-msgstr "-tik"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "bootstraps"
-msgstr "bootstrap-ak"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Compare marginal means to 0"
-msgstr "Batez besteko marjinalak 0rekin alderatu"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Confidence interval adjustment"
-msgstr "Konfiantza-tartearen doikuntza"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "None"
-msgstr "Bat ere ez"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Model"
-msgstr "Eredua"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Components"
-msgstr "Osagaiak"
+msgstr ""
 
 msgctxt "Models|"
 msgid "Model Terms"
-msgstr "Ereduaren Terminoak"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Nonparametrics"
-msgstr "Ez-parametrikoak"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Kruskal-Wallis Test"
-msgstr "Kruskal-Wallis Proba"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc Probak"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Type"
-msgstr "Mota"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Standard"
-msgstr "Estandarra"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "From"
-msgstr "-tik"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "bootstraps"
-msgstr "bootstrap-ak"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Effect size"
-msgstr "Efektuaren tamaina"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Games-Howell"
-msgstr "Games-Howell"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Dunnett"
-msgstr "Dunnett"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Correction"
-msgstr "Zuzenketa"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Tukey"
-msgstr "Tukey"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Scheffé"
-msgstr "Scheffé"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Bonferroni"
-msgstr "Bonferroni"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Holm"
-msgstr "Holm"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Šidák"
-msgstr "Šidák"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Confidence intervals"
-msgstr "Konfiantza-tarteak"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Main Effects"
-msgstr "Efektu Nagusi Sinpleak"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Simple Effect Factor"
-msgstr "Efektu Faktore Sinplea"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 1"
-msgstr "1. Faktore Moderatzailea"
+msgstr ""
 
 msgctxt "SimpleMainEffects|"
 msgid "Moderator Factor 2"
-msgstr "2. Faktore Moderatzailea"
+msgstr ""
 
 msgctxt "SumOfSquares|"
 msgid "Sum of squares"
-msgstr "Karratuen batura"
+msgstr ""
 
 #, qt-format
 msgctxt "SumOfSquares|"
 msgid "Type %1"
-msgstr "Mota %1"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Coefficient Prior"
-msgstr "Koefizientearen Aurrekoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Integration Method"
-msgstr "Integrazio Metodoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Automatic"
-msgstr "Automatikoa"
+msgstr ""
 
 msgctxt "AdditionalOptions|"
 msgid "Laplace approximation"
-msgstr "Laplace hurbilketa"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Label y-axis"
-msgstr "Etiketatu y ardatza"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Limit No. Models Shown"
-msgstr "Mugatu Erakusten diren Modelo Kopurua"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "No"
-msgstr "Ez"
+msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid "Yes, show best"
-msgstr "Bai, erakutsi onena"
+msgstr ""
 
-#, fuzzy
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Pool error term for follow-up tests"
-msgstr "Jarraipen-probetarako multzo-errore-terminoa"
+msgstr ""
 
-#, fuzzy
 msgctxt "Contrasts|"
 msgid "Pool error term for follow-up tests"
-msgstr "Jarraipen-probetarako multzo-errore-terminoa"
+msgstr ""
 
 msgctxt "MarginalMeans|"
 msgid "Pool error term for follow-up tests"
-msgstr "Jarraipen-probetarako multzo-errore-terminoa"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Bar Plots"
-msgstr "Barra grafikoak"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Factors"
-msgstr "Faktoreak"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Horizontal Axis"
-msgstr "Ardatz horizontala"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Separate Plots"
-msgstr "Grafiko bereiziak"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Display"
-msgstr "Erakutsi"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Confidence interval"
-msgstr "Konfiantza tartea"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Credible interval"
-msgstr "Tarte sinesgarria"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Standard error"
-msgstr "Errore estandarra"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Fix horizontal axis to 0"
-msgstr "Ardatz horizontala 0ra finkatu"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Estimates of effect size"
-msgstr "Efektu-tamainaren estimazioak"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "ε²"
-msgstr "ε²"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "η²"
-msgstr "η²"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Confidence"
-msgstr "Konfiantza"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Q-Q plot of residuals"
-msgstr "Hondarren Q-Q grafikoa"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Conditional comparisons for interactions"
-msgstr "Elkarrekintzarako baldintzapeko konparaketak"
+msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Normalize error bars"
-msgstr "Normalizatu errore-barrak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Normalize error bars"
-msgstr "Normalizatu errore-barrak"
+msgstr ""
 
 msgctxt "Display|"
 msgid "partial ω²"
-msgstr "ω² partziala"
+msgstr ""
 
 msgctxt "Display|"
 msgid "Confidence intervals"
-msgstr "Konfiantza-tarteak"
+msgstr ""
 
 msgctxt "Nonparametrics|"
 msgid "Dunn's post hoc tests"
-msgstr "Dunn-en post hoc probak"
+msgstr ""
 
 msgctxt "PostHoc|"
 msgid "Conditional comparisons for interactions"
-msgstr "Elkarrekintzarako baldintzapeko konparaketak"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Flag significant comparisons"
-msgstr "Markatu konparaketa esanguratsuak"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "Letter-based grouping table"
-msgstr "Letretan-oinarritutako taldekatze-taula"
+msgstr ""
 
 msgctxt "PostHocDisplay|"
 msgid "α-level:"
-msgstr "α-maila:"
+msgstr ""
 
 msgctxt "BarPlots|"
 msgid "Error bars"
-msgstr "Errore-barrak"
+msgstr ""
 
 msgctxt "DescriptivePlots|"
 msgid "Error bars"
-msgstr "Errore-barrak"
+msgstr ""
 
 msgctxt "Contrasts|"
 msgid "Effect size (cohen's d)"
-msgstr "Efektuaren tamaina (Cohen-en d)"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Export"
-msgstr "Esportatu"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Append residuals to data"
-msgstr "Hondarrak datuetara gehitu"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Column name"
-msgstr "Zutabearen izena"
+msgstr ""
 
 msgctxt "Export|"
 msgid "e.g., residuals"
-msgstr "adibidez, hondarrak"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Residuals type"
-msgstr "Hondar mota"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Raw"
-msgstr "Gordina"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Studentized"
-msgstr "Studentizatua"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Standardized"
-msgstr "Estandarizatua"
+msgstr ""
 
 msgctxt "Export|"
 msgid "Append predictions to data"
-msgstr "Iragarpenak datuetara gehitu"
+msgstr ""
 
 msgctxt "Export|"
 msgid "e.g., predictions"
-msgstr "adibidez, iragarpenak"
+msgstr ""

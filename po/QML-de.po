@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-03 17:32+0000\n"
-"Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/jasp/"
-"jaspanova-qml/de/>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: de\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -1859,24 +1853,31 @@ msgid ""
 "It also allows combining with between subject factors."
 msgstr ""
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
-msgstr ""
+msgstr "Annahmen"
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The dependent variable is normally distributed for every group."
-msgstr ""
+msgstr "Die abhängige Variable ist für jede Gruppe normalverteilt."
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The covariate and the experiment effect are independent."
-msgstr ""
+msgstr "Die Kovariate und der Experimenteffekt sind unabhängig."
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
 "The assumption of sphericity is met. Sphericity entails that the variances "
 "of the differences between all possible pairs of the repeated measures "
 "conditions are the same."
 msgstr ""
+"Die Annahme der Sphärizität ist erfüllt. Sphärizität bedeutet, dass die "
+"Varianzen der Differenzen zwischen allen möglichen Paaren der Bedingungen "
+"mit Messwiederholung gleich sind."
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
@@ -1885,24 +1886,32 @@ msgid ""
 "be labelled."
 msgstr ""
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
 "The separate columns in the data frame that represent the levels of the "
 "repeated measure(s) factor(s). These are made based on the input on the "
 "repeated measures factors box."
 msgstr ""
+"Die unterschiedlichen Spalten der Datentabelle, die die Stufen von dem/der "
+"Messwiederholungs-Faktor(en) enthalten. Diese werden basierend auf der "
+"Eingabe im Messwiederholungsfaktor-Feld erstellt."
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
 "Select when the subjects have been assigned into two or more separate groups"
 msgstr ""
 
+#, fuzzy
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid ""
 "In this box the variable that is the covariate can be selected. Covariates "
 "are continuous variables that have an influence on the dependent variable "
 "but are not part of the experimental manipulation."
 msgstr ""
+"In diesem Feld kann die Variable ausgewählt werden, die die Kovariate ist. "
+"Kovariaten sind kontinuierliche Variablen, die einen Einfluss auf die "
+"abhängige Größe haben, aber nicht Teil der experimentellen Manipulation sind."
 
 msgctxt "BarPlots|"
 msgid ""
@@ -2770,9 +2779,10 @@ msgid ""
 "multiple dependent variables"
 msgstr ""
 
+#, fuzzy
 msgctxt "Manova|"
 msgid "Assumptions"
-msgstr ""
+msgstr "Annahmen"
 
 msgctxt "Manova|"
 msgid "The dependent variables are normally distributed for every group."
@@ -2788,19 +2798,23 @@ msgctxt "Manova|"
 msgid "The population covariance matrices of each group are equal."
 msgstr ""
 
+#, fuzzy
 msgctxt "Manova|"
 msgid "The groups are independent."
-msgstr ""
+msgstr "Die Gruppen sind unabhängig."
 
 msgctxt "Manova|"
 msgid "The variable of interest. Also called the outcome variable."
 msgstr ""
 
+#, fuzzy
 msgctxt "Manova|"
 msgid ""
 "The variables that are manipulated/define the different groups. These are "
 "also called the independent variables."
 msgstr ""
+"Die Variablen, die manipuliert werden / die verschiedenen Gruppen "
+"definieren. Diese werden auch als unabhängige Variablen bezeichnet."
 
 msgctxt "Manova|"
 msgid "Components and model terms"

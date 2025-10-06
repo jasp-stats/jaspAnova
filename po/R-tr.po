@@ -2,14 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 03:05\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-10-07 22:02+0000\n"
+"Last-Translator: Hamza Yalçin <h.yalcin08@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
@@ -30,7 +32,7 @@ msgid "The Welch correction could not be computed because '%1$s' has zero varian
 msgstr ""
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
 msgstr ""
@@ -42,19 +44,19 @@ msgid "Cases"
 msgstr ""
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Kareler Toplamı"
 
 msgid "df"
-msgstr ""
+msgstr "sd"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Ortalama Kare"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
 msgstr ""
@@ -63,10 +65,10 @@ msgid "%s%% CI for η²"
 msgstr ""
 
 msgid "Lower"
-msgstr ""
+msgstr "Alt"
 
 msgid "Upper"
-msgstr ""
+msgstr "Üst"
 
 msgid "%s%% CI for η²ₚ"
 msgstr ""
@@ -120,13 +122,15 @@ msgid "Mean Difference estimate is based on the median of the bootstrap distribu
 msgstr ""
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Yanlılık düzeltmeli hızlandırılmış."
 
 msgid "Bootstrapping Post Hoc Test"
 msgstr ""
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"Bazı güven aralıkları hesaplanamadı.\n"
+"Muhtemelen çok az önyükleme tekrarı."
 
 msgid "Games-Howell"
 msgstr ""
@@ -150,7 +154,7 @@ msgid "Results based on uncorrected means."
 msgstr ""
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
@@ -171,10 +175,10 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
 
 msgid "df1"
-msgstr ""
+msgstr "sd1"
 
 msgid "df2"
-msgstr ""
+msgstr "sd2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
@@ -207,10 +211,10 @@ msgid "Kruskal-Wallis Test"
 msgstr ""
 
 msgid "Factor"
-msgstr ""
+msgstr "Faktör"
 
 msgid "Statistic"
-msgstr ""
+msgstr "İstatistik"
 
 msgid "Rank %s"
 msgstr ""
@@ -408,10 +412,10 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Null model"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Null model (%s dahil)"
 
 msgid "Computing Bayes factors"
 msgstr ""
@@ -432,7 +436,7 @@ msgid "Random slopes for repeated measures factors are excluded."
 msgstr ""
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Tüm modeller %s'i içerir."
 
 msgid "Analysis of Effects - %s"
 msgstr ""
@@ -453,16 +457,16 @@ msgid "Effects"
 msgstr ""
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(dahil)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(haric)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(dahil|veri)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(haric|veri)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
@@ -471,34 +475,34 @@ msgid "Some Bayes factors could not be calculated. Inclusion probabilities and B
 msgstr ""
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Model Karşılaştırması"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
 msgstr ""
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Modeller"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|veri)"
 
 msgid "error %%"
-msgstr ""
+msgstr "hata %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
@@ -507,7 +511,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr ""
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% Güvenilir Aralık"
 
 msgid "Model Averaged R%s"
 msgstr ""
@@ -543,7 +547,7 @@ msgid "Could not plot posterior distribution. Check if an error occurred for mod
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Düzey"
 
 msgid "Density"
 msgstr ""
@@ -564,22 +568,22 @@ msgid "Posterior Odds"
 msgstr ""
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Betimsel İstatistikler"
 
 msgid "Descriptives - %s"
 msgstr ""
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
-msgstr ""
+msgstr "Ortalama"
 
 msgid "SD"
-msgstr ""
+msgstr "SS"
 
 msgid "SE"
-msgstr ""
+msgstr "SH"
 
 msgid "Coefficient of variation"
 msgstr ""
@@ -636,7 +640,7 @@ msgid "Single Model Posterior Distributions"
 msgstr ""
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Q-Q Grafiği"
 
 msgid "Posterior R%s"
 msgstr ""
@@ -645,13 +649,13 @@ msgid "Single Model R%s"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "Kestirim"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "Cohen's d"
 
 msgid "%s%% CI for Cohen's d"
 msgstr ""
@@ -771,7 +775,7 @@ msgid "Model Comparison Table"
 msgstr ""
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Log-likelihood"
 msgstr ""
@@ -822,13 +826,13 @@ msgid "Coefficients Comparison"
 msgstr ""
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Katsayı"
 
 msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Model Özeti"
 
 msgid "Restriction Matrix"
 msgstr ""
@@ -840,10 +844,10 @@ msgid "Right-hand side (rhs)"
 msgstr ""
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Katsayılar"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% GA"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""

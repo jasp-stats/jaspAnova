@@ -3,15 +3,9 @@ import JASP.Module
 
 Description
 {
-	name		: "jaspAnova"
 	title		: qsTr("ANOVA")
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("Evaluate the difference between multiple means")
-	version			: "0.95.0"
-	author		: "JASP Team"
-	maintainer	: "JASP Team <info@jasp-stats.org>"
-	website		: "jasp-stats.org"
-	license		: "GPL (>= 2)"
 	hasWrappers	: true
 
 

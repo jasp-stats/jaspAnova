@@ -113,20 +113,20 @@
   }
 
   if (options$postHocCorrectionTukey)
-    postHocTable$addColumnInfo(name="tukey",    title=gettext("p<sub>tukey</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="tukey",    title=gettext("p<sub>Tukey</sub>"), type="pvalue")
 
   if (options$postHocCorrectionScheffe)
-    postHocTable$addColumnInfo(name="scheffe", title=gettext("p<sub>scheffe</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="scheffe", title=gettext("p<sub>Scheffe</sub>"), type="pvalue")
 
   if (options$postHocCorrectionBonferroni)
-    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>Bonf</sub>"), type="pvalue")
 
   if (options$postHocCorrectionHolm)
-    postHocTable$addColumnInfo(name="holm", title=gettext("p<sub>holm</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="holm", title=gettext("p<sub>Holm</sub>"), type="pvalue")
 
   # Sidak option does not exist in RM-ANOVA
   if (isTRUE(options$postHocCorrectionSidak))
-    postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>sidak</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>Sidak</sub>"), type="pvalue")
 
 
   postHocTable$showSpecifiedColumnsOnly <- TRUE
@@ -141,13 +141,14 @@
   confAdjust <- attr(postHocObject, "mesg")[grep(attr(postHocObject, "mesg"), pattern = "Conf-level")]
   confAdjust <- gsub(x = confAdjust, pattern = "Conf-level adjustment: ", "")
   confAdjust <- strsplit(confAdjust, " ")[[1]][1]
+  substr(confAdjust, 1, 1) <- toupper(substr(confAdjust, 1, 1)) #capitalize first letter of correction name
 
   if (!includeCI) {
     correctionFootnote <- gettextf("P-value adjusted for comparing a family of %s estimates.", as.character(nEstimates))
   } else if (isFALSE(includeEffectSize) || isFALSE(isBetween)) {
     correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method).", nEstimates, confAdjust)
   } else {
-    correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method).",
+    correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method).",
                                    nEstimates, confAdjust)
   }
 

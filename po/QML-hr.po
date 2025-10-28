@@ -269,10 +269,6 @@ msgctxt "Ancova|"
 msgid "Kruskal-Wallis Test"
 msgstr "Kruskal-Wallis test"
 
-msgctxt "Ancova|"
-msgid " "
-msgstr " "
-
 msgctxt "AncovaBayesian|"
 msgid "Dependent Variable"
 msgstr "Zavisna varijabla"

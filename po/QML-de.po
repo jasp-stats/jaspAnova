@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-11-03 01:37+0000\n"
+"Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/jasp/"
+"jaspanova-qml/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 "X-Language: de\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -2291,12 +2297,10 @@ msgid ""
 "'Separate Plots'."
 msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid "The independent variables included in the analysis."
 msgstr "Die in der Analyse enthaltenen unabhängigen Variablen."
 
-#, fuzzy
 msgctxt "DescriptivesPlots|"
 msgid ""
 "Select the independent variable that should be displayed on the horizontal "
@@ -2493,12 +2497,10 @@ msgid ""
 "'Separate Plots'."
 msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid "The independent variables included in the analysis."
 msgstr "Die in der Analyse enthaltenen unabhängigen Variablen."
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid ""
 "Select the independent variable that should be displayed on the horizontal "
@@ -2514,7 +2516,6 @@ msgid ""
 "displayed."
 msgstr ""
 
-#, fuzzy
 msgctxt "DescriptivePlots|"
 msgid ""
 "By placing an independent variable in this box, different plots "
@@ -2870,12 +2871,10 @@ msgid ""
 "interactions into account (Langsrud, 2003). This type is selected by default."
 msgstr ""
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid "The independent variables included in the analysis."
 msgstr "Die in der Analyse enthaltenen unabhängigen Variablen."
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid ""
 "Select the independent variable that should be displayed on the horizontal "
@@ -2884,7 +2883,6 @@ msgstr ""
 "Wählen Sie die unabhängige Variable aus, die auf der horizontalen Achse des "
 "Diagramms angezeigt werden soll."
 
-#, fuzzy
 msgctxt "RainCloudPlots|"
 msgid ""
 "By placing an independent variable in this box, different plots "

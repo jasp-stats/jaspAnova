@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2025-05-10 03:00\n"
-"PO-Revision-Date: 2025-08-25 14:01+0000\n"
+"PO-Revision-Date: 2025-12-05 21:00+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "sr/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -65,6 +65,7 @@ msgstr "df"
 msgid "Mean Square"
 msgstr "Средњи квадрат"
 
+#, fuzzy
 msgid "F"
 msgstr "F"
 
@@ -117,7 +118,7 @@ msgid "Please specify non-zero contrast weights."
 msgstr ""
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Тестови накнадних поређења (Post Hoc Tests)"
 
 msgid "Standard (HSD)"
 msgstr ""
@@ -129,7 +130,7 @@ msgid "Results are averaged over the levels of: %s"
 msgstr ""
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "Ники параметри нису могли да се процене због недостајућих података."
 
 msgid "Bootstrapping based on %s successful replicates."
 msgstr ""
@@ -140,10 +141,10 @@ msgid ""
 msgstr ""
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Пристрасност је коригована убрзано."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Bootstrapping пост-хок тест"
 
 msgid ""
 "Some confidence intervals could not be computed.\n"
@@ -169,10 +170,10 @@ msgid "p<sub>tukey</sub>"
 msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Резултати засновани на некоригованим средњим вредностима."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr ""
@@ -195,10 +196,10 @@ msgid "Test for Equality of Variances (Levene's)"
 msgstr ""
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid ""
 "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an "
@@ -220,39 +221,41 @@ msgid "Bootstrapping based on %s replicates."
 msgstr ""
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Једноставни главни ефекти"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Једноставни главни ефекти - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Ниво %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Недовољан број опсервација у ћелијама %s."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Kruskal-Wallis тест"
 
 msgid "Factor"
-msgstr ""
+msgstr "Фактор"
 
 msgid "Statistic"
 msgstr "Статистика"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Ранг %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1$i%% CI за ранг %2$s"
 
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
 msgstr ""
+"Тестови се спроводе одвојено за сваку променљиву, без узимања у обзир "
+"мултиваритних ефеката."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
 msgstr ""
@@ -347,25 +350,25 @@ msgid ""
 msgstr ""
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Тест сферичности"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "Mauchly's W"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Приближно %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "p-вредност"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Доња граница %s"
 
 msgid ""
 "Cannot perform sphericity tests because there are only two levels of the RM "
@@ -381,16 +384,16 @@ msgid "Nonparametrics"
 msgstr ""
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Friedman тест"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "Kendall's W"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "Молимо вас да наведете одговарајуће термине за Friedman/Durbin тест."
 
 msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
@@ -398,28 +401,28 @@ msgid ""
 msgstr ""
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Durbin тест"
 
 msgid "df num"
-msgstr ""
+msgstr "df број"
 
 msgid "df den"
-msgstr ""
+msgstr "df деноминатор"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Conover тест"
 
 msgid "Conover's Post Hoc Comparisons - %s"
 msgstr ""
 
 msgid "T-Stat"
-msgstr ""
+msgstr "T статистика"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Груписано по %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
@@ -460,13 +463,13 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Нулти модел"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Нулти модел (укључујући %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Израчунавање Бејзових фактора"
 
 msgid ""
 "The Laplace approximation is faster but also less accurate than the "
@@ -474,89 +477,101 @@ msgid ""
 "estimate. However, we recommend using the automatic integration method to "
 "obtain the final results."
 msgstr ""
+"Лапласова апроксимација је бржа, али и мање прецизна од аутоматске методе. "
+"Ово је у реду када истражујете податке и добијате грубу процену. Међутим, "
+"препоручујемо коришћење аутоматске методе интеграције за добијање коначних "
+"резултата."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "Лапласова апроксимација не даје увек процену грешке."
 
 msgid ""
 "Bayes factor could not be computed for model: %1$s.\n"
 "The error message was: %2$s."
 msgstr ""
+"Бејзов фактор није могао да се израчуна за модел: %1$s.\n"
+"Порука о грешци је: %2$s."
 
 msgid ""
 "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Сви модели укључују %s и случајне нагибе за све факторе поновљених мерења."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "Случајни нагиби за факторе поновљених мерења су искључени."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Сви модели укључују %s."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Анализа ефеката - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Анализа ефеката"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>incl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>excl</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>incl</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "Ефекти"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(incl)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(excl)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(incl|data)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(excl|data)"
 
 msgid ""
 "Compares models that contain the effect to equivalent models stripped of the "
 "effect. Higher-order interactions are excluded. Analysis suggested by "
 "Sebastiaan Math%st."
 msgstr ""
+"Пореди моделе који садрже ефекат са еквивалентним моделима без тог ефекта. "
+"Виши редови интеракција су искључени. Анализа је предложена од стране "
+"Sebastiaan Math%st."
 
 msgid ""
 "Some Bayes factors could not be calculated. Inclusion probabilities and "
 "Bayes factors are calculated while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"Неки Бејзови фактори нису могли да се израчунају. Вероватноће укључивања и "
+"Бејзови фактори су израчунати са искључивањем ових модела. Резултати могу "
+"бити неинтерпретабилни!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Поређење модела"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
-#, fuzzy
 msgid "P(M)"
 msgstr "P(M)"
 
@@ -564,13 +579,16 @@ msgid "P(M|data)"
 msgstr "P(M|подаци)"
 
 msgid "error %%"
-msgstr ""
+msgstr "грешка %%"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
 "model inference is carried out while excluding these models. The results may "
 "be uninterpretable!"
 msgstr ""
+"<b><em>Упозорење.</em></b> Неки Бејзови фактори нису могли да се израчунају. "
+"Анализа на основу више модела се спроводи искључивањем ових модела. "
+"Резултати могу бити неинтерпретабилни!"
 
 msgid "Model Averaged Posterior Summary"
 msgstr ""
@@ -610,7 +628,7 @@ msgid "Model Averaged Posterior Distributions"
 msgstr ""
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Постериорна расподела"
 
 msgid ""
 "Could not plot posterior distribution. Check if an error occurred for models "
@@ -737,7 +755,7 @@ msgid "t"
 msgstr ""
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "Cohen's d"
 
 msgid "%s%% CI for Cohen's d"
 msgstr ""
@@ -930,16 +948,16 @@ msgid "Coefficients Comparison"
 msgstr ""
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Коефицијент"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Коефицијенти се разликују од неконстрaнираног модела."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Резиме модела"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "Матрица ограничења"
 
 msgid "Left-hand side (lhs)"
 msgstr ""
@@ -948,22 +966,22 @@ msgid "Right-hand side (rhs)"
 msgstr ""
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Коефицијенти"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "Није било могуће израчунати табелу коефицијената. Порука о грешци: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "Информативни тестови хипотеза"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Хипотеза"
 
 msgid "Test"
 msgstr "Тест"

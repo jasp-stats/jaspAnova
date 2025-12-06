@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-25 14:02+0000\n"
+"PO-Revision-Date: 2025-12-05 21:00+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/jaspanova-"
 "qml/sr/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -183,7 +183,7 @@ msgstr "Тестови хомогености"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc тестови"
+msgstr "Тестови накнадних поређења (Post Hoc Tests)"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "Effect size"
@@ -808,7 +808,7 @@ msgstr ""
 
 msgctxt "PostHocTests|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc тестови"
+msgstr "Тестови накнадних поређења (Post Hoc Tests)"
 
 msgctxt "PostHocTests|"
 msgid "Correction"
@@ -1012,7 +1012,7 @@ msgstr "Kruskal-Wallis тест"
 
 msgctxt "PostHoc|"
 msgid "Post Hoc Tests"
-msgstr "Post Hoc тестови"
+msgstr "Тестови накнадних поређења (Post Hoc Tests)"
 
 msgctxt "PostHoc|"
 msgid "Type"

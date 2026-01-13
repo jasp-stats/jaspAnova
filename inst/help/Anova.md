@@ -203,10 +203,10 @@ Post Hoc Comparisons (Standard)- independent variable:
 - SE: The standard error of the mean difference. 
 - t: The value of the t-statistic. 
 - Cohen's d: The effect size Cohen's d. Cohen's d does not correct for multiple comparisons.
-- p<sub>tukey</sub>: Tukey's corrected p-value for multiple comparisons. 
-- p<sub>scheffe</sub>: Scheffe's corrected p-value for multiple comparisons. 
-- p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
-- p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons. 
+- p<sub>Tukey</sub>: Tukey's corrected p-value for multiple comparisons. 
+- p<sub>Scheffe</sub>: Scheffe's corrected p-value for multiple comparisons. 
+- p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
+- p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons. 
 
 Games-Howell Post Hoc Comparisons - independent variable:  
 - The first two columns represent the levels/groups of the independent variable that are compared to each other. 
@@ -216,7 +216,7 @@ Games-Howell Post Hoc Comparisons - independent variable:
     - Upper: The upper bound of the confidence interval. 
 - SE: The standard error of the mean difference. 
 - t: The value of the t-statistic. 
-- p<sub>tukey</sub>: Tukey's corrected p-value for multiple comparisons. 
+- p<sub>Tukey</sub>: Tukey's corrected p-value for multiple comparisons. 
     
 Dunnett Post Hoc Comparisons:  
 - The first two columns represent the levels/groups of the independent variable that are compared to each other. 
@@ -226,7 +226,7 @@ Dunnett Post Hoc Comparisons:
     - Upper: The upper bound of the confidence interval. 
 - SE: The standard error of the mean difference. 
 - t: The value of the t-statistic. 
-- p<sub>dunnett</sub>: Dunnett's p-value. 
+- p<sub>Dunnett</sub>: Dunnett's p-value. 
 
 Dunn's Post Hoc Comparisons:  
 - The first two columns represent the levels/groups of the independent variable that are compared to each other. 
@@ -235,8 +235,8 @@ Dunn's Post Hoc Comparisons:
 - W<sub>j</sub>: The mean ranking of the second level/group of the comparison.  
 - r<sub>rb</sub>: The value for the rank biserial correlation, based on pairwise Mann-Whitney U tests. 
 - p: The p-value.  
-- p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
-- p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons. 
+- p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
+- p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons. 
 
 #### Post Hoc Tests via Bootstrapping 
 Bootstrapped Post Hoc Comparisons - Independent Variable: 

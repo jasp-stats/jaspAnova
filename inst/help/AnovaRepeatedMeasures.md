@@ -178,10 +178,10 @@ Post Hoc Comparisons:
 - SE: The standard error of the mean difference.
 - t: The value of the t-statistic.
 - Cohen's d: The effect size Cohen's d. Cohen's d does not correct for multiple comparisons.
-- p<sub>tukey</sub>: Tukey's corrected p-value for multiple comparisons.
-- p<sub>scheffe</sub>: Scheffe's corrected p-value for multiple comparisons.
-- p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
-- p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons.
+- p<sub>Tukey</sub>: Tukey's corrected p-value for multiple comparisons.
+- p<sub>Scheffe</sub>: Scheffe's corrected p-value for multiple comparisons.
+- p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
+- p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons.
 
 Simple Main Effects:
 - Level: The levels/groups of the repeated measures factor that are compared with each other.
@@ -231,8 +231,8 @@ Conover's Post Hoc Comparisons:
 - W<sub>j</sub>: Sum of the aggregated ranks of level 2.
 - r<sub>rb</sub>: Matched rank-biserial correlation.
 - p: The p-value.
-- p<sub>bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
-- p<sub>holm</sub>: Holm's corrected p-value for multiple comparisons.
+- p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
+- p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons.
 
 #### Descriptive plots
 The independent variable / repeated measures factor on the x-axis and dependent variable on the y-axis. If other repeated measures factors are included, either different lines representing different values of the other repeated measures factor are displayed in the same plot, or different plots representing different values of the other repeated measures factor are displayed.

@@ -1480,8 +1480,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     conoverTable$addColumnInfo(name="wB",         title=gettext("W<sub>j</sub>"),    type="number")
     conoverTable$addColumnInfo(name="rbs",        title=gettext("r<sub>rb</sub>"),   type="number")
     conoverTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
-    conoverTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>bonf</sub>"), type="pvalue")
-    conoverTable$addColumnInfo(name="holm",       title=gettext("p<sub>holm</sub>"), type="pvalue")
+    conoverTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>Bonf</sub>"), type="pvalue")
+    conoverTable$addColumnInfo(name="holm",       title=gettext("p<sub>Holm</sub>"), type="pvalue")
 
     return(conoverTable)
   }

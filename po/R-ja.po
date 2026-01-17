@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2025-05-10 03:00\n"
+"POT-Creation-Date: 2026-01-17 03:08\n"
 "PO-Revision-Date: 2024-10-25 01:15+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -189,7 +189,8 @@ msgstr "ダネットの事後比較 - %s"
 msgid "%s%% CI for Mean Difference"
 msgstr "平均値差の %s%% 信頼区間"
 
-msgid "p<sub>dunnett</sub>"
+#, fuzzy
+msgid "p<sub>Dunnett</sub>"
 msgstr "p<sub>ダネット</sub>"
 
 msgid ""
@@ -279,10 +280,12 @@ msgstr "W<sub>j</sub>"
 msgid "r<sub>rb</sub>"
 msgstr "r<sub>rb</sub>"
 
-msgid "p<sub>bonf</sub>"
+#, fuzzy
+msgid "p<sub>Bonf</sub>"
 msgstr "p<sub>ボンフェロー二</sub>"
 
-msgid "p<sub>holm</sub>"
+#, fuzzy
+msgid "p<sub>Holm</sub>"
 msgstr "p<sub>ホルム</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
@@ -820,10 +823,16 @@ msgstr "%1$s%% bca%2$s 信頼区間"
 msgid "bias"
 msgstr "バイアス"
 
-msgid "p<sub>scheffe</sub>"
+#, fuzzy
+msgid "p<sub>Tukey</sub>"
+msgstr "p<sub>テューキー</sub>"
+
+#, fuzzy
+msgid "p<sub>Scheffe</sub>"
 msgstr "p <sub>シェッフェ</sub>"
 
-msgid "p<sub>sidak</sub>"
+#, fuzzy
+msgid "p<sub>Sidak</sub>"
 msgstr "p<sub>シダック</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
@@ -836,10 +845,11 @@ msgstr ""
 "%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
 "て修正された信頼区間）。"
 
+#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
-"effect size corrected using the bonferroni method)."
+"effect size corrected using the Bonferroni method)."
 msgstr ""
 "%1$s 推定値の族を比較する調整されたp値と信頼区間（%2$s 法を用いて修正された信"
 "頼区間。すなわちボンフェローニの方法を使って補正された効果量）。"

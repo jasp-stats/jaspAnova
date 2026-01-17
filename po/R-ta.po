@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
-"POT-Creation-Date: 2025-05-10 03:00\n"
+"POT-Creation-Date: 2026-01-17 03:08\n"
 "PO-Revision-Date: 2026-01-07 03:08+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -192,7 +192,8 @@ msgstr "டன்னெட் போச்ட் ஓக் ஒப்பீடு
 msgid "%s%% CI for Mean Difference"
 msgstr "சராசரி வேறுபாட்டிற்கு%s %% தொஒ"
 
-msgid "p<sub>dunnett</sub>"
+#, fuzzy
+msgid "p<sub>Dunnett</sub>"
 msgstr "பி <sub> டன்னெட் </sub>"
 
 msgid ""
@@ -284,10 +285,12 @@ msgstr "W <sub> சே </sub>"
 msgid "r<sub>rb</sub>"
 msgstr "ஆர் <sub> ஆர்.பி </sub>"
 
-msgid "p<sub>bonf</sub>"
+#, fuzzy
+msgid "p<sub>Bonf</sub>"
 msgstr "பி <sub> போன் </sub>"
 
-msgid "p<sub>holm</sub>"
+#, fuzzy
+msgid "p<sub>Holm</sub>"
 msgstr "பி <sub> ஓல்ம் </sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
@@ -831,10 +834,16 @@ msgstr "%1$s%% பிசிஎ%2$s சிஐ"
 msgid "bias"
 msgstr "சார்பு"
 
-msgid "p<sub>scheffe</sub>"
+#, fuzzy
+msgid "p<sub>Tukey</sub>"
+msgstr "பி<sub> டுகே </sub>"
+
+#, fuzzy
+msgid "p<sub>Scheffe</sub>"
 msgstr "பி <sub> சிப்ட்ச் </sub>"
 
-msgid "p<sub>sidak</sub>"
+#, fuzzy
+msgid "p<sub>Sidak</sub>"
 msgstr "பி <sub> ஆய்வு </sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
@@ -847,10 +856,11 @@ msgstr ""
 "பி-மதிப்பு மற்றும் நம்பிக்கை இடைவெளிகள் %1$s மதிப்பீடுகளின் குடும்பத்தை ஒப்பிடுவதற்கு "
 "சரிசெய்யப்படுகின்றன ( %2$s முறையைப் பயன்படுத்தி நம்பிக்கை இடைவெளிகள் சரி செய்யப்பட்டன)."
 
+#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
-"effect size corrected using the bonferroni method)."
+"effect size corrected using the Bonferroni method)."
 msgstr ""
 "பி-மதிப்பு மற்றும் நம்பிக்கை இடைவெளிகள் %1$s மதிப்பீடுகளின் குடும்பத்தை ஒப்பிட்டுப் பார்க்க "
 "சரிசெய்யப்படுகின்றன ( %2$s முறையைப் பயன்படுத்தி சரிசெய்யப்பட்ட சராசரி வேறுபாட்டிற்கான "

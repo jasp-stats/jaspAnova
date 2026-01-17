@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
-"POT-Creation-Date: 2025-11-15 02:59\n"
+"POT-Creation-Date: 2026-01-17 03:08\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,7 +158,7 @@ msgstr ""
 msgid "%s%% CI for Mean Difference"
 msgstr ""
 
-msgid "p<sub>dunnett</sub>"
+msgid "p<sub>Dunnett</sub>"
 msgstr ""
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
@@ -236,10 +236,10 @@ msgstr ""
 msgid "r<sub>rb</sub>"
 msgstr ""
 
-msgid "p<sub>bonf</sub>"
+msgid "p<sub>Bonf</sub>"
 msgstr ""
 
-msgid "p<sub>holm</sub>"
+msgid "p<sub>Holm</sub>"
 msgstr ""
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
@@ -671,10 +671,13 @@ msgstr ""
 msgid "bias"
 msgstr ""
 
-msgid "p<sub>scheffe</sub>"
+msgid "p<sub>Tukey</sub>"
 msgstr ""
 
-msgid "p<sub>sidak</sub>"
+msgid "p<sub>Scheffe</sub>"
+msgstr ""
+
+msgid "p<sub>Sidak</sub>"
 msgstr ""
 
 msgid "P-value adjusted for comparing a family of %s estimates."
@@ -683,7 +686,7 @@ msgstr ""
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
 
-msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the bonferroni method)."
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method)."
 msgstr ""
 
 msgid "Marginal Means -"

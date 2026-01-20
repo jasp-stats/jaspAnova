@@ -7,6 +7,7 @@ Description
 	icon		: "analysis-classical-anova.svg"
 	description	: qsTr("Evaluate the difference between multiple means")
 	hasWrappers	: true
+	preloadData : false
 
 
 	GroupTitle

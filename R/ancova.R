@@ -520,7 +520,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   }
 
   emptyCellFootnote <- NULL
-  if (any(is.na(modelCoefficients))) {
+  if (anyNA(modelCoefficients)) {
     emptyCellFootnote <- gettextf(
       "Due to empty cells in the design, only %1$s of %2$s effects are estimable.", sum(!is.na(modelCoefficients)), length(modelCoefficients))
     if ((length(modelTerms)+1) > nrow(result))

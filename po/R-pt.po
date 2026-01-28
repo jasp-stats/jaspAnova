@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2026-01-17 03:08\n"
-"PO-Revision-Date: 2025-08-09 03:06+0000\n"
+"PO-Revision-Date: 2026-01-28 14:20+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/pt/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -200,9 +200,8 @@ msgstr "Comparações pós-hoc de Dunnett - %s"
 msgid "%s%% CI for Mean Difference"
 msgstr "%s%% IC para diferença média"
 
-#, fuzzy
 msgid "p<sub>Dunnett</sub>"
-msgstr "p<sub>dunnett</sub>"
+msgstr "p<sub>Dunnett</sub>"
 
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
@@ -295,13 +294,11 @@ msgstr "W<sub>j</sub>"
 msgid "r<sub>rb</sub>"
 msgstr "r<sub>rb</sub>"
 
-#, fuzzy
 msgid "p<sub>Bonf</sub>"
-msgstr "p<sub>bonf</sub>"
+msgstr "p<sub>Bonf</sub>"
 
-#, fuzzy
 msgid "p<sub>Holm</sub>"
-msgstr "p<sub>holm</sub>"
+msgstr "p<sub>Holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
@@ -853,17 +850,14 @@ msgstr "%1$s%% bca%2$s IC"
 msgid "bias"
 msgstr "viés"
 
-#, fuzzy
 msgid "p<sub>Tukey</sub>"
-msgstr "p<sub>tukey</sub>"
+msgstr "p<sub>Tukey</sub>"
 
-#, fuzzy
 msgid "p<sub>Scheffe</sub>"
-msgstr "p<sub>scheffe</sub>"
+msgstr "p<sub>Scheffé</sub>"
 
-#, fuzzy
 msgid "p<sub>Sidak</sub>"
-msgstr "p<sub>sidak</sub>"
+msgstr "p<sub>Sidak</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "Valor-p ajustado para comparar uma família de %s estimativas."
@@ -876,15 +870,14 @@ msgstr ""
 "estimativas de %1$s (intervalos de confiança corrigidos usando o método "
 "%2$s)."
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the Bonferroni method)."
 msgstr ""
-"Valor-p e intervalos de confiança ajustados para comparar uma família de "
-"estimativas de %1$s (IC corrigidos usando o método %2$s; IC pra o tamanho de "
-"efeito corrigido usando o método de Bonferroni)."
+"O valor-p e os intervalos de confiança foram ajustados para comparar uma "
+"família de estimativas de %1$s (IC corrigidos usando o método %2$s; IC para "
+"o tamanho de efeito corrigido usando o método de Bonferroni)."
 
 msgid "Marginal Means -"
 msgstr "Médias Marginais -"

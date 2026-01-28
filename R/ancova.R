@@ -390,7 +390,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   } else if (options$sumOfSquares == "type3") {
 
     # For each model term, including all interactions, check if there are empty cells
-    if (any(is.na(modelCoefficients))) {
+    if (anyNA(modelCoefficients)) {
       anovaContainer$setError(gettext("Your design contains empty cells. Please try a different type of sum of squares or remove an interaction effect from the model."))
       return()
     }

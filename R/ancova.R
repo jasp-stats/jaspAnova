@@ -368,6 +368,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   termsBase64 <- modelDef$terms.base64
 
   ## Computation
+  modelCoefficients <- model[["coefficients"]]
+
   if (options$sumOfSquares == "type1") {
 
     result <- base::tryCatch(stats::anova(model),error=function(e) e, warning=function(w) w)
@@ -382,15 +384,14 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   } else if (options$sumOfSquares == "type2") {
 
     result <- car::Anova(model, type=2)
+    result <- result[result['Df'] > 0, ] # omit terms that cannot be computed due to missingness
     result['Mean Sq'] <- result[['Sum Sq']] / result[['Df']]
 
   } else if (options$sumOfSquares == "type3") {
 
-    modelTerms <- unlist(options$modelTerms, recursive = FALSE)
-    factorModelTerms <- options$modelTerms[sapply(modelTerms, function(x) !any(x %in% options$covariates))]
     # For each model term, including all interactions, check if there are empty cells
-    if (any(sapply(factorModelTerms, function(x) any(table(model$model[, .v(x$components)]) == 0)))) {
-      anovaContainer$setError(gettext("Your design contains empty cells. Please try a different type of sum of squares."))
+    if (anyNA(modelCoefficients)) {
+      anovaContainer$setError(gettext("Your design contains empty cells. Please try a different type of sum of squares or remove an interaction effect from the model."))
       return()
     }
 
@@ -407,7 +408,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
   # Make sure that the order of the result is same order as reordered modelterms
   result <- result[.mapAnovaTermsToTerms(c(termsBase64, "Residuals"), rownames(result) ), ]
-  result[['cases']] <- c(termsNormal, "Residuals")
+  result[['cases']] <- c(termsNormal[.mapAnovaTermsToTerms(c(termsBase64), rownames(result))], "Residuals")
   result <- as.data.frame(result)
 
   # see where a new block starts, where block 1 = main, block 2 = two-way inter, block 3 = three-way, etc.
@@ -515,8 +516,17 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     }
     anovaResult[["welchFootnote"]] <- welchFootnote
-    anovaResult[['welchResult']] <- welchResult
+    anovaResult[['welchResult']]   <- welchResult
   }
+
+  emptyCellFootnote <- NULL
+  if (anyNA(modelCoefficients)) {
+    emptyCellFootnote <- gettextf(
+      "Due to empty cells in the design, only %1$s of %2$s effects are estimable.", sum(!is.na(modelCoefficients)), length(modelCoefficients))
+    if ((length(modelTerms)+1) > nrow(result))
+      emptyCellFootnote <- paste(emptyCellFootnote, gettext("Some higher-order interaction effects are not supported by the data and are therefore omitted."))
+  }
+  anovaResult[["emptyCellFootnote"]] <- emptyCellFootnote
 
   # Save model to state
   anovaContainer[["anovaResult"]] <- createJaspState(object = anovaResult)
@@ -625,7 +635,10 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     return()
 
   model <- anovaContainer[["anovaResult"]]$object
-  anovaTable$setData(do.call(rbind, model[setdiff(names(model), "welchFootnote")]))
+  anovaTable$setData(do.call(rbind, model[setdiff(names(model), c("emptyCellFootnote", "welchFootnote"))]))
+
+  if (!is.null(model[["emptyCellFootnote"]]))
+    anovaTable$addFootnote(model[["emptyCellFootnote"]])
 
   if (!is.null(model[["welchFootnote"]]))
     anovaTable$addFootnote(model[["welchFootnote"]])

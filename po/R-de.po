@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2026-01-31 03:22\n"
-"PO-Revision-Date: 2025-05-17 07:56+0000\n"
+"PO-Revision-Date: 2026-02-08 11:09+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -38,13 +38,12 @@ msgstr ""
 msgid "An error occurred while computing the ANOVA: %s"
 msgstr "Ein Fehler ist beim Berechnen der ANOVA aufgetreten: %s"
 
-#, fuzzy
 msgid ""
 "Your design contains empty cells. Please try a different type of sum of "
 "squares or remove an interaction effect from the model."
 msgstr ""
 "Ihr Design beinhaltet leere Zellen. Bitte probieren Sie einen anderen Typ "
-"der Quadratsumme."
+"der Quadratsumme oder entfernen Sie einen Interaktionseffekt aus dem Modell."
 
 msgid ""
 "The Welch correction could not be computed because '%1$s' has zero variance "
@@ -56,11 +55,14 @@ msgstr ""
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+"Aufgrund leerer Zellen im Design sind nur %1$s von %2$s Effekten schätzbar."
 
 msgid ""
 "Some higher-order interaction effects are not supported by the data and are "
 "therefore omitted."
 msgstr ""
+"Einige Interaktionseffekte höherer Ordnung werden nicht von den Daten "
+"unterstützt und werden daher weggelassen."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -206,7 +208,6 @@ msgstr "Dunnett Post-Hoc-Vergleiche - %s"
 msgid "%s%% CI for Mean Difference"
 msgstr "%s%%-KI für Mittelwertdifferenz"
 
-#, fuzzy
 msgid "p<sub>Dunnett</sub>"
 msgstr "p<sub>Dunnett</sub>"
 
@@ -300,11 +301,9 @@ msgstr "W<sub>j</sub>"
 msgid "r<sub>rb</sub>"
 msgstr "r<sub>rb</sub>"
 
-#, fuzzy
 msgid "p<sub>Bonf</sub>"
 msgstr "p<sub>Bonf</sub>"
 
-#, fuzzy
 msgid "p<sub>Holm</sub>"
 msgstr "p<sub>Holm</sub>"
 
@@ -863,15 +862,12 @@ msgstr "%1$s%% bca%2$s KI"
 msgid "bias"
 msgstr "Bias"
 
-#, fuzzy
 msgid "p<sub>Tukey</sub>"
 msgstr "p<sub>Tukey</sub>"
 
-#, fuzzy
 msgid "p<sub>Scheffe</sub>"
 msgstr "p<sub>Scheffe</sub>"
 
-#, fuzzy
 msgid "p<sub>Sidak</sub>"
 msgstr "p<sub>Sidak</sub>"
 
@@ -885,15 +881,14 @@ msgstr ""
 "P-Wert und Konfidenzintervalle angepasst, um eine Familie von %1$s zu "
 "vergleichen (Konfidenzintervalle angepasst mit der %2$s Methode)."
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the Bonferroni method)."
 msgstr ""
-"P-Wert und Konfidenzintervalle angepasst, um eine Familie von %1$s Schätzern "
-"zu vergleichen (KI für Mittelwertdifferenz korrigiert mit der %2$s Methode; "
-"KI für Effektstärke korrigiert mit der Bonferroni-Methode)."
+"P-Wert und Konfidenzintervalle angepasst, um eine Familie von %1$s "
+"Schätzungen zu vergleichen (KI für Mittelwertdifferenz korrigiert mit der "
+"%2$s Methode; KI für Effektstärke korrigiert mit der Bonferroni-Methode)."
 
 msgid "Marginal Means -"
 msgstr "Randmittelwerte -"

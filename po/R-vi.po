@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2026-01-31 03:22\n"
-"PO-Revision-Date: 2025-11-27 09:00+0000\n"
+"PO-Revision-Date: 2026-02-09 09:50+0000\n"
 "Last-Translator: Tran Thien Truong <truongtrandds@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/vi/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -55,11 +55,14 @@ msgstr ""
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+"Vì có ô trống trong thiết kế, chỉ %1$s của %2$s hiệu ứng là ước tính được."
 
 msgid ""
 "Some higher-order interaction effects are not supported by the data and are "
 "therefore omitted."
 msgstr ""
+"Một số hiệu ứng tương tác bậc cao không được hỗ trợ bởi dữ liệu và do đó bị "
+"bỏ qua."
 
 msgid "ANOVA"
 msgstr "ANOVA (Phân tích phương sai)"
@@ -206,9 +209,8 @@ msgstr "So sánh hậu nghiệm Dunnett - %s"
 msgid "%s%% CI for Mean Difference"
 msgstr "Khoảng tin cậy %s%% cho chênh lệch trung bình"
 
-#, fuzzy
 msgid "p<sub>Dunnett</sub>"
-msgstr "p<sub>Dunnett</sub>"
+msgstr "p<sub> Dunnett </sub>"
 
 msgid ""
 "Confidence interval is too narrow, please select a different confidence "
@@ -299,9 +301,8 @@ msgstr "W<sub>j</sub>"
 msgid "r<sub>rb</sub>"
 msgstr "r<sub>rb</sub> (hệ số tương quan thứ hạng r)"
 
-#, fuzzy
 msgid "p<sub>Bonf</sub>"
-msgstr "p<sub>bonf</sub> (Giá trị p hiệu chỉnh Bonferroni)"
+msgstr "p<sub>Bonf</sub> (Giá trị p hiệu chỉnh Bonferroni)"
 
 #, fuzzy
 msgid "p<sub>Holm</sub>"
@@ -373,47 +374,51 @@ msgid "None"
 msgstr "Không"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Hiệu ứng giữa các đối tượng"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Hiệu ứng nội bộ của các đối tượng"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Hiệu chỉnh hình cầu"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "Hiệu chỉnh hình cầu không khả dụng với các yếu tố có 2 mức độ."
 
 msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "
 "violated (p < .05)."
 msgstr ""
+"Kiểm định Mauchly về tính cầu phương cho thấy giả định tính cầu phương bị vi "
+"phạm (p < 0,05)."
 
 msgid ""
 "Cannot perform homogeneity tests because there are no between subjects "
 "factors specified."
 msgstr ""
+"Không thể thực hiện kiểm định đồng nhất vì chưa chỉ định yếu tố giữa các đối "
+"tượng."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Kiểm định tính cầu phương"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W của Mauchly"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Xấp xỉ %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "Giá trị p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
 msgstr ""

@@ -2144,22 +2144,9 @@
     },
     "restriktor": {
       "Package": "restriktor",
-      "Version": "0.3-500",
-      "Source": "GitHub",
-      "Requirements": [
-        "R",
-        "boot",
-        "ic.infer",
-        "lavaan",
-        "MASS",
-        "mvtnorm",
-        "quadprog"
-      ],
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "Kucharssim",
-      "RemoteRepo": "restriktor",
-      "RemoteSha": "70b3ae290ecd0fc15fdb0e241f36ffaeb1553019"
+      "Version": "0.6-30",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "rlang": {
       "Package": "rlang",

@@ -13,6 +13,8 @@
 
   analysis <- match.arg(analysis)
 
+  print('hallo wereld')
+
   options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
 
   container <- .aorGetMainContainer(anovaContainer)
@@ -349,7 +351,7 @@
       rownames(modelComparison[["ratio.gw"]]) <- colnames(modelComparison[["ratio.gw"]]) <- modelNames
     }
 
-    modelComparison[["result"]][["modelNames"]] <- modelNames
+    modelComparison[["result"]][["modelNames"]] <- modelNames # TO DO Add option user-specified names?
     modelComparison[["result"]][["model"]]      <- names(modelNames)
 
   }
@@ -884,6 +886,7 @@
   trimws(message)
 }
 
+# TO DO dit eruit, nl voor testing niet goric(a)
 .aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, syntax, modelName) {
   samples    <- length(unrestrictedBootstrap)
   ncoefs     <- length(coefficients(fit))
@@ -893,7 +896,7 @@
   for(i in seq_len(samples)) {
     unconstrained <- unrestrictedBootstrap[[i]]
     if(inherits(fit, "restriktor")) { # an(c)ova
-      boot <- try(restriktor::restriktor(object = unconstrained, constraints = syntax, se = fit[["se"]]))
+      boot <- try(restriktor::restriktor(object = unconstrained, constraints =  syntax, se = fit[["se"]]))
     } else { # rm anova
       model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
       boot <- try(.rmaorCalculateRestrictedModel(model, syntax))
@@ -1173,10 +1176,13 @@
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-    constraints = syntax,
+    hypotheses = list(syntax), # TO DO ws per hypo iets doen...
     comparison  = "none",
     type        = "gorica"
   )
+  print('syntax')
+  print(syntax) # TO DO delete - voor testen nodig
+
   fit <- do.call(restriktor::goric, args)
   fit <- fit[["objectList"]][[1]]
 

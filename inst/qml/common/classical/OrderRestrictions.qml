@@ -84,7 +84,7 @@ Section
 				label:	qsTr("Marginal means")
 			}
 
-			/*
+			
 			CheckBox
 			{
 				name:		"restrictedInformedHypothesisTestForAllModels"
@@ -92,7 +92,7 @@ Section
 				label:		qsTr("Informed hypothesis tests")
 				visible:	analysis !== Common.Type.Analysis.RMANOVA
 			}
-			*/
+			
 		}
 	}
 
@@ -132,6 +132,7 @@ Section
 					checked:	marginalMeansByDefault.checked
 				}
 
+
 				CheckBox
 				{
 					name:		"informedHypothesisTest"
@@ -139,6 +140,7 @@ Section
 					checked:	informedHypothesisTestByDefault.checked
 					visible:	analysis !== Common.Type.Analysis.RMANOVA
 				}
+				
 			}
 		}
 	}

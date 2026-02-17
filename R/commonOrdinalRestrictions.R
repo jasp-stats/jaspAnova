@@ -1,5 +1,6 @@
 # Main function  ----
 .anovaOrdinalRestrictions <- function(anovaContainer, dataset, options, ready, analysis = c("anova", "rmanova")) {
+
   if (!ready) return()
   # currently '.aorBasicInfo' shows only available coefficients
   # this can be displayed in JASP before any restricted model is defined
@@ -13,8 +14,6 @@
 
   analysis <- match.arg(analysis)
 
-  print('hallo wereld')
-
   options[["restrictedModels"]] <- .aorPruneEmptyModels(options[["restrictedModels"]])
 
   container <- .aorGetMainContainer(anovaContainer)
@@ -25,7 +24,9 @@
 
   models <- .aorGetFittedModels(container, dataset, options, analysis)
 
-  .aorModelComparison      (container, dataset, options, models, analysis)
+  #browser()
+  unrestricted <- models[['unrestricted']][['fit']]
+  .aorModelComparison      (unrestricted, container, dataset, options, models, analysis)
   .aorSingleModelsInference(container, dataset, options, models, analysis)
 
   return()
@@ -180,6 +181,12 @@
   modelName <- .aorGetModelName   (restrictedModelOption)
   stateName <- sprintf("state_%s", modelName)
 
+  # TO DO
+  #browser()
+  # saveRDS(options, "C:\\Werk\\Git\\jaspAnova\\tests\\options.RDS")
+  # saveRDS(dataset, "C:\\Werk\\Git\\jaspAnova\\tests\\dataset.RDS")
+
+
   if(!is.null(container[[stateName]]$object)) {
     if(length(unrestrictedBootstrap) > 0)
       progressbarTick()
@@ -221,7 +228,13 @@
       huberWhite5  = "HC5",
       "standard"
     )
+
+    # TO DO
+    #browser()
+    #syntax <- 'jaspColumn11 > jaspColumn12'
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
+ # TO DO in object zitten nu jaspnamen en niet meer de R namen...
+    # Bijv nu jaspColumn11 ipv site1!
   } else {
     fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax))
   }
@@ -260,16 +273,17 @@
 }
 
 .aorGetRestrictedModels <- function(container, dataset, options, unrestrictedModel, unrestrictedBootstrap = list(), analysis) {
+
   if(length(unrestrictedBootstrap) > 0)
     startProgressbar(expectedTicks = length(options[["restrictedModels"]]),
                      label         = gettext("Bootstrapping restricted models"))
-
 
   restrictedModels <- vector("list", length(options[["restrictedModels"]]))
   for(i in seq_along(restrictedModels)) {
     restrictedModelOption <- options[["restrictedModels"]][[i]]
     restrictedModels[[i]] <- try(.aorGetRestrictedModel(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap, analysis))
   }
+  #browser() # TO DO HIER2
   modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
   names(restrictedModels) <- modelNames
 
@@ -326,14 +340,14 @@
   return(models)
 }
 
-.aorGetModelComparison <- function(container, options, models, analysis) {
+.aorGetModelComparison <- function(unrestricted, container, dataset, options, models, analysis) {
   if (!is.null(container[["modelComparisonState"]])) return(container[["modelComparisonState"]]$object)
 
   comparison <- options[["restrictedModelComparison"]]
   reference  <- options[["restrictedModelComparisonReference"]]
 
   if(analysis == "anova") {
-    modelComparison <- try(.aorCalculateModelComparison(options, models, comparison))
+    modelComparison <- try(.aorCalculateModelComparison(unrestricted, container, dataset, options, models, comparison))
   } else {
     modelComparison <- try(.rmaorCalculateModelComparison(options, models, comparison))
   }
@@ -371,6 +385,7 @@
 
   if(is.null(container[["basicInfoContainer"]])) {
     basicInfoContainer <- createJaspContainer(title = gettext("Syntax information"), position = 1)
+    container[["unrestricted"]] <- createJaspState(object = unrestricted[["fit"]])
     container[["basicInfoContainer"]] <- basicInfoContainer
   } else {
     basicInfoContainer <- container[["basicInfoContainer"]]
@@ -401,7 +416,8 @@
 }
 
 # Model Comparison ----
-.aorModelComparison <- function(container, dataset, options, models, analysis) {
+.aorModelComparison <- function(unrestricted, container, dataset, options, models, analysis) {
+
   modelComparisonContainer <- .aorGetContainer(
     container    = container,
     name         = "modelComparison",
@@ -413,7 +429,7 @@
   ready <- !container$getError() && length(models[["restricted"]]) > 0
 
   if(ready) {
-    modelComparison <- try(.aorGetModelComparison(modelComparisonContainer, options, models, analysis))
+    modelComparison <- try(.aorGetModelComparison(unrestricted, modelComparisonContainer, dataset, options, models, analysis))
   } else {
     modelComparison <- NULL
   }
@@ -432,11 +448,15 @@
 .aorModelComparisonTable <- function(container, options, modelComparison, ready) {
   if(!is.null(container[["comparisonTable"]])) return()
 
+  print('modelComparison')
+  print(modelComparison)
+
   if(ready) {
     type <- modelComparison[["type"]]
   } else {
     type <- "none"
   }
+
   comparison <- options[["restrictedModelComparison"]]
   reference  <- options[["restrictedModelComparisonReference"]]
 
@@ -505,7 +525,6 @@
 .aorModelComparisonMatrix <- function(container, options, modelComparison, ready) {
   if(!is.null(container[["comparisonMatrix"]]) || !options[["restrictedModelComparisonMatrix"]]) return()
 
-
   if(ready) {
     type <- modelComparison[["type"]]
   } else {
@@ -560,7 +579,9 @@
   colnames(df) <- result[["model"]]
   df[["coef"]] <- rownames(df)
 
+  # TO DO ik denk dat de bug niet klopt of gefixt is...
   # bug in restriktor cannot handle user-defined parameters, so we will remove them
+  #browser() # TO DO
   if(is.null(models[["unrestricted"]][["parsForGorica"]])) {
     unrestrictedCoefficients <- coefficients(models[["unrestricted"]][["fit"]])
   } else {
@@ -896,7 +917,7 @@
   for(i in seq_len(samples)) {
     unconstrained <- unrestrictedBootstrap[[i]]
     if(inherits(fit, "restriktor")) { # an(c)ova
-      boot <- try(restriktor::restriktor(object = unconstrained, constraints =  syntax, se = fit[["se"]]))
+      boot <- try(restriktor::restriktor(object = unconstrained, constraints = syntax, se = fit[["se"]]))
     } else { # rm anova
       model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
       boot <- try(.rmaorCalculateRestrictedModel(model, syntax))
@@ -1092,10 +1113,38 @@
   return(model)
 }
 
-.aorCalculateModelComparison <- function(options, models, comparison) {
-  modelList <- lapply(models[["restricted"]], "[[", "fit")
-  names(modelList)[1] <- "object"
-  modelComparison <- try(do.call(restriktor::goric, c(modelList, comparison = comparison)))
+.aorCalculateModelComparison <- function(unrestricted, container, dataset, options, models, comparison) {
+  #modelList <- lapply(models[["restricted"]], "[[", "fit")
+  #names(modelList)[1] <- "object"
+
+  # TO DO
+  # print('check RMK')
+  # syntax <- options$restrictedModels[[1]]$syntax
+  # print(syntax)
+  # syntax <- 'jaspColumn11 > jaspColumn12'
+  # #print(syntax) # TO DO delete - voor testen nodig
+  # options$restrictedModels[[1]]$syntax <-  'jaspColumn11 > jaspColumn12'
+  # options$restrictedModels[[2]]$syntax <-  'jaspColumn11 > jaspColumn13'
+
+  # TO DO HIER
+  # modelComparison <- try(do.call(restriktor::goric, c(anovaContainer[["model"]][['object']], hypotheses = list(syntax), comparison = comparison)))
+  # modelComparison <- try(restriktor::goric(anovaContainer[["model"]][['object']], hypotheses = list(syntax), comparison = comparison))
+  # unrestricted <- .aorGetUnrestrictedModel(container, dataset, options, analysis = "anova")
+# browser()
+#unrestricted[["parsForGorica"]][["coef"]]
+
+  #syntax <- .aorTranslateSyntax(syntax, dataset, options, modelName)
+
+  #browser()
+  #options$restrictedModels[['syntax']]
+
+  xx <- options$restrictedModels[[1]]
+  H1 <- .aorTranslateSyntax(xx[['syntax']], dataset, options, xx[["name"]])
+  #.aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]]))
+  #restriktor::goric(unrestricted, hypotheses = list(H1), comparison = comparison)
+  modelComparison <- try(restriktor::goric(unrestricted, hypotheses = list(H1), comparison = comparison))
+  #modelComparison <- try(restriktor::goric(unrestricted, hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])), comparison = comparison))
+  #browser()
   return(modelComparison)
 }
 

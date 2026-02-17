@@ -16,7 +16,7 @@
 #
 
 AnovaInternal <- function(jaspResults, dataset = NULL, options) {
-  print('hallo wereld anova')
+
     options$covariates <- NULL
 
     AncovaInternal(jaspResults, dataset = NULL, options)

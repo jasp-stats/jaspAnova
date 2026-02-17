@@ -24,7 +24,6 @@
 
   models <- .aorGetFittedModels(container, dataset, options, analysis)
 
-  #browser()
   unrestricted <- models[['unrestricted']][['fit']]
   .aorModelComparison      (unrestricted, container, dataset, options, models, analysis)
   .aorSingleModelsInference(container, dataset, options, models, analysis)
@@ -181,12 +180,6 @@
   modelName <- .aorGetModelName   (restrictedModelOption)
   stateName <- sprintf("state_%s", modelName)
 
-  # TO DO
-  #browser()
-  # saveRDS(options, "C:\\Werk\\Git\\jaspAnova\\tests\\options.RDS")
-  # saveRDS(dataset, "C:\\Werk\\Git\\jaspAnova\\tests\\dataset.RDS")
-
-
   if(!is.null(container[[stateName]]$object)) {
     if(length(unrestrictedBootstrap) > 0)
       progressbarTick()
@@ -229,12 +222,10 @@
       "standard"
     )
 
-    # TO DO
+    # TO DO for browser debugging
     #browser()
     #syntax <- 'jaspColumn11 > jaspColumn12'
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
- # TO DO in object zitten nu jaspnamen en niet meer de R namen...
-    # Bijv nu jaspColumn11 ipv site1!
   } else {
     fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax))
   }
@@ -283,7 +274,6 @@
     restrictedModelOption <- options[["restrictedModels"]][[i]]
     restrictedModels[[i]] <- try(.aorGetRestrictedModel(container, restrictedModelOption, dataset, options, unrestrictedModel, unrestrictedBootstrap, analysis))
   }
-  #browser() # TO DO HIER2
   modelNames              <- .aorGetModelNames(options[["restrictedModels"]])
   names(restrictedModels) <- modelNames
 
@@ -448,9 +438,6 @@
 .aorModelComparisonTable <- function(container, options, modelComparison, ready) {
   if(!is.null(container[["comparisonTable"]])) return()
 
-  print('modelComparison')
-  print(modelComparison)
-
   if(ready) {
     type <- modelComparison[["type"]]
   } else {
@@ -579,7 +566,7 @@
   colnames(df) <- result[["model"]]
   df[["coef"]] <- rownames(df)
 
-  # TO DO ik denk dat de bug niet klopt of gefixt is...
+  # TO DO ik denk dat hierna genoemde bug niet klopt of gefixt is...
   # bug in restriktor cannot handle user-defined parameters, so we will remove them
   #browser() # TO DO
   if(is.null(models[["unrestricted"]][["parsForGorica"]])) {
@@ -1114,37 +1101,12 @@
 }
 
 .aorCalculateModelComparison <- function(unrestricted, container, dataset, options, models, comparison) {
-  #modelList <- lapply(models[["restricted"]], "[[", "fit")
-  #names(modelList)[1] <- "object"
 
-  # TO DO
-  # print('check RMK')
-  # syntax <- options$restrictedModels[[1]]$syntax
-  # print(syntax)
-  # syntax <- 'jaspColumn11 > jaspColumn12'
-  # #print(syntax) # TO DO delete - voor testen nodig
-  # options$restrictedModels[[1]]$syntax <-  'jaspColumn11 > jaspColumn12'
-  # options$restrictedModels[[2]]$syntax <-  'jaspColumn11 > jaspColumn13'
-
-  # TO DO HIER
-  # modelComparison <- try(do.call(restriktor::goric, c(anovaContainer[["model"]][['object']], hypotheses = list(syntax), comparison = comparison)))
-  # modelComparison <- try(restriktor::goric(anovaContainer[["model"]][['object']], hypotheses = list(syntax), comparison = comparison))
-  # unrestricted <- .aorGetUnrestrictedModel(container, dataset, options, analysis = "anova")
-# browser()
-#unrestricted[["parsForGorica"]][["coef"]]
-
-  #syntax <- .aorTranslateSyntax(syntax, dataset, options, modelName)
-
+  # TO DO for browser debugging
   #browser()
-  #options$restrictedModels[['syntax']]
+  #options$restrictedModels[[1]]$syntax <-  'jaspColumn11 > jaspColumn12'
+  modelComparison <- try(restriktor::goric(unrestricted, hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])), comparison = comparison))
 
-  xx <- options$restrictedModels[[1]]
-  H1 <- .aorTranslateSyntax(xx[['syntax']], dataset, options, xx[["name"]])
-  #.aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]]))
-  #restriktor::goric(unrestricted, hypotheses = list(H1), comparison = comparison)
-  modelComparison <- try(restriktor::goric(unrestricted, hypotheses = list(H1), comparison = comparison))
-  #modelComparison <- try(restriktor::goric(unrestricted, hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])), comparison = comparison))
-  #browser()
   return(modelComparison)
 }
 

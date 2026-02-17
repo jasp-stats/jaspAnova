@@ -227,7 +227,7 @@
     #syntax <- 'jaspColumn11 > jaspColumn12'
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
   } else {
-    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax))
+    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax, options, dataset))
   }
 
   if(isTryError(fit)) {
@@ -339,7 +339,7 @@
   if(analysis == "anova") {
     modelComparison <- try(.aorCalculateModelComparison(unrestricted, container, dataset, options, models, comparison))
   } else {
-    modelComparison <- try(.rmaorCalculateModelComparison(options, models, comparison))
+    modelComparison <- try(.rmaorCalculateModelComparison(container, dataset, options, models, comparison))
   }
 
   if(!isTryError(modelComparison)) {
@@ -907,7 +907,7 @@
       boot <- try(restriktor::restriktor(object = unconstrained, constraints = syntax, se = fit[["se"]]))
     } else { # rm anova
       model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
-      boot <- try(.rmaorCalculateRestrictedModel(model, syntax))
+      boot <- try(.rmaorCalculateRestrictedModel(model, syntax, options, dataset))
     }
 
     if(!isTryError(boot)) {
@@ -1183,16 +1183,17 @@
   ))
 }
 
-.rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax) {
+.rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax, options, dataset) {
+
+  #browser() # TO DO
+
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-    hypotheses = list(syntax), # TO DO ws per hypo iets doen...
-    comparison  = "none",
+    hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])),
+    comparison  = "none", # TO DO Is dit is de default die dan evt overschreven wordt?
     type        = "gorica"
   )
-  print('syntax')
-  print(syntax) # TO DO delete - voor testen nodig
 
   fit <- do.call(restriktor::goric, args)
   fit <- fit[["objectList"]][[1]]
@@ -1208,12 +1209,14 @@
   return(fit)
 }
 
-.rmaorCalculateModelComparison <- function(options, models, comparison) {
-  args <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
+.rmaorCalculateModelComparison <- function(container, dataset, options, models, comparison) {
+  #args <- as.list(.aorGetModelSyntaxes(models = models[["restricted"]]))
+  args <- NULL
   args[["object"]]     <- models[["unrestricted"]][["parsForGorica"]][["coef"]]
   args[["VCOV"]]       <- models[["unrestricted"]][["parsForGorica"]][["vcov"]]
   args[["comparison"]] <- comparison
   args[["type"]]       <- "gorica"
+  args[["hypotheses"]] <- lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]]))
 
   modelComparison <- do.call(restriktor::goric, args)
   return(modelComparison)

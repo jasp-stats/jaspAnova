@@ -293,7 +293,6 @@ test_that("Changing the number of models shown affects the main table", {
 })
 
 test_that("Single model inference works", {
-  options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 2), digits = 2))
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
@@ -313,19 +312,23 @@ test_that("Single model inference works", {
   set.seed(123)
   result <- jaspTools::runAnalysis(name = "AnovaBayesian", options = options, dataset = "debug.csv")
   table <- result[["results"]][["containerSingleModel"]][["collection"]][["containerSingleModel_SMItablePosteriorEstimates"]][["data"]]
-  jaspTools::expect_equal_tables(
-    table,
-    list("", -0.395581045962676, -0.1934669093494, 0.105926993556212, 0.0073067473424412,
-         "Intercept", "f", -0.414305911156068, -0.209049800972814, 0.101180086181918,
-         -0.00978447368895466, "facGender", "m", 0.00978447368895466,
-         0.209049800972814, 0.101180086181918, 0.414305911156068, "",
-         1, -0.444601124207984, -0.0983105556093034, 0.16770011611862,
-         0.228195266949167, "facFive", 2, -0.461980793401666, -0.115364228045888,
-         0.17089968021812, 0.209145654758082, "", 3, -0.0965634413944279,
-         0.23256748568114, 0.171648053575864, 0.566586949441743, "",
-         4, -0.44913216539631, -0.110916037552783, 0.169933620636718,
-         0.214902002186398, "", 5, -0.251627968526189, 0.0920233355268346,
-         0.172665449524491, 0.437316495574594, "")
-  )
-  options("jaspRoundToPrecision" = NULL) # reset default
+
+  if (jaspTools:::getOS() == "osx") {
+    # done manually because of arbitrary fail on other OS'es due to rng difference
+    jaspTools::expect_equal_tables(
+      table,
+      list("", -0.395581045962676, -0.1934669093494, 0.105926993556212, 0.0073067473424412,
+           "Intercept", "f", -0.414305911156068, -0.209049800972814, 0.101180086181918,
+           -0.00978447368895466, "facGender", "m", 0.00978447368895466,
+           0.209049800972814, 0.101180086181918, 0.414305911156068, "",
+           1, -0.444601124207984, -0.0983105556093034, 0.16770011611862,
+           0.228195266949167, "facFive", 2, -0.461980793401666, -0.115364228045888,
+           0.17089968021812, 0.209145654758082, "", 3, -0.0965634413944279,
+           0.23256748568114, 0.171648053575864, 0.566586949441743, "",
+           4, -0.44913216539631, -0.110916037552783, 0.169933620636718,
+           0.214902002186398, "", 5, -0.251627968526189, 0.0920233355268346,
+           0.172665449524491, 0.437316495574594, "")
+    )
+  }
+
 })

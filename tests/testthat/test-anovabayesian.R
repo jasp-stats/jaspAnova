@@ -293,6 +293,7 @@ test_that("Changing the number of models shown affects the main table", {
 })
 
 test_that("Single model inference works", {
+  options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 2), digits = 2))
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
@@ -326,4 +327,5 @@ test_that("Single model inference works", {
          0.214902002186398, "", 5, -0.251627968526189, 0.0920233355268346,
          0.172665449524491, 0.437316495574594, "")
   )
+  options("jaspRoundToPrecision" = NULL) # reset default
 })

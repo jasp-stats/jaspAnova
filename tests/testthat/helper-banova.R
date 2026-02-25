@@ -16,36 +16,45 @@ initOpts <- function(analysisName) {
 
 addCommonQMLoptions <- function(options) {
   # jaspTools doesn't recognize common QML elements so this function adds the defaults manually
-  root <- if (nzchar(Sys.getenv("R_COVR"))) {
-    # We are running inside covr (installed package structure)
+  # Find package root directory more robustly
+  pkg_root <- if (nzchar(Sys.getenv("R_COVR"))) {
+    # Try installed package first
     pkg_path <- system.file("qml", "common", "bayesian", package = "jaspANOVA")
     if (nzchar(pkg_path)) {
-      pkg_path
+      return(pkg_path)
     } else {
-      # Fallback if package not found
-      testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
+      # Find package root by looking for DESCRIPTION file
+      current_dir <- getwd()
+      while (!file.exists(file.path(current_dir, "DESCRIPTION"))) {
+        parent_dir <- dirname(current_dir)
+        if (parent_dir == current_dir) {
+          stop("Could not find package root directory")
+        }
+        current_dir <- parent_dir
+      }
+      current_dir
     }
   } else {
-    testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
+    # Find package root by looking for DESCRIPTION file
+    current_dir <- getwd()
+    while (!file.exists(file.path(current_dir, "DESCRIPTION"))) {
+      parent_dir <- dirname(current_dir)
+      if (parent_dir == current_dir) {
+        stop("Could not find package root directory")
+      }
+      current_dir <- parent_dir
+    }
+    current_dir
   }
   
+  root <- file.path(pkg_root, "inst", "qml", "common", "bayesian")
+  
   if (!dir.exists(root)) {
-    stop("Bayesian QML directory not found at: ", root, ". R_COVR=", Sys.getenv("R_COVR"))
+    stop("Bayesian QML directory not found at: ", root, ". R_COVR=", Sys.getenv("R_COVR"), ", Working dir: ", getwd())
   }
   
   # Also get the common path for shared QML files
-  commonPath <- if (nzchar(Sys.getenv("R_COVR"))) {
-    # We are running inside covr (installed package structure)
-    pkg_path <- system.file("qml", "common", package = "jaspANOVA")
-    if (nzchar(pkg_path)) {
-      pkg_path
-    } else {
-      # Fallback if package not found
-      testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
-    }
-  } else {
-    testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
-  }
+  commonPath <- file.path(pkg_root, "inst", "qml", "common")
   
   if (!dir.exists(commonPath)) {
     stop("Common QML directory not found at: ", commonPath, ". R_COVR=", Sys.getenv("R_COVR"))

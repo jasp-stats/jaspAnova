@@ -18,7 +18,13 @@ addCommonQMLoptions <- function(options) {
   # jaspTools doesn't recognize common QML elements so this function adds the defaults manually
   root <- if (nzchar(Sys.getenv("R_COVR"))) {
     # We are running inside covr (installed package structure)
-    system.file("qml", "common", "bayesian", package = "jaspANOVA")
+    pkg_path <- system.file("qml", "common", "bayesian", package = "jaspANOVA")
+    if (nzchar(pkg_path)) {
+      pkg_path
+    } else {
+      # Fallback if package not found
+      testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
+    }
   } else {
     testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
   }
@@ -30,7 +36,13 @@ addCommonQMLoptions <- function(options) {
   # Also get the common path for shared QML files
   commonPath <- if (nzchar(Sys.getenv("R_COVR"))) {
     # We are running inside covr (installed package structure)
-    system.file("qml", "common", package = "jaspANOVA")
+    pkg_path <- system.file("qml", "common", package = "jaspANOVA")
+    if (nzchar(pkg_path)) {
+      pkg_path
+    } else {
+      # Fallback if package not found
+      testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
+    }
   } else {
     testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
   }

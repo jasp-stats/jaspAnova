@@ -11,7 +11,13 @@ initClassicalAnovaOptions <- function(analysis = c("Anova", "Ancova", "AnovaRepe
 classicalAnovaCommonOptions <- function() {
   path <- if (nzchar(Sys.getenv("R_COVR"))) {
     # We are running inside covr (installed package structure)
-    system.file("qml", "common", "classical", package = "jaspANOVA")
+    pkg_path <- system.file("qml", "common", "classical", package = "jaspANOVA")
+    if (nzchar(pkg_path)) {
+      pkg_path
+    } else {
+      # Fallback if package not found
+      testthat::test_path(file.path("..", "..", "inst", "qml", "common", "classical"))
+    }
   } else {
     testthat::test_path(file.path("..", "..", "inst", "qml", "common", "classical"))
   }
@@ -24,7 +30,13 @@ classicalAnovaCommonOptions <- function() {
   
   commonPath <- if (nzchar(Sys.getenv("R_COVR"))) {
     # We are running inside covr (installed package structure)
-    system.file("qml", "common", package = "jaspANOVA")
+    pkg_path <- system.file("qml", "common", package = "jaspANOVA")
+    if (nzchar(pkg_path)) {
+      pkg_path
+    } else {
+      # Fallback if package not found
+      testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
+    }
   } else {
     testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
   }

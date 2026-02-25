@@ -22,6 +22,10 @@ addCommonQMLoptions <- function(options) {
   } else {
     testthat::test_path(file.path("..", "..", "inst", "qml", "common", "bayesian"))
   }
+  
+  if (!dir.exists(root)) {
+    stop("Bayesian QML directory not found at: ", root, ". R_COVR=", Sys.getenv("R_COVR"))
+  }
   c(
     options,
     jaspTools:::readQML(file.path(root, "DefaultOptions.qml")),

@@ -26,6 +26,18 @@ addCommonQMLoptions <- function(options) {
   if (!dir.exists(root)) {
     stop("Bayesian QML directory not found at: ", root, ". R_COVR=", Sys.getenv("R_COVR"))
   }
+  
+  # Also get the common path for shared QML files
+  commonPath <- if (nzchar(Sys.getenv("R_COVR"))) {
+    # We are running inside covr (installed package structure)
+    system.file("qml", "common", package = "jaspANOVA")
+  } else {
+    testthat::test_path(file.path("..", "..", "inst", "qml", "common"))
+  }
+  
+  if (!dir.exists(commonPath)) {
+    stop("Common QML directory not found at: ", commonPath, ". R_COVR=", Sys.getenv("R_COVR"))
+  }
   c(
     options,
     jaspTools:::readQML(file.path(root, "DefaultOptions.qml")),
@@ -34,6 +46,9 @@ addCommonQMLoptions <- function(options) {
     jaspTools:::readQML(file.path(root, "DescriptivesPlots.qml")),
     jaspTools:::readQML(file.path(root, "AdditionalOptions.qml")),
     jaspTools:::readQML(file.path(root, "BayesFactorOrder.qml")),
-    jaspTools:::readQML(file.path(root, "PostHocTests.qml"))
+    jaspTools:::readQML(file.path(root, "PostHocTests.qml")),
+    jaspTools:::readQML(file.path(commonPath, "RainCloudPlots.qml")),
+    jaspTools:::readQML(file.path(commonPath, "BarPlots.qml")),
+    jaspTools:::readQML(file.path(commonPath, "Type.qml"))
   )
 }

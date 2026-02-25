@@ -35,7 +35,9 @@ classicalAnovaCommonOptions <- function() {
   
   files <- c(
     files,
-    file.path(commonPath, "RainCloudPlots.qml")
+    file.path(commonPath, "RainCloudPlots.qml"),
+    file.path(commonPath, "BarPlots.qml"),
+    file.path(commonPath, "Type.qml")
   )
   options <- lapply(files, jaspTools:::readQML) |>
     lapply(function(x) {x$plotWidth <- NULL; x$plotHeight <- NULL; return(x)}) |>

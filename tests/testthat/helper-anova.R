@@ -43,6 +43,12 @@ classicalAnovaCommonOptions <- function() {
     commonPath <- file.path(current_dir, "inst", "qml", "common")
   }
   
+  if (!dir.exists(path)) {
+    stop("Classical QML directory not found at: ", path, ". R_COVR=", Sys.getenv("R_COVR"), ", Working dir: ", getwd())
+  }
+  
+  files <- list.files(path, full.names = TRUE)
+  
   if (!dir.exists(commonPath)) {
     stop("Common QML directory not found at: ", commonPath, ". R_COVR=", Sys.getenv("R_COVR"))
   }

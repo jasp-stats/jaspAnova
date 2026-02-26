@@ -97,7 +97,18 @@ Form
 				CheckBox { name: "sphericityCorrectionHuynhFeldt";			label: qsTr("Huynh-Feldt");	info: qsTr("Another common method to correct the degrees of freedom is Huynh-Feldt correction.")	;	checked: false }
 			}
 			CheckBox { name: "homogeneityTests"; label: qsTr("Homogeneity tests"); info: qsTr("By selecting this option, it will be checked whether the variance of the dependent variable is equal between the groups by performing Levene's test of equal variances. This test is only suitable for assessing equal variance for between subjects factors. For repeated measures, the sphericity test is more suitable.") }
-			CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals"); info: qsTr("Q-Q plot to assess if the residuals follow a normal distribution. Deviations from the regression line indicate a non-normal distribution.") }
+			
+			CheckBox 
+			{ 
+				name: "qqPlot";		 	label: qsTr("Q-Q plot residuals"); info: qsTr("Displays Q-Q plot of the standardized residuals. The confidence band shows the expected range of residuals under normality; points outside the band suggest deviations from normality.") 
+				CheckBox
+				{
+					name:               "qqPlotCi"
+					label:              qsTr("Confidence interval")
+					childrenOnSameRow:  true
+					CIField{ name: "qqPlotCiLevel" }
+				}		
+			}		
 		}
 	}
 

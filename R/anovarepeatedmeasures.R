@@ -749,7 +749,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return()
 
   assumptionsContainer <- createJaspContainer(title = gettext("Assumption Checks"),
-                                              dependencies = c("homogeneityTests", "sphericityTests", "qqPlot"))
+                                              dependencies = c("homogeneityTests", "sphericityTests", "qqPlot",
+                                                               "qqPlotCi", "qqPlotCiLevel"))
 
   rmAnovaContainer[["assumptionsContainer"]] <- assumptionsContainer
 

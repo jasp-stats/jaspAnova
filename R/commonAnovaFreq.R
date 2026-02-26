@@ -216,12 +216,14 @@
   } else {
     residuals <- rstandard(anovaContainer[["model"]][["object"]])
   }
+  ciLevel <- if (options[["qqPlotCi"]])  options[["qqPlotCiLevel"]] else NULL
 
   qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals,
                                               yName = "Standardized residuals",
                                               ablineColor = "darkred",
                                               ablineOrigin = TRUE,
-                                              identicalAxes = TRUE)
+                                              identicalAxes = TRUE,
+                                              ciLevel = ciLevel)
   return()
 }
 

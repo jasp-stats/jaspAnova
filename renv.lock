@@ -1274,25 +1274,12 @@
       "Package": "jaspGraphs",
       "Version": "0.20.0",
       "Source": "GitHub",
-      "Requirements": [
-        "testthat",
-        "cli",
-        "ggplot2",
-        "gridExtra",
-        "gtable",
-        "htmlwidgets",
-        "jsonlite",
-        "lifecycle",
-        "plotly",
-        "R6",
-        "rlang",
-        "scales"
-      ],
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspGraphs",
-      "RemoteSha": "1a0f11bf210637b7428f337f8598bee8a62c8495"
+      "RemoteRef": "master",
+      "RemoteSha": "c168567ea259e628ad4972c6b3a15acff1fdb8a3"
     },
     "jaspTTests": {
       "Package": "jaspTTests",

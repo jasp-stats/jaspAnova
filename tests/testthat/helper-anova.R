@@ -10,13 +10,14 @@ initClassicalAnovaOptions <- function(analysis = c("Anova", "Ancova", "AnovaRepe
 
 classicalAnovaCommonOptions <- function() {
   # Find package root directory more robustly
-  pkg_root <- if (nzchar(Sys.getenv("R_COVR"))) {
+  if (nzchar(Sys.getenv("R_COVR"))) {
     # Try installed package first
     pkg_path <- system.file("qml", "common", "classical", package = "jaspANOVA")
     if (nzchar(pkg_path)) {
-      return(pkg_path)
+      path <- pkg_path
+      commonPath <- system.file("qml", "common", package = "jaspANOVA")
     } else {
-      # Find package root by looking for DESCRIPTION file
+      # Fallback: find package root and use installed structure (no inst/)
       current_dir <- getwd()
       while (!file.exists(file.path(current_dir, "DESCRIPTION"))) {
         parent_dir <- dirname(current_dir)
@@ -25,10 +26,11 @@ classicalAnovaCommonOptions <- function() {
         }
         current_dir <- parent_dir
       }
-      current_dir
+      path <- file.path(current_dir, "qml", "common", "classical")
+      commonPath <- file.path(current_dir, "qml", "common")
     }
   } else {
-    # Find package root by looking for DESCRIPTION file
+    # Development: find package root and use source structure (with inst/)
     current_dir <- getwd()
     while (!file.exists(file.path(current_dir, "DESCRIPTION"))) {
       parent_dir <- dirname(current_dir)
@@ -37,18 +39,9 @@ classicalAnovaCommonOptions <- function() {
       }
       current_dir <- parent_dir
     }
-    current_dir
+    path <- file.path(current_dir, "inst", "qml", "common", "classical")
+    commonPath <- file.path(current_dir, "inst", "qml", "common")
   }
-  
-  path <- file.path(pkg_root, "inst", "qml", "common", "classical")
-  
-  if (!dir.exists(path)) {
-    stop("Classical QML directory not found at: ", path, ". R_COVR=", Sys.getenv("R_COVR"), ", Working dir: ", getwd())
-  }
-  
-  files <- list.files(path, full.names = TRUE)
-  
-  commonPath <- file.path(pkg_root, "inst", "qml", "common")
   
   if (!dir.exists(commonPath)) {
     stop("Common QML directory not found at: ", commonPath, ". R_COVR=", Sys.getenv("R_COVR"))

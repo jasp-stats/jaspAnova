@@ -890,6 +890,12 @@
         "vipor"
       ]
     },
+    "ggh4x": {
+      "Package": "ggh4x",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "4.0.1",
@@ -2106,6 +2112,12 @@
         "stats"
       ]
     },
+    "renv": {
+      "Package": "renv",
+      "Version": "1.1.7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "reshape2": {
       "Package": "reshape2",
       "Version": "1.4.5",
@@ -2119,22 +2131,9 @@
     },
     "restriktor": {
       "Package": "restriktor",
-      "Version": "0.3-500",
-      "Source": "GitHub",
-      "Requirements": [
-        "R",
-        "boot",
-        "ic.infer",
-        "lavaan",
-        "MASS",
-        "mvtnorm",
-        "quadprog"
-      ],
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "Kucharssim",
-      "RemoteRepo": "restriktor",
-      "RemoteSha": "70b3ae290ecd0fc15fdb0e241f36ffaeb1553019"
+      "Version": "0.6-30",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "rlang": {
       "Package": "rlang",

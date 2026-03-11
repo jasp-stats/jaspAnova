@@ -216,14 +216,65 @@
   } else {
     residuals <- rstandard(anovaContainer[["model"]][["object"]])
   }
-  ciLevel <- if (options[["qqPlotCi"]])  options[["qqPlotCiLevel"]] else NULL
 
-  qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals,
-                                              yName = "Standardized residuals",
-                                              ablineColor = "darkred",
-                                              ablineOrigin = TRUE,
-                                              identicalAxes = TRUE,
-                                              ciLevel = ciLevel)
+  residuals <- stats::na.omit(residuals)
+  residuals <- sort(residuals)
+  n         <- length(residuals)
+
+  if (n < 1)
+    return()
+
+  probabilities <- stats::ppoints(n)
+  theoretical   <- stats::qnorm(probabilities)
+
+  qqData <- data.frame(sample = residuals, theoretical = theoretical)
+
+  ciLayer <- NULL
+  if (isTRUE(options[["qqPlotCi"]])) {
+    ciLevel <- options[["qqPlotCiLevel"]]
+    alpha   <- 1 - ciLevel
+    qqFit   <- stats::lm(sample ~ theoretical, data = qqData)
+    slope   <- stats::coef(qqFit)[["theoretical"]]
+    density <- stats::dnorm(theoretical)
+    se      <- sqrt(probabilities * (1 - probabilities) / n) * slope / density
+    qqData[["upper"]] <- theoretical + se * stats::qnorm(alpha / 2, lower.tail = FALSE)
+    qqData[["lower"]] <- theoretical + se * stats::qnorm(alpha / 2, lower.tail = TRUE)
+    ciLayer <- ggplot2::geom_ribbon(mapping = ggplot2::aes(x = .data$theoretical,
+                                                            ymin = .data$lower,
+                                                            ymax = .data$upper),
+                                    fill    = "steelblue",
+                                    color   = "black",
+                                    alpha   = 0.5)
+  }
+
+  yPoints <- as.vector(as.matrix(qqData))
+  yBreaks <- jaspGraphs::getPrettyAxisBreaks(yPoints)
+  yLabs   <- jaspGraphs::axesLabeller(yBreaks)
+  yRange  <- range(c(yPoints, yBreaks))
+
+  xBreaks <- jaspGraphs::getPrettyAxisBreaks(theoretical)
+  xLabs   <- jaspGraphs::axesLabeller(xBreaks)
+  xRange  <- range(c(theoretical, xBreaks))
+
+  qqPlot$plotObject <- ggplot2::ggplot(data = qqData, ggplot2::aes(sample = .data$sample)) +
+    ciLayer +
+    ggplot2::geom_line(mapping = ggplot2::aes(x = .data$theoretical, y = .data$theoretical),
+                       linewidth = 1) +
+    ggplot2::stat_qq(distribution = stats::qnorm,
+                     shape        = 21,
+                     fill         = "grey",
+                     size         = 3) +
+    ggplot2::scale_y_continuous(name   = gettext("Standardized residuals"),
+                                breaks = yBreaks,
+                                labels = yLabs,
+                                limits = yRange) +
+    ggplot2::scale_x_continuous(name   = gettext("Theoretical"),
+                                breaks = xBreaks,
+                                labels = xLabs,
+                                limits = xRange) +
+    jaspGraphs::themeJaspRaw() +
+    jaspGraphs::geom_rangeframe()
+
   return()
 }
 
@@ -320,4 +371,3 @@
   }
 
 }
-

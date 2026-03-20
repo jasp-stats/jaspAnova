@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
 "POT-Creation-Date: 2026-02-28 03:19\n"
-"PO-Revision-Date: 2026-03-20 12:47+0000\n"
+"PO-Revision-Date: 2026-03-21 03:21+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/id/>\n"
@@ -62,7 +62,7 @@ msgid "F"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
 msgstr ""
@@ -71,10 +71,10 @@ msgid "%s%% CI for η²"
 msgstr ""
 
 msgid "Lower"
-msgstr ""
+msgstr "Bawah"
 
 msgid "Upper"
-msgstr ""
+msgstr "Atas"
 
 msgid "%s%% CI for η²ₚ"
 msgstr ""
@@ -218,7 +218,7 @@ msgid "Factor"
 msgstr ""
 
 msgid "Statistic"
-msgstr ""
+msgstr "Statistik"
 
 msgid "Rank %s"
 msgstr ""
@@ -323,7 +323,7 @@ msgid "Approx. %s"
 msgstr ""
 
 msgid "p-value"
-msgstr ""
+msgstr "nilai-p"
 
 msgid "Greenhouse-Geisser %s"
 msgstr ""
@@ -551,7 +551,7 @@ msgid "Could not plot posterior distribution. Check if an error occurred for mod
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Tingkat"
 
 msgid "Density"
 msgstr ""
@@ -644,7 +644,7 @@ msgid "Single Model Posterior Distributions"
 msgstr ""
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "Diagram Q-Q"
 
 msgid "Posterior R%s"
 msgstr ""
@@ -653,10 +653,10 @@ msgid "Single Model R%s"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "Estimasi"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
 msgstr ""
@@ -839,7 +839,7 @@ msgid "Coefficients differ from unconstrained model."
 msgstr ""
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Ringkasan Model"
 
 msgid "Restriction Matrix"
 msgstr ""
@@ -851,10 +851,10 @@ msgid "Right-hand side (rhs)"
 msgstr ""
 
 msgid "Coefficients"
-msgstr ""
+msgstr "Koefisien"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr ""

@@ -920,12 +920,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   ))
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
-  estsTable$addColumnInfo(name = "Variable", type = "string")
-  estsTable$addColumnInfo(name = "Level",    type = "string")
-  estsTable$addColumnInfo(name = "Mean",     type = "number")
-  estsTable$addColumnInfo(name = "SD",       type = "number")
-  estsTable$addColumnInfo(name = "Lower",    type = "number", overtitle = overTitle)
-  estsTable$addColumnInfo(name = "Upper",    type = "number", overtitle = overTitle)
+  estsTable$addColumnInfo(name = "Variable", title = gettext("Variable"), type = "string")
+  estsTable$addColumnInfo(name = "Level",    title = gettext("Level"),    type = "string")
+  estsTable$addColumnInfo(name = "Mean",     title = gettext("Mean"),     type = "number")
+  estsTable$addColumnInfo(name = "SD",       title = gettext("SD"),       type = "number")
+  estsTable$addColumnInfo(name = "Lower",    title = gettext("Lower"),    type = "number", overtitle = overTitle)
+  estsTable$addColumnInfo(name = "Upper",    title = gettext("Upper"),    type = "number", overtitle = overTitle)
 
   if (!is.null(model[["posteriors"]])) {
     .BANOVAfillEstimatesTable(
@@ -959,7 +959,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   # decode base64 variables
   table[!idxDup, "Variable"] <- jaspBase::gsubInteractionSymbol(table[!idxDup, "Variable"])
   # rename mu to Intercept
-  table[1L, "Variable"] <- "Intercept"
+  table[1L, "Variable"] <- gettext("Intercept")
   # attach posterior means and sds
   table <- cbind(as.data.frame(table),
                  "Mean"  = mus,
@@ -989,9 +989,9 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
   criTable$addColumnInfo(name = "rsq",   type = "string", title = "")
-  criTable$addColumnInfo(name = "Mean",  type = "number")
-  criTable$addColumnInfo(name = "Lower", type = "number", overtitle = overTitle)
-  criTable$addColumnInfo(name = "Upper", type = "number", overtitle = overTitle)
+  criTable$addColumnInfo(name = "Mean",  title = gettext("Mean"),  type = "number")
+  criTable$addColumnInfo(name = "Lower", title = gettext("Lower"), type = "number", overtitle = overTitle)
+  criTable$addColumnInfo(name = "Upper", title = gettext("Upper"), type = "number", overtitle = overTitle)
 
   if (!is.null(model[["posteriors"]])) {
     cri <- model[["posteriors"]][["weightedRsqCri"]]
@@ -1302,7 +1302,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     if (!is.null(postHocCollection[[paste0("postHoc_", posthoc.var)]]))
       next
 
-    postHocTable <- createJaspTable(title = paste0("Post Hoc Comparisons - ", posthoc.var))
+    postHocTable <- createJaspTable(title = gettextf("Post Hoc Comparisons - %s", posthoc.var))
 
     postHocTable$addColumnInfo(name = "(I)",            type = "string", title = "", combine=TRUE)
     postHocTable$addColumnInfo(name = "(J)",            type = "string", title = "")
@@ -1534,8 +1534,8 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
   if (!is.null(options[["credibleInterval"]])) {
     overTitle <- gettextf("%s%% Credible Interval", format(100 * options[["credibleInterval"]], digits = 3))
-    descriptivesTable$addColumnInfo(name = gettext("Lower"), type = "number", overtitle = overTitle)
-    descriptivesTable$addColumnInfo(name = gettext("Upper"), type = "number", overtitle = overTitle)
+    descriptivesTable$addColumnInfo(name = "Lower", title = gettext("Lower"), type = "number", overtitle = overTitle)
+    descriptivesTable$addColumnInfo(name = "Upper", title = gettext("Upper"), type = "number", overtitle = overTitle)
   }
 
   descriptivesTable$showSpecifiedColumnsOnly <- TRUE

@@ -921,7 +921,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   postHocStandardContainer <- createJaspContainer(title = myTitle)
   postHocStandardContainer$dependOn(c("postHocTerms", "postHocTypeStandardEffectSize", "postHocTypeStandard",
                                       "postHocCorrectionBonferroni", "postHocCorrectionHolm", "postHocCorrectionScheffe",
-                                      "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocSignificanceFlag",
+                                      "postHocCorrectionTukey", "postHocCorrectionSidak", "postHocCorrectionFdr", "postHocSignificanceFlag",
                                       "postHocTypeStandardBootstrap", "postHocTypeStandardBootstrapSamples", "postHocConditionalTable",
                                       "postHocCi", "postHocCiLevel", "postHocLetterTable", "postHocLetterAlpha"))
 
@@ -950,8 +950,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       postHocRef <- emmeans::lsmeans(model, postHocVariablesListV)
       wantsCorrections <- c(options[["postHocCorrectionTukey"]], options[["postHocCorrectionScheffe"]],
                             options[["postHocCorrectionBonferroni"]], options[["postHocCorrectionHolm"]],
-                            options[["postHocCorrectionSidak"]])
-      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak")[wantsCorrections]
+                            options[["postHocCorrectionSidak"]], options[["postHocCorrectionFdr"]])
+      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak", "fdr")[wantsCorrections]
       if (sum(wantsCorrections) == 0)
         postHocCorrections <- "none"
       ## Computation
@@ -1056,7 +1056,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       postHocStandardContainer[[thisVarNameRef]]$setData(resultPostHoc)
 
       whichPvalues <- c(options$postHocCorrectionTukey, options$postHocCorrectionScheffe, options$postHocCorrectionBonferroni,
-                        options$postHocCorrectionHolm, options$postHocCorrectionSidak)
+                        options$postHocCorrectionHolm, options$postHocCorrectionSidak, options$postHocCorrectionFdr)
       allPvalues <- as.data.frame(allPvalues)
 
       if (options$postHocSignificanceFlag && length(postHocCorrections[whichPvalues]) > 0)
@@ -1703,6 +1703,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>Bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>Holm</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="fdr",        title=gettext("p<sub>FDR</sub>"), type="pvalue")
 
     return(postHocTable)
   }
@@ -1717,7 +1718,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                              rbs = numeric(),
                              pval = numeric(),
                              bonferroni = numeric(),
-                             holm = numeric())
+                             holm = numeric(),
+                             fdr = numeric())
 
     variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
     nLevels <- length(variableLevels)
@@ -1755,7 +1757,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                    rbs = rbs,
                                                    pval = pValAB,
                                                    bonferroni = pValAB,
-                                                   holm = pValAB))
+                                                   holm = pValAB,
+                                                   fdr = pValAB))
 
       }
 
@@ -1764,13 +1767,14 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     allP <- dunnResult[["pval"]]
     dunnResult[["bonferroni"]] <- p.adjust(allP, method = "bonferroni")
     dunnResult[["holm"]] <- p.adjust(allP, method = "holm")
+    dunnResult[["fdr"]] <- p.adjust(allP, method = "fdr")
 
     kruskalContainer[["dunnContainer"]][[dunnVar]]$setData(dunnResult)
     kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
 
     if (options$postHocSignificanceFlag)
       .anovaAddSignificanceSigns(someTable = kruskalContainer[["dunnContainer"]][[dunnVar]],
-                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm")]),
+                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm", "fdr")]),
                                  resultRowNames = rownames(dunnResult))
   }
 

@@ -73,6 +73,7 @@ Section
 		CheckBox { name: "postHocCorrectionBonferroni";		label: qsTr("Bonferroni"); info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")			}
 		CheckBox { name: "postHocCorrectionHolm";			label: qsTr("Holm")	; info: qsTr("This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.")				}
 		CheckBox { name: "postHocCorrectionSidak";			label: qsTr("Šidák"); info: qsTr("This method is considered less conservative than Bonferroni but still maintains statistical power. It is usually used if there is not a big amount of tests to be performed.")				}
+		CheckBox { name: "postHocCorrectionFdr";			label: qsTr("FDR (Benjamini-Hochberg)"); info: qsTr("Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods, offering more power at the cost of allowing some false positives.")}
 	}
 
 	Classical.PostHocDisplay{}

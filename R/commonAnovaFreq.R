@@ -128,6 +128,9 @@
   if (isTRUE(options$postHocCorrectionSidak))
     postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>Sidak</sub>"), type="pvalue")
 
+  if (isTRUE(options$postHocCorrectionFdr))
+    postHocTable$addColumnInfo(name="fdr", title=gettext("p<sub>FDR</sub>"), type="pvalue")
+
 
   postHocTable$showSpecifiedColumnsOnly <- TRUE
 

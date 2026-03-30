@@ -162,6 +162,7 @@ Form
 			CheckBox { name: "postHocCorrectionBonferroni";		label: qsTr("Bonferroni")	; info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")		}
 			CheckBox { name: "postHocCorrectionTukey";			label: qsTr("Tukey"); info: qsTr(" Compare all possible pairs of group means. This correction can be used when the groups of the repeated measures have an equal sample size and variance.")				}
 			CheckBox { name: "postHocCorrectionScheffe";		label: qsTr("Scheffé"); info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")				}
+			CheckBox { name: "postHocCorrectionFdr";			label: qsTr("FDR (Benjamini-Hochberg)"); info: qsTr("Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods.")}
 		}
 
 		Classical.PostHocDisplay{}

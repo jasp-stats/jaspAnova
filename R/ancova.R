@@ -1703,7 +1703,6 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     postHocTable$addColumnInfo(name="pval",       title=gettext("p"),                type="pvalue")
     postHocTable$addColumnInfo(name="bonferroni", title=gettext("p<sub>Bonf</sub>"), type="pvalue")
     postHocTable$addColumnInfo(name="holm",       title=gettext("p<sub>Holm</sub>"), type="pvalue")
-    postHocTable$addColumnInfo(name="fdr",        title=gettext("p<sub>FDR</sub>"), type="pvalue")
 
     return(postHocTable)
   }
@@ -1718,8 +1717,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                              rbs = numeric(),
                              pval = numeric(),
                              bonferroni = numeric(),
-                             holm = numeric(),
-                             fdr = numeric())
+                             holm = numeric())
 
     variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
     nLevels <- length(variableLevels)
@@ -1757,8 +1755,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                                                    rbs = rbs,
                                                    pval = pValAB,
                                                    bonferroni = pValAB,
-                                                   holm = pValAB,
-                                                   fdr = pValAB))
+                                                   holm = pValAB))
 
       }
 
@@ -1767,14 +1764,13 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
     allP <- dunnResult[["pval"]]
     dunnResult[["bonferroni"]] <- p.adjust(allP, method = "bonferroni")
     dunnResult[["holm"]] <- p.adjust(allP, method = "holm")
-    dunnResult[["fdr"]] <- p.adjust(allP, method = "fdr")
 
     kruskalContainer[["dunnContainer"]][[dunnVar]]$setData(dunnResult)
     kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
 
     if (options$postHocSignificanceFlag)
       .anovaAddSignificanceSigns(someTable = kruskalContainer[["dunnContainer"]][[dunnVar]],
-                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm", "fdr")]),
+                                 allPvalues = cbind(dunnResult[, c("pval", "bonferroni", "holm")]),
                                  resultRowNames = rownames(dunnResult))
   }
 

@@ -221,10 +221,6 @@
       huberWhite5  = "HC5",
       "standard"
     )
-
-    # TO DO for browser debugging
-    #browser()
-    #syntax <- 'jaspColumn11 > jaspColumn12'
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
   } else {
     fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax, options, dataset))
@@ -355,7 +351,7 @@
       rownames(modelComparison[["ratio.gw"]]) <- colnames(modelComparison[["ratio.gw"]]) <- modelNames
     }
 
-    modelComparison[["result"]][["modelNames"]] <- modelNames # TO DO Add option user-specified names?
+    modelComparison[["result"]][["modelNames"]] <- modelNames
     modelComparison[["result"]][["model"]]      <- names(modelNames)
 
   }
@@ -566,9 +562,6 @@
   colnames(df) <- result[["model"]]
   df[["coef"]] <- rownames(df)
 
-  # TO DO ik denk dat hierna genoemde bug niet klopt of gefixt is...
-  # bug in restriktor cannot handle user-defined parameters, so we will remove them
-  #browser() # TO DO
   if(is.null(models[["unrestricted"]][["parsForGorica"]])) {
     unrestrictedCoefficients <- coefficients(models[["unrestricted"]][["fit"]])
   } else {
@@ -894,7 +887,6 @@
   trimws(message)
 }
 
-# TO DO dit eruit, nl voor testing niet goric(a)
 .aorCalculateBootstrapping <- function(unrestrictedBootstrap, fit, syntax, modelName) {
   samples    <- length(unrestrictedBootstrap)
   ncoefs     <- length(coefficients(fit))
@@ -1102,9 +1094,6 @@
 
 .aorCalculateModelComparison <- function(unrestricted, container, dataset, options, models, comparison) {
 
-  # TO DO for browser debugging
-  #browser()
-  #options$restrictedModels[[1]]$syntax <-  'jaspColumn11 > jaspColumn12'
   modelComparison <- try(restriktor::goric(unrestricted, hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])), comparison = comparison))
 
   return(modelComparison)
@@ -1185,13 +1174,11 @@
 
 .rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax, options, dataset) {
 
-  #browser() # TO DO
-
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
     hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])),
-    comparison  = "none", # TO DO Is dit is de default die dan evt overschreven wordt?
+    comparison  = "none",
     type        = "gorica"
   )
 

@@ -974,7 +974,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         postHocStandardContainer[[thisVarNameRef]]$addFootnote(.getCorrectionFootnoteAnova(resultPostHoc[[1]],
                                                                                            (options$postHocCi && isFALSE(options$postHocTypeStandardBootstrap)),
                                                                                            includeEffectSize = options[["postHocTypeStandardEffectSize"]],
-                                                                                           isBetween = TRUE))
+                                                                                           isBetween = TRUE,
+                                                                                           isBootstrap = isTRUE(options$postHocTypeStandardBootstrap)))
       avFootnote <- attr(resultPostHoc[[1]], "mesg")[grep(attr(resultPostHoc[[1]], "mesg"), pattern = "Results are averaged")]
       if (length(avFootnote) != 0) {
         avTerms <- strsplit(gsub(avFootnote, pattern = "Results are averaged over the levels of: ", replacement = ""),
@@ -1003,14 +1004,18 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
       if (options$postHocTypeStandardBootstrap) {
 
-        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettextf("Bootstrapping based on %s successful replicates.", as.character(options[['postHocTypeStandardBootstrapSamples']])))
-        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettext("Mean Difference estimate is based on the median of the bootstrap distribution."))
+        estimateLabel <- if (isTRUE(options$postHocTypeStandardEffectSize))
+          gettext("Mean Difference and Cohen's d estimates")
+        else
+          gettext("Mean Difference estimates")
+        postHocStandardContainer[[thisVarNameRef]]$addFootnote(message = gettextf("Bootstrapping based on %1$s replicates. %2$s are based on the median of the bootstrap distribution.", as.character(options[['postHocTypeStandardBootstrapSamples']]), estimateLabel))
         postHocStandardContainer[[thisVarNameRef]]$addFootnote(symbol = "\u2020", message = gettext("Bias corrected accelerated."))
 
         startProgressbar(options[["postHocTypeStandardBootstrapSamples"]] * length(postHocVariables),
                          label = gettext("Bootstrapping Post Hoc Test"))
 
         ## Computation
+        nComparisons <- nrow(resultPostHoc)
         bootstrapPostHoc <- try(boot::boot(data = dataset, statistic = .bootstrapPostHoc,
                                            R = options[["postHocTypeStandardBootstrapSamples"]],
                                            options = options,
@@ -1028,7 +1033,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         bootstrapSummary <- summary(bootstrapPostHoc)
 
         ci.fails <- FALSE
-        bootstrapPostHocConf <- t(sapply(1:nrow(bootstrapSummary), function(comparison){
+        bootstrapPostHocConf <- t(sapply(1:nComparisons, function(comparison){
           res <- try(boot::boot.ci(boot.out = bootstrapPostHoc, conf = options$postHocCiLevel, type = "bca",
                                    index = comparison)[['bca']][1,4:5])
 
@@ -1046,9 +1051,27 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
         resultPostHoc[["lower.CL"]] <- bootstrapPostHocConf[,1]
         resultPostHoc[["upper.CL"]] <- bootstrapPostHocConf[,2]
 
-        resultPostHoc[["bias"]] <- bootstrapSummary[["bootBias"]]
-        resultPostHoc[["SE"]] <- bootstrapSummary[["bootSE"]]
-        resultPostHoc[["estimate"]] <- bootstrapSummary[["bootMed"]]
+        resultPostHoc[["bias"]] <- bootstrapSummary[["bootBias"]][1:nComparisons]
+        resultPostHoc[["SE"]] <- bootstrapSummary[["bootSE"]][1:nComparisons]
+        resultPostHoc[["estimate"]] <- bootstrapSummary[["bootMed"]][1:nComparisons]
+
+        # Bootstrap CI for Cohen's d
+        if (isTRUE(options$postHocTypeStandardEffectSize) && ncol(bootstrapPostHoc$t) >= nComparisons * 2) {
+          cohenDIndices <- (nComparisons + 1):(nComparisons * 2)
+          bootstrapCohenDConf <- t(sapply(cohenDIndices, function(idx) {
+            res <- try(boot::boot.ci(boot.out = bootstrapPostHoc, conf = options$postHocCiLevel, type = "bca",
+                                     index = idx)[["bca"]][1, 4:5])
+            if (!inherits(res, "try-error"))
+              return(res)
+            else {
+              ci.fails <<- TRUE
+              return(c(NA, NA))
+            }
+          }))
+          resultPostHoc[["cohenD"]]         <- bootstrapSummary[["bootMed"]][cohenDIndices]
+          resultPostHoc[["cohenD_LowerCI"]] <- bootstrapCohenDConf[, 1]
+          resultPostHoc[["cohenD_UpperCI"]] <- bootstrapCohenDConf[, 2]
+        }
 
       }
 
@@ -1094,9 +1117,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
 .bootstrapPostHoc <- function(data, indices, options, nComparisons, postHocVariablesListV, postHocVarIndex, by) {
 
+  includeEffectSize <- isTRUE(options$postHocTypeStandardEffectSize)
+
   resamples <- data[indices, , drop = FALSE] # allows boot to select sample
 
-  model <- .anovaModel(resamples, options)$model # refit model
+  modelResult <- .anovaModel(resamples, options)
+  model <- modelResult$model # refit model
 
   postHocRefBoots <- suppressMessages(
     emmeans::lsmeans(model, postHocVariablesListV)
@@ -1110,9 +1136,23 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   progressbarTick()
 
   if (nrow(postHocTableBoots) == nComparisons) {
-    return(postHocTableBoots[['estimate']])
-  } else{
-    return(rep(NA, nComparisons))
+    estimates <- postHocTableBoots[['estimate']]
+    if (includeEffectSize) {
+      effectSizeBoots <- try(suppressMessages({
+        as.data.frame(emmeans::eff_size(postHocRefBoots[[postHocVarIndex]],
+                                        sigma = sqrt(mean(sigma(model)^2)),
+                                        edf   = df.residual(model),
+                                        by    = by))
+      }), silent = TRUE)
+      if (!inherits(effectSizeBoots, "try-error") && nrow(effectSizeBoots) == nComparisons)
+        estimates <- c(estimates, effectSizeBoots[["effect.size"]])
+      else
+        estimates <- c(estimates, rep(NA, nComparisons))
+    }
+    return(estimates)
+  } else {
+    nValues <- if (includeEffectSize) nComparisons * 2 else nComparisons
+    return(rep(NA, nValues))
   }
 }
 

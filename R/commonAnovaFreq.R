@@ -137,7 +137,7 @@
   return(postHocTable)
 }
 
-.getCorrectionFootnoteAnova <- function(postHocObject, includeCI = FALSE, includeEffectSize = FALSE, isBetween = FALSE) {
+.getCorrectionFootnoteAnova <- function(postHocObject, includeCI = FALSE, includeEffectSize = FALSE, isBetween = FALSE, isBootstrap = FALSE) {
 
   pvalAdjust <- attr(postHocObject, "mesg")[grep(attr(postHocObject, "mesg"), pattern = "P value adjustment")]
   nEstimates <- regmatches(pvalAdjust, gregexpr("[[:digit:]]+", pvalAdjust))[[1]]
@@ -154,6 +154,9 @@
     correctionFootnote <- gettextf("P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method).",
                                    nEstimates, confAdjust)
   }
+
+  if (isBootstrap)
+    correctionFootnote <- paste(correctionFootnote, gettext("The p-value correction is not affected by the bootstrap."))
 
   return(correctionFootnote)
 }

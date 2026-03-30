@@ -27,7 +27,7 @@ Group
 	{
 		name:				"postHocCi";
 		label:				qsTr("Confidence intervals")
-		info: qsTr("When this option is selected, the confidence interval for the mean difference is calculated for every post hoc method except Dunn. By default, this is set to 95%, but it can be adjusted to the desired percentage.")
+           info: qsTr("When this option is selected, the confidence interval for the mean difference is calculated. By default, this is set to 95%, but it can be adjusted to the desired percentage.")
 		childrenOnSameRow:	true
 		CIField { name: "postHocCiLevel" }
 	}

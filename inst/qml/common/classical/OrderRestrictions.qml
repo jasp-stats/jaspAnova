@@ -28,7 +28,7 @@ Section
 	property int analysis
 	property alias source: marginalMeansTerms.source
 
-	title:		qsTr("Order Restricted Hypotheses - RMK")
+	title:		qsTr("Order Restricted Hypotheses")
 	columns:	2
 
 	Text
@@ -69,7 +69,7 @@ Section
 
 		Group
 		{
-			title:		qsTr("Set for all models for hypo testing")
+			title:		qsTr("Set for all models")
 			CheckBox
 			{
 				name:	"restrictedModelSummaryForAllModels"
@@ -84,7 +84,7 @@ Section
 				label:	qsTr("Marginal means")
 			}
 
-			
+
 			CheckBox
 			{
 				name:		"restrictedInformedHypothesisTestForAllModels"
@@ -92,7 +92,7 @@ Section
 				label:		qsTr("Informed hypothesis tests")
 				visible:	analysis !== Common.Type.Analysis.RMANOVA
 			}
-			
+
 		}
 	}
 
@@ -140,7 +140,7 @@ Section
 					checked:	informedHypothesisTestByDefault.checked
 					visible:	analysis !== Common.Type.Analysis.RMANOVA
 				}
-				
+
 			}
 		}
 	}

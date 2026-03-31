@@ -129,7 +129,7 @@
     postHocTable$addColumnInfo(name="sidak", title=gettext("p<sub>Sidak</sub>"), type="pvalue")
 
   if (isTRUE(options$postHocCorrectionFdr))
-    postHocTable$addColumnInfo(name="fdr", title=gettext("p<sub>FDR</sub>"), type="pvalue")
+    postHocTable$addColumnInfo(name="BH", title=gettext("p<sub>FDR</sub>"), type="pvalue")
 
 
   postHocTable$showSpecifiedColumnsOnly <- TRUE

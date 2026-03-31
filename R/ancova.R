@@ -951,7 +951,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       wantsCorrections <- c(options[["postHocCorrectionTukey"]], options[["postHocCorrectionScheffe"]],
                             options[["postHocCorrectionBonferroni"]], options[["postHocCorrectionHolm"]],
                             options[["postHocCorrectionSidak"]], options[["postHocCorrectionFdr"]])
-      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak", "fdr")[wantsCorrections]
+      postHocCorrections <- c("tukey", "scheffe", "bonferroni", "holm", "sidak", "BH")[wantsCorrections]
       if (sum(wantsCorrections) == 0)
         postHocCorrections <- "none"
       ## Computation

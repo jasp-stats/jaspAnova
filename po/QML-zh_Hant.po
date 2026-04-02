@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-02 05:09+0000\n"
+"PO-Revision-Date: 2026-04-03 14:09+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-qml/zh_Hant/>\n"
@@ -778,7 +778,7 @@ msgstr ""
 
 msgctxt "OrderRestrictions|"
 msgid "Click to learn more about the syntax for order restrictions."
-msgstr "按此圖示，可以學習更多設定順序限制假設的語法。"
+msgstr "點擊以進一步了解順序限制的語法。"
 
 msgctxt "OrderRestrictions|"
 msgid "Syntax settings"

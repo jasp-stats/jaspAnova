@@ -90,6 +90,11 @@
       "NeedsCompilation": "yes",
       "Repository": "CRAN"
     },
+    "DBI": {
+      "Package": "DBI",
+      "Version": "1.2.3",
+      "Source": "Repository"
+    },
     "Deriv": {
       "Package": "Deriv",
       "Version": "4.2.0",
@@ -628,36 +633,6 @@
       "NeedsCompilation": "no",
       "Author": "Torsten Hothorn [aut, cre]",
       "Maintainer": "Torsten Hothorn <Torsten.Hothorn@R-project.org>",
-      "Repository": "CRAN"
-    },
-    "TTR": {
-      "Package": "TTR",
-      "Version": "0.24.4",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Technical Trading Rules",
-      "Authors@R": "c( person(given=\"Joshua\", family=\"Ulrich\", role=c(\"cre\",\"aut\"), email=\"josh.m.ulrich@gmail.com\"), person(given=c(\"Ethan\",\"B.\"), family=\"Smith\", role=\"ctb\") )",
-      "Imports": [
-        "xts (>= 0.10-0)",
-        "zoo",
-        "curl"
-      ],
-      "LinkingTo": [
-        "xts"
-      ],
-      "Enhances": [
-        "quantmod"
-      ],
-      "Suggests": [
-        "RUnit"
-      ],
-      "Description": "A collection of over 50 technical indicators for creating technical trading rules. The package also provides fast implementations of common rolling-window functions, and several volatility calculations.",
-      "License": "GPL (>= 2)",
-      "URL": "https://github.com/joshuaulrich/TTR",
-      "BugReports": "https://github.com/joshuaulrich/TTR/issues",
-      "NeedsCompilation": "yes",
-      "Author": "Joshua Ulrich [cre, aut], Ethan B. Smith [ctb]",
-      "Maintainer": "Joshua Ulrich <josh.m.ulrich@gmail.com>",
       "Repository": "CRAN"
     },
     "abind": {
@@ -2707,10 +2682,9 @@
         "magrittr",
         "nnet",
         "parallel",
-        "Rcpp (>= 0.11.0)",
+        "Rcpp (>= 0.12.4)",
         "stats",
         "timeDate",
-        "tseries",
         "urca",
         "withr",
         "zoo"
@@ -2727,7 +2701,7 @@
         "uroot"
       ],
       "LinkingTo": [
-        "Rcpp (>= 0.11.0)",
+        "Rcpp (>= 0.12.4)",
         "RcppArmadillo (>= 0.2.35)"
       ],
       "LazyData": "yes",
@@ -2845,11 +2819,11 @@
     },
     "gdtools": {
       "Package": "gdtools",
-      "Version": "0.4.4",
+      "Version": "0.5.0",
       "Source": "Repository",
-      "Title": "Utilities for Graphical Rendering and Fonts Management",
+      "Title": "Font Metrics and Font Management Utilities for R Graphics",
       "Authors@R": "c( person(\"David\", \"Gohel\", , \"david.gohel@ardata.fr\", role = c(\"aut\", \"cre\")), person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = \"aut\"), person(\"Lionel\", \"Henry\", , \"lionel@rstudio.com\", role = \"aut\"), person(\"Jeroen\", \"Ooms\", , \"jeroen@berkeley.edu\", role = \"aut\", comment = c(ORCID = \"0000-0002-4035-0289\")), person(\"Yixuan\", \"Qiu\", role = \"ctb\"), person(\"R Core Team\", role = \"cph\", comment = \"Cairo code from X11 device\"), person(\"ArData\", role = \"cph\"), person(\"RStudio\", role = \"cph\") )",
-      "Description": "Tools are provided to compute metrics of formatted strings and to check the availability of a font.  Another set of functions is provided to support the collection of fonts from 'Google Fonts' in a cache. Their use is simple within 'R Markdown' documents and 'shiny' applications but also with graphic productions generated with the 'ggiraph', 'ragg' and 'svglite' packages or with tabular productions from the 'flextable' package.",
+      "Description": "Compute text metrics (width, ascent, descent) using 'Cairo' and 'FreeType', independently of the active graphic device. Font lookup is delegated to 'systemfonts'. Additional utilities let users register 'Google Fonts' or bundled 'Liberation' fonts, check font availability, and assemble 'htmlDependency' objects so that fonts are correctly embedded in 'Shiny' applications, 'R Markdown' documents, and 'htmlwidgets' outputs such as 'ggiraph'.",
       "License": "GPL-3 | file LICENSE",
       "URL": "https://davidgohel.github.io/gdtools/",
       "BugReports": "https://github.com/davidgohel/gdtools/issues",
@@ -4193,6 +4167,7 @@
       "Description": "This package assists JASP developers when writing R code. It removes the necessity of building JASP every time a change is made. Rather, analyses can be called directly in R and be debugged interactively.",
       "License": "GNU General Public License",
       "Encoding": "UTF-8",
+      "LazyData": "true",
       "Imports": [
         "archive (>= 1.1.6)",
         "data.table",
@@ -4213,14 +4188,13 @@
       ],
       "RoxygenNote": "7.3.3",
       "Roxygen": "list(markdown = TRUE)",
+      "Author": "Tim de Jong [aut], Don van den Bergh [ctb, cre], František Bartoš [ctb]",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "jaspTools",
       "RemoteUsername": "jasp-stats",
       "RemoteRef": "HEAD",
-      "RemoteSha": "f8dea8217421c05273df0bef3dad797e9c80efda",
-      "NeedsCompilation": "no",
-      "Author": "Tim de Jong [aut], Don van den Bergh [ctb, cre], František Bartoš [ctb]"
+      "RemoteSha": "f8dea8217421c05273df0bef3dad797e9c80efda"
     },
     "jpeg": {
       "Package": "jpeg",
@@ -6597,43 +6571,6 @@
       "NeedsCompilation": "yes",
       "Repository": "CRAN"
     },
-    "quantmod": {
-      "Package": "quantmod",
-      "Version": "0.4.28",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Quantitative Financial Modelling Framework",
-      "Authors@R": "c( person(given=c(\"Jeffrey\",\"A.\"), family=\"Ryan\", role=c(\"aut\",\"cph\")), person(given=c(\"Joshua\",\"M.\"), family=\"Ulrich\", role=c(\"cre\",\"aut\"), email=\"josh.m.ulrich@gmail.com\"), person(given=c(\"Ethan\",\"B.\"), family=\"Smith\", role=\"ctb\"), person(given=\"Wouter\", family=\"Thielen\", role=\"ctb\"), person(given=\"Paul\", family=\"Teetor\", role=\"ctb\"), person(given=\"Steve\", family=\"Bronder\", role=\"ctb\") )",
-      "Depends": [
-        "R (>= 3.2.0)",
-        "xts(>= 0.9-0)",
-        "zoo",
-        "TTR(>= 0.2)",
-        "methods"
-      ],
-      "Imports": [
-        "curl",
-        "jsonlite(>= 1.1)"
-      ],
-      "Suggests": [
-        "DBI",
-        "RMySQL",
-        "RSQLite",
-        "timeSeries",
-        "xml2",
-        "downloader",
-        "tinytest"
-      ],
-      "Description": "Specify, build, trade, and analyse quantitative financial trading strategies.",
-      "LazyLoad": "yes",
-      "License": "GPL-3",
-      "URL": "https://www.quantmod.com/, https://github.com/joshuaulrich/quantmod",
-      "BugReports": "https://github.com/joshuaulrich/quantmod/issues",
-      "NeedsCompilation": "no",
-      "Author": "Jeffrey A. Ryan [aut, cph], Joshua M. Ulrich [cre, aut], Ethan B. Smith [ctb], Wouter Thielen [ctb], Paul Teetor [ctb], Steve Bronder [ctb]",
-      "Maintainer": "Joshua M. Ulrich <josh.m.ulrich@gmail.com>",
-      "Repository": "CRAN"
-    },
     "quantreg": {
       "Package": "quantreg",
       "Version": "6.1",
@@ -6703,7 +6640,7 @@
       "Config/testthat/edition": "3",
       "Config/usethis/last-upkeep": "2025-04-25",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "SystemRequirements": "freetype2, libpng, libtiff, libjpeg, libwebp, libwebpmux",
       "NeedsCompilation": "yes",
       "Author": "Thomas Lin Pedersen [cre, aut] (ORCID: <https://orcid.org/0000-0002-5147-4711>), Maxim Shemanarev [aut, cph] (Author of AGG), Tony Juricic [ctb, cph] (Contributor to AGG), Milan Marusinec [ctb, cph] (Contributor to AGG), Spencer Garrett [ctb] (Contributor to AGG), Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
@@ -7246,7 +7183,7 @@
         "R (>= 3.0)"
       ],
       "Imports": [
-        "gdtools (>= 0.3.3)",
+        "gdtools (>= 0.5.0)",
         "grDevices",
         "officer (>= 0.6.2)",
         "Rcpp (>= 0.12.12)",
@@ -8046,32 +7983,6 @@
       "NeedsCompilation": "no",
       "Author": "Yihui Xie [aut, cre, cph] (ORCID: <https://orcid.org/0000-0003-0645-5666>), Posit Software, PBC [cph, fnd], Christophe Dervieux [ctb] (ORCID: <https://orcid.org/0000-0003-4474-2498>), Devon Ryan [ctb] (ORCID: <https://orcid.org/0000-0002-8549-0971>), Ethan Heinzen [ctb], Fernando Cagua [ctb]",
       "Maintainer": "Yihui Xie <xie@yihui.name>",
-      "Repository": "CRAN"
-    },
-    "tseries": {
-      "Package": "tseries",
-      "Version": "0.10-61",
-      "Source": "Repository",
-      "Encoding": "UTF-8",
-      "Title": "Time Series Analysis and Computational Finance",
-      "Authors@R": "c(person(\"Adrian\", \"Trapletti\", role = \"aut\", email = \"adrian@trapletti.org\"), person(\"Kurt\", \"Hornik\", role = c(\"aut\", \"cre\"), email = \"Kurt.Hornik@R-project.org\", comment = c(ORCID = \"0000-0003-4198-9911\")), person(\"Blake\", \"LeBaron\", role = \"ctb\", comment = \"BDS test code\"))",
-      "Description": "Time series analysis and computational finance.",
-      "Depends": [
-        "R (>= 3.4.0)"
-      ],
-      "Imports": [
-        "graphics",
-        "stats",
-        "utils",
-        "quadprog",
-        "zoo",
-        "quantmod (>= 0.4-9)",
-        "jsonlite"
-      ],
-      "License": "GPL-2 | GPL-3",
-      "NeedsCompilation": "yes",
-      "Author": "Adrian Trapletti [aut], Kurt Hornik [aut, cre] (ORCID: <https://orcid.org/0000-0003-4198-9911>), Blake LeBaron [ctb] (BDS test code)",
-      "Maintainer": "Kurt Hornik <Kurt.Hornik@R-project.org>",
       "Repository": "CRAN"
     },
     "urca": {

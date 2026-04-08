@@ -92,7 +92,7 @@
     },
     "DBI": {
       "Package": "DBI",
-      "Version": "1.2.3",
+      "Version": "1.3.0",
       "Source": "Repository"
     },
     "Deriv": {
@@ -7329,7 +7329,7 @@
       "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
       "Repository": "CRAN"
     },
-    "RSQLite": {
+    "RSQLite": { 
       "Package": "RSQLite",
       "Version": "2.4.6",
       "Source": "Repository",

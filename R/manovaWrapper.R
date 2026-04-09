@@ -17,11 +17,39 @@
 
 # This is a generated file. Don't change it!
 
-#' Manova
+#' MANOVA
 #'
+#' MANOVA allows the user to analyze the difference among groups when there are multiple dependent variables
+#' ## Assumptions
+#' - The dependent variables are normally distributed for every group.
+#' - The independent variables are categorical, the dependent variables are continuous.
+#' - The population covariance matrices of each group are equal.
+#' - The groups are independent.
+#'
+#' @param anovaTables, Outputs individual ANOVA tables per dependent variable.
+#'    Defaults to \code{FALSE}.
+#' @param boxMTest,  Box's M-test for homogeneity of covariance matrices.
+#'    Defaults to \code{FALSE}.
+#' @param dependent, The variable of interest. Also called the outcome variable.
+#' @param fixedFactors, The variables that are manipulated/define the different groups. These are also called the independent variables.
+#' @param includeIntercept, display the intercept term in the MANOVA and ANOVA tables.
+#'    Defaults to \code{TRUE}.
+#' @param modelTerms, The independent variables included in the model. By default all the main effects and interaction effects of the specified independent variables are included in the model.
+#' @param shapiroTest, Generalized Shapiro-Wilk test for multivariate normality.
+#'    Defaults to \code{FALSE}.
+#' @param testHotellingLawley, Hotelling-Lawley's trace. Measures multivariate separation between group means relative to within group variance. Meaning how well can two groups be distinguished taking all the dependent variables into account.
+#'    Defaults to \code{FALSE}.
+#' @param testPillai, Pillai's trace. Produces a value between 0 and 1. The closer to 1, the more evidence there is of an effect of the independent variable on the dependent variable.
+#'    Defaults to \code{TRUE}.
+#' @param testRoy, Roy's largest root. Measures the largest separation between group means along the most discriminating direction in the multuvariate space.
+#'    Defaults to \code{FALSE}.
+#' @param testWilks, Wilks' lambda. This can be interpreted as the proportion of the variance in the outcomes that is not explained by an effect.
+#'    Defaults to \code{FALSE}.
+#' @param vovkSellke, Shows the maximum ratio of the likelihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0
+#'    Defaults to \code{FALSE}.
 Manova <- function(
           data = NULL,
-          version = "0.95",
+          version = "0.96.1",
           formula = NULL,
           anovaTables = FALSE,
           boxMTest = FALSE,

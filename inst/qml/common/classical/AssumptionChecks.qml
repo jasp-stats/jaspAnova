@@ -40,5 +40,15 @@ Section
 		CheckBox { name: "homogeneityCorrectionBrown";		label: qsTr("Brown-Forsythe"); info: qsTr(" If the homogeneity assumption is not met, this correction could be used. This correction is only available for one-way ANOVA.") ; checked: false }
 		CheckBox { name: "homogeneityCorrectionWelch";		label: qsTr("Welch")    ; info: qsTr("If the homogeneity assumption is not met, this correction could be used. This correction is only available for one-way ANOVA.")      ; checked: false }
 	}
-	CheckBox { name: "qqPlot"; label: qsTr("Q-Q plot of residuals"); info: qsTr("Checks the validity of the distributional assumption of the data set. Specifically, the plot illustrates whether the residuals are normally distributed.") }
+	CheckBox 
+	{ 
+		name: "qqPlot";		 	label: qsTr("Q-Q plot residuals"); info: qsTr("Displays Q-Q plot of the standardized residuals. The confidence band shows the expected range of residuals under normality; points outside the band suggest deviations from normality.") 
+		CheckBox
+		{
+			name:               "qqPlotCi"
+			label:              qsTr("Confidence interval")
+			childrenOnSameRow:  true
+			CIField{ name: "qqPlotCiLevel" }
+		}		
+	}
 }

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
-"POT-Creation-Date: 2026-01-31 03:22\n"
+"POT-Creation-Date: 2026-02-28 03:19\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
 
-msgid "Some higher-order interaction effects are not supported by the data and are therefore omitted."
+msgid "Some higher-order interaction effects cannot be assessed and are therefore omitted."
 msgstr ""
 
 msgid "ANOVA"

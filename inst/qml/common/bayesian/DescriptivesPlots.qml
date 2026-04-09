@@ -41,7 +41,7 @@ Section
 		title: qsTr("Display")
 		CheckBox
 		{
-			name: "descriptivePlotCi"; label: qsTr("Credible interval"); info: qsTr("When this option is selected, the plot will contain central credible intervals. By default this is set to 95%. This can be changed into the desired percentage.")
+			name: "descriptivePlotCi"; label: qsTr("Credible interval"); checked: true; info: qsTr("Display central credible intervals in the plot. By default this is set to 95%. This can be changed into the desired percentage.")
 			childrenOnSameRow: true
 			CIField { name: "descriptivePlotCiLevel" }
 		}

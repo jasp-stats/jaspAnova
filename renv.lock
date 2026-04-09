@@ -2963,6 +2963,12 @@
       "Maintainer": "Teun van den Brand <tahvdbrand@gmail.com>",
       "Repository": "CRAN"
     },
+    "ggh4x": {
+      "Package": "ggh4x",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "4.0.1",
@@ -4122,8 +4128,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspGraphs",
-      "RemoteRef": "master",
-      "RemoteSha": "4a5e1e6a9017653610f5433d39fafe11abe03861"
+      "RemoteSha": "2f97960b98fb6f76aa6fc7d267079ad47f10d91e"
     },
     "jaspTTests": {
       "Package": "jaspTTests",
@@ -6837,6 +6842,12 @@
       "Maintainer": "Kevin Ushey <kevin@rstudio.com>",
       "Repository": "CRAN"
     },
+    "renv": {
+      "Package": "renv",
+      "Version": "1.1.7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
     "reshape2": {
       "Package": "reshape2",
       "Version": "1.4.5",
@@ -6874,36 +6885,9 @@
     },
     "restriktor": {
       "Package": "restriktor",
-      "Version": "0.3-500",
-      "Source": "GitHub",
-      "Title": "Restricted Statistical Estimation and Inference for Linear Models",
-      "Authors@R": "c(person(given = \"Leonard\", family = \"Vanbrabant\", role =  c(\"aut\",\"cre\"), email = \"info@restriktor.org\"), person(given = \"Yves\", family = \"Rosseel\", role  = c(\"ctb\"), email = \"Yves.Rosseel@UGent.be\"), person(given = \"Aleksandra\", family = \"Dacko\", role  = c(\"ctb\"), email = \"a.dacko@uu.nl\") )",
-      "Description": "Allow for easy-to-use testing or evaluating of linear equality and inequality  restrictions about parameters and effects in (generalized) linear statistical models.",
-      "Depends": [
-        "R(>= 4.0.0)"
-      ],
-      "Imports": [
-        "boot",
-        "ic.infer",
-        "lavaan(>= 0.6-10)",
-        "MASS",
-        "mvtnorm",
-        "quadprog"
-      ],
-      "License": "GPL (>= 2)",
-      "LazyData": "yes",
-      "URL": "https://restriktor.org",
-      "NeedsCompilation": "no",
-      "Author": "Leonard Vanbrabant [aut, cre], Yves Rosseel [ctb], Aleksandra Dacko [ctb]",
-      "Maintainer": "Leonard Vanbrabant <info@restriktor.org>",
-      "Suggests": [],
-      "Repository": "CRAN",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "Kucharssim",
-      "RemoteRepo": "restriktor",
-      "RemoteRef": "master",
-      "RemoteSha": "70b3ae290ecd0fc15fdb0e241f36ffaeb1553019"
+      "Version": "0.6-30",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "rjson": {
       "Package": "rjson",

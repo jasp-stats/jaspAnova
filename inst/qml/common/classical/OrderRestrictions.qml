@@ -27,17 +27,17 @@ Section
 {
 	property int analysis
 	property alias source: marginalMeansTerms.source
-	
+
 	title:		qsTr("Order Restricted Hypotheses")
 	columns:	2
-	
+
 	Text
 	{
 		Layout.columnSpan:      2
 		Layout.preferredWidth:  parent.width
 		wrapMode:               Text.WordWrap
 
-		text:				qsTr("Enter each restriction of one hypothesis on a new line, e.g., \nfactorLow == factorMid\nfactorMid < factorHigh\nwhere 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are the factor level names.\nClick on the 'plus' icon to add more hypotheses. \nClick the information icon for more examples.")
+		text:				qsTr("Enter each restriction of one hypothesis on a new line, e.g., \nfactorLow = factorMid\nfactorMid < factorHigh\nwhere 'factor' is the factor (or covariate) name and 'Low'/'Mid'/'High' are the factor level names.\nClick on the 'plus' icon to add more hypotheses. \nClick the information icon for more examples.")
 	}
 
 	HelpButton
@@ -84,6 +84,7 @@ Section
 				label:	qsTr("Marginal means")
 			}
 
+
 			CheckBox
 			{
 				name:		"restrictedInformedHypothesisTestForAllModels"
@@ -91,6 +92,7 @@ Section
 				label:		qsTr("Informed hypothesis tests")
 				visible:	analysis !== Common.Type.Analysis.RMANOVA
 			}
+
 		}
 	}
 
@@ -130,6 +132,7 @@ Section
 					checked:	marginalMeansByDefault.checked
 				}
 
+
 				CheckBox
 				{
 					name:		"informedHypothesisTest"
@@ -137,6 +140,7 @@ Section
 					checked:	informedHypothesisTestByDefault.checked
 					visible:	analysis !== Common.Type.Analysis.RMANOVA
 				}
+
 			}
 		}
 	}
@@ -145,29 +149,29 @@ Section
 	{
 		title: qsTr("Model comparison")
 		columns: 1
-		
+
 		DropDown
 		{
-			property var comparisonValuesInclComplement: 
+			property var comparisonValuesInclComplement:
 			[
 				{ label: qsTr("Complement model"),		value: "complement"		},
 				{ label: qsTr("Unconstrained model"),	value: "unconstrained"	},
 				{ label: qsTr("None"),					value: "none"			}
 			]
-			property var comparisonValuesExclComplement: 
+			property var comparisonValuesExclComplement:
 			[
 				{ label: qsTr("Unconstrained model"),	value: "unconstrained"	},
 				{ label: qsTr("None"),					value: "none"			}
 			]
 			property var comparisonValues: (models.count > 1) ? comparisonValuesExclComplement : comparisonValuesInclComplement
-			
+
 			name:				"restrictedModelComparison"
 			label:				qsTr("Add to comparison")
 			indexDefaultValue:	0
 			values:				comparisonValues
 			id:					modelComparison
 		}
-		
+
 		CheckBox
 		{
 			name:				"restrictedModelComparisonWeights"
@@ -191,13 +195,13 @@ Section
 			name:	"restrictedModelComparisonMatrix"
 			label:	qsTr("Relative weights matrix")
 		}
-		
+
 		CheckBox
 		{
 			name:				"restrictedModelComparisonCoefficients"
 			label:				qsTr("Compare model coefficients")
 			childrenOnSameRow:	false
-			
+
 			CheckBox
 			{
 				name:		"restrictedModelComparisonCoefficientsHighlight"

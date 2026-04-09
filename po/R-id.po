@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
 "POT-Creation-Date: 2026-02-28 03:19\n"
-"PO-Revision-Date: 2026-03-21 03:21+0000\n"
+"PO-Revision-Date: 2026-03-27 14:09+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/id/>\n"
@@ -15,60 +15,73 @@ msgstr ""
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"Berat WLS berisi nilai negatif dan/atau nol.<br><br>(hanya berat WLS positif "
+"diizinkan)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"Kesesuaian tunggal terjadi; satu atau lebih variabel prediktor adalah "
+"kombinasi linear variabel prediktor lain"
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"Jumlah residu kuadrat adalah 0; ini mungkin karena variabel sangat rendah "
+"dari variabel dependen Anda"
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "Terjadi galat saat menghitung ANOVA: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares or remove an interaction effect from the model."
 msgstr ""
+"Desain Anda berisi sel kosong. Silakan coba jenis berbeda dari jumlah "
+"kuadrat atau hapus efek interaksi dari model."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"Koreksi Welch tidak dapat dihitung karena '%1$s' memiliki nol varians "
+"setelah menggrupkan pada tingkat berikut dari '%2$s': %3$s"
 
 msgid "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+"Karena sel kosong dalam desain, hanya %1$s dari %2$s efek dapat diestimasi."
 
 msgid "Some higher-order interaction effects cannot be assessed and are therefore omitted."
 msgstr ""
+"Beberapa efek interaksi urutan tertinggi tidak dapat dievaluasi dan oleh "
+"karena itu dihilangkan."
 
 msgid "ANOVA"
-msgstr ""
+msgstr "ANOVA"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "ANCOVA"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "Koreksi Homogenitas"
 
 msgid "Cases"
-msgstr ""
+msgstr "Kasus"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "Jumlah Kuadrat"
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "Rerata Kuadrat"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
 msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "VS-MPR%s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "%s%% CI untuk η²"
 
 msgid "Lower"
 msgstr "Bawah"
@@ -77,508 +90,572 @@ msgid "Upper"
 msgstr "Atas"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "%s%% CI untuk η²ₚ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "%s%% CI untuk ω²"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "%s%% CI untuk ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
-msgstr ""
+msgstr "Koreksi Brown-Forsythe dan Welch hanya tersedia untuk ANOVA satu arah"
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "Tabel Kontras"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "Kontras %1$s - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"Tidak cukup data untuk mengestimasi model/kontras lengkap. Sel kemungkinan "
+"kosong dalam desain antara-subjek (yaitu, struktur data buruk)"
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "Silakan tentukan kontras tambahan."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "Jumlah baris matriks kontras kustom salah."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "Silakan tentukan berat kontras non-nol."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "Uji Pos Hoc"
 
 msgid "Standard (HSD)"
-msgstr ""
+msgstr "Standar (HSD)"
 
 msgid "Standard"
-msgstr ""
+msgstr "Standar"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "Hasil direrata berdasarkan tingkat: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "Beberapa parameter tidak dapat diestimasi karena kehilangan."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "Boostrap berdasarkan %s berhasil replikat."
 
 msgid "Mean Difference estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "Estimasi Perbedaan Rerata berdasarkan median dari distribusi bootstrap."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "Bias terkoreksi diakselerasikan."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "Uji Pos Hoc Bootstrap"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
 msgstr ""
+"Beberapa interval kepercayaan tidak dapat dihitung.\n"
+"Kemungkinan terlalu sedikit replikat bootstrap."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "Games-Howell"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Perbandingan Pos Hoc Games-Howell - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "Perbandingan"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "Perbedaan Rerata"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "%.0f%% CI untuk Perbedaan Rerata"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>tukey</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "Hasil berdasarkan rerata tidak terkoreksi."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Perbandingan Pos Hoc Dunnett - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "%s%% CI untuk Perbedaan Rerata"
 
 msgid "p<sub>Dunnett</sub>"
-msgstr ""
+msgstr "p<sub>Dunnett</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
 msgstr ""
+"Interval kepercayaan terlalu sempit, silakan pilih tingkat kepercayaan "
+"berbeda."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "Pemeriksaan Asumsi"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "Uji untuk Persamaan Varians (Levene)"
 
 msgid "df1"
-msgstr ""
+msgstr "df1"
 
 msgid "df2"
-msgstr ""
+msgstr "df2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"Nilai-F sama dengan nol mengindikasikan penyesuaian sempurna.<br><br>(Uji "
+"Levene pada dasar penyesuaian sempurna tidak dapat diandalkan)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "Rerata Margin"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "Rerata Margin Bootstrap"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"Beberapa interval kepercayaan tidak dapat dihitung. Kemungkinan terlalu "
+"sedikit replikat bootstrap."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "Boostrap berdasarkan %s replikat."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "Efek Utama Sederhana"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "Efek Utama Sederhana - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "Tingkat %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "Tidak cukup observasi dalam sel %s."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "Uji Kruskal-Wallis"
 
 msgid "Factor"
-msgstr ""
+msgstr "Faktor"
 
 msgid "Statistic"
 msgstr "Statistik"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "Peringkat %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "%1$i%% CI untuk Peringkat %2$s"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"Uji dikonduksikan secara terpisah untuk setiap variabel, tanpa "
+"memperhitungkan untuk efek multivariat."
 
 msgid "Dunn"
-msgstr ""
+msgstr "Dunn"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Perbandingan Pos Hoc Dunn - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>Bonf</sub>"
-msgstr ""
+msgstr "p<sub>Bonf</sub>"
 
 msgid "p<sub>Holm</sub>"
-msgstr ""
+msgstr "p<sub>Holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "Korelasi biserial-peringkat berdasarkan uji Mann-Whitney individu."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"Galat saat memuat data. Silakan verifikasikan observasi pengukuran berulang "
+"Anda."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
+"Silakan pilih nama untuk faktor RM yang membedakan dari itu untuk antara "
+"faktor subjek."
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
 msgstr ""
+"Rangkaian data terlalu besar untuk uji lanjutan univariat. Coba batalkan "
+"pilih \"Istilah galat terkumpul untuk uji lanjutan\" di tab Model."
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""
+"Beberapa parameter tidak dapat diestimasikan, kemungkinan besar karena sel "
+"kosong dari desain."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "Greenhouse-Geisser"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "Huynh-Feldt"
 
 msgid "None"
-msgstr ""
+msgstr "Tidak Ada"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "Efek Antar Subjek"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "Efek Dalam Subjek"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "Koreksi Kebulatan"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "Koreksi kebulatan tidak tersedia untuk faktor dengan 2 tingkat."
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
 msgstr ""
+"Uji Mauchly dari kebulatan mengindikasikan bahwa asumsi kebulatan dilanggar "
+"(p < .05)."
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
 msgstr ""
+"Tidak dapat melakukan uji homogenitas karena tidak ada faktor antara subjek "
+"ditentukan."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "Uji Kebulatan"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W Mauchly"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "Perkir. %s"
 
 msgid "p-value"
 msgstr "nilai-p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "Greenhouse-Geisser %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "Huynh-Feldt %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "Batas Rendah %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
+"Tidak dapat melakukan uji kebulatan karena ada hanya dua tingkat dari faktor "
+"RM, atau karena matriks SSP tunggal."
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
+"%s nilai-p terkoreksi tidak sesuai untuk uji pos-hoc pengukuran berulang "
+"(Maxwell, 1980; Field, 2012)."
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "Nonparametris"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "Uji Friedman"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W Kendall"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "Silakan tentukan istilah yang sesuai untuk uji Friedman/Durbin."
 
 msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
 msgstr ""
+"Bukan desain blok lengkap tidak direplikasi. Uji Friedman hanya tersedia "
+"sebagai alternatif dari ANOVA RM satu arah."
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "Uji Durbin"
 
 msgid "df num"
-msgstr ""
+msgstr "df num"
 
 msgid "df den"
-msgstr ""
+msgstr "df den"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Uji Conover"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "Perbandingan Pos Hoc Conover - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "Stat-T"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Digrupkan oleh %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"Korelasi biserial-peringkat berdasarkan uji peringkat-tertanda individu."
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "Faktor moderator harus juga muncul dalam istilah model!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "Tanpa batas ditemukan dalam sel pengukuran berulang."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "Jumlah observasi adalah < %s dalam sel pengukuran berulang"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "Varians dalam sel pengukuran berulang adalah 0."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "Variabel ganda terjadi dalam sel pengukuran berulang, %s"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "Variabel ganda terjadi di %s"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "Kolom peserta ganda ditambahkan ke istilah model, %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"Efek interaksi dari %1$s tidak memiliki observasi untuk kombinasi: %2$s. "
+"Silakan sesuaikan model dan hapus interaksi apapun dengan sel hilang"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"Efek interaksi dari %1$s tidak memiliki observasi untuk kombinasi: %2$s. "
+"Hanya 10 kombinasi hilang pertama ditampilkan. Silakan sesuaikan model dan "
+"hapus interaksi apapun dengan sel hilang"
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
-msgstr ""
+msgstr "Faktor Bayes tidak ditentukan — semua efek ditentukan sebagai gangguan."
 
 msgid "Null model"
-msgstr ""
+msgstr "Model null"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "Model null (inkl. %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Menghitung faktor Bayes"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
 msgstr ""
+"Perkiraan Laplace lebih cepat tetapi juga kurang akurat daripada metode "
+"otomatis. Ini baik ketika menjelajahi data dan mengambil estimasi kasar. "
+"Namun, kami merekomendasikan menggunakan metode integrasi otomatis untuk "
+"mengambil hasil final."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "Perkiraan Laplace tidak selamanya memberikan estimasi galat."
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
 msgstr ""
+"Faktor Bayes tidak dapat dihitung untuk model: %1$s.\n"
+"Pesan galat adalah: %2$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"Semua model mencakup %s, dan kemiringan acak untuk semua faktor pengukuran "
+"berulang."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "Kemiringan acak untuk faktor pengukuran berulang dikecualikan."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "Semua model mencakup %s."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Analisis dari Efek - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Analisis dari Efek"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>inkl</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>ekskl</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>inkl</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "Efek"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(inkl)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(ekskl)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(inkl|data)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(ekskl|data)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"Membandingkan model yang berisi efek ke model sama dihilangkan efek. "
+"Interaksi urutan tertinggi dikecualikan. Analisis disarankan oleh Sebastiaan "
+"Math%st."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"Beberapa faktor Bayes tidak dapat dihitung. Probabilitas inklusi dan faktor "
+"Bayes dihitung saat mengecualikan model ini. Hasil mungkin tidak dapat "
+"diinterpretasi!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "Perbandingan Model"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "Log(BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "Model"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|data)"
 
 msgid "error %%"
-msgstr ""
+msgstr "galat %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b><em>Peringatan.</em></b> Beberapa faktor Bayes tidak dapat dihitung. "
+"Inferensi multi model dilakukan saat mengecualikan model ini. Hasil mungkin "
+"tidak dapat diinterpretasikan!"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Ringkasan Posterior Model Direrata"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "%s%% Interval Kredibel"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "Model Direrata R%s"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b><em>Peringatan: isu pensampelan terjadi!</em></b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "Model terdampak"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% sampel berguna"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "Sampel berguna"
 
 msgid "Total samples drawn"
-msgstr ""
+msgstr "Total sampel digambarkan"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"Untuk beberapa model terdampak, lebih dari 75%% dari sampel posterior gagal, "
+"atau sedikit dati 1000 sampel tetap untuk hasil subsekuen. Semua luaran "
+"model-direrata mungkin dibias dan tidak dapat diinterpretasikan. Periksa "
+"spesifikasi model dan data untuk pola ganjil apapun."
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>Peringatan.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "Ringkasan Posterior Model Direrata"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "Distribusi posterior"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"Tidak dapat mendiagram distribusi posterior. Periksa jika terjadi galat "
+"untuk model menyertakan parameter ini."
 
 msgid "Level"
 msgstr "Tingkat"
 
 msgid "Density"
-msgstr ""
+msgstr "Kepadatan"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "Diagram Q-Q Model Direrata"
 
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "Posterior Model Direrata R%s"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"Ganjil posterior telah dikoreksi untuk beberapa pengujian dengan memperbaiki "
+"ke 0.5 probabilitas priori yang hipotesis null melintasi semua perbandingan "
+"(Westfall, Johnson, & Utts, 1997). Perbandingan individu berdasarkan uji-t "
+"bawaan dengan priori Cauchy (0, r = 1/sqrt(2)). \"U\" dalam faktor Bayes "
+"menandakan bahwa itu tidak dikoreksikan."
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "Ganjil Priori"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "Ganjil Posterior"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "Deskriptif"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "Deskriptif - %s"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "Mean"
 msgstr "Rerata"
@@ -587,70 +664,76 @@ msgid "SD"
 msgstr "SD"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "Koefisien dari variasi"
 
 msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
+"Beberapa kombinasi faktor tidak diobservasikan dan oleh karena itu "
+"dihilangkan (%1$g dari %2$g kombinasi tidak diobservasi)."
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "Diagram deskriptif"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "Diagram Deskriptif"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "Diagram bilah"
 
 msgid "Bar Plot"
-msgstr ""
+msgstr "Diagram Bilah"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "Diagram raincloud"
 
 msgid "Dependent"
-msgstr ""
+msgstr "Dependen"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "Posterior pensampelan"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "panjang sampel harus sama dengan panjang berat!"
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
 msgstr ""
+"Semua prediksi memiliki nol varians. Periksa prediktor/DV untuk anomali atau "
+"tingkatkan jumlah sampel posterior."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "Menampilkan %1$d dari %2$d model terbaik."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "Terjadi galat berikut di BayesFactor::enumerateGeneralModels: %s"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "Inferensi Satu Model"
 
 msgid "Error in single model inference:\n%s"
 msgstr ""
+"Galat dalam inferensi satu model:\n"
+"%s"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "Ringkasan Posterior Satu Model"
 
 msgid "Variable"
-msgstr ""
+msgstr "Variabel"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "Distribusi Posterior Satu Model"
 
 msgid "Q-Q Plot"
 msgstr "Diagram Q-Q"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "Posterior R%s"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "Satu Model R%s"
 
 msgid "Estimate"
 msgstr "Estimasi"
@@ -659,196 +742,219 @@ msgid "t"
 msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d Cohen"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "%s%% CI untuk d Cohen"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "%1$s Koefisien Kontras - %2$s"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "Perbandingan Pos Hoc -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "Perbandingan Pos Hoc Bootstrap -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "%1$s%% bca%2$s CI"
 
 msgid "bias"
-msgstr ""
+msgstr "bias"
 
 msgid "p<sub>Tukey</sub>"
-msgstr ""
+msgstr "p<sub>Tukey</sub>"
 
 msgid "p<sub>Scheffe</sub>"
-msgstr ""
+msgstr "p<sub>Scheffe</sub>"
 
 msgid "p<sub>Sidak</sub>"
-msgstr ""
+msgstr "p<sub>Sidak</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr ""
+msgstr "Nilai-p disesuaikan untuk membandingkan keluarga dari %s estimasi."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
+"Nilai-p dan interval kepercayaan disesuaikan untuk membandingkan keluarga "
+"dari %1$s estimasi (interval kepercayaan dikoreksikan menggunakan metode "
+"%2$s)."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method)."
 msgstr ""
+"Nilai-p dan interval kepercayaan disesuaikan untuk membandingkan keluarga "
+"dari %1$s estimasi (ci untuk perbedaan rerata dikoreksikan menggunakan "
+"metode %2$s, ci untuk ukuran efek dikoreksikan menggunakan metode Bonferroni)"
+"."
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "Rerata Margin -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "Rerata Margin Bootstrap -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "Rerata Margin"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "95%% bca%s CI"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "Estimasi Rerata Margin berdasarkan median dari distribusi bootstrap."
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "95%% CI untuk Perbedaan Rerata"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "Penyesuaian CI Bonferroni"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "Penyesuaian CI Sidak"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "Jenis I Jumlah Kuadrat"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "Jenis II Jumlah Kuadrat"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "Jenis III Jumlah Kuadrat"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "Hipotesis Terbatas Urutan"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
 msgstr ""
+"Galat sintaksis ditemukan dalam model %1$s.\n"
+"\n"
+"Beberapa perbatasan adalah ganda!"
 
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
 msgstr ""
+"Ada galat dalam sintaksis perbatasan untuk %s. Sintaksis tidak dapat "
+"didekodekan!"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "Membootstrap model tidak terbatas"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
 msgstr ""
+"Galat di %1$s - Tidak dapat mengenkodekan sintaksis model! Pesan galat: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "Galat di %1$s - Galat sintaksis dalam model! Pesan galat: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "Galat di %1$s - Tidak dapat mengestimasikan model! Pesan galat: %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "Membootstrap model terbatas"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
 msgstr ""
+"Tidak dapat menyesuaikan model tidak terbatas. Sebagai hasil, tidak ada "
+"model terbatas dapat diestimasikan. Pesan galat: %s."
 
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
+"Tidak dapat mengambil bootstrap untuk model tidak terbatas. Sebagai hasil, "
+"bootstrap untuk model terbatas tidak dapat dilakukan. Pesan galat: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "Tidak dapat menyesuaikan model terbatas tertentu. Alasan: %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "Tanpa batasan"
 
 msgid "Complement"
-msgstr ""
+msgstr "Komplemen"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "Informasi sintaksis"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Koefisien tersedia untuk sintaksis perbatasan"
 
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "Tidak dapat menghitung perbandingan model! Pesan galat: %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "Tabel Perbandingan Model"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "Log-kemungkinan"
 
 msgid "Penalty"
-msgstr ""
+msgstr "Penalti"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "Berat"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "Rasio berat"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = Kriteria Informasi Terbatas-Urutan Terhasil (Kuiper, Hoijtink, & "
+"Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
+msgstr "GORICA = Perkiraan Kriteria Informasi Terbatas-Urutan Terhasil."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
 msgstr ""
+"Rasio berat mengindikasikan berat relatif untuk setiap model melawan model "
+"\"%1$s\". %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "Tidak dapat menghitung berat!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "Model '%s' bukan model referensi karena itu kosong!"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "Model berikut dikecualikan: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "Berat-%s Relatif"
 
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
 msgstr ""
+"Hanya satu model di perbandingan: Tidak dapat menghitung matriks berat "
+"relatif"
 
 msgid "vs."
-msgstr ""
+msgstr "vs."
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "Perbandingan Koefisien"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "Koefisien"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "Koefisien berbeda dari model tanpa batasan."
 
 msgid "Model Summary"
 msgstr "Ringkasan Model"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "Matriks Perbatasan"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "Sisi tangan-kiri (lhs)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "Sisi tangan-kanan (rhs)"
 
 msgid "Coefficients"
 msgstr "Koefisien"
@@ -857,66 +963,81 @@ msgid "%s%% CI"
 msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "Estimasi berdasarkan %s berhasil bootstrap replikat."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "Tidak dapat menghitung tabel koefisien. Pesan galat: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "Uji Hipotesis Informatif"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "Hipotesis"
 
 msgid "Test"
-msgstr ""
+msgstr "Uji"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "Uji Statistik"
 
 msgid "Type %s"
-msgstr ""
+msgstr "Jenis %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "Tidak dapat menghitung uji hipotesis informatif. Pesan galat: %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
 msgstr ""
+"H%1$s: Semua perbatasan persamaan adalah aktif (==), H%2$s: Setidaknya satu "
+"perbatasan persamaan dilanggar."
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Semua parameter adalah dibatasi sama (==), H%2$s: Setidaknya satu "
+"perbatasan pertidaksamaan adalah benar sepenuhnya (>)."
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: Semua perbatasan adalah persamaan (==), H%2$s: Setidaknya satu "
+"perbatasan pertidaksamaan adalah benar sepenuhnya (>)."
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
 msgstr ""
+"H%1$s: Semua perbatasan bertahan, H%2$s: Setidaknya satu perbatasan "
+"dilanggar."
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: Setidaknya satu perbatasan adalah salah atau aktif (==), H%2$s: Semua "
+"perbatasan adalah benar sepenuhnya (>)."
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
 msgstr ""
+"Tidak ada istilah rerata margin ditentukan. Silakan, pilih istilah model di "
+"bagian 'Rerata Margin Terbatas'."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "Tidak dapat menghitung rerata margin. Pesan galat: %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Hasil direratakan pada tingkat: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "Kovariat (%s) diperbaiki di nilai reratanya."
 
 msgid "MANOVA"
-msgstr ""
+msgstr "MANOVA"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"Matriks desain tidak dibalikkan. Ini mungkin karena variabel dependen "
+"kolinear."
 
 msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
 msgstr ""
+"Hasil tidak tersedia karena ukuran sampel (harus antara 3 dan 5000) atau "
+"korelasi sempurna."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Model null (inkl. %s, dan kemiringan acak)"

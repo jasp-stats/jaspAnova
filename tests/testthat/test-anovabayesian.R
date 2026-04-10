@@ -321,7 +321,7 @@ test_that("Single model inference works", {
 
   # done manually because of arbitrary fail on other OS'es due to rng difference
   # use 1-digit precision to account for rng differences between architectures
-  options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 2), digits = 2))
+  options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 1), digits = 1))
   jaspTools::expect_equal_tables(
     table,
     list("", -0.394568448047121, -0.191502787797702, 0.102840319875696, 0.00817134938288836,

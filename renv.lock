@@ -2192,7 +2192,7 @@
     },
     "effectsize": {
       "Package": "effectsize",
-      "Version": "1.0.1",
+      "Version": "1.0.2",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Indices of Effect Size",

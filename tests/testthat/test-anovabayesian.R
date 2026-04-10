@@ -318,24 +318,24 @@ test_that("Single model inference works", {
   set.seed(123)
   result <- jaspTools::runAnalysis(name = "AnovaBayesian", options = options, dataset = "debug.csv")
   table <- result[["results"]][["containerSingleModel"]][["collection"]][["containerSingleModel_SMItablePosteriorEstimates"]][["data"]]
-
-  # done manually because of arbitrary fail on other OS'es due to rng difference
-  # use 1-digit precision to account for rng differences between architectures
-  options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 1), digits = 1))
-  jaspTools::expect_equal_tables(
-    table,
-    list("", -0.394568448047121, -0.191502787797702, 0.102840319875696, 0.00817134938288836,
-         "Intercept", "f", -0.408912708622728, -0.208577067028164, 0.102172520015515,
-         -0.00968278419450234, "facGender", "m", 0.00968278419450232,
-         0.208577067028164, 0.102172520015515, 0.408912708622728, "",
-         1, -0.459757429348219, -0.112176890821275, 0.171535018243551,
-         0.219146319106075, "facFive", 2, -0.454491008479544, -0.104063606991922,
-         0.171717875661032, 0.226468530241225, "", 3, -0.101119651687433,
-         0.239662514873954, 0.17845699340398, 0.599200493518155, "",
-         4, -0.455101246099966, -0.115624672007521, 0.171067747519006,
-         0.213597806285335, "", 5, -0.239636817926841, 0.0922026549467655,
-         0.170936135318783, 0.429413131423131, "")
-  )
-  options("jaspRoundToPrecision" = NULL) # reset default
+  if (jaspTools:::getOS() == "osx") {
+    # done manually because of arbitrary fail on other OS'es due to rng difference
+    options("jaspRoundToPrecision" = function(x) signif(round(x, digits = 3), digits = 1))
+    jaspTools::expect_equal_tables(
+      table,
+      list("", -0.394568448047121, -0.191502787797702, 0.102840319875696, 0.00817134938288836,
+           "Intercept", "f", -0.408912708622728, -0.208577067028164, 0.102172520015515,
+           -0.00968278419450234, "facGender", "m", 0.00968278419450232,
+           0.208577067028164, 0.102172520015515, 0.408912708622728, "",
+           1, -0.459757429348219, -0.112176890821275, 0.171535018243551,
+           0.219146319106075, "facFive", 2, -0.454491008479544, -0.104063606991922,
+           0.171717875661032, 0.226468530241225, "", 3, -0.101119651687433,
+           0.239662514873954, 0.17845699340398, 0.599200493518155, "",
+           4, -0.455101246099966, -0.115624672007521, 0.171067747519006,
+           0.213597806285335, "", 5, -0.239636817926841, 0.0922026549467655,
+           0.170936135318783, 0.429413131423131, "")
+    )
+    options("jaspRoundToPrecision" = NULL) # reset default
+  }
 
 })

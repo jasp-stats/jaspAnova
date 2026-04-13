@@ -20,8 +20,8 @@ The repeated Measures ANOVA allows the user to analyze the differences between m
 #### Display
 - Descriptive statistics: When this option is selected, the mean, standard deviation, and the sample size will be displayed for each level combination of the repeated measures factors.
 - Estimates of effect size: By selecting this option, the specific types of calculations to estimate the effect size can be specified.
-     - &omega;<sup>2</sup> : Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to  &eta;<sup>2</sup> . (Kroes & Finley, 2023). 
-    - partial &omega;<sup>2</sup> : Partial Omega squared is calculated as an estimate of the effect size.  Partial &omega;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+     - &omega;<sup>2</sup> : Omega squared is a less biased estimate of the proportion of variance accounted for by the effect, compared to &eta;<sup>2</sup> (Kroes & Finley, 2023). In repeated measures designs, the denominator includes between-subjects variability. Computed using the effectsize R package.
+    - partial &omega;<sup>2</sup> : Partial omega squared estimates the effect size after removing variance from other factors in the model. In repeated measures designs, the denominator retains subject variance, following the approach of Kroes & Finley (2023). For single-factor RM designs, partial &omega;<sup>2</sup> equals standard &omega;<sup>2</sup>. Computed using the effectsize R package.
     - &eta;<sup>2</sup> : Eta squared is the proportion of total variance accounted for by the effect: SS<sub>effect</sub> / SS<sub>total</sub>. In repeated measures designs, SS<sub>total</sub> includes between-subjects variability. Computed using the effectsize R package (Olejnik & Algina, 2003).
     - partial &eta;<sup>2</sup> : Partial eta squared is the proportion of variance accounted for by the effect after excluding variance from other effects: SS<sub>effect</sub> / (SS<sub>effect</sub> + SS<sub>error</sub>). In repeated measures designs, SS<sub>error</sub> is the effect-specific error term. Computed using the effectsize R package.
     - general &eta;<sup>2</sup> : Generalized eta squared includes variance from measured factors (e.g., subjects) in the denominator, but not from manipulated factors. This makes it comparable across between-subjects and within-subjects designs, unlike &eta;<sup>2</sup> and partial &eta;<sup>2</sup> which can be inflated or design-dependent (Olejnik & Algina, 2003; Bakeman, 2005). Computed using the afex R package.
@@ -71,11 +71,12 @@ To perform a post hoc test, drag one or more factor names to the right column. S
 - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`.
 - Conditional comparisons for interactions: Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect. 
 - Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
-- Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available (note that the confidence intervals can only be adjusted using the Bonferroni method):  
-    - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the repeated measures have an equal sample size and variance. This method is commonly used and is selected by default.
-    - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
+- Correction: To correct for multiple comparisons and avoid Type I errors, various methods are available for adjusting the p-value. Note: confidence intervals can only be adjusted using the Bonferroni method.
+    - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method. This method is selected by default.
     - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.
-    - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.
+    - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the repeated measures have an equal sample size and variance.
+    - Scheffé: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
+    - FDR (Benjamini-Hochberg): Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods, offering more power at the cost of allowing some false positives.
 - Display
     - Flag Significant Comparisons: Add asterisks to the table to indicate 3 levels of significance.
     - Letter-based grouping table: Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans. 
@@ -182,6 +183,7 @@ Post Hoc Comparisons:
 - p<sub>Scheffe</sub>: Scheffe's corrected p-value for multiple comparisons.
 - p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
 - p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons.
+- p<sub>FDR</sub>: Benjamini-Hochberg FDR-adjusted p-value for multiple comparisons.
 
 Simple Main Effects:
 - Level: The levels/groups of the repeated measures factor that are compared with each other.

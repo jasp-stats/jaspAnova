@@ -20,8 +20,8 @@ ANOVA allows the user to analyze the difference between multiple group means.
 #### Display: 
 - Descriptive statistics: The mean, standard deviation, and the sample size will be displayed for each level combination of the independent variables. 
 - Estimates of effect size: The specific types of calculations to estimate the effect size can be specified. 
-    - &omega;<sup>2</sup> : Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to  &eta;<sup>2</sup> . (Kroes & Finley, 2023). 
-    - partial &omega;<sup>2</sup> : Partial Omega squared is calculated as an estimate of the effect size.  Partial &omega;<sup>2</sup> measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+    - &omega;<sup>2</sup> : Omega squared is a less biased estimate of the proportion of variance accounted for by the effect, compared to &eta;<sup>2</sup> (Kroes & Finley, 2023). Computed using the effectsize R package.
+    - partial &omega;<sup>2</sup> : Partial omega squared estimates the effect size after removing variance from other factors in the model. For single-factor designs, partial &omega;<sup>2</sup> equals standard &omega;<sup>2</sup>. Computed using the effectsize R package.
     - &eta;<sup>2</sup> : Eta squared is the proportion of total variance accounted for by the effect: SS<sub>effect</sub> / SS<sub>total</sub>. Computed using the effectsize R package.
     - partial &eta;<sup>2</sup> : Partial eta squared is the proportion of variance accounted for by the effect after excluding variance from other effects: SS<sub>effect</sub> / (SS<sub>effect</sub> + SS<sub>error</sub>). Computed using the effectsize R package.
 - Vovk-Selke maximum p-ratio: The bound 1/(-e p log(p)) is derived from the shape of the p-value distribution. Under the null hypothesis (H<sub>0</sub>) it is uniform (0,1), and under the alternative (H<sub>1</sub>) it is decreasing in p, e.g., a beta (α, 1) distribution, where 0 < α < 1. The Vovk-Sellke MPR is obtained by choosing the shape α of the distribution under H1 such that the obtained p-value is maximally diagnostic. The value is then the ratio of the densities at point p under H<sub>0</sub> and H<sub>1</sub>. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H<sub>0</sub>. More information can be found in this <a href="https://jasp-stats.org/2017/06/12/mysterious-vs-mpr/">blogpost</a>. 
@@ -77,18 +77,20 @@ ANOVA allows the user to analyze the difference between multiple group means.
       - From `...` bootstraps: By selecting this option, the bootstrapped post hoc test is applied. By default, the number of replications is set to 1000. This can be changed into the desired number. 
       - Effect size: By selecting this option, the effect size (i.e., the magnitude of the observed effect) will be displayed. The used measure for the effect size is Cohen's d. The effect size will only be displayed for the post hoc type `Standard`. 
       - Conditional comparisons for interactions: Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect.  
-  -  Games-Howell: This method can be used when equal group/level variances are not assumed. The p-values are corrected with the Tukey method.
-  -  Dunnett: When selecting this method, all the levels are compared to one specific level, for example to the control group. At the moment, it is not possible to manually specify to which level the others levels are compared, but it is based on the order of the levels. To change the order of the levels, the level labels can be adjusted. 
+  -  Games-Howell: This method can be used when equal group variances cannot be assumed. The p-values are adjusted using the Tukey method.
+  -  Dunnett: With this method, all levels are compared to the first occurring level in the data. To change which level is used as the reference group, adjust the order of the level labels in the Variable Settings.
   <details>
     <summary><b>GIF demonstration: Adjust level labels </b></summary>
     <img src="%HELP_FOLDER%/gif/labelediting.gif"/>
   </details> 
       
-  - Correction: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value and confidence interval for mean difference are available (note that the confidence intervals for effect sizes can only be adjusted using the Bonferroni method):
+  - Correction: To correct for multiple comparisons and avoid Type I errors, various methods are available for adjusting the p-value and confidence interval for mean differences. Note: confidence intervals for effect sizes can only be adjusted using the Bonferroni method.
       - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance. This method is commonly used and is selected by default. 
-      - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative. 
+      - Scheffé: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative. 
       - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 
       - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method. 
+      - Šidák: This method is considered less conservative than Bonferroni but still maintains statistical power. It is usually used if there is not a big amount of tests to be performed.
+      - FDR (Benjamini-Hochberg): Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods, offering more power at the cost of allowing some false positives.
   - Flag significant comparisons: Add asterisks to the table to indicate 3 levels of significance.
   - Letter-based grouping table: Set up a compact letter display of all pair-wise comparisons, based on 'multcomp::cld' and emmeans. 
 
@@ -207,6 +209,8 @@ Post Hoc Comparisons (Standard)- independent variable:
 - p<sub>Scheffe</sub>: Scheffe's corrected p-value for multiple comparisons. 
 - p<sub>Bonf</sub>: Bonferroni's corrected p-value for multiple comparisons.  
 - p<sub>Holm</sub>: Holm's corrected p-value for multiple comparisons. 
+- p<sub>Šidák</sub>: Šidák's corrected p-value for multiple comparisons.
+- p<sub>FDR</sub>: Benjamini-Hochberg FDR-adjusted p-value for multiple comparisons.
 
 Games-Howell Post Hoc Comparisons - independent variable:  
 - The first two columns represent the levels/groups of the independent variable that are compared to each other. 

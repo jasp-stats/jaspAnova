@@ -715,13 +715,13 @@ test_that("Effect Size Calculation correct", {
   options$effectSizeGeneralEtaSquared <- TRUE
 
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
-                            dataset = AnovaRepeatedMeasuresOneWay,
+                            dataset = "AnovaRepeatedMeasuresOneWay.csv",
                             options = options)
 
   refTable <- list(1, 1, 1, 1, 1, 1, "TRUE", 3.79380603096984, 27.7083333333333,
-                   83.1249999999999, "Animal", 0.327424913835549, 0.327424913835549,
-                   3, 0.238785176929506, 0.0255702968630395, 0.351479915433403,
-                   0.238785176929506, "TRUE", "", 7.30357142857143, 153.375, "Residuals",
+                   83.1249999999999, "Animal", 0.327424913835549, 0.351479915433404,
+                   3, 0.238785176929507, 0.0255702968630395, 0.327424913835549,
+                   0.238785176929507, "TRUE", "", 7.30357142857143, 153.375, "Residuals",
                    "", "", 21, "", "", "")
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data

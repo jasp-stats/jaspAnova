@@ -841,7 +841,6 @@ test_that("No interaction: Within Subjects Effects table results match", {
 
 
 # Ordinal restrictions ----
-if (FALSE) { # temporarily skip ordinal restriction tests
 options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$betweenModelTerms <- list(list(components = "facGender"), list(components = "facExperim"),
                                   list(components = c("facGender", "facExperim")))
@@ -893,52 +892,52 @@ results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", "test.csv", options)
 test_that("Ordinal restrictions: Within factor marginal means table results match", {
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_fac1_fac2"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.111192059436893, "l1", "a", -0.348433940610132, -0.193021696619891,
-                                      0.063157376558472, 0.0991694646477927, "l2", "a", -0.117008378664137,
-                                      0.0623965782769017, 0.238451181290795, 0.150936928904207, "l1",
-                                      "b", 1.78929345522918, 2.06675525153415, 2.36426645338382, 0.0930601642018357,
-                                      "l2", "b", -0.117820277971269, 0.0739325926937613, 0.219009692466684
+                                 list(0.111192059436894, "l1", "a", -0.348433940610136, -0.193021696619892,
+                                      0.0631573765584683, 0.0991694646477928, "l2", "a", -0.117008378664137,
+                                      0.062396578276901, 0.238451181290795, 0.150936928904208, "l1",
+                                      "b", 1.78929345522917, 2.06675525153415, 2.36426645338382, 0.0930601642018357,
+                                      "l2", "b", -0.117820277971269, 0.0739325926937623, 0.219009692466685
                                  ))
 })
 
 test_that("Ordinal restrictions: Between factor marginal means table results match", {
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_facGender_facExperim"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.116320641523988, "control", "f", 0.206795573859205, 0.421218273543759,
-                                      0.645706227994994, 0.1391233133912, "control", "m", 0.377076198054344,
-                                      0.6620015604446, 0.931755102677303, 0.115680273869516, "experimental",
-                                      "f", 0.205479564635142, 0.432494923921876, 0.627514748263424,
-                                      0.0972146860548308, "experimental", "m", 0.3445931803434, 0.488458932735193,
-                                      0.689501306286302))
+                                 list(0.116320641523988, "control", "f", 0.206795573859206, 0.421218273543758,
+                                      0.645706227994994, 0.139123313391201, "control", "m", 0.377076198054343,
+                                      0.6620015604446, 0.931755102677304, 0.115680273869517, "experimental",
+                                      "f", 0.205479564635141, 0.432494923921876, 0.627514748263423,
+                                      0.097214686054831, "experimental", "m", 0.344593180343398, 0.488458932735193,
+                                      0.689501306286304))
 })
 
 test_that("Ordinal restrictions: Coefficients table results match", {
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_coefficientsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list("contNormal..Intercept.", -0.441571745227907, -0.81244949558875,
-                                      0.193448313939833, -0.0554231431302942, "contNormal:facGenderm",
-                                      0.58164309673504, -0.0826348336172975, 0.381269716912694, 1.08935760753205,
-                                      "contNormal:facExperimexperimental", 0.099527455577631, -0.357946798142768,
-                                      0.272849532129813, 0.607116934811138, "contNormal:facGenderm:facExperimexperimental",
-                                      -0.264268801066169, -0.960286428404513, 0.455638999017653, 0.633938720194386,
-                                      "contGamma..Intercept.", 1.64709667642169, 1.25665112180151,
+                                 list("contNormal..Intercept.", -0.441571745227909, -0.81244949558875,
+                                      0.193448313939834, -0.0554231431302923, "contNormal:facGenderm",
+                                      0.581643096735037, -0.0826348336172978, 0.381269716912695, 1.08935760753205,
+                                      "contNormal:facExperimexperimental", 0.0995274555776286, -0.357946798142767,
+                                      0.272849532129813, 0.607116934811131, "contNormal:facGenderm:facExperimexperimental",
+                                      -0.264268801066164, -0.960286428404516, 0.455638999017656, 0.633938720194392,
+                                      "contGamma..Intercept.", 1.6470966764217, 1.2566511218015,
                                       0.236609950348413, 2.08804679977783, "contGamma:facGenderm",
-                                      0.686014101318584, -0.163539673627095, 0.493777273938826, 1.71124935227611,
-                                      "contGamma:facExperimexperimental", 0.40757499005641, -0.140772516021531,
+                                      0.686014101318591, -0.163539673627092, 0.493777273938826, 1.71124935227611,
+                                      "contGamma:facExperimexperimental", 0.407574990056411, -0.140772516021538,
                                       0.323351644438931, 1.05780465183572, "contGamma:facGenderm:facExperimexperimental",
-                                      -0.465122633957602, -1.6697324704635, 0.576741635866038, 0.550201288145503,
-                                      "contcor1..Intercept.", 0.199270271857154, -0.122081713914664,
-                                      0.177136020618645, 0.474399684943018, "contcor1:facGenderm",
-                                      -0.07033744997919, -0.49683689022239, 0.250317102817171, 0.448604752069799,
-                                      "contcor1:facExperimexperimental", -0.246127834791597, -0.711623183730042,
-                                      0.244875440504839, 0.213464906637517, "contcor1:facGenderm:facExperimexperimental",
-                                      0.0765935743857436, -0.495992960371517, 0.294930934246959, 0.559167142166626,
-                                      "contcor2..Intercept.", 0.332326331880421, 0.00317549214264327,
-                                      0.172359202440059, 0.612071705312522, "contcor2:facGenderm",
-                                      -0.212893461529658, -0.606617240416401, 0.201191759979036, 0.182078001714229,
-                                      "contcor2:facExperimexperimental", -0.273596296677489, -0.587464000214955,
-                                      0.185437062955922, 0.125504776318483, "contcor2:facGenderm:facExperimexperimental",
-                                      0, 0, 0.0682869041725479, 0.271108272580777))
+                                      -0.4651226339576, -1.6697324704635, 0.576741635866039, 0.550201288145497,
+                                      "contcor1..Intercept.", 0.199270271857152, -0.122081713914665,
+                                      0.177136020618645, 0.47439968494302, "contcor1:facGenderm",
+                                      -0.0703374499791924, -0.496836890222393, 0.250317102817172, 0.448604752069802,
+                                      "contcor1:facExperimexperimental", -0.246127834791597, -0.711623183730037,
+                                      0.24487544050484, 0.213464906637518, "contcor1:facGenderm:facExperimexperimental",
+                                      0.0765935743857436, -0.49599296037152, 0.294930934246959, 0.559167142166627,
+                                      "contcor2..Intercept.", 0.33232633188042, 0.00317549214264366,
+                                      0.172359202440059, 0.61207170531252, "contcor2:facGenderm",
+                                      -0.212893461529657, -0.606617240416402, 0.201191759979036, 0.18207800171423,
+                                      "contcor2:facExperimexperimental", -0.27359629667749, -0.587464000214954,
+                                      0.185437062955923, 0.125504776318482, "contcor2:facGenderm:facExperimexperimental",
+                                      0, 0, 0.068286904172548, 0.271108272580777))
 })
 
 test_that("Ordinal restrictions: Restriction Matrix table results match", {
@@ -951,8 +950,7 @@ test_that("Ordinal restrictions: Restriction Matrix table results match", {
 test_that("Ordinal restrictions: Model Comparison Table results match", {
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_ordinalRestrictions"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_modelComparison"]][["collection"]][["rmAnovaContainer_ordinalRestrictions_modelComparison_comparisonTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(11.3366660265192, 0.400261631091091, 9.32382290342566, "Model 1",
-                                      14.9921559166853, 0.667393736737701, 10.5279158319605, 0.599738368908909,
-                                      10.2438861673345, "Complement", 15.5078440833147, 1))
+                                 list(11.3366660265192, 0.40026163109109, 9.32382290342565, "Model 1",
+                                      14.9921559166853, 0.667393736737698, 10.5279158319605, 0.59973836890891,
+                                      10.2438861673345, "Complement", 15.5078440833148, 1))
 })
-} # end skip ordinal restriction tests

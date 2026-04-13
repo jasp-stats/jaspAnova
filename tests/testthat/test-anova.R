@@ -554,7 +554,6 @@ test_that("ANOVA - factor level with zero variance works and Welch homogeneity c
 
 # Ordinal restrictions ----
 # Tests from https://restriktor.org
-if (FALSE) { # temporarily skip ordinal restriction tests
 
 ## Basic model ----
 options <- initClassicalAnovaOptions("Anova")
@@ -651,7 +650,7 @@ options$restrictedModelSummaryForAllModels <- FALSE
 options$restrictedModels <- list(list(informedHypothesisTest = TRUE, marginalMean = FALSE,
                                       name = "Model 1", summary = TRUE, syntax = "GroupActive  < GroupPassive\nGroupPassive < GroupControl\nGroupControl < GroupNo"),
                                  list(informedHypothesisTest = TRUE, marginalMean = FALSE,
-                                      name = "Model 2", summary = TRUE, syntax = "(GroupPassive - GroupActive)  / 1.516 > 0.2\n(GroupControl - GroupPassive) / 1.516 > 0.2\n(GroupNo      - GroupControl) / 1.516 > 0.2"))
+                                      name = "Model 2", summary = TRUE, syntax = "GroupPassive / 1.516 - GroupActive  / 1.516 > 0.2\nGroupControl / 1.516 - GroupPassive / 1.516 > 0.2\nGroupNo      / 1.516 - GroupControl / 1.516 > 0.2"))
 options$restrictedHeterogeneityCorrection <- "none"
 set.seed(1)
 results <- jaspTools::runAnalysis("Anova", "ZelazoKolb1972.csv", options)
@@ -759,4 +758,3 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
                                       "Model 3", 3.08303364908579, 170.967797419862, 0.124869140167247,
                                       -80.4838987099312, "Unconstrained", 5))
 })
-} # end skip ordinal restriction tests

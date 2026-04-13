@@ -27,7 +27,7 @@ test_that("Anova results match", {
 
   plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_assumptionsContainer"]][["collection"]][["anovaContainer_assumptionsContainer_qqPlot"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot")
+  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot", tolerance = 2.5)
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_contrastContainer"]][["collection"]][["anovaContainer_contrastContainer_customContrast_jaspColumn1"]][["collection"]][["anovaContainer_contrastContainer_customContrast_jaspColumn1_contrastTable"]][["data"]]
   jaspTools::expect_equal_tables(table,

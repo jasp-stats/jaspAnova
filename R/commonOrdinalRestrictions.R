@@ -223,7 +223,7 @@
     )
     fit <- try(restriktor::restriktor(object = unrestricted, constraints = syntax, se = se))
   } else {
-    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax, options, dataset))
+    fit <- try(.rmaorCalculateRestrictedModel(unrestrictedModel, syntax))
   }
 
   if(isTryError(fit)) {
@@ -899,7 +899,7 @@
       boot <- try(restriktor::restriktor(object = unconstrained, constraints = syntax, se = fit[["se"]]))
     } else { # rm anova
       model <- list(parsForGorica = .rmaorExtractPars(unconstrained))
-      boot <- try(.rmaorCalculateRestrictedModel(model, syntax, options, dataset))
+      boot <- try(.rmaorCalculateRestrictedModel(model, syntax))
     }
 
     if(!isTryError(boot)) {
@@ -1172,12 +1172,12 @@
   ))
 }
 
-.rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax, options, dataset) {
+.rmaorCalculateRestrictedModel <- function(unrestrictedModel, syntax) {
 
   args <- list(
     object      = unrestrictedModel[["parsForGorica"]][["coef"]],
     VCOV        = unrestrictedModel[["parsForGorica"]][["vcov"]],
-    hypotheses = lapply(options$restrictedModels, function(x) .aorTranslateSyntax(x[['syntax']], dataset, options, x[["name"]])),
+    hypotheses  = list(syntax),
     comparison  = "none",
     type        = "gorica"
   )

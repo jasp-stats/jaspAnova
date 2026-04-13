@@ -289,7 +289,6 @@ test_that("Analysis handles errors", {
 
 # Ordinal Restrictions ----
 # this test also tests anova restrictions
-if (FALSE) { # temporarily skip ordinal restriction tests
 options <- initClassicalAnovaOptions("Ancova")
 options$contrasts <- list(list(contrast = "none", variable = "contBinom"))
 options$covariates <- "contcor1"
@@ -501,4 +500,3 @@ test_that("Ordinal restrictions: Adjuested marginal means results match", {
                                       4.06863411619283, "No", 0.69741742112576, -0.17079728059332,
                                       "Physical", 0.467592714510269, 1.95108158220025))
 })
-} # end skip ordinal restriction tests

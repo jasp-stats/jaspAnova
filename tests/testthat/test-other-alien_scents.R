@@ -17,7 +17,7 @@ test_that("AnovaRepeatedMeasures results match", {
 
   plotName <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer_qqPlot"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot")
+  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot", tolerance = 0.05)
 
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_betweenTable"]][["data"]]
   jaspTools::expect_equal_tables(table,

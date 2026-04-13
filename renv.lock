@@ -2278,7 +2278,7 @@
     },
     "emmeans": {
       "Package": "emmeans",
-      "Version": "2.0.1",
+      "Version": "2.0.3",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Estimated Marginal Means, aka Least-Squares Means",
@@ -3794,7 +3794,7 @@
     },
     "insight": {
       "Package": "insight",
-      "Version": "1.4.4",
+      "Version": "1.4.6",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Easy Access to Model Information for Various Model Objects",

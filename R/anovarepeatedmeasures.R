@@ -386,29 +386,22 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   residualResults[["case"]] <- "Residuals"
 
   # Now we calculate effect sizes
-  SSr <- sortedModel[["Error SS"]]
-  MSr <- SSr/sortedModel[["den Df"]]
+  etaResult     <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], partial = FALSE, alternative = "two.sided")
+  partEtaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], partial = TRUE,  alternative = "two.sided")
+  effectSizeIndexMap <- .mapAnovaTermsToTerms(etaResult[["Parameter"]], rownames(sortedModel))
 
-  sortedModel[["eta"]]     <- sortedModel[["Sum Sq"]] / (sum(sortedModel[["Sum Sq"]]) + sum(residualResults[["Sum Sq"]]))
-  sortedModel[["partialEta"]] <- sortedModel[["Sum Sq"]] / (sortedModel[["Sum Sq"]] + SSr)
-  sortedModel[["genEta"]]  <- result[["anova_table"]][["ges"]][idxValid]
+  sortedModel[["eta"]]            <- etaResult[["Eta2"]][effectSizeIndexMap]
+  sortedModel[["partialEta"]]     <- partEtaResult[["Eta2_partial"]][effectSizeIndexMap]
+  sortedModel[["partialEtaLow"]]  <- partEtaResult[["CI_low"]][effectSizeIndexMap]
+  sortedModel[["partialEtaHigh"]] <- partEtaResult[["CI_high"]][effectSizeIndexMap]
+  sortedModel[["genEta"]]         <- result[["anova_table"]][["ges"]][idxValid]
 
-  n <- interceptRow[["den Df"]] + 1
-  MSb <- interceptRow[["Error SS"]] / (n-1)
-  MSm <- sortedModel[["Mean Sq"]]
-  df <- sortedModel[["num Df"]]
+  omegaResult     <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], partial = FALSE, alternative = "two.sided")
+  partOmegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], partial = TRUE,  alternative = "two.sided")
+  effectSizeIndexMap <- .mapAnovaTermsToTerms(omegaResult[["Parameter"]], rownames(sortedModel))
 
-  omega <- (df / (n * (df + 1)) * (MSm - MSr)) / (MSr + ((MSb - MSr) / (df + 1)) +
-                                                                     (df / (n * (df + 1))) * (MSm - MSr))
-  sortedModel[["omega"]] <- sapply(omega, max, 0)
-  for (i in seq_along(summaryResult)) {
-    if (any(rownames(summaryResult[[i]]) == "(Intercept)"))
-      summaryResult[[i]] <- summaryResult[[i]][-1, ]
-  }
-
-  partOmegaResult <- effectsize::omega_squared(result,  ci = options[["effectSizeCiLevel"]], partial = TRUE, alternative = "two.sided")
-  effectSizeIndexMap <- .mapAnovaTermsToTerms(partOmegaResult[["Parameter"]], rownames(sortedModel))
-  sortedModel[["partialOmega"]] <- partOmegaResult[["Omega2_partial"]][effectSizeIndexMap]
+  sortedModel[["omega"]]        <- pmax(omegaResult[[2]][effectSizeIndexMap], 0)
+  sortedModel[["partialOmega"]] <- partOmegaResult[[2]][effectSizeIndexMap]
 
   # Now we include the results from the corrections
   withinAnovaTable <- ggTable <- hfTable <- subset(sortedModel, isWithinTerm == TRUE)
@@ -467,7 +460,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   hfTable[["correction"]]      <- gettext("Huynh-Feldt")
   hfTable[[".isNewGroup"]]     <- FALSE
 
-  residualResults[["eta"]]     <- residualResults[["etaPart"]] <- residualResults[["genEta"]] <-
+  residualResults[["eta"]]     <- residualResults[["partialEta"]] <- residualResults[["genEta"]] <-
+  residualResults[["partialEtaLow"]] <- residualResults[["partialEtaHigh"]] <-
   residualResults[["omega"]]   <- residualResults[["p"]] <- as.numeric(NA)
 
   wResidualResults <- wResidualResultsGG <- wResidualResultsHF <- subset(residualResults, isWithinTerm == TRUE)

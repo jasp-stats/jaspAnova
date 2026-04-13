@@ -34,8 +34,8 @@ Group
 			columns: 2
 			CheckBox { name: "effectSizeOmegaSquared";		label: qsTr("ω²")	; info: qsTr("Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to η2 . (Kroes & Finley, 2023).") ;checked: true			}
 			CheckBox { name: "effectSizePartialOmegaSquared";		label: qsTr("partial ω²"); info: qsTr("Partial Omega squared is calculated as an estimate of the effect size. Partial ω2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.")		}
-			CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²"); info: qsTr("Eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018; Kroes & Finley, 2023).")	}
-			CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²"); info: qsTr("Partial eta-squared is calculated as an estimate of the effect size. Partial η2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.")}
+CheckBox { name: "effectSizeEtaSquared";		label: qsTr("η²"); info: qsTr("Eta squared (η²) is the proportion of total variance accounted for by the effect: SS_effect / SS_total. In repeated measures designs, SS_total includes between-subjects variability (Olejnik & Algina, 2003). Computed using the effectsize R package.")  }
+			CheckBox { name: "effectSizePartialEtaSquared";	label: qsTr("partial η²"); info: qsTr("Partial eta squared (η²p) is the proportion of variance accounted for by the effect after excluding variance from other effects: SS_effect / (SS_effect + SS_error). In repeated measures designs, SS_error is the effect-specific error term. Computed using the effectsize R package.")}
 		}
 
 		CheckBox
@@ -43,6 +43,7 @@ Group
 			name: "effectSizeGeneralEtaSquared"
 			label: qsTr("general η²")
 			visible: analysis === Common.Type.Analysis.RMANOVA
+			info: qsTr("Generalized eta squared (η²G) includes variance from measured factors (e.g., subjects) in the denominator, but not from manipulated factors. This makes it comparable across between-subjects and within-subjects designs (Olejnik & Algina, 2003; Bakeman, 2005). Computed using the afex R package.")
 		}
 
 

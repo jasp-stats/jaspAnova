@@ -6789,7 +6789,7 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.1.7",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Project Environments",
@@ -6844,7 +6844,7 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.1.7",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN"
     },

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-03-05 12:09+0000\n"
+"PO-Revision-Date: 2026-04-23 16:59+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "es/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -157,19 +157,17 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "Algunos parámetros no eran estimables por falta de datos."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Estimaciones de la Diferencia de medias y d de Cohen"
 
-#, fuzzy
 msgid "Mean Difference estimates"
-msgstr "Diferencia de Medias"
+msgstr "Estimaciones de la Diferencia de Medias"
 
-#, fuzzy
 msgid ""
 "Bootstrapping based on %1$s replicates. %2$s are based on the median of the "
 "bootstrap distribution."
 msgstr ""
-"La estimación de las Medias Marginales se basa en la mediana de la "
-"distribución con Bootstrap."
+"Bootstrapping basado en %1$s repeticiones. %2$s está basada en la mediana de "
+"la distribución con Bootstrap."
 
 msgid "Bias corrected accelerated."
 msgstr "Sesgo corregido acelerado."
@@ -692,7 +690,7 @@ msgid "SD"
 msgstr "DT"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Constante"
 
 msgid "Model Averaged R%s"
 msgstr "R%s medio del modelo"
@@ -763,9 +761,8 @@ msgstr ""
 "previo de Cauchy (0, r = 1/sqrt (2)). La \"U\" en el factor de Bayes denota "
 "que no está corregido."
 
-#, fuzzy
 msgid "Post Hoc Comparisons - %s"
-msgstr "Comparaciones Post-hoc -"
+msgstr "Comparaciones Post-hoc - %s"
 
 msgid "Prior Odds"
 msgstr "Probabilidades Previas"
@@ -896,9 +893,8 @@ msgstr "p<sub>Scheffe</sub>"
 msgid "p<sub>Sidak</sub>"
 msgstr "p<sub>Sidak</sub>"
 
-#, fuzzy
 msgid "p<sub>BH</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "p<sub>BH</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "Valor P ajustado para comparar una familia de estimaciones de %s."
@@ -922,7 +918,7 @@ msgstr ""
 "Bonferroni)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "La corrección del valor P no se ve afectada por el bootstrap."
 
 msgid "Marginal Means -"
 msgstr "Medias Marginales -"

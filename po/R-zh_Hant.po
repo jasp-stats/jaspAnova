@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-04-12 22:13+0000\n"
+"PO-Revision-Date: 2026-04-25 03:37+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -143,17 +143,15 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "由於存在遺漏植，導致某些參數將無法被估計。"
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "平均數差異及 Cohen’s d 之估計值"
 
-#, fuzzy
 msgid "Mean Difference estimates"
-msgstr "平均數差異"
+msgstr "平均數差異估計值"
 
-#, fuzzy
 msgid ""
 "Bootstrapping based on %1$s replicates. %2$s are based on the median of the "
 "bootstrap distribution."
-msgstr "邊際平均數估計值是基於拔學法分配之中位數。"
+msgstr "拔靴法係基於 %1$s 次重抽樣。%2$s 係基於拔靴分配的中位數。"
 
 msgid "Bias corrected accelerated."
 msgstr "偏誤加速校正(BCa)。"
@@ -630,7 +628,7 @@ msgid "SD"
 msgstr "標準差"
 
 msgid "Intercept"
-msgstr ""
+msgstr "截距"
 
 msgid "Model Averaged R%s"
 msgstr "模型平均R%s"
@@ -694,9 +692,8 @@ msgstr ""
 "0.5（Westfall， Johnson， & Utts， 1997）。個別比較是基於預設的先驗柯西 "
 "（0， r = 1/sqrt（2））t 檢定。貝氏因子中的「U」表示它未校正。"
 
-#, fuzzy
 msgid "Post Hoc Comparisons - %s"
-msgstr "事後比較 -"
+msgstr "事後比較－%s"
 
 msgid "Prior Odds"
 msgstr "先前勝率"
@@ -820,9 +817,8 @@ msgstr "<sub>Scheffe</sub> p值"
 msgid "p<sub>Sidak</sub>"
 msgstr "<sub>Sidak</sub>p值"
 
-#, fuzzy
 msgid "p<sub>BH</sub>"
-msgstr "<sub>F</sub> p值"
+msgstr "p<sub>BH</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "針對比較一組%s估計值，而調整P值。"
@@ -841,7 +837,7 @@ msgstr ""
 "調整 P 值和信賴區間以比較一系列 %1$s 估計值（使用 %2$s 方法校正信賴區間）。"
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "p 值校正不受拔靴法的影響。"
 
 msgid "Marginal Means -"
 msgstr "邊際平均數"

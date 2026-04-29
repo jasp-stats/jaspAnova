@@ -1413,7 +1413,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 # Data reading ----
 .BANOVAreadData <- function(dataset, options, analysisType) {
   if (analysisType == "RM-ANOVA")
-    return(.BANOVAreadRManovaData(dataset, options))
+    return(.BANOVAwideToLong(dataset, options))
   return(dataset)
 }
 
@@ -1432,7 +1432,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(nuisance)
 }
 
-.BANOVAreadRManovaData <- function(dataset, options) {
+.BANOVAwideToLong <- function(dataset, options) {
 
   if (!("" %in% options$repeatedMeasuresCells)) {
     rm.vars       <- options$repeatedMeasuresCells

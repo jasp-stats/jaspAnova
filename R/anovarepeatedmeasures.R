@@ -19,7 +19,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
   initialGlobalOptions <- options()
   on.exit(options(initialGlobalOptions), add = TRUE)
 
-  longData <- .BANOVAreadRManovaData(dataset, options)
+  longData <- .BANOVAwideToLong(dataset, options)
   if (isTryError(longData))
     .quitAnalysis(gettext("Error while loading data. Please verify your repeated measures observations."))
 

@@ -15,18 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) {
+AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
   initialGlobalOptions <- options()
   on.exit(options(initialGlobalOptions), add = TRUE)
-
-  numericVariables <- c(unlist(options$repeatedMeasuresCells),unlist(options$covariates))
-  numericVariables <- numericVariables[numericVariables != ""]
-  factorVariables <- c(unlist(options$betweenSubjectFactors))
-  factorVariables <- factorVariables[factorVariables != ""]
-
-  if (is.null(dataset))
-    dataset <- .readDataSetToEnd(columns.as.numeric=numericVariables, columns.as.factor=factorVariables,
-                                 exclude.na.listwise=c(numericVariables, factorVariables))
 
   longData <- .BANOVAreadRManovaData(dataset, options)
   if (isTryError(longData))

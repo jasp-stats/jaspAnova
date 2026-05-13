@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-02-20 09:09+0000\n"
-"Last-Translator: Tran Thien Truong <truongtrandds@gmail.com>\n"
+"PO-Revision-Date: 2026-05-13 12:44+0000\n"
+"Last-Translator: Thành Khôi Lê <lethanhkhoi@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/vi/>\n"
 "Language: vi\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 2026.5.dev0\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -157,11 +157,10 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "Một số tham số không thể ước lượng được do dữ liệu bị thiếu."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Chênh lệch trung bình và Ước lượng d của Cohen"
 
-#, fuzzy
 msgid "Mean Difference estimates"
-msgstr "Chênh lệch trung bình"
+msgstr "Ước lượng Chênh lệch trung bình"
 
 #, fuzzy
 msgid ""
@@ -475,38 +474,39 @@ msgstr "df tử số"
 msgid "df den"
 msgstr "df mẫu số"
 
+#, fuzzy
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "Kiểm định Conover"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "So sánh hậu nghiệm của Conover - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "Giá trị T"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "Phân nhóm theo %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
+msgstr "Tương quan phân hạng nhị phân dựa trên kiểm định xếp hạng"
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "Biến điều tiết cũng phải xuất hiện trong các thuật ngữ mô hình!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "Phát hiện giá trị vô cực trong các ô đo lặp lại."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "Số lượng các quan sát là < %s trong các ô đo lường lặp lại"
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "Phương sai trong các ô đo lường lặp lại là 0."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "Các biến trùng lặp gặp phải trong các ô đo lường lặp lại, %s"
 
 msgid "Duplicate variables encountered in %s"
 msgstr "Gặp biến trùng lặp trong %s"

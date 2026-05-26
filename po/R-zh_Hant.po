@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-05-24 16:11+0000\n"
+"PO-Revision-Date: 2026-05-27 03:51+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspanova-r/zh_Hant/>\n"
@@ -618,7 +618,6 @@ msgstr "%s%% 可信區間"
 msgid "Variable"
 msgstr "變項"
 
-#, fuzzy
 msgid "Level"
 msgstr "水準"
 

@@ -39,6 +39,11 @@ AncovaInternal <- function(jaspResults, dataset, options) {
     options$homogeneityCorrectionWelch <- FALSE
   }
 
+  analysisVars <- unlist(c(options$dependent, options$fixedFactors, options$randomFactors,
+                           options$covariates, options$wlsWeights), use.names = FALSE)
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
   dataset <- droplevels(dataset)
 
   anovaContainer <- .getAnovaContainer(jaspResults)

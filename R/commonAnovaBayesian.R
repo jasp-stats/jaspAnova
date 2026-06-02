@@ -1412,6 +1412,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 # Data reading ----
 .BANOVAreadData <- function(dataset, options, analysisType) {
+  if (analysisType == "RM-ANOVA") {
+    analysisVars <- unlist(c(options$repeatedMeasuresCells,
+                             options$betweenSubjectFactors,
+                             options$covariates), use.names = FALSE)
+  } else {
+    analysisVars <- unlist(c(options$dependent, options$fixedFactors, options$randomFactors,
+                             options$covariates), use.names = FALSE)
+  }
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
   if (analysisType == "RM-ANOVA")
     return(.BANOVAwideToLong(dataset, options))
   return(dataset)

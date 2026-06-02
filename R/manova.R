@@ -20,6 +20,11 @@ ManovaInternal <- function(jaspResults, dataset, options) {
   # Check if we're ready to actually compute something or just show empty tables
   ready <- length(options$dependent) > 1 && length(options$fixedFactors) > 0 && length(options$modelTerms) > 0
 
+  analysisVars <- unlist(c(options$dependent, options$fixedFactors), use.names = FALSE)
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+
   # Error checking
   .manovaCheckErrors(dataset, options, ready)
 

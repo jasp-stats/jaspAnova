@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-06-05 00:47+0000\n"
+"PO-Revision-Date: 2026-06-13 03:51+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/id/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -153,17 +153,17 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "Beberapa parameter tidak dapat diestimasi karena kehilangan."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Perbedaan Rerata dan estimasi d Cohen"
 
-#, fuzzy
 msgid "Mean Difference estimates"
-msgstr "Perbedaan Rerata"
+msgstr "Estimasi Perbedaan Rerata"
 
-#, fuzzy
 msgid ""
 "Bootstrapping based on %1$s replicates. %2$s are based on the median of the "
 "bootstrap distribution."
-msgstr "Estimasi Rerata Margin berdasarkan median dari distribusi bootstrap."
+msgstr ""
+"Pembootstrap berdasarkan replikasi %1$s. %2$s berdasarkan median distribusi "
+"bootstrap."
 
 msgid "Bias corrected accelerated."
 msgstr "Bias terkoreksi diakselerasikan."
@@ -671,7 +671,7 @@ msgid "SD"
 msgstr "SD"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Intersep"
 
 msgid "Model Averaged R%s"
 msgstr "Model Direrata R%s"
@@ -740,9 +740,8 @@ msgstr ""
 "bawaan dengan priori Cauchy (0, r = 1/sqrt(2)). \"U\" dalam faktor Bayes "
 "menandakan bahwa itu tidak dikoreksikan."
 
-#, fuzzy
 msgid "Post Hoc Comparisons - %s"
-msgstr "Perbandingan Pos Hoc -"
+msgstr "Perbandingan Pos Hoc - %s"
 
 msgid "Prior Odds"
 msgstr "Ganjil Priori"
@@ -870,9 +869,8 @@ msgstr "p<sub>Scheffe</sub>"
 msgid "p<sub>Sidak</sub>"
 msgstr "p<sub>Sidak</sub>"
 
-#, fuzzy
 msgid "p<sub>BH</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "p<sub>BH</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "Nilai-p disesuaikan untuk membandingkan keluarga dari %s estimasi."
@@ -896,7 +894,7 @@ msgstr ""
 "Bonferroni)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "Koreksi nilai-p tidak berdampak oleh bootstrap."
 
 msgid "Marginal Means -"
 msgstr "Rerata Margin -"

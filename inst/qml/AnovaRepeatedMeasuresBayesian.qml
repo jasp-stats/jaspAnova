@@ -25,7 +25,7 @@ Form
 {
 	info: qsTr("The Repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.") + "\n" +
 "## " + qsTr("Assumptions") + "\n" +
-"- " + qsTr("The dependent variable is normally distributed for every group.") + "\n" +
+"- " + qsTr("The residuals are normally distributed for every group.") + "\n" +
 "- " + qsTr("The covariate and the experiment effect are independent.") + "\n" +
 "- " + qsTr("The assumption of sphericity is met. Sphericity entails that the variances of the differences between all possible pairs of the repeated measures conditions are the same.")
 

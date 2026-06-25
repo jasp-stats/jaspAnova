@@ -4,7 +4,7 @@ Repeated Measures ANOVA
 The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent.
 
 ### Assumptions
-- The dependent variable is normally distributed for every group.
+- The residuals are normally distributed for every group.
 - The covariate and the experiment effect are independent.
 - The assumption of sphericity is met. Sphericity entails that the variances of the differences of the repeated measures conditions all have the same variance.
 

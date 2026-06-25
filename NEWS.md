@@ -16,7 +16,8 @@
 
 # jaspAnova (development version)
 
-
+## Changed
+* Normality assumption in the help and info text now refers to the residuals being normally distributed instead of the dependent variable, for Repeated Measures ANOVA (frequentist and Bayesian) and MANOVA (multivariate normality of residuals). Also corrected the Kruskal-Wallis description and Q-Q plot interpretation text in ANOVA and ANCOVA to refer to residuals.
 
 ---
 

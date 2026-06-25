@@ -13,7 +13,9 @@ test_that("Main table results match", {
   options <- initOpts("AncovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facGender"
+  options$fixedFactors.types <- "nominal"
   options$randomFactors <- "facFive"
+  options$randomFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$cauchyPriorScaleCovariates <- 0.3
   options$cauchyPriorScaleRandomEffects <- 1.2
@@ -52,6 +54,7 @@ test_that("Effects table results match", {
   options$dependent <- "contNormal"
   options$covariates <- "contGamma"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$effects <- TRUE
   options$modelTerms <- list(
     list(components="contGamma", isNuisance=FALSE),
@@ -82,6 +85,7 @@ test_that("Post-hoc Comparisons table results match", {
   options <- jaspTools::analysisOptions("AncovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
@@ -116,6 +120,7 @@ test_that("Analysis handles errors", {
 
   options$dependent <- "contNormal"
   options$fixedFactors <- list()
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$covariates <- "debInf"
   options$modelTerms <- list(list(components="debInf", isNuisance=FALSE))
   results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
@@ -134,6 +139,7 @@ options <- initOpts("AncovaBayesian")
 options$covariates <- "contcor1"
 options$dependent <- "contNormal"
 options$fixedFactors <- "facGender"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "facGender", isNuisance = FALSE), list(components = "contcor1", isNuisance = FALSE))
 options$descriptivePlotCi <- TRUE
 options$descriptivePlotHorizontalAxis <- "contcor1"
@@ -165,6 +171,7 @@ options <- initOpts("AncovaBayesian")
 options$covariates <- "contcor1"
 options$dependent <- "contcor2"
 options$fixedFactors <- "facGender"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(
   list(components = "contcor1", isNuisance = FALSE),
   list(components = "facGender", isNuisance = FALSE),

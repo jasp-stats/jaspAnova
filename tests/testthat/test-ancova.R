@@ -9,6 +9,7 @@ test_that("Main table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$wlsWeights <- "facFifty"
   options$modelTerms <- list(
@@ -57,6 +58,7 @@ test_that("Main table results match for three-way ANOVA", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom", "facGender")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contBinom"),
@@ -104,6 +106,7 @@ test_that("Homogeneity of Variances table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
+  options$fixedFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$modelTerms <- list(
     list(components="facExperim"),
@@ -122,6 +125,7 @@ test_that("Contrasts table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$modelTerms <- list(
     list(components="facFive"),
@@ -182,6 +186,7 @@ test_that("Post Hoc table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
+  options$fixedFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$modelTerms <- list(
     list(components="facExperim"),
@@ -211,6 +216,7 @@ test_that("Marginal Means table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
+  options$fixedFactors.types <- "nominal"
   options$covariates <- "contGamma"
   options$modelTerms <- list(
     list(components="facExperim"),
@@ -246,6 +252,7 @@ test_that("Simple Main Effects table results match", {
   options <- initClassicalAnovaOptions("Ancova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$covariates <- "contGamma"
   options$modelTerms <- list(
     list(components="facExperim"),
@@ -279,6 +286,7 @@ test_that("Analysis handles errors", {
  options$dependent <- "contNormal"
  options$covariates <- "debInf"
  options$fixedFactors <- "contBinom"
+ options$fixedFactors.types <- "nominal"
  options$modelTerms <- list(list(components="contBinom"))
  results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
  expect_identical(results[["results"]][["errorMessage"]],
@@ -295,6 +303,7 @@ options$covariates <- "contcor1"
 options$customContrasts <- list()
 options$dependent <- "contNormal"
 options$fixedFactors <- "contBinom"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "contBinom"), list(components = "contcor1"))
 options$rainCloudHorizontalAxis <- ""
 options$rainCloudHorizontalDisplay <- FALSE
@@ -467,6 +476,7 @@ options$covariates <- "Age"
 options$customContrasts <- list()
 options$dependent <- "Anger"
 options$fixedFactors <- "Group"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "Group"), list(components = "Age"))
 options$rainCloudHorizontalAxis <- ""
 options$rainCloudHorizontalDisplay <- FALSE

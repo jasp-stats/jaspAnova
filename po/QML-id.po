@@ -1542,10 +1542,6 @@ msgid "Assumptions"
 msgstr "Asumsi"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "Variabel dependen secara normal didistribusikan untuk setiap grup."
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr "Kovariat dan ukuran eksperimen independen."
 
@@ -1874,10 +1870,6 @@ msgstr ""
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
 msgstr "Asumsi"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "Variabel dependen secara normal didistribusikan untuk setiap grup."
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The covariate and the experiment effect are independent."
@@ -3014,10 +3006,6 @@ msgid "Assumptions"
 msgstr "Asumsi"
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr "Variabel dependen secara normal didistribusikan untuk setiap grup."
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -3299,3 +3287,17 @@ msgstr ""
 "Ketika opsi ini dipilih, interval kepercayaan untuk perbedaan rerata "
 "dihitung. Secara bawaan, ini diatur ke 95%, tetapi itu dapat disesuaikan ke "
 "persentase yang diinginkan."
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr "Residu secara normal didistribusikan untuk setiap grup."
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr "Residu secara normal didistribusikan untuk setiap grup."
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
+msgstr ""

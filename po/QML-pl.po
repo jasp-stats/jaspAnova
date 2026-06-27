@@ -1493,10 +1493,6 @@ msgid "Assumptions"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr ""
 
@@ -1734,10 +1730,6 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -2592,10 +2584,6 @@ msgid "Assumptions"
 msgstr ""
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr ""
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -2812,4 +2800,16 @@ msgid ""
 "When this option is selected, the confidence interval for the mean "
 "difference is calculated. By default, this is set to 95%, but it can be "
 "adjusted to the desired percentage."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr ""
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
 msgstr ""

@@ -1547,10 +1547,6 @@ msgid "Assumptions"
 msgstr "Pressupostos"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "A variável dependente é distribuída normalmente para cada grupo."
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr "A covariável e o efeito do experimento são independentes."
 
@@ -1888,10 +1884,6 @@ msgstr ""
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
 msgstr "Pressupostos"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "A variável dependente é distribuída normalmente para cada grupo."
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The covariate and the experiment effect are independent."
@@ -3057,10 +3049,6 @@ msgid "Assumptions"
 msgstr "Pressupostos"
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr "As variáveis dependentes são distribuídas normalmente para cada grupo."
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -3302,4 +3290,18 @@ msgid ""
 "When this option is selected, the confidence interval for the mean "
 "difference is calculated. By default, this is set to 95%, but it can be "
 "adjusted to the desired percentage."
+msgstr ""
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr "Os resíduos são distribuídos normalmente para cada grupo."
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr "Os resíduos são distribuídos normalmente para cada grupo."
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
 msgstr ""

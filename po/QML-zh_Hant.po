@@ -1520,10 +1520,6 @@ msgid "Assumptions"
 msgstr "假定"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr "共變項與實驗效應彼此獨立。"
 
@@ -1801,10 +1797,6 @@ msgstr ""
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
 msgstr "假定"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The covariate and the experiment effect are independent."
@@ -2784,10 +2776,6 @@ msgid "Assumptions"
 msgstr "假定"
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -3045,3 +3033,17 @@ msgid ""
 msgstr ""
 "當選取此選項時，將計算平均差異的信賴區間。預設為95%，但可依需求調整為其他百分"
 "比。"
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr "每個群組的殘差皆呈常態分配。"
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr "每個群組的殘差皆呈常態分配。"
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
+msgstr ""

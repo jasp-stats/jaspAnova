@@ -15,11 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AnovaInternal <- function(jaspResults, dataset = NULL, options) {
-
+AnovaInternal <- function(jaspResults, dataset, options) {
     options$covariates <- NULL
-
-    AncovaInternal(jaspResults, dataset = NULL, options)
-
-    return()
+    AncovaInternal(jaspResults, dataset, options)
 }

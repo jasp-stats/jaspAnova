@@ -21,32 +21,30 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   return(sprintf(gettext(fmt, domain = domain), ...))
 }
 
-AncovaInternal <- function(jaspResults, dataset = NULL, options) {
+AncovaInternal <- function(jaspResults, dataset, options) {
   initialGlobalOptions <- options()
   on.exit(options(initialGlobalOptions), add = TRUE)
 
-  numericVariables <- c(unlist(options$dependent),unlist(options$covariates),unlist(options$wlsWeight))
-  numericVariables <- numericVariables[numericVariables != ""]
-  factorVariables <- c(unlist(options$fixedFactors),unlist(options$randomFactors))
+  factorVariables <- c(unlist(options$fixedFactors), unlist(options$randomFactors))
   factorVariables <- factorVariables[factorVariables != ""]
   nFactorModelTerms <- sum(unlist(options$modelTerms) %in% factorVariables)
 
   ready <- options$dependent != "" && length(options$fixedFactors) > 0 && nFactorModelTerms > 0
-  options(contrasts = c("contr.sum","contr.poly"))
+  options(contrasts = c("contr.sum", "contr.poly"))
 
   # Set corrections to FALSE when performing ANCOVA
   if (is.null(options$homogeneityCorrectionBrown)) {
-    options$homogeneityCorrectionNone <- TRUE
+    options$homogeneityCorrectionNone  <- TRUE
     options$homogeneityCorrectionBrown <- FALSE
     options$homogeneityCorrectionWelch <- FALSE
   }
 
-  if (is.null(dataset)) {
-    dataset <- .readDataSetToEnd(columns.as.numeric = numericVariables,
-                                 columns.as.factor = factorVariables,
-                                 exclude.na.listwise = c(numericVariables, factorVariables))
-    dataset <- droplevels(dataset)
-  }
+  analysisVars <- unlist(c(options$dependent, options$fixedFactors, options$randomFactors,
+                           options$covariates, options$wlsWeights), use.names = FALSE)
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+  dataset <- droplevels(dataset)
 
   anovaContainer <- .getAnovaContainer(jaspResults)
 

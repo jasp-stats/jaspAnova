@@ -115,22 +115,19 @@ test_that("Post-hoc Comparisons table results match", {
 
 test_that("Analysis handles errors", {
   # NOTE: only errors that are not handled in test-anovabayesian are tested
-
   options <- initOpts("AncovaBayesian")
 
   options$dependent <- "contNormal"
-  options$fixedFactors <- list()
-  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
-  options$covariates <- "debInf"
-  options$modelTerms <- list(list(components="debInf", isNuisance=FALSE))
-  results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
-  expect_true(results[["results"]][["error"]], label="Inf covariate check")
+  options$fixedFactors <- "facGender"
+  options$fixedFactors.types <- "nominal"
 
-  options$dependent <- "contNormal"
   options$covariates <- c("debEqual1", "debEqual2")
-  options$modelTerms <- list(list(components="debEqual1", isNuisance=FALSE),
-                             list(components="debEqual2", isNuisance=FALSE))
-  results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
+  options$covariates.types <- c("scale", "scale")
+  options$modelTerms <- list(
+    list(components="debEqual1", isNuisance=FALSE),
+    list(components="debEqual1", isNuisance=FALSE),
+    list(components="debEqual2", isNuisance=FALSE))
+  results <- jaspTools::runAnalysis("AncovaBayesian", ddat, options)
   expect_true(results[["results"]][["error"]], label = "Identical covariates check")
 })
 

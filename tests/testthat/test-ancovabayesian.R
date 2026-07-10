@@ -127,7 +127,7 @@ test_that("Analysis handles errors", {
     list(components="debEqual1", isNuisance=FALSE),
     list(components="debEqual1", isNuisance=FALSE),
     list(components="debEqual2", isNuisance=FALSE))
-  results <- jaspTools::runAnalysis("AncovaBayesian", ddat, options)
+  results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Identical covariates check")
 })
 

@@ -4,6 +4,7 @@ context("MANOVA -- Verification project")
 options <- jaspTools::analysisOptions("Manova")
 options$dependent <- c("Actions", "Thoughts")
 options$fixedFactors <- c("Group")
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(
   list(components = "Group")
 )

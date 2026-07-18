@@ -10,6 +10,7 @@ options <- initClassicalAnovaOptions("Ancova")
 
 options$dependent <- "Happiness"
 options$fixedFactors <- "Dose"
+options$fixedFactors.types <- "nominal"
 options$covariates <- "Puppy_love"
 options$modelTerms <- list(
   list(components = "Dose"),

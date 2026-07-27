@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2024-10-25 01:15+0000\n"
+"PO-Revision-Date: 2026-07-28 05:01+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
 "r/ja/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -36,7 +36,6 @@ msgstr ""
 msgid "An error occurred while computing the ANOVA: %s"
 msgstr "分散分析の計算中にエラーが発生しました: %s"
 
-#, fuzzy
 msgid ""
 "Your design contains empty cells. Please try a different type of sum of "
 "squares or remove an interaction effect from the model."
@@ -51,12 +50,12 @@ msgstr ""
 
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
-msgstr ""
+msgstr "計画にセルの空きがあるため、%2$s 個の効果のうち %1$s 個のみが推定可能です。"
 
 msgid ""
 "Some higher-order interaction effects cannot be assessed and are therefore "
 "omitted."
-msgstr ""
+msgstr "一部の高次の交互作用効果は評価できないため、省略されています。"
 
 msgid "ANOVA"
 msgstr "分散分析"
@@ -149,17 +148,17 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "一部のパラメーターが推定できません。おそらく，欠損性のためです."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "平均値の差とコーエンのdの推定値"
 
-#, fuzzy
 msgid "Mean Difference estimates"
 msgstr "平均値差"
 
-#, fuzzy
 msgid ""
 "Bootstrapping based on %1$s replicates. %2$s are based on the median of the "
 "bootstrap distribution."
-msgstr "周辺平均の推定値は，ブートストラップ分布の中央値に基づく。"
+msgstr ""
+"%1$s 回の反復にもとづくブートストラップです。%2$s はブートストラップ分布の中"
+"央値にもとづきます。"
 
 msgid "Bias corrected accelerated."
 msgstr "バイアス補正を実施した。"
@@ -184,7 +183,7 @@ msgid "Comparison"
 msgstr "比較"
 
 msgid "Mean Difference"
-msgstr "平均値差"
+msgstr "平均差"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr "平均値差の%.0f%% 信頼区間"
@@ -202,9 +201,8 @@ msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "ダネットの事後比較 - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr "平均値差の %s%% 信頼区間"
+msgstr "平均差の %s%% 信頼区間"
 
-#, fuzzy
 msgid "p<sub>Dunnett</sub>"
 msgstr "p<sub>ダネット</sub>"
 
@@ -264,7 +262,7 @@ msgid "Kruskal-Wallis Test"
 msgstr "クラスカル・ウォリス(Kruskal-Wallis)検定"
 
 msgid "Factor"
-msgstr "要因"
+msgstr "因子"
 
 msgid "Statistic"
 msgstr "統計量"
@@ -295,11 +293,9 @@ msgstr "W<sub>j</sub>"
 msgid "r<sub>rb</sub>"
 msgstr "r<sub>rb</sub>"
 
-#, fuzzy
 msgid "p<sub>Bonf</sub>"
-msgstr "p<sub>ボンフェロー二</sub>"
+msgstr "p<sub>ボンフェローニ</sub>"
 
-#, fuzzy
 msgid "p<sub>Holm</sub>"
 msgstr "p<sub>ホルム</sub>"
 
@@ -433,7 +429,7 @@ msgid "Χ²<sub>F</sub>"
 msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr "ケンドール(Kendall)のW"
+msgstr "ケンドールのW"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
 msgstr ""
@@ -443,6 +439,8 @@ msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
+"反復のない完全ブロック計画ではありません。フリードマン検定は一元配置の反復測"
+"定分散分析の代わりとしてのみ利用できます。"
 
 msgid "Durbin Test"
 msgstr "ダービン(Durbin)検定"
@@ -571,13 +569,13 @@ msgid "Effects"
 msgstr "効果"
 
 msgid "P(incl)"
-msgstr "P(効果を含む)"
+msgstr "P(incl)"
 
 msgid "P(excl)"
 msgstr "P(効果を含まない)"
 
 msgid "P(incl|data)"
-msgstr "P（効果を含む|データ）"
+msgstr "P(incl|data)"
 
 msgid "P(excl|data)"
 msgstr "P(効果を含まない|データ)"
@@ -603,7 +601,7 @@ msgid "Model Comparison"
 msgstr "モデル比較"
 
 msgid "BF<sub>M</sub>"
-msgstr "BF <sub> M </sub>"
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
 msgstr "BF<sub>10</sub>"
@@ -624,7 +622,7 @@ msgid "P(M)"
 msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr "P(M|データ)"
+msgstr "P(M|data)"
 
 msgid "error %%"
 msgstr "エラー %%"
@@ -651,13 +649,13 @@ msgid "Level"
 msgstr "水準"
 
 msgid "Mean"
-msgstr "平均値"
+msgstr "平均"
 
 msgid "SD"
-msgstr "標準偏差"
+msgstr "SD"
 
 msgid "Intercept"
-msgstr ""
+msgstr "切片"
 
 msgid "Model Averaged R%s"
 msgstr "モデル平均 R%s"
@@ -689,7 +687,7 @@ msgstr ""
 "なパターンがないか確認してください。"
 
 msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>警告</em></b>"
+msgstr "<b><em>警告.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "モデル平均事後分布"
@@ -725,9 +723,8 @@ msgstr ""
 "Cauchy (0, r = 1/sqrt(2))事前分布を使用したデフォルトのt検定に基づいていま"
 "す。ベイズファクターの「U」は，それが修正されていないことを示します。"
 
-#, fuzzy
 msgid "Post Hoc Comparisons - %s"
-msgstr "事後比較-"
+msgstr "事後比較 - %s"
 
 msgid "Prior Odds"
 msgstr "事前オッズ"
@@ -736,7 +733,7 @@ msgid "Posterior Odds"
 msgstr "事後オッズ"
 
 msgid "Descriptives"
-msgstr "記述統計量"
+msgstr "記述統計"
 
 msgid "Descriptives - %s"
 msgstr "記述統計量 - %s"
@@ -745,7 +742,7 @@ msgid "N"
 msgstr "N"
 
 msgid "SE"
-msgstr "標準誤差"
+msgstr "SE"
 
 msgid "Coefficient of variation"
 msgstr "変動係数"
@@ -781,7 +778,6 @@ msgstr "事後分布のサンプリング"
 msgid "length of samples must be equal to length of weights!"
 msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
 
-#, fuzzy
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
 "increase the number of posterior samples."
@@ -822,7 +818,7 @@ msgid "Single Model R%s"
 msgstr "単一モデル R%s"
 
 msgid "Estimate"
-msgstr "推定"
+msgstr "推定値"
 
 msgid "t"
 msgstr "t"
@@ -848,21 +844,17 @@ msgstr "%1$s%% bca%2$s 信頼区間"
 msgid "bias"
 msgstr "バイアス"
 
-#, fuzzy
 msgid "p<sub>Tukey</sub>"
 msgstr "p<sub>テューキー</sub>"
 
-#, fuzzy
 msgid "p<sub>Scheffe</sub>"
-msgstr "p <sub>シェッフェ</sub>"
+msgstr "p<sub>シェフェ</sub>"
 
-#, fuzzy
 msgid "p<sub>Sidak</sub>"
 msgstr "p<sub>シダック</sub>"
 
-#, fuzzy
 msgid "p<sub>BH</sub>"
-msgstr "p<sub>F</sub>"
+msgstr "p<sub>BH</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
 msgstr "%s の推定値の族を比較する調整された p 値"
@@ -874,17 +866,16 @@ msgstr ""
 "%1$s 推定値のファミリーを比較するために調整されたP値と信頼区間（%2$s 法を用い"
 "て修正された信頼区間）。"
 
-#, fuzzy
 msgid ""
 "P-value and confidence intervals adjusted for comparing a family of %1$s "
 "estimates (ci for mean difference corrected using the %2$s method; ci for "
 "effect size corrected using the Bonferroni method)."
 msgstr ""
-"%1$s 推定値の族を比較する調整されたp値と信頼区間（%2$s 法を用いて修正された信"
-"頼区間。すなわちボンフェローニの方法を使って補正された効果量）。"
+"%1$s 個の推定値からなる族の比較に合わせて、p値と信頼区間を調整しています(平均"
+"差の信頼区間は %2$s 法で、効果量の信頼区間はボンフェローニ法で補正)。"
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "p値の補正はブートストラップの影響を受けません。"
 
 msgid "Marginal Means -"
 msgstr "周辺平均 -"
@@ -1064,7 +1055,7 @@ msgid "Coefficients differ from unconstrained model."
 msgstr "係数は、制約のないモデルとは異なります."
 
 msgid "Model Summary"
-msgstr "モデルの概要"
+msgstr "モデルの要約"
 
 msgid "Restriction Matrix"
 msgstr "制約行列"
@@ -1079,7 +1070,7 @@ msgid "Coefficients"
 msgstr "係数"
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr "%s%% 信頼区間"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s の成功したブートストラップの複製に基づいて推定します."
@@ -1167,6 +1158,8 @@ msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
 msgstr ""
+"サンプルサイズ(3から5000の範囲である必要があります)または完全な相関のため、結"
+"果を利用できません。"
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"

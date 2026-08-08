@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-07-28 05:01+0000\n"
+"PO-Revision-Date: 2026-08-01 04:42+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
 "r/ja/>\n"
@@ -183,7 +183,7 @@ msgid "Comparison"
 msgstr "比較"
 
 msgid "Mean Difference"
-msgstr "平均差"
+msgstr "平均値差"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr "平均値差の%.0f%% 信頼区間"
@@ -569,13 +569,13 @@ msgid "Effects"
 msgstr "効果"
 
 msgid "P(incl)"
-msgstr "P(incl)"
+msgstr "P(効果を含む)"
 
 msgid "P(excl)"
 msgstr "P(効果を含まない)"
 
 msgid "P(incl|data)"
-msgstr "P(incl|data)"
+msgstr "P（効果を含む|データ）"
 
 msgid "P(excl|data)"
 msgstr "P(効果を含まない|データ)"
@@ -622,7 +622,7 @@ msgid "P(M)"
 msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr "P(M|data)"
+msgstr "P(M|データ)"
 
 msgid "error %%"
 msgstr "エラー %%"
@@ -649,7 +649,7 @@ msgid "Level"
 msgstr "水準"
 
 msgid "Mean"
-msgstr "平均"
+msgstr "平均値"
 
 msgid "SD"
 msgstr "SD"
@@ -687,7 +687,7 @@ msgstr ""
 "なパターンがないか確認してください。"
 
 msgid "<b><em>Warning.</em></b>"
-msgstr "<b><em>警告.</em></b>"
+msgstr "<b><em>警告</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
 msgstr "モデル平均事後分布"
@@ -1055,7 +1055,7 @@ msgid "Coefficients differ from unconstrained model."
 msgstr "係数は、制約のないモデルとは異なります."
 
 msgid "Model Summary"
-msgstr "モデルの要約"
+msgstr "モデルの概要"
 
 msgid "Restriction Matrix"
 msgstr "制約行列"
@@ -1070,7 +1070,7 @@ msgid "Coefficients"
 msgstr "係数"
 
 msgid "%s%% CI"
-msgstr "%s%% 信頼区間"
+msgstr "%s%% CI"
 
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "%s の成功したブートストラップの複製に基づいて推定します."

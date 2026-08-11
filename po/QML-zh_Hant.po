@@ -384,11 +384,11 @@ msgstr "Βeta 二項式分布"
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr ""
+msgstr "a"
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr ""
+msgstr "b"
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
@@ -412,7 +412,7 @@ msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
@@ -2951,7 +2951,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "FDR (Benjamini-Hochberg)"
-msgstr ""
+msgstr "FDR（Benjamini-Hochberg）"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
@@ -3014,7 +3014,7 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "FDR (Benjamini-Hochberg)"
-msgstr ""
+msgstr "FDR（Benjamini-Hochberg）"
 
 msgctxt "PostHoc|"
 msgid ""

@@ -45,12 +45,12 @@ msgstr ""
 
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
-msgstr ""
+msgstr "由于设计中存在空单元格，%2$s 个效应中只有 %1$s 个可估计。"
 
 msgid ""
 "Some higher-order interaction effects cannot be assessed and are therefore "
 "omitted."
-msgstr ""
+msgstr "某些高阶交互效应无法评估，因此被省略。"
 
 msgid "ANOVA"
 msgstr "方差分析"
@@ -117,7 +117,7 @@ msgstr "%1$s 对比 - %2$s"
 msgid ""
 "Insufficient data to estimate full model/contrasts. Likely empty cells in "
 "between-subjects design (i.e., bad data structure)"
-msgstr ""
+msgstr "数据不足以估计完整模型/对比。可能是组间设计中有空单元格（即数据结构不良）"
 
 msgid "Please specify an additional contrast."
 msgstr "请指定额外的对比。"
@@ -147,7 +147,7 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "某些参数无法估计，很可能是由于设计中有空单元。"
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "平均差和 Cohen's d 估计"
 
 #, fuzzy
 msgid "Mean Difference estimates"
@@ -264,7 +264,7 @@ msgid "Statistic"
 msgstr "统计量"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "秩 %s"
 
 #, fuzzy
 msgid "%1$i%% CI for Rank %2$s"
@@ -273,7 +273,7 @@ msgstr "Cohen's d 的 %s%% 置信区间"
 msgid ""
 "Tests are conducted separately for each variable, without accounting for "
 "multivariate effects."
-msgstr ""
+msgstr "对每个变量分别进行检验，而不考虑多变量效应。"
 
 msgid "Dunn"
 msgstr "Dunn"
@@ -300,7 +300,7 @@ msgid "p<sub>Holm</sub>"
 msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "基于各 Mann-Whitney 检验的秩双列相关。"
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -430,7 +430,7 @@ msgstr "请为 Friedman/Durbin 检验指定适当的项。"
 msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
-msgstr ""
+msgstr "不是非重复的完整区组设计。Friedman 检验仅可作为单向重复测量方差分析的替代方案。"
 
 msgid "Durbin Test"
 msgstr "Durbin 检验"
@@ -457,7 +457,7 @@ msgid "Grouped by %s."
 msgstr "按 %s 分组。"
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
+msgstr "基于各符号秩检验的秩双列相关。"
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "调节因子（Moderator factor）也必须出现在模型项中！"
@@ -639,7 +639,7 @@ msgid "SD"
 msgstr "标准差"
 
 msgid "Intercept"
-msgstr ""
+msgstr "截距"
 
 msgid "Model Averaged R%s"
 msgstr "模型平均 R%s"
@@ -741,7 +741,7 @@ msgid "Descriptives Plot"
 msgstr "描述性绘图"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "条形图"
 
 #, fuzzy
 msgid "Bar Plot"
@@ -766,7 +766,7 @@ msgid ""
 msgstr "所有预测的方差为零。检查异常的预测变量或增加后验样本的数量。"
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "显示 %2$d 个模型中最好的 %1$d 个。"
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
 msgstr "BayesFactor::enumerateGeneralModels 中出现以下错误：%s"
@@ -860,7 +860,7 @@ msgstr ""
 "间）。"
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "p 值校正不受自举法影响。"
 
 msgid "Marginal Means -"
 msgstr "边际均值 -"
@@ -948,7 +948,7 @@ msgid "Unconstrained"
 msgstr "非约束的"
 
 msgid "Complement"
-msgstr ""
+msgstr "补集"
 
 msgid "Syntax information"
 msgstr "语法信息"
@@ -1018,7 +1018,7 @@ msgid ""
 msgstr "比较中只有一个模型：无法计算相对权重矩阵"
 
 msgid "vs."
-msgstr ""
+msgstr "与"
 
 msgid "Coefficients Comparison"
 msgstr "系数比较"
@@ -1027,90 +1027,90 @@ msgid "Coefficient"
 msgstr "系数"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "系数与非约束模型不同。"
 
 msgid "Model Summary"
 msgstr "模型摘要"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "约束矩阵"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "左侧（lhs）"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "右侧（rhs）"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "系数"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% 置信区间"
 
 #, fuzzy
 msgid "Estimates based on %s successful bootstrap replicates."
 msgstr "基于 %s 次样本的Bootstrap抽样已成功复刻。"
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "无法计算系数表。错误消息：%s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "信息假设检验"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "假设"
 
 msgid "Test"
-msgstr ""
+msgstr "检验"
 
 #, fuzzy
 msgid "Test Statistic"
 msgstr "统计"
 
 msgid "Type %s"
-msgstr ""
+msgstr "%s 类型"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "无法计算信息假设检验。错误消息：%s"
 
 msgid ""
 "H%1$s: All equality restrictions are active (==), H%2$s: At least one "
 "equality restriction is violated."
-msgstr ""
+msgstr "H%1$s：所有等号约束均成立（==），H%2$s：至少有一个等号约束被违反。"
 
 msgid ""
 "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one "
 "inequality restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s：所有参数被约束为相等（==），H%2$s：至少有一个不等式约束严格成立（>）。"
 
 msgid ""
 "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality "
 "restriction is strictly true (>)."
-msgstr ""
+msgstr "H%1$s：所有约束均为等式（==），H%2$s：至少有一个不等式约束严格成立（>）。"
 
 msgid ""
 "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
-msgstr ""
+msgstr "H%1$s：所有约束均成立，H%2$s：至少有一个约束被违反。"
 
 msgid ""
 "H%1$s: At least one restriction is false or active (==), H%2$s: All "
 "restrictions are strictly true (>)."
-msgstr ""
+msgstr "H%1$s：至少有一个约束为假或成立（==），H%2$s：所有约束均严格成立（>）。"
 
 msgid ""
 "No marginal means terms specified. Please, select model terms in the "
 "'Restricted Marginal Means' section."
-msgstr ""
+msgstr "未指定边际均值项。请在“受限边际均值”部分选择模型项。"
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "无法计算边际均值。错误消息：%s"
 
 #, fuzzy
 msgid "Results are averaged over the levels of: %s."
 msgstr "结果在以下水平上取平均值：%s"
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "协变量（%s）固定在其平均值处。"
 
 msgid "MANOVA"
 msgstr "多变量方差分析(MANOVA)"
@@ -1123,7 +1123,7 @@ msgstr "设计矩阵不可逆。这可能是由于共线(collinear)因变量造�
 msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
-msgstr ""
+msgstr "由于样本量（必须在 3 到 5000 之间）或完全相关，结果不可用。"
 
 #, fuzzy
 msgid "Null model (incl. %s and random slopes)"

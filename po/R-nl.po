@@ -54,12 +54,12 @@ msgstr ""
 
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
-msgstr ""
+msgstr "Door lege cellen in het design zijn slechts %1$s van de %2$s effecten schatbaar."
 
 msgid ""
 "Some higher-order interaction effects cannot be assessed and are therefore "
 "omitted."
-msgstr ""
+msgstr "Sommige hogere-orde interactieeffecten kunnen niet worden beoordeeld en worden daarom weggelaten."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -154,7 +154,7 @@ msgid "Some parameters were not estimable due to missingness."
 msgstr "Sommige parameters konden niet worden geschat omdat er iets ontbreekt."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Schattingen van gemiddeld verschil en Cohen's d"
 
 #, fuzzy
 msgid "Mean Difference estimates"
@@ -457,7 +457,7 @@ msgstr "Specificeer juiste termen voor de Friedman/Durbin toets."
 msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
-msgstr ""
+msgstr "Geen niet-herhaald volledig blokkendesign. De Friedman-toets is alleen beschikbaar als alternatief voor eenweg-herhaalde-metingen-ANOVA."
 
 msgid "Durbin Test"
 msgstr "Durbin Toets"
@@ -679,7 +679,7 @@ msgid "SD"
 msgstr "SD"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Intercept"
 
 msgid "Model Averaged R%s"
 msgstr "Model Gemiddelde R%s"
@@ -911,7 +911,7 @@ msgstr ""
 "de effectgrootte gecorrigeerd met de bonferroni methode)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "De p-waardecorrectie wordt niet beïnvloed door de bootstrap."
 
 msgid "Marginal Means -"
 msgstr "Marginale Gemiddeldes -"

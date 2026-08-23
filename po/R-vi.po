@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
 "POT-Creation-Date: 2026-04-18 03:38\n"
-"PO-Revision-Date: 2026-05-13 12:44+0000\n"
-"Last-Translator: Thành Khôi Lê <lethanhkhoi@gmail.com>\n"
+"PO-Revision-Date: 2026-08-24 09:52+0000\n"
+"Last-Translator: tranthanhthai531-cell <tranthanhthai531@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
 "jaspanova-r/vi/>\n"
 "Language: vi\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.5.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 msgid ""
 "The WLS weights contain negative and/or zero values.<br><br>(only positive "
@@ -491,7 +491,7 @@ msgid "Grouped by %s."
 msgstr "Phân nhóm theo %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr "Tương quan phân hạng nhị phân dựa trên kiểm định xếp hạng"
+msgstr "Tương quan phân hạng nhị phân dựa trên kiểm định xếp hạng."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr "Biến điều tiết cũng phải xuất hiện trong các thuật ngữ mô hình!"
@@ -529,13 +529,13 @@ msgid "Bayes factor is undefined -- all effects are specified as nuisance."
 msgstr ""
 
 msgid "Null model"
-msgstr ""
+msgstr "Mô hình rỗng"
 
 msgid "Null model (incl. %s)"
 msgstr ""
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "Đang tính hệ số Bayes"
 
 msgid ""
 "The Laplace approximation is faster but also less accurate than the "
@@ -563,10 +563,10 @@ msgid "All models include %s."
 msgstr ""
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "Phân tích hiệu ứng - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "Phân tích hiệu ứng"
 
 msgid "Log(BF<sub>incl</sub>)"
 msgstr ""
@@ -578,7 +578,7 @@ msgid "BF<sub>incl</sub>"
 msgstr ""
 
 msgid "Effects"
-msgstr ""
+msgstr "Hiệu ứng"
 
 msgid "P(incl)"
 msgstr ""
@@ -605,7 +605,7 @@ msgid ""
 msgstr ""
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "So sánh mô hình"
 
 msgid "BF<sub>M</sub>"
 msgstr ""
@@ -623,16 +623,16 @@ msgid "Log(BF<sub>10</sub>)"
 msgstr ""
 
 msgid "Models"
-msgstr ""
+msgstr "Mô hình"
 
 msgid "P(M)"
 msgstr ""
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|dữ liệu)"
 
 msgid "error %%"
-msgstr ""
+msgstr "lỗi %%"
 
 msgid ""
 "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi "
@@ -641,7 +641,7 @@ msgid ""
 msgstr ""
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "Tóm tắt trung bình hóa hậu nghiệm theo mô hình"
 
 msgid "%s%% Credible Interval"
 msgstr ""
@@ -653,16 +653,16 @@ msgid "Level"
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Trung bình"
 
 msgid "SD"
 msgstr "Độ lệch chuẩn"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Hệ số chặn"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "Trung bình hóa mô hình R%s"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
 msgstr ""

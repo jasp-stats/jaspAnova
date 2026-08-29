@@ -481,6 +481,7 @@ test_that("Analysis handles errors", {
   options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
   options[["betweenModelTerms"]] <- list(list(components = "Celebrity"))
   options[["betweenSubjectFactors"]] <- "Celebrity"
+  options$betweenSubjectFactors.types <- "nominal"
   options[["repeatedMeasuresCells"]] <- c("Stick Insect", "Kangaroo Testicle", "Fish Eye", "Witchetty Grub")
   options[["repeatedMeasuresFactors"]] <- list(list(
     levels = c("Stick Insect", "Kangaroo Testicle", "Fish Eye", "Witchetty Grub"),
@@ -512,6 +513,7 @@ initOptsMixed <- function(){
   )
 
   options$betweenSubjectFactors <- "gender"
+  options$betweenSubjectFactors.types <- "nominal"
   options$betweenModelTerms <- list(
     list(components = "gender")
   )
@@ -733,6 +735,7 @@ test_that("Simple Effects table match", {
   options <- initOptsMixed()
 
   options$betweenSubjectFactors <- "gender"
+  options$betweenSubjectFactors.types <- "nominal"
   options$betweenModelTerms <- list(
     list(components = "gender")
   )
@@ -845,6 +848,7 @@ options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
 options$betweenModelTerms <- list(list(components = "facGender"), list(components = "facExperim"),
                                   list(components = c("facGender", "facExperim")))
 options$betweenSubjectFactors <- c("facGender", "facExperim")
+options$betweenSubjectFactors.types <- rep("nominal", length(options$betweenSubjectFactors))
 options$contrasts <- list(list(contrast = "none", variable = "fac1"), list(contrast = "none",
                                                                            variable = "fac2"), list(contrast = "none", variable = c("fac1",
                                                                                                                                     "fac2")), list(contrast = "none", variable = "facGender"), list(

@@ -6,6 +6,7 @@ test_that("Main table results match", {
   options <- jaspTools::analysisOptions("Manova")
   options$dependent <- c("contNormal", "contGamma")
   options$fixedFactors <- c("contBinom", "facGender")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components="contBinom"),
     list(components="facGender"))

@@ -15,20 +15,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ManovaInternal <- function(jaspResults, dataset = NULL, options) {
+ManovaInternal <- function(jaspResults, dataset, options) {
 
   # Check if we're ready to actually compute something or just show empty tables
   ready <- length(options$dependent) > 1 && length(options$fixedFactors) > 0 && length(options$modelTerms) > 0
 
-  dependentVariables <- unlist(options$dependent)
-  randomFactors <- unlist(options$fixedFactors)
-
-  # Read dataset
-  if (is.null(dataset)) {
-    dataset <- .readDataSetToEnd(columns.as.numeric = dependentVariables,
-                                 columns.as.factor = randomFactors,
-                                 exclude.na.listwise = c(dependentVariables, randomFactors))
-  }
+  analysisVars <- unlist(c(options$dependent, options$fixedFactors), use.names = FALSE)
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
 
   # Error checking
   .manovaCheckErrors(dataset, options, ready)

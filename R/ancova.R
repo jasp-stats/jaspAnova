@@ -1546,7 +1546,12 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   anovaContainer[["simpleEffectsContainer"]] <- createJaspContainer(title = gettext("Simple Main Effects"),
                                                                     dependencies = c("simpleMainEffectFactor",
                                                                                      "simpleMainEffectModeratorFactorOne",
-                                                                                     "simpleMainEffectModeratorFactorTwo"))
+                                                                                     "simpleMainEffectModeratorFactorTwo",
+                                                                                     "simpleEffectSizeEstimates",
+                                                                                     "simpleEffectSizePartialEtaSquared",
+                                                                                     "simpleEffectSizePartialOmegaSquared",
+                                                                                     "simpleEffectSizeCi",
+                                                                                     "simpleEffectSizeCiLevel"))
   simpleEffectsTable <- createJaspTable(title = gettextf("Simple Main Effects - %s", options$simpleMainEffectFactor))
 
   anovaContainer[["simpleEffectsContainer"]][["simpleEffectsTable"]] <- simpleEffectsTable
@@ -1570,6 +1575,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   simpleEffectsTable$addColumnInfo(name = "Mean Sq", type = "number",  title = gettext("Mean Square"))
   simpleEffectsTable$addColumnInfo(name = "F value", type = "number",  title = gettext("F"))
   simpleEffectsTable$addColumnInfo(name = "Pr(>F)",  type = "pvalue",  title = gettext("p"))
+
+  .addSimpleEffectSizeColumns(simpleEffectsTable, options)
 
   simpleEffectsTable$showSpecifiedColumnsOnly <- TRUE
 
@@ -1647,6 +1654,13 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   simpleEffectResult[["F value"]] <- simpleEffectResult[["Mean Sq"]] / fullAnovaMS
   simpleEffectResult[["Pr(>F)"]] <-  pf(simpleEffectResult[["F value"]], simpleEffectResult[["Df"]],
                                         fullAnovaDf, lower.tail = FALSE)
+
+  if (options[["simpleEffectSizeEstimates"]] &&
+      (options[["simpleEffectSizePartialEtaSquared"]] || options[["simpleEffectSizePartialOmegaSquared"]])) {
+    simpleEffectResult <- cbind(simpleEffectResult, .simpleEffectSizeEstimates(simpleEffectResult[["F value"]],
+                                                                                simpleEffectResult[["Df"]],
+                                                                                fullAnovaDf, options))
+  }
 
   simpleEffectsTable$setData(simpleEffectResult)
 

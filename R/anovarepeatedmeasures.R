@@ -1583,7 +1583,12 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
                                                                       dependencies = c("simpleMainEffectFactor",
                                                                                        "simpleMainEffectModeratorFactorOne",
                                                                                        "simpleMainEffectModeratorFactorTwo",
-                                                                                       "simpleMainEffectErrorTermPooled"))
+                                                                                       "simpleMainEffectErrorTermPooled",
+                                                                                       "simpleEffectSizeEstimates",
+                                                                                       "simpleEffectSizePartialEtaSquared",
+                                                                                       "simpleEffectSizePartialOmegaSquared",
+                                                                                       "simpleEffectSizeCi",
+                                                                                       "simpleEffectSizeCiLevel"))
 
   simpleEffectsTable <- createJaspTable(title = gettextf("Simple Main Effects - %s", options$simpleMainEffectFactor))
   rmAnovaContainer[["simpleEffectsContainer"]][["simpleEffectsTable"]] <- simpleEffectsTable
@@ -1617,6 +1622,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   simpleEffectsTable$addColumnInfo(name = "MeanSq", type = "number",  title = gettext("Mean Square"))
   simpleEffectsTable$addColumnInfo(name = "F",      type = "number",  title = gettext("F"))
   simpleEffectsTable$addColumnInfo(name = "p",      type = "pvalue",  title = gettext("p"))
+
+  .addSimpleEffectSizeColumns(simpleEffectsTable, options)
 
   simpleEffectsTable$showSpecifiedColumnsOnly <- TRUE
 
@@ -1686,6 +1693,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   }
 
   emptyCaseIndices <- emptyCases <- NULL
+  dfErrorVec <- rep(NA_real_, nrow(simpleEffectResult))
 
   for (i in 1:nrow(simpleEffectResult)) {
 
@@ -1724,6 +1732,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       fStat <- MS / fullAnovaMS
       p <- pf(fStat, df, fullAnovaDf, lower.tail = FALSE)
       thisRow <- c(anovaResult[["Sum Sq"]], MS, df, fStat, p)
+      dfErrorVec[i] <- fullAnovaDf
     } else {
 
       anovaResult <-  .rmAnovaComputeResults(simpleDataset, simpleOptions, returnResultsEarly = TRUE)$model[simpleMainEffectFactorBase64, ]
@@ -1738,6 +1747,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       fStat <- MS / fullAnovaMS
       p <- pf(fStat, df, fullAnovaDf, lower.tail = FALSE)
       thisRow <- c(anovaResult[["Sum Sq"]], MS, df, fStat, p)
+      dfErrorVec[i] <- fullAnovaDf
     }
 
 
@@ -1747,6 +1757,13 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   if (!is.null(emptyCaseIndices)) {
     simpleEffectsTable$addFootnote(gettextf("Not enough observations in cells %s.",
                                           paste0(" (", emptyCases, ")", collapse = ",")))
+  }
+
+  if (options[["simpleEffectSizeEstimates"]] &&
+      (options[["simpleEffectSizePartialEtaSquared"]] || options[["simpleEffectSizePartialOmegaSquared"]])) {
+    simpleEffectResult <- cbind(simpleEffectResult, .simpleEffectSizeEstimates(simpleEffectResult[["F"]],
+                                                                                simpleEffectResult[["Df"]],
+                                                                                dfErrorVec, options))
   }
 
   simpleEffectsTable$setData(simpleEffectResult)

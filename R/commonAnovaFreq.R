@@ -233,6 +233,61 @@
   return()
 }
 
+.addSimpleEffectSizeColumns <- function(table, options) {
+
+  if (!isTRUE(options[["simpleEffectSizeEstimates"]]))
+    return()
+
+  if (isTRUE(options[["simpleEffectSizePartialEtaSquared"]])) {
+    table$addColumnInfo(name = "partialEta", type = "number", title = "\u03B7\u00B2\u209A")
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options[["simpleEffectSizeCiLevel"]] * 100)
+      table$addColumnInfo(name = "partialEtaLow",  type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+      table$addColumnInfo(name = "partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+    }
+  }
+
+  if (isTRUE(options[["simpleEffectSizePartialOmegaSquared"]])) {
+    table$addColumnInfo(name = "partialOmega", type = "number", title = "\u03C9\u00B2\u209A")
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options[["simpleEffectSizeCiLevel"]] * 100)
+      table$addColumnInfo(name = "partialOmegaLow",  type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+      table$addColumnInfo(name = "partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+    }
+  }
+
+  return()
+}
+
+# Partial eta squared / partial omega squared for a simple main effect, derived from its F statistic
+# (SPSS reports partial eta squared for simple effects the same way: as a function of F, df, and the error df).
+.simpleEffectSizeEstimates <- function(fValue, df, dfError, options) {
+
+  ciLevel <- if (isTRUE(options[["simpleEffectSizeCi"]])) options[["simpleEffectSizeCiLevel"]] else NULL
+  result  <- list()
+
+  # suppressWarnings(): effectsize warns about non-finite CIs for empty-cell (NA) rows, which is expected here
+  if (isTRUE(options[["simpleEffectSizePartialEtaSquared"]])) {
+    etaResult <- suppressWarnings(effectsize::F_to_eta2(fValue, df, dfError, ci = ciLevel, alternative = "two.sided"))
+    result[["partialEta"]] <- etaResult[["Eta2_partial"]]
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      result[["partialEtaLow"]]  <- etaResult[["CI_low"]]
+      result[["partialEtaHigh"]] <- etaResult[["CI_high"]]
+    }
+  }
+
+  if (isTRUE(options[["simpleEffectSizePartialOmegaSquared"]])) {
+    omegaResult <- suppressWarnings(effectsize::F_to_omega2(fValue, df, dfError, ci = ciLevel, alternative = "two.sided"))
+    result[["partialOmega"]] <- omegaResult[["Omega2_partial"]]
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      result[["partialOmegaLow"]]  <- omegaResult[["CI_low"]]
+      result[["partialOmegaHigh"]] <- omegaResult[["CI_high"]]
+    }
+  }
+
+  return(as.data.frame(result))
+}
+
 .addSumSquaresFootnote <- function(table, options){
 
   typeFootnote <- switch(options$sumOfSquares,

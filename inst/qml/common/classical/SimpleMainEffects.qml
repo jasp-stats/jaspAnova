@@ -33,4 +33,22 @@ Section
 		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorOne";	title: qsTr("Moderator Factor 1")	; info: qsTr("Select the independent variable that will represent the different levels.") ;singleVariable: true }
 		AssignedVariablesList	{ name: "simpleMainEffectModeratorFactorTwo";	title: qsTr("Moderator Factor 2")	; info: qsTr("Select an optional, additional independent variable.") ;singleVariable: true }
 	}
+
+	CheckBox
+	{
+		name: "simpleEffectSizeEstimates";	label: qsTr("Effect size estimates"); info: qsTr("By selecting this option, the specific types of calculations to estimate the effect size of the simple main effects can be specified.")
+		Group
+		{
+			columns: 2
+			CheckBox { name: "simpleEffectSizePartialEtaSquared";	label: qsTr("partial η²"); checked: true; info: qsTr("Partial eta squared (η²p) is the proportion of variance accounted for by the simple main effect after excluding variance from the error term: SS_effect / (SS_effect + SS_error), derived from the F statistic. Computed using the effectsize R package.") }
+			CheckBox { name: "simpleEffectSizePartialOmegaSquared";	label: qsTr("partial ω²"); info: qsTr("Partial omega squared (ω²p) is a less biased estimate of the proportion of variance accounted for by the simple main effect, compared to partial η², derived from the F statistic. Computed using the effectsize R package.") }
+		}
+
+		CheckBox
+		{
+			name: "simpleEffectSizeCi"; label: qsTr("Confidence intervals"); info: qsTr("Displays confidence intervals for the effect size. Set at 95% by default but can be changed into the desired percentage.")
+			CIField {	name: "simpleEffectSizeCiLevel" }
+			childrenOnSameRow: true
+		}
+	}
 }

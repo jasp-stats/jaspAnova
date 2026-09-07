@@ -12,7 +12,9 @@ test_that("Main table results match", {
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$randomFactors <- "facExperim"
+  options$randomFactors.types <- "nominal"
   options$cauchyPriorScaleFixedEffects <- 0.4
   options$cauchyPriorScaleRandomEffects <- 1.5
   options$modelTerms <- list(
@@ -52,7 +54,8 @@ test_that("Effects table results match", {
   set.seed(0)
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
-  options$fixedFactors <- list("facFive", "contBinom")
+  options$fixedFactors <- c("facFive", "contBinom")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$effects <- TRUE
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE),
@@ -83,6 +86,7 @@ test_that("Post-hoc Comparisons table results match", {
   options <- jaspTools::analysisOptions("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(
     list(components="facFive", isNuisance=FALSE)
   )
@@ -114,18 +118,21 @@ test_that("Analysis handles errors", {
   options <- initOpts("AnovaBayesian")
   options$dependent <- "debInf"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="facFive", isNuisance=FALSE))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Inf check")
 
   options$dependent <- "contNormal"
   options$fixedFactors <- "debSame"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="debSame", isNuisance=FALSE))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "1-level factor check")
 
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="facFive", isNuisance=TRUE))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_identical(results[["results"]][["tableModelComparison"]][["error"]][["type"]], "badData",
@@ -140,12 +147,14 @@ test_that("Analysis handles errors", {
 
   options$dependent <- "debMiss99"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="facFive", isNuisance=FALSE))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Too few obs check")
 
   options$dependent <- "contGamma"
   options$fixedFactors <- c("facFive", "facFifty")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(list(components=c("facFive", "facFifty")))
   results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Missing interaction cells check")
@@ -157,6 +166,7 @@ test_that("Model Comparison table results match", {
 
   options$dependent <- "contNormal"
   options$fixedFactors <- c("contBinom", "facGender")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components = c("contBinom", "facGender"), isNuisance = FALSE),
     list(components = "facGender", isNuisance = FALSE),
@@ -184,6 +194,7 @@ test_that("Model prior changes posterior model probabilities", {
 
   options$dependent <- "contNormal"
   options$fixedFactors <- c("contBinom", "facGender")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components = c("contBinom", "facGender"), isNuisance = FALSE),
     list(components = "facGender", isNuisance = FALSE),
@@ -239,6 +250,7 @@ test_that("Changing the number of models shown affects the main table", {
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive", "facExperim")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=FALSE),
@@ -296,6 +308,7 @@ test_that("Single model inference works", {
   options <- initOpts("AnovaBayesian")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facGender", "facFive")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components="facGender", isNuisance=FALSE),
     list(components="facFive", isNuisance=FALSE),

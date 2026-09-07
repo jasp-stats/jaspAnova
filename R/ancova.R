@@ -1655,8 +1655,8 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   simpleEffectResult[["Pr(>F)"]] <-  pf(simpleEffectResult[["F value"]], simpleEffectResult[["Df"]],
                                         fullAnovaDf, lower.tail = FALSE)
 
-  if (options[["simpleEffectSizeEstimates"]] &&
-      (options[["simpleEffectSizePartialEtaSquared"]] || options[["simpleEffectSizePartialOmegaSquared"]])) {
+  if (isTRUE(options[["simpleEffectSizeEstimates"]]) &&
+      (isTRUE(options[["simpleEffectSizePartialEtaSquared"]]) || isTRUE(options[["simpleEffectSizePartialOmegaSquared"]]))) {
     simpleEffectResult <- cbind(simpleEffectResult, .simpleEffectSizeEstimates(simpleEffectResult[["F value"]],
                                                                                 simpleEffectResult[["Df"]],
                                                                                 fullAnovaDf, options))

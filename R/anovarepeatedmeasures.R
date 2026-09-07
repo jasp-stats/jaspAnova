@@ -1759,8 +1759,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
                                           paste0(" (", emptyCases, ")", collapse = ",")))
   }
 
-  if (options[["simpleEffectSizeEstimates"]] &&
-      (options[["simpleEffectSizePartialEtaSquared"]] || options[["simpleEffectSizePartialOmegaSquared"]])) {
+  if (isTRUE(options[["simpleEffectSizeEstimates"]]) &&
+      (isTRUE(options[["simpleEffectSizePartialEtaSquared"]]) || isTRUE(options[["simpleEffectSizePartialOmegaSquared"]]))) {
     simpleEffectResult <- cbind(simpleEffectResult, .simpleEffectSizeEstimates(simpleEffectResult[["F"]],
                                                                                 simpleEffectResult[["Df"]],
                                                                                 dfErrorVec, options))

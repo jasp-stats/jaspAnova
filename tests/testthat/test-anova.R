@@ -401,15 +401,25 @@ test_that("Simple Main Effects table results match", {
   options$simpleMainEffectModeratorFactorTwo <- ""
   options$homogeneityTests <- TRUE
   options$vovkSellke <- TRUE
+  options$simpleEffectSizeEstimates <- TRUE
+  options$simpleEffectSizePartialEtaSquared <- TRUE
+  options$simpleEffectSizePartialOmegaSquared <- TRUE
+  options$simpleEffectSizeCi <- TRUE
   results <- jaspTools::runAnalysis("Anova", "debug.csv", options)
   table <- results$results$anovaContainer$collection$anovaContainer_simpleEffectsContainer$collection$anovaContainer_simpleEffectsContainer_simpleEffectsTable$data
-  jaspTools::expect_equal_tables(table, list(1, 0.350864897951646, 1, 0.350864897951646, 0.310783783968887,
-                                  0.578524772558188, "TRUE", 2, 2.72259751707838, 1, 2.72259751707838,
-                                  2.41158110578085, 0.123801175704108, "FALSE", 3, 0.300954391532799,
-                                  1, 0.300954391532799, 0.266574813122249, 0.606851206017453,
-                                  "FALSE", 4, 3.47907983036715, 1, 3.47907983036715, 3.08164652754846,
-                                  0.0824380354608798, "FALSE", 5, 0.313611321775938, 1, 0.313611321775938,
-                                  0.27778587668933, 0.599397784945329, "FALSE"))
+  jaspTools::expect_equal_tables(table, list("TRUE", 1, 0.310783783968887, 0.350864897951647, 0.578524772558187,
+                                  0.350864897951647, "1", 0.00329531546128148, 0.062272849961447,
+                                  0, 0, 0, 0, "FALSE", 1, 2.41158110578085, 2.72259751707838,
+                                  0.123801175704108, 2.72259751707838, "2", 0.0250133965040456,
+                                  0.11653817789556, 0, 0.0144908961517419, 0.0949071228065795,
+                                  0, "FALSE", 1, 0.266574813122249, 0.300954391532798, 0.606851206017454,
+                                  0.300954391532798, "3", 0.00282788266838715, 0.0600653849456104,
+                                  0, 0, 0, 0, "FALSE", 1, 3.08164652754846, 3.47907983036715,
+                                  0.0824380354608798, 3.47907983036715, "4", 0.0317428333549534,
+                                  0.128733874550715, 0, 0.0212236091179789, 0.109192820956558,
+                                  0, "FALSE", 1, 0.277785876689329, 0.313611321775937, 0.59939778494533,
+                                  0.313611321775937, "5", 0.00294646160923485, 0.0606461292037051,
+                                  0, 0, 0, 0))
 })
 
 test_that("Nonparametric table results match", {

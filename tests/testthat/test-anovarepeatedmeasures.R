@@ -740,20 +740,32 @@ test_that("Simple Effects table match", {
   options$simpleMainEffectFactor <- "Looks"
   options$simpleMainEffectModeratorFactorOne <- "gender"
   options$simpleMainEffectModeratorFactorTwo <- "Charisma"
+  options$simpleEffectSizeEstimates <- TRUE
+  options$simpleEffectSizePartialEtaSquared <- TRUE
+  options$simpleEffectSizePartialOmegaSquared <- TRUE
+  options$simpleEffectSizeCi <- TRUE
 
   results <- jaspTools::runAnalysis(name    = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv",
                                     options = options)
 
-  refTable <- list("Female", "High", 42.4666666666668, 2, 21.2333333333334, 0.639629588307488,
-                   0.539062933641058, "TRUE", "Female", "Some", 6444.46666666667, 2,
-                   3222.23333333334, 105.034770010866, 1.18808350406329e-10, "FALSE",
-                   "Female", "None", 187.8, 2, 93.8999999999999, 10.1696750902527,
-                   0.0011082808185639, "FALSE", "Male", "High", 5661.66666666667, 2,
-                   2830.83333333333, 82.5850891410049, 8.54593593608342e-10, "TRUE",
-                   "Male", "Some", 8157.26666666666, 2 ,4078.63333333333, 121.267591674926,
-                   3.58637028279497e-11, "FALSE", "Male", "None", 10955, 2, 5477.5,
-                   292.566765578635, 1.87815435905324e-14, "FALSE")
+  refTable <- list("TRUE", 2, 0.639629588307483, 21.2333333333332, 42.4666666666665,
+                   "Female", "High", 0.53906293364106, 0.0663541666666664, 0.307115765105567,
+                   0, 0, 0, 0, "FALSE", 2, 105.034770010866, 3222.23333333334,
+                   6444.46666666667, "Female", "Some", 1.18808350406329e-10, 0.921076703191996,
+                   0.954898279841094, 0.828480624226111, 0.908324782081425, 0.947594364792286,
+                   0.801197024088387, "FALSE", 2, 10.1696750902527, 93.8999999999998,
+                   187.8, "Female", "None", 0.00110828081856391, 0.530508474576271,
+                   0.721683151983047, 0.156369269333197, 0.466183353216481, 0.679411689873575,
+                   0.0903678763443475, "TRUE", 2, 82.5850891410048, 2830.83333333333,
+                   5661.66666666666, "Male", "High", 8.54593593608348e-10, 0.90173072839244,
+                   0.943814571784023, 0.787160784875607, 0.885975024860736, 0.934774014767617,
+                   0.753845567466541, "FALSE", 2, 121.267591674926, 4078.63333333333,
+                   8157.26666666666, "Male", "Some", 3.58637028279499e-11, 0.930911442483262,
+                   0.960526824410894, 0.849635780085581, 0.919704875913737, 0.954112870398651,
+                   0.825537225914881, "FALSE", 2, 292.566765578635, 5477.5, 10955,
+                   "Male", "None", 1.87815435905327e-14, 0.970155862557563, 0.982958323612265,
+                   0.934792631111961, 0.965239472869892, 0.980150056110134, 0.924075198822198)
 
   table <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_simpleEffectsContainer$collection[[1]]$data
   jaspTools::expect_equal_tables(table, refTable)

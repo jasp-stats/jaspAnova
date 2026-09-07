@@ -40,8 +40,8 @@ Section
 		Group
 		{
 			columns: 2
-			CheckBox { name: "simpleEffectSizePartialEtaSquared";	label: qsTr("partial η²"); checked: true; info: qsTr("Partial eta squared (η²p) is the proportion of variance accounted for by the simple main effect after excluding variance from the error term: SS_effect / (SS_effect + SS_error), derived from the F statistic. Computed using the effectsize R package.") }
-			CheckBox { name: "simpleEffectSizePartialOmegaSquared";	label: qsTr("partial ω²"); info: qsTr("Partial omega squared (ω²p) is a less biased estimate of the proportion of variance accounted for by the simple main effect, compared to partial η², derived from the F statistic. Computed using the effectsize R package.") }
+			CheckBox { name: "simpleEffectSizePartialOmegaSquared";	label: qsTr("partial ω²"); checked: true; info: qsTr("Partial omega squared (ω²p) is a less biased estimate of the proportion of variance accounted for by the simple main effect, compared to partial η², derived from the F statistic. Computed using the effectsize R package.") }
+			CheckBox { name: "simpleEffectSizePartialEtaSquared";	label: qsTr("partial η²"); info: qsTr("Partial eta squared (η²p) is the proportion of variance accounted for by the simple main effect after excluding variance from the error term: SS_effect / (SS_effect + SS_error), derived from the F statistic. Computed using the effectsize R package.") }
 		}
 
 		CheckBox

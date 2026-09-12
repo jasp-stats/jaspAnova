@@ -3305,3 +3305,51 @@ msgstr "Os resíduos são distribuídos normalmente para cada grupo."
 msgctxt "Manova|"
 msgid "The residuals follow a multivariate normal distribution."
 msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid "Effect size estimates"
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"By selecting this option, the specific types of calculations to estimate the "
+"effect size of the simple main effects can be specified."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial ω²"
+msgstr "ω² parcial"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial omega squared (ω²p) is a less biased estimate of the proportion of "
+"variance accounted for by the simple main effect, compared to partial η², "
+"derived from the F statistic. Computed using the effectsize R package."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial η²"
+msgstr "η² parcial"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial eta squared (η²p) is the proportion of variance accounted for by the "
+"simple main effect after excluding variance from the error term: SS_effect / "
+"(SS_effect + SS_error), derived from the F statistic. Computed using the "
+"effectsize R package."
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid "Confidence intervals"
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Displays confidence intervals for the effect size. Set at 95% by default but "
+"can be changed into the desired percentage."
+msgstr ""
+"Exibe intervalos de confiança para o tamanho do efeito. Definido como 95 % "
+"por padrão, mas pode ser alterado para a porcentagem desejada."

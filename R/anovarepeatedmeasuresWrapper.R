@@ -37,7 +37,7 @@
 #'    Defaults to \code{FALSE}.
 #' @param contrastCi, By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage.
 #'    Defaults to \code{FALSE}.
-#' @param contrastEffectSize, Include standardized mean differences, based on the effectsize function in the emmeans package.
+#' @param contrastEffectSize, Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.
 #'    Defaults to \code{FALSE}.
 #' @param covariates, In this box the variables that are covariates can be selected. Covariates are continuous variables that have an influence on the dependent variable but are not part of the experimental manipulation.
 #' @param descriptivePlotErrorBar, Display error bars in the plot. The error bars can represent either confidence intervals or standard errors.

@@ -133,6 +133,40 @@ test_that("Contrasts table results match", {
   }
 })
 
+# https://github.com/jasp-stats/jasp-issues/issues/4488
+test_that("Custom contrast Cohen's d is invariant to the scale of the weights", {
+  options <- initClassicalAnovaOptions("Anova")
+  options$dependent <- "contNormal"
+  options$fixedFactors <- "facFive"
+  options$modelTerms <- list(list(components = "facFive"))
+  options$contrastCi <- TRUE
+  options$contrastEffectSize <- TRUE
+  options$contrasts <- list(list(contrast = "custom", variable = "facFive"))
+
+  # two weightings of the same hypothesis, the second exactly half the first
+  levelNames <- as.character(1:5)
+  options$customContrasts <- list(list(
+    value = "facFive",
+    values = list(
+      list(isContrast = FALSE, levels = levelNames, name = "facFive",    values = levelNames),
+      list(isContrast = TRUE,  levels = levelNames, name = "Contrast 1", values = c(1, 0, 1, -2, 0)),
+      list(isContrast = TRUE,  levels = levelNames, name = "Contrast 2", values = c(0.5, 0, 0.5, -1, 0))
+    )))
+
+  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
+  collection <- results[["results"]]$anovaContainer$collection$anovaContainer_contrastContainer$collection[[1]]$collection
+  table <- collection[[grep("contrastTable", names(collection))]]$data
+
+  # the estimate stays on the scale the user specified, the standardized effect size does not
+  expect_equal(table[[1]][["estimate"]], 2 * table[[2]][["estimate"]])
+  expect_equal(table[[1]][["t.ratio"]],  table[[2]][["t.ratio"]])
+  for (column in c("cohenD", "cohenD_LowerCI", "cohenD_UpperCI"))
+    expect_equal(table[[1]][[column]], table[[2]][[column]], label = column)
+
+  expect_equal(unname(unlist(table[[1]][c("cohenD", "cohenD_LowerCI", "cohenD_UpperCI")])), tolerance = 1e-6,
+               c(0.245812978460509, -0.298104627927848, 0.789730668164067))
+})
+
 test_that("Post Hoc table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"

@@ -16,7 +16,8 @@
 
 # jaspAnova (development version)
 
-
+## Fixed
+* Cohen's d for contrasts in ANOVA, ANCOVA, and Repeated Measures ANOVA is now invariant to the scale of the contrast weights: weights are rescaled so their absolute values sum to 2 before the effect size is computed, so e.g. `(1, 0, 1, -2, 0)` and `(0.5, 0, 0.5, -1, 0)` yield the same d. This also changes d for the built-in deviation and polynomial contrasts ([Issue #4488](https://github.com/jasp-stats/jasp-issues/issues/4488)).
 
 ---
 

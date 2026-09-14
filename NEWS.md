@@ -16,11 +16,15 @@
 
 # jaspAnova (development version)
 
+## Changed
+* The Contrasts effect size info text and the help files for ANOVA, ANCOVA, and Repeated Measures ANOVA now describe how Cohen's d is standardized, and the Contrasts output section documents the Cohen's d and its confidence interval columns.
+* Normality assumption in the help and info text now refers to the residuals being normally distributed instead of the dependent variable, for Repeated Measures ANOVA (frequentist and Bayesian) and MANOVA (multivariate normality of residuals). Also corrected the Kruskal-Wallis description and Q-Q plot interpretation text in ANOVA and ANCOVA to refer to residuals.
+
+## Fixed
+* Cohen's d for contrasts in ANOVA, ANCOVA, and Repeated Measures ANOVA is now invariant to the scale of the contrast weights: weights are rescaled so their absolute values sum to 2 before the effect size is computed, so e.g. `(1, 0, 1, -2, 0)` and `(0.5, 0, 0.5, -1, 0)` yield the same d. A footnote on the contrast table states this. This also changes d for the built-in deviation and polynomial contrasts ([Issue #4488](https://github.com/jasp-stats/jasp-issues/issues/4488)).
+
 ## Added
 * Partial η² and partial ω² (with optional CIs) as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size.
-
-## Changed
-* Normality assumption in the help and info text now refers to the residuals being normally distributed instead of the dependent variable, for Repeated Measures ANOVA (frequentist and Bayesian) and MANOVA (multivariate normality of residuals). Also corrected the Kruskal-Wallis description and Q-Q plot interpretation text in ANOVA and ANCOVA to refer to residuals.
 
 ---
 

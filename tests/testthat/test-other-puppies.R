@@ -31,8 +31,8 @@ test_that("Anova results match", {
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_contrastContainer"]][["collection"]][["anovaContainer_contrastContainer_customContrast_jaspColumn1"]][["collection"]][["anovaContainer_contrastContainer_customContrast_jaspColumn1_contrastTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list(1, 1, 1.53622914957372, 0.570459226249834, -1.82975734175204,
-     2.97067579425171, 12, 0.799999999999999, -2.5471557804, 0.612011229409547,
+    list(1, 1, 1.53622914957372, 0.285229613124917, -0.914878670876022,
+     1.48533789712586, 12, 0.799999999999999, -2.5471557804, 0.612011229409547,
      0.520755643923295, 4.1471557804, 0, 2, 0.886942313043338, -1.99660729187442,
      -3.6359401790344, -0.35727440471444, 12, -2.8, -4.73248129083355,
      0.00826810286112651, -3.15691331761188, -0.867518709166448

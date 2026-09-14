@@ -740,7 +740,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
       effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid,
                                                           sigma = sqrt(mean(sigma(model)^2)),
                                                           edf = df.residual(model),
-                                                          method = contrCoef,
+                                                          method = .normalizeContrastCoefficientsAnova(contrCoef),
                                                           level = options[["contrastCiLevel"]]))
 
       if (contrast$decoded == "custom") {

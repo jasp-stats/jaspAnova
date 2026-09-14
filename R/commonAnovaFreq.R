@@ -39,7 +39,28 @@
 
   contrastTable$showSpecifiedColumnsOnly <- TRUE
 
+  if (isTRUE(options$contrastEffectSize))
+    contrastTable$addFootnote(gettext("Cohen's d is based on contrast weights rescaled so that the absolute weights sum to 2; it is therefore not affected by the scale of the specified weights."))
+
   return(contrastTable)
+}
+
+# Standardized effect sizes must not depend on the arbitrary scale of the contrast weights:
+# doubling all weights doubles the estimate but leaves sigma untouched, so Cohen's d doubles
+# while t stays put. Rescale each contrast so its positive and negative weights each sum to 1
+# (sum(|c|) == 2), making d a mean difference comparable to the pairwise post hoc Cohen's d.
+# See https://github.com/jasp-stats/jasp-issues/issues/4488
+.normalizeContrastCoefficientsAnova <- function(contrCoef) {
+
+  rescale <- function(coefs) {
+    scaleFactor <- sum(abs(coefs)) / 2
+    if (is.finite(scaleFactor) && scaleFactor > 0) coefs / scaleFactor else coefs
+  }
+
+  lapply(contrCoef, function(thisContrast) {
+    # custom contrasts arrive as a list wrapping the weight vector, the built-in types as a bare vector
+    if (is.list(thisContrast)) lapply(thisContrast, rescale) else rescale(thisContrast)
+  })
 }
 
 .createContrastCoefficientsTableAnova <- function(contrast, contrCoef, weightType = "number") {

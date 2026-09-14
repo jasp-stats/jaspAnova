@@ -45,6 +45,6 @@ Section
 	}
 	CheckBox
 	{
-		name: "contrastEffectSize"; label: qsTr("Effect size (Cohen's d)"); info: qsTr("Include standardized mean differences, based on the effectsize function in the emmeans package.")
+		name: "contrastEffectSize"; label: qsTr("Effect size (Cohen's d)"); info: qsTr("Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.")
 	}
 }

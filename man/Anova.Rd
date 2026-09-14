@@ -133,7 +133,7 @@ Defaults to \code{TRUE}.}
 \item{contrastCi, }{By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage.
 Defaults to \code{FALSE}.}
 
-\item{contrastEffectSize, }{Include standardized mean differences, based on the effectsize function in the emmeans package.
+\item{contrastEffectSize, }{Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.
 Defaults to \code{FALSE}.}
 
 \item{dependent, }{The variable of interest. This is also called the outcome variable.}

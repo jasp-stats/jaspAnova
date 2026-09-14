@@ -67,7 +67,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
       - polynomial: This contrast tests polynomial trends in the data. The specific polynomial that will be used for the analysis depends on the number of levels of the independent variable. The degree of the trend used for the analysis is the number of levels minus 1. Therefore, if the independent variable consist of 2 levels, a linear trend is analysed. If the independent variable consists of three levels, a quadratic trend is analysed in addition to the linear trend. 
       - custom: Here, the contrast weights can be specified manually. Some restrictions apply here: (1) some weights need to be non-zero (2) The maximum number of contrasts is the number of factor levels - 1 (3) for factors with more than 2 levels, at least 2 contrasts need to be specified.
 - Confidence Intervals: By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage. 
-- Effect size: Include standardized mean differences, based on the effectsize function in the emmeans package. 
+- Effect size: Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.
 
 
 ### Post Hoc Tests
@@ -188,6 +188,10 @@ Deviation/Simple/Difference/Helmert/Repeated/Polynomial/Custom Contrast:
 - % CI for Mean Difference: % confidence interval of the mean difference. This is 95% by default.   
     - Lower: This is the lower bound of the confidence interval. 
     - Upper: This is the upper bound of the confidence interval. 
+- Cohen's d: The standardized mean difference for the contrast. The contrast weights are rescaled so that their absolute values sum to 2, so d is not affected by the scale of the specified weights.
+- % CI for Cohen's d: % confidence interval of Cohen's d. This is 95% by default.
+    - Lower: This is the lower bound of the confidence interval.
+    - Upper: This is the upper bound of the confidence interval.
 
 #### Post Hoc Tests
 Post Hoc Comparisons (Standard)- independent variable:  

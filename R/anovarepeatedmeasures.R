@@ -1147,7 +1147,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
       effectSizeResult <- as.data.frame(emmeans::eff_size(referenceGrid[[paste(contrast$variable, collapse = ":")]],
                                                           sigma = sqrt(mean(sigma(fullModel$lm)^2)),
                                                           edf = df.residual(fullModel$lm),
-                                                          method = contrCoef,
+                                                          method = .normalizeContrastCoefficientsAnova(contrCoef),
                                                           level = options[["contrastCiLevel"]]))
 
       if (contrast$decoded == "custom") {

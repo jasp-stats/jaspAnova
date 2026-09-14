@@ -583,6 +583,40 @@ test_that("Contrast table match", {
   jaspTools::expect_equal_tables(table, refTable)
 })
 
+# https://github.com/jasp-stats/jasp-issues/issues/4488
+test_that("Custom contrast Cohen's d is invariant to the scale of the weights", {
+  options <- initOptsMixed()
+  options$poolErrorTermFollowup <- TRUE
+  options$contrastCi <- TRUE
+  options$contrastEffectSize <- TRUE
+  options$contrasts <- list(list(contrast = "custom", variable = "Looks"))
+
+  # two weightings of the same hypothesis, the second exactly half the first
+  levelNames <- c("Attractive", "Average", "Ugly")
+  options$customContrasts <- list(list(
+    value = "Looks",
+    values = list(
+      list(isContrast = FALSE, levels = levelNames, name = "Looks",      values = levelNames),
+      list(isContrast = TRUE,  levels = levelNames, name = "Contrast 1", values = c(1, 1, -2)),
+      list(isContrast = TRUE,  levels = levelNames, name = "Contrast 2", values = c(0.5, 0.5, -1))
+    )))
+
+  results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
+                                    dataset = "AnovaMixedEffects.csv",
+                                    options = options)
+  collection <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_contrastContainer$collection[[1]]$collection
+  table <- collection[[grep("contrastTable", names(collection))]]$data
+
+  # the estimate stays on the scale the user specified, the standardized effect size does not
+  expect_equal(table[[1]][["estimate"]], 2 * table[[2]][["estimate"]])
+  expect_equal(table[[1]][["t.ratio"]],  table[[2]][["t.ratio"]])
+  for (column in c("cohenD", "cohenD_LowerCI", "cohenD_UpperCI"))
+    expect_equal(table[[1]][[column]], table[[2]][[column]], label = column)
+
+  expect_equal(unname(unlist(table[[1]][c("cohenD", "cohenD_LowerCI", "cohenD_UpperCI")])), tolerance = 1e-6,
+               c(3.47404865014088, 2.27663565308223, 4.67146164719954))
+})
+
 test_that("Descriptives Plots match", {
   options <- initOptsMixed()
   options$sphericityCorrections <- TRUE

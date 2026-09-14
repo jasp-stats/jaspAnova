@@ -62,7 +62,7 @@ For each repeated measures factor, a specific contrast can be selected by clicki
     - custom: Here, the contrast weights can be specified manually. Some weights need to be non-zero.
 - Pool error term for follow-up tests:  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
 - Confidence interval: Confidence interval for the location parameter and effect size. By default, the confidence interval is set to 95%. This can be changed into the desired percentage.
-- Effect size: Include standardized mean differences, based on the effectsize function in the emmeans package. 
+- Effect size: Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.
 
 
 ### Post Hoc Tests
@@ -168,6 +168,10 @@ Deviation/Simple/Difference/Helmert/Repeated/Polynomial Contrast:
 - df: The degrees of freedom of the model.
 - t: The value of the t-statistic.
 - p: The p-value.
+- Cohen's d: The standardized mean difference for the contrast. The contrast weights are rescaled so that their absolute values sum to 2, so d is not affected by the scale of the specified weights.
+- % CI for Cohen's d: % confidence interval of Cohen's d. This is 95% by default.
+    - Lower: This is the lower bound of the confidence interval.
+    - Upper: This is the upper bound of the confidence interval.
 
 #### Post-Hoc Tests
 Post Hoc Comparisons:  

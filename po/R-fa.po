@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.96.6\n"
 "POT-Creation-Date: 2026-04-25 03:39\n"
-"PO-Revision-Date: 2026-09-14 02:26+0000\n"
+"PO-Revision-Date: 2026-09-15 03:58+0000\n"
 "Last-Translator: Sohrab Delshad <sdel4030@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
 "fa/>\n"
@@ -164,7 +164,7 @@ msgid "Comparison"
 msgstr "مقایسه"
 
 msgid "Mean Difference"
-msgstr "اختلاف میانگین"
+msgstr "تفاوت میانگین"
 
 msgid "%.0f%% CI for Mean Difference"
 msgstr "فاصله اطمینان %.0f%% برای اختلاف میانگین"
@@ -182,7 +182,7 @@ msgid "Dunnett Post Hoc Comparisons - %s"
 msgstr "مقایسه‌های پس‌آزمایی دانت - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr "فاصله اطمینان %s%% برای اختلاف میانگین"
+msgstr "بازه اطمینان %s%% برای تفاوت میانگین"
 
 msgid "p<sub>Dunnett</sub>"
 msgstr "p<sub>دانت</sub>"
@@ -191,7 +191,7 @@ msgid "Confidence interval is too narrow, please select a different confidence l
 msgstr "فاصله اطمینان بسیار باریک است، لطفاً سطح اطمینان دیگری را انتخاب کنید."
 
 msgid "Assumption Checks"
-msgstr "بررسی پیش‌فرض‌ها"
+msgstr "بررسی مفروضات"
 
 msgid "Test for Equality of Variances (Levene's)"
 msgstr "آزمون برابری واریانس‌ها (لوین)"
@@ -356,7 +356,7 @@ msgid "Approx. %s"
 msgstr "تقریبی %s"
 
 msgid "p-value"
-msgstr "p-مقدار"
+msgstr "مقدار p"
 
 msgid "Greenhouse-Geisser %s"
 msgstr "گرین‌هاوس-گایسر %s"
@@ -443,7 +443,7 @@ msgid "Duplicate variables encountered in repeated measures cells, %s"
 msgstr "متغیرهای تکراری در خانه‌های اندازه‌گیری مکرر یافت شد، %s"
 
 msgid "Duplicate variables encountered in %s"
-msgstr "متغیرهای تکراری در %s یافت شد."
+msgstr "متغیرهای تکراری در %s مشاهده شد"
 
 msgid "Duplicate participant column added to model terms, %s"
 msgstr "ستون شرکت‌کننده تکراری به جملات مدل اضافه شد، %s"
@@ -512,13 +512,13 @@ msgid "Effects"
 msgstr "اثرات"
 
 msgid "P(incl)"
-msgstr "P(شامل)"
+msgstr "P(گنجاندن)"
 
 msgid "P(excl)"
 msgstr "P(حذف)"
 
 msgid "P(incl|data)"
-msgstr "P(شامل|داده‌ها)"
+msgstr "P(گنجاندن|داده)"
 
 msgid "P(excl|data)"
 msgstr "P(حذف|داده‌ها)"
@@ -572,7 +572,7 @@ msgid "Model Averaged Posterior Summary"
 msgstr "خلاصه پسین میانگین‌گیری‌شده مدل"
 
 msgid "%s%% Credible Interval"
-msgstr "فاصله باور %s%%"
+msgstr "بازه باورپذیر %s%%"
 
 msgid "Variable"
 msgstr "متغیّر"
@@ -660,10 +660,10 @@ msgid "Descriptives - %s"
 msgstr "آماره‌های توصیفی - %s"
 
 msgid "N"
-msgstr "N (تعداد)"
+msgstr "N"
 
 msgid "SE"
-msgstr "خطای استاندارد (SE)"
+msgstr "خطای معیار"
 
 msgid "Coefficient of variation"
 msgstr "ضریب تغییرات"
@@ -677,7 +677,7 @@ msgid "Descriptives plots"
 msgstr "نمودارهای توصیفی"
 
 msgid "Descriptives Plot"
-msgstr "نمودار توصیفی"
+msgstr "نمودار توصیفی‌ها"
 
 msgid "Bar plots"
 msgstr "نمودارهای میله‌ای"
@@ -945,7 +945,7 @@ msgid "Right-hand side (rhs)"
 msgstr "سمت راست (rhs)"
 
 msgid "Coefficients"
-msgstr "ضرایب"
+msgstr "ضریب‌ها"
 
 msgid "%s%% CI"
 msgstr "فاصله اطمینان %s%%"

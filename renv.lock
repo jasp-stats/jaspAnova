@@ -4347,7 +4347,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspBase",
-      "RemoteSha": "93f004588f6d56b46d23210e23bff003ae7b1ff4"
+      "RemoteSha": "763cb835a7589b72da079b95bbf9491abad4fab3"
     },
     "jaspDescriptives": {
       "Package": "jaspDescriptives",
@@ -4375,7 +4375,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspDescriptives",
-      "RemoteSha": "2dfd76a8a9f89a3bb19b88c47fd6589c295296a6"
+      "RemoteSha": "6d9bfc07e103a1b4fe8a4a732cd302ae50634369"
     },
     "jaspGraphs": {
       "Package": "jaspGraphs",
@@ -4400,7 +4400,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspGraphs",
-      "RemoteSha": "1eb48e7e0fe9559bbd15da25f30703c7cca246bb"
+      "RemoteSha": "23cdda0d795329eb99a2659bf6f325a9194ff292"
     },
     "jaspTTests": {
       "Package": "jaspTTests",
@@ -4420,7 +4420,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspTTests",
-      "RemoteSha": "36ba1f775302ff86dc4be7d3b2aef294d0a41f94"
+      "RemoteSha": "8c9f68ac784679aff9bc94151a92d7067bd41c1a"
     },
     "jpeg": {
       "Package": "jpeg",
@@ -5176,7 +5176,7 @@
     },
     "mgcv": {
       "Package": "mgcv",
-      "Version": "1.9-4",
+      "Version": "1.9-3",
       "Source": "Repository",
       "Authors@R": "person(given = \"Simon\", family = \"Wood\", role = c(\"aut\", \"cre\"), email = \"simon.wood@r-project.org\")",
       "Title": "Mixed GAM Computation Vehicle with Automatic Smoothness Estimation",
@@ -8455,7 +8455,7 @@
     },
     "vdiffr": {
       "Package": "vdiffr",
-      "Version": "1.0.8",
+      "Version": "1.0.9",
       "Source": "Repository",
       "Title": "Visual Regression Testing and Graphical Diffing",
       "Authors@R": "c( person(\"Lionel\", \"Henry\", , \"lionel@posit.co\", role = c(\"cre\", \"aut\")), person(\"Thomas Lin\", \"Pedersen\", , \"thomas.pedersen@posit.co\", role = \"aut\", comment = c(ORCID = \"0000-0002-5147-4711\")), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")), person(\"T Jake\", \"Luciani\", , \"jake@apache.org\", role = \"aut\", comment = \"svglite\"), person(\"Matthieu\", \"Decorde\", , \"matthieu.decorde@ens-lyon.fr\", role = \"aut\", comment = \"svglite\"), person(\"Vaudor\", \"Lise\", , \"lise.vaudor@ens-lyon.fr\", role = \"aut\", comment = \"svglite\"), person(\"Tony\", \"Plate\", role = \"ctb\", comment = \"svglite: Early line dashing code\"), person(\"David\", \"Gohel\", role = \"ctb\", comment = \"svglite: Line dashing code and raster code\"), person(\"Yixuan\", \"Qiu\", role = \"ctb\", comment = \"svglite: Improved styles; polypath implementation\"), person(\"Håkon\", \"Malmedal\", role = \"ctb\", comment = \"svglite: Opacity code\") )",

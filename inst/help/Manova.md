@@ -4,7 +4,7 @@ MANOVA
 MANOVA allows the user to analyze the difference among three, or more, group means.
 
 ### Assumptions 
-- The dependent variables are normally distributed for every group.
+- The residuals follow a multivariate normal distribution.
 - The independent variables are categorical, the dependent variables are continuous. 
 - The population covariance matrices of each group are equal.
 - The groups are independent. 

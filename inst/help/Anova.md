@@ -146,7 +146,7 @@ ANOVA allows the user to analyze the difference between multiple group means.
   - Moderator factor 2: In this box, selector an optional, additional independent variable. 
 
 ### Nonparametrics 
-- Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the dependent variable, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
+- Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the residuals, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
 - Estimates of effect size: request effect size estimates for the Kruskal-Wallis test: rank epsilon squared and rank eta squared, including their confidence interval. Based on the effectsize package. 
 -  Dunn's post hoc tests: This is a non-parametric follow-up test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
 
@@ -181,7 +181,7 @@ Test for Equality of Variances (Levene's):
 - VS-MPR: Vovk-Sellke Maximum *p*-ratio.  
 
 Q-Q Plot: 
-- With a Q-Q plot, the normality of the residuals can be inspected visually. The theoretical quantiles are displayed on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the data are normally distributed. 
+- With a Q-Q plot, the normality of the residuals can be inspected visually. The theoretical quantiles are displayed on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the residuals are normally distributed. 
 
 #### Contrasts 
 Deviation/Simple/Difference/Helmert/Repeated/Polynomial/Custom Contrast: 

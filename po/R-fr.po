@@ -55,11 +55,15 @@ msgstr ""
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+  "En raison de cellules vides dans le plan, seuls %1$s des %2$s effets"
+  "sont estimables."
 
 msgid ""
 "Some higher-order interaction effects cannot be assessed and are therefore "
 "omitted."
 msgstr ""
+  "Certains effets d'interaction d'ordre supérieur ne peuvent pas être"
+  "évalués et sont par conséquent omis."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -161,7 +165,7 @@ msgstr ""
 "cellules vides dans le design."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Estimations de la différence moyenne et du d de Cohen"
 
 #, fuzzy
 msgid "Mean Difference estimates"
@@ -290,7 +294,7 @@ msgid "Rank %s"
 msgstr "Classement %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "IC %1$i%% pour le classement %2$s"
 
 #, fuzzy
 msgid ""
@@ -326,6 +330,8 @@ msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+  "Corrélation de rang bissérielle basée sur des tests de Mann-Whitney"
+  "individuels."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -473,6 +479,9 @@ msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
+  "Ce n'est pas un plan en blocs complets non répliqué. Le test de"
+  "Friedman n'est disponible qu'en tant qu'alternative à l'ANOVA MR à"
+  "facteur unique."
 
 msgid "Durbin Test"
 msgstr "Test de Durbin"
@@ -500,6 +509,8 @@ msgstr "Groupé par %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+  "Corrélation de rang bissérielle basée sur des tests de rangs signés"
+  "individuels."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
@@ -699,7 +710,7 @@ msgid "SD"
 msgstr "ET"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Ordonnée à l'origine"
 
 msgid "Model Averaged R%s"
 msgstr "Modèle R%s moyenné"
@@ -944,7 +955,7 @@ msgstr ""
 "%2$s)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "La correction de la valeur p n'est pas affectée par le bootstrap."
 
 msgid "Marginal Means -"
 msgstr "Moyennes marginales"
@@ -1024,12 +1035,17 @@ msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+  "Impossible d'ajuster le modèle non restreint. Par conséquent, aucun"
+  "des modèles restreints n'a pu être estimé. Message d'erreur : %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+  "Impossible d'obtenir le bootstrap pour le modèle non restreint. Par"
+  "conséquent, le bootstrap pour les modèles restreints n'a pas pu être"
+  "effectué. Message d'erreur : %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
@@ -1046,7 +1062,7 @@ msgid "Syntax information"
 msgstr "Information de syntaxe"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Coefficients disponibles pour la syntaxe de restriction"
 
 #, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
@@ -1235,6 +1251,8 @@ msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
 msgstr ""
+  "Résultats indisponibles en raison de la taille de l'échantillon (doit"
+  "être comprise entre 3 et 5000) ou de corrélations parfaites."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"

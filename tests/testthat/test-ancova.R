@@ -258,16 +258,26 @@ test_that("Simple Main Effects table results match", {
   options$homogeneityTests <- TRUE
   options$sumOfSquares <- "type1"
   options$vovkSellke <- TRUE
+  options$simpleEffectSizeEstimates <- TRUE
+  options$simpleEffectSizePartialEtaSquared <- TRUE
+  options$simpleEffectSizePartialOmegaSquared <- TRUE
+  options$simpleEffectSizeCi <- TRUE
   results <- jaspTools::runAnalysis("Ancova", "debug.csv", options)
   # table <- results[["results"]][["simpleEffects"]][["data"]]
   table <- results$results$anovaContainer$collection$anovaContainer_simpleEffectsContainer$collection$anovaContainer_simpleEffectsContainer_simpleEffectsTable$data
-  jaspTools::expect_equal_tables(table, list(1, 0.350864897951646, 1, 0.350864897951646, 0.307765411627339,
-                                  0.580386465552355, "TRUE", 2, 2.72259751707838, 1, 2.72259751707838,
-                                  2.38815951789705, 0.125653693703876, "FALSE", 3, 0.300954391532799,
-                                  1, 0.300954391532799, 0.263985804028512, 0.608613599742434,
-                                  "FALSE", 4, 3.47907983036715, 1, 3.47907983036715, 3.05171717754702,
-                                  0.0839531695276169, "FALSE", 5, 0.313611321775938, 1, 0.313611321775938,
-                                  0.275087984294933, 0.601186887502708, "FALSE"))
+  jaspTools::expect_equal_tables(table, list("TRUE", 1, 0.30776541162734, 0.350864897951646, 0.580386465552354,
+                                  0.350864897951646, "1", 0.00329839012079683, 0.0627547614735743,
+                                  0, 0, 0, 0, "FALSE", 1, 2.38815951789705, 2.72259751707838,
+                                  0.125653693703876, 2.72259751707838, "2", 0.0250362259840958,
+                                  0.117197669844985, 0, 0.0144017639183089, 0.0952789143198046,
+                                  0, "FALSE", 1, 0.263985804028512, 0.300954391532799, 0.608613599742434,
+                                  0.300954391532799, "3", 0.00283052243320604, 0.0605342510143907,
+                                  0, 0, 0, 0, "FALSE", 1, 3.05171717754702, 3.47907983036715,
+                                  0.0839531695276169, 3.47907983036715, "4", 0.0317716045815825,
+                                  0.129419331174821, 0, 0.0211404520931206, 0.109630293052552,
+                                  0, "FALSE", 1, 0.275087984294933, 0.313611321775938, 0.601186887502708,
+                                  0.313611321775938, "5", 0.00294921173744966, 0.0611185074329352,
+                                  0, 0, 0, 0))
 })
 
 # Error handling ----

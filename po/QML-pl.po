@@ -1493,10 +1493,6 @@ msgid "Assumptions"
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr ""
 
@@ -1734,10 +1730,6 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
@@ -2592,10 +2584,6 @@ msgid "Assumptions"
 msgstr ""
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr ""
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -2812,4 +2800,62 @@ msgid ""
 "When this option is selected, the confidence interval for the mean "
 "difference is calculated. By default, this is set to 95%, but it can be "
 "adjusted to the desired percentage."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr ""
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid "Effect size estimates"
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"By selecting this option, the specific types of calculations to estimate the "
+"effect size of the simple main effects can be specified."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial ω²"
+msgstr "cząstkowe ω²"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial omega squared (ω²p) is a less biased estimate of the proportion of "
+"variance accounted for by the simple main effect, compared to partial η², "
+"derived from the F statistic. Computed using the effectsize R package."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial η²"
+msgstr "cząstkowe η²"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial eta squared (η²p) is the proportion of variance accounted for by the "
+"simple main effect after excluding variance from the error term: SS_effect / "
+"(SS_effect + SS_error), derived from the F statistic. Computed using the "
+"effectsize R package."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Confidence intervals"
+msgstr "Przedziały ufności"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Displays confidence intervals for the effect size. Set at 95% by default but "
+"can be changed into the desired percentage."
 msgstr ""

@@ -384,11 +384,11 @@ msgstr "Βeta 二項式分布"
 
 msgctxt "AdditionalOptions|"
 msgid "a"
-msgstr ""
+msgstr "a"
 
 msgctxt "AdditionalOptions|"
 msgid "b"
-msgstr ""
+msgstr "b"
 
 msgctxt "AdditionalOptions|"
 msgid "Wilson"
@@ -412,7 +412,7 @@ msgstr "Bernoulli"
 
 msgctxt "AdditionalOptions|"
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgctxt "AdditionalOptions|"
 msgid "Custom"
@@ -1520,10 +1520,6 @@ msgid "Assumptions"
 msgstr "假定"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "The covariate and the experiment effect are independent."
 msgstr "共變項與實驗效應彼此獨立。"
 
@@ -1660,7 +1656,7 @@ msgid ""
 "Standard."
 msgstr ""
 "選擇此選項時，將顯示效果量（即觀察到的效應大小）。所使用的效果量指標為 "
-"Cohen's d。效果量僅會顯示於事後檢定類型為 Standard 時。"
+"Cohen's d。效果量僅會顯示於事後檢定類型為「標準」時。"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
@@ -1682,8 +1678,8 @@ msgid ""
 "interaction terms. This provides as many tables as there are terms in the "
 "interaction effect."
 msgstr ""
-"不是對互動中所有可能的格子組合進行兩兩比較，而是列出依各互動項條件下的兩兩比"
-"較。這將提供與互動效應項數相等的表格數量。"
+"不針對交互作用中所有可能的儲存格組合進行成對比較，而是列出在每個交互作用項條"
+"件下的成對比較。這將會產生與交互作用效應中的項數相同數量的表格。"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
@@ -1801,10 +1797,6 @@ msgstr ""
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "Assumptions"
 msgstr "假定"
-
-msgctxt "AnovaRepeatedMeasuresBayesian|"
-msgid "The dependent variable is normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
 
 msgctxt "AnovaRepeatedMeasuresBayesian|"
 msgid "The covariate and the experiment effect are independent."
@@ -2579,7 +2571,6 @@ msgstr ""
 "選取此選項時，將執行拔靴法事後檢定。預設重抽樣次數為 1000 次，可依需求調整為"
 "其他數值。"
 
-#, fuzzy
 msgctxt "PostHoc|"
 msgid ""
 "By selecting this option, the effect size (i.e., the magnitude of the "
@@ -2588,7 +2579,7 @@ msgid ""
 "Standard."
 msgstr ""
 "選擇此選項時，將顯示效果量（即觀察到的效應大小）。所使用的效果量指標為 "
-"Cohen's d。效果量僅會顯示於事後檢定類型為 Standard 時。"
+"Cohen's d。效果量僅會顯示於事後檢定類型為「標準」時。"
 
 #, fuzzy
 msgctxt "PostHoc|"
@@ -2785,10 +2776,6 @@ msgid "Assumptions"
 msgstr "假定"
 
 msgctxt "Manova|"
-msgid "The dependent variables are normally distributed for every group."
-msgstr "每個群組的依變項皆呈常態分配。"
-
-msgctxt "Manova|"
 msgid ""
 "The independent variables are categorical, the dependent variables are "
 "continuous."
@@ -2964,7 +2951,7 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "FDR (Benjamini-Hochberg)"
-msgstr ""
+msgstr "FDR（Benjamini-Hochberg）"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
@@ -3027,7 +3014,7 @@ msgstr ""
 
 msgctxt "PostHoc|"
 msgid "FDR (Benjamini-Hochberg)"
-msgstr ""
+msgstr "FDR（Benjamini-Hochberg）"
 
 msgctxt "PostHoc|"
 msgid ""
@@ -3046,3 +3033,64 @@ msgid ""
 msgstr ""
 "當選取此選項時，將計算平均差異的信賴區間。預設為95%，但可依需求調整為其他百分"
 "比。"
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasures|"
+msgid "The residuals are normally distributed for every group."
+msgstr "每個群組的殘差皆呈常態分配。"
+
+#, fuzzy
+msgctxt "AnovaRepeatedMeasuresBayesian|"
+msgid "The residuals are normally distributed for every group."
+msgstr "每個群組的殘差皆呈常態分配。"
+
+msgctxt "Manova|"
+msgid "The residuals follow a multivariate normal distribution."
+msgstr "殘差服從多變量常態分布。"
+
+msgctxt "SimpleMainEffects|"
+msgid "Effect size estimates"
+msgstr ""
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"By selecting this option, the specific types of calculations to estimate the "
+"effect size of the simple main effects can be specified."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial ω²"
+msgstr "淨 ω² 效果量(ω²ₚ)"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial omega squared (ω²p) is a less biased estimate of the proportion of "
+"variance accounted for by the simple main effect, compared to partial η², "
+"derived from the F statistic. Computed using the effectsize R package."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "partial η²"
+msgstr "淨η² 效果量( η²ₚ)"
+
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Partial eta squared (η²p) is the proportion of variance accounted for by the "
+"simple main effect after excluding variance from the error term: SS_effect / "
+"(SS_effect + SS_error), derived from the F statistic. Computed using the "
+"effectsize R package."
+msgstr ""
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid "Confidence intervals"
+msgstr "信賴區間"
+
+#, fuzzy
+msgctxt "SimpleMainEffects|"
+msgid ""
+"Displays confidence intervals for the effect size. Set at 95% by default but "
+"can be changed into the desired percentage."
+msgstr "顯示效果量的信賴區間。預設信賴水準為95%，可調整為所需百分比。"

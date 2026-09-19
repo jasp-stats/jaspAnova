@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
-"POT-Creation-Date: 2026-04-18 03:38\n"
+"POT-Creation-Date: 2026-09-19 02:46\n"
 "PO-Revision-Date: 2026-08-24 09:52+0000\n"
 "Last-Translator: tranthanhthai531-cell <tranthanhthai531@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
@@ -821,6 +821,11 @@ msgstr "Cohen's d (Chỉ số hiệu ứng Cohen)"
 
 msgid "%s%% CI for Cohen's d"
 msgstr "Khoảng tin cậy %s%% cho chỉ số Cohen’s d"
+
+msgid ""
+"Cohen's d is based on contrast weights rescaled so that the absolute weights "
+"sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Hệ số Đối chiếu - %2$s"

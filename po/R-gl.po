@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2026-04-18 03:38\n"
+"POT-Creation-Date: 2026-09-19 02:46\n"
 "PO-Revision-Date: 2026-04-23 16:59+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -864,6 +864,11 @@ msgstr "D de Cohen"
 
 msgid "%s%% CI for Cohen's d"
 msgstr "IC do %s%% para a D de Cohen"
+
+msgid ""
+"Cohen's d is based on contrast weights rescaled so that the absolute weights "
+"sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coeficientes de Comparación - %2$s"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
-"POT-Creation-Date: 2026-04-18 03:38\n"
+"POT-Creation-Date: 2026-09-19 02:46\n"
 "PO-Revision-Date: 2026-06-13 03:51+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
@@ -844,6 +844,11 @@ msgstr "d Cohen"
 
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% CI untuk d Cohen"
+
+msgid ""
+"Cohen's d is based on contrast weights rescaled so that the absolute weights "
+"sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Koefisien Kontras - %2$s"

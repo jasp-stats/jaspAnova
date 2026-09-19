@@ -2,937 +2,1028 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.96.6\n"
 "POT-Creation-Date: 2026-04-25 03:39\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-09-15 03:58+0000\n"
+"Last-Translator: Sohrab Delshad <sdel4030@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
 msgstr ""
+"وزن‌های کمترین مربعات وزنی (WLS) حاوی مقادیر منفی و/یا صفر هستند.<br><br>(فقط "
+"وزن‌های مثبت WLS مجاز است)."
 
 msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
 msgstr ""
+"برازش تکین رخ داده است؛ یک یا چند متغیر پیش‌بین ترکیب خطی از سایر متغیرهای "
+"پیش‌بین هستند."
 
 msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
 msgstr ""
+"مجموع توان‌های دوم مانده‌ها برابر با 0 است؛ این ممکن است به دلیل واریانس بسیار "
+"پایین متغیر وابسته شما باشد."
 
 msgid "An error occurred while computing the ANOVA: %s"
-msgstr ""
+msgstr "هنگام محاسبه تحلیل واریانس (ANOVA) خطایی رخ داد: %s"
 
 msgid "Your design contains empty cells. Please try a different type of sum of squares or remove an interaction effect from the model."
 msgstr ""
+"طرح شما حاوی خانه‌های خالی است. لطفاً نوع دیگری از مجموع توان‌های دوم را امتحان "
+"کنید یا یک اثر متقابل را از مدل حذف کنید."
 
 msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
 msgstr ""
+"تصحیح ولچ قابل محاسبه نبود زیرا '%1$s' پس از گروه‌بندی در سطح(های) زیر از "
+"'%2$s' دارای واریانس صفر است: %3$s"
 
 msgid "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+"به دلیل وجود خانه‌های خالی در طرح، تنها %1$s از %2$s اثر قابل برآورد است."
 
 msgid "Some higher-order interaction effects cannot be assessed and are therefore omitted."
 msgstr ""
+"برخی از اثرات متقابل مرتبه بالاتر قابل ارزیابی نیستند و بنابراین حذف شده‌اند."
 
 msgid "ANOVA"
-msgstr ""
+msgstr "تحلیل واریانس (ANOVA)"
 
 msgid "ANCOVA"
-msgstr ""
+msgstr "تحلیل کوواریانس (ANCOVA)"
 
 msgid "Homogeneity Correction"
-msgstr ""
+msgstr "تصحیح همگنی"
 
 msgid "Cases"
-msgstr ""
+msgstr "موارد"
 
 msgid "Sum of Squares"
-msgstr ""
+msgstr "مجموع توان‌های دوم"
 
 msgid "df"
-msgstr ""
+msgstr "درجه آزادی"
 
 msgid "Mean Square"
-msgstr ""
+msgstr "میانگین توان‌های دوم"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "VS-MPR%s"
-msgstr ""
+msgstr "حداکثر نسبت p وووک-سلکه (VS-MPR) %s"
 
 msgid "%s%% CI for η²"
-msgstr ""
+msgstr "فاصله اطمینان %s%% برای η²"
 
 msgid "Lower"
-msgstr ""
+msgstr "پایین"
 
 msgid "Upper"
-msgstr ""
+msgstr "بالا"
 
 msgid "%s%% CI for η²ₚ"
-msgstr ""
+msgstr "فاصله اطمینان %s%% برای η²ₚ"
 
 msgid "%s%% CI for ω²"
-msgstr ""
+msgstr "فاصله اطمینان %s%% برای ω²"
 
 msgid "%s%% CI for ω²ₚ"
-msgstr ""
+msgstr "فاصله اطمینان %s%% برای ω²ₚ"
 
 msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
 msgstr ""
+"تصحیح‌های براون-فورسایت و ولچ فقط برای تحلیل واریانس یک‌طرفه در دسترس هستند."
 
 msgid "Contrast Tables"
-msgstr ""
+msgstr "جدول‌های تقابل"
 
 msgid "%1$s Contrast - %2$s"
-msgstr ""
+msgstr "تقابل %1$s - %2$s"
 
 msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
 msgstr ""
+"داده‌های ناکافی برای برآورد مدل کامل/تقابل‌ها. احتمالاً خانه‌های خالی در طرح "
+"بین‌آزمودنی‌ها وجود دارد (یعنی ساختار داده‌ها نامناسب است)."
 
 msgid "Please specify an additional contrast."
-msgstr ""
+msgstr "لطفاً یک تقابل اضافی مشخص کنید."
 
 msgid "Wrong number of custom contrast matrix rows."
-msgstr ""
+msgstr "تعداد سطرها در ماتریس تقابل سفارشی اشتباه است."
 
 msgid "Please specify non-zero contrast weights."
-msgstr ""
+msgstr "لطفاً وزن‌های تقابل غیرصفر را مشخص کنید."
 
 msgid "Post Hoc Tests"
-msgstr ""
+msgstr "آزمون‌های پس‌آزمایی"
 
 msgid "Standard (HSD)"
-msgstr ""
+msgstr "استاندارد (HSD)"
 
 msgid "Standard"
-msgstr ""
+msgstr "استاندارد"
 
 msgid "Results are averaged over the levels of: %s"
-msgstr ""
+msgstr "نتایج روی سطوح زیر میانگین‌گیری شده‌اند: %s"
 
 msgid "Some parameters were not estimable due to missingness."
-msgstr ""
+msgstr "برخی از پارامترها به دلیل داده‌های گم‌شده قابل برآورد نبودند."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "برآوردهای اختلاف میانگین و d کوهن"
 
 msgid "Mean Difference estimates"
-msgstr ""
+msgstr "برآوردهای اختلاف میانگین"
 
 msgid "Bootstrapping based on %1$s replicates. %2$s are based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "خودگردانی بر اساس %1$s تکرار. %2$s بر اساس میانه توزیع خودگردان است."
 
 msgid "Bias corrected accelerated."
-msgstr ""
+msgstr "تصحیح‌شده بر اساس اریبی و شتاب‌یافته (BCa)."
 
 msgid "Bootstrapping Post Hoc Test"
-msgstr ""
+msgstr "آزمون پس‌آزمایی خودگردان"
 
 msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
-msgstr ""
+msgstr "«برخی از فواصل اطمینان قابل محاسبه نبودند."
 
 msgid "Games-Howell"
-msgstr ""
+msgstr "گیمز-هاول"
 
 msgid "Games-Howell Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی گیمز-هاول - %s"
 
 msgid "Comparison"
-msgstr ""
+msgstr "مقایسه"
 
 msgid "Mean Difference"
-msgstr ""
+msgstr "تفاوت میانگین"
 
 msgid "%.0f%% CI for Mean Difference"
-msgstr ""
+msgstr "فاصله اطمینان %.0f%% برای اختلاف میانگین"
 
 msgid "p<sub>tukey</sub>"
-msgstr ""
+msgstr "p<sub>توکی</sub>"
 
 msgid "Results based on uncorrected means."
-msgstr ""
+msgstr "نتایج بر اساس میانگین‌های تصحیح‌نشده است."
 
 msgid "Dunnett"
-msgstr ""
+msgstr "دانت"
 
 msgid "Dunnett Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی دانت - %s"
 
 msgid "%s%% CI for Mean Difference"
-msgstr ""
+msgstr "بازه اطمینان %s%% برای تفاوت میانگین"
 
 msgid "p<sub>Dunnett</sub>"
-msgstr ""
+msgstr "p<sub>دانت</sub>"
 
 msgid "Confidence interval is too narrow, please select a different confidence level."
-msgstr ""
+msgstr "فاصله اطمینان بسیار باریک است، لطفاً سطح اطمینان دیگری را انتخاب کنید."
 
 msgid "Assumption Checks"
-msgstr ""
+msgstr "بررسی مفروضات"
 
 msgid "Test for Equality of Variances (Levene's)"
-msgstr ""
+msgstr "آزمون برابری واریانس‌ها (لوین)"
 
 msgid "df1"
-msgstr ""
+msgstr "درجه آزادی 1"
 
 msgid "df2"
-msgstr ""
+msgstr "درجه آزادی 2"
 
 msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
 msgstr ""
+"مقدار F برابر با صفر است که نشان‌دهنده برازش کامل است.<br><br>(آزمون‌های لوین "
+"روی یک برازش تقریباً کامل، غیرقابل اعتماد هستند)"
 
 msgid "Marginal Means"
-msgstr ""
+msgstr "میانگین‌های حاشیه‌ای"
 
 msgid "Bootstrapping Marginal Means"
-msgstr ""
+msgstr "میانگین‌های حاشیه‌ای خودگردان"
 
 msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
 msgstr ""
+"برخی از فواصل اطمینان قابل محاسبه نبودند. احتمالاً تعداد تکرارهای خودگردان "
+"بسیار کم است."
 
 msgid "Bootstrapping based on %s replicates."
-msgstr ""
+msgstr "خودگردانی بر اساس %s تکرار."
 
 msgid "Simple Main Effects"
-msgstr ""
+msgstr "اثرات اصلی ساده"
 
 msgid "Simple Main Effects - %s"
-msgstr ""
+msgstr "اثرات اصلی ساده - %s"
 
 msgid "Level of %s"
-msgstr ""
+msgstr "سطح %s"
 
 msgid "Not enough observations in cells %s."
-msgstr ""
+msgstr "مشاهدات کافی در خانه‌های %s وجود ندارد."
 
 msgid "Kruskal-Wallis Test"
-msgstr ""
+msgstr "آزمون کروسکال-والیس"
 
 msgid "Factor"
-msgstr ""
+msgstr "عامل"
 
 msgid "Statistic"
-msgstr ""
+msgstr "آماره"
 
 msgid "Rank %s"
-msgstr ""
+msgstr "رتبه %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "فاصله اطمینان %1$i%% برای رتبه %2$s"
 
 msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
 msgstr ""
+"آزمون‌ها به‌طور جداگانه برای هر متغیر انجام می‌شوند، بدون در نظر گرفتن اثرات "
+"چندمتغیره."
 
 msgid "Dunn"
-msgstr ""
+msgstr "دان"
 
 msgid "Dunn's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی دان - %s"
 
 msgid "W<sub>i</sub>"
-msgstr ""
+msgstr "W<sub>i</sub>"
 
 msgid "W<sub>j</sub>"
-msgstr ""
+msgstr "W<sub>j</sub>"
 
 msgid "r<sub>rb</sub>"
-msgstr ""
+msgstr "r<sub>rb</sub>"
 
 msgid "p<sub>Bonf</sub>"
-msgstr ""
+msgstr "p<sub>بونفرونی</sub>"
 
 msgid "p<sub>Holm</sub>"
-msgstr ""
+msgstr "p<sub>هولم</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
-msgstr ""
+msgstr "همبستگی دورشته‌ای رتبه‌ای بر اساس آزمون‌های جداگانه من-ویتنی."
 
 msgid "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
+"خطا هنگام بارگذاری داده‌ها. لطفاً مشاهدات اندازه‌گیری مکرر خود را بررسی کنید."
 
 msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
+msgstr "عامل: <em>%s</em>، حاوی کمتر از دو سطح است."
 
 msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
+msgstr "عامل‌ها: <em>%s</em>، حاوی کمتر از دو سطح هستند."
 
 msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "اندازه‌گیری مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
 
 msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "اندازه‌گیری‌های مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
 
 msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
+msgstr "همپراش: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
 
 msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
+msgstr "همپراش‌ها: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
 
 msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
+"لطفاً نامی برای عامل‌های اندازه‌گیری مکرر (RM) انتخاب کنید که با نام عامل‌های "
+"بین‌آزمودنی‌ها متفاوت باشد."
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
 msgstr ""
+"مجموعه داده برای آزمون پیگیری تک‌متغیره بسیار بزرگ است. لغو انتخاب «تجمیع "
+"جمله خطا برای آزمون‌های پیگیری» در تب مدل را امتحان کنید."
 
 msgid "Some parameters are not estimable, most likely due to empty cells of the design."
 msgstr ""
+"برخی از پارامترها قابل برآورد نیستند، که به احتمال زیاد به دلیل خانه‌های خالی "
+"در طرح است."
 
 msgid "Greenhouse-Geisser"
-msgstr ""
+msgstr "گرین‌هاوس-گایسر"
 
 msgid "Huynh-Feldt"
-msgstr ""
+msgstr "هاین-فلدت"
 
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 msgid "Between Subjects Effects"
-msgstr ""
+msgstr "اثرات بین‌آزمودنی‌ها"
 
 msgid "%s<sub>G</sub>"
-msgstr ""
+msgstr "%s<sub>G</sub>"
 
 msgid "Within Subjects Effects"
-msgstr ""
+msgstr "اثرات درون‌آزمودنی‌ها"
 
 msgid "Sphericity Correction"
-msgstr ""
+msgstr "تصحیح کروی بودن"
 
 msgid "Sphericity corrections not available for factors with 2 levels."
-msgstr ""
+msgstr "تصحیح‌های کروی بودن برای عامل‌هایی با 2 سطح در دسترس نیستند."
 
 msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
 msgstr ""
+"آزمون کروی بودن ماچلی نشان می‌دهد که فرض کروی بودن نقض شده است (p < .05)."
 
 msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
 msgstr ""
+"نمی‌توان آزمون‌های همگنی را انجام داد زیرا هیچ عامل بین‌آزمودنی‌ای مشخص نشده است."
 
 msgid "Test of Sphericity"
-msgstr ""
+msgstr "آزمون کروی بودن"
 
 msgid "Mauchly's W"
-msgstr ""
+msgstr "W ماچلی"
 
 msgid "Approx. %s"
-msgstr ""
+msgstr "تقریبی %s"
 
 msgid "p-value"
-msgstr ""
+msgstr "مقدار p"
 
 msgid "Greenhouse-Geisser %s"
-msgstr ""
+msgstr "گرین‌هاوس-گایسر %s"
 
 msgid "Huynh-Feldt %s"
-msgstr ""
+msgstr "هاین-فلدت %s"
 
 msgid "Lower Bound %s"
-msgstr ""
+msgstr "کران پایین %s"
 
 msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
 msgstr ""
+"نمی‌توان آزمون‌های کروی بودن را انجام داد زیرا عامل اندازه‌گیری مکرر (RM) تنها "
+"دو سطح دارد، یا به این دلیل که ماتریس SSP تکین است."
 
 msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
 msgstr ""
+"p-مقادیر تصحیح‌شده %s برای آزمون‌های پس‌آزمایی اندازه‌گیری مکرر مناسب نیستند "
+"(Maxwell, 1980; Field, 2012)."
 
 msgid "Bootstrapping based on %s successful replicates."
-msgstr ""
+msgstr "خودگردانی بر اساس %s تکرار موفق."
 
 msgid "Nonparametrics"
-msgstr ""
+msgstr "ناپارامتری"
 
 msgid "Friedman Test"
-msgstr ""
+msgstr "آزمون فریدمن"
 
 msgid "Χ²<sub>F</sub>"
-msgstr ""
+msgstr "Χ²<sub>F</sub>"
 
 msgid "Kendall's W"
-msgstr ""
+msgstr "W کندال"
 
 msgid "Please specify appropriate terms for the Friedman/Durbin test."
-msgstr ""
+msgstr "لطفاً جملات مناسب را برای آزمون فریدمن/دوربین مشخص کنید."
 
 msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
 msgstr ""
+"یک طرح بلوکی کامل بدون تکرار نیست. آزمون فریدمن فقط به‌عنوان جایگزینی برای "
+"تحلیل واریانس اندازه‌گیری مکرر یک‌طرفه در دسترس است."
 
 msgid "Durbin Test"
-msgstr ""
+msgstr "آزمون دوربین"
 
 msgid "df num"
-msgstr ""
+msgstr "درجه آزادی صورت"
 
 msgid "df den"
-msgstr ""
+msgstr "درجه آزادی مخرج"
 
 msgid "p<sub>F</sub>"
-msgstr ""
+msgstr "p<sub>F</sub>"
 
 msgid "Conover Test"
-msgstr ""
+msgstr "آزمون کانوور"
 
 msgid "Conover's Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی کانوور - %s"
 
 msgid "T-Stat"
-msgstr ""
+msgstr "آماره T"
 
 msgid "Grouped by %s."
-msgstr ""
+msgstr "گروه‌بندی‌شده بر اساس %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
-msgstr ""
+msgstr "همبستگی دورشته‌ای رتبه‌ای بر اساس آزمون‌های رتبه‌ای علامت‌دار جداگانه."
 
 msgid "Moderator factors must also appear in the model terms!"
-msgstr ""
+msgstr "عامل‌های تعدیل‌گر نیز باید در جملات مدل ظاهر شوند!"
 
 msgid "Infinity found in repeated measures cells."
-msgstr ""
+msgstr "مقدار بی‌نهایت در خانه‌های اندازه‌گیری مکرر یافت شد."
 
 msgid "Number of observations is < %s in repeated measures cells"
-msgstr ""
+msgstr "تعداد مشاهدات در خانه‌های اندازه‌گیری مکرر کمتر از %s است."
 
 msgid "The variance in the repeated measures cells is 0."
-msgstr ""
+msgstr "واریانس در خانه‌های اندازه‌گیری مکرر برابر با 0 است."
 
 msgid "Duplicate variables encountered in repeated measures cells, %s"
-msgstr ""
+msgstr "متغیرهای تکراری در خانه‌های اندازه‌گیری مکرر یافت شد، %s"
 
 msgid "Duplicate variables encountered in %s"
-msgstr ""
+msgstr "متغیرهای تکراری در %s مشاهده شد"
 
 msgid "Duplicate participant column added to model terms, %s"
-msgstr ""
+msgstr "ستون شرکت‌کننده تکراری به جملات مدل اضافه شد، %s"
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"اثر متقابل %1$s برای ترکیب(های) زیر هیچ مشاهده‌ای ندارد: %2$s. لطفاً مدل را "
+"تنظیم کنید و هرگونه اثر متقابل با خانه‌های گم‌شده را حذف کنید."
 
 msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
 msgstr ""
+"اثر متقابل %1$s برای ترکیب(های) زیر هیچ مشاهده‌ای ندارد: %2$s. تنها 10 ترکیب "
+"گم‌شده اول نشان داده شده‌اند. لطفاً مدل را تنظیم کنید و هرگونه اثر متقابل با "
+"خانه‌های گم‌شده را حذف کنید."
 
 msgid "Bayes factor is undefined -- all effects are specified as nuisance."
-msgstr ""
+msgstr "فاکتور بیز تعریف‌نشده است -- تمام اثرات به‌عنوان مزاحم مشخص شده‌اند."
 
 msgid "Null model"
-msgstr ""
+msgstr "مدل پوچ"
 
 msgid "Null model (incl. %s)"
-msgstr ""
+msgstr "مدل پوچ (شامل %s)"
 
 msgid "Computing Bayes factors"
-msgstr ""
+msgstr "محاسبه فاکتورهای بیز"
 
 msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
 msgstr ""
+"تقریب لاپلاس سریع‌تر است اما نسبت به روش خودکار دقت کمتری دارد. این روش برای "
+"کاوش داده‌ها و به‌دست آوردن یک برآورد تقریبی مناسب است. با این حال، ما توصیه "
+"می‌کنیم برای به‌دست آوردن نتایج نهایی از روش انتگرال‌گیری خودکار استفاده کنید."
 
 msgid "The Laplace approximation does not always provide an error estimate."
-msgstr ""
+msgstr "تقریب لاپلاس همیشه یک برآورد خطا ارائه نمی‌دهد."
 
 msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
-msgstr ""
+msgstr "فاکتور بیز برای مدل قابل محاسبه نبود: %1$s."
 
 msgid "All models include %s, and random slopes for all repeated measures factors."
 msgstr ""
+"تمام مدل‌ها شامل %s و شیب‌های تصادفی برای تمام عامل‌های اندازه‌گیری مکرر هستند."
 
 msgid "Random slopes for repeated measures factors are excluded."
-msgstr ""
+msgstr "شیب‌های تصادفی برای عامل‌های اندازه‌گیری مکرر حذف شده‌اند."
 
 msgid "All models include %s."
-msgstr ""
+msgstr "تمام مدل‌ها شامل %s هستند."
 
 msgid "Analysis of Effects - %s"
-msgstr ""
+msgstr "تحلیل اثرات - %s"
 
 msgid "Analysis of Effects"
-msgstr ""
+msgstr "تحلیل اثرات"
 
 msgid "Log(BF<sub>incl</sub>)"
-msgstr ""
+msgstr "لگاریتم (BF<sub>شامل</sub>)"
 
 msgid "BF<sub>excl</sub>"
-msgstr ""
+msgstr "BF<sub>حذف</sub>"
 
 msgid "BF<sub>incl</sub>"
-msgstr ""
+msgstr "BF<sub>شامل</sub>"
 
 msgid "Effects"
-msgstr ""
+msgstr "اثرات"
 
 msgid "P(incl)"
-msgstr ""
+msgstr "P(گنجاندن)"
 
 msgid "P(excl)"
-msgstr ""
+msgstr "P(حذف)"
 
 msgid "P(incl|data)"
-msgstr ""
+msgstr "P(گنجاندن|داده)"
 
 msgid "P(excl|data)"
-msgstr ""
+msgstr "P(حذف|داده‌ها)"
 
 msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
 msgstr ""
+"مدل‌هایی را که حاوی اثر هستند با مدل‌های معادل بدون آن اثر مقایسه می‌کند. اثرات "
+"متقابل مرتبه بالاتر حذف شده‌اند. تحلیل پیشنهادشده توسط سباستین مت."
 
 msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"برخی از فاکتورهای بیز قابل محاسبه نبودند. احتمالات شمول و فاکتورهای بیز با "
+"حذف این مدل‌ها محاسبه می‌شوند. نتایج ممکن است غیرقابل تفسیر باشند!"
 
 msgid "Model Comparison"
-msgstr ""
+msgstr "مقایسه مدل"
 
 msgid "BF<sub>M</sub>"
-msgstr ""
+msgstr "BF<sub>M</sub>"
 
 msgid "BF<sub>10</sub>"
-msgstr ""
+msgstr "BF<sub>10</sub>"
 
 msgid "BF<sub>01</sub>"
-msgstr ""
+msgstr "BF<sub>01</sub>"
 
 msgid "Log(BF<sub>M</sub>)"
-msgstr ""
+msgstr "لگاریتم (BF<sub>M</sub>)"
 
 msgid "Log(BF<sub>10</sub>)"
-msgstr ""
+msgstr "لگاریتم (BF<sub>10</sub>)"
 
 msgid "Models"
-msgstr ""
+msgstr "مدل‌ها"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|داده‌ها)"
 
 msgid "error %%"
-msgstr ""
+msgstr "خطا %%"
 
 msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
 msgstr ""
+"<b><em>هشدار.</em></b> برخی از فاکتورهای بیز قابل محاسبه نبودند. استنباط "
+"چندمدلی با حذف این مدل‌ها انجام می‌شود. نتایج ممکن است غیرقابل تفسیر باشند!"
 
 msgid "Model Averaged Posterior Summary"
-msgstr ""
+msgstr "خلاصه پسین میانگین‌گیری‌شده مدل"
 
 msgid "%s%% Credible Interval"
-msgstr ""
+msgstr "بازه باورپذیر %s%%"
 
 msgid "Variable"
-msgstr ""
+msgstr "متغیّر"
 
 msgid "Level"
-msgstr ""
+msgstr "سطح"
 
 msgid "Mean"
-msgstr ""
+msgstr "میانگین"
 
 msgid "SD"
-msgstr ""
+msgstr "انحراف معیار"
 
 msgid "Intercept"
-msgstr ""
+msgstr "عرض از مبدأ"
 
 msgid "Model Averaged R%s"
-msgstr ""
+msgstr "R%s میانگین‌گیری‌شده مدل"
 
 msgid "<b><em>Warning: sampling issues encountered!</em></b>"
-msgstr ""
+msgstr "<b><em>هشدار: مشکلات نمونه‌گیری رخ داد!</em></b>"
 
 msgid "Affected model"
-msgstr ""
+msgstr "مدل تحت تأثیر"
 
 msgid "%% useful samples"
-msgstr ""
+msgstr "%% نمونه‌های مفید"
 
 msgid "Useful samples"
-msgstr ""
+msgstr "نمونه‌های مفید"
 
 msgid "Total samples drawn"
-msgstr ""
+msgstr "کل نمونه‌های ترسیم‌شده"
 
 msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
 msgstr ""
+"برای برخی از مدل‌های تحت تأثیر، بیش از 75%% از نمونه‌های پسین ناموفق بودند، یا "
+"کمتر از 1000 نمونه برای نتایج بعدی باقی ماند. تمام خروجی‌های میانگین‌گیری‌شده "
+"مدل ممکن است اریب و غیرقابل تفسیر باشند. مشخصات مدل و داده‌ها را برای هرگونه "
+"الگوی عجیب بررسی کنید."
 
 msgid "<b><em>Warning.</em></b>"
-msgstr ""
+msgstr "<b><em>هشدار.</em></b>"
 
 msgid "Model Averaged Posterior Distributions"
-msgstr ""
+msgstr "توزیع‌های پسین میانگین‌گیری‌شده مدل"
 
 msgid "Posterior distribution"
-msgstr ""
+msgstr "توزیع پسین"
 
 msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
 msgstr ""
+"نمی‌توان توزیع پسین را رسم کرد. بررسی کنید که آیا خطایی برای مدل‌های شامل این "
+"پارامتر رخ داده است یا خیر."
 
 msgid "Density"
-msgstr ""
+msgstr "چگالی"
 
 msgid "Model Averaged Q-Q Plot"
-msgstr ""
+msgstr "نمودار Q-Q میانگین‌گیری‌شده مدل"
 
 msgid "Model Averaged Posterior R%s"
-msgstr ""
+msgstr "R%s پسین میانگین‌گیری‌شده مدل"
 
 msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
 msgstr ""
+"شانس‌های پسین برای آزمون چندگانه با ثابت نگه داشتن احتمال پیشین 0.5 برای "
+"برقراری فرض صفر در تمام مقایسه‌ها تصحیح شده‌اند (Westfall, Johnson, & Utts, "
+"1997). مقایسه‌های فردی بر اساس آزمون t پیش‌فرض با پیشین کوشی (0, r = 1/sqrt"
+"(2)) هستند. حرف \"U\" در فاکتور بیز نشان می‌دهد که تصحیح‌نشده است."
 
 msgid "Post Hoc Comparisons - %s"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی - %s"
 
 msgid "Prior Odds"
-msgstr ""
+msgstr "شانس‌های پیشین"
 
 msgid "Posterior Odds"
-msgstr ""
+msgstr "شانس‌های پسین"
 
 msgid "Descriptives"
-msgstr ""
+msgstr "آماره‌های توصیفی"
 
 msgid "Descriptives - %s"
-msgstr ""
+msgstr "آماره‌های توصیفی - %s"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "SE"
-msgstr ""
+msgstr "خطای معیار"
 
 msgid "Coefficient of variation"
-msgstr ""
+msgstr "ضریب تغییرات"
 
 msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
 msgstr ""
+"برخی از ترکیب‌های عامل‌ها مشاهده نشده‌اند و بنابراین حذف شده‌اند (%1$g از %2$g "
+"ترکیب مشاهده نشده‌اند)."
 
 msgid "Descriptives plots"
-msgstr ""
+msgstr "نمودارهای توصیفی"
 
 msgid "Descriptives Plot"
-msgstr ""
+msgstr "نمودار توصیفی‌ها"
 
 msgid "Bar plots"
-msgstr ""
+msgstr "نمودارهای میله‌ای"
 
 msgid "Bar Plot"
-msgstr ""
+msgstr "نمودار میله‌ای"
 
 msgid "Raincloud plots"
-msgstr ""
+msgstr "نمودارهای ابر بارانی"
 
 msgid "Dependent"
-msgstr ""
+msgstr "وابسته"
 
 msgid "Sampling posteriors"
-msgstr ""
+msgstr "پسین‌های نمونه‌گیری"
 
 msgid "length of samples must be equal to length of weights!"
-msgstr ""
+msgstr "طول نمونه‌ها باید برابر با طول وزن‌ها باشد!"
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
 msgstr ""
+"تمام پیش‌بینی‌ها دارای واریانس صفر بودند. پیش‌بین‌ها/متغیر وابسته را برای "
+"ناهنجاری‌ها بررسی کنید یا تعداد نمونه‌های پسین را افزایش دهید."
 
 msgid "Showing the best %1$d out of %2$d models."
-msgstr ""
+msgstr "نمایش بهترین مدل‌های %1$d از %2$d مدل."
 
 msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
-msgstr ""
+msgstr "خطای زیر در BayesFactor::enumerateGeneralModels رخ داد: %s"
 
 msgid "Single Model Inference"
-msgstr ""
+msgstr "استنباط مدل واحد"
 
 msgid "Error in single model inference:\n%s"
-msgstr ""
+msgstr "%sخطا در استنباط مدل واحد:"
 
 msgid "Single Model Posterior Summary"
-msgstr ""
+msgstr "خلاصه پسین مدل واحد"
 
 msgid "Single Model Posterior Distributions"
-msgstr ""
+msgstr "توزیع‌های پسین مدل واحد"
 
 msgid "Q-Q Plot"
-msgstr ""
+msgstr "نمودار Q-Q"
 
 msgid "Posterior R%s"
-msgstr ""
+msgstr "R%s پسین"
 
 msgid "Single Model R%s"
-msgstr ""
+msgstr "R%s مدل واحد"
 
 msgid "Estimate"
-msgstr ""
+msgstr "برآورد"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Cohen's d"
-msgstr ""
+msgstr "d کوهن"
 
 msgid "%s%% CI for Cohen's d"
-msgstr ""
+msgstr "فاصله اطمینان %s%% برای d کوهن"
 
 msgid "%1$s Contrast Coefficients - %2$s"
-msgstr ""
+msgstr "ضرایب تقابل %1$s - %2$s"
 
 msgid "Post Hoc Comparisons -"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی -"
 
 msgid "Bootstrapped Post Hoc Comparisons -"
-msgstr ""
+msgstr "مقایسه‌های پس‌آزمایی خودگردان -"
 
 msgid "%1$s%% bca%2$s CI"
-msgstr ""
+msgstr "فاصله اطمینان %1$s%% bca%2$s"
 
 msgid "bias"
-msgstr ""
+msgstr "اریبی"
 
 msgid "p<sub>Tukey</sub>"
-msgstr ""
+msgstr "p<sub>توکی</sub>"
 
 msgid "p<sub>Scheffe</sub>"
-msgstr ""
+msgstr "p<sub>شفه</sub>"
 
 msgid "p<sub>Sidak</sub>"
-msgstr ""
+msgstr "p<sub>شیداک</sub>"
 
 msgid "p<sub>BH</sub>"
-msgstr ""
+msgstr "p<sub>BH</sub>"
 
 msgid "P-value adjusted for comparing a family of %s estimates."
-msgstr ""
+msgstr "p-مقدار تعدیل‌شده برای مقایسه یک خانواده از %s برآورد."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
 msgstr ""
+"p-مقدار و فواصل اطمینان تعدیل‌شده برای مقایسه یک خانواده از %1$s برآورد "
+"(فواصل اطمینان با استفاده از روش %2$s تصحیح شده‌اند)."
 
 msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method)."
 msgstr ""
+"p-مقدار و فواصل اطمینان تعدیل‌شده برای مقایسه یک خانواده از %1$s برآورد "
+"(فاصله اطمینان برای اختلاف میانگین با استفاده از روش %2$s تصحیح شده است؛ "
+"فاصله اطمینان برای اندازه اثر با استفاده از روش بونفرونی تصحیح شده است)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "تصحیح p-مقدار تحت تأثیر خودگردانی قرار نمی‌گیرد."
 
 msgid "Marginal Means -"
-msgstr ""
+msgstr "میانگین‌های حاشیه‌ای -"
 
 msgid "Bootstrapped Marginal Means -"
-msgstr ""
+msgstr "میانگین‌های حاشیه‌ای خودگردان -"
 
 msgid "Marginal Mean"
-msgstr ""
+msgstr "میانگین حاشیه‌ای"
 
 msgid "95%% bca%s CI"
-msgstr ""
+msgstr "فاصله اطمینان 95%% bca%s"
 
 msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
-msgstr ""
+msgstr "برآورد میانگین‌های حاشیه‌ای بر اساس میانه توزیع خودگردان است."
 
 msgid "95%% CI for Mean Difference"
-msgstr ""
+msgstr "فاصله اطمینان 95%% برای اختلاف میانگین"
 
 msgid "Bonferroni CI adjustment"
-msgstr ""
+msgstr "تعدیل فاصله اطمینان بونفرونی"
 
 msgid "Sidak CI adjustment"
-msgstr ""
+msgstr "تعدیل فاصله اطمینان شیداک"
 
 msgid "Type I Sum of Squares"
-msgstr ""
+msgstr "مجموع مربعات نوع I"
 
 msgid "Type II Sum of Squares"
-msgstr ""
+msgstr "مجموع مربعات نوع II"
 
 msgid "Type III Sum of Squares"
-msgstr ""
+msgstr "مجموع مربعات نوع III"
 
 msgid "Order Restricted Hypotheses"
-msgstr ""
+msgstr "فرضیه‌های مقید به ترتیب"
 
 msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
-msgstr ""
+msgstr "خطای نحو در مدل %1$s یافت شد."
 
 msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
-msgstr ""
+msgstr "خطاهایی در نحو قید برای %s وجود دارد. نحو قابل رمزگشایی نبود!"
 
 msgid "Bootstrapping unrestricted model"
-msgstr ""
+msgstr "خودگردانی مدل مقیدنشده"
 
 msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
-msgstr ""
+msgstr "خطا در %1$s - نحو مدل قابل کدگذاری نبود! پیام خطا: %2$s"
 
 msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
-msgstr ""
+msgstr "خطا در %1$s - خطای نحو در مدل! پیام خطا: %2$s"
 
 msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
-msgstr ""
+msgstr "خطا در %1$s - مدل قابل برآورد نبود! پیام خطا: %2$s"
 
 msgid "Bootstrapping restricted models"
-msgstr ""
+msgstr "خودگردانی مدل‌های مقید"
 
 msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
 msgstr ""
+"برازش مدل مقیدنشده امکان‌پذیر نبود. در نتیجه، هیچ‌یک از مدل‌های مقید قابل "
+"برآورد نبودند. پیام خطا: %s."
 
 msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
 msgstr ""
+"خودگردانی برای مدل مقیدنشده به‌دست نیامد. در نتیجه، خودگردانی برای مدل‌های "
+"مقید قابل انجام نبود. پیام خطا: %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
-msgstr ""
+msgstr "برازش هیچ‌یک از مدل‌های مقید مشخص‌شده امکان‌پذیر نبود. دلیل(ها): %s"
 
 msgid "Unconstrained"
-msgstr ""
+msgstr "مقیدنشده"
 
 msgid "Complement"
-msgstr ""
+msgstr "مکمل"
 
 msgid "Syntax information"
-msgstr ""
+msgstr "اطلاعات نحو"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "ضرایب موجود برای نحو قید"
 
 msgid "Could not compute model comparison! Error message: %s"
-msgstr ""
+msgstr "مقایسه مدل قابل محاسبه نبود! پیام خطا: %s"
 
 msgid "Model Comparison Table"
-msgstr ""
+msgstr "جدول مقایسه مدل"
 
 msgid "Model"
-msgstr ""
+msgstr "مدل"
 
 msgid "Log-likelihood"
-msgstr ""
+msgstr "لگاریتم درستنمایی"
 
 msgid "Penalty"
-msgstr ""
+msgstr "جریمه"
 
 msgid "GORIC"
-msgstr ""
+msgstr "GORIC"
 
 msgid "Weight"
-msgstr ""
+msgstr "وزن"
 
 msgid "GORICA"
-msgstr ""
+msgstr "GORICA"
 
 msgid "Weights ratio"
-msgstr ""
+msgstr "نسبت وزن‌ها"
 
 msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
 msgstr ""
+"GORIC = معیار اطلاعاتی مقید به ترتیب تعمیم‌یافته (Kuiper, Hoijtink, & "
+"Silvapulle, 2011)."
 
 msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
-msgstr ""
+msgstr "GORICA = تقریب معیار اطلاعاتی مقید به ترتیب تعمیم‌یافته."
 
 msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
-msgstr ""
+msgstr "نسبت‌های وزن نشان‌دهنده وزن نسبی هر مدل در مقابل مدل \"%1$s\" است. %2$s"
 
 msgid "Could not compute weights!"
-msgstr ""
+msgstr "وزن‌ها قابل محاسبه نبودند!"
 
 msgid "Model '%s' cannot be a reference model as it is empty!"
-msgstr ""
+msgstr "مدل '%s' نمی‌تواند یک مدل مرجع باشد زیرا خالی است!"
 
 msgid "The following models were excluded: %s."
-msgstr ""
+msgstr "مدل‌های زیر حذف شدند: %s."
 
 msgid "Relative %s-Weights"
-msgstr ""
+msgstr "وزن‌های نسبی %s"
 
 msgid "Only one model in the comparison: Cannot compute relative weights matrix"
-msgstr ""
+msgstr "تنها یک مدل در مقایسه وجود دارد: ماتریس وزن‌های نسبی قابل محاسبه نیست"
 
 msgid "vs."
-msgstr ""
+msgstr "در مقابل"
 
 msgid "Coefficients Comparison"
-msgstr ""
+msgstr "مقایسه ضرایب"
 
 msgid "Coefficient"
-msgstr ""
+msgstr "ضریب"
 
 msgid "Coefficients differ from unconstrained model."
-msgstr ""
+msgstr "ضرایب با مدل مقیدنشده متفاوت هستند."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "خلاصه مدل"
 
 msgid "Restriction Matrix"
-msgstr ""
+msgstr "ماتریس قید"
 
 msgid "Left-hand side (lhs)"
-msgstr ""
+msgstr "سمت چپ (lhs)"
 
 msgid "Right-hand side (rhs)"
-msgstr ""
+msgstr "سمت راست (rhs)"
 
 msgid "Coefficients"
-msgstr ""
+msgstr "ضریب‌ها"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "فاصله اطمینان %s%%"
 
 msgid "Estimates based on %s successful bootstrap replicates."
-msgstr ""
+msgstr "برآوردها بر اساس %s تکرار موفق خودگردان."
 
 msgid "Could not compute table of coefficients. Error message: %s"
-msgstr ""
+msgstr "جدول ضرایب قابل محاسبه نبود. پیام خطا: %s"
 
 msgid "Informative Hypothesis Tests"
-msgstr ""
+msgstr "آزمون‌های فرضیه آگاهانه"
 
 msgid "Hypothesis"
-msgstr ""
+msgstr "فرضیه"
 
 msgid "Test"
-msgstr ""
+msgstr "آزمون"
 
 msgid "Test Statistic"
-msgstr ""
+msgstr "آماره آزمون"
 
 msgid "Type %s"
-msgstr ""
+msgstr "نوع %s"
 
 msgid "Could not compute the informative hypothesis tests. Error message: %s"
-msgstr ""
+msgstr "آزمون‌های فرضیه آگاهانه قابل محاسبه نبودند. پیام خطا: %s"
 
 msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
 msgstr ""
+"H%1$s: تمام قیود برابری فعال هستند (==)، H%2$s: حداقل یک قید برابری نقض شده "
+"است."
 
 msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: تمام پارامترها مقید به برابری هستند (==)، H%2$s: حداقل یک قید "
+"نابرابری به‌طور اکید درست است (>)."
 
 msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
 msgstr ""
+"H%1$s: تمام قیود برابری هستند (==)، H%2$s: حداقل یک قید نابرابری به‌طور اکید "
+"درست است (>)."
 
 msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
-msgstr ""
+msgstr "H%1$s: تمام قیود برقرار هستند، H%2$s: حداقل یک قید نقض شده است."
 
 msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
 msgstr ""
+"H%1$s: حداقل یک قید نادرست یا فعال است (==)، H%2$s: تمام قیود به‌طور اکید "
+"درست هستند (>)."
 
 msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
 msgstr ""
+"هیچ جمله‌ای برای میانگین‌های حاشیه‌ای مشخص نشده است. لطفاً جملات مدل را در بخش "
+"'میانگین‌های حاشیه‌ای مقید' انتخاب کنید."
 
 msgid "Could not compute the marginal means. Error message: %s"
-msgstr ""
+msgstr "میانگین‌های حاشیه‌ای قابل محاسبه نبودند. پیام خطا: %s"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "نتایج روی سطوح زیر میانگین‌گیری شده‌اند: %s."
 
 msgid "Covariates (%s) held fixed at their mean values."
-msgstr ""
+msgstr "همپراش‌ها (%s) روی مقادیر میانگین آن‌ها ثابت نگه داشته شده‌اند."
 
 msgid "MANOVA"
-msgstr ""
+msgstr "تحلیل واریانس چندمتغیره (MANOVA)"
 
 msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
 msgstr ""
+"ماتریس طرح معکوس‌پذیر نیست. این ممکن است به دلیل متغیرهای وابسته هم‌خط باشد."
 
 msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
 msgstr ""
+"نتایج به دلیل اندازه نمونه (باید بین 3 و 5000 باشد) یا همبستگی‌های کامل در "
+"دسترس نیستند."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "مدل پوچ (شامل %s و شیب‌های تصادفی)"
+msgstr[1] "مدل پوچ (شامل %s و شیب‌های تصادفی)"

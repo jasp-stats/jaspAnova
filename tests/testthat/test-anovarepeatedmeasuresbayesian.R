@@ -15,6 +15,7 @@ test_that("Main table and Effects table results match", {
     list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
   )
   options$betweenSubjectFactors <- "facGender"
+  options$betweenSubjectFactors.types <- "nominal"
   options$covariates <- "contcor1"
   options$modelTerms <- list(
     list(components="RM_FACTOR_1", isNuisance=TRUE),
@@ -258,6 +259,7 @@ options <- initOpts("AnovaRepeatedMeasuresBayesian")
 options$repeatedMeasuresCells <- c("contNormal", "contGamma")
 options$repeatedMeasuresFactors <- list(list(levels = c("Level 1", "Level 2"), name = "RM_Factor_1"))
 options$betweenSubjectFactors <- "facGender"
+options$betweenSubjectFactors.types <- "nominal"
 options$covariates <- "contcor1"
 options$modelTerms <- list(
   # main effects are nuisance to reduce the model complexity a bit
@@ -362,6 +364,7 @@ options$repeatedMeasuresFactors <- list(
   list(levels=c("Level 1", "Level 2"), name="RM_FACTOR_1")
 )
 options$betweenSubjectFactors <- c("facGender", "facFifty")
+options$betweenSubjectFactors.types <- rep("nominal", length(options$betweenSubjectFactors))
 options$covariates <- "contcor1"
 options$modelTerms <- list(
   list(components="RM_FACTOR_1", isNuisance=TRUE),

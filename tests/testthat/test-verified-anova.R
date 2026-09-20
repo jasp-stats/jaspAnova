@@ -8,6 +8,7 @@ test_that("Main table results match R, SPSS, SAS and MiniTab", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Score"
   options$fixedFactors <- "Group"
+  options$fixedFactors.types <- "nominal"
 
   options$modelTerms <- list(
     list(components="Group")
@@ -30,6 +31,7 @@ test_that("Main table results match  R, SPSS, SAS and MiniTab 2-factor", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "Score"
   options$fixedFactors <- c("Norms", "Standing")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
 
   options$modelTerms <- list(
     list(components="Norms"),
@@ -57,6 +59,7 @@ test_that("Main table results match  R, SPSS, SAS and MiniTab 2-factor", {
 options <- initClassicalAnovaOptions("Anova")
 options$dependent <- "Score"
 options$fixedFactors <- "Treatment"
+options$fixedFactors.types <- "nominal"
 options$kruskalWallisFactors <- "Treatment"
 
 options$modelTerms <- list(

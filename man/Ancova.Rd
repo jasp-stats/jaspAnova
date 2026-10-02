@@ -6,7 +6,7 @@
 \usage{
 Ancova(
   data = NULL,
-  version = "0.96.1",
+  version = "1",
   formula = NULL,
   barPlotCiInterval = 0.95,
   barPlotErrorBarType = "ci",
@@ -66,6 +66,7 @@ Ancova(
   postHocCiLevel = 0.95,
   postHocConditionalTable = FALSE,
   postHocCorrectionBonferroni = FALSE,
+  postHocCorrectionFdr = FALSE,
   postHocCorrectionHolm = FALSE,
   postHocCorrectionScheffe = FALSE,
   postHocCorrectionSidak = FALSE,
@@ -113,6 +114,11 @@ Ancova(
   restrictedModelSummaryForAllModels = FALSE,
   restrictedModels = list(list(informedHypothesisTest = FALSE, marginalMean = FALSE, name
     = "Model 1", summary = FALSE, syntax = "")),
+  simpleEffectSizeCi = FALSE,
+  simpleEffectSizeCiLevel = 0.95,
+  simpleEffectSizeEstimates = FALSE,
+  simpleEffectSizePartialEtaSquared = FALSE,
+  simpleEffectSizePartialOmegaSquared = TRUE,
   simpleMainEffectFactor = list(types = list(), value = ""),
   simpleMainEffectModeratorFactorOne = list(types = list(), value = ""),
   simpleMainEffectModeratorFactorTwo = list(types = list(), value = ""),
@@ -160,16 +166,19 @@ Defaults to \code{FALSE}.}
 \item{effectSizeEstimates, }{By selecting this option, the specific types of calculations to estimate the effect size can be specified.
 Defaults to \code{FALSE}.}
 
-\item{effectSizeEtaSquared, }{Eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018; Kroes & Finley, 2023).
+\item{effectSizeEtaSquared, }{Eta squared (η²) is the proportion of total variance accounted for by the effect: SS_effect / SS_total. In repeated measures designs, SS_total includes between-subjects variability (Olejnik & Algina, 2003). Computed using the effectsize R package.
 Defaults to \code{FALSE}.}
 
-\item{effectSizeOmegaSquared, }{Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to η2 . (Kroes & Finley, 2023).
+\item{effectSizeGeneralEtaSquared, }{Generalized eta squared (η²G) includes variance from measured factors (e.g., subjects) in the denominator, but not from manipulated factors. This makes it comparable across between-subjects and within-subjects designs (Olejnik & Algina, 2003; Bakeman, 2005). Computed using the afex R package.
+Defaults to \code{FALSE}.}
+
+\item{effectSizeOmegaSquared, }{Omega squared (ω²) is a less biased estimate of the proportion of variance accounted for by the effect, compared to η² (Kroes & Finley, 2023). Computed using the effectsize R package.
 Defaults to \code{TRUE}.}
 
-\item{effectSizePartialEtaSquared, }{Partial eta-squared is calculated as an estimate of the effect size. Partial η2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+\item{effectSizePartialEtaSquared, }{Partial eta squared (η²p) is the proportion of variance accounted for by the effect after excluding variance from other effects: SS_effect / (SS_effect + SS_error). In repeated measures designs, SS_error is the effect-specific error term. Computed using the effectsize R package.
 Defaults to \code{FALSE}.}
 
-\item{effectSizePartialOmegaSquared, }{Partial Omega squared is calculated as an estimate of the effect size. Partial ω2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+\item{effectSizePartialOmegaSquared, }{Partial omega squared (ω²p) estimates the effect size after removing variance from other factors in the model. In repeated-measures designs, the denominator retains variance due to individual differences between subjects, following Kroes & Finley (2023). For single-factor designs, partial ω² equals standard ω². Computed using the effectsize R package.
 Defaults to \code{FALSE}.}
 
 \item{fixedFactors, }{The variables that are manipulated/define the different groups. These are also called the independent variables.}
@@ -197,13 +206,16 @@ Defaults to \code{FALSE}.}
 
 \item{modelTerms, }{The independent variables and covariates included in the model. By default, all the main effects and interaction effects of factor variables, and the main effects of covariates are included in the model.}
 
-\item{postHocCi, }{When this option is selected, the confidence interval for the mean difference is calculated for every post hoc method except Dunn. By default, this is set to 95%, but it can be adjusted to the desired percentage.
+\item{postHocCi, }{When this option is selected, the confidence interval for the mean difference is calculated. By default, this is set to 95%, but it can be adjusted to the desired percentage.
 Defaults to \code{FALSE}.}
 
 \item{postHocConditionalTable, }{Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect.
 Defaults to \code{FALSE}.}
 
 \item{postHocCorrectionBonferroni, }{This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.
+Defaults to \code{FALSE}.}
+
+\item{postHocCorrectionFdr, }{Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods, offering more power at the cost of allowing some false positives.
 Defaults to \code{FALSE}.}
 
 \item{postHocCorrectionHolm, }{This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.
@@ -257,6 +269,18 @@ Defaults to \code{FALSE}.}
 
 \item{residualsSavedToData, }{Save the residuals of the most complex model as a new column in the data file.
 Defaults to \code{FALSE}.}
+
+\item{simpleEffectSizeCi, }{Displays confidence intervals for the effect size. Set at 95% by default but can be changed into the desired percentage.
+Defaults to \code{FALSE}.}
+
+\item{simpleEffectSizeEstimates, }{By selecting this option, the specific types of calculations to estimate the effect size of the simple main effects can be specified.
+Defaults to \code{FALSE}.}
+
+\item{simpleEffectSizePartialEtaSquared, }{Partial eta squared (η²p) is the proportion of variance accounted for by the simple main effect after excluding variance from the error term: SS_effect / (SS_effect + SS_error), derived from the F statistic. Computed using the effectsize R package.
+Defaults to \code{FALSE}.}
+
+\item{simpleEffectSizePartialOmegaSquared, }{Partial omega squared (ω²p) is a less biased estimate of the proportion of variance accounted for by the simple main effect, compared to partial η², derived from the F statistic. Computed using the effectsize R package.
+Defaults to \code{TRUE}.}
 
 \item{simpleMainEffectFactor, }{Select the independent variable to determine the effect of this variable, conditional on the levels of the moderator factor(s).}
 

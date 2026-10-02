@@ -21,7 +21,7 @@
 #'
 #' The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.
 #' ## Assumptions
-#' - The dependent variable is normally distributed for every group.
+#' - The residuals are normally distributed for every group.
 #' - The covariate and the experiment effect are independent.
 #' - The assumption of sphericity is met. Sphericity entails that the variances of the differences between all possible pairs of the repeated measures conditions are the same.
 #'
@@ -53,13 +53,15 @@
 #'    Defaults to \code{FALSE}.
 #' @param effectSizeEstimates, By selecting this option, the specific types of calculations to estimate the effect size can be specified.
 #'    Defaults to \code{FALSE}.
-#' @param effectSizeEtaSquared, Eta-squared is calculated as an estimate of the effect size. However, this method is considered to overestimate the population variance, making it hard to compare the effect of the same variable across different studies (Goss-Sampson, 2018; Kroes & Finley, 2023).
+#' @param effectSizeEtaSquared, Eta squared (η²) is the proportion of total variance accounted for by the effect: SS_effect / SS_total. In repeated measures designs, SS_total includes between-subjects variability (Olejnik & Algina, 2003). Computed using the effectsize R package.
 #'    Defaults to \code{FALSE}.
-#' @param effectSizeOmegaSquared, Omega squared is calculated as an estimate of the effect size. This is considered a less biased estimate of the effect size, compared to η2 . (Kroes & Finley, 2023).
+#' @param effectSizeGeneralEtaSquared, Generalized eta squared (η²G) includes variance from measured factors (e.g., subjects) in the denominator, but not from manipulated factors. This makes it comparable across between-subjects and within-subjects designs (Olejnik & Algina, 2003; Bakeman, 2005). Computed using the afex R package.
+#'    Defaults to \code{FALSE}.
+#' @param effectSizeOmegaSquared, Omega squared (ω²) is a less biased estimate of the proportion of variance accounted for by the effect, compared to η² (Kroes & Finley, 2023). Computed using the effectsize R package.
 #'    Defaults to \code{TRUE}.
-#' @param effectSizePartialEtaSquared, Partial eta-squared is calculated as an estimate of the effect size. Partial η2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+#' @param effectSizePartialEtaSquared, Partial eta squared (η²p) is the proportion of variance accounted for by the effect after excluding variance from other effects: SS_effect / (SS_effect + SS_error). In repeated measures designs, SS_error is the effect-specific error term. Computed using the effectsize R package.
 #'    Defaults to \code{FALSE}.
-#' @param effectSizePartialOmegaSquared, Partial Omega squared is calculated as an estimate of the effect size. Partial ω2 measures the effect size of the predictor in the context of multiple factors or covariates, isolating its unique contribution.
+#' @param effectSizePartialOmegaSquared, Partial omega squared (ω²p) estimates the effect size after removing variance from other factors in the model. In repeated-measures designs, the denominator retains variance due to individual differences between subjects, following Kroes & Finley (2023). For single-factor designs, partial ω² equals standard ω². Computed using the effectsize R package.
 #'    Defaults to \code{FALSE}.
 #' @param friedmanBetweenFactor, Possible to select the between subjects factor here.
 #' @param friedmanWithinFactor, The repeated measures factor(s) of interest.
@@ -73,11 +75,13 @@
 #'    Defaults to \code{TRUE}.
 #' @param poolErrorTermFollowup,  By selecting this option, the univariate linear model, rather than the multivariate model, will be used for follow-up tests (contrasts, post-hoc tests, marginal means). Caution: multivariate models (i.e., unpooled error terms) handle departures from sphericity better, since these models allow the standard errors to differ for each level of the repeated measure(s) factor(s).
 #'    Defaults to \code{FALSE}.
-#' @param postHocCi, When this option is selected, the confidence interval for the mean difference is calculated for every post hoc method except Dunn. By default, this is set to 95%, but it can be adjusted to the desired percentage.
+#' @param postHocCi, When this option is selected, the confidence interval for the mean difference is calculated. By default, this is set to 95%, but it can be adjusted to the desired percentage.
 #'    Defaults to \code{FALSE}.
 #' @param postHocConditionalTable, Instead of pairwise comparisons for all possible combination of cells in the interaction, list pairwise comparisons conditional on each of the interaction terms. This provides as many tables as there are terms in the interaction effect.
 #'    Defaults to \code{FALSE}.
 #' @param postHocCorrectionBonferroni, This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.
+#'    Defaults to \code{FALSE}.
+#' @param postHocCorrectionFdr, Controls the expected proportion of false discoveries among the rejected hypotheses. Less conservative than familywise error rate methods.
 #'    Defaults to \code{FALSE}.
 #' @param postHocCorrectionHolm, This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method. Selected by default.
 #'    Defaults to \code{TRUE}.
@@ -99,6 +103,14 @@
 #' @param rainCloudSeparatePlots, By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.
 #' @param repeatedMeasuresCells, The separate columns in the data frame that represent the levels of the repeated measure(s) factor(s). These are made based on the input on the repeated measures factors box.
 #' @param repeatedMeasuresFactors, The within-subjects (repeated measures) variables. Here the repeated measures factors of interest and the different levels that belong to each factor can be labelled.
+#' @param simpleEffectSizeCi, Displays confidence intervals for the effect size. Set at 95% by default but can be changed into the desired percentage.
+#'    Defaults to \code{FALSE}.
+#' @param simpleEffectSizeEstimates, By selecting this option, the specific types of calculations to estimate the effect size of the simple main effects can be specified.
+#'    Defaults to \code{FALSE}.
+#' @param simpleEffectSizePartialEtaSquared, Partial eta squared (η²p) is the proportion of variance accounted for by the simple main effect after excluding variance from the error term: SS_effect / (SS_effect + SS_error), derived from the F statistic. Computed using the effectsize R package.
+#'    Defaults to \code{FALSE}.
+#' @param simpleEffectSizePartialOmegaSquared, Partial omega squared (ω²p) is a less biased estimate of the proportion of variance accounted for by the simple main effect, compared to partial η², derived from the F statistic. Computed using the effectsize R package.
+#'    Defaults to \code{TRUE}.
 #' @param simpleMainEffectErrorTermPooled, A pooled error term assumes that the variances of the contrast scores are approximately equal (i.e., sphericity assumption).
 #'    Defaults to \code{FALSE}.
 #' @param simpleMainEffectFactor, Select the independent variable to determine the effect of this variable, conditional on the levels of the moderator factor(s).
@@ -125,7 +137,7 @@
 #' @param withinModelTerms, The repeated measures factors and covariates that can be included in the model. Can also include interaction effects.
 AnovaRepeatedMeasures <- function(
           data = NULL,
-          version = "0.96.1",
+          version = "1",
           barPlotCiInterval = 0.95,
           barPlotErrorBarType = "ci",
           barPlotErrorBars = FALSE,
@@ -182,6 +194,7 @@ AnovaRepeatedMeasures <- function(
           postHocCiLevel = 0.95,
           postHocConditionalTable = FALSE,
           postHocCorrectionBonferroni = FALSE,
+          postHocCorrectionFdr = FALSE,
           postHocCorrectionHolm = TRUE,
           postHocCorrectionScheffe = FALSE,
           postHocCorrectionTukey = FALSE,
@@ -216,6 +229,11 @@ AnovaRepeatedMeasures <- function(
           restrictedModelComparisonWeights = TRUE,
           restrictedModelSummaryForAllModels = FALSE,
           restrictedModels = list(list(informedHypothesisTest = FALSE, marginalMean = FALSE, name = "Model 1", summary = FALSE, syntax = "")),
+          simpleEffectSizeCi = FALSE,
+          simpleEffectSizeCiLevel = 0.95,
+          simpleEffectSizeEstimates = FALSE,
+          simpleEffectSizePartialEtaSquared = FALSE,
+          simpleEffectSizePartialOmegaSquared = TRUE,
           simpleMainEffectErrorTermPooled = FALSE,
           simpleMainEffectFactor = list(types = list(), value = ""),
           simpleMainEffectModeratorFactorOne = list(types = list(), value = ""),

@@ -34,8 +34,8 @@
 #' @param barPlotSeparatePlots, By placing an independent variable in this box, different plots corresponding to the different levels of the independent variable will be displayed.
 #' @param bayesFactorOrder, Compares each model against the model selected here
 #' \itemize{
-#'   \item \code{"nullModelTop"}: All models are compared to the null model
 #'   \item \code{"bestModelTop"}: All models are compared to the best model
+#'   \item \code{"nullModelTop"}: All models are compared to the null model
 #' }
 #' @param criTable, Displays a table with the mean and credible interval of the averaged R², meaning the proportion of variance in the outcome variable explained by the predictors, which are based on the model averaged posterior distribution.
 #'    Defaults to \code{FALSE}.
@@ -67,12 +67,12 @@
 #'    Defaults to \code{FALSE}.
 #' @param modelPrior, prior distribution of the models
 #' \itemize{
-#'   \item \code{"Bernoulli"}: Default p = 0.5.
-#'   \item \code{"Castillo"}: Default u = 1. Equivalent to a Beta binomial with a = 1 and b = p^u, where p is the number of predictors in the model.
-#'   \item \code{"betaBinomial"}: Default Beta(a = 1, b = 1).
 #'   \item \code{"uniform"}: Assumes that all possible values are equally likely.
-#'   \item \code{"custom"}: Allows the user to select the prior inclusion probability for the desired variable
+#'   \item \code{"betaBinomial"}: Default Beta(a = 1, b = 1).
 #'   \item \code{"Wilson"}: Default lambda = 1. Equivalent to a Beta binomial with a = 1 and b = lambda * p, where p is the number of predictors in the model.
+#'   \item \code{"Castillo"}: Default u = 1. Equivalent to a Beta binomial with a = 1 and b = p^u, where p is the number of predictors in the model.
+#'   \item \code{"Bernoulli"}: Default p = 0.5.
+#'   \item \code{"custom"}: Allows the user to select the prior inclusion probability for the desired variable
 #' }
 #' @param modelsShown, Gives the option to limit the number of models being displayed.
 #' \itemize{
@@ -85,8 +85,8 @@
 #'    Defaults to \code{FALSE}.
 #' @param priorSpecificationMode, Prior: Here it is possible to set the prior distributions for the fixed and random effect sizes.
 #' \itemize{
-#'   \item \code{"perTerm"}: Allows specifying the prior of each coefficient individually
 #'   \item \code{"acrossParameters"}: Allows specifying the same prior for all the coefficients at once
+#'   \item \code{"perTerm"}: Allows specifying the prior of each coefficient individually
 #' }
 #' @param qqPlot, Checks the validity of the distributional assumption of the data set. Specifically, the plot shows whether the residuals are normally distributed. Systematic deviations from the straight line indicate that the residuals might not be normally distributed.
 #'    Defaults to \code{FALSE}.
@@ -115,7 +115,7 @@
 #' @param singleModelTerms, Select the factors that should be included in the model.
 AnovaBayesian <- function(
           data = NULL,
-          version = "0.96.1",
+          version = "1",
           formula = NULL,
           isNuisance = NULL,
           barPlotCiInterval = 0.95,

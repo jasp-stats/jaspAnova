@@ -6,7 +6,7 @@
 \usage{
 AncovaBayesian(
   data = NULL,
-  version = "0.96.1",
+  version = "1",
   formula = NULL,
   isNuisance = NULL,
   barPlotCiInterval = 0.95,
@@ -92,8 +92,8 @@ Defaults to \code{TRUE}.}
 
 \item{bayesFactorOrder, }{Compares each model against the model selected here
 \itemize{
-  \item \code{"nullModelTop"}: All models are compared to the null model
   \item \code{"bestModelTop"}: All models are compared to the best model
+  \item \code{"nullModelTop"}: All models are compared to the null model
 }}
 
 \item{criTable, }{Displays a table with the mean and credible interval of the averaged R², meaning the proportion of variance in the outcome variable explained by the predictors, which are based on the model averaged posterior distribution.
@@ -138,17 +138,17 @@ Defaults to \code{FALSE}.}
 \item{modelPrior, }{prior distribution of the models
 \itemize{
   \item \code{"uniform"}: Assumes that all possible values are equally likely.
-  \item \code{"Wilson"}: Default lambda = 1. Equivalent to a Beta binomial with a = 1 and b = lambda * p, where p is the number of predictors in the model.
   \item \code{"betaBinomial"}: Default Beta(a = 1, b = 1).
-  \item \code{"Bernoulli"}: Default p = 0.5.
+  \item \code{"Wilson"}: Default lambda = 1. Equivalent to a Beta binomial with a = 1 and b = lambda * p, where p is the number of predictors in the model.
   \item \code{"Castillo"}: Default u = 1. Equivalent to a Beta binomial with a = 1 and b = p^u, where p is the number of predictors in the model.
+  \item \code{"Bernoulli"}: Default p = 0.5.
   \item \code{"custom"}: Allows the user to select the prior inclusion probability for the desired variable
 }}
 
 \item{modelsShown, }{Gives the option to limit the number of models being displayed.
 \itemize{
-  \item \code{"limited"}: Select this to limit the number of displayed models. Set to 10 by default, but this can be changed by the user.
   \item \code{"unlimited"}: Select this so that there is no limit.
+  \item \code{"limited"}: Select this to limit the number of displayed models. Set to 10 by default, but this can be changed by the user.
 }}
 
 \item{postHocNullControl, }{When selecting this option, the prior odds will be corrected for multiple testing. This option is selected by default. At the moment, no output will be generated for the post hoc test when this option is not selected.
@@ -159,8 +159,8 @@ Defaults to \code{FALSE}.}
 
 \item{priorSpecificationMode, }{Prior: Here it is possible to set the prior distributions for the fixed and random effect sizes.
 \itemize{
-  \item \code{"perTerm"}: Allows specifying the prior of each coefficient individually
   \item \code{"acrossParameters"}: Allows specifying the same prior for all the coefficients at once
+  \item \code{"perTerm"}: Allows specifying the prior of each coefficient individually
 }}
 
 \item{qqPlot, }{Checks the validity of the distributional assumption of the data set. Specifically, the plot shows whether the residuals are normally distributed. Systematic deviations from the straight line indicate that the residuals might not be normally distributed.

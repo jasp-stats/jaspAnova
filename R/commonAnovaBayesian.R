@@ -1137,47 +1137,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
           g = xNames[ind]
         )
 
-        if (showLegend) {
-          # if two distributions are remarkably similar, i.e., have nearly identical credible intervals,
-          # we add a linetype aestethic
-          tol <- 1e-4
-          distMin <- which(stats::dist(dfCri$xmin) < tol)
-          distMax <- which(stats::dist(dfCri$xmin) < tol)
-          distBoth <- intersect(distMin, distMax)
-          if (length(distBoth) > 0) {
-            aesLine <- ggplot2::aes(x = x, y = y, g = g, color = g, linetype = g)
-            aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g, color = g, linetype = g)
-          } else {
-            aesLine <- ggplot2::aes(x = x, y = y, g = g, color = g)
-            aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g, color = g)
-          }
-        } else {
-          # don't use color for single density plots (covariates)
-          aesLine <- ggplot2::aes(x = x, y = y, g = g)
-          aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g)
-        }
-
-
-        maxheight <- min(newymax - dfCri$y[1:min(lInd, 3)])
-        xlab <- nms[i]
-        # ggplot doesn't like our fancy unicode * so we need to escape it
-        xlab <- stringi::stri_escape_unicode(xlab)
-        # change escaped version into x
-        xlab <- gsub(pattern = "\\u2009\\u273b\\u2009", replacement = " x ", x = xlab, fixed = TRUE)
-
-        ncolLegend <- ceiling(lInd / 14)
-        guideLegend <- ggplot2::guide_legend(title = gettext("Level"), keywidth = 0.25, keyheight = 0.1, default.unit = "inch",
-                                             ncol = ncolLegend)
-        p <- ggplot2::ggplot(data = dfLines, mapping = aesLine) +
-          ggplot2::geom_line(size = 1.1) +
-          ggplot2::geom_errorbarh(data = dfCri, mapping = aesErrorbar, height = maxheight, size = 1.1,
-                                  inherit.aes = FALSE) +
-          ggplot2::scale_x_continuous(name = xlab,      breaks = xBreaks, limits = range(xBreaks)) +
-          ggplot2::scale_y_continuous(name = gettext("Density"), breaks = yBreaks, limits = c(0, newymax)) +
-          colorspace::scale_color_discrete_qualitative() +
-          ggplot2::scale_linetype() +
-          ggplot2::guides(color = guideLegend, linetype = guideLegend)
-        p <- jaspGraphs::themeJasp(p, legend.position = if (showLegend) "right" else "none")
+        p <- jaspGraphs::createJaspPlotRecipe(
+          "jaspAnova:::.BANOVAdrawGroupedPosterior",
+          list(dfLines = dfLines, dfCri = dfCri, xBreaks = xBreaks,
+               yBreaks = yBreaks, newymax = newymax, lInd = lInd,
+               showLegend = showLegend, title = nms[i])
+        )
 
         plot <- createJaspPlot(title = nms[i], width = 400, height = 400, plot = p)
       }
@@ -1190,12 +1155,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       df <- data.frame(x = densities[, i, "x"],
                        y = densities[, i, "y"])
 
-      p <- jaspGraphs::PlotPriorAndPosterior(
+      p <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::PlotPriorAndPosterior", list(
         dfLines    = df,
         xName      = xNames[i],
         CRI        = cris[i, ],
         drawCRItxt = FALSE
-      )
+      ))
 
       plot <- createJaspPlot(title = plotTitles[i], width = 400, height = 400, plot = p)
       container[[allParamNames[i]]] <- plot
@@ -1218,12 +1183,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   )
 
   if (!is.null(model[["models"]])) {
-    plot$plotObject <- jaspGraphs::plotQQnorm(
+    plot$plotObject <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::plotQQnorm", list(
       residuals = model[["posteriors"]][["weightedResidSumStats"]][,"mean"],
       lower     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.2.5%"],
       upper     = model[["posteriors"]][["weightedResidSumStats"]][,"cri.97.5%"],
       ablineColor = "darkred"
-    )
+    ))
     plot$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
   }
 
@@ -1251,7 +1216,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
     df <- data.frame(x = dd$x, y = dd$y)
     xName <- expression(R^2)
-    plot$plotObject <- jaspGraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
+    plot$plotObject <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::PlotPriorAndPosterior", list(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE))
     plot$dependOn(optionsFromObject = jaspResults[["tableModelComparisonState"]])
   }
 
@@ -1778,75 +1743,12 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       summaryStatSubset <- summaryStat
     }
 
-    if (options$descriptivePlotSeparateLines == "") {
-
-      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
-                                                           y=dependent,
-                                                           group=1))
-
-    } else {
-
-      p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
-                                                           y=dependent,
-                                                           group=descriptivePlotSeparateLines,
-                                                           shape=descriptivePlotSeparateLines,
-                                                           fill=descriptivePlotSeparateLines))
-
-    }
-
-    if (plotErrorBars && !(options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]])) {
-
-      pd <- ggplot2::position_dodge(.2)
-      p = p + ggplot2::geom_errorbar(ggplot2::aes(ymin=ciLower,
-                                                  ymax=ciUpper),
-                                     colour="black", width=.2, position=pd)
-
-    } else {
-
-      pd <- ggplot2::position_dodge(0)
-
-    }
-
-    guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(summaryStatSubset$descriptivePlotSeparateLines)),
-                                         title = options$descriptivePlotSeparateLines, keywidth = 0.1, keyheight = 0.3,
-                                         default.unit = "inch")
-
-    if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
-      line <- ggplot2::geom_smooth(method = "lm", size = .7, color = "black", se = FALSE)
-      addHorizontalVar <- summaryStatSubset[,"descriptivePlotHorizontalAxis"]
-    } else {
-      line <- ggplot2::geom_line(position=pd, size = .7)
-    }
-
-    if (plotErrorBars) {
-      ci.pos <- c(summaryStatSubset[,"dependent"],
-                  summaryStatSubset[,"dependent"]-summaryStatSubset[,"ci"],
-                  summaryStatSubset[,"dependent"]+summaryStatSubset[,"ci"],
-                  min(summaryStatSubset[,"dependent"])*1.1,
-                  max(summaryStatSubset[,"dependent"])*1.1)
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(ci.pos)
-    } else {
-      yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"],
-                                                   min(summaryStatSubset[,"dependent"])*1.1,
-                                                   max(summaryStatSubset[,"dependent"])*1.1))
-    }
-
-    if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
-      ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
-    } else {
-      ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
-    }
-
-    p <- p + line +
-      ggplot2::geom_point(position=pd, size=4) +
-      ggplot2::scale_fill_manual(values = c(rep(c("white","black"),5),rep("grey",100)), guide=guideLegend) +
-      ggplot2::scale_shape_manual(values = c(rep(c(21:25),each=2),21:25,7:14,33:112), guide=guideLegend) +
-      ggplot2::scale_color_manual(values = rep("black",200),guide=guideLegend) +
-      ggplot2::labs(y = yLabel, x = options[["descriptivePlotHorizontalAxis"]]) +
-      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
-      ggXaxis +
-      jaspGraphs::geom_rangeframe() +
-      jaspGraphs::themeJaspRaw(legend.position = "right")
+    p <- jaspGraphs::createJaspPlotRecipe(
+      "jaspAnova:::.BANOVAdrawDescriptives",
+      list(summaryStatSubset = summaryStatSubset,
+           options = options[c("descriptivePlotSeparateLines", "descriptivePlotHorizontalAxis", "covariates")],
+           plotErrorBars = plotErrorBars, yLabel = yLabel)
+    )
 
     descriptivesPlot$plotObject <- p
   }
@@ -1944,13 +1846,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
       summaryStatSubset <- summaryStat
     }
 
-    error <- NULL
-    if (plotErrorBars) {
-      pd <- ggplot2::position_dodge(.2)
-      error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
-                                      colour = "black", width = .2, position = pd)
-    }
-
     values <- 1.1 * range(summaryStat[["dependent"]])
     if (barPlotHorizontalZeroFix)
       values <- c(0, values)
@@ -1965,17 +1860,11 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     } else {
       yBreaks <- jaspGraphs::getPrettyAxisBreaks(values)
     }
-    pd2 <- ggplot2::position_dodge2(preserve = "single")
-
-    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = barPlotHorizontalAxis, y = dependent, group = 1)) +
-      ggplot2::geom_hline(yintercept = 0, color = "#858585", size = 0.3) +
-      ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) +
-      error +
-      ggplot2::labs(y = yLabel, x = options[["barPlotHorizontalAxis"]]) +
-      ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks), oob = scales::rescale_none) +
-      ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[, "barPlotHorizontalAxis"])) +
-      jaspGraphs::geom_rangeframe(sides = "l") +
-      jaspGraphs::themeJaspRaw()
+    p <- jaspGraphs::createJaspPlotRecipe(
+      "jaspAnova:::.BANOVAdrawBar",
+      list(summaryStatSubset = summaryStatSubset, plotErrorBars = plotErrorBars,
+           yBreaks = yBreaks, yLabel = yLabel, xLabel = options[["barPlotHorizontalAxis"]])
+    )
 
     barPlot$plotObject <- p
   }
@@ -3656,12 +3545,12 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   if (is.null(model) || jaspContainer$getError()) {
     p <- NULL
   } else {
-    p <- jaspGraphs::plotQQnorm(
+    p <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::plotQQnorm", list(
       residuals = model$residSumStats[,"mean"],
       lower     = model$residSumStats[,"cri.2.5%"],
       upper     = model$residSumStats[,"cri.97.5%"],
       ablineColor = "darkred"
-    )
+    ))
   }
   plot <- createJaspPlot(
     title       = gettext("Q-Q Plot"),
@@ -3688,7 +3577,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     rsqCri <- model$rsqCri
     df     <- data.frame(x = dd$x, y = dd$y)
     xName <- expression(R^2)
-    p <- jaspGraphs::PlotPriorAndPosterior(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE)
+    p <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::PlotPriorAndPosterior", list(dfLines = df, xName = xName, CRI = rsqCri, drawCRItxt = FALSE))
   }
   plot <- createJaspPlot(
     title       = gettextf("Posterior R%s", "\u00B2"),
@@ -3743,3 +3632,146 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   "Jeffreys1938"     = "Jeffreys, H. (1938). Significance tests when several degrees of freedom arise simultaneously. Proceedings of the Royal Society of London. Series A, Mathematical and Physical Sciences, 165, 161-198.",
   "WestfallEtal1997" = "Westfall, P. H., Johnson, W. O., & Utts, J. M. (1997). A Bayesian perspective on the Bonferroni adjustment. Biometrika, 84, 419-427."
 )
+
+.BANOVAdrawGroupedPosterior <- function(dfLines, dfCri, xBreaks, yBreaks, newymax, lInd, showLegend, title) {
+  if (showLegend) {
+    # if two distributions are remarkably similar, i.e., have nearly identical credible intervals,
+    # we add a linetype aestethic
+    tol <- 1e-4
+    distMin <- which(stats::dist(dfCri$xmin) < tol)
+    distMax <- which(stats::dist(dfCri$xmin) < tol)
+    distBoth <- intersect(distMin, distMax)
+    if (length(distBoth) > 0) {
+      aesLine <- ggplot2::aes(x = x, y = y, g = g, color = g, linetype = g)
+      aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g, color = g, linetype = g)
+    } else {
+      aesLine <- ggplot2::aes(x = x, y = y, g = g, color = g)
+      aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g, color = g)
+    }
+  } else {
+    # don't use color for single density plots (covariates)
+    aesLine <- ggplot2::aes(x = x, y = y, g = g)
+    aesErrorbar <- ggplot2::aes(xmin = xmin, xmax = xmax, y = y, group = g)
+  }
+
+
+  maxheight <- min(newymax - dfCri$y[1:min(lInd, 3)])
+  xlab <- title
+  # ggplot doesn't like our fancy unicode * so we need to escape it
+  xlab <- stringi::stri_escape_unicode(xlab)
+  # change escaped version into x
+  xlab <- gsub(pattern = "\\u2009\\u273b\\u2009", replacement = " x ", x = xlab, fixed = TRUE)
+
+  ncolLegend <- ceiling(lInd / 14)
+  guideLegend <- ggplot2::guide_legend(title = gettext("Level"), keywidth = 0.25, keyheight = 0.1, default.unit = "inch",
+                                       ncol = ncolLegend)
+  p <- ggplot2::ggplot(data = dfLines, mapping = aesLine) +
+    ggplot2::geom_line(size = 1.1) +
+    ggplot2::geom_errorbarh(data = dfCri, mapping = aesErrorbar, height = maxheight, size = 1.1,
+                            inherit.aes = FALSE) +
+    ggplot2::scale_x_continuous(name = xlab,      breaks = xBreaks, limits = range(xBreaks)) +
+    ggplot2::scale_y_continuous(name = gettext("Density"), breaks = yBreaks, limits = c(0, newymax)) +
+    colorspace::scale_color_discrete_qualitative() +
+    ggplot2::scale_linetype() +
+    ggplot2::guides(color = guideLegend, linetype = guideLegend)
+  p <- jaspGraphs::themeJasp(p, legend.position = if (showLegend) "right" else "none")
+
+  p
+}
+
+.BANOVAdrawDescriptives <- function(summaryStatSubset, options, plotErrorBars, yLabel) {
+  if (options$descriptivePlotSeparateLines == "") {
+
+    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
+                                                         y=dependent,
+                                                         group=1))
+
+  } else {
+
+    p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x=descriptivePlotHorizontalAxis,
+                                                         y=dependent,
+                                                         group=descriptivePlotSeparateLines,
+                                                         shape=descriptivePlotSeparateLines,
+                                                         fill=descriptivePlotSeparateLines))
+
+  }
+
+  if (plotErrorBars && !(options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]])) {
+
+    pd <- ggplot2::position_dodge(.2)
+    p = p + ggplot2::geom_errorbar(ggplot2::aes(ymin=ciLower,
+                                                ymax=ciUpper),
+                                   colour="black", width=.2, position=pd)
+
+  } else {
+
+    pd <- ggplot2::position_dodge(0)
+
+  }
+
+  guideLegend <- ggplot2::guide_legend(nrow = min(10, nlevels(summaryStatSubset$descriptivePlotSeparateLines)),
+                                       title = options$descriptivePlotSeparateLines, keywidth = 0.1, keyheight = 0.3,
+                                       default.unit = "inch")
+
+  if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
+    line <- ggplot2::geom_smooth(method = "lm", size = .7, color = "black", se = FALSE)
+    addHorizontalVar <- summaryStatSubset[,"descriptivePlotHorizontalAxis"]
+  } else {
+    line <- ggplot2::geom_line(position=pd, size = .7)
+  }
+
+  if (plotErrorBars) {
+    ci.pos <- c(summaryStatSubset[,"dependent"],
+                summaryStatSubset[,"dependent"]-summaryStatSubset[,"ci"],
+                summaryStatSubset[,"dependent"]+summaryStatSubset[,"ci"],
+                min(summaryStatSubset[,"dependent"])*1.1,
+                max(summaryStatSubset[,"dependent"])*1.1)
+    yBreaks <- jaspGraphs::getPrettyAxisBreaks(ci.pos)
+  } else {
+    yBreaks <- jaspGraphs::getPrettyAxisBreaks(c(summaryStatSubset[,"dependent"],
+                                                 min(summaryStatSubset[,"dependent"])*1.1,
+                                                 max(summaryStatSubset[,"dependent"])*1.1))
+  }
+
+  if (options[["descriptivePlotHorizontalAxis"]] %in% options[["covariates"]]) {
+    ggXaxis <- ggplot2::scale_x_continuous(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
+  } else {
+    ggXaxis <- ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[,"descriptivePlotHorizontalAxis"]))
+  }
+
+  p <- p + line +
+    ggplot2::geom_point(position=pd, size=4) +
+    ggplot2::scale_fill_manual(values = c(rep(c("white","black"),5),rep("grey",100)), guide=guideLegend) +
+    ggplot2::scale_shape_manual(values = c(rep(c(21:25),each=2),21:25,7:14,33:112), guide=guideLegend) +
+    ggplot2::scale_color_manual(values = rep("black",200),guide=guideLegend) +
+    ggplot2::labs(y = yLabel, x = options[["descriptivePlotHorizontalAxis"]]) +
+    ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks)) +
+    ggXaxis +
+    jaspGraphs::geom_rangeframe() +
+    jaspGraphs::themeJaspRaw(legend.position = "right")
+
+  p
+}
+
+.BANOVAdrawBar <- function(summaryStatSubset, plotErrorBars, yBreaks, yLabel, xLabel) {
+  error <- NULL
+  if (plotErrorBars) {
+    pd <- ggplot2::position_dodge(.2)
+    error <- ggplot2::geom_errorbar(ggplot2::aes(ymin = ciLower, ymax = ciUpper),
+                                    colour = "black", width = .2, position = pd)
+  }
+
+  pd2 <- ggplot2::position_dodge2(preserve = "single")
+
+  p <- ggplot2::ggplot(summaryStatSubset, ggplot2::aes(x = barPlotHorizontalAxis, y = dependent, group = 1)) +
+    ggplot2::geom_hline(yintercept = 0, color = "#858585", size = 0.3) +
+    ggplot2::geom_bar(stat = "identity", fill = "grey", col = "black", width = .6, position = pd2) +
+    error +
+    ggplot2::labs(y = yLabel, x = xLabel) +
+    ggplot2::scale_y_continuous(breaks = yBreaks, limits = range(yBreaks), oob = scales::rescale_none) +
+    ggplot2::scale_x_discrete(breaks = jaspGraphs::getPrettyAxisBreaks(summaryStatSubset[, "barPlotHorizontalAxis"])) +
+    jaspGraphs::geom_rangeframe(sides = "l") +
+    jaspGraphs::themeJaspRaw()
+
+  p
+}

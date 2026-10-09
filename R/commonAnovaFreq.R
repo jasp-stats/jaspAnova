@@ -245,12 +245,12 @@
   }
   ciLevel <- if (options[["qqPlotCi"]])  options[["qqPlotCiLevel"]] else NULL
 
-  qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals,
+  qqPlot$plotObject <- jaspGraphs::createJaspPlotRecipe("jaspGraphs::plotQQnorm", list(residuals = residuals,
                                               yName = "Standardized residuals",
                                               ablineColor = "darkred",
                                               ablineOrigin = TRUE,
                                               identicalAxes = TRUE,
-                                              ciLevel = ciLevel)
+                                              ciLevel = ciLevel))
   return()
 }
 

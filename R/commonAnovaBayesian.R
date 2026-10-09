@@ -1137,11 +1137,17 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
           g = xNames[ind]
         )
 
+        xLabel <- nms[i]
+        # ggplot doesn't like our fancy unicode * so we need to escape it
+        xLabel <- stringi::stri_escape_unicode(xLabel)
+        # change escaped version into x
+        xLabel <- gsub(pattern = "\\u2009\\u273b\\u2009", replacement = " x ", x = xLabel, fixed = TRUE)
+
         p <- jaspGraphs::createJaspPlotRecipe(
           "jaspAnova:::.BANOVAdrawGroupedPosterior",
           list(dfLines = dfLines, dfCri = dfCri, xBreaks = xBreaks,
                yBreaks = yBreaks, newymax = newymax, lInd = lInd,
-               showLegend = showLegend, title = nms[i])
+               showLegend = showLegend, xLabel = xLabel)
         )
 
         plot <- createJaspPlot(title = nms[i], width = 400, height = 400, plot = p)
@@ -3633,7 +3639,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
   "WestfallEtal1997" = "Westfall, P. H., Johnson, W. O., & Utts, J. M. (1997). A Bayesian perspective on the Bonferroni adjustment. Biometrika, 84, 419-427."
 )
 
-.BANOVAdrawGroupedPosterior <- function(dfLines, dfCri, xBreaks, yBreaks, newymax, lInd, showLegend, title) {
+.BANOVAdrawGroupedPosterior <- function(dfLines, dfCri, xBreaks, yBreaks, newymax, lInd, showLegend, xLabel) {
   if (showLegend) {
     # if two distributions are remarkably similar, i.e., have nearly identical credible intervals,
     # we add a linetype aestethic
@@ -3656,11 +3662,6 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
 
 
   maxheight <- min(newymax - dfCri$y[1:min(lInd, 3)])
-  xlab <- title
-  # ggplot doesn't like our fancy unicode * so we need to escape it
-  xlab <- stringi::stri_escape_unicode(xlab)
-  # change escaped version into x
-  xlab <- gsub(pattern = "\\u2009\\u273b\\u2009", replacement = " x ", x = xlab, fixed = TRUE)
 
   ncolLegend <- ceiling(lInd / 14)
   guideLegend <- ggplot2::guide_legend(title = gettext("Level"), keywidth = 0.25, keyheight = 0.1, default.unit = "inch",
@@ -3669,7 +3670,7 @@ dBernoulliModelPrior <- function(k, n, prob = 0.5, log = FALSE) {
     ggplot2::geom_line(size = 1.1) +
     ggplot2::geom_errorbarh(data = dfCri, mapping = aesErrorbar, height = maxheight, size = 1.1,
                             inherit.aes = FALSE) +
-    ggplot2::scale_x_continuous(name = xlab,      breaks = xBreaks, limits = range(xBreaks)) +
+    ggplot2::scale_x_continuous(name = xLabel,      breaks = xBreaks, limits = range(xBreaks)) +
     ggplot2::scale_y_continuous(name = gettext("Density"), breaks = yBreaks, limits = c(0, newymax)) +
     colorspace::scale_color_discrete_qualitative() +
     ggplot2::scale_linetype() +

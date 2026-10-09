@@ -100,3 +100,36 @@ test_that("single-model Q-Q and R-squared producers store summaries and mathemat
       expect_identical(plot$scales$get_scales("x")$name, expression(R^2))
   }
 })
+
+test_that("grouped posterior titles preserve Unicode names during recipe decoding", {
+  withr::local_options(lifecycle_verbosity = "quiet")
+  testthat::local_mocked_bindings(
+    createJaspPlot = function(plot = NULL, ...) {
+      result <- new.env(parent = emptyenv())
+      result$plotObject <- plot
+      result
+    }, .package = "jaspAnova"
+  )
+  testthat::local_mocked_bindings(
+    decodeColNames = function(x, ...) {
+      x <- gsub("jaspColumn1", "caf\u00e9", x, fixed = TRUE)
+      gsub("jaspColumn2", "\u5e74\u9f84", x, fixed = TRUE)
+    }, .package = "jaspBase"
+  )
+  x <- seq(-3, 3, length.out = 40)
+  for (parameter in c("jaspColumn1", "jaspColumn1:jaspColumn2")) {
+    densities <- array(0, c(40, 2, 2), dimnames = list(NULL,
+      paste0(parameter, c("-A", "-B")), c("x", "y")))
+    densities[, , "x"] <- x
+    densities[, 1, "y"] <- dnorm(x)
+    densities[, 2, "y"] <- dnorm(x, .5)
+    container <- new.env(parent = emptyenv())
+    jaspAnova:::.BANOVAfillPosteriorPlotContainer(container, densities,
+      matrix(c(-1, 1, -.5, 1.5), 2, byrow = TRUE), groupParameters = TRUE)
+    recipe <- container[[ls(container)[1]]]$plotObject
+    restored <- unserialize(serialize(recipe, NULL))
+    plot <- jaspBase:::.materializeDecodedJaspPlotRecipe(restored)
+    expected <- if (parameter == "jaspColumn1") "caf\u00e9" else "caf\u00e9 x \u5e74\u9f84"
+    expect_identical(plot$scales$get_scales("x")$name, expected)
+  }
+})

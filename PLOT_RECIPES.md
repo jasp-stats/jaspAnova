@@ -13,6 +13,8 @@ Migrated the local frequentist Q-Q plot and Bayesian model-averaged/single-model
 
 Use R-4.5.2. `test-plotRecipes.R` checks recipes emitted by posterior producers, serialization, deterministic redraws and unchanged RNG state, summary factors/interval data, and edited axis titles. The producer test mocks only native plot allocation; existing analysis tests exercise actual native rendering and name decoding. Compare existing snapshots without accepting changed references.
 
-The migration was validated with recipe-capable jaspBase `b187388a`, jaspGraphs `288d2751` and jaspTools `1a109435`, using the module's original remaining dependencies. All 29 focused recipe assertions and 11 exact SVG comparisons against the original builders passed. A real classical ANOVA Q-Q rendering smoke test passed.
+The migration was validated with recipe-capable jaspBase `b187388a`, jaspGraphs `288d2751` and jaspTools `1a109435`, using the module's original remaining dependencies. All 31 focused recipe assertions and 11 exact SVG comparisons against the original builders passed. A real classical ANOVA Q-Q rendering smoke test passed.
 
 The existing full suite and an independently installed master baseline each reported 230 passes, 3 failures, 4 errors, 13 warnings and 1 skip. Every test outcome and diagnostic matched after normalizing timing and temporary paths. The three failures involve delegated jaspDescriptives scatter formula snapshots; the errors concern the factor-order table, Bayesian model-comparison/prior tests and repeated-measures Bayesian setup. Existing visual fallbacks also matched the baseline. No snapshots were accepted or changed.
+
+Grouped posterior axis labels are prepared while names remain encoded, before recipe decoding. A regression test checks Unicode names and interaction labels through jaspBase’s decoded materialization path.

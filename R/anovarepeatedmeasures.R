@@ -15,20 +15,18 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) {
+AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
   initialGlobalOptions <- options()
   on.exit(options(initialGlobalOptions), add = TRUE)
 
-  numericVariables <- c(unlist(options$repeatedMeasuresCells),unlist(options$covariates))
-  numericVariables <- numericVariables[numericVariables != ""]
-  factorVariables <- c(unlist(options$betweenSubjectFactors))
-  factorVariables <- factorVariables[factorVariables != ""]
+  analysisVars <- unlist(c(options$repeatedMeasuresCells,
+                           options$betweenSubjectFactors,
+                           options$covariates), use.names = FALSE)
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
 
-  if (is.null(dataset))
-    dataset <- .readDataSetToEnd(columns.as.numeric=numericVariables, columns.as.factor=factorVariables,
-                                 exclude.na.listwise=c(numericVariables, factorVariables))
-
-  longData <- .BANOVAreadRManovaData(dataset, options)
+  longData <- .BANOVAwideToLong(dataset, options)
   if (isTryError(longData))
     .quitAnalysis(gettext("Error while loading data. Please verify your repeated measures observations."))
 

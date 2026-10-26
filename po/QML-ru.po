@@ -2134,8 +2134,8 @@ msgstr ""
 
 msgctxt "DefaultOptions|"
 msgid ""
-"By selecting this option, a plot of the posterior distribution of the R2 (i."
-"e., explained variance) will be displayed."
+"By selecting this option, a plot of the posterior distribution of the R2 "
+"(i.e., explained variance) will be displayed."
 msgstr ""
 
 msgctxt "DescriptivesPlots|"
@@ -2251,8 +2251,8 @@ msgstr ""
 
 msgctxt "SingleModelInference|"
 msgid ""
-"By selecting this option, a plot of the posterior distribution of the R2 (i."
-"e., explained variance) will be displayed."
+"By selecting this option, a plot of the posterior distribution of the R2 "
+"(i.e., explained variance) will be displayed."
 msgstr ""
 
 msgctxt "AssumptionChecks|"

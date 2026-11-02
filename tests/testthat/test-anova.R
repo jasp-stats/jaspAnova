@@ -9,6 +9,7 @@ test_that("Main table results match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contBinom"),
@@ -352,6 +353,7 @@ test_that("Descriptives plots match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contBinom"),
@@ -377,6 +379,7 @@ test_that("Bar plots match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contBinom"),
@@ -403,6 +406,7 @@ test_that("Raincloud plots match", {
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
   options$wlsWeights <- "facFifty"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contBinom"),
@@ -493,12 +497,14 @@ test_that("Analysis handles errors", {
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
   options$wlsWeights <- "debInf"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(list(components="contBinom"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   expect_identical(results[["results"]][["errorMessage"]],
                    "The following problem(s) occurred while running the analysis:<ul><li>Infinity found in debInf</li></ul>",
                   label="Inf WLS weights check")
   options$wlsWeights <- ""
+  options$wlsWeights.types <- character(0)
 
   options$dependent <- "contNormal"
   options$fixedFactors <- "debSame"
@@ -511,6 +517,7 @@ test_that("Analysis handles errors", {
   options$dependent <- "contGamma"
   options$fixedFactors <- "facFive"
   options$wlsWeights <- "contNormal"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(list(components="facFive"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   expect_identical(results[["results"]][["errorMessage"]],

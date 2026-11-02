@@ -11,6 +11,7 @@ test_that("Main table results match", {
   options$fixedFactors <- "facFive"
   options$covariates <- "contGamma"
   options$wlsWeights <- "facFifty"
+  options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
     list(components="facFive"),
     list(components="contGamma")

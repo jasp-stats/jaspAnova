@@ -25,7 +25,7 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   initialGlobalOptions <- options()
   on.exit(options(initialGlobalOptions), add = TRUE)
 
-  numericVariables <- c(unlist(options$dependent),unlist(options$covariates),unlist(options$wlsWeight))
+  numericVariables <- c(unlist(options$dependent),unlist(options$covariates),unlist(options[["wlsWeights"]]))
   numericVariables <- numericVariables[numericVariables != ""]
   factorVariables <- c(unlist(options$fixedFactors),unlist(options$randomFactors))
   factorVariables <- factorVariables[factorVariables != ""]

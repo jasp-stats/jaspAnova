@@ -8,7 +8,7 @@ initOpts <- function(analysisName) {
   options("BFprogress" = FALSE)
 
   options$samplingMethodNumericAccuracy <- "manual"
-  options$samplesNumericAccuracy <- 50
+  options$samplesNumericAccuracy <- 100 # the minimum the form allows
   if (analysisName == "AnovaRepeatedMeasuresBayesian")
     options$legacyResults <- TRUE
   options

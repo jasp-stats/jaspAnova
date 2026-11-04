@@ -230,7 +230,8 @@ ManovaInternal <- function(jaspResults, dataset = NULL, options) {
 
     for (case in rownames(manovaResults[["anova"]][[thisVar]])) {
       row <- as.list(manovaResults[["anova"]][[thisVar]][case, ])
-      row["cases"] <- stringi::stri_unescape_unicode(gsub("<U\\+(....)>", "\\\\u\\1", case)) # summary() seemingly escapes unicode on windows
+      # summary() pads the row names to the longest term name and seemingly escapes unicode on windows
+      row["cases"] <- trimws(stringi::stri_unescape_unicode(gsub("<U\\+(....)>", "\\\\u\\1", case)))
       row["vovkSellke"] <- if(trimws(case) == "Residuals") "" else VovkSellkeMPR(row[["Pr(>F)"]])
       anovaTable$addRows(row, rowNames = paste0(thisVar, " - ", case))
     }

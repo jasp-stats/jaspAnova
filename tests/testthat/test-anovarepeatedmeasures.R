@@ -112,9 +112,9 @@ test_that("Sphericity Assumptions table match (Field Chapter 8)", {
 test_that("Post-hoc tests match (Field Chapter 8)", {
   options <- initOptsAnovaRepeatedMeasures()
 
-  options$postHocTerms <- list(list(components = "Drink"),
-                                        list(components = "Imagery"),
-                                        list(components = c("Drink", "Imagery")))
+  options$postHocTerms <- list(list(variable = "Drink"),
+                               list(variable = "Imagery"),
+                               list(variable = c("Drink", "Imagery")))
   options$postHocEffectSize <- TRUE
   options$postHocCorrectionBonferroni <- TRUE
   options$postHocCorrectionHolm <- TRUE
@@ -277,9 +277,9 @@ test_that("Post-hoc tests match (Field Chapter 8)", {
 test_that("Post-hoc tests match (pooled errors)", {
   options <- initOptsAnovaRepeatedMeasures()
 
-  options$postHocTerms <- list(list(components = "Drink"),
-                               list(components = "Imagery"),
-                               list(components = c("Drink", "Imagery")))
+  options$postHocTerms <- list(list(variable = "Drink"),
+                               list(variable = "Imagery"),
+                               list(variable = c("Drink", "Imagery")))
   options$postHocEffectSize <- TRUE
   options$postHocCorrectionBonferroni <- TRUE
   options$postHocCorrectionHolm <- TRUE
@@ -669,28 +669,28 @@ test_that("Bar Plots match", {
   options$barPlotCiInterval <- 0.95
 
   options$usePooledStandErrorCITwo <- FALSE
-  options$barPlotErrorBarType <- "confidenceInterval"
+  options$barPlotErrorBarType <- "ci"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA1Bar")
 
   options$usePooledStandErrorCITwo <- TRUE
-  options$barPlotErrorBarType <- "confidenceInterval"
+  options$barPlotErrorBarType <- "ci"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA2Bar")
 
   options$usePooledStandErrorCITwo <- FALSE
-  options$barPlotErrorBarType <- "standardError"
+  options$barPlotErrorBarType <- "se"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(barPlot, "mixedRMANOVA3Bar")
 
   options$usePooledStandErrorCITwo <- TRUE
-  options$barPlotErrorBarType <- "standardError"
+  options$barPlotErrorBarType <- "se"
   results <- jaspTools::runAnalysis(name = "AnovaRepeatedMeasures",
                                     dataset = "AnovaMixedEffects.csv", options = options)
   barPlot <-  results$state$figures[[1]]$obj

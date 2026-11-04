@@ -63,8 +63,8 @@ test_that("Andy Field ANOVA tables for Actions factor results match with R, SPSS
   jaspTools::expect_equal_tables(table,
                                  list(1, 326.4, 616.533333333333, 1.31849279790975e-16, 616.533333333333,
                                       "(Intercept)", 2, 2.77058823529412, 5.23333333333333, 0.0804566489996684,
-                                      10.4666666666667, "Group      ", 27, "", 1.88888888888889, "",
-                                      51, "Residuals  "), label = "ANOVA->Actions")
+                                      10.4666666666667, "Group", 27, "", 1.88888888888889, "",
+                                      51, "Residuals"), label = "ANOVA->Actions")
 })
 
 # https://jasp-stats.github.io/jasp-verification-project/anova.html#manova
@@ -74,6 +74,6 @@ test_that("Andy Field ANOVA tables for Thoughts factor results match with R, SPS
   jaspTools::expect_equal_tables(table,
                                  list(1, 1402.34754098361, 6336.53333333333, 8.22509725190572e-25, 6336.53333333333,
                                       "(Intercept)", 2, 2.15409836065575, 9.73333333333337, 0.135527393903097,
-                                      19.4666666666667, "Group      ", 27, "", 4.51851851851852, "",
-                                      122, "Residuals  "), label = "ANOVA->Actions")
+                                      19.4666666666667, "Group", 27, "", 4.51851851851852, "",
+                                      122, "Residuals"), label = "ANOVA->Actions")
 })

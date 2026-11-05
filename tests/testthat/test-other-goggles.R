@@ -10,24 +10,23 @@ test_that("Anova results match", {
   opts <- jaspTools::analysisOptions(jaspFile)
   dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
 
-  # Encode and run analysis
-  encoded <- jaspTools:::encodeOptionsAndDataset(opts, dataset)
+  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", encoded$dataset, encoded$options, encodedDataset = TRUE)
+  results <- jaspTools::runAnalysis("Anova", dataset, opts)
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list("TRUE", 1, 15.5826086956522, 21.3333333333333, 0.000295223592290035,
-     21.3333333333333, "jaspColumn1", 0.233013755731555, 0.432383141714249,
+     21.3333333333333, "Facetype", 0.233013755731555, 0.432383141714249,
      0.0477237051208246, "FALSE", 2, 6.04130434782608, 8.27083333333333,
-     0.00494338949698301, 16.5416666666667, "jaspColumn2", 0.173590837637548,
+     0.00494338949698301, 16.5416666666667, "Alcohol", 0.173590837637548,
      0.362378057995661, 0.0046137581746789, "TRUE", 2, 8.50652173913044,
-     11.6458333333333, 0.000791273868880292, 23.2916666666667, "jaspColumn1 <unicode> jaspColumn2",
+     11.6458333333333, 0.000791273868880292, 23.2916666666667, "Facetype <unicode> Alcohol",
      0.238252949699855, 0.427907139565879, 0.035994070104449, "TRUE",
      42, "", 1.36904761904762, "", 57.5, "Residuals", "", "", ""
     ))
 
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_contrastContainer"]][["collection"]][["anovaContainer_contrastContainer_HelmertContrast_jaspColumn2"]][["collection"]][["anovaContainer_contrastContainer_HelmertContrast_jaspColumn2_contrastTable"]][["data"]]
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_contrastContainer"]][["collection"]][["anovaContainer_contrastContainer_HelmertContrast_Alcohol"]][["collection"]][["anovaContainer_contrastContainer_HelmertContrast_Alcohol_contrastTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list("TRUE", "High dose - Low dose, Placebo", 0.358257190138194, 0.908070697305198,
      0.25861646070861, 1.55752493390179, 42, 1.0625, 0.339507719678962,
@@ -42,68 +41,68 @@ test_that("Anova results match", {
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_descriptivesContainer"]][["collection"]][["anovaContainer_descriptivesContainer_tableDescriptives"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list(6.125, 8, 1.1259916264596, 0.398098157314428, 0.183835367585241,
-     "Attractive", "High dose", 6.5, 8, 0.925820099772551, 0.327326835353989,
-     0.142433861503469, "Attractive", "Low dose", 6.375, 8, 0.916125381312904,
-     0.323899234771733, 0.14370594216673, "Attractive", "Placebo",
-     6.625, 8, 1.06066017177982, 0.375, 0.160099648570539, "Unattractive",
-     "High dose", 4.875, 8, 1.24642345475822, 0.440677238544752,
-     0.255676606104251, "Unattractive", "Low dose", 3.5, 8, 1.60356745147455,
-     0.566946709513841, 0.458162128992728, "Unattractive", "Placebo"
+    list("High dose", "Attractive", 6.125, 8, 1.1259916264596, 0.398098157314428,
+     0.183835367585241, "Low dose", "Attractive", 6.5, 8, 0.925820099772551,
+     0.327326835353989, 0.142433861503469, "Placebo", "Attractive",
+     6.375, 8, 0.916125381312904, 0.323899234771733, 0.14370594216673,
+     "High dose", "Unattractive", 6.625, 8, 1.06066017177982, 0.375,
+     0.160099648570539, "Low dose", "Unattractive", 4.875, 8, 1.24642345475822,
+     0.440677238544752, 0.255676606104251, "Placebo", "Unattractive",
+     3.5, 8, 1.60356745147455, 0.566946709513841, 0.458162128992728
     ))
 
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_marginalMeansContainer"]][["collection"]][["anovaContainer_marginalMeansContainer_jaspColumn1 ✻ jaspColumn2"]][["data"]]
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_marginalMeansContainer"]][["collection"]][["anovaContainer_marginalMeansContainer_Facetype ✻ Alcohol"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", 0.413679770330811, 42, "Attractive", "High dose", 4.98291693406122,
-     6.125, 0, 14.8061385624488, 7.26708306593878, "FALSE", 0.413679770330811,
-     42, "Unattractive", "High dose", 5.48291693406122, 6.625, 0,
-     16.0148029348937, 7.76708306593878, "TRUE", 0.413679770330811,
-     42, "Attractive", "Low dose", 5.35791693406122, 6.5, 0, 15.7126368417824,
-     7.64208306593878, "FALSE", 0.413679770330811, 42, "Unattractive",
-     "Low dose", 3.73291693406122, 4.875, 3.99680288865056e-14, 11.7844776313368,
-     6.01708306593878, "TRUE", 0.413679770330811, 42, "Attractive",
-     "Placebo", 5.23291693406122, 6.375, 0, 15.4104707486713, 7.51708306593878,
-     "FALSE", 0.413679770330811, 42, "Unattractive", "Placebo", 2.35791693406122,
+    list("TRUE", "High dose", "Attractive", 0.413679770330811, 42, 4.98291693406122,
+     6.125, 0, 14.8061385624488, 7.26708306593878, "FALSE", "High dose",
+     "Unattractive", 0.413679770330811, 42, 5.48291693406122, 6.625,
+     0, 16.0148029348937, 7.76708306593878, "TRUE", "Low dose", "Attractive",
+     0.413679770330811, 42, 5.35791693406122, 6.5, 0, 15.7126368417824,
+     7.64208306593878, "FALSE", "Low dose", "Unattractive", 0.413679770330811,
+     42, 3.73291693406122, 4.875, 3.99680288865056e-14, 11.7844776313368,
+     6.01708306593878, "TRUE", "Placebo", "Attractive", 0.413679770330811,
+     42, 5.23291693406122, 6.375, 0, 15.4104707486713, 7.51708306593878,
+     "FALSE", "Placebo", "Unattractive", 0.413679770330811, 42, 2.35791693406122,
      3.5, 7.71262387289084e-10, 8.46065060711363, 4.64208306593878
     ))
 
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_jaspColumn1 ✻ jaspColumn21"]][["data"]]
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Facetype ✻ Alcohol1"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", 0.831843182854305, 0.58503154168122, -0.320495540225364,
+    list("TRUE", 0.831843182854305, "Attractive", 0.58503154168122, -0.320495540225364,
      -1.88051472492974, 1.23952364447901, "High dose", "Low dose",
-     42, -0.375, "Attractive", -1.79633047816801, -0.640991080450728,
-     0.79842785788364, 1.04633047816801, "FALSE", 0.831843182854305,
+     42, -0.375, -1.79633047816801, -0.640991080450728, 0.79842785788364,
+     1.04633047816801, "FALSE", 0.831843182854305, "Attractive",
      0.58503154168122, -0.213663693483578, -1.77157217611904, 1.34424478915189,
-     "High dose", "Placebo", 42, -0.250000000000001, "Attractive",
-     -1.67133047816801, -0.427327386967153, 0.904478566623266, 1.171330478168,
-     "FALSE", 0.831843182854305, 0.58503154168122, 0.106831846741787,
+     "High dose", "Placebo", 42, -0.250000000000001, -1.67133047816801,
+     -0.427327386967153, 0.904478566623266, 1.171330478168, "FALSE",
+     0.831843182854305, "Attractive", 0.58503154168122, 0.106831846741787,
      -1.44980884090602, 1.6634725343896, "Low dose", "Placebo", 42,
-     0.124999999999999, "Attractive", -1.29633047816801, 0.213663693483575,
-     0.975161914976909, 1.546330478168, "FALSE", 0.00695053364107305,
+     0.124999999999999, -1.29633047816801, 0.213663693483575, 0.975161914976909,
+     1.546330478168, "FALSE", 0.00695053364107305, "Unattractive",
      0.58503154168122, 1.49564585438503, -0.141360519820368, 3.13265222859043,
-     "High dose", "Low dose", 42, 1.75, "Unattractive", 0.328669521831995,
-     2.99129170877006, 0.0126106651419295, 3.17133047816801, "FALSE",
-     1.0468902134484e-05, 0.58503154168122, 2.6707961685447, 0.869562959202907,
-     4.47202937788649, "High dose", "Placebo", 42, 3.125, "Unattractive",
-     1.70366952183199, 5.3415923370894, 1.02890549975587e-05, 4.546330478168,
-     "FALSE", 0.0235307861237311, 0.58503154168122, 1.17515031415967,
+     "High dose", "Low dose", 42, 1.75, 0.328669521831995, 2.99129170877006,
+     0.0126106651419295, 3.17133047816801, "FALSE", 1.0468902134484e-05,
+     "Unattractive", 0.58503154168122, 2.6707961685447, 0.869562959202907,
+     4.47202937788649, "High dose", "Placebo", 42, 3.125, 1.70366952183199,
+     5.3415923370894, 1.02890549975587e-05, 4.546330478168, "FALSE",
+     0.0235307861237311, "Unattractive", 0.58503154168122, 1.17515031415967,
      -0.431422007124569, 2.7817226354439, "Low dose", "Placebo",
-     42, 1.375, "Unattractive", -0.0463304781680056, 2.35030062831933,
-     0.0597623817693386, 2.79633047816801))
+     42, 1.375, -0.0463304781680056, 2.35030062831933, 0.0597623817693386,
+     2.79633047816801))
 
-  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_jaspColumn1 ✻ jaspColumn22"]][["data"]]
+  table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Facetype ✻ Alcohol2"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", 0.397591234464833, 0.58503154168122, -0.427327386967153,
+    list("TRUE", "High dose", 0.397591234464833, 0.58503154168122, -0.427327386967153,
      -1.99029676592988, 1.13564199199558, "Attractive", "Unattractive",
-     42, -0.5, "High dose", -1.68064144983854, -0.854654773934304,
-     0.397591234464833, 0.680641449838536, "FALSE", 0.00814955006779213,
+     42, -0.5, -1.68064144983854, -0.854654773934304, 0.397591234464833,
+     0.680641449838536, "FALSE", "Low dose", 0.00814955006779213,
      0.58503154168122, 1.38881400764324, -0.237301726475031, 3.01492974176152,
-     "Attractive", "Unattractive", 42, 1.625, "Low dose", 0.444358550161464,
+     "Attractive", "Unattractive", 42, 1.625, 0.444358550161464,
      2.77762801528649, 0.00814955006779213, 2.80564144983854, "FALSE",
-     1.40558381829677e-05, 0.58503154168122, 2.45713247506112, 0.691322304070213,
-     4.22294264605203, "Attractive", "Unattractive", 42, 2.875, "Placebo",
-     1.69435855016146, 4.91426495012225, 1.40558381829677e-05, 4.05564144983854
-    ))
+     "Placebo", 1.40558381829677e-05, 0.58503154168122, 2.45713247506112,
+     0.691322304070213, 4.22294264605203, "Attractive", "Unattractive",
+     42, 2.875, 1.69435855016146, 4.91426495012225, 1.40558381829677e-05,
+     4.05564144983854))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_simpleEffectsContainer"]][["collection"]][["anovaContainer_simpleEffectsContainer_simpleEffectsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,

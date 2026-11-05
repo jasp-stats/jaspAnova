@@ -225,17 +225,17 @@ test_that("Marginal Means table results match", {
                 0.0694969842170856, -1.52462792387419, 0.13060580966841, "TRUE",
                 "experimental", -0.147203469664234, 0.151049119466849, -0.446994159297086, 97,
                 0.152587219968618, -0.974540402379113, 0.332212375969363, "FALSE"),
-    Bonferroni = list("control", -0.230293705415766, 0.151049119466849, -0.530084395048618,97,
-                      0.0694969842170856, -1.52462792387419, 0.13060580966841, "TRUE",
-                      "experimental", -0.147203469664234, 0.151049119466849, -0.446994159297086, 97,
-                      0.152587219968618, -0.974540402379113, 0.332212375969363, "FALSE"),
-    Sidak = list("control", -0.230293705415766, 0.151049119466849, -0.530084395048618, 97,
-                 0.0694969842170856, -1.52462792387419, 0.13060580966841, "TRUE",
-                 "experimental", -0.147203469664234, 0.151049119466849, -0.446994159297086, 97,
-                 0.152587219968618, -0.974540402379113, 0.332212375969363, "FALSE")
+    bonferroni = list("TRUE", 0.151049119466849, 97, "control", -0.57419141060549, -0.230293705415766,
+                      0.26121161933682, -1.52462792387419, 0.113603999773958, "FALSE",
+                      0.151049119466849, 97, "experimental", -0.491101174853958, -0.147203469664234,
+                      0.664424751938727, -0.974540402379113, 0.19669423552549),
+    sidak = list("TRUE", 0.151049119466849, 97, "control", -0.573415842916455,
+                 -0.230293705415766, 0.244153741817679, -1.52462792387419, 0.112828432084923,
+                 "FALSE", 0.151049119466849, 97, "experimental", -0.490325607164923,
+                 -0.147203469664234, 0.554059689191517, -0.974540402379113, 0.195918667836455)
   )
 
-  for (adjustment in c("none", "Bonferroni", "Sidak")) {
+  for (adjustment in c("none", "bonferroni", "sidak")) {
     options$marginalMeanCiCorrection <- adjustment
     results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
     table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
@@ -288,12 +288,12 @@ test_that("Analysis handles errors", {
 
  options <- initClassicalAnovaOptions("Ancova")
  options$dependent <- "contNormal"
- options$covariates <- "debInf"
+ options$covariates <- "contInf"
  options$fixedFactors <- "contBinom"
  options$modelTerms <- list(list(components="contBinom"))
- results <- jaspTools::runAnalysis("Ancova", "test.csv", options)
+ results <- jaspTools::runAnalysis("Ancova", testDataWithInf(), options)
  expect_identical(results[["results"]][["errorMessage"]],
-                  "The following problem(s) occurred while running the analysis:<ul><li>Infinity found in debInf</li></ul>",
+                  "The following problem(s) occurred while running the analysis:<ul><li>Infinity found in contInf</li></ul>",
                   label="Inf covariate check")
 
 })

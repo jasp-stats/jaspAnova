@@ -24,18 +24,18 @@ test_that("Main table results match", {
   )
 
   refTables <- list(
-    nullModelTop = list(1, 1.15069866070698, "Null model (incl. facFive)",
-                        0.25, 0.277230113474675, "", 1.83701195521646, 3.11340404608183, "facGender", 0.25, 0.509275032798994,
-                        29.6656710072444, 0.502295526791326, 0.485338413495893,
-                        "facGender + contGamma", 0.25, 0.139251445890181, 9.83211717425022,
-                        0.267804268827858, 0.24059264108273, "contGamma", 0.25, 0.0742434078361496,
-                        15.885810482332),
-    bestModelTop = list(1, 3.52818212286609, "facGender", 0.25, 0.540453997217391, "",
-                        0.485506904639836, 1.0672128467728, "Null model (incl. facFive)",
-                        0.25, 0.262394147289242, 10.5414217188718, 0.230284849014787,
-                        0.426450425012883, "facGender + contGamma", 0.25, 0.124458367148645,
-                        14.932174588461, 0.134504488298719, 0.235176246789085, "contGamma",
-                        0.25, 0.0726934883447225, 15.235554204653)
+    nullModelTop = list(1, 1.14531949734133, "Null model (incl. facFive)", 0.25, 0.276292212958712,
+                        "", 1.85402872872699, 3.15073861584734, "facGender", 0.25, 0.512253700349008,
+                        25.5120643350272, 0.505639231132807, 0.487172595377931, "facGender + contGamma",
+                        0.25, 0.139704182128425, 6.4664439617243, 0.259688479076234,
+                        0.231887628937358, "contGamma", 0.25, 0.0717499045638547, 10.2089175510104
+                       ),
+    bestModelTop = list(1, 3.16608016113432, "facGender", 0.25, 0.513467239866678, "",
+                        0.54568894852719, 1.16778617007175, "Null model (incl. facFive)",
+                        0.25, 0.280193398226006, 4.51626070078255, 0.254990054887903,
+                        0.451962080155266, "facGender + contGamma", 0.25, 0.130929039676744,
+                        8.30742467306245, 0.146864914400678, 0.244682557172278, "contGamma",
+                        0.25, 0.075410322230572, 13.0657497077892)
   )
 
   for (order in c("nullModelTop", "bestModelTop")) {
@@ -60,14 +60,14 @@ test_that("Effects table results match", {
   )
 
   refTables <- list(
-    allModels = list(0.195147508378382, "contGamma", 0.4, 0.773561964946583, 0.6, 0.226438035053417,
-                     0.215922578651091, "contBinom", 0.4, 0.755353263370717, 0.6,
-                     0.244646736629283, 0.148059370442441, "contGamma<unicode><unicode><unicode>contBinom",
-                     0.8, 0.964306352146872, 0.2, 0.0356936478531281),
-    matchedModels = list(0.251463756140853, "contGamma", 0.4, 0.770552715646492, 0.4, 0.193766080181001,
-                         0.281631799589681, "contBinom", 0.4, 0.752414848114898, 0.4,
-                         0.211903947712595, 0.784742840790344, "contGamma<unicode><unicode><unicode>contBinom",
-                         0.2, 0.0454686584162663, 0.2, 0.0356812041725066)
+    allModels = list(0.193768288580985, "contGamma", 0.4, 0.774801933139485, 0.6, 0.225198066860515,
+                     0.214510111095262, "contBinom", 0.4, 0.75656404423175, 0.6,
+                     0.24343595576825, 0.13701121749157, "contGamma<unicode><unicode><unicode>contBinom",
+                     0.8, 0.966881593911982, 0.2, 0.0331184060880176),
+    matchedModels = list(0.244034500031783, "contGamma", 0.4, 0.775131799569, 0.4, 0.189158901166557,
+                         0.274023452298221, "contBinom", 0.4, 0.756886146009373, 0.4,
+                         0.207404554726184, 0.893174432087777, "contGamma<unicode><unicode><unicode>contBinom",
+                         0.2, 0.0399802076521299, 0.2, 0.0357092992644426)
   )
 
   for (effectsType in c("allModels", "matchedModels")) {
@@ -116,16 +116,16 @@ test_that("Analysis handles errors", {
 
   options$dependent <- "contNormal"
   options$fixedFactors <- list()
-  options$covariates <- "debInf"
-  options$modelTerms <- list(list(components="debInf", isNuisance=FALSE))
-  results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
+  options$covariates <- "contInf"
+  options$modelTerms <- list(list(components="contInf", isNuisance=FALSE))
+  results <- jaspTools::runAnalysis("AncovaBayesian", testDataWithInf(), options)
   expect_true(results[["results"]][["error"]], label="Inf covariate check")
 
   options$dependent <- "contNormal"
   options$covariates <- c("debEqual1", "debEqual2")
   options$modelTerms <- list(list(components="debEqual1", isNuisance=FALSE),
                              list(components="debEqual2", isNuisance=FALSE))
-  results <- jaspTools::runAnalysis("AnovaBayesian", "test.csv", options)
+  results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
   expect_true(results[["results"]][["error"]], label = "Identical covariates check")
 })
 
@@ -152,12 +152,12 @@ test_that("contcor1 - contNormal plot matches", {
 test_that("Model Comparison table results match", {
   table <- results[["results"]][["tableModelComparison"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                      list(1, 1.79472415315199, "facGender", 0.25, 0.374312284883409, "",
-                           0.798367847301607, 1.27861724000582, "facGender + contcor1",
-                           0.25, 0.298838893100913, 12.1608731786381, 0.523794362759307,
-                           0.731634131664583, "Null model", 0.25, 0.196062664733485, 0.00991710759730765,
-                           0.349403860263177, 0.451394642565488, "contcor1", 0.25, 0.130786157282193,
-                           0.010255738862123))
+                      list(1, 1.77992459957487, "facGender", 0.25, 0.372375036989742, "",
+                           0.812266431332279, 1.30087636430968, "facGender + contcor1",
+                           0.25, 0.302467742412883, 8.41778512659775, 0.523794362759306,
+                           0.726930047744762, "Null model", 0.25, 0.195047945207515, 0.00991710756335802,
+                           0.349403860263176, 0.44870903336107, "contcor1", 0.25, 0.130109275389859,
+                           0.0102557388293021))
 })
 
 # test whether sampling parameters with interactions effects works
@@ -178,26 +178,26 @@ results <- jaspTools::runAnalysis("AncovaBayesian", "test.csv", options)
 test_that("Model Comparison table results with interactions match", {
 	table <- results[["results"]][["tableModelComparison"]][["data"]]
 	jaspTools::expect_equal_tables(table,
-		list(1, 7.06170555213835, "contcor1", 0.2, 0.638392110407715, "", 0.497219687920235,
-			 1.860128626628, "contcor1 + facGender", 0.2, 0.317421125907664,
-			 15.6333480655196, 0.0692157107595034, 0.18491798182066, "contcor1 + facGender + contcor1<unicode><unicode><unicode>facGender",
-			 0.2, 0.0441867636651294, 18.3840890554849, 2.11947931806262e-11,
-			 5.41223549936725e-11, "Null model", 0.2, 1.3530588748235e-11,
-			 0.00566422819161401, 9.33499560957271e-12, 2.38375501915096e-11,
-			 "facGender", 0.2, 5.95938754784188e-12, 0.0199269143160373
-	))
+		list(1, 6.83513044561752, "contcor1", 0.2, 0.630830471301074, "", 0.518032178524469,
+		     1.94168665317185, "contcor1 + facGender", 0.2, 0.326790483327713,
+		     10.5636789477548, 0.0671797690186834, 0.177018036818248, "contcor1 + facGender + contcor1<unicode><unicode><unicode>facGender",
+		     0.2, 0.0423790453519534, 12.3879233719147, 2.11947931806262e-11,
+		     5.3481285485768e-11, "Null model", 0.2, 1.33703213712632e-11,
+		     0.00566422819163981, 9.33499560957277e-12, 2.35551987200598e-11,
+		     "facGender", 0.2, 5.88879967998025e-12, 0.0199269140350074
+		    ))
 })
 
 test_that("Model Averaged Posterior Summary table results with interactions match", {
 	table <- results[["results"]][["tablePosteriorEstimates"]][["data"]]
 	jaspTools::expect_equal_tables(table,
-		list("", -0.085353148152257, 0.0695314166904569, 0.0767563813738564,
-			 0.221601378816917, "Intercept", "", 0.474732635792994, 0.63207636384486,
-			 0.0774072267458595, 0.784874979362299, "contcor1", "f", -0.0535917488388796,
-			 0.0937763860288633, 0.0730456277677311, 0.238994337088761, "facGender",
-			 "m", -0.240684705902945, -0.0937763860288633, 0.0730456277677311,
-			 0.0514589886465098, "", "f", -0.133045698206248, 0.0170589375251757,
-			 0.0747339434683253, 0.166183348317297, "contcor1<unicode><unicode><unicode>facGender",
-			 "m", -0.167513255190735, -0.0170589375251757, 0.0747339434683253,
-			 0.13171579133281, ""))
+		list("", -0.085367293132575, 0.0695619231257589, 0.0768133377588807,
+		     0.22155903520386, "Intercept", "", 0.474735612915735, 0.632326517543571,
+		     0.0774179767694601, 0.784856020539753, "contcor1", "f", -0.0535463890600731,
+		     0.0937215606551965, 0.0730587051971681, 0.239032919889055, "facGender",
+		     "m", -0.240703829015233, -0.0937215606551965, 0.0730587051971681,
+		     0.0514584043482767, "", "f", -0.133036208797364, 0.0171537750324805,
+		     0.0747052450812807, 0.166174510541641, "contcor1<unicode><unicode><unicode>facGender",
+		     "m", -0.167504335960925, -0.0171537750324805, 0.0747052450812807,
+		     0.13170638337808, ""))
 })

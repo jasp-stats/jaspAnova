@@ -69,8 +69,8 @@
 <text x='179.77' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='59.54px' lengthAdjust='spacingAndGlyphs'>15 mins</text>
 <text x='387.55' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='59.54px' lengthAdjust='spacingAndGlyphs'>30 mins</text>
 <text x='595.33' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='86.02px' lengthAdjust='spacingAndGlyphs'>No puppies</text>
-<text x='387.55' y='567.49' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='99.24px' lengthAdjust='spacingAndGlyphs'>jaspColumn1</text>
-<text transform='translate(16.68,265.42) rotate(-90)' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='99.24px' lengthAdjust='spacingAndGlyphs'>jaspColumn2</text>
+<text x='387.55' y='567.49' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='39.70px' lengthAdjust='spacingAndGlyphs'>Dose</text>
+<text transform='translate(16.68,265.42) rotate(-90)' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='80.35px' lengthAdjust='spacingAndGlyphs'>Happiness</text>
 <text x='387.55' y='11.70' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='153.10px' lengthAdjust='spacingAndGlyphs'>analysis-1_figure-2_</text>
 </g>
 </svg>

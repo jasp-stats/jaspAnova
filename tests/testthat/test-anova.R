@@ -205,17 +205,17 @@ test_that("Marginal Means table results match", {
                 0.156248639899304, -0.862586104943973, 0.390471041862811, "TRUE",
                 1, -0.283499835571429, 0.163666075582597, -0.608289835972217, 98,
                 0.0412901648293597, -1.73218447721841, 0.0863869418751253, "FALSE"),
-    Bonferroni = list(0, -0.120135614827586, 0.139273765411964, -0.396519869554477, 98,
-                      0.156248639899304, -0.862586104943973, 0.390471041862811, "TRUE",
-                      1, -0.283499835571429, 0.163666075582597, -0.608289835972217, 98,
-                      0.0412901648293597, -1.73218447721841, 0.0863869418751253, "FALSE"),
-    Sidak = list(0, -0.120135614827586, 0.139273765411964, -0.396519869554477, 98,
-                 0.156248639899304, -0.862586104943973, 0.390471041862811, "TRUE",
-                 1, -0.283499835571429, 0.163666075582597, -0.608289835972217, 98,
-                 0.0412901648293597, -1.73218447721841, 0.0863869418751253, "FALSE")
+    bonferroni = list("TRUE", 0.139273765411964, 0, 98, -0.437173095190472, -0.120135614827586,
+                      0.780942083725622, -0.862586104943973, 0.1969018655353, "FALSE",
+                      0.163666075582597, 1, 98, -0.656063039202103, -0.283499835571429,
+                      0.172773883750251, -1.73218447721841, 0.0890633680592454),
+    sidak = list("TRUE", 0.139273765411964, 0, 98, -0.436458291672702, -0.120135614827586,
+                 0.628474449192193, -0.862586104943973, 0.196187062017529, "FALSE",
+                 0.163666075582597, 1, 98, -0.655223045494601, -0.283499835571429,
+                 0.165311180023714, -1.73218447721841, 0.0882233743517437)
   )
 
-  for (adjustment in c("none", "Bonferroni", "Sidak")) {
+  for (adjustment in c("none", "bonferroni", "sidak")) {
     options$marginalMeanCiCorrection <- adjustment
     results <- jaspTools::runAnalysis("Anova", "test.csv", options)
     table <- results[["results"]]$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection[[1]]$data
@@ -390,12 +390,12 @@ test_that("Bar plots match", {
   options$barPlotHorizontalZeroFix <- TRUE
   options$barPlotErrorBars <- TRUE
   options$barPlotCiInterval <- 0.90
-  options$barPlotErrorBarType <- "confidenceInterval"
+  options$barPlotErrorBarType <- "ci"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(testPlot, "barPlot-ci")
 
-  options$barPlotErrorBarType <- "standardError"
+  options$barPlotErrorBarType <- "se"
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   testPlot <- results$state$figures[[1]]$obj
   jaspTools::expect_equal_plots(testPlot, "barPlot-se")
@@ -506,13 +506,13 @@ test_that("Analysis handles errors", {
   options$wlsWeights <- ""
   options$wlsWeights.types <- character(0)
 
+  # the form refuses a factor with fewer than 2 levels, so the analysis never gets to see it
   options$dependent <- "contNormal"
   options$fixedFactors <- "debSame"
   options$modelTerms <- list(list(components="debSame"))
-  results <- jaspTools::runAnalysis("Anova", "test.csv", options)
-  expect_identical(results[["results"]][["errorMessage"]],
-                   "The following problem(s) occurred while running the analysis:<ul><li>Number of factor levels is < 2 in debSame</li></ul>",
-                  label="1-level factor check")
+  expect_error(jaspTools::runAnalysis("Anova", "test.csv", options),
+               "Minimum number of levels is 2. Variable debSame has only 1 levels", fixed = TRUE,
+               label="1-level factor check")
 
   options$dependent <- "contGamma"
   options$fixedFactors <- "facFive"

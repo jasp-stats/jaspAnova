@@ -243,6 +243,9 @@
   } else {
     residuals <- rstandard(anovaContainer[["model"]][["object"]])
   }
+  # plotQQnorm draws the points in data order; residuals that differ only by rounding noise swap ranks
+  # between platforms, so sort them to draw the same plot in the same order everywhere
+  residuals <- sort(unname(residuals))
   ciLevel <- if (options[["qqPlotCi"]])  options[["qqPlotCiLevel"]] else NULL
 
   qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals,

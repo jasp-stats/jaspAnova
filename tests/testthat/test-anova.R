@@ -712,9 +712,9 @@ results <- jaspTools::runAnalysis("Anova", "ZelazoKolb1972.csv", options)
 test_that("Ordinal restrictions: Informative Hypothesis Tests table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_ihtTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.0308475934292769, 6.42666580972066, "F", "Type global", 0.0278151519017313,
+                                 list(0.0308581450634342, 6.42666580972066, "F", "Type global", 0.0278151519017313,
                                       6.70126802148546, "LRT", "Type global", 0.0431126887497895,
-                                      5.56056578050442, "Score", "Type global", 0.0308475934292769,
+                                      5.56056578050442, "Score", "Type global", 0.0308581450634342,
                                       6.42666580972066, "F", "Type A", 0.0278151519017313, 6.70126802148546,
                                       "LRT", "Type A", 0.0431126887497895, 5.56056578050442, "Score",
                                       "Type A", 1, 0, "F", "Type B", 1, 0, "LRT", "Type B", 1, 0,

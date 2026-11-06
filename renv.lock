@@ -7179,7 +7179,7 @@
     },
     "restriktor": {
       "Package": "restriktor",
-      "Version": "0.6-30",
+      "Version": "0.6-50",
       "Source": "Repository",
       "Title": "Restricted Statistical Estimation and Inference for Linear Models",
       "Authors@R": "c(person(given = \"Leonard\", family = \"Vanbrabant\", role =  c(\"aut\",\"cre\"), email = \"info@restriktor.org\"), person(given = \"Rebecca\", family = \"Kuiper\", role  = c(\"aut\"), email = \"r.m.kuiper@uu.nl\"), person(given = \"Yves\", family = \"Rosseel\", role  = c(\"ctb\"), email = \"Yves.Rosseel@UGent.be\"), person(given = \"Aleksandra\", family = \"Dacko\", role  = c(\"ctb\"), email = \"a.dacko@uu.nl\") )",
@@ -7216,6 +7216,7 @@
         "metadat"
       ],
       "VignetteBuilder": "knitr",
+      "Config/testthat/edition": "3",
       "Repository": "CRAN"
     },
     "rjson": {

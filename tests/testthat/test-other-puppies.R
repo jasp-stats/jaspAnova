@@ -66,9 +66,9 @@ test_that("Anova results match", {
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_kruskalContainer"]][["collection"]][["anovaContainer_kruskalContainer_kruskalTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list(2, 0.442857142857143, 0.35, "Dose", 0.16681314955957, 0.0214984715525216,
-     0.0450492023935578, 6.2, 0.787644385009867, 0.773233171256257
-    ))
+    list(2, 0.442857142857143, 0.35, "Dose", 0.153487735045399, 0.0337404418685841,
+         0.0450492023935578, 6.2, 0.805809299135651, 0.789605247574196
+        ))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_marginalMeansContainer"]][["collection"]][["anovaContainer_marginalMeansContainer_Dose"]][["data"]]
   jaspTools::expect_equal_tables(table,

@@ -476,10 +476,11 @@ test_that("Nonparametric table results match", {
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   jaspTools::expect_equal_tables(table,
-                                 list(4, 0.034303030303031, 0, "facFive", 0.011115645383478, 0, 0.493866894607854,
-                                      3.39600000000007, 0.193550362611566, 0.14617504991631, 1, 0.0103733573357337,
-                                      0.000275126288139123, "facExperim", 1.21480398103053e-05, 0,
-                                      0.310873187457312, 1.02696237623763, 0.0878974178624286, 0.0792208198923551)
+                                 list(4, 0.034303030303031, 0, "facFive", 0.012276602167515, 0, 0.493866894607854,
+                                      3.39600000000007, 0.21334006878842, 0.15472748428511, 1, 0.0103733573357337,
+                                      0.000275126288139123, "facExperim", 3.12030260761216e-05, 0,
+                                      0.310873187457312, 1.02696237623763, 0.11702143954845, 0.0973856173138005
+                                     )
   )
 })
 
@@ -711,9 +712,9 @@ results <- jaspTools::runAnalysis("Anova", "ZelazoKolb1972.csv", options)
 test_that("Ordinal restrictions: Informative Hypothesis Tests table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_ihtTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.0308475934292769, 6.42666580972066, "F", "Type global", 0.0278151519017313,
+                                 list(0.0308581450634342, 6.42666580972066, "F", "Type global", 0.0278151519017313,
                                       6.70126802148546, "LRT", "Type global", 0.0431126887497895,
-                                      5.56056578050442, "Score", "Type global", 0.0308475934292769,
+                                      5.56056578050442, "Score", "Type global", 0.0308581450634342,
                                       6.42666580972066, "F", "Type A", 0.0278151519017313, 6.70126802148546,
                                       "LRT", "Type A", 0.0431126887497895, 5.56056578050442, "Score",
                                       "Type A", 1, 0, "F", "Type B", 1, 0, "LRT", "Type B", 1, 0,

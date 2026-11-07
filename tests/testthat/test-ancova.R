@@ -349,17 +349,17 @@ test_that("Ordinal restrictions: Informative Hypothesis Tests table results matc
 test_that("Ordinal restrictions: Marginal means table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_marginalMeansContainer_contBinom"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.00631082413156547, 0, -0.0052940718699722, 0.00710593238617753,
-                                      0.0201427487900576, 0.152623965297405, 1, -0.541673449142385,
-                                      -0.283815957286218, 0.0347949556202055))
+                                 list(0.00605075458833775, 0, -0.00520541747238541, 0.0074449180430274,
+                                      0.0185199044282401, 0.138102548378638, 1, -0.555352206606263,
+                                      -0.260879238909298, -0.0260186395256245))
 })
 
 test_that("Ordinal restrictions: Coefficients table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 1_modelSummaryContainer_coefficientsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(".Intercept.", 0, 0, 0, 0, "contBinom1", -0.28901764982443, -0.545890974144477,
-                                      0.152410269162387, 0.0216009611708116, "contcor1", 0.135225724991321,
-                                      -0.100746062285325, 0.120094833739718, 0.383316032355158))
+                                 list(".Intercept.", 0, 0, 0, 0, "contBinom1", -0.264754861019332, -0.554178242249988,
+                                      0.137662680975461, -0.0410038233086122, "contcor1", 0.141676614011649,
+                                      -0.099058971199198, 0.11514571649234, 0.352433342589953))
 })
 
 test_that("Ordinal restrictions: Restriction Matrix table results match", {
@@ -385,18 +385,18 @@ test_that("Ordinal restrictions: Informative Hypothesis Tests table results matc
 test_that("Ordinal restrictions: Marginal means table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_marginalMeansContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_marginalMeansContainer_contBinom"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.0401499620148025, 0, -0.0052940718699722, 0.00762632152811411,
-                                      0.147781545335185, 0.15219130722473, 1, -0.541673449142385,
-                                      -0.285158551298243, 0.0345874620687721))
+                                 list(0.0411410571336018, 0, -0.00520541747238541, 0.00791302458933345,
+                                      0.173768864052043, 0.13775960161798, 1, -0.555352206606263,
+                                      -0.260879238909298, -0.0314217649081611))
 })
 
 test_that("Ordinal restrictions: Coefficients table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 2_modelSummaryContainer_coefficientsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(".Intercept.", 0, 0, 0.0390913797847908, 0.135449151526049, "contBinom1",
-                                      -0.294040143250604, -0.553042198939247, 0.15095032207897, 0.0149620362407961,
-                                      "contcor1", 0.133967448915338, -0.100746062285325, 0.119436094843916,
-                                      0.367522848917437))
+                                 list(".Intercept.", 0, 0, 0.0393060413014829, 0.157169155572585, "contBinom1",
+                                      -0.26640054759679, -0.554178242249988, 0.137393016539606, -0.0648339498401136,
+                                      "contcor1", 0.141676614011649, -0.099058971199198, 0.114243562074302,
+                                      0.364253820050967))
 })
 
 test_that("Ordinal restrictions: Restriction Matrix table results match", {
@@ -421,17 +421,17 @@ test_that("Ordinal restrictions: Informative Hypothesis Tests table results matc
 test_that("Ordinal restrictions: Marginal means table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3_marginalMeansContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3_marginalMeansContainer_contBinom"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.00615640047820512, 0, -0.0040934464864444, 0.00784355639438009,
-                                      0.021670734045724, 0.0126705139715333, 1, -0.0040934464864444,
-                                      0.00795127192950033, 0.0347949556202055))
+                                 list(0.00575598811046109, 0, -0.0027708997735424, 0.00874882006590329,
+                                      0.0184816104229414, 0.00657217435337899, 1, -0.0027708997735424,
+                                      0.00874882006590329, 0.0193868270041723))
 })
 
 test_that("Ordinal restrictions: Coefficients table results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_ordinalRestrictions"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3_modelSummaryContainer"]][["collection"]][["anovaContainer_ordinalRestrictions_Model 3_modelSummaryContainer_coefficientsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(".Intercept.", 0, 0, 0, 0, "contBinom1", 0, 0, 0.0115253766048944,
-                                      0.0216009611708116, "contcor1", 0.149262692395377, -0.077898189675906,
-                                      0.117156155274091, 0.41239355557723))
+                                 list(".Intercept.", 0, 0, 0, 0, "contBinom1", 0, 0, 0.00297739994332153,
+                                      0, "contcor1", 0.166489838621557, -0.0527301570564364, 0.109536317400457,
+                                      0.351704608576186))
 })
 
 test_that("Ordinal restrictions: Restriction Matrix table results match", {

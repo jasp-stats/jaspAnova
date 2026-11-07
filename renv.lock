@@ -4320,7 +4320,7 @@
     },
     "jaspBase": {
       "Package": "jaspBase",
-      "Version": "0.20.4",
+      "Version": "0.20.5",
       "Source": "GitHub",
       "Requirements": [
         "cli",
@@ -4347,7 +4347,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspBase",
-      "RemoteSha": "763cb835a7589b72da079b95bbf9491abad4fab3"
+      "RemoteSha": "b46b729e70013cc31700adbb1454bdffa1a3c8f3"
     },
     "jaspDescriptives": {
       "Package": "jaspDescriptives",
@@ -7179,7 +7179,7 @@
     },
     "restriktor": {
       "Package": "restriktor",
-      "Version": "0.6-30",
+      "Version": "0.6-50",
       "Source": "Repository",
       "Title": "Restricted Statistical Estimation and Inference for Linear Models",
       "Authors@R": "c(person(given = \"Leonard\", family = \"Vanbrabant\", role =  c(\"aut\",\"cre\"), email = \"info@restriktor.org\"), person(given = \"Rebecca\", family = \"Kuiper\", role  = c(\"aut\"), email = \"r.m.kuiper@uu.nl\"), person(given = \"Yves\", family = \"Rosseel\", role  = c(\"ctb\"), email = \"Yves.Rosseel@UGent.be\"), person(given = \"Aleksandra\", family = \"Dacko\", role  = c(\"ctb\"), email = \"a.dacko@uu.nl\") )",
@@ -7216,6 +7216,7 @@
         "metadat"
       ],
       "VignetteBuilder": "knitr",
+      "Config/testthat/edition": "3",
       "Repository": "CRAN"
     },
     "rjson": {

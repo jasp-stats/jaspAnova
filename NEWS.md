@@ -23,6 +23,7 @@
 ## Fixed
 * ANOVA and ANCOVA now correctly apply the selected WLS Weights variable when its column type is included in the analysis options. Previously, weights were silently ignored; refresh affected saved analyses to obtain weighted results ([PR #589](https://github.com/jasp-stats/jaspAnova/pull/589)).
 * Cohen's d for contrasts in ANOVA, ANCOVA, and Repeated Measures ANOVA is now invariant to the scale of the contrast weights: weights are rescaled so their absolute values sum to 2 before the effect size is computed, so e.g. `(1, 0, 1, -2, 0)` and `(0.5, 0, 0.5, -1, 0)` yield the same d. A footnote on the contrast table states this. This also changes d for the built-in deviation and polynomial contrasts ([Issue #4488](https://github.com/jasp-stats/jasp-issues/issues/4488)).
+* Repeated Measures ANOVA showed η², partial η², ω², and partial ω² in the wrong rows of the Within Subjects Effects table when the design mixed 2-level and 3+-level factors (e.g., 2 × 3 × 2). Each effect size is now matched to its own term ([Issue #4704](https://github.com/jasp-stats/jasp-issues/issues/4704)).
 
 ## Added
 * Partial η² and partial ω² (with optional CIs) as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size.

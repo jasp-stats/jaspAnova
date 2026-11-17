@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 ^tests/upgrades$
 ^examples$
+^codecov\.yml$

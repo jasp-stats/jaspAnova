@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2026-04-18 03:38\n"
+"POT-Creation-Date: 2026-09-19 02:46\n"
 "PO-Revision-Date: 2025-04-02 18:58+0000\n"
 "Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -834,6 +834,11 @@ msgstr "d Коэна"
 #, fuzzy
 msgid "%s%% CI for Cohen's d"
 msgstr "%s%% ДИ для d Коэна"
+
+msgid ""
+"Cohen's d is based on contrast weights rescaled so that the absolute weights "
+"sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
 
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Коэффициенты контрастов - %2$s"

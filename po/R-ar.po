@@ -1,0 +1,1038 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspAnova 0.96.7\n"
+"POT-Creation-Date: 2026-11-07 02:38\n"
+"PO-Revision-Date: 2026-11-12 10:22+0000\n"
+"Last-Translator: Fahad Mahfouz Al-Subhi "
+"<fahadalsubhi@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
+"ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
+
+msgid "The WLS weights contain negative and/or zero values.<br><br>(only positive WLS weights allowed)."
+msgstr ""
+"تتضمن أوزان WLS قيمًا سالبة و/أو صفرية.<br><br>(يُسمح بأوزان WLS موجبة فقط)."
+
+msgid "Singular fit encountered; one or more predictor variables are a linear combination of other predictor variables"
+msgstr ""
+"وُجد تفرد في ملاءمة النموذج؛ متغير متنبئ واحد أو أكثر هو تركيب خطي من متغيرات "
+"متنبئة أخرى"
+
+msgid "Residual sum of squares is 0; this might be due to extremely low variance of your dependent variable"
+msgstr ""
+"مجموع مربعات البواقي يساوي 0؛ قد يرجع ذلك إلى انخفاض تباين المتغير التابع "
+"للغاية"
+
+msgid "An error occurred while computing the ANOVA: %s"
+msgstr "حدث خطأ أثناء حساب تحليل التباين: %s"
+
+msgid "Your design contains empty cells. Please try a different type of sum of squares or remove an interaction effect from the model."
+msgstr ""
+"يتضمن تصميمك خلايا فارغة. جرّب نوعًا آخر من مجموع المربعات، أو أزل أثر تفاعل من "
+"النموذج."
+
+msgid "The Welch correction could not be computed because '%1$s' has zero variance after grouping on the following level(s) of '%2$s': %3$s"
+msgstr ""
+"تعذر حساب تصحيح ويلش لأن تباين '%1$s' يساوي صفرًا بعد التجميع بحسب المستويات "
+"التالية من '%2$s': %3$s"
+
+msgid "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
+msgstr ""
+"بسبب الخلايا الفارغة في التصميم، يمكن تقدير %1$s فقط من أصل %2$s من الآثار."
+
+msgid "Some higher-order interaction effects cannot be assessed and are therefore omitted."
+msgstr ""
+"ولا يمكن تقييم بعض آثار التفاعلات ذات الترتيب الأعلى، ولذلك فإنها تُحذف."
+
+msgid "ANOVA"
+msgstr "تحليل التباين (ANOVA)"
+
+msgid "ANCOVA"
+msgstr "تحليل التغاير (ANCOVA)"
+
+msgid "Homogeneity Correction"
+msgstr "تصحيح التجانس"
+
+msgid "Cases"
+msgstr "الحالات"
+
+msgid "Sum of Squares"
+msgstr "مجموع المربعات"
+
+msgid "df"
+msgstr "درجات الحرية"
+
+msgid "Mean Square"
+msgstr "متوسط المربعات"
+
+msgid "F"
+msgstr "F"
+
+msgid "p"
+msgstr "p"
+
+msgid "VS-MPR%s"
+msgstr "VS-MPR%s"
+
+msgid "%s%% CI for η²"
+msgstr "فترة ثقة %s%% لـη²"
+
+msgid "Lower"
+msgstr "الحد الأدنى"
+
+msgid "Upper"
+msgstr "الحد الأعلى"
+
+msgid "%s%% CI for η²ₚ"
+msgstr "فترة ثقة %s%% لـη²ₚ"
+
+msgid "%s%% CI for ω²"
+msgstr "فترة ثقة %s%% لـω²"
+
+msgid "%s%% CI for ω²ₚ"
+msgstr "فترة ثقة %s%% لـω²ₚ"
+
+msgid "The Brown-Forsythe and Welch corrections are only available for one-way ANOVA"
+msgstr "تصحيحا براون–فورسايث وويلش متاحان لتحليل التباين أحادي الاتجاه فقط"
+
+msgid "Contrast Tables"
+msgstr "جداول المقارنات التباينية"
+
+msgid "%1$s Contrast - %2$s"
+msgstr "المقارنة التباينية %1$s - %2$s"
+
+msgid "Insufficient data to estimate full model/contrasts. Likely empty cells in between-subjects design (i.e., bad data structure)"
+msgstr ""
+"البيانات غير كافية لتقدير النموذج الكامل/المقارنات التباينية. يُرجَّح وجود خلايا "
+"فارغة في التصميم بين الأفراد (أي بنية بيانات غير ملائمة)"
+
+msgid "Please specify an additional contrast."
+msgstr "يرجى تحديد مقارنة تباينية إضافية."
+
+msgid "Wrong number of custom contrast matrix rows."
+msgstr "عدد صفوف مصفوفة المقارنات التباينية المخصصة غير صحيح."
+
+msgid "Please specify non-zero contrast weights."
+msgstr "يرجى تحديد أوزان غير صفرية للمقارنة التباينية."
+
+msgid "Post Hoc Tests"
+msgstr "الاختبارات البعدية"
+
+msgid "Standard (HSD)"
+msgstr "قياسي (HSD)"
+
+msgid "Standard"
+msgstr "قياسي"
+
+msgid "Results are averaged over the levels of: %s"
+msgstr "تُحسب النتائج في المتوسط على مستويات: %s"
+
+msgid "Some parameters were not estimable due to missingness."
+msgstr "تعذر تقدير بعض المعلمات بسبب البيانات المفقودة."
+
+msgid "Mean Difference and Cohen's d estimates"
+msgstr "تقديرات فرق المتوسطات وحجم الأثر d لكوهين"
+
+msgid "Mean Difference estimates"
+msgstr "تقديرات فرق المتوسطين"
+
+msgid "Bootstrapping based on %1$s replicates. %2$s are based on the median of the bootstrap distribution."
+msgstr ""
+"يستند البوتستراب إلى %1$s من التكرارات. وتستند %2$s إلى وسيط توزيع "
+"البوتستراب."
+
+msgid "Bias corrected accelerated."
+msgstr "تصحيح التحيز والتسريع."
+
+msgid "Bootstrapping Post Hoc Test"
+msgstr "الاختبار البعدي بالبوتستراب"
+
+msgid "Some confidence intervals could not be computed.\nPossibly too few bootstrap replicates."
+msgstr ""
+"تعذر حساب بعض فترات الثقة.\n"
+"قد يكون عدد تكرارات البوتستراب قليلًا جدًا."
+
+msgid "Games-Howell"
+msgstr "غيمز–هاول"
+
+msgid "Games-Howell Post Hoc Comparisons - %s"
+msgstr "مقارنات غيمز–هاول البعدية - %s"
+
+msgid "Comparison"
+msgstr "المقارنة"
+
+msgid "Mean Difference"
+msgstr "فرق المتوسطين"
+
+msgid "%.0f%% CI for Mean Difference"
+msgstr "فترة ثقة %.0f%% لفرق المتوسطين"
+
+msgid "p<sub>tukey</sub>"
+msgstr "p<sub>tukey</sub>"
+
+msgid "Results based on uncorrected means."
+msgstr "تستند النتائج إلى متوسطات غير مصححة."
+
+msgid "Dunnett"
+msgstr "دانيت"
+
+msgid "Dunnett Post Hoc Comparisons - %s"
+msgstr "مقارنات دانيت البعدية - %s"
+
+msgid "%s%% CI for Mean Difference"
+msgstr "فترة ثقة %s%% لفرق المتوسطين"
+
+msgid "p<sub>Dunnett</sub>"
+msgstr "p<sub>Dunnett</sub>"
+
+msgid "Confidence interval is too narrow, please select a different confidence level."
+msgstr "إن فترة الثقة ضيقة جداً، يرجى اختيار مستوى ثقة مختلف."
+
+msgid "Assumption Checks"
+msgstr "فحص الافتراضات"
+
+msgid "Test for Equality of Variances (Levene's)"
+msgstr "اختبار تساوي التباينات (ليفين)"
+
+msgid "df1"
+msgstr "df1"
+
+msgid "df2"
+msgstr "df2"
+
+msgid "F-value equal to zero indicating perfect fit.<br><br>(Levene's tests on an essentially perfect fit are unreliable)"
+msgstr ""
+"قيمة F تساوي صفرًا، مما يشير إلى مطابقة تامة.<br><br>(اختبارات ليفين عند "
+"مطابقة تكاد تكون تامة غير موثوقة)"
+
+msgid "Marginal Means"
+msgstr "المتوسطات الهامشية"
+
+msgid "Bootstrapping Marginal Means"
+msgstr "حساب المتوسطات الهامشية بالبوتستراب"
+
+msgid "Some confidence intervals could not be computed. Possibly too few bootstrap replicates."
+msgstr "تعذر حساب بعض فترات الثقة. قد يكون عدد تكرارات البوتستراب قليلًا جدًا."
+
+msgid "Bootstrapping based on %s replicates."
+msgstr "إعادة المعاينة بالبوتستراب استنادًا إلى %s تكرارًا."
+
+msgid "Simple Main Effects"
+msgstr "الآثار الرئيسية البسيطة"
+
+msgid "Simple Main Effects - %s"
+msgstr "الآثار الرئيسية البسيطة - %s"
+
+msgid "Level of %s"
+msgstr "مستوى %s"
+
+msgid "Not enough observations in cells %s."
+msgstr "عدد المشاهدات غير كافٍ في الخلايا %s."
+
+msgid "Kruskal-Wallis Test"
+msgstr "اختبار كروسكال–واليس"
+
+msgid "Factor"
+msgstr "العامل"
+
+msgid "Statistic"
+msgstr "الإحصاء"
+
+msgid "Rank %s"
+msgstr "الرتبة %s"
+
+msgid "%1$i%% CI for Rank %2$s"
+msgstr "فترة ثقة %1$i%% للرتبة %2$s"
+
+msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
+msgstr "تُجرى الاختبارات لكل متغير على حدة، دون مراعاة الآثار متعددة المتغيرات."
+
+msgid "Dunn"
+msgstr "دان"
+
+msgid "Dunn's Post Hoc Comparisons - %s"
+msgstr "مقارنات دان البعدية - %s"
+
+msgid "W<sub>i</sub>"
+msgstr "W<sub>i</sub>"
+
+msgid "W<sub>j</sub>"
+msgstr "W<sub>j</sub>"
+
+msgid "r<sub>rb</sub>"
+msgstr "r<sub>rb</sub>"
+
+msgid "p<sub>Bonf</sub>"
+msgstr "p<sub>Bonf</sub>"
+
+msgid "p<sub>Holm</sub>"
+msgstr "p<sub>Holm</sub>"
+
+msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
+msgstr "ارتباط الرتب الثنائي استنادًا إلى اختبارات مان–ويتني الفردية."
+
+msgid "Error while loading data. Please verify your repeated measures observations."
+msgstr "خطأ عند تحميل البيانات. يرجى التحقق من مشاهدات القياسات المتكررة."
+
+msgid "Factor: <em>%s</em>, contains fewer than two levels."
+msgstr "العامل <em>%s</em> يحتوي على أقل من مستويين."
+
+msgid "Factors: <em>%s</em>, contain fewer than two levels."
+msgstr "العوامل <em>%s</em> تحتوي على أقل من مستويين."
+
+msgid "The repeated measure: <em>%s</em>, contains infinite values."
+msgstr "القياس المتكرر: <em>%s</em>، يحتوي على قيم لانهائية."
+
+msgid "The repeated measures: <em>%s</em>, contain infinite values."
+msgstr "القياسات المتكررة: <em>%s</em>، تحتوي على قيم لا نهائية."
+
+msgid "The covariate: <em>%s</em>, contains infinite values."
+msgstr "يحتوي المتغير المصاحب <em>%s</em> على قيم لا نهائية."
+
+msgid "The covariates: <em>%s</em>, contain infinite values."
+msgstr "تحتوي المتغيرات المصاحبة <em>%s</em> على قيم لا نهائية."
+
+msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
+msgstr ""
+"يرجى اختيار أسماء لعوامل القياسات المتكررة تختلف عن أسماء العوامل بين الأفراد."
+
+msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
+msgstr ""
+"مجموعة البيانات كبيرة جدًا لاختبار المتابعة أحادي المتغير. جرّب إلغاء تحديد "
+"\"تجميع حد الخطأ لاختبارات المتابعة\" في تبويب النموذج."
+
+msgid "Some parameters are not estimable, most likely due to empty cells of the design."
+msgstr ""
+"وبعض المعلمات غير قابلة للتقدير، على الأرجح بسبب الخلايا الفارغة في التصميم."
+
+msgid "Greenhouse-Geisser"
+msgstr "غرينهاوس–غايسر"
+
+msgid "Huynh-Feldt"
+msgstr "هوينه–فيلدت"
+
+msgid "None"
+msgstr "بلا"
+
+msgid "Between Subjects Effects"
+msgstr "التأثيرات بين الأفراد"
+
+msgid "%s<sub>G</sub>"
+msgstr "%s<sub>G</sub>"
+
+msgid "Within Subjects Effects"
+msgstr "آثار داخل المفحوصين"
+
+msgid "Sphericity Correction"
+msgstr "تصحيح الكروية"
+
+msgid "Sphericity corrections not available for factors with 2 levels."
+msgstr "تصحيحات الكروية غير متاحة للعوامل ذات المستويين."
+
+msgid "Mauchly's test of sphericity indicates that the assumption of sphericity is violated (p < .05)."
+msgstr "يشير اختبار موشلي للكروية إلى عدم تحقق افتراض الكروية (p < .05)."
+
+msgid "Cannot perform homogeneity tests because there are no between subjects factors specified."
+msgstr "يتعذّر إجراء اختبارات التجانس لعدم تحديد عوامل بين المفحوصين."
+
+msgid "Test of Sphericity"
+msgstr "اختبار الكروية"
+
+msgid "Mauchly's W"
+msgstr "معامل W لموشلي"
+
+msgid "Approx. %s"
+msgstr "تقريبًا %s"
+
+msgid "p-value"
+msgstr "قيمة p"
+
+msgid "Greenhouse-Geisser %s"
+msgstr "%s لغرينهاوس–غايسر"
+
+msgid "Huynh-Feldt %s"
+msgstr "هوينه–فيلدت %s"
+
+msgid "Lower Bound %s"
+msgstr "الحد الأدنى %s"
+
+msgid "Cannot perform sphericity tests because there are only two levels of the RM factor, or because the SSP matrix is singular."
+msgstr ""
+"يتعذر إجراء اختبارات الكروية لوجود مستويين فقط لعامل القياسات المتكررة (RM)، "
+"أو لأن مصفوفة SSP مفردة."
+
+msgid "%s corrected p-values are not appropriate for repeated measures post-hoc tests (Maxwell, 1980; Field, 2012)."
+msgstr ""
+"قيم p المصححة بطريقة %s غير مناسبة للاختبارات البعدية للقياسات المتكررة "
+"(Maxwell, 1980; Field, 2012)."
+
+msgid "Bootstrapping based on %s successful replicates."
+msgstr "بوتستراب استنادًا إلى %s من التكرارات الناجحة."
+
+msgid "Nonparametrics"
+msgstr "الاختبارات اللامعلمية"
+
+msgid "Friedman Test"
+msgstr "اختبار فريدمان"
+
+msgid "Χ²<sub>F</sub>"
+msgstr "Χ²<sub>F</sub>"
+
+msgid "Kendall's W"
+msgstr "معامل W لكندال"
+
+msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgstr "يرجى تحديد حدود مناسبة لاختبار فريدمان/دوربين."
+
+msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
+msgstr ""
+"التصميم ليس تصميم قطاعات كاملة دون تكرار. يتوفر اختبار فريدمان فقط بديلًا "
+"لتحليل التباين أحادي الاتجاه للقياسات المتكررة."
+
+msgid "Durbin Test"
+msgstr "اختبار دوربين"
+
+msgid "df num"
+msgstr "درجات حرية البسط"
+
+msgid "df den"
+msgstr "درجات حرية المقام"
+
+msgid "p<sub>F</sub>"
+msgstr "p<sub>F</sub>"
+
+msgid "Conover Test"
+msgstr "اختبار كونوفر"
+
+msgid "Conover's Post Hoc Comparisons - %s"
+msgstr "مقارنات كونوفر البعدية - %s"
+
+msgid "T-Stat"
+msgstr "إحصاء T"
+
+msgid "Grouped by %s."
+msgstr "مجمّعة حسب %s."
+
+msgid "Rank-biserial correlation based on individual signed-rank tests."
+msgstr "ارتباط الرتب الثنائي استنادًا إلى اختبارات الرتب الموقعة الفردية."
+
+msgid "Moderator factors must also appear in the model terms!"
+msgstr "يجب أن تظهر العوامل المعدِّلة أيضًا ضمن حدود النموذج!"
+
+msgid "Infinity found in repeated measures cells."
+msgstr "وُجدت قيمة لا نهائية في خلايا القياسات المتكررة."
+
+msgid "Number of observations is < %s in repeated measures cells"
+msgstr "عدد المشاهدات < %s في خلايا القياسات المتكررة"
+
+msgid "The variance in the repeated measures cells is 0."
+msgstr "التباين في خلايا القياسات المتكررة يساوي 0."
+
+msgid "Duplicate variables encountered in repeated measures cells, %s"
+msgstr "وُجدت متغيرات مكررة في خلايا القياسات المتكررة، %s"
+
+msgid "Duplicate variables encountered in %s"
+msgstr "وُجدت متغيرات مكررة في %s"
+
+msgid "Duplicate participant column added to model terms, %s"
+msgstr "أُضيف عمود المشارك أكثر من مرة إلى حدود النموذج، %s"
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+"لا توجد مشاهدات لتأثير تفاعل %1$s عند التوليفات الآتية: %2$s. عدّل النموذج "
+"واحذف أي تفاعلات ذات خلايا مفقودة."
+
+msgid "The interaction effect of %1$s has no observations for the combination(s): %2$s. Only the first 10 missing combinations are shown. Please adjust the model and remove any interactions with missing cells"
+msgstr ""
+"لا توجد مشاهدات لتأثير تفاعل %1$s عند التوليفات الآتية: %2$s. تُعرض أول 10 "
+"توليفات مفقودة فقط. عدّل النموذج واحذف أي تفاعلات ذات خلايا مفقودة."
+
+msgid "Bayes factor is undefined -- all effects are specified as nuisance."
+msgstr "عامل بايز غير معرّف؛ صُنّفت جميع الآثار بأنها دخيلة."
+
+msgid "Null model"
+msgstr "النموذج الصفري"
+
+msgid "Null model (incl. %s)"
+msgstr "النموذج الصفري (يشمل %s)"
+
+msgid "Computing Bayes factors"
+msgstr "حساب عوامل بايز"
+
+msgid "The Laplace approximation is faster but also less accurate than the automatic method. This is fine when exploring the data and obtaining a rough estimate. However, we recommend using the automatic integration method to obtain the final results."
+msgstr ""
+"تقريب لابلاس أسرع لكنه أقل دقة من الطريقة التلقائية. يناسب استكشاف البيانات "
+"والحصول على تقدير تقريبي. ونوصي باستخدام طريقة التكامل التلقائي للحصول على "
+"النتائج النهائية."
+
+msgid "The Laplace approximation does not always provide an error estimate."
+msgstr "لا يوفّر تقريب لابلاس دائمًا تقديرًا للخطأ."
+
+msgid "Bayes factor could not be computed for model: %1$s.\nThe error message was: %2$s."
+msgstr ""
+"تعذّر حساب عامل بايز للنموذج: %1$s.\n"
+"رسالة الخطأ: %2$s."
+
+msgid "All models include %s, and random slopes for all repeated measures factors."
+msgstr "تشمل جميع النماذج %s وميولًا عشوائية لجميع عوامل القياسات المتكررة."
+
+msgid "Random slopes for repeated measures factors are excluded."
+msgstr "تُستبعد الميول العشوائية لعوامل القياسات المتكررة."
+
+msgid "All models include %s."
+msgstr "كل النماذج تشمل %s."
+
+msgid "Analysis of Effects - %s"
+msgstr "تحليل التأثيرات - %s"
+
+msgid "Analysis of Effects"
+msgstr "تحليل التأثيرات"
+
+msgid "Log(BF<sub>incl</sub>)"
+msgstr "Log(BF<sub>incl</sub>)"
+
+msgid "BF<sub>excl</sub>"
+msgstr "BF<sub>excl</sub>"
+
+msgid "BF<sub>incl</sub>"
+msgstr "BF<sub>incl</sub>"
+
+msgid "Effects"
+msgstr "الآثار"
+
+msgid "P(incl)"
+msgstr "P(incl)"
+
+msgid "P(excl)"
+msgstr "P(excl)"
+
+msgid "P(incl|data)"
+msgstr "P(incl|data)"
+
+msgid "P(excl|data)"
+msgstr "P(excl|data)"
+
+msgid "Compares models that contain the effect to equivalent models stripped of the effect. Higher-order interactions are excluded. Analysis suggested by Sebastiaan Math%st."
+msgstr ""
+"مقارنة النماذج التي تتضمن الأثر بنماذج مكافئة يُحذف منها الأثر، مع استبعاد "
+"التفاعلات الأعلى رتبة. اقترح هذا التحليل Sebastiaan Math%st."
+
+msgid "Some Bayes factors could not be calculated. Inclusion probabilities and Bayes factors are calculated while excluding these models. The results may be uninterpretable!"
+msgstr ""
+"تعذّر حساب بعض عوامل بايز. تُحسب احتمالات الإدراج وعوامل بايز مع استبعاد هذه "
+"النماذج. قد تكون النتائج غير قابلة للتفسير!"
+
+msgid "Model Comparison"
+msgstr "مقارنة النماذج"
+
+msgid "BF<sub>M</sub>"
+msgstr "BF<sub>M</sub>"
+
+msgid "BF<sub>10</sub>"
+msgstr "BF<sub>10</sub>"
+
+msgid "BF<sub>01</sub>"
+msgstr "BF<sub>01</sub>"
+
+msgid "Log(BF<sub>M</sub>)"
+msgstr "Log(BF<sub>M</sub>)"
+
+msgid "Log(BF<sub>10</sub>)"
+msgstr "Log(BF<sub>10</sub>)"
+
+msgid "Models"
+msgstr "النماذج"
+
+msgid "P(M)"
+msgstr "P(M)"
+
+msgid "P(M|data)"
+msgstr "P(M|data)"
+
+msgid "error %%"
+msgstr "الخطأ %%"
+
+msgid "<b><em>Warning.</em></b> Some Bayes factors could not be calculated. Multi model inference is carried out while excluding these models. The results may be uninterpretable!"
+msgstr ""
+"<b><em>تحذير.</em></b> تعذر حساب بعض عوامل بايز. يُجرى الاستدلال متعدد النماذج "
+"مع استبعاد هذه النماذج. قد تكون النتائج غير قابلة للتفسير!"
+
+msgid "Model Averaged Posterior Summary"
+msgstr "ملخص التوزيع البعدي بمتوسط النماذج"
+
+msgid "%s%% Credible Interval"
+msgstr "فترة المصداقية %s%%"
+
+msgid "Variable"
+msgstr "المتغير"
+
+msgid "Level"
+msgstr "المستوى"
+
+msgid "Mean"
+msgstr "المتوسط"
+
+msgid "SD"
+msgstr "الانحراف المعياري (SD)"
+
+msgid "Intercept"
+msgstr "الثابت"
+
+msgid "Model Averaged R%s"
+msgstr "R%s بمتوسط النماذج"
+
+msgid "<b><em>Warning: sampling issues encountered!</em></b>"
+msgstr "<b><em>تحذير: حدثت مشكلات في المعاينة!</em></b>"
+
+msgid "Affected model"
+msgstr "النموذج المتأثر"
+
+msgid "%% useful samples"
+msgstr "%% العينات الصالحة للاستخدام"
+
+msgid "Useful samples"
+msgstr "العينات الصالحة للاستخدام"
+
+msgid "Total samples drawn"
+msgstr "إجمالي العينات المسحوبة"
+
+msgid "For some affected models, more than 75%% of the posterior samples failed, or fewer than 1000 samples remained for subsequent results. All model-averaged output may be biased and uninterpretable. Check the model specification and data for any odd patterns."
+msgstr ""
+"في بعض النماذج المتأثرة، فشل أكثر من 75%% من العينات البعدية، أو بقي أقل من "
+"1000 عينة للنتائج اللاحقة. قد تتحيز جميع المخرجات بمتوسط النماذج وتصبح غير "
+"قابلة للتفسير. افحص تحديد النموذج والبيانات بحثًا عن أنماط غير معتادة."
+
+msgid "<b><em>Warning.</em></b>"
+msgstr "<b><em>تحذير.</em></b>"
+
+msgid "Model Averaged Posterior Distributions"
+msgstr "توزيعات بعدية بمتوسط النماذج"
+
+msgid "Posterior distribution"
+msgstr "التوزيع البعدي"
+
+msgid "Could not plot posterior distribution. Check if an error occurred for models including this parameter."
+msgstr ""
+"تعذر رسم التوزيع البعدي. تحقق مما إذا حدث خطأ في النماذج التي تتضمن هذه "
+"المعلمة."
+
+msgid "Density"
+msgstr "الكثافة"
+
+msgid "Model Averaged Q-Q Plot"
+msgstr "رسم Q-Q بمتوسط النماذج"
+
+msgid "Model Averaged Posterior R%s"
+msgstr "R%s البعدي بمتوسط النماذج"
+
+msgid "The posterior odds have been corrected for multiple testing by fixing to 0.5 the prior probability that the null hypothesis holds across all comparisons (Westfall, Johnson, & Utts, 1997). Individual comparisons are based on the default t-test with a Cauchy (0, r = 1/sqrt(2)) prior. The \"U\" in the Bayes factor denotes that it is uncorrected."
+msgstr ""
+"صُححت الأرجحية البعدية لتعدد الاختبارات بتثبيت الاحتمال القبلي لصحة الفرضية "
+"الصفرية عبر جميع المقارنات عند 0.5 (Westfall, Johnson, & Utts, 1997). تستند "
+"المقارنات الفردية إلى اختبار t الافتراضي بتوزيع كوشي قبلي (0, r = 1/sqrt(2)). "
+"يدل \"U\" في عامل بايز على أنه غير مصحح."
+
+msgid "Post Hoc Comparisons - %s"
+msgstr "المقارنات البعدية - %s"
+
+msgid "Prior Odds"
+msgstr "الأرجحية القبلية"
+
+msgid "Posterior Odds"
+msgstr "الأرجحية البعدية"
+
+msgid "Descriptives"
+msgstr "الإحصاءات الوصفية"
+
+msgid "Descriptives - %s"
+msgstr "الإحصاءات الوصفية - %s"
+
+msgid "N"
+msgstr "N"
+
+msgid "SE"
+msgstr "الخطأ المعياري (SE)"
+
+msgid "Coefficient of variation"
+msgstr "معامل الاختلاف"
+
+msgid "Some combinations of factors are not observed and hence omitted (%1$g out of %2$g combinations are unobserved)."
+msgstr ""
+"بعض توليفات العوامل غير مشاهدة، ولذلك حُذفت (عدد غير المشاهد %1$g من أصل %2$g "
+"توليفة)."
+
+msgid "Descriptives plots"
+msgstr "المخططات الوصفية"
+
+msgid "Descriptives Plot"
+msgstr "مخطط الإحصاءات الوصفية"
+
+msgid "Bar plots"
+msgstr "مخططات الأعمدة"
+
+msgid "Bar Plot"
+msgstr "مخطط الأعمدة"
+
+msgid "Raincloud plots"
+msgstr "مخططات سحابة المطر"
+
+msgid "Dependent"
+msgstr "تابع"
+
+msgid "Sampling posteriors"
+msgstr "المعاينة من التوزيعات البعدية"
+
+msgid "length of samples must be equal to length of weights!"
+msgstr "يجب أن يساوي طول العينات طول الأوزان!"
+
+msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."
+msgstr ""
+"كان تباين جميع التنبؤات صفرًا. تحقق من المتنبئات/المتغير التابع للكشف عن قيم "
+"شاذة، أو زِد عدد العينات البعدية."
+
+msgid "Showing the best %1$d out of %2$d models."
+msgstr "عرض أفضل %1$d من أصل %2$d نموذجًا."
+
+msgid "The following error occured in BayesFactor::enumerateGeneralModels: %s"
+msgstr "حدث الخطأ التالي في BayesFactor::enumerateGeneralModels: %s"
+
+msgid "Single Model Inference"
+msgstr "الاستدلال لنموذج واحد"
+
+msgid "Error in single model inference:\n%s"
+msgstr ""
+"خطأ في الاستدلال لنموذج واحد:\n"
+"%s"
+
+msgid "Single Model Posterior Summary"
+msgstr "ملخص التوزيع البعدي لنموذج واحد"
+
+msgid "Single Model Posterior Distributions"
+msgstr "التوزيعات البعدية لنموذج واحد"
+
+msgid "Q-Q Plot"
+msgstr "مخطط Q–Q"
+
+msgid "Posterior R%s"
+msgstr "R%s البعدي"
+
+msgid "Single Model R%s"
+msgstr "R%s لنموذج واحد"
+
+msgid "Estimate"
+msgstr "التقدير"
+
+msgid "t"
+msgstr "t"
+
+msgid "Cohen's d"
+msgstr "معامل d لكوهين"
+
+msgid "%s%% CI for Cohen's d"
+msgstr "فترة ثقة %s%% لقيمة d لكوهين"
+
+msgid "Cohen's d is based on contrast weights rescaled so that the absolute weights sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
+"يستند d لكوهين إلى أوزان مقارنات تباينية أُعيد تحجيمها ليكون مجموع قيمها "
+"المطلقة 2؛ لذا لا يتأثر بمقياس الأوزان المحددة."
+
+msgid "%1$s Contrast Coefficients - %2$s"
+msgstr "معاملات المقارنة التباينية %1$s - %2$s"
+
+msgid "Post Hoc Comparisons -"
+msgstr "المقارنات البعدية -"
+
+msgid "Bootstrapped Post Hoc Comparisons -"
+msgstr "المقارنات البعدية بالبوتستراب -"
+
+msgid "%1$s%% bca%2$s CI"
+msgstr "فترة الثقة %1$s%% bca%2$s"
+
+msgid "bias"
+msgstr "التحيز"
+
+msgid "p<sub>Tukey</sub>"
+msgstr "p<sub>Tukey</sub>"
+
+msgid "p<sub>Scheffe</sub>"
+msgstr "p<sub>Scheffe</sub>"
+
+msgid "p<sub>Sidak</sub>"
+msgstr "p<sub>Sidak</sub>"
+
+msgid "p<sub>BH</sub>"
+msgstr "p<sub>BH</sub>"
+
+msgid "P-value adjusted for comparing a family of %s estimates."
+msgstr "قيمة p معدَّلة للمقارنة بين عائلة من %s تقديرًا."
+
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (confidence intervals corrected using the %2$s method)."
+msgstr ""
+"قيمة p وفترات الثقة معدَّلة للمقارنة بين عائلة من %1$s تقديرًا (صُححت فترات "
+"الثقة بطريقة %2$s)."
+
+msgid "P-value and confidence intervals adjusted for comparing a family of %1$s estimates (ci for mean difference corrected using the %2$s method; ci for effect size corrected using the Bonferroni method)."
+msgstr ""
+"قيمة p وفترات الثقة معدَّلة لمقارنة عائلة من %1$s تقديرًا (صُححت فترة فرق "
+"المتوسطات بطريقة %2$s، وفترة حجم الأثر بطريقة بونفروني)."
+
+msgid "The p-value correction is not affected by the bootstrap."
+msgstr "لا يتأثر تصحيح قيمة p بالبوتستراب."
+
+msgid "Marginal Means -"
+msgstr "المتوسطات الهامشية -"
+
+msgid "Bootstrapped Marginal Means -"
+msgstr "المتوسطات الهامشية بالبوتستراب -"
+
+msgid "Marginal Mean"
+msgstr "المتوسط الهامشي"
+
+msgid "95%% bca%s CI"
+msgstr "فترة الثقة 95%% bca%s"
+
+msgid "Marginal Means estimate is based on the median of the bootstrap distribution."
+msgstr "يستند تقدير المتوسطات الهامشية إلى وسيط توزيع البوتستراب."
+
+msgid "95%% CI for Mean Difference"
+msgstr "فترة ثقة 95%% لفرق المتوسطين"
+
+msgid "Bonferroni CI adjustment"
+msgstr "تصحيح بونفيروني لفترة الثقة"
+
+msgid "Sidak CI adjustment"
+msgstr "تعديل فترة الثقة بطريقة شيداك"
+
+msgid "Type I Sum of Squares"
+msgstr "مجموع المربعات من النوع الأول"
+
+msgid "Type II Sum of Squares"
+msgstr "مجموع المربعات من النوع الثاني"
+
+msgid "Type III Sum of Squares"
+msgstr "مجموع المربعات من النوع الثالث"
+
+msgid "Order Restricted Hypotheses"
+msgstr "فرضيات مقيّدة بالترتيب"
+
+msgid "Syntax error found in model %1$s.\n\nSome restrictions are duplicate!"
+msgstr ""
+"عُثر على خطأ في صياغة النموذج %1$s.\n"
+"\n"
+"بعض القيود مكررة!"
+
+msgid "There are errors in the restriction syntax for %s. The syntax could not be decoded!"
+msgstr "توجد أخطاء في صياغة القيود لـ %s. تعذر تفسير الصياغة!"
+
+msgid "Bootstrapping unrestricted model"
+msgstr "تطبيق البوتستراب على النموذج غير المقيد"
+
+msgid "Error in %1$s - Could not encode the model syntax! Error message: %2$s"
+msgstr "خطأ في %1$s؛ تعذّر ترميز صياغة النموذج! رسالة الخطأ: %2$s"
+
+msgid "Error in %1$s - Syntax error in the model! Error message: %2$s"
+msgstr "خطأ في %1$s - خطأ في صياغة النموذج! رسالة الخطأ: %2$s"
+
+msgid "Error in %1$s - Could not estimate the model! Error message: %2$s"
+msgstr "خطأ في %1$s؛ تعذّر تقدير النموذج! رسالة الخطأ: %2$s"
+
+msgid "Bootstrapping restricted models"
+msgstr "تطبيق البوتستراب على النماذج المقيدة"
+
+msgid "Could not fit the unrestricted model. As a result, none of the restricted models could be estimated. Error message: %s."
+msgstr ""
+"تعذرت ملاءمة النموذج غير المقيّد؛ ولذلك تعذر تقدير أي من النماذج المقيّدة. "
+"رسالة الخطأ: %s."
+
+msgid "Could not obtain bootstrapping for the unrestricted model. As a result, bootstrapping for the restricted models could not be performed. Error message: %s."
+msgstr ""
+"تعذر إجراء البوتستراب للنموذج غير المقيّد؛ لذا تعذر إجراؤه للنماذج المقيّدة. "
+"رسالة الخطأ: %s."
+
+msgid "Could not fit any of the specified restricted models. Reason(s): %s"
+msgstr "تعذّرت ملاءمة أي من النماذج المقيّدة المحددة. الأسباب: %s"
+
+msgid "Unconstrained"
+msgstr "غير مقيد"
+
+msgid "Complement"
+msgstr "المتمّم"
+
+msgid "Syntax information"
+msgstr "معلومات الصياغة"
+
+msgid "Available coefficients for restriction syntax"
+msgstr "المعاملات المتاحة لأوامر القيود"
+
+msgid "Could not compute model comparison! Error message: %s"
+msgstr "تعذّر حساب مقارنة النماذج! رسالة الخطأ: %s"
+
+msgid "Model Comparison Table"
+msgstr "جدول مقارنة النماذج"
+
+msgid "Model"
+msgstr "النموذج"
+
+msgid "Log-likelihood"
+msgstr "لوغاريتم الإمكان"
+
+msgid "Penalty"
+msgstr "العقوبة"
+
+msgid "GORIC"
+msgstr "GORIC"
+
+msgid "Weight"
+msgstr "الوزن"
+
+msgid "GORICA"
+msgstr "GORICA"
+
+msgid "Weights ratio"
+msgstr "نسبة الأوزان"
+
+msgid "GORIC = Generalized Order-Restricted Information Criterion (Kuiper, Hoijtink, & Silvapulle, 2011)."
+msgstr ""
+"GORIC = معيار المعلومات المعمّم المقيّد بالترتيب (Kuiper, Hoijtink, & "
+"Silvapulle, 2011)."
+
+msgid "GORICA = Generalized Order-Restricted Information Criterion Approximation."
+msgstr "GORICA = تقريب معيار المعلومات المعمّم المقيّد بالترتيب."
+
+msgid "Weights ratios indicate the relative weight for each model against the \"%1$s\" model. %2$s"
+msgstr ""
+"تشير نسب الأوزان إلى الوزن النسبي لكل نموذج مقارنةً بالنموذج \"%1$s\". %2$s"
+
+msgid "Could not compute weights!"
+msgstr "تعذّر حساب الأوزان!"
+
+msgid "Model '%s' cannot be a reference model as it is empty!"
+msgstr "لا يمكن استخدام النموذج '%s' مرجعًا لأنه فارغ!"
+
+msgid "The following models were excluded: %s."
+msgstr "استبعدت النماذج التالية: %s."
+
+msgid "Relative %s-Weights"
+msgstr "الأوزان النسبية لـ%s"
+
+msgid "Only one model in the comparison: Cannot compute relative weights matrix"
+msgstr "يوجد نموذج واحد فقط في المقارنة: لا يمكن حساب مصفوفة الأوزان النسبية"
+
+msgid "vs."
+msgstr "مقابل"
+
+msgid "Coefficients Comparison"
+msgstr "مقارنة المعاملات"
+
+msgid "Coefficient"
+msgstr "المعامل"
+
+msgid "Coefficients differ from unconstrained model."
+msgstr "تختلف المعاملات عن نظيراتها في النموذج غير المقيّد."
+
+msgid "Model Summary"
+msgstr "ملخص النموذج"
+
+msgid "Restriction Matrix"
+msgstr "مصفوفة القيود"
+
+msgid "Left-hand side (lhs)"
+msgstr "الطرف الأيسر (lhs)"
+
+msgid "Right-hand side (rhs)"
+msgstr "الطرف الأيمن (rhs)"
+
+msgid "Coefficients"
+msgstr "المعاملات"
+
+msgid "%s%% CI"
+msgstr "فترة الثقة %s%%"
+
+msgid "Estimates based on %s successful bootstrap replicates."
+msgstr "تقديرات تستند إلى %s من تكرارات بوتستراب الناجحة."
+
+msgid "Could not compute table of coefficients. Error message: %s"
+msgstr "تعذّر حساب جدول المعاملات. رسالة الخطأ: %s"
+
+msgid "Informative Hypothesis Tests"
+msgstr "اختبارات الفرضيات المقيّدة"
+
+msgid "Hypothesis"
+msgstr "الفرضية"
+
+msgid "Test"
+msgstr "اختبار"
+
+msgid "Test Statistic"
+msgstr "إحصاء الاختبار"
+
+msgid "Type %s"
+msgstr "النوع %s"
+
+msgid "Could not compute the informative hypothesis tests. Error message: %s"
+msgstr "تعذر حساب اختبارات الفرضيات المقيدة بمعلومات. رسالة الخطأ: %s"
+
+msgid "H%1$s: All equality restrictions are active (==), H%2$s: At least one equality restriction is violated."
+msgstr ""
+"H%1$s: جميع قيود المساواة فعّالة (==)؛ H%2$s: لا يتحقق قيد مساواة واحد على "
+"الأقل."
+
+msgid "H%1$s: All parameters are restricted to be equal (==), H%2$s: At least one inequality restriction is strictly true (>)."
+msgstr ""
+"H%1$s: جميع المعلمات مقيّدة بالتساوي (==)؛ H%2$s: يتحقق قيد عدم مساواة صارم "
+"واحد على الأقل (>)."
+
+msgid "H%1$s: All restrictions are equalities (==), H%2$s: At least one inequality restriction is strictly true (>)."
+msgstr ""
+"H%1$s: جميع القيود مساواة (==)؛ H%2$s: يتحقق قيد عدم مساواة صارم واحد على "
+"الأقل (>)."
+
+msgid "H%1$s: All restrictions hold, H%2$s: At least one restriction is violated."
+msgstr "H%1$s: تتحقق جميع القيود؛ H%2$s: لا يتحقق قيد واحد على الأقل."
+
+msgid "H%1$s: At least one restriction is false or active (==), H%2$s: All restrictions are strictly true (>)."
+msgstr ""
+"H%1$s: قيد واحد على الأقل غير صحيح أو فعّال (==)؛ H%2$s: جميع القيود متحققة "
+"على نحو صارم (>)."
+
+msgid "No marginal means terms specified. Please, select model terms in the 'Restricted Marginal Means' section."
+msgstr ""
+"لم تُحدَّد حدود للمتوسطات الهامشية. يرجى اختيار حدود النموذج في قسم 'المتوسطات "
+"الهامشية المقيّدة'."
+
+msgid "Could not compute the marginal means. Error message: %s"
+msgstr "تعذّر حساب المتوسطات الهامشية. رسالة الخطأ: %s"
+
+msgid "Results are averaged over the levels of: %s."
+msgstr "تُحسب النتائج في المتوسط على مستويات: %s."
+
+msgid "Covariates (%s) held fixed at their mean values."
+msgstr "المتغيرات المصاحبة (%s) مثبتة عند متوسطاتها."
+
+msgid "MANOVA"
+msgstr "تحليل التباين متعدد المتغيرات (MANOVA)"
+
+msgid "The design matrix is not invertible. This might be due to collinear dependent variables."
+msgstr ""
+"مصفوفة التصميم غير قابلة للعكس. قد يرجع ذلك إلى تعدد خطي في المتغيرات "
+"التابعة."
+
+msgid "Results unavailable due to sample size (must be between 3 and 5000) or perfect correlations."
+msgstr ""
+"النتائج غير متاحة بسبب حجم العينة (يجب أن يكون بين 3 و5000) أو وجود ارتباطات "
+"تامة."
+
+msgid "Null model (incl. %s and random slopes)"
+msgid_plural "Null model (incl. %s, and random slopes)"
+msgstr[0] "النموذج الصفري (يشمل %s والميول العشوائية)"
+msgstr[1] "النموذج الصفري (يشمل %s والميول العشوائية)"
+msgstr[2] "النموذج الصفري (يشمل %s والميول العشوائية)"
+msgstr[3] "النموذج الصفري (يشمل %s والميول العشوائية)"
+msgstr[4] "النموذج الصفري (يشمل %s والميول العشوائية)"
+msgstr[5] "النموذج الصفري (يشمل %s والميول العشوائية)"

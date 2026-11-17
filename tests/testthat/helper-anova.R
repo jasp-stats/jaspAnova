@@ -66,3 +66,12 @@ classicalAnovaCommonOptions <- function() {
   return(options)
 }
 
+
+# test.csv plus `contInf`: contGamma with one infinite value. The form refuses a covariate with fewer
+# than 2 distinct numeric values, so debInf (Inf throughout) never reaches the analysis' own Inf check.
+testDataWithInf <- function() {
+  dataset <- jaspTools:::loadCorrectDataset("test.csv")
+  dataset[["contInf"]] <- dataset[["contGamma"]]
+  dataset[["contInf"]][1] <- Inf
+  dataset
+}

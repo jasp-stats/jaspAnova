@@ -67,7 +67,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
       - polynomial: This contrast tests polynomial trends in the data. The specific polynomial that will be used for the analysis depends on the number of levels of the independent variable. The degree of the trend used for the analysis is the number of levels minus 1. Therefore, if the independent variable consist of 2 levels, a linear trend is analysed. If the independent variable consists of three levels, a quadratic trend is analysed in addition to the linear trend. 
       - custom: Here, the contrast weights can be specified manually. Some restrictions apply here: (1) some weights need to be non-zero (2) The maximum number of contrasts is the number of factor levels - 1 (3) for factors with more than 2 levels, at least 2 contrasts need to be specified.
 - Confidence Intervals: By selecting this option, confidence intervals for the estimated mean difference and effect size will be included. By default the confidence level is set to 95%. This can be changed into the desired percentage. 
-- Effect size: Include standardized mean differences, based on the effectsize function in the emmeans package. 
+- Effect size: Include standardized mean differences (Cohen's d). Contrast weights are rescaled so that their absolute values sum to 2, making the effect size invariant to the scale of the specified weights.
 
 
 ### Post Hoc Tests
@@ -141,7 +141,7 @@ ANCOVA allows the user to analyze the difference between multiple group means, w
   - Moderator factor 2: In this box, selector an optional, additional independent variable. 
 
 ### Nonparametrics
-- Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the dependent variable, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
+- Kruskal-Wallis test: The Kruskal-Wallis test is a non-parametric ANOVA and can be used to compare two or more groups. This test is a rank-based one-way ANOVA. The Kruskal-Wallis test can be performed when one of the following assumptions is not met: normality of the residuals, no outliers, homogeneity of the variance between the groups. To perform the test, move the independent variables from the left column to the right column. 
 - Estimates of effect size: request effect size estimates for the Kruskal-Wallis test: rank epsilon squared and rank eta squared, including their confidence interval. Based on the effectsize package. 
 -  Dunn's post hoc tests: This is a non-parametric follow-up test that can be used for testing small subsets of pairs. This post hoc test is a follow up for the Kruskal-Wallis test. The p-values are corrected with the Bonferroni and Holm methods.
 ### Output 
@@ -175,7 +175,7 @@ Test for Equality of Variances (Levene's):
 - VS-MPR: Vovk-Sellke Maximum *p*-ratio.  
 
 Q-Q Plot: 
-- With Q-Q plot the normality of the residuals can be inspected visually. The theoretical quantiles are displayed on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the data are normally distributed. 
+- With Q-Q plot the normality of the residuals can be inspected visually. The theoretical quantiles are displayed on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the residuals are normally distributed. 
 
 #### Contrasts
 Deviation/Simple/Difference/Helmert/Repeated/Polynomial/Custom Contrast: 
@@ -188,6 +188,10 @@ Deviation/Simple/Difference/Helmert/Repeated/Polynomial/Custom Contrast:
 - % CI for Mean Difference: % confidence interval of the mean difference. This is 95% by default.   
     - Lower: This is the lower bound of the confidence interval. 
     - Upper: This is the upper bound of the confidence interval. 
+- Cohen's d: The standardized mean difference for the contrast. The contrast weights are rescaled so that their absolute values sum to 2, so d is not affected by the scale of the specified weights.
+- % CI for Cohen's d: % confidence interval of Cohen's d. This is 95% by default.
+    - Lower: This is the lower bound of the confidence interval.
+    - Upper: This is the upper bound of the confidence interval.
 
 #### Post Hoc Tests
 Post Hoc Comparisons (Standard)- independent variable:  

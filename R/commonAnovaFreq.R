@@ -39,7 +39,28 @@
 
   contrastTable$showSpecifiedColumnsOnly <- TRUE
 
+  if (isTRUE(options$contrastEffectSize))
+    contrastTable$addFootnote(gettext("Cohen's d is based on contrast weights rescaled so that the absolute weights sum to 2; it is therefore not affected by the scale of the specified weights."))
+
   return(contrastTable)
+}
+
+# Standardized effect sizes must not depend on the arbitrary scale of the contrast weights:
+# doubling all weights doubles the estimate but leaves sigma untouched, so Cohen's d doubles
+# while t stays put. Rescale each contrast so its positive and negative weights each sum to 1
+# (sum(|c|) == 2), making d a mean difference comparable to the pairwise post hoc Cohen's d.
+# See https://github.com/jasp-stats/jasp-issues/issues/4488
+.normalizeContrastCoefficientsAnova <- function(contrCoef) {
+
+  rescale <- function(coefs) {
+    scaleFactor <- sum(abs(coefs)) / 2
+    if (is.finite(scaleFactor) && scaleFactor > 0) coefs / scaleFactor else coefs
+  }
+
+  lapply(contrCoef, function(thisContrast) {
+    # custom contrasts arrive as a list wrapping the weight vector, the built-in types as a bare vector
+    if (is.list(thisContrast)) lapply(thisContrast, rescale) else rescale(thisContrast)
+  })
 }
 
 .createContrastCoefficientsTableAnova <- function(contrast, contrCoef, weightType = "number") {
@@ -222,6 +243,9 @@
   } else {
     residuals <- rstandard(anovaContainer[["model"]][["object"]])
   }
+  # plotQQnorm draws the points in data order; residuals that differ only by rounding noise swap ranks
+  # between platforms, so sort them to draw the same plot in the same order everywhere
+  residuals <- sort(unname(residuals))
   ciLevel <- if (options[["qqPlotCi"]])  options[["qqPlotCiLevel"]] else NULL
 
   qqPlot$plotObject <- jaspGraphs::plotQQnorm(residuals,
@@ -231,6 +255,61 @@
                                               identicalAxes = TRUE,
                                               ciLevel = ciLevel)
   return()
+}
+
+.addSimpleEffectSizeColumns <- function(table, options) {
+
+  if (!isTRUE(options[["simpleEffectSizeEstimates"]]))
+    return()
+
+  if (isTRUE(options[["simpleEffectSizePartialOmegaSquared"]])) {
+    table$addColumnInfo(name = "partialOmega", type = "number", title = "\u03C9\u00B2\u209A")
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      thisOverTitle <- gettextf("%s%% CI for \u03C9\u00B2\u209A", options[["simpleEffectSizeCiLevel"]] * 100)
+      table$addColumnInfo(name = "partialOmegaLow",  type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+      table$addColumnInfo(name = "partialOmegaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+    }
+  }
+
+  if (isTRUE(options[["simpleEffectSizePartialEtaSquared"]])) {
+    table$addColumnInfo(name = "partialEta", type = "number", title = "\u03B7\u00B2\u209A")
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      thisOverTitle <- gettextf("%s%% CI for \u03B7\u00B2\u209A", options[["simpleEffectSizeCiLevel"]] * 100)
+      table$addColumnInfo(name = "partialEtaLow",  type = "number", title = gettext("Lower"), overtitle = thisOverTitle)
+      table$addColumnInfo(name = "partialEtaHigh", type = "number", title = gettext("Upper"), overtitle = thisOverTitle)
+    }
+  }
+
+  return()
+}
+
+# Partial eta squared / partial omega squared for a simple main effect, derived from its F statistic
+# (SPSS reports partial eta squared for simple effects the same way: as a function of F, df, and the error df).
+.simpleEffectSizeEstimates <- function(fValue, df, dfError, options) {
+
+  ciLevel <- if (isTRUE(options[["simpleEffectSizeCi"]])) options[["simpleEffectSizeCiLevel"]] else NULL
+  result  <- list()
+
+  # suppressWarnings(): effectsize warns about non-finite CIs for empty-cell (NA) rows, which is expected here
+  if (isTRUE(options[["simpleEffectSizePartialOmegaSquared"]])) {
+    omegaResult <- suppressWarnings(effectsize::F_to_omega2(fValue, df, dfError, ci = ciLevel, alternative = "two.sided"))
+    result[["partialOmega"]] <- omegaResult[["Omega2_partial"]]
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      result[["partialOmegaLow"]]  <- omegaResult[["CI_low"]]
+      result[["partialOmegaHigh"]] <- omegaResult[["CI_high"]]
+    }
+  }
+
+  if (isTRUE(options[["simpleEffectSizePartialEtaSquared"]])) {
+    etaResult <- suppressWarnings(effectsize::F_to_eta2(fValue, df, dfError, ci = ciLevel, alternative = "two.sided"))
+    result[["partialEta"]] <- etaResult[["Eta2_partial"]]
+    if (isTRUE(options[["simpleEffectSizeCi"]])) {
+      result[["partialEtaLow"]]  <- etaResult[["CI_low"]]
+      result[["partialEtaHigh"]] <- etaResult[["CI_high"]]
+    }
+  }
+
+  return(as.data.frame(result))
 }
 
 .addSumSquaresFootnote <- function(table, options){

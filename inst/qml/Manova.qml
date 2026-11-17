@@ -24,7 +24,7 @@ Form
 {
 	info: qsTr("MANOVA allows the user to analyze the difference among groups when there are multiple dependent variables") + "\n" +
 	"## " + qsTr("Assumptions") + "\n" +
-	"- " + qsTr("The dependent variables are normally distributed for every group.") + "\n" +
+	"- " + qsTr("The residuals follow a multivariate normal distribution.") + "\n" +
 	"- " + qsTr("The independent variables are categorical, the dependent variables are continuous.") + "\n" +
 	"- " + qsTr("The population covariance matrices of each group are equal.") + "\n" +
 	"- " + qsTr("The groups are independent.")

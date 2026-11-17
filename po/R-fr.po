@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2026-04-18 03:38\n"
+"POT-Creation-Date: 2026-09-19 02:46\n"
 "PO-Revision-Date: 2024-07-12 14:30+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -55,11 +55,15 @@ msgstr ""
 msgid ""
 "Due to empty cells in the design, only %1$s of %2$s effects are estimable."
 msgstr ""
+"En raison de cellules vides dans le plan, seuls %1$s des %2$s effetssont "
+"estimables."
 
 msgid ""
 "Some higher-order interaction effects cannot be assessed and are therefore "
 "omitted."
 msgstr ""
+"Certains effets d'interaction d'ordre supérieur ne peuvent pas êtreévalués "
+"et sont par conséquent omis."
 
 msgid "ANOVA"
 msgstr "ANOVA"
@@ -161,7 +165,7 @@ msgstr ""
 "cellules vides dans le design."
 
 msgid "Mean Difference and Cohen's d estimates"
-msgstr ""
+msgstr "Estimations de la différence moyenne et du d de Cohen"
 
 #, fuzzy
 msgid "Mean Difference estimates"
@@ -290,7 +294,7 @@ msgid "Rank %s"
 msgstr "Classement %s"
 
 msgid "%1$i%% CI for Rank %2$s"
-msgstr ""
+msgstr "IC %1$i%% pour le classement %2$s"
 
 #, fuzzy
 msgid ""
@@ -326,6 +330,8 @@ msgstr "p<sub>holm</sub>"
 
 msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
+"Corrélation de rang bissérielle basée sur des tests de Mann-"
+"Whitneyindividuels."
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
@@ -473,6 +479,8 @@ msgid ""
 "Not an unreplicated complete block design. The Friedman test is only "
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
+"Ce n'est pas un plan en blocs complets non répliqué. Le test deFriedman "
+"n'est disponible qu'en tant qu'alternative à l'ANOVA MR àfacteur unique."
 
 msgid "Durbin Test"
 msgstr "Test de Durbin"
@@ -500,6 +508,8 @@ msgstr "Groupé par %s."
 
 msgid "Rank-biserial correlation based on individual signed-rank tests."
 msgstr ""
+"Corrélation de rang bissérielle basée sur des tests de rangs "
+"signésindividuels."
 
 msgid "Moderator factors must also appear in the model terms!"
 msgstr ""
@@ -699,7 +709,7 @@ msgid "SD"
 msgstr "ET"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Ordonnée à l'origine"
 
 msgid "Model Averaged R%s"
 msgstr "Modèle R%s moyenné"
@@ -890,6 +900,11 @@ msgstr "d de Cohen"
 msgid "%s%% CI for Cohen's d"
 msgstr "IC %s%% pour le d de Cohen"
 
+msgid ""
+"Cohen's d is based on contrast weights rescaled so that the absolute weights "
+"sum to 2; it is therefore not affected by the scale of the specified weights."
+msgstr ""
+
 msgid "%1$s Contrast Coefficients - %2$s"
 msgstr "%1$s Coefficients de contraste - %2$s"
 
@@ -944,7 +959,7 @@ msgstr ""
 "%2$s)."
 
 msgid "The p-value correction is not affected by the bootstrap."
-msgstr ""
+msgstr "La correction de la valeur p n'est pas affectée par le bootstrap."
 
 msgid "Marginal Means -"
 msgstr "Moyennes marginales"
@@ -1024,12 +1039,17 @@ msgid ""
 "Could not fit the unrestricted model. As a result, none of the restricted "
 "models could be estimated. Error message: %s."
 msgstr ""
+"Impossible d'ajuster le modèle non restreint. Par conséquent, aucundes "
+"modèles restreints n'a pu être estimé. Message d'erreur : %s."
 
 msgid ""
 "Could not obtain bootstrapping for the unrestricted model. As a result, "
 "bootstrapping for the restricted models could not be performed. Error "
 "message: %s."
 msgstr ""
+"Impossible d'obtenir le bootstrap pour le modèle non restreint. "
+"Parconséquent, le bootstrap pour les modèles restreints n'a pas pu "
+"êtreeffectué. Message d'erreur : %s."
 
 msgid "Could not fit any of the specified restricted models. Reason(s): %s"
 msgstr ""
@@ -1046,7 +1066,7 @@ msgid "Syntax information"
 msgstr "Information de syntaxe"
 
 msgid "Available coefficients for restriction syntax"
-msgstr ""
+msgstr "Coefficients disponibles pour la syntaxe de restriction"
 
 #, fuzzy
 msgid "Could not compute model comparison! Error message: %s"
@@ -1235,6 +1255,8 @@ msgid ""
 "Results unavailable due to sample size (must be between 3 and 5000) or "
 "perfect correlations."
 msgstr ""
+"Résultats indisponibles en raison de la taille de l'échantillon (doitêtre "
+"comprise entre 3 et 5000) ou de corrélations parfaites."
 
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"

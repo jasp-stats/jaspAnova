@@ -4,7 +4,7 @@ Bayesian Repeated Measures ANOVA
 The Bayesian Repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent.
 
 ### Assumptions
-- The dependent variable is normally distributed for every group.
+- The residuals are normally distributed for every group.
 - The covariate and the experiment effect are independent.
 - The assumption of sphericity is met. Sphericity entails that the variances of the differences of the repeated measures conditions all have the same variance.
 
@@ -162,7 +162,7 @@ Posterior Distributions:
 - For each factor, interaction, and covariate, the single model posterior distributions per level are displayed, with on the x-axis the factor and on the y-axis the density. The posterior distribution for each level can either be displayed in the same plot, or by different plots for each level.
 
 Q-Q plot: 
-- With Q-Q plot the normality of the residuals can be inspected visually. The theoretical quantiles are presented on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the data are normally distributed.
+- With Q-Q plot the normality of the residuals can be inspected visually. The theoretical quantiles are presented on the x-axis and standardized residuals on y-axis. The more dots are on the diagonal line, the more the residuals are normally distributed.
 
 Posterior R<sup>2</sup>:
 - The single model density of the R<sup>2</sup> (i.e., explained variance), with the R<sup>2</sup> on the x-axis and the density on the y-axis.

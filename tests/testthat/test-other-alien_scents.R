@@ -10,14 +10,13 @@ test_that("AnovaRepeatedMeasures results match", {
   opts <- jaspTools::analysisOptions(jaspFile)
   dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
 
-  # Encode and run analysis
-  encoded <- jaspTools:::encodeOptionsAndDataset(opts, dataset)
+  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", encoded$dataset, encoded$options, encodedDataset = TRUE)
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, opts)
 
   plotName <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer_qqPlot"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot", tolerance = 0.05)
+  jaspTools::expect_equal_plots(testPlot, "analysis-1_figure-1_q-q-plot")
 
   table <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_betweenTable"]][["data"]]
   jaspTools::expect_equal_tables(table,

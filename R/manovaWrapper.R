@@ -21,7 +21,7 @@
 #'
 #' MANOVA allows the user to analyze the difference among groups when there are multiple dependent variables
 #' ## Assumptions
-#' - The dependent variables are normally distributed for every group.
+#' - The residuals follow a multivariate normal distribution.
 #' - The independent variables are categorical, the dependent variables are continuous.
 #' - The population covariance matrices of each group are equal.
 #' - The groups are independent.
@@ -49,7 +49,7 @@
 #'    Defaults to \code{FALSE}.
 Manova <- function(
           data = NULL,
-          version = "0.96.1",
+          version = "1",
           formula = NULL,
           anovaTables = FALSE,
           boxMTest = FALSE,
@@ -73,12 +73,7 @@ Manova <- function(
           testWilks = FALSE,
           vovkSellke = FALSE) {
 
-   defaultArgCalls <- formals(jaspAnova::Manova)
-   defaultArgs <- lapply(defaultArgCalls, eval)
-   options <- as.list(match.call())[-1L]
-   options <- lapply(options, eval)
-   defaults <- setdiff(names(defaultArgs), names(options))
-   options[defaults] <- defaultArgs[defaults]
+   options <- mget(names(formals(sys.function())), envir = environment(), inherits = FALSE)
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
@@ -97,5 +92,7 @@ Manova <- function(
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
+   # Options not given in the call get their default from the form, which can depend on the other options.
+   options <- options[names(options) %in% names(match.call())[-1L]]
    return(jaspBase::runWrappedAnalysis("jaspAnova", "Manova", "Manova.qml", options, version, FALSE))
 }

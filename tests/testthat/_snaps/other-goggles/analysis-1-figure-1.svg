@@ -80,11 +80,11 @@
 <text x='155.50' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='76.56px' lengthAdjust='spacingAndGlyphs'>High dose</text>
 <text x='322.83' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='72.79px' lengthAdjust='spacingAndGlyphs'>Low dose</text>
 <text x='490.15' y='537.32' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='61.44px' lengthAdjust='spacingAndGlyphs'>Placebo</text>
-<text x='322.83' y='567.49' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='99.24px' lengthAdjust='spacingAndGlyphs'>jaspColumn2</text>
-<text transform='translate(16.68,265.42) rotate(-90)' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='99.24px' lengthAdjust='spacingAndGlyphs'>jaspColumn3</text>
+<text x='322.83' y='567.49' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='55.76px' lengthAdjust='spacingAndGlyphs'>Alcohol</text>
+<text transform='translate(16.68,265.42) rotate(-90)' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='106.79px' lengthAdjust='spacingAndGlyphs'>Attractiveness</text>
 <rect x='601.50' y='20.71' width='118.50' height='74.87' style='stroke-width: 0.75; stroke: none;' />
 <rect x='601.50' y='20.71' width='118.50' height='74.87' style='stroke-width: 10.67; stroke: none;' />
-<text x='660.75' y='39.65' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='99.24px' lengthAdjust='spacingAndGlyphs'>jaspColumn1</text>
+<text x='660.75' y='39.65' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='69.94px' lengthAdjust='spacingAndGlyphs'>Facetype</text>
 <rect x='606.98' y='46.90' width='11.34' height='21.60' style='stroke-width: 10.67; stroke: none;' />
 <circle cx='612.65' cy='57.70' r='4.62' style='stroke-width: 0.71; fill: #FFFFFF;' />
 <rect x='606.98' y='68.50' width='11.34' height='21.60' style='stroke-width: 10.67; stroke: none;' />

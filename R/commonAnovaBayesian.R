@@ -1737,27 +1737,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
     colnames(summaryStat)[colnames(summaryStat) == options$descriptivePlotSeparatePlot] <- "descriptivePlotSeparatePlot"
   }
 
-  base_breaks_x <- function(x){
-    b <- unique(as.numeric(x))
-    d <- data.frame(y=-Inf, yend=-Inf, x=min(b), xend=max(b))
-    list(ggplot2::geom_segment(data=d, ggplot2::aes(x=x, y=y, xend=xend, yend=yend), inherit.aes=FALSE, size = 1))
-  }
-
-  base_breaks_y <- function(x, plotErrorBars){
-    if (plotErrorBars) {
-      ci.pos <- c(x[,"dependent"], x[,"dependent"]-x[,"ci"],x[,"dependent"]+x[,"ci"])
-      b <- pretty(ci.pos)
-      d <- data.frame(x=-Inf, xend=-Inf, y=min(b), yend=max(b))
-      list(ggplot2::geom_segment(data=d, ggplot2::aes(x=x, y=y, xend=xend, yend=yend), inherit.aes=FALSE, size = 1),
-           ggplot2::scale_y_continuous(breaks=c(min(b),max(b))))
-    } else {
-      b <- pretty(x[,"dependent"])
-      d <- data.frame(x=-Inf, xend=-Inf, y=min(b), yend=max(b))
-      list(ggplot2::geom_segment(data=d, ggplot2::aes(x=x, y=y, xend=xend, yend=yend), inherit.aes=FALSE, size = 1),
-           ggplot2::scale_y_continuous(breaks=c(min(b),max(b))))
-    }
-  }
-
   if (options$descriptivePlotSeparatePlot != "") {
     subsetPlots <- levels(summaryStat[,"descriptivePlotSeparatePlot"])
     nPlots <- length(subsetPlots)
@@ -2549,38 +2528,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 }
 
 # plot posteriors ----
-.BANOVAgetBMAdensity <- function(samples, weights, fromTo = NULL, n = 2^10) {
-
-  # @param samples, list of samples
-  # @param weigths, vector of numeric weights
-  # @param fromTo vector of length 2 specifying lower and upper bound (optional).
-  # @return a list with $x the x-coordinates and $y the y-coordinates.
-
-  if (length(samples) != length(weights))
-    stop(gettext("length of samples must be equal to length of weights!"))
-
-  # remove NULL indices
-  idxNonNull <- lengths(samples) > 0
-  weights <- weights[idxNonNull]
-  samples <- samples[idxNonNull]
-
-  # renormalize the weights so output is a proper density function (TODO: do we want this, or BAS style?)
-  weights <- weights / sum(weights)
-
-  # create x-grid for density
-  if (is.null(fromTo))
-    fromTo <- range(sapply(samples, range))
-  xs <- seq(fromTo[1L], fromTo[2L], length.out = 2^10)
-
-  # compute weighted density
-  ys <- numeric(n)
-  for (i in seq_along(samples)) {
-    ys <- ys + weights[i] * density(samples[[i]], from = fromTo[1L], to = fromTo[2L], n = n)$y
-  }
-
-  return(list(x = xs, y = ys))
-}
-
 .BANOVAreSample <- function(n, x, y, prop0 = NULL) {
 
   cdf <- cumsum(y)
@@ -2722,21 +2669,6 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 
 # HF computation ----
-.BANOVAinitBayesFactor <- function() {
-
-  defaults <- list(
-    BFMaxModels         = 50000,
-    BFpretestIterations = 100,
-    BFapproxOptimizer   = "optim",
-    BFapproxLimits      = c(-15, 15),
-    BFprogress          = interactive(),
-    BFfactorsMax        = 5
-  )
-  idx <- setdiff(names(defaults), names(options()))
-  options(defaults[idx])
-
-}
-
 .BANOVAcomputeRsq <- function(obs, preds) {
 
   # NOTE: R^2 != cor(obs, predict) because the predictions from the posterior samples are not OLS estimates.

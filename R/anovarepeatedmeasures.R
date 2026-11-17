@@ -25,6 +25,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
   analysisVars <- analysisVars[nzchar(analysisVars)]
   if (length(analysisVars) > 0L)
     dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+  dataset <- droplevels(dataset)
 
   longData <- .BANOVAwideToLong(dataset, options)
   if (isTryError(longData))

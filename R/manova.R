@@ -24,6 +24,7 @@ ManovaInternal <- function(jaspResults, dataset, options) {
   analysisVars <- analysisVars[nzchar(analysisVars)]
   if (length(analysisVars) > 0L)
     dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+  dataset <- droplevels(dataset)
 
   # Error checking
   .manovaCheckErrors(dataset, options, ready)

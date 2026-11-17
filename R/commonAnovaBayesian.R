@@ -1423,6 +1423,7 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   analysisVars <- analysisVars[nzchar(analysisVars)]
   if (length(analysisVars) > 0L)
     dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+  dataset <- droplevels(dataset)
   if (analysisType == "RM-ANOVA")
     return(.BANOVAwideToLong(dataset, options))
   return(dataset)

@@ -23,6 +23,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
                            options$betweenSubjectFactors,
                            options$covariates), use.names = FALSE)
   analysisVars <- analysisVars[nzchar(analysisVars)]
+  dataset      <- .rmCellsAsNumeric(dataset, options)
   if (length(analysisVars) > 0L)
     dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
   dataset <- droplevels(dataset)

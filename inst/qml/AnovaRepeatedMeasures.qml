@@ -204,14 +204,13 @@ Form
 
 	Section
 	{
-		title: qsTr("Nonparametrics"); info: qsTr("The Friedman test is a non-parametric alternative to the Repeated-Measures ANOVA when there is a complete block design. The Durbin test will automatically be selected when there is an incomplete block design.")
+		title: qsTr("Nonparametrics"); info: qsTr("The Friedman test is a non-parametric alternative to the Repeated-Measures ANOVA when there is a complete block design.")
 
 		VariablesForm
 		{
 			preferredHeight: 150 * preferencesModel.uiScale
 			AvailableVariablesList	{ name: "friedmanAvailableFactors";		title: qsTr("Factors"); info: qsTr("This box contains all the repeated measures and between subjects factors that can be included in the analysis.") ;source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]	}
 			AssignedVariablesList	{ name: "friedmanWithinFactor";			title: qsTr("RM Factor");	info: qsTr("The repeated measures factor(s) of interest.")															}
-			AssignedVariablesList	{ name: "friedmanBetweenFactor";		title: qsTr("Optional Grouping Factor"); info: qsTr("Possible to select the between subjects factor here.") ;singleVariable: true							}
 		}
 
 		CheckBox { name: "conoverTest"; label: qsTr("Conover's post hoc tests"); info: qsTr("Conover's post-hoc test for pairwise comparisons, if the non-parametric test indicates significance.") }

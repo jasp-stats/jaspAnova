@@ -1327,12 +1327,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return ()
 
   rmAnovaContainer[["nonparametricContainer"]] <- createJaspContainer(gettext("Nonparametrics"))
-  rmAnovaContainer[["nonparametricContainer"]]$dependOn(c("friedmanWithinFactor",
-                                                          "friedmanBetweenFactor"))
+  rmAnovaContainer[["nonparametricContainer"]]$dependOn("friedmanWithinFactor")
 
   friedmanTable <- createJaspTable(title = gettext("Friedman Test"))
   friedmanTable$addColumnInfo(name="Factor",  title=gettext("Factor"),      type="string")
-  friedmanTable$addColumnInfo(name="chiSqr",  title=gettext("\u03a7\u00b2<sub>F</sub>"), type="number")
+  friedmanTable$addColumnInfo(name="chiSqr",  title=gettext("Χ²<sub>F</sub>"), type="number")
   friedmanTable$addColumnInfo(name="df",      title=gettext("df"),          type="integer")
   friedmanTable$addColumnInfo(name="p",       title=gettext("p"),           type="pvalue")
   friedmanTable$addColumnInfo(name="kendall", title=gettext("Kendall's W"), type="number")
@@ -1343,119 +1342,77 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     return()
 
   withinTerms <- options$friedmanWithinFactor
-  betweenTerm <- options$friedmanBetweenFactor
 
-  withinTerms.base64 <- .v(withinTerms)
-  betweenTerms.base64 <- .v(betweenTerm)
-
-  result <- list()
-
-  if( any(!(withinTerms %in% unlist(options$withinModelTerms))) ||
-      (betweenTerm %in% unlist(options$withinModelTerms)) ) {
-    friedmanTable$setError(gettext("Please specify appropriate terms for the Friedman/Durbin test."))
+  if (any(!(withinTerms %in% unlist(options$withinModelTerms)))) {
+    friedmanTable$setError(gettext("Please specify appropriate terms for the Friedman test."))
     return()
-  }
-
-  if (identical(betweenTerm, "")) {
-    betweenTerms.base64 <- .BANOVAsubjectName
   }
 
   rows <- list()
 
   for (withinTermIndex in 1:length(withinTerms)) {
 
-    groups <- as.factor(longData[, withinTerms.base64[withinTermIndex]])
-    blocks <- as.factor(longData[, betweenTerms.base64])
+    designError <- .rmAnovaFriedmanDesignError(longData, withinTerms[withinTermIndex])
+    if (!is.null(designError)) {
+      friedmanTable$setError(designError)
+      return()
+    }
+
+    groups <- as.factor(longData[, withinTerms[withinTermIndex]])
+    blocks <- as.factor(longData[, .BANOVAsubjectName])
     y <- longData[, .BANOVAdependentName]
 
-    useDurbin <- any(table(groups, blocks) < 1) && length(unique(table(groups))) == 1
-
-    if (any(table(groups, blocks) > 1)) {
-      friedmanTable$setError(gettextf("Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."))
-      return()
-    }
-
+    # Friedman statistic with the correction for ties (Conover, 1999, section 5.8)
     t <- nlevels(groups)
     b <- nlevels(blocks)
-    r <- unique(table(groups))
-    k <- unique(table(blocks))
+    rankPerBlock <- ave(y, blocks, FUN = rank)
+    rankJ <- tapply(rankPerBlock, groups, sum)
+    cVal <- (b * t * (t + 1)^2) / 4
+    testStatOne <- (t - 1) * (sum(rankJ^2) - b * cVal) / (sum(rankPerBlock^2) - cVal)
+    dfChi <- t - 1
+    pValOne <- pchisq(testStatOne, dfChi, lower.tail = FALSE)
 
-    if (length(r) == 1 && length(k) == 1) {
-      rankPerBlock <- unlist(tapply(y, blocks, rank))
-      rankPerGroup <- unlist(tapply(y, groups, rank))
+    # Kendall W, from descTools https://github.com/cran/DescTools/blob/513a58f635798dacf49982c396e2af9a81f3491d/R/StatsAndCIs.r#L5553-L5625
+    ratings <- t(do.call(cbind, tapply(y, groups, cbind)))
+    ratings <- as.matrix(na.omit(ratings))
 
-      rankJ <- tapply(rankPerBlock, groups, sum)
+    ns <- nrow(ratings)
+    nr <- ncol(ratings)
 
-      sumRanks <- sum(rankPerBlock^2)
-      cVal <- (b * k * (k + 1)^2) / 4
-      dVal <- sum(rankJ^2) - r * cVal
-      testStatOne <- (t - 1) / (sumRanks - cVal) * dVal
-      testStatTwo <- (testStatOne / (t - 1)) / ((b * k - b - testStatOne) / (b * k - b - t + 1))
+    ratings.rank <- apply(ratings, 2, rank)
 
-      ## Code from PMCMRplus
-      dfChi <- t - 1
-      dfOneF <- k - 1
-      dfTwoF <- b * k - b - t + 1
-      pValOne <- pchisq(testStatOne, dfChi, lower.tail = FALSE)
-      pValTwo <- pf(testStatTwo, dfOneF, dfTwoF, lower.tail = FALSE)
-
-      # Kendall W, from descTools https://github.com/cran/DescTools/blob/513a58f635798dacf49982c396e2af9a81f3491d/R/StatsAndCIs.r#L5553-L5625
-      ratings <- t(do.call(cbind, tapply(y, groups, cbind)))
-      ratings <- as.matrix(na.omit(ratings))
-
-      ns <- nrow(ratings)
-      nr <- ncol(ratings)
-
-      ratings.rank <- apply(ratings, 2, rank)
-
-      tieAdjust <- 0
-      for (i in 1:nr) {
-        rater <- table(ratings.rank[,i])
-        ties  <- rater[rater>1]
-        l 	  <- as.numeric(ties)
-        tieAdjust	  <- tieAdjust + sum(l^3-l)
-      }
-      kendallWcor <- (12 * var(apply(ratings.rank, 1, sum)) * (ns - 1)) /
-        (nr^2 * (ns^3 - ns) - nr * tieAdjust)
-
-      row <- list()
-      row[["Factor"]] <- withinTerms[withinTermIndex]
-      row[["chiSqr"]] <- testStatOne
-      row[["df"]] <- dfChi
-      row[["p"]] <- pValOne
-      row[["kendall"]] <- kendallWcor
-
-      if (useDurbin) {
-        friedmanTable$title <- gettext("Durbin Test")
-
-        row[["F"]] <- testStatTwo
-        row[["dfnum"]] <- dfOneF
-        row[["dfden"]] <- dfTwoF
-        row[["pF"]] <- pValTwo
-
-        if (withinTermIndex == 1) {
-          friedmanTable$addColumnInfo(name="F",     title=gettext("F"),             type="number")
-          friedmanTable$addColumnInfo(name="dfnum", title=gettext("df num"),        type="integer")
-          friedmanTable$addColumnInfo(name="dfden", title=gettext("df den"),        type="integer")
-          friedmanTable$addColumnInfo(name="pF",    title=gettext("p<sub>F</sub>"), type="pvalue")
-        }
-
-      }
-
-      rows[[withinTermIndex]] <- row
-
-    } else {
-
-      friedmanTable$setError("Specified ANOVA design is not balanced.")
-      return()
-
+    tieAdjust <- 0
+    for (i in 1:nr) {
+      rater <- table(ratings.rank[,i])
+      ties  <- rater[rater>1]
+      l 	  <- as.numeric(ties)
+      tieAdjust	  <- tieAdjust + sum(l^3-l)
     }
+    kendallWcor <- (12 * var(apply(ratings.rank, 1, sum)) * (ns - 1)) /
+      (nr^2 * (ns^3 - ns) - nr * tieAdjust)
 
+    row <- list()
+    row[["Factor"]] <- withinTerms[withinTermIndex]
+    row[["chiSqr"]] <- testStatOne
+    row[["df"]] <- dfChi
+    row[["p"]] <- pValOne
+    row[["kendall"]] <- kendallWcor
+
+    rows[[withinTermIndex]] <- row
   }
 
   friedmanTable$setData(as.data.frame(do.call(rbind,rows)))
 
   return()
+}
+
+# The Friedman test and Conover's post hoc tests need exactly one observation per subject and level of the
+# RM factor, so they are not available when the RM factor is crossed with another RM factor.
+.rmAnovaFriedmanDesignError <- function(longData, withinTerm) {
+  if (any(table(longData[[withinTerm]], longData[[.BANOVAsubjectName]]) > 1))
+    return(gettext("Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."))
+
+  return(NULL)
 }
 
 .rmAnovaConoverTable <- function(rmAnovaContainer, longData, options, ready) {
@@ -1490,28 +1447,33 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
 
   groupingVariables <- unlist(options$friedmanWithinFactor)
-  blockingVar <- ifelse( identical(options$friedmanBetweenFactor, ""), .BANOVAsubjectName, .v(options$friedmanBetweenFactor))
   y <- longData[, .BANOVAdependentName]
 
   for (groupingVar in groupingVariables) {
 
     conoverTable <- createConoverTable(groupingVar)
-    noteBlockName <- ifelse(blockingVar == .BANOVAsubjectName, "subject", blockingVar)
-    conoverTable$addFootnote(gettextf("Grouped by %s.", noteBlockName))
+    rmAnovaContainer[["nonparametricContainer"]][["conoverContainer"]][[groupingVar]] <- conoverTable
+
+    designError <- .rmAnovaFriedmanDesignError(longData, groupingVar)
+    if (!is.null(designError)) {
+      conoverTable$setError(designError)
+      next
+    }
+
+    conoverTable$addFootnote(gettextf("Grouped by %s.", "subject"))
     conoverTable$addFootnote(message = gettext("Rank-biserial correlation based on individual signed-rank tests."))
 
     rows <- list()
 
-    groups <- as.factor(longData[, .v(groupingVar)])
-    blocks <- as.factor(longData[, blockingVar])
+    groups <- as.factor(longData[, groupingVar])
+    blocks <- as.factor(longData[, .BANOVAsubjectName])
 
     groupNames <- levels(groups)
     ## Code from PMCMRplus
     t <- nlevels(groups)
     b <- nlevels(blocks)
-    r <- unique(table(groups))
     k <- unique(table(blocks))
-    rij <- unlist(tapply(y, blocks, rank))
+    rij <- ave(y, blocks, FUN = rank)
     Rj <- unname(tapply(rij, groups, sum))
 
     df <- b * k - b - t + 1
@@ -1539,7 +1501,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
         nd   <- sum(y1 - y2 != 0)
         maxw <- (nd * (nd + 1)) / 2
         rbs    <- as.numeric((res / maxw) * 2 - 1)
-        # rbs <- (Rj[i] - n_i * (n_i + 1) / 2 - (Rj[j] - n_j * (n_j + 1) / 2)) / (n_i * n_j)
 
         row[["t"]] <- tval
         row[["wA"]]  <- Rj[i]
@@ -1554,11 +1515,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
       }
 
-      row[[".isNewGroup"]] <- length(rows) == 0
-
     }
 
-    allP <- unlist(lapply(rows, function(x) x$p))
+    allP <- unlist(lapply(rows, function(x) x[["pval"]]))
     allBonf <- p.adjust(allP, method = "bonferroni")
     allHolm <- p.adjust(allP, method = "holm")
 
@@ -1568,7 +1527,6 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
     }
 
     conoverTable$setData(as.data.frame(do.call(rbind, rows)))
-    rmAnovaContainer[["nonparametricContainer"]][["conoverContainer"]][[groupingVar]] <- conoverTable
   }
 
   return()

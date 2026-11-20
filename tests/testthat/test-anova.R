@@ -472,14 +472,14 @@ test_that("Nonparametric table results match", {
   options$kruskalEffectSizeEstimates <- TRUE
   options$kruskalEpsilon <- TRUE
   options$kruskalEta <- TRUE
-  set.seed(1)
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
+  # the bootstrapped CIs come from a fixed seed inside the analysis, so they do not depend on set.seed() here
   jaspTools::expect_equal_tables(table,
-                                 list(4, 0.034303030303031, 0, "facFive", 0.012276602167515, 0, 0.493866894607854,
-                                      3.39600000000007, 0.21334006878842, 0.15472748428511, 1, 0.0103733573357337,
-                                      0.000275126288139123, "facExperim", 3.12030260761216e-05, 0,
-                                      0.310873187457312, 1.02696237623763, 0.11702143954845, 0.0973856173138005
+                                 list(4, 0.034303030303031, 0, "facFive", 0.00964830968159976, 0, 0.493866894607854,
+                                      3.39600000000007, 0.190926921749678, 0.15686068687598, 1, 0.0103733573357337,
+                                      0.000275126288139123, "facExperim", 3.89025376466766e-05, 0,
+                                      0.310873187457312, 1.02696237623763, 0.0847002870573206, 0.0753604940681096
                                      )
   )
 })
@@ -809,4 +809,64 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
                                       2.89182655203061, 167.133864718034, 0.849147292951048, -80.4838987099312,
                                       "Model 3", 3.08303364908579, 170.967797419862, 0.124869140167247,
                                       -80.4838987099312, "Unconstrained", 5))
+})
+
+# Kruskal-Wallis follow-ups ----
+kruskalCoverageData <- function() {
+  set.seed(11)
+  dataset   <- data.frame(g = rep(c("lo", "mid", "hi"), each = 15))
+  dataset$y <- round(c(lo = 0, mid = 0.5, hi = 1.2)[dataset$g] + rnorm(45), 2)
+  dataset
+}
+
+kruskalCoverageOptions <- function() {
+  options <- initClassicalAnovaOptions("Anova")
+  options$dependent                  <- "y"
+  options$fixedFactors               <- "g"
+  options$fixedFactors.types         <- "nominal"
+  options$modelTerms                 <- list(list(components = "g"))
+  options$kruskalWallisFactors       <- "g"
+  options$kruskalEffectSizeEstimates <- TRUE
+  options$kruskalEpsilon             <- TRUE
+  options$kruskalEta                 <- TRUE
+  options
+}
+
+test_that("Kruskal-Wallis effect size intervals use the chosen confidence level and do not change between runs", {
+  dataset <- kruskalCoverageData()
+  options <- kruskalCoverageOptions()
+  options$kruskalCiLevel <- 0.8
+  kruskalRow <- function()
+    jaspTools::runAnalysis("Anova", dataset, options)$results$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data[[1]]
+
+  row <- kruskalRow()
+  expect_identical(kruskalRow(), row)
+
+  # same bootstrap as the analysis: seed 1, 1000 replicates
+  reference <- function(effectSize) {
+    set.seed(1)
+    effectSize(dataset$y, factor(dataset$g), ci = 0.8, alternative = "two.sided", iterations = 1000)
+  }
+  epsilon <- reference(effectsize::rank_epsilon_squared)
+  eta     <- reference(effectsize::rank_eta_squared)
+  expect_equal(c(row$lowerEpsiCI, row$upperEpsiCI), c(epsilon$CI_low, epsilon$CI_high))
+  expect_equal(c(row$lowerEtaCI,  row$upperEtaCI),  c(eta$CI_low, eta$CI_high))
+})
+
+test_that("Dunn's rank-biserial correlation has the same sign as z", {
+  dataset <- kruskalCoverageData()
+  options <- kruskalCoverageOptions()
+  options$postHocTypeDunn <- TRUE
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+  rows    <- results$results$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_dunnContainer$collection$anovaContainer_kruskalContainer_dunnContainer_g$data
+
+  for (row in rows) {
+    levelsIJ  <- strsplit(row$contrast, " - ", fixed = TRUE)[[1]]
+    groupI    <- dataset$y[dataset$g == levelsIJ[1]]
+    groupJ    <- dataset$y[dataset$g == levelsIJ[2]]
+    # r_rb = P(i > j) - P(i < j), the proportion of favourable minus unfavourable pairs (Kerby, 2014)
+    reference <- mean(outer(groupI, groupJ, ">")) - mean(outer(groupI, groupJ, "<"))
+    expect_equal(row$rbs, reference, label = row$contrast)
+    expect_equal(sign(row$rbs), sign(row$z), label = row$contrast)
+  }
 })

@@ -129,10 +129,9 @@ The simple main effects represent the effect of one repeated measure factor for 
 - Pool error terms: A pooled error term assumes that the variances of the contrast scores are approximately equal (i.e., sphericity assumption).
 
 #### Nonparametrics
-The Friedman test is a non-parametric alternative to the Repeated-Measures ANOVA when there is a complete block design. The Durbin test will automatically be selected when there is an incomplete block design.
+The Friedman test is a non-parametric alternative to the Repeated-Measures ANOVA when there is a complete block design.
 - Factors: This box contains all the repeated measures factors included in the analysis.
 - RM factor: The repeated measures factor(s) of interest.
-- Optional Grouping Factor: Possible to select the between subjects factor here.
 - Conover's post hoc tests: Conover's post-hoc test for pairwise comparisons, if the non-parametric test indicates significance.
 
 ### Output
@@ -218,16 +217,12 @@ Bootstrapped Marginal Means - Repeated measures factor:
   - Upper: The upper bound of the confidence interval.
 
 #### Nonparametrics
-Friedman Test / Durbin Test:
+Friedman Test:
 - Factor: The repeated measures factor included in the analysis.
 - \u03a7\u00b2<sub>F</sub>: The Friedman chi-squared test statistic.
 - df: Degrees of Freedom.
 - p: The p-value.
-- Kendall's W: Kendall’s W Test is referred to the normalization of the Friedman/Durbin statistic.
-- F: The value of the F-statistic.
-- df num: Degrees of freedom used in determining the p-values of the F statistics.
-- df den: Degrees of freedom used in determining the p-values of the F statistics.
-- p<sub>f</sub>: The p-value of the F-statistic.
+- Kendall's W: Kendall’s W Test is referred to the normalization of the Friedman statistic.
 
 Conover's Post Hoc Comparisons:
 - The first two columns represent the levels/groups of the repeated measures factor that are compared to each other.

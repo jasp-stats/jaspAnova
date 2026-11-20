@@ -1712,8 +1712,13 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
   for (term in kruskalFactors) {
 
     kruskalResultsList[[term]] <- kruskal.test(dataset[[options$dependent]], dataset[[term]])
-    kruskalEpsilonList[[term]] <- effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
-    kruskalEtaList[[term]] <- effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
+    # effectsize bootstraps these confidence intervals, so a fixed seed gives the same interval on every run
+    kruskalEpsilonList[[term]] <- .anovaWithFixedSeed(
+      effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]], ci = options[["kruskalCiLevel"]],
+                                       alternative = "two.sided", iterations = 1000))
+    kruskalEtaList[[term]] <- .anovaWithFixedSeed(
+      effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]], ci = options[["kruskalCiLevel"]],
+                                   alternative = "two.sided", iterations = 1000))
 
   }
 
@@ -1734,6 +1739,19 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
 
   return()
+}
+
+# Evaluates expr with a fixed seed and restores the random number state afterwards.
+.anovaWithFixedSeed <- function(expr, seed = 1) {
+  hadSeed <- exists(".Random.seed", envir = globalenv(), inherits = FALSE)
+  if (hadSeed)
+    oldSeed <- get(".Random.seed", envir = globalenv(), inherits = FALSE)
+  on.exit({
+    if (hadSeed) assign(".Random.seed", oldSeed, envir = globalenv())
+    else         rm(".Random.seed", envir = globalenv())
+  })
+  set.seed(seed)
+  expr
 }
 
 .anovaDunnTable <- function(kruskalContainer, dataset, options, model) {
@@ -1773,13 +1791,14 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
                              bonferroni = numeric(),
                              holm = numeric())
 
-    variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
+    groupingVar <- droplevels(dataset[[ dunnVar ]])
+    variableLevels <- levels(groupingVar)
     nLevels <- length(variableLevels)
-    nPerGroup <- unname(unlist(table(dataset[[ .v(dunnVar) ]])))
+    nPerGroup <- unname(unlist(table(groupingVar)))
     bigN <- sum(nPerGroup)
 
     fullRanks <- rank(dataset[[ dependentVar ]])
-    ranksPerGroup <- by(fullRanks, dataset[[ dunnVar ]], list)
+    ranksPerGroup <- by(fullRanks, groupingVar, list)
     sumPerGroup <- unlist(lapply(ranksPerGroup, FUN = sum))
     meanPerGroup <- unname(sumPerGroup/nPerGroup)
 
@@ -1799,8 +1818,9 @@ AncovaInternal <- function(jaspResults, dataset = NULL, options) {
 
         a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
         b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
+        # positive when level i tends to have the higher values, like z
         u <- wilcox.test(a, b)$statistic
-        rbs <- as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j]))
+        rbs <- as.numeric((2 * u) / (nPerGroup[i] * nPerGroup[j]) - 1)
 
         dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
                                                    z = zAB,

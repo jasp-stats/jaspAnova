@@ -1063,3 +1063,24 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
                                       14.9921559166853, 0.667393736737698, 10.5279158319605, 0.59973836890891,
                                       10.2438861673345, "Complement", 15.5078440833148, 1))
 })
+
+test_that("Conover's post hoc tests give the Friedman design error when the RM factor is crossed with another RM factor", {
+  set.seed(2615)
+  cells   <- c("a1b1", "a1b2", "a2b1", "a2b2", "a3b1", "a3b2")
+  dataset <- as.data.frame(matrix(round(rnorm(20 * length(cells)), 3), 20, dimnames = list(NULL, cells)))
+
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+  options$repeatedMeasuresFactors <- list(list(name = "A", levels = c("a1", "a2", "a3")), list(name = "B", levels = c("b1", "b2")))
+  options$repeatedMeasuresCells   <- cells
+  options$withinModelTerms        <- list(list(components = "A"), list(components = "B"), list(components = c("A", "B")))
+  options$friedmanWithinFactor    <- "A"
+  options$conoverTest             <- TRUE
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, options)
+
+  nonparametrics <- results$results$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection
+  message <- "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
+  expect_identical(nonparametrics$rmAnovaContainer_nonparametricContainer_friedmanTable$error$errorMessage, message)
+  conover <- nonparametrics$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_A
+  expect_identical(conover$error$errorMessage, message)
+  expect_length(conover$data, 0)
+})

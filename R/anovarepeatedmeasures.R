@@ -1655,25 +1655,11 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   emptyCaseIndices <- emptyCases <- NULL
   allSimpleModels <- list()
 
-  fullResidualTable <- rmAnovaContainer[["anovaResult"]][["object"]][["residualTable"]][["None"]]
-
-  isMixedAnova <-   length(options[['betweenModelTerms']]) > 0
-  isSimpleMainEffectFactorWithin <- !simpleMainEffectFactor %in% unlist(options[['betweenModelTerms']] )
-  isModeratorOneWithin <- !moderatorTerms[1] %in% unlist(options[['betweenModelTerms']] )
-  isModeratorTwoWithin <- !moderatorTerms[2] %in% unlist(options[['betweenModelTerms']] )
-
-
-  if (isMixedAnova && !isSimpleMainEffectFactorWithin) {
-
-    fullAnovaMS <- fullResidualTable["BetweenResidualResults", "Mean Sq"]
-    fullAnovaDf <- fullResidualTable["BetweenResidualResults", "num Df"]
-
-  } else {
-
-    fullAnovaMS <- fullResidualTable[simpleMainEffectFactorBase64, "Mean Sq"]
-    fullAnovaDf <- fullResidualTable[simpleMainEffectFactorBase64, "num Df"]
-
-  }
+  withinFactors <- unlist(lapply(options[["repeatedMeasuresFactors"]], `[[`, "name"))
+  pooledError <- .rmAnovaPooledSimpleEffectError(rmAnovaContainer[["anovaResult"]][["object"]][["fullModel"]],
+                                                 simpleMainEffectFactor, moderatorTerms, withinFactors)
+  fullAnovaMS <- pooledError[["meanSq"]]
+  fullAnovaDf <- pooledError[["df"]]
 
   # Remove moderator factors from model terms
   simpleOptions <- options
@@ -1771,4 +1757,27 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   simpleEffectsTable$setData(simpleEffectResult)
 
   return()
+}
+
+# The pooled error term of a simple effect is the sum of its separate error terms over all moderator levels.
+# Over the levels of a between-subjects moderator that sum is the full-model error term of the simple effect factor.
+# Over the levels of a within-subjects moderator it also adds the error terms of the factor's interactions with that
+# moderator. For example, for a between factor at the levels of within factor A this gives the within-cell mean square
+# (SS_S/G + SS_AxS/G) / (df_S/G + df_AxS/G), with Satterthwaite degrees of freedom (Howell, 2002, section 14.7).
+.rmAnovaPooledSimpleEffectError <- function(fullModel, simpleFactor, moderators, withinFactors) {
+  errorTable <- as.data.frame(unclass(summary(fullModel)$univariate.tests))
+  errorTermWithinParts <- lapply(strsplit(trimws(rownames(errorTable)), ":", fixed = TRUE), intersect, withinFactors)
+
+  errorTerms <- list(intersect(simpleFactor, withinFactors))
+  for (moderator in intersect(moderators, withinFactors))
+    errorTerms <- c(errorTerms, lapply(errorTerms, c, moderator))
+
+  components <- vapply(errorTerms, function(errorTerm) {
+    row <- which(vapply(errorTermWithinParts, setequal, logical(1), errorTerm))[1]
+    c(sumSq = errorTable[row, "Error SS"], df = errorTable[row, "den Df"])
+  }, numeric(2))
+
+  sumSq <- sum(components["sumSq", ])
+  return(list(meanSq = sumSq / sum(components["df", ]),
+              df     = sumSq^2 / sum(components["sumSq", ]^2 / components["df", ])))
 }

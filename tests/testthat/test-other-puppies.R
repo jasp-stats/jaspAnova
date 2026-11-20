@@ -58,16 +58,16 @@ test_that("Anova results match", {
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_kruskalContainer"]][["collection"]][["anovaContainer_kruskalContainer_dunnContainer"]][["collection"]][["anovaContainer_kruskalContainer_dunnContainer_Dose"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list(1, "No puppies - 15 mins", 0.333666485082971, 0.333666485082971,
-     0.44, 4.8, 7.5, -0.966755079953234, 2, 2, 2, 0.0404663969628817,
+     -0.44, 4.8, 7.5, -0.966755079953234, 2, 2, 2, 0.0404663969628817,
      "No puppies - 30 mins", 0.0404663969628817, 0.0134887989876272,
-     0.84, 4.8, 11.7, -2.47059631543604, 0.397866752621599, "15 mins - 30 mins",
-     0.265244501747733, 0.132622250873866, 0.64, 7.5, 11.7, -1.50384123548281
+     -0.84, 4.8, 11.7, -2.47059631543604, 0.397866752621599, "15 mins - 30 mins",
+     0.265244501747733, 0.132622250873866, -0.64, 7.5, 11.7, -1.50384123548281
     ))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_kruskalContainer"]][["collection"]][["anovaContainer_kruskalContainer_kruskalTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list(2, 0.442857142857143, 0.35, "Dose", 0.171646242076993, 0.0010118209204917,
-     0.0450492023935578, 6.2, 0.837188949730538, 0.778490907148186
+    list(2, 0.442857142857143, 0.35, "Dose", 0.187258226785718, 0.0518012645833377,
+     0.0450492023935578, 6.2, 0.81804788213628, 0.787722529158993
     ))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_marginalMeansContainer"]][["collection"]][["anovaContainer_marginalMeansContainer_Dose"]][["data"]]

@@ -388,7 +388,9 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
   # Now we calculate effect sizes
   etaResult     <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], partial = FALSE, alternative = "two.sided")
   partEtaResult <- effectsize::eta_squared(result, ci = options[["effectSizeCiLevel"]], partial = TRUE,  alternative = "two.sided")
-  effectSizeIndexMap <- .mapAnovaTermsToTerms(etaResult[["Parameter"]], rownames(sortedModel))
+  # effectsize orders terms differently from afex (e.g., by error stratum), so for each row of sortedModel
+  # look up its index in the effectsize output (not the reverse), see https://github.com/jasp-stats/jasp-issues/issues/4704
+  effectSizeIndexMap <- .mapAnovaTermsToTerms(rownames(sortedModel), etaResult[["Parameter"]])
 
   sortedModel[["eta"]]            <- etaResult[["Eta2"]][effectSizeIndexMap]
   sortedModel[["partialEta"]]     <- partEtaResult[["Eta2_partial"]][effectSizeIndexMap]
@@ -398,7 +400,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset = NULL, options) 
 
   omegaResult     <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], partial = FALSE, alternative = "two.sided")
   partOmegaResult <- effectsize::omega_squared(result, ci = options[["effectSizeCiLevel"]], partial = TRUE,  alternative = "two.sided")
-  effectSizeIndexMap <- .mapAnovaTermsToTerms(omegaResult[["Parameter"]], rownames(sortedModel))
+  effectSizeIndexMap <- .mapAnovaTermsToTerms(rownames(sortedModel), omegaResult[["Parameter"]])
 
   sortedModel[["omega"]]        <- pmax(omegaResult[[2]][effectSizeIndexMap], 0)
   sortedModel[["partialOmega"]] <- partOmegaResult[[2]][effectSizeIndexMap]

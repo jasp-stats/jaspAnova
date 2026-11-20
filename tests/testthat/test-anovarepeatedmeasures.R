@@ -763,6 +763,69 @@ test_that("Effect Size Calculation correct", {
 })
 
 
+test_that("Effect sizes are assigned to their own terms when 2-level and 3-level factors are mixed", {
+  # effectsize orders the terms of such designs differently from afex,
+  # see https://github.com/jasp-stats/jasp-issues/issues/4704
+  set.seed(4704)
+  n         <- 30
+  cells     <- expand.grid(C = c("c1", "c2"), B = c("b1", "b2", "b3"), A = c("a1", "a2"), stringsAsFactors = FALSE)
+  cellNames <- paste0(cells$A, cells$B, cells$C)
+  shift     <- 0.8 * (cells$A == "a2") + 0.4 * (cells$B == "b3") + 0.6 * (cells$A == "a2" & cells$C == "c2")
+  values    <- matrix(rnorm(n * nrow(cells)), n) + rnorm(n) + rep(shift, each = n)
+  dataset   <- as.data.frame(values)
+  colnames(dataset) <- cellNames
+
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+  options$repeatedMeasuresFactors <- list(
+    list(name = "A", levels = c("a1", "a2")),
+    list(name = "B", levels = c("b1", "b2", "b3")),
+    list(name = "C", levels = c("c1", "c2"))
+  )
+  options$repeatedMeasuresCells <- cellNames
+  options$withinModelTerms <- list(
+    list(components = "A"), list(components = "B"), list(components = "C"),
+    list(components = c("A", "B")), list(components = c("A", "C")), list(components = c("B", "C")),
+    list(components = c("A", "B", "C"))
+  )
+  options$effectSizeEstimates           <- TRUE
+  options$effectSizeEtaSquared          <- TRUE
+  options$effectSizePartialEtaSquared   <- TRUE
+  options$effectSizeGeneralEtaSquared   <- TRUE
+  options$effectSizeOmegaSquared        <- TRUE
+  options$effectSizePartialOmegaSquared <- TRUE
+
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, options)
+  table   <- results[["results"]]$rmAnovaContainer$collection$rmAnovaContainer_withinAnovaTable$data
+
+  isEffect  <- vapply(table, function(row) row[["case"]] != "Residuals", logical(1))
+  effects   <- table[isEffect]
+  residuals <- table[which(isEffect) + 1] # each effect row is followed by its residual row
+  terms     <- gsub(" ✻ ", ":", vapply(effects, `[[`, character(1), "case"))
+  getCol    <- function(rows, col) vapply(rows, `[[`, numeric(1), col)
+
+  # partial eta squared from the table's own sums of squares
+  ssEffect <- getCol(effects, "Sum Sq")
+  expect_equal(getCol(effects, "partialEta"), ssEffect / (ssEffect + getCol(residuals, "Sum Sq")))
+
+  # all effect sizes match the reference output for the same term, matched by name
+  long <- data.frame(
+    id = factor(rep(seq_len(n), nrow(cells))),
+    A  = rep(cells$A, each = n),
+    B  = rep(cells$B, each = n),
+    C  = rep(cells$C, each = n),
+    y  = c(values)
+  )
+  fit       <- afex::aov_car(y ~ A * B * C + Error(id / (A * B * C)), data = long, type = 3)
+  eta       <- effectsize::eta_squared(fit,   partial = FALSE, alternative = "two.sided")
+  omega    <- effectsize::omega_squared(fit, partial = FALSE, alternative = "two.sided")
+  partOmega <- effectsize::omega_squared(fit, partial = TRUE,  alternative = "two.sided")
+
+  expect_equal(getCol(effects, "eta"),            eta[["Eta2"]][match(terms, eta[["Parameter"]])])
+  expect_equal(getCol(effects, "omega"),          pmax(omega[["Omega2"]][match(terms, omega[["Parameter"]])], 0))
+  expect_equal(getCol(effects, "partialOmega"),   partOmega[["Omega2_partial"]][match(terms, partOmega[["Parameter"]])])
+  expect_equal(getCol(effects, "genEta"),         fit[["anova_table"]][terms, "ges"])
+})
+
 test_that("Simple Effects table match", {
   options <- initOptsMixed()
 

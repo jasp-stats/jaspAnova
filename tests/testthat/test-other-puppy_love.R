@@ -29,13 +29,12 @@ test_that("Ancova (analysis 1) results match", {
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_contrastContainer"]][["collection"]][["anovaContainer_contrastContainer_simpleContrast_Dose"]][["collection"]][["anovaContainer_contrastContainer_simpleContrast_Dose_contrastTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", "30 mins - 15 mins", 0.81122140296394, 0.251887830278927,
-     -0.707131530899357, 1.21090719145721, 26, 0.439201207021332,
-     -1.22828826802822, 0.592836293276488, 0.541407321622227, 2.10669068207088,
-     "FALSE", "No puppies - 15 mins", 0.849355306996752, -1.02411168845202,
-     -2.06708184071727, 0.0188584638132328, 26, -1.78568011481422,
-     -3.5315549522136, 0.0453535580857104, -2.1023947223315, -0.0398052774148461
-    ))
+    list("TRUE", "15 mins - No puppies", 0.849355306996752, 1.02411168845202,
+     -0.0188584638132323, 2.06708184071727, 26, 1.78568011481422,
+     0.0398052774148467, 0.0453535580857103, 2.1023947223315, 3.5315549522136,
+     "FALSE", "30 mins - No puppies", 0.802810905470398, 1.27599951873095,
+     0.262099735436294, 2.2898993020256, 26, 2.22488132183556, 0.574679871977611,
+     0.0101750138508479, 2.77136409916095, 3.8750827716935))
 
   plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_descriptivesContainer"]][["collection"]][["anovaContainer_descriptivesContainer_containerDescriptivesPlots"]][["collection"]][["anovaContainer_descriptivesContainer_containerDescriptivesPlots_Puppy love - Happiness"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
@@ -43,30 +42,30 @@ test_that("Ancova (analysis 1) results match", {
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_descriptivesContainer"]][["collection"]][["anovaContainer_descriptivesContainer_tableDescriptives"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("15 mins", 4.875, 8, 1.45773797371133, 0.515388203202208, 0.299023174094631,
-     "30 mins", 4.84615384615385, 13, 2.11526806205714, 0.586669804546028,
-     0.436483885821315, "No puppies", 3.22222222222222, 9, 1.7873008824606,
-     0.5957669608202, 0.554679584211911))
+    list("No puppies", 3.22222222222222, 9, 1.7873008824606, 0.5957669608202,
+     0.554679584211911, "15 mins", 4.875, 8, 1.45773797371133, 0.515388203202208,
+     0.299023174094631, "30 mins", 4.84615384615385, 13, 2.11526806205714,
+     0.586669804546028, 0.436483885821315))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_marginalMeansContainer"]][["collection"]][["anovaContainer_marginalMeansContainer_Dose"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", "15 mins", 0.620797059348148, 3.43598354715531, 4.71205017806836,
-     5.9881168089814, "FALSE", "30 mins", 0.502632306147453, 4.11807588299064,
-     5.15125138508969, 6.18442688718874, "FALSE", "No puppies", 0.59620445705692,
-     1.70085425032354, 2.92637006325413, 4.15188587618472))
+    list("TRUE", "No puppies", 0.59620445705692, 1.70085425032354, 2.92637006325413,
+     4.15188587618472, "FALSE", "15 mins", 0.620797059348148, 3.43598354715531,
+     4.71205017806836, 5.9881168089814, "FALSE", "30 mins", 0.502632306147453,
+     4.11807588299064, 5.15125138508969, 6.18442688718873))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_postHocContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer"]][["collection"]][["anovaContainer_postHocContainer_postHocStandardContainer_Dose1"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", 0.81122140296394, -0.251887830278927, -1.44577746567352,
-     0.942001805115661, "15 mins", "30 mins", 26, -0.439201207021332,
-     -2.45500025326295, 0.932499470707816, -0.541407321622227, 0.85171306930005,
-     1.57659783922029, "FALSE", 0.849355306996752, 1.02411168845202,
-     -0.274288849870288, 2.32251222677433, "15 mins", "No puppies",
-     26, 1.78568011481422, -0.324877633673112, 0.129983128349044,
-     2.1023947223315, 0.108926453684133, 3.89623786330156, "FALSE",
-     0.802810905470398, 1.27599951873095, 0.0137888777308925, 2.538210159731,
-     "30 mins", "No puppies", 26, 2.22488132183556, 0.229981468790706,
-     0.0302155022603601, 2.77136409916095, 0.0266014195455914, 4.21978117488041
+    list("TRUE", 0.849355306996752, -1.02411168845202, -2.32251222677433,
+     0.274288849870288, "No puppies", "15 mins", 26, -1.78568011481422,
+     -3.89623786330156, 0.129983128349044, -2.1023947223315, 0.108926453684133,
+     0.324877633673111, "FALSE", 0.802810905470398, -1.27599951873095,
+     -2.538210159731, -0.0137888777308928, "No puppies", "30 mins",
+     26, -2.22488132183556, -4.2197811748804, 0.0302155022603601,
+     -2.77136409916095, 0.0266014195455914, -0.229981468790706, "FALSE",
+     0.81122140296394, -0.251887830278926, -1.44577746567351, 0.942001805115662,
+     "15 mins", "30 mins", 26, -0.439201207021331, -2.45500025326295,
+     0.932499470707817, -0.541407321622225, 0.851713069300051, 1.57659783922029
     ))
 
 })

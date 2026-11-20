@@ -476,10 +476,10 @@ test_that("Nonparametric table results match", {
   table <- results[["results"]]$anovaContainer$collection$anovaContainer_kruskalContainer$collection$anovaContainer_kruskalContainer_kruskalTable$data
   # the bootstrapped CIs come from a fixed seed inside the analysis, so they do not depend on set.seed() here
   jaspTools::expect_equal_tables(table,
-                                 list(4, 0.034303030303031, 0, "facFive", 0.0126653053103333, 0, 0.493866894607854,
-                                      3.39600000000007, 0.181970524664203, 0.147527178334275, 1, 0.0103733573357337,
-                                      0.000275126288139123, "facExperim", 2.35305416828408e-05, 0,
-                                      0.310873187457312, 1.02696237623763, 0.0933954660888806, 0.0841443994163181
+                                 list(4, 0.034303030303031, 0, "facFive", 0.00964830968159976, 0, 0.493866894607854,
+                                      3.39600000000007, 0.190926921749678, 0.15686068687598, 1, 0.0103733573357337,
+                                      0.000275126288139123, "facExperim", 3.89025376466766e-05, 0,
+                                      0.310873187457312, 1.02696237623763, 0.0847002870573206, 0.0753604940681096
                                      )
   )
 })
@@ -842,11 +842,8 @@ test_that("Kruskal-Wallis effect size intervals use the chosen confidence level 
   row <- kruskalRow()
   expect_identical(kruskalRow(), row)
 
-  # same bootstrap as the analysis: seed 1 and the legacy sampler that JASP runs analyses with
+  # same bootstrap as the analysis: seed 1, 1000 replicates
   reference <- function(effectSize) {
-    oldKind <- RNGkind()
-    on.exit(do.call(RNGkind, as.list(oldKind)))
-    suppressWarnings(RNGkind(sample.kind = "Rounding"))
     set.seed(1)
     effectSize(dataset$y, factor(dataset$g), ci = 0.8, alternative = "two.sided", iterations = 1000)
   }

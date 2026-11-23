@@ -1432,12 +1432,22 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 }
 
 # The RM cells field only takes scale variables, but its option carries no types, so with preloadData a cell column
-# that is ordinal or nominal in the data reaches R as a factor. Use its values as numbers, as .readDataSetToEnd did.
+# that is ordinal or nominal in the data reaches R as a factor whose levels are its labels. Labels that are numbers
+# (by default the label of 3 is "3") are used as the values. Text labels (3 = "often") hide the values, so ask for the
+# column to be set to Scale instead of reading the labels as missing. This can go once the RM cells option carries types.
 .rmCellsAsNumeric <- function(dataset, options) {
   cells <- unlist(options[["repeatedMeasuresCells"]], use.names = FALSE)
-  for (cell in intersect(cells, names(dataset)))
-    if (is.factor(dataset[[cell]]))
-      dataset[[cell]] <- suppressWarnings(as.numeric(as.character(dataset[[cell]])))
+  for (cell in intersect(cells, names(dataset))) {
+    if (!is.factor(dataset[[cell]]))
+      next
+
+    values <- suppressWarnings(as.numeric(as.character(dataset[[cell]])))
+    if (anyNA(values[!is.na(dataset[[cell]])]))
+      .quitAnalysis(gettextf("The repeated measures cell %s has labels that are not numbers. Set its type to Scale in the data, so that its values are used.",
+                             decodeColNames(cell)))
+
+    dataset[[cell]] <- values
+  }
   return(dataset)
 }
 

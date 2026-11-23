@@ -5,14 +5,40 @@ context("Other: alien_scents")
 
 test_that("AnovaRepeatedMeasures results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 1 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "alien_scents.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::AnovaRepeatedMeasures(
+          data = NULL,
+          version = "0.96.8",
+          barPlotErrorBars = TRUE,
+          contrastCi = TRUE,
+          contrastEffectSize = TRUE,
+          contrasts = list(optionKey = "variable", types = list("unknown", "unknown", list("unknown", "unknown")), value = list(list(contrast = "simple", variable = "Entity"), list(contrast = "simple", variable = "Scent"), list(variable = list("Entity", "Scent")))),
+          descriptivePlotHorizontalAxis = list("Scent"),
+          descriptivePlotSeparateLines = list("Entity"),
+          descriptivePlotYAxisLabel = "Vocalizations",
+          descriptives = TRUE,
+          effectSizeEstimates = TRUE,
+          effectSizeOmegaSquared = FALSE,
+          effectSizePartialOmegaSquared = TRUE,
+          labelYAxisTwo = "Vocalizations",
+          marginalMeanCiCorrection = "bonferroni",
+          marginalMeanTerms = list(list("Entity", "Scent")),
+          postHocCi = TRUE,
+          postHocConditionalTable = TRUE,
+          postHocEffectSize = TRUE,
+          postHocLetterTable = TRUE,
+          postHocTerms = list(list("Entity", "Scent")),
+          qqPlot = TRUE,
+          qqPlotCi = TRUE,
+          rainCloudHorizontalAxis = list("Entity"),
+          repeatedMeasuresCells = list("human_none", "human_human", "human_fox", "shapeshifter_none", "shapeshifter_human", "shapeshifter_fox", "alien_none", "alien_human", "alien_fox"),
+          repeatedMeasuresFactors = list(list(levels = list("Human", "Shapeshifter", "Alien"), name = "Entity"), list(levels = list("None", "Human", "Fox"), name = "Scent")),
+          restrictedModels = list(list(name = "Model 1")),
+          simpleMainEffectFactor = list("Scent"),
+          simpleMainEffectModeratorFactorOne = list("Entity"),
+          withinModelTerms = list(optionKey = "components", types = list("unknown", "unknown", list("unknown", "unknown")), value = list(list(components = "Entity"), list(components = "Scent"), list(components = list("Entity", "Scent"))))))
 
   plotName <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer_qqPlot"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]

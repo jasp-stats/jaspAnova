@@ -5,22 +5,39 @@ context("Other: puppy_love")
 
 test_that("Ancova (analysis 1) results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 1 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "puppy_love.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)[[1]]
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("Ancova", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::Ancova(
+          data = NULL,
+          version = "0.96.8",
+          formula = Happiness ~ Dose + `Puppy love`,
+          covariates = "Puppy love",
+          contrastCi = TRUE,
+          contrastEffectSize = TRUE,
+          contrasts = list(optionKey = "variable", types = "nominal", value = list(list(contrast = "simple", variable = "Dose"))),
+          descriptivePlotHorizontalAxis = ~ `Puppy love`,
+          descriptives = TRUE,
+          effectSizeCi = TRUE,
+          effectSizeEstimates = TRUE,
+          effectSizeOmegaSquared = FALSE,
+          effectSizePartialOmegaSquared = TRUE,
+          marginalMeanTerms = ~ Dose,
+          postHocCi = TRUE,
+          postHocCorrectionSidak = TRUE,
+          postHocTerms = ~ Dose,
+          postHocTypeStandardEffectSize = TRUE,
+          qqPlot = TRUE,
+          restrictedModelComparisonReference = "complement",
+          restrictedModels = list(list(name = "Model 1"))))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list("TRUE", 2, 4.14192880386377, 12.592597104191, 0.0274465428639959,
-     25.1851942083821, "Dose", 0.173186039799396, 0.406175871811309,
-     0, "FALSE", 1, 4.9586811332752, 15.0757477099169, 0.0348333806474409,
+    list("TRUE", 2, 4.14192880386377, 12.592597104191, 0.0274465428639958,
+     25.1851942083821, "Dose", 0.173186039799397, 0.406175871811225,
+     0, "FALSE", 1, 4.95868113327519, 15.0757477099169, 0.034833380647441,
      15.0757477099169, "Puppy love", 0.116573465198452, 0.36417512535664,
-     0, "TRUE", 26, "", 3.0402736745364, "", 79.0471155379464, "Residuals",
+     0, "TRUE", 26, "", 3.0402736745364, "", 79.0471155379463, "Residuals",
      "", "", ""))
 
   plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_assumptionsContainer"]][["collection"]][["anovaContainer_assumptionsContainer_qqPlot"]][["data"]]
@@ -72,24 +89,33 @@ test_that("Ancova (analysis 1) results match", {
 
 test_that("Ancova (analysis 2) results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 2 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "puppy_love.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)[[2]]
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("Ancova", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::Ancova(
+          data = NULL,
+          version = "0.96.8",
+          formula = Happiness ~ Dose * `Puppy love`,
+          covariates = "Puppy love",
+          contrastCi = TRUE,
+          contrasts = list(optionKey = "variable", types = "nominal", value = list(list(variable = "Dose"))),
+          descriptivePlotHorizontalAxis = ~ `Puppy love`,
+          descriptivePlotSeparateLines = ~ Dose,
+          effectSizeCi = TRUE,
+          effectSizeEstimates = TRUE,
+          marginalMeanBootstrap = TRUE,
+          restrictedModelComparisonReference = "complement",
+          restrictedModels = list(list(name = "Model 1"))))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list("TRUE", 2, 7.483568988423, 18.2787799846846, 0.00297956448464929,
-     36.5575599693692, "Dose", 0.234213206998912, 0.47415480752683,
-     0, "FALSE", 1, 7.03462486521666, 17.1822242014479, 0.0139474621264158,
+     36.5575599693692, "Dose", 0.234213206998912, 0.474154807526832,
+     0, "FALSE", 1, 7.03462486521665, 17.1822242014479, 0.0139474621264158,
      17.1822242014479, "Puppy love", 0.108997748403812, 0.365111631128032,
-     0, "TRUE", 2, 4.18145584551367, 10.2132968285663, 0.0276671129121842,
+     0, "TRUE", 2, 4.18145584551366, 10.2132968285663, 0.0276671129121843,
      20.4265936571325, "Dose <unicode> Puppy love", 0.114927284314195,
-     0.347288161766164, 0, "TRUE", 24, "", 2.44252174503391, "",
+     0.347288161766163, 0, "TRUE", 24, "", 2.44252174503391, "",
      58.6205218808138, "Residuals", "", "", ""))
 
   plotName <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_descriptivesContainer"]][["collection"]][["anovaContainer_descriptivesContainer_containerDescriptivesPlots"]][["collection"]][["anovaContainer_descriptivesContainer_containerDescriptivesPlots_Puppy love - Happiness"]][["data"]]

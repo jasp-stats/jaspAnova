@@ -119,7 +119,8 @@ AnovaRepeatedMeasures(
   usePooledStandErrorCITwo = FALSE,
   vovkSellke = FALSE,
   withinModelTerms = list(optionKey = "components", types = "unknown", value =
-    list(list(components = "RM Factor 1")))
+    list(list(components = "RM Factor 1"))),
+  ...
 )
 }
 \arguments{
@@ -294,6 +295,9 @@ Defaults to \code{FALSE}.}
 Defaults to \code{FALSE}.}
 
 \item{withinModelTerms, }{The repeated measures factors and covariates that can be included in the model. Can also include interaction effects.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 The repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.

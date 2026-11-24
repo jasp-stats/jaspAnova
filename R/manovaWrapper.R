@@ -47,6 +47,8 @@
 #'    Defaults to \code{FALSE}.
 #' @param vovkSellke, Shows the maximum ratio of the likelihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0
 #'    Defaults to \code{FALSE}.
+#' @param ... options that are not an argument of this function: the options of an older version of the
+#'   analysis, to be used together with `version`. They are upgraded to the options of this version.
 Manova <- function(
           data = NULL,
           version = "1",
@@ -71,9 +73,15 @@ Manova <- function(
           testPillai = TRUE,
           testRoy = FALSE,
           testWilks = FALSE,
-          vovkSellke = FALSE) {
+          vovkSellke = FALSE,
+          ...) {
 
-   options <- mget(names(formals(sys.function())), envir = environment(), inherits = FALSE)
+   options <- mget(setdiff(names(formals(sys.function())), "..."), envir = environment(), inherits = FALSE)
+   options <- c(options, list(...))
+   if (!all(nzchar(names(options))) || anyDuplicated(names(options)))
+      stop("The extra options given to Manova must be named, each name once.")
+   if (...length() > 0L && missing(version))
+      stop("Manova has no option ", paste(names(list(...)), collapse = ", "), ". Options of an older version need the `version` they were written for.")
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
@@ -94,5 +102,5 @@ Manova <- function(
 
    # Options not given in the call get their default from the form, which can depend on the other options.
    options <- options[names(options) %in% names(match.call())[-1L]]
-   return(jaspBase::runWrappedAnalysis("jaspAnova", "Manova", "Manova.qml", options, version, FALSE))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "Manova", "Manova.qml", options, version, TRUE))
 }

@@ -139,6 +139,8 @@
 #' @param vovkSellke, Shows the maximum ratio of the likelihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0
 #'    Defaults to \code{FALSE}.
 #' @param wlsWeights, Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed across levels of the independent variable.
+#' @param ... options that are not an argument of this function: the options of an older version of the
+#'   analysis, to be used together with `version`. They are upgraded to the options of this version.
 Ancova <- function(
           data = NULL,
           version = "1",
@@ -257,9 +259,15 @@ Ancova <- function(
           simpleMainEffectModeratorFactorTwo = list(types = list(), value = ""),
           sumOfSquares = "type3",
           vovkSellke = FALSE,
-          wlsWeights = list(types = list(), value = "")) {
+          wlsWeights = list(types = list(), value = ""),
+          ...) {
 
-   options <- mget(names(formals(sys.function())), envir = environment(), inherits = FALSE)
+   options <- mget(setdiff(names(formals(sys.function())), "..."), envir = environment(), inherits = FALSE)
+   options <- c(options, list(...))
+   if (!all(nzchar(names(options))) || anyDuplicated(names(options)))
+      stop("The extra options given to Ancova must be named, each name once.")
+   if (...length() > 0L && missing(version))
+      stop("Ancova has no option ", paste(names(list(...)), collapse = ", "), ". Options of an older version need the `version` they were written for.")
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
@@ -280,5 +288,5 @@ Ancova <- function(
 
    # Options not given in the call get their default from the form, which can depend on the other options.
    options <- options[names(options) %in% names(match.call())[-1L]]
-   return(jaspBase::runWrappedAnalysis("jaspAnova", "Ancova", "Ancova.qml", options, version, FALSE))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "Ancova", "Ancova.qml", options, version, TRUE))
 }

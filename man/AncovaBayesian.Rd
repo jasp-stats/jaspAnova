@@ -76,7 +76,8 @@ AncovaBayesian(
   singleModelQqPlot = FALSE,
   singleModelRsqPlot = FALSE,
   singleModelTerms = list(optionKey = "components", types = list(), value = list()),
-  wilsonParameterLambda = 1
+  wilsonParameterLambda = 1,
+  ...
 )
 }
 \arguments{
@@ -198,6 +199,9 @@ Defaults to \code{FALSE}.}
 Defaults to \code{FALSE}.}
 
 \item{singleModelTerms, }{Select the factors that should be included in the model.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 The Bayesian ANCOVA allows the user to analyze the difference between multiple group means, while taking into account the effect of variables that have an influence on the dependent variable but are not part of the experimental manipulation (i.e., covariates).

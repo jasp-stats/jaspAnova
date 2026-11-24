@@ -124,7 +124,8 @@ Ancova(
   simpleMainEffectModeratorFactorTwo = list(types = list(), value = ""),
   sumOfSquares = "type3",
   vovkSellke = FALSE,
-  wlsWeights = list(types = list(), value = "")
+  wlsWeights = list(types = list(), value = ""),
+  ...
 )
 }
 \arguments{
@@ -299,6 +300,9 @@ Defaults to \code{TRUE}.}
 Defaults to \code{FALSE}.}
 
 \item{wlsWeights, }{Weighted Least Squares, here the variable specifying which points have more weight and are therefore considered more informative can be selected. For this last option it is important to know the weights a priori. This option is primarily used when the errors are heteroskedastic, meaning they are not equally distributed across levels of the independent variable.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 ANCOVA allows the user to analyze the difference between multiple group means, while taking into account the effect of variables that have an influence on the dependent variable but are not part of the experimental manipulation (i.e., covariates).

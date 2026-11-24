@@ -19,6 +19,7 @@
 ## Changed
 * The Contrasts effect size info text and the help files for ANOVA, ANCOVA, and Repeated Measures ANOVA now describe how Cohen's d is standardized, and the Contrasts output section documents the Cohen's d and its confidence interval columns.
 * Normality assumption in the help and info text now refers to the residuals being normally distributed instead of the dependent variable, for Repeated Measures ANOVA (frequentist and Bayesian) and MANOVA (multivariate normality of residuals). Also corrected the Kruskal-Wallis description and Q-Q plot interpretation text in ANOVA and ANCOVA to refer to residuals.
+* All analyses in the module now use data preloaded by JASP, so variables arrive with the type set in the variable lists instead of being converted in R. Rows with a missing value on any analysis variable are still excluded listwise, and factor levels left empty by that exclusion are dropped. Repeated measures cells that are ordinal or nominal with text labels now give an error asking to set them to Scale, because JASP passes their labels instead of their values ([PR #546](https://github.com/jasp-stats/jaspAnova/pull/546)).
 
 ## Fixed
 * ANOVA and ANCOVA now correctly apply the selected WLS Weights variable when its column type is included in the analysis options. Previously, weights were silently ignored; refresh affected saved analyses to obtain weighted results ([PR #589](https://github.com/jasp-stats/jaspAnova/pull/589)).

@@ -8,6 +8,7 @@ test_that("Main table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$wlsWeights <- "facFifty"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
@@ -68,6 +69,7 @@ test_that("Homogeneity of Variances table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facExperim"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="facExperim"))
   options$homogeneityTests <- TRUE
   options$vovkSellke <- TRUE
@@ -82,6 +84,7 @@ test_that("Contrasts table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$contrastCi <- TRUE
   options$modelTerms <- list(list(components="facFive"))
 
@@ -172,6 +175,7 @@ test_that("Post Hoc table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="contBinom"))
   options$postHocTypeStandardEffectSize <- TRUE
   options$postHocCorrectionBonferroni <- TRUE
@@ -195,6 +199,7 @@ test_that("Marginal Means table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="contBinom"))
   options$marginalMeanComparedToZero <- TRUE
   options$marginalMeanTerms <- "contBinom"
@@ -227,6 +232,7 @@ test_that("Descriptives table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="contBinom"))
   options$descriptives <- TRUE
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
@@ -254,6 +260,7 @@ test_that("Descriptives table respects factor order", {
 
   options$dependent    <- "x"
   options$fixedFactors <- "group"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms   <- list(list(components = "group"))
   options$descriptives <- TRUE
 
@@ -300,6 +307,7 @@ test_that("Descriptives table respects factor order", {
 
   options$dependent    <- "x"
   options$fixedFactors <- paste0("group", 1:3)
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
 
   options$modelTerms   <- list(list(components = "group1"), list(components = "group2"), list(components = "group3"))
   options$descriptives <- TRUE
@@ -341,6 +349,7 @@ test_that("Q-Q plot matches", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="contBinom"))
   options$qqPlot <- TRUE
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
@@ -352,6 +361,7 @@ test_that("Descriptives plots match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$wlsWeights <- "facFifty"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
@@ -378,6 +388,7 @@ test_that("Bar plots match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$wlsWeights <- "facFifty"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
@@ -405,6 +416,7 @@ test_that("Raincloud plots match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c("facFive", "contBinom")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$wlsWeights <- "facFifty"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(
@@ -430,6 +442,7 @@ test_that("Simple Main Effects table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$modelTerms <- list(
     list(components="facExperim"),
     list(components="facFive")
@@ -464,6 +477,7 @@ test_that("Nonparametric table results match", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "contNormal"
   options$fixedFactors <- c( "facFive", "facExperim")
+  options$fixedFactors.types <- rep("nominal", length(options$fixedFactors))
   options$kruskalWallisFactors <- c( "facFive", "facExperim")
   options$modelTerms <- list(
     list(components="facExperim"),
@@ -489,6 +503,7 @@ test_that("Analysis handles errors", {
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "debInf"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="contBinom"))
   results <- jaspTools::runAnalysis("Anova", "test.csv", options)
   expect_identical(results[["results"]][["errorMessage"]],
@@ -497,6 +512,7 @@ test_that("Analysis handles errors", {
 
   options$dependent <- "contNormal"
   options$fixedFactors <- "contBinom"
+  options$fixedFactors.types <- "nominal"
   options$wlsWeights <- "debInf"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(list(components="contBinom"))
@@ -510,6 +526,7 @@ test_that("Analysis handles errors", {
   # the form refuses a factor with fewer than 2 levels, so the analysis never gets to see it
   options$dependent <- "contNormal"
   options$fixedFactors <- "debSame"
+  options$fixedFactors.types <- "nominal"
   options$modelTerms <- list(list(components="debSame"))
   expect_error(jaspTools::runAnalysis("Anova", "test.csv", options),
                "Minimum number of levels is 2. Variable debSame has only 1 levels", fixed = TRUE,
@@ -517,6 +534,7 @@ test_that("Analysis handles errors", {
 
   options$dependent <- "contGamma"
   options$fixedFactors <- "facFive"
+  options$fixedFactors.types <- "nominal"
   options$wlsWeights <- "contNormal"
   options$wlsWeights.types <- "scale"
   options$modelTerms <- list(list(components="facFive"))
@@ -531,6 +549,7 @@ options$contrasts <- list(list(contrast = "none", variable = "Species"))
 options$customContrasts <- list()
 options$dependent <- "Sepal.Length"
 options$fixedFactors <- "Species"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "Species"))
 options$postHocTerms <- list(list(variable = "Species"))
 options$rainCloudHorizontalAxis <- ""
@@ -579,6 +598,7 @@ test_that("ANOVA - factor level with zero variance works and Welch homogeneity c
   options <- initClassicalAnovaOptions("Anova")
   options$dependent <- "value"
   options$fixedFactors <- "group"
+  options$fixedFactors.types <- "nominal"
   options$homogeneityCorrectionWelch <- TRUE
   options$modelTerms <- list(list(components = "group"))
 
@@ -613,6 +633,7 @@ options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
 options$fixedFactors <- "Group"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "Group"))
 options$restrictedBootstrap <- FALSE
 options$restrictedBootstrapCiLevel <- 0.95
@@ -683,6 +704,7 @@ options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Age"
 options$fixedFactors <- "Group"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "Group"))
 options$restrictedBootstrap <- FALSE
 options$restrictedBootstrapCiLevel <- 0.95
@@ -775,6 +797,7 @@ options$contrasts <- list(list(contrast = "none", variable = "Group"))
 options$customContrasts <- list()
 options$dependent <- "Anger"
 options$fixedFactors <- "Group"
+options$fixedFactors.types <- "nominal"
 options$modelTerms <- list(list(components = "Group"))
 options$restrictedBootstrap <- FALSE
 options$restrictedBootstrapCiLevel <- 0.95

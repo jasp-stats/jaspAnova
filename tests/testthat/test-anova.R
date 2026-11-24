@@ -893,3 +893,34 @@ test_that("Dunn's rank-biserial correlation has the same sign as z", {
     expect_equal(sign(row$rbs), sign(row$z), label = row$contrast)
   }
 })
+
+test_that("Kruskal-Wallis and Dunn note that they ignore the other factors and covariates", {
+  note      <- "Tests are conducted separately for each factor, without accounting for the other factors or covariates."
+  footnotes <- function(table) vapply(table$footnotes, `[[`, character(1), "text")
+  runKruskal <- function(analysis, fixedFactors, covariates = NULL) {
+    options <- initClassicalAnovaOptions(analysis)
+    options$dependent          <- "contNormal"
+    options$fixedFactors       <- fixedFactors
+    options$fixedFactors.types <- rep("nominal", length(fixedFactors))
+    if (!is.null(covariates)) {
+      options$covariates       <- covariates
+      options$covariates.types <- rep("scale", length(covariates))
+    }
+    options$modelTerms           <- lapply(c(fixedFactors, covariates), function(x) list(components = x))
+    options$kruskalWallisFactors <- "facExperim"
+    options$postHocTypeDunn      <- TRUE
+    results <- jaspTools::runAnalysis(analysis, "test.csv", options)
+    results$results$anovaContainer$collection$anovaContainer_kruskalContainer$collection
+  }
+
+  # one factor in the Kruskal-Wallis box, while the model also has another factor or a covariate
+  for (design in list(list("Anova", c("facExperim", "facFive")), list("Ancova", "facExperim", "contGamma"))) {
+    kruskal <- do.call(runKruskal, design)
+    expect_true(note %in% footnotes(kruskal$anovaContainer_kruskalContainer_kruskalTable))
+    expect_true(note %in% footnotes(kruskal$anovaContainer_kruskalContainer_dunnContainer$collection[[1]]))
+  }
+
+  # a one-way design has nothing to ignore
+  kruskal <- runKruskal("Anova", "facExperim")
+  expect_false(note %in% footnotes(kruskal$anovaContainer_kruskalContainer_kruskalTable))
+})

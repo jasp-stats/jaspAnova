@@ -1162,3 +1162,46 @@ test_that("Conover's post hoc tests give the Friedman design error when the RM f
   expect_identical(conover$error$errorMessage, message)
   expect_length(conover$data, 0)
 })
+
+test_that("Friedman and Conover note that they ignore between subjects factors and covariates", {
+  set.seed(2616)
+  cells   <- c("a1", "a2", "a3")
+  dataset <- as.data.frame(matrix(round(rnorm(20 * length(cells)), 3), 20, dimnames = list(NULL, cells)))
+  dataset$group <- rep(c("g1", "g2"), each = 10)
+  dataset$age   <- round(rnorm(20, 40, 10), 1)
+
+  runNonparametrics <- function(between = NULL, covariate = NULL) {
+    options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+    options$repeatedMeasuresFactors <- list(list(name = "A", levels = c("a1", "a2", "a3")))
+    options$repeatedMeasuresCells   <- cells
+    options$withinModelTerms        <- list(list(components = "A"))
+    if (!is.null(between)) {
+      options$betweenSubjectFactors       <- between
+      options$betweenSubjectFactors.types <- "nominal"
+    }
+    if (!is.null(covariate)) {
+      options$covariates       <- covariate
+      options$covariates.types <- "scale"
+    }
+    options$betweenModelTerms    <- lapply(c(between, covariate), function(x) list(components = x))
+    options$friedmanWithinFactor <- "A"
+    options$conoverTest          <- TRUE
+    results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, options)
+    results$results$rmAnovaContainer$collection$rmAnovaContainer_nonparametricContainer$collection
+  }
+  footnotes <- function(table) vapply(table$footnotes, `[[`, character(1), "text")
+  note      <- "Tests are conducted over all subjects, without accounting for between subjects factors or covariates."
+
+  # the groups and the covariate do not change the tests, which rank within subjects over all subjects
+  for (design in list(list(between = "group"), list(covariate = "age"))) {
+    nonparametrics <- do.call(runNonparametrics, design)
+    friedman <- nonparametrics$rmAnovaContainer_nonparametricContainer_friedmanTable
+    conover  <- nonparametrics$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_A
+    expect_true(note %in% footnotes(friedman))
+    expect_true(note %in% footnotes(conover))
+    expect_equal(friedman$data[[1]]$chiSqr, unname(friedman.test(as.matrix(dataset[cells]))$statistic))
+  }
+
+  nonparametrics <- runNonparametrics()
+  expect_false(note %in% footnotes(nonparametrics$rmAnovaContainer_nonparametricContainer_friedmanTable))
+})

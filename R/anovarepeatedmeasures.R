@@ -1577,6 +1577,10 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
 }
 
 .rmAnovaSimpleEffects <- function(rmAnovaContainer, dataset, longData, options, ready) {
+  # CIs for partial eta and omega squared from the noncentral F (Steiger, 2004) are only established for
+  # between-subjects designs, so simple effects in RM ANOVA give the point estimates only, also for files that ask for CIs.
+  options[["simpleEffectSizeCi"]] <- FALSE
+
   if (!is.null(rmAnovaContainer[["simpleEffectsContainer"]]) || identical(options$simpleMainEffectFactor, "") ||
       identical(options$simpleMainEffectModeratorFactorOne, ""))
     return()
@@ -1588,9 +1592,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
                                                                                        "simpleMainEffectErrorTermPooled",
                                                                                        "simpleEffectSizeEstimates",
                                                                                        "simpleEffectSizePartialEtaSquared",
-                                                                                       "simpleEffectSizePartialOmegaSquared",
-                                                                                       "simpleEffectSizeCi",
-                                                                                       "simpleEffectSizeCiLevel"))
+                                                                                       "simpleEffectSizePartialOmegaSquared"))
 
   simpleEffectsTable <- createJaspTable(title = gettextf("Simple Main Effects - %s", options$simpleMainEffectFactor))
   rmAnovaContainer[["simpleEffectsContainer"]][["simpleEffectsTable"]] <- simpleEffectsTable

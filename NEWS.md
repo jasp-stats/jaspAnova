@@ -28,7 +28,7 @@
 * Simple main effects in Repeated Measures ANOVA with "Pool error terms" checked now use the right error term when a moderator is a within-subjects factor. The separate error terms are pooled over the moderator levels, with Satterthwaite degrees of freedom (Howell, 2002, section 14.7). Previously, a between-subjects factor was tested against the full between-subjects error term, and a within-subjects factor against its main-effect error term only, which made these tests too conservative. Simple effects at the levels of a between-subjects moderator are unchanged ([PR #595](https://github.com/jasp-stats/jaspAnova/pull/595)).
 
 ## Added
-* Partial η² and partial ω² (with optional CIs) as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size.
+* Partial η² and partial ω² as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size. ANOVA and ANCOVA can add confidence intervals (noncentral F, Steiger, 2004). Repeated Measures ANOVA gives the point estimates only, because that method is only established for between-subjects designs.
 
 ---
 

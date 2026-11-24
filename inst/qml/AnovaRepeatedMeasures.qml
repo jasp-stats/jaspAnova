@@ -199,6 +199,7 @@ Form
 	Classical.SimpleMainEffects
 	{
 		source: ["repeatedMeasuresFactors", "betweenSubjectFactors"]
+		enableEffectSizeCi: false
 		CheckBox { name: "simpleMainEffectErrorTermPooled";	label: qsTr("Pool error terms"); info: qsTr("A pooled error term assumes that the variances of the contrast scores are approximately equal (i.e., sphericity assumption).") }
 	}
 

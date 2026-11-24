@@ -5,24 +5,45 @@ context("Other: goggles")
 
 test_that("Anova results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 1 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "goggles.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::Anova(
+          data = NULL,
+          version = "0.96.8",
+          formula = Attractiveness ~ Facetype * Alcohol,
+          barPlotErrorBars = TRUE,
+          contrastCi = TRUE,
+          contrastEffectSize = TRUE,
+          contrasts = list(optionKey = "variable", types = list("nominal", "nominal", list("nominal", "nominal")), value = list(list(variable = "Facetype"), list(contrast = "Helmert", variable = "Alcohol"), list(variable = list("Facetype", "Alcohol")))),
+          descriptivePlotHorizontalAxis = ~ Alcohol,
+          descriptivePlotSeparateLines = ~ Facetype,
+          descriptives = TRUE,
+          effectSizeCi = TRUE,
+          effectSizeEstimates = TRUE,
+          effectSizeOmegaSquared = FALSE,
+          effectSizePartialOmegaSquared = TRUE,
+          marginalMeanCiCorrection = "sidak",
+          marginalMeanComparedToZero = TRUE,
+          marginalMeanTerms = ~ Facetype : Alcohol,
+          postHocCi = TRUE,
+          postHocConditionalTable = TRUE,
+          postHocCorrectionFdr = TRUE,
+          postHocTerms = ~ Facetype : Alcohol,
+          postHocTypeStandardEffectSize = TRUE,
+          restrictedModels = list(list(name = "Model 1")),
+          simpleMainEffectFactor = ~ Alcohol,
+          simpleMainEffectModeratorFactorOne = ~ Facetype))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list("TRUE", 1, 15.5826086956522, 21.3333333333333, 0.000295223592290035,
      21.3333333333333, "Facetype", 0.233013755731555, 0.432383141714249,
      0.0477237051208246, "FALSE", 2, 6.04130434782608, 8.27083333333333,
-     0.00494338949698301, 16.5416666666667, "Alcohol", 0.173590837637548,
-     0.362378057995661, 0.0046137581746789, "TRUE", 2, 8.50652173913044,
-     11.6458333333333, 0.000791273868880292, 23.2916666666667, "Facetype <unicode> Alcohol",
-     0.238252949699855, 0.427907139565879, 0.035994070104449, "TRUE",
+     0.00494338949698302, 16.5416666666667, "Alcohol", 0.173590837637548,
+     0.36237805799566, 0.00461375817467936, "TRUE", 2, 8.50652173913045,
+     11.6458333333333, 0.000791273868880286, 23.2916666666667, "Facetype <unicode> Alcohol",
+     0.238252949699855, 0.427907139565879, 0.0359940701044489, "TRUE",
      42, "", 1.36904761904762, "", 57.5, "Residuals", "", "", ""
     ))
 

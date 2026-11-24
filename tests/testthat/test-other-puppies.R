@@ -5,21 +5,47 @@ context("Other: puppies")
 
 test_that("Anova results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 1 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "puppies.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("Anova", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::Anova(
+          data = NULL,
+          version = "0.96.8",
+          formula = Happiness ~ Dose,
+          contrastCi = TRUE,
+          contrastEffectSize = TRUE,
+          contrasts = list(optionKey = "variable", types = "nominal", value = list(list(contrast = "custom", variable = "Dose"))),
+          customContrasts = list(list(value = list(types = "nominal", value = "Dose"), values = list(list(isContrast = FALSE, levels = list("1", "2", "3"), name = "Dose", values = list("No puppies", "15 mins", "30 mins")), list(isContrast = TRUE, levels = list("1", "2", "3"), name = "Contrast 1", values = list(-2, 1, 1)), list(isContrast = TRUE, levels = list("1", "2", "3"), name = "Contrast 2", values = list(0, -1, 1))))),
+          descriptivePlotHorizontalAxis = ~ Dose,
+          descriptives = TRUE,
+          effectSizeCi = TRUE,
+          effectSizeEstimates = TRUE,
+          effectSizeEtaSquared = TRUE,
+          effectSizePartialEtaSquared = TRUE,
+          effectSizePartialOmegaSquared = TRUE,
+          kruskalEffectSizeEstimates = TRUE,
+          kruskalEta = TRUE,
+          kruskalWallisFactors = ~ Dose,
+          marginalMeanTerms = ~ Dose,
+          postHocCi = TRUE,
+          postHocLetterTable = TRUE,
+          postHocSignificanceFlag = TRUE,
+          postHocTerms = ~ Dose,
+          postHocTypeDunn = TRUE,
+          postHocTypeDunnet = TRUE,
+          postHocTypeGames = TRUE,
+          postHocTypeStandardEffectSize = TRUE,
+          qqPlot = TRUE,
+          rainCloudHorizontalAxis = ~ Dose,
+          restrictedModelComparisonReference = "complement",
+          restrictedModels = list(list(name = "Model 1"))))
 
   table <- results[["results"]][["anovaContainer"]][["collection"]][["anovaContainer_anovaTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
     list("TRUE", 2, 5.11864406779661, 10.0666666666667, 0.0246942895382226,
      20.1333333333333, "Dose", 0.460365853658537, 0.706565601103752,
-     0.000745402224770925, 0.354485776805252, 0.637780996734387,
-     0, 0.460365853658537, 0.706565601103752, 0.000745402224770925,
+     0.000745402224770486, 0.354485776805252, 0.637780996734387,
+     0, 0.460365853658537, 0.706565601103752, 0.000745402224770486,
      0.354485776805252, 0.637780996734387, 0, "TRUE", 12, "", 1.96666666666667,
      "", 23.6, "Residuals", "", "", "", "", "", "", "", "", "", "",
      "", ""))

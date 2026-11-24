@@ -28,7 +28,8 @@ Manova(
   testPillai = TRUE,
   testRoy = FALSE,
   testWilks = FALSE,
-  vovkSellke = FALSE
+  vovkSellke = FALSE,
+  ...
 )
 }
 \arguments{
@@ -64,6 +65,9 @@ Defaults to \code{FALSE}.}
 
 \item{vovkSellke, }{Shows the maximum ratio of the likelihood of the obtained p value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0
 Defaults to \code{FALSE}.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 MANOVA allows the user to analyze the difference among groups when there are multiple dependent variables

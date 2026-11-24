@@ -1698,8 +1698,9 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   }
 
   kruskalTable$showSpecifiedColumnsOnly <- TRUE
-  if (length(options[["kruskalWallisFactors"]]) > 1)
-    kruskalTable$addFootnote(gettext("Tests are conducted separately for each variable, without accounting for multivariate effects."))
+  ignoredNote <- .anovaKruskalIgnoredNote(options)
+  if (!is.null(ignoredNote))
+    kruskalTable$addFootnote(ignoredNote)
 
   if (!ready || anovaContainer$getError())
     return()
@@ -1752,6 +1753,16 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   expr
 }
 
+# The Kruskal-Wallis test and Dunn's post hoc tests take one factor at a time, so they ignore the other factors of the
+# model and, in ANCOVA, the covariates.
+.anovaKruskalIgnoredNote <- function(options) {
+  modelVariables <- unlist(c(lapply(options$modelTerms, `[[`, "components"), options$covariates, options$kruskalWallisFactors))
+  if (length(unique(modelVariables[nzchar(modelVariables)])) < 2)
+    return(NULL)
+
+  return(gettext("Tests are conducted separately for each factor, without accounting for the other factors or covariates."))
+}
+
 .anovaDunnTable <- function(kruskalContainer, dataset, options, model) {
   if (!is.null(kruskalContainer[["dunnContainer"]]))
     return()
@@ -1760,6 +1771,7 @@ AncovaInternal <- function(jaspResults, dataset, options) {
 
   dunnVariables <- options[["kruskalWallisFactors"]]
   dependentVar <- options[["dependent"]]
+  ignoredNote <- .anovaKruskalIgnoredNote(options)
 
   .createPostHocDunnTable <- function(myTitle) {
 
@@ -1839,6 +1851,8 @@ AncovaInternal <- function(jaspResults, dataset, options) {
 
     kruskalContainer[["dunnContainer"]][[dunnVar]]$setData(dunnResult)
     kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
+    if (!is.null(ignoredNote))
+      kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(ignoredNote)
 
     if (options$postHocSignificanceFlag)
       .anovaAddSignificanceSigns(someTable = kruskalContainer[["dunnContainer"]][[dunnVar]],

@@ -1340,6 +1340,10 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
 
   rmAnovaContainer[["nonparametricContainer"]][["friedmanTable"]] <- friedmanTable
 
+  ignoredNote <- .rmAnovaFriedmanIgnoredNote(options)
+  if (!is.null(ignoredNote))
+    friedmanTable$addFootnote(ignoredNote)
+
   if (!ready || rmAnovaContainer$getError())
     return()
 
@@ -1417,6 +1421,14 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
   return(NULL)
 }
 
+# Both tests rank within subjects over all subjects, so they ignore the groups of a mixed design and any covariates.
+.rmAnovaFriedmanIgnoredNote <- function(options) {
+  if (!any(nzchar(unlist(c(options$betweenSubjectFactors, options$covariates)))))
+    return(NULL)
+
+  return(gettext("Tests are conducted over all subjects, without accounting for between subjects factors or covariates."))
+}
+
 .rmAnovaConoverTable <- function(rmAnovaContainer, longData, options, ready) {
   if (!is.null(rmAnovaContainer[["nonparametricContainer"]][["conoverContainer"]]) || options$conoverTest == FALSE)
     return ()
@@ -1450,6 +1462,7 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
 
   groupingVariables <- unlist(options$friedmanWithinFactor)
   y <- longData[, .BANOVAdependentName]
+  ignoredNote <- .rmAnovaFriedmanIgnoredNote(options)
 
   for (groupingVar in groupingVariables) {
 
@@ -1464,6 +1477,8 @@ AnovaRepeatedMeasuresInternal <- function(jaspResults, dataset, options) {
 
     conoverTable$addFootnote(gettextf("Grouped by %s.", "subject"))
     conoverTable$addFootnote(message = gettext("Rank-biserial correlation based on individual signed-rank tests."))
+    if (!is.null(ignoredNote))
+      conoverTable$addFootnote(ignoredNote)
 
     rows <- list()
 

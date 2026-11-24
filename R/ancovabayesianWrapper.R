@@ -112,6 +112,8 @@
 #' @param singleModelRsqPlot, By selecting this option, a plot of the posterior distribution of the R2 (i.e., explained variance) will be displayed.
 #'    Defaults to \code{FALSE}.
 #' @param singleModelTerms, Select the factors that should be included in the model.
+#' @param ... options that are not an argument of this function: the options of an older version of the
+#'   analysis, to be used together with `version`. They are upgraded to the options of this version.
 AncovaBayesian <- function(
           data = NULL,
           version = "1",
@@ -183,9 +185,15 @@ AncovaBayesian <- function(
           singleModelQqPlot = FALSE,
           singleModelRsqPlot = FALSE,
           singleModelTerms = list(optionKey = "components", types = list(), value = list()),
-          wilsonParameterLambda = 1) {
+          wilsonParameterLambda = 1,
+          ...) {
 
-   options <- mget(names(formals(sys.function())), envir = environment(), inherits = FALSE)
+   options <- mget(setdiff(names(formals(sys.function())), "..."), envir = environment(), inherits = FALSE)
+   options <- c(options, list(...))
+   if (!all(nzchar(names(options))) || anyDuplicated(names(options)))
+      stop("The extra options given to AncovaBayesian must be named, each name once.")
+   if (...length() > 0L && missing(version))
+      stop("AncovaBayesian has no option ", paste(names(list(...)), collapse = ", "), ". Options of an older version need the `version` they were written for.")
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
@@ -206,5 +214,5 @@ AncovaBayesian <- function(
 
    # Options not given in the call get their default from the form, which can depend on the other options.
    options <- options[names(options) %in% names(match.call())[-1L]]
-   return(jaspBase::runWrappedAnalysis("jaspAnova", "AncovaBayesian", "AncovaBayesian.qml", options, version, FALSE))
+   return(jaspBase::runWrappedAnalysis("jaspAnova", "AncovaBayesian", "AncovaBayesian.qml", options, version, TRUE))
 }

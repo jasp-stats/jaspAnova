@@ -75,7 +75,8 @@ AnovaBayesian(
   singleModelQqPlot = FALSE,
   singleModelRsqPlot = FALSE,
   singleModelTerms = list(optionKey = "components", types = list(), value = list()),
-  wilsonParameterLambda = 1
+  wilsonParameterLambda = 1,
+  ...
 )
 }
 \arguments{
@@ -203,6 +204,9 @@ Defaults to \code{FALSE}.}
 Defaults to \code{FALSE}.}
 
 \item{singleModelTerms, }{Select the factors that should be included in the model.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 The Bayesian ANOVA allows the user to analyze the difference between multiple group means.

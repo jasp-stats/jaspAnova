@@ -1412,24 +1412,42 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
 
 # Data reading ----
 .BANOVAreadData <- function(dataset, options, analysisType) {
-
-  if (is.null(dataset)) {
-    if (analysisType == "RM-ANOVA")
-      return(.BANOVAreadRManovaData(dataset, options))
-
-    numeric.vars <- c(unlist(options$covariates), unlist(options$dependent))
-    numeric.vars <- numeric.vars[numeric.vars != ""]
-
-    factor.vars <- c(unlist(options$fixedFactors), unlist(options$randomFactors))
-    factor.vars <- factor.vars[factor.vars != ""]
-
-    dataset <- .readDataSetToEnd(
-      columns.as.numeric  = numeric.vars,
-      columns.as.factor   = factor.vars,
-      exclude.na.listwise = c(numeric.vars, factor.vars)
-    )
+  if (analysisType == "RM-ANOVA") {
+    analysisVars <- unlist(c(options$repeatedMeasuresCells,
+                             options$betweenSubjectFactors,
+                             options$covariates), use.names = FALSE)
+  } else {
+    analysisVars <- unlist(c(options$dependent, options$fixedFactors, options$randomFactors,
+                             options$covariates), use.names = FALSE)
   }
+  analysisVars <- analysisVars[nzchar(analysisVars)]
+  if (analysisType == "RM-ANOVA")
+    dataset <- .rmCellsAsNumeric(dataset, options)
+  if (length(analysisVars) > 0L)
+    dataset <- jaspBase::excludeNaListwise(dataset, columns = analysisVars)
+  dataset <- droplevels(dataset)
+  if (analysisType == "RM-ANOVA")
+    return(.BANOVAwideToLong(dataset, options))
+  return(dataset)
+}
 
+# The RM cells field only takes scale variables, but its option carries no types, so with preloadData a cell column
+# that is ordinal or nominal in the data reaches R as a factor whose levels are its labels. Labels that are numbers
+# (by default the label of 3 is "3") are used as the values. Text labels (3 = "often") hide the values, so ask for the
+# column to be set to Scale instead of reading the labels as missing. This can go once the RM cells option carries types.
+.rmCellsAsNumeric <- function(dataset, options) {
+  cells <- unlist(options[["repeatedMeasuresCells"]], use.names = FALSE)
+  for (cell in intersect(cells, names(dataset))) {
+    if (!is.factor(dataset[[cell]]))
+      next
+
+    values <- suppressWarnings(as.numeric(as.character(dataset[[cell]])))
+    if (anyNA(values[!is.na(dataset[[cell]])]))
+      .quitAnalysis(gettextf("The repeated measures cell %s has labels that are not numbers. Set its type to Scale in the data, so that its values are used.",
+                             decodeColNames(cell)))
+
+    dataset[[cell]] <- values
+  }
   return(dataset)
 }
 
@@ -1448,26 +1466,18 @@ BANOVAcomputMatchedInclusion <- function(effectNames, effects.matrix, interactio
   return(nuisance)
 }
 
-.BANOVAreadRManovaData <- function(dataset, options) {
+.BANOVAwideToLong <- function(dataset, options) {
 
   if (!("" %in% options$repeatedMeasuresCells)) {
     rm.vars       <- options$repeatedMeasuresCells
-
     bs.factors    <- options$betweenSubjectFactors
     bs.covariates <- options$covariates
     rm.factors    <- options$repeatedMeasuresFactors
-    all.variables <- c (bs.factors, bs.covariates, rm.vars)
 
-    dataset <- .readDataSetToEnd(
-      columns.as.numeric  = c(rm.vars, bs.covariates),
-      columns.as.factor   = bs.factors,
-      exclude.na.listwise = all.variables
-    )
     dataset <- try(
       .shortToLong(dataset, rm.factors, rm.vars, c(bs.factors, bs.covariates), dependentName = .BANOVAdependentName, subjectName = .BANOVAsubjectName),
       silent = TRUE
     )
-
   }
   return(dataset)
 }

@@ -5,14 +5,39 @@ context("Other: sniffer_dogs")
 
 test_that("AnovaRepeatedMeasures results match", {
 
-  # Load from JASP example file
+  # Run the R syntax of analysis 1 of the JASP example file on the data of the file
   jaspFile <- testthat::test_path("jaspfiles", "other", "sniffer_dogs.jasp")
-  opts <- jaspTools::analysisOptions(jaspFile)
-  dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
-
-  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, opts)
+  results <- jaspTools::runAnalysisSyntax(jaspFile = jaspFile, jaspAnova::AnovaRepeatedMeasures(
+          data = NULL,
+          version = "0.96.8",
+          barPlotErrorBars = TRUE,
+          contrastCi = TRUE,
+          contrastEffectSize = TRUE,
+          contrasts = list(optionKey = "variable", types = "unknown", value = list(list(contrast = "custom", variable = "Entity"))),
+          customContrasts = list(list(value = list(types = "unknown", value = "Entity"), values = list(list(isContrast = FALSE, levels = list("1", "2", "3", "4"), name = "Entity", values = list("Mannequin", "Human", "Shapeshifter", "Alien")), list(isContrast = TRUE, levels = list("1", "2", "3", "4"), name = "Contrast 1", values = list(-0.5, -0.5, 0.5, 0.5)), list(isContrast = TRUE, levels = list("1", "2", "3", "4"), name = "Contrast 2", values = list(0, 0, -1, 1)), list(isContrast = TRUE, levels = list("1", "2", "3", "4"), name = "Contrast 3", values = list(-1, 1, 0, 0))))),
+          descriptivePlotHorizontalAxis = list("Entity"),
+          descriptives = TRUE,
+          effectSizeEstimates = TRUE,
+          effectSizeEtaSquared = TRUE,
+          effectSizeGeneralEtaSquared = TRUE,
+          effectSizePartialEtaSquared = TRUE,
+          effectSizePartialOmegaSquared = TRUE,
+          marginalMeanTerms = list("Entity"),
+          postHocCi = TRUE,
+          postHocCorrectionBonferroni = TRUE,
+          postHocCorrectionHolm = FALSE,
+          postHocEffectSize = TRUE,
+          postHocTerms = list("Entity"),
+          qqPlot = TRUE,
+          qqPlotCi = TRUE,
+          repeatedMeasuresCells = list("mannequin", "human", "shapeshifter", "alien"),
+          repeatedMeasuresFactors = list(list(levels = list("Mannequin", "Human", "Shapeshifter", "Alien"), name = "Entity")),
+          restrictedModels = list(list(name = "Model 1")),
+          sphericityCorrectionGreenhouseGeisser = TRUE,
+          sphericityCorrectionHuynhFeldt = TRUE,
+          sphericityTests = TRUE,
+          withinModelTerms = list(optionKey = "components", types = "unknown", value = list(list(components = "Entity")))))
 
   plotName <- results[["results"]][["rmAnovaContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer"]][["collection"]][["rmAnovaContainer_assumptionsContainer_qqPlot"]][["data"]]
   testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]

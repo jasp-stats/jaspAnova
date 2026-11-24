@@ -80,7 +80,8 @@ AnovaRepeatedMeasuresBayesian(
   singleModelRsqPlot = FALSE,
   singleModelTerms = list(optionKey = "components", types = "unknown", value =
     list(list(components = "RM Factor 1"))),
-  wilsonParameterLambda = 1
+  wilsonParameterLambda = 1,
+  ...
 )
 }
 \arguments{
@@ -210,6 +211,9 @@ Defaults to \code{FALSE}.}
 Defaults to \code{FALSE}.}
 
 \item{singleModelTerms, }{Select the factors that should be included in the model.}
+
+\item{...}{options that are not an argument of this function: the options of an older version of the
+analysis, to be used together with `version`. They are upgraded to the options of this version.}
 }
 \description{
 The Repeated Measures ANOVA allows the user to analyze the differences between means, when observations are dependent i.e Within subject factors. It also allows combining with between subject factors.

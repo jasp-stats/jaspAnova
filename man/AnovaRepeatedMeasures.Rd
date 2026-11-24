@@ -40,7 +40,6 @@ AnovaRepeatedMeasures(
   effectSizeOmegaSquared = TRUE,
   effectSizePartialEtaSquared = FALSE,
   effectSizePartialOmegaSquared = FALSE,
-  friedmanBetweenFactor = list(types = list(), value = ""),
   friedmanWithinFactor = list(types = list(), value = list()),
   homogeneityTests = FALSE,
   labelYAxisTwo = "",
@@ -184,8 +183,6 @@ Defaults to \code{FALSE}.}
 
 \item{effectSizePartialOmegaSquared, }{Partial omega squared (ω²p) estimates the effect size after removing variance from other factors in the model. In repeated-measures designs, the denominator retains variance due to individual differences between subjects, following Kroes & Finley (2023). For single-factor designs, partial ω² equals standard ω². Computed using the effectsize R package.
 Defaults to \code{FALSE}.}
-
-\item{friedmanBetweenFactor, }{Possible to select the between subjects factor here.}
 
 \item{friedmanWithinFactor, }{The repeated measures factor(s) of interest.}
 

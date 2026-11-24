@@ -63,7 +63,6 @@
 #'    Defaults to \code{FALSE}.
 #' @param effectSizePartialOmegaSquared, Partial omega squared (ω²p) estimates the effect size after removing variance from other factors in the model. In repeated-measures designs, the denominator retains variance due to individual differences between subjects, following Kroes & Finley (2023). For single-factor designs, partial ω² equals standard ω². Computed using the effectsize R package.
 #'    Defaults to \code{FALSE}.
-#' @param friedmanBetweenFactor, Possible to select the between subjects factor here.
 #' @param friedmanWithinFactor, The repeated measures factor(s) of interest.
 #' @param homogeneityTests, By selecting this option, it will be checked whether the variance of the dependent variable is equal between the groups by performing Levene's test of equal variances. This test is only suitable for assessing equal variance for between subjects factors. For repeated measures, the sphericity test is more suitable.
 #'    Defaults to \code{FALSE}.
@@ -172,7 +171,6 @@ AnovaRepeatedMeasures <- function(
           effectSizeOmegaSquared = TRUE,
           effectSizePartialEtaSquared = FALSE,
           effectSizePartialOmegaSquared = FALSE,
-          friedmanBetweenFactor = list(types = list(), value = ""),
           friedmanWithinFactor = list(types = list(), value = list()),
           homogeneityTests = FALSE,
           labelYAxisTwo = "",
@@ -264,7 +262,7 @@ AnovaRepeatedMeasures <- function(
       jaspBase::storeDataSet(data)
    }
 
-   optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "betweenModelTerms", "betweenSubjectFactors", "contrasts", "covariates", "customContrasts", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "friedmanBetweenFactor", "friedmanWithinFactor", "marginalMeanCiCorrection", "marginalMeanTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "withinModelTerms")
+   optionsWithFormula <- c("barPlotHorizontalAxis", "barPlotSeparatePlots", "betweenModelTerms", "betweenSubjectFactors", "contrasts", "covariates", "customContrasts", "descriptivePlotHorizontalAxis", "descriptivePlotSeparateLines", "descriptivePlotSeparatePlot", "friedmanWithinFactor", "marginalMeanCiCorrection", "marginalMeanTerms", "postHocTerms", "rainCloudHorizontalAxis", "rainCloudSeparatePlots", "repeatedMeasuresCells", "repeatedMeasuresFactors", "restrictedHeterogeneityCorrection", "restrictedMarginalMeanTerms", "restrictedModelComparison", "restrictedModelComparisonReference", "restrictedModels", "simpleMainEffectFactor", "simpleMainEffectModeratorFactorOne", "simpleMainEffectModeratorFactorTwo", "sumOfSquares", "withinModelTerms")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 

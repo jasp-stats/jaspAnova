@@ -120,10 +120,9 @@ De hoofdeffecten geven het effect van een binnen-proefpersoon factor voor elk ni
 - Samengevoegde error term: Een samengevoegde error term maakt de assumptie dat de varianties van de contrastscores ongeveer gelijk zijn (i.e., assumptie sphericiteit).
 
 #### Verdelingsvrije toetsen
-De Friedman toets is een niet parametrisch alternatief voor de herhaalde metingen ANOVA wanneer er een compleet blok design is. The Durbin toets wordt automatisch geselecteerd wanneer er een incompleet blok design is. 
+De Friedman toets is een niet parametrisch alternatief voor de herhaalde metingen ANOVA wanneer er een compleet blok design is.
 - Factoren: Dit veld bevat alle binnen-proefpersoon factoren uit de analyse.
 - BP factor: De binnen-proefpersoon factor waarin u geïnteresseerd bent.
-- Tussen factor (optioneel): Het is mogelijk om hier een tussen-persoon factor toe te voegen.
 - Conover's post-hoc toetsen: Conover's post-hoc toets voor paar wijze vergelijkingen, wanneer de verdelingsvrije toets statistiek significant is.
 
 
@@ -208,16 +207,12 @@ Ge-bootstrapte marginale gemiddelden - binnen-proefpersoon variabele:
   - Boven: De bovengrens van het betrouwbaarheidsinterval.
 
 #### Verdelingsvrije toetsen
-Friedman Toets / Durbin Toets:
+Friedman Toets:
 - Factor: The binnen-proefpersoon factor van de analyse.
 - \u03a7\u00b2<sub>F</sub>: De Friedman chi-squared toets statistiek.
 - vg: vrijheidsgraden.
 - p: De p-waarde.
-- Kendall's W: Kendall’s W Test kan worden gezien als normalisatie van de Friedman/Durbin statistiek.
-- F: De waarde van de F statistiek.
-- vg teller: Vrijheidsgraden voor het bepalen van p-waarden van de F-statistieken.
-- vg noemer: Vrijheidsgraden voor het bepalen van p-waarden van de F-statistieken.
-- p<sub>f</sub>: De p-waarde van de F-statistiek.
+- Kendall's W: Kendall’s W Test kan worden gezien als normalisatie van de Friedman statistiek.
 
 Conover's post-hoc Vergelijkingen:
 - De eerste twee kolommen representeren de niveaus van de binnen-proefpersoon factor die worden vergeleken.

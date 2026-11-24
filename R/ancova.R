@@ -1698,8 +1698,9 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   }
 
   kruskalTable$showSpecifiedColumnsOnly <- TRUE
-  if (length(options[["kruskalWallisFactors"]]) > 1)
-    kruskalTable$addFootnote(gettext("Tests are conducted separately for each variable, without accounting for multivariate effects."))
+  ignoredNote <- .anovaKruskalIgnoredNote(options)
+  if (!is.null(ignoredNote))
+    kruskalTable$addFootnote(ignoredNote)
 
   if (!ready || anovaContainer$getError())
     return()
@@ -1710,8 +1711,13 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   for (term in kruskalFactors) {
 
     kruskalResultsList[[term]] <- kruskal.test(dataset[[options$dependent]], dataset[[term]])
-    kruskalEpsilonList[[term]] <- effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
-    kruskalEtaList[[term]] <- effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]], alternative = "two.sided")
+    # effectsize bootstraps these confidence intervals, so a fixed seed gives the same interval on every run
+    kruskalEpsilonList[[term]] <- .anovaWithFixedSeed(
+      effectsize::rank_epsilon_squared(dataset[[options$dependent]], dataset[[term]], ci = options[["kruskalCiLevel"]],
+                                       alternative = "two.sided", iterations = 1000))
+    kruskalEtaList[[term]] <- .anovaWithFixedSeed(
+      effectsize::rank_eta_squared(dataset[[options$dependent]], dataset[[term]], ci = options[["kruskalCiLevel"]],
+                                   alternative = "two.sided", iterations = 1000))
 
   }
 
@@ -1734,6 +1740,29 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   return()
 }
 
+# Evaluates expr with a fixed seed and restores the random number state afterwards.
+.anovaWithFixedSeed <- function(expr, seed = 1) {
+  hadSeed <- exists(".Random.seed", envir = globalenv(), inherits = FALSE)
+  if (hadSeed)
+    oldSeed <- get(".Random.seed", envir = globalenv(), inherits = FALSE)
+  on.exit({
+    if (hadSeed) assign(".Random.seed", oldSeed, envir = globalenv())
+    else         rm(".Random.seed", envir = globalenv())
+  })
+  set.seed(seed)
+  expr
+}
+
+# The Kruskal-Wallis test and Dunn's post hoc tests take one factor at a time, so they ignore the other factors of the
+# model and, in ANCOVA, the covariates.
+.anovaKruskalIgnoredNote <- function(options) {
+  modelVariables <- unlist(c(lapply(options$modelTerms, `[[`, "components"), options$covariates, options$kruskalWallisFactors))
+  if (length(unique(modelVariables[nzchar(modelVariables)])) < 2)
+    return(NULL)
+
+  return(gettext("Tests are conducted separately for each factor, without accounting for the other factors or covariates."))
+}
+
 .anovaDunnTable <- function(kruskalContainer, dataset, options, model) {
   if (!is.null(kruskalContainer[["dunnContainer"]]))
     return()
@@ -1742,6 +1771,7 @@ AncovaInternal <- function(jaspResults, dataset, options) {
 
   dunnVariables <- options[["kruskalWallisFactors"]]
   dependentVar <- options[["dependent"]]
+  ignoredNote <- .anovaKruskalIgnoredNote(options)
 
   .createPostHocDunnTable <- function(myTitle) {
 
@@ -1771,13 +1801,14 @@ AncovaInternal <- function(jaspResults, dataset, options) {
                              bonferroni = numeric(),
                              holm = numeric())
 
-    variableLevels <- levels(droplevels(dataset[[ .v(dunnVar) ]]))
+    groupingVar <- droplevels(dataset[[ dunnVar ]])
+    variableLevels <- levels(groupingVar)
     nLevels <- length(variableLevels)
-    nPerGroup <- unname(unlist(table(dataset[[ .v(dunnVar) ]])))
+    nPerGroup <- unname(unlist(table(groupingVar)))
     bigN <- sum(nPerGroup)
 
     fullRanks <- rank(dataset[[ dependentVar ]])
-    ranksPerGroup <- by(fullRanks, dataset[[ dunnVar ]], list)
+    ranksPerGroup <- by(fullRanks, groupingVar, list)
     sumPerGroup <- unlist(lapply(ranksPerGroup, FUN = sum))
     meanPerGroup <- unname(sumPerGroup/nPerGroup)
 
@@ -1797,8 +1828,9 @@ AncovaInternal <- function(jaspResults, dataset, options) {
 
         a <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[i]]]
         b <- dataset[[ dependentVar ]][dataset[[ dunnVar ]] == variableLevels[[j]]]
+        # positive when level i tends to have the higher values, like z
         u <- wilcox.test(a, b)$statistic
-        rbs <- as.numeric(1-(2*u)/(nPerGroup[i]*nPerGroup[j]))
+        rbs <- as.numeric((2 * u) / (nPerGroup[i] * nPerGroup[j]) - 1)
 
         dunnResult <- rbind(dunnResult, data.frame(contrast = contrast,
                                                    z = zAB,
@@ -1819,6 +1851,8 @@ AncovaInternal <- function(jaspResults, dataset, options) {
 
     kruskalContainer[["dunnContainer"]][[dunnVar]]$setData(dunnResult)
     kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(message = gettext("Rank-biserial correlation based on individual Mann-Whitney tests."))
+    if (!is.null(ignoredNote))
+      kruskalContainer[["dunnContainer"]][[dunnVar]]$addFootnote(ignoredNote)
 
     if (options$postHocSignificanceFlag)
       .anovaAddSignificanceSigns(someTable = kruskalContainer[["dunnContainer"]][[dunnVar]],

@@ -32,7 +32,7 @@
 * Conover's post hoc tests in Repeated Measures ANOVA now give the same error as the Friedman test when the RM factor is crossed with another RM factor, instead of a table with NaN values ([PR #596](https://github.com/jasp-stats/jaspAnova/pull/596)).
 
 ## Added
-* Partial η² and partial ω² (with optional CIs) as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size.
+* Partial η² and partial ω² as effect size estimates for the Simple Main Effects table in ANOVA, ANCOVA, and Repeated Measures ANOVA, matching SPSS's simple effects effect size. ANOVA and ANCOVA can add confidence intervals (noncentral F, Steiger, 2004). Repeated Measures ANOVA gives the point estimates only, because that method is only established for between-subjects designs.
 
 ## Removed
 * The "Optional Grouping Factor" of the Friedman test in Repeated Measures ANOVA. Any between subjects factor with more than one subject per level made the test stop with an error. The Durbin test is removed too: it could never be selected, because the repeated measures cells are always complete ([PR #596](https://github.com/jasp-stats/jaspAnova/pull/596)).

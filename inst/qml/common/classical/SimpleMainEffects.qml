@@ -24,6 +24,7 @@ Section
 {
 	title:	qsTr("Simple Main Effects"); info: qsTr("The simple main effects represent the effect of one independent variable for each level of the other independent variable, by conducting an ANOVA for each subset of the data as specified by the moderator variables.")
 	property alias source:	availableTerms.source
+	property bool	enableEffectSizeCi:	true
 
 	VariablesForm
 	{
@@ -47,6 +48,7 @@ Section
 		CheckBox
 		{
 			name: "simpleEffectSizeCi"; label: qsTr("Confidence intervals"); info: qsTr("Displays confidence intervals for the effect size. Set at 95% by default but can be changed into the desired percentage.")
+			visible: enableEffectSizeCi
 			CIField {	name: "simpleEffectSizeCiLevel" }
 			childrenOnSameRow: true
 		}

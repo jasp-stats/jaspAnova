@@ -1067,3 +1067,77 @@ test_that("Ordinal restrictions: Model Comparison Table results match", {
                                       14.9921559166853, 0.667393736737698, 10.5279158319605, 0.59973836890891,
                                       10.2438861673345, "Complement", 15.5078440833148, 1))
 })
+
+test_that("Pooled simple effects use the separate error terms pooled over the moderator levels", {
+  # with random subject slopes for A the subject x A variance is not zero, so a wrong error term changes the tests
+  set.seed(2614)
+  n       <- 24
+  group   <- rep(c("ctrl", "treat"), each = n / 2)
+  subject <- rnorm(n)
+  slopeA  <- rnorm(n, sd = 0.6)
+  cells   <- c("a1b1", "a1b2", "a2b1", "a2b2", "a3b1", "a3b2")
+  dataset <- data.frame(group = group)
+  for (cell in cells)
+    dataset[[cell]] <- round(subject + slopeA * as.numeric(substr(cell, 2, 2)) + 0.4 * (group == "treat") * grepl("a3", cell) + rnorm(n, sd = 0.7), 3)
+
+  long <- data.frame(id = factor(rep(seq_len(n), length(cells))), group = factor(rep(group, length(cells))),
+                     A = factor(rep(substr(cells, 1, 2), each = n)), B = factor(rep(substr(cells, 3, 4), each = n)),
+                     y = unlist(dataset[cells], use.names = FALSE))
+  strata <- summary(stats::aov(y ~ group * A * B + Error(id / (A * B)), data = long))
+  # pooled error mean square with Satterthwaite df (Howell, 2002, section 14.7)
+  pooled <- function(...) {
+    parts <- do.call(rbind, lapply(c(...), function(stratum) strata[[stratum]][[1]]["Residuals", c("Sum Sq", "Df")]))
+    c(meanSq = sum(parts[["Sum Sq"]]) / sum(parts[["Df"]]),
+      df     = sum(parts[["Sum Sq"]])^2 / sum(parts[["Sum Sq"]]^2 / parts[["Df"]]))
+  }
+  # mean square of a simple effect in the separate analysis at one moderator level
+  separateMeanSq <- function(formula, subset, stratum, term)
+    summary(stats::aov(formula, data = long[subset, ]))[[stratum]][[1]][term, "Mean Sq"]
+
+  simpleEffects <- function(factor, moderatorOne, moderatorTwo = "") {
+    options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+    options$repeatedMeasuresFactors     <- list(list(name = "A", levels = c("a1", "a2", "a3")), list(name = "B", levels = c("b1", "b2")))
+    options$repeatedMeasuresCells       <- cells
+    options$withinModelTerms            <- list(list(components = "A"), list(components = "B"), list(components = c("A", "B")))
+    options$betweenSubjectFactors       <- "group"
+    options$betweenSubjectFactors.types <- "nominal"
+    options$betweenModelTerms           <- list(list(components = "group"))
+    options$simpleMainEffectFactor             <- factor
+    options$simpleMainEffectModeratorFactorOne <- moderatorOne
+    options$simpleMainEffectModeratorFactorTwo <- moderatorTwo
+    options$simpleMainEffectErrorTermPooled    <- TRUE
+    results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", dataset, options)
+    results$results$rmAnovaContainer$collection$rmAnovaContainer_simpleEffectsContainer$collection$rmAnovaContainer_simpleEffectsContainer_simpleEffectsTable$data
+  }
+
+  checkRows <- function(rows, meanSq, error, label) {
+    column <- function(name) unname(vapply(rows, function(row) as.numeric(row[[name]]), numeric(1)))
+    meanSq <- unname(meanSq)
+    expect_equal(column("MeanSq"), meanSq, label = paste(label, "mean square"))
+    expect_equal(column("F"), meanSq / error[["meanSq"]], label = paste(label, "F"))
+    expect_equal(column("p"), stats::pf(meanSq / error[["meanSq"]], column("Df"), error[["df"]], lower.tail = FALSE),
+                 label = paste(label, "p"))
+  }
+
+  # between factor at a within moderator: within-cell error (SS_S/G + SS_AxS/G) / (df_S/G + df_AxS/G)
+  checkRows(simpleEffects("group", "A"),
+            vapply(c("a1", "a2", "a3"), function(a) separateMeanSq(y ~ group * B + Error(id / B), long$A == a, "Error: id", "group"), numeric(1)),
+            pooled("Error: id", "Error: id:A"), "group at A")
+
+  # between factor at all within cells: pooled over every within error term
+  levelsAB <- expand.grid(B = c("b1", "b2"), A = c("a1", "a2", "a3"), stringsAsFactors = FALSE)
+  checkRows(simpleEffects("group", "A", "B"),
+            mapply(function(a, b) stats::anova(stats::lm(y ~ group, data = long[long$A == a & long$B == b, ]))["group", "Mean Sq"],
+                   levelsAB$A, levelsAB$B, USE.NAMES = FALSE),
+            pooled("Error: id", "Error: id:A", "Error: id:B", "Error: id:A:B"), "group at A and B")
+
+  # within factor at a within moderator: (SS_AxS/G + SS_AxBxS/G) / (df_AxS/G + df_AxBxS/G)
+  checkRows(simpleEffects("A", "B"),
+            vapply(c("b1", "b2"), function(b) separateMeanSq(y ~ group * A + Error(id / A), long$B == b, "Error: id:A", "A"), numeric(1)),
+            pooled("Error: id:A", "Error: id:A:B"), "A at B")
+
+  # within factor at a between moderator: the full-model error term of A
+  checkRows(simpleEffects("A", "group"),
+            vapply(c("ctrl", "treat"), function(g) separateMeanSq(y ~ A * B + Error(id / (A * B)), long$group == g, "Error: id:A", "A"), numeric(1)),
+            pooled("Error: id:A"), "A at group")
+})

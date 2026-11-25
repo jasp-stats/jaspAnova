@@ -176,7 +176,7 @@ test_that("Model Comparison table results match", {
   )
 
   set.seed(1)
-  results <- runAnalysis("AnovaBayesian", "debug.csv", options)
+  results <- jaspTools::runAnalysis("AnovaBayesian", "debug.csv", options)
   table <- results[["results"]][["tableModelComparison"]][["data"]]
   jaspTools::expect_equal_tables(
     table,
@@ -226,7 +226,7 @@ test_that("Model prior changes posterior model probabilities", {
     options$modelPrior <- modelPrior
 
     set.seed(1)
-    results <- runAnalysis("AnovaBayesian", "debug.csv", options)
+    results <- jaspTools::runAnalysis("AnovaBayesian", "debug.csv", options)
     tableModelComparison <- results[["results"]][["tableModelComparison"]][["data"]]
     tableEffects <- results[["results"]][["tableEffects"]][["data"]]
 

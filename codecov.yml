@@ -1,0 +1,3 @@
+# Analysis wrappers (R/*Wrapper.R) are generated from the QML forms, so they are left out of the coverage report.
+ignore:
+  - "R/*Wrapper.R"

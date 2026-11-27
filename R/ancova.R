@@ -859,30 +859,6 @@ AncovaInternal <- function(jaspResults, dataset, options) {
   contr
 }
 
-.postHocContrasts <- function(variableLevels, dataset, options) {
-
-  contrasts <- NULL
-  nLevels <- length(variableLevels)
-
-  for (i in 1:(nLevels - 1)) {
-
-    for (j in (i + 1):nLevels) {
-
-      name <- paste(variableLevels[[i]], "-", variableLevels[[j]], sep = " ")
-      contrast <- rep(0, nLevels)
-      contrast[i] <- -1
-      contrast[j] <- 1
-
-      arg <- list(contrasts, contrast)
-      names(arg)[2] <- name
-      contrasts <- do.call(rbind, arg)
-
-    }
-  }
-
-  return(contrasts)
-}
-
 .anovaPostHocTableCollection <- function(anovaContainer, dataset, options, ready) {
   if (length(options$postHocTerms) == 0 || !ready)
     return()

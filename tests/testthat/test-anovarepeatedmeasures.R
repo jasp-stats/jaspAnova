@@ -1202,3 +1202,219 @@ test_that("Friedman and Conover note that they ignore between subjects factors a
   nonparametrics <- runNonparametrics()
   expect_false(note %in% footnotes(nonparametrics$rmAnovaContainer_nonparametricContainer_friedmanTable))
 })
+
+# The tests below check results against independent references (stats, afex, effectsize, emmeans, textbook
+# formulas) instead of against stored output, so a bug cannot be locked in as the expected value.
+
+# 2 (between: group, unbalanced 10/14) x 3 (within: A) x 2 (within: B) design, plus a covariate
+rmCoverageData <- function() {
+  set.seed(2611)
+  n       <- 24
+  group   <- rep(c("ctrl", "treat"), c(10, 14))
+  subject <- rnorm(n)
+  means   <- c(a1b1 = 0, a1b2 = 0.3, a2b1 = 0.5, a2b2 = 0.6, a3b1 = 1, a3b2 = 1.6)
+  wide    <- data.frame(group = group, cov = round(rnorm(n), 3))
+  for (cell in names(means))
+    wide[[cell]] <- round(subject + means[[cell]] + 0.4 * (group == "treat") * startsWith(cell, "a3") + rnorm(n, sd = 0.7), 3)
+
+  long <- data.frame(
+    id    = factor(rep(seq_len(n), length(means))),
+    group = factor(rep(group, length(means))),
+    A     = factor(substr(rep(names(means), each = n), 1, 2)),
+    B     = factor(substr(rep(names(means), each = n), 3, 4)),
+    y     = unlist(wide[names(means)], use.names = FALSE)
+  )
+  list(wide = wide, long = long, cells = names(means))
+}
+
+rmCoverageOptions <- function(cells) {
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+  options$repeatedMeasuresFactors     <- list(list(name = "A", levels = c("a1", "a2", "a3")),
+                                              list(name = "B", levels = c("b1", "b2")))
+  options$repeatedMeasuresCells       <- cells
+  options$withinModelTerms            <- list(list(components = "A"), list(components = "B"), list(components = c("A", "B")))
+  options$betweenSubjectFactors       <- "group"
+  options$betweenSubjectFactors.types <- "nominal"
+  options$betweenModelTerms           <- list(list(components = "group"))
+  options
+}
+
+rmCollection <- function(results) results[["results"]][["rmAnovaContainer"]][["collection"]]
+rmColumn     <- function(rows, col) vapply(rows, function(row) as.numeric(row[[col]]), numeric(1))
+rmTerm       <- function(case) vapply(strsplit(gsub(" ✻ ", ":", case), ":"), function(x) paste(sort(x), collapse = ":"), character(1))
+rmVovkSellke <- function(p) ifelse(p < exp(-1), 1 / (-exp(1) * p * log(p)), 1) # Sellke, Bayarri & Berger (2001)
+
+test_that("Type I and Type II sums of squares match stats::aov and afex", {
+  d <- rmCoverageData()
+
+  strata <- summary(stats::aov(y ~ group * A * B + Error(id / (A * B)), data = d$long))
+  type1  <- do.call(rbind, unname(lapply(strata, function(stratum) {
+    stratum <- as.data.frame(stratum[[1]])
+    rownames(stratum) <- trimws(rownames(stratum))
+    stratum[rownames(stratum) != "Residuals", c("Sum Sq", "Df", "F value")]
+  })))
+  fit2  <- suppressMessages(afex::aov_car(y ~ group * A * B + Error(id / (A * B)), data = d$long, type = 2))
+  type2 <- suppressWarnings(as.data.frame(unclass(summary(fit2)$univariate.tests)))
+  type2 <- type2[rownames(type2) != "(Intercept)", c("Sum Sq", "num Df", "F value")]
+  references <- list(type1 = setNames(type1, c("Sum Sq", "num Df", "F value")), type2 = type2)
+
+  for (type in names(references)) {
+    options <- rmCoverageOptions(d$cells)
+    options$sumOfSquares <- type
+    results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+    rows <- c(rmCollection(results)$rmAnovaContainer_withinAnovaTable$data,
+              rmCollection(results)$rmAnovaContainer_betweenTable$data)
+    rows <- Filter(function(row) row[["case"]] != "Residuals", rows)
+    ref  <- references[[type]]
+    idx  <- match(rmTerm(vapply(rows, `[[`, character(1), "case")), rmTerm(rownames(ref)))
+
+    expect_false(anyNA(idx), label = paste(type, "terms"))
+    expect_equal(length(rows), nrow(ref), label = paste(type, "number of terms"))
+    expect_equal(rmColumn(rows, "Sum Sq"),  ref[idx, "Sum Sq"],  label = paste(type, "sums of squares"))
+    expect_equal(rmColumn(rows, "num Df"),  ref[idx, "num Df"],  label = paste(type, "df"))
+    expect_equal(rmColumn(rows, "F value"), ref[idx, "F value"], label = paste(type, "F"))
+  }
+})
+
+test_that("Between Subjects effect sizes and VS-MPR match effectsize and their definition", {
+  d <- rmCoverageData()
+  options <- rmCoverageOptions(d$cells)
+  options$effectSizeEstimates           <- TRUE
+  options$effectSizeEtaSquared          <- TRUE
+  options$effectSizePartialEtaSquared   <- TRUE
+  options$effectSizeGeneralEtaSquared   <- TRUE
+  options$effectSizeOmegaSquared        <- TRUE
+  options$effectSizePartialOmegaSquared <- TRUE
+  options$vovkSellke                    <- TRUE
+  options$homogeneityTests              <- TRUE
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+  between <- rmCollection(results)$rmAnovaContainer_betweenTable$data
+  group   <- between[[which(vapply(between, `[[`, character(1), "case") == "group")]]
+
+  fit       <- suppressMessages(afex::aov_car(y ~ group * A * B + Error(id / (A * B)), data = d$long, type = 3))
+  eta       <- effectsize::eta_squared(fit,   partial = FALSE, alternative = "two.sided")
+  partEta   <- effectsize::eta_squared(fit,   partial = TRUE,  alternative = "two.sided")
+  omega     <- effectsize::omega_squared(fit, partial = FALSE, alternative = "two.sided")
+  partOmega <- effectsize::omega_squared(fit, partial = TRUE,  alternative = "two.sided")
+
+  expect_equal(group[["eta"]],          eta[["Eta2"]][eta[["Parameter"]] == "group"])
+  expect_equal(group[["partialEta"]],   partEta[["Eta2_partial"]][partEta[["Parameter"]] == "group"])
+  expect_equal(group[["omega"]],        max(omega[["Omega2"]][omega[["Parameter"]] == "group"], 0))
+  expect_equal(group[["partialOmega"]], max(partOmega[["Omega2_partial"]][partOmega[["Parameter"]] == "group"], 0))
+  expect_equal(group[["genEta"]],       fit[["anova_table"]]["group", "ges"])
+  expect_equal(group[["vovkSellke"]],   rmVovkSellke(group[["Pr(>F)"]]))
+
+  within <- Filter(function(row) row[["case"]] != "Residuals", rmCollection(results)$rmAnovaContainer_withinAnovaTable$data)
+  expect_equal(rmColumn(within, "vovkSellke"), rmVovkSellke(rmColumn(within, "p")))
+
+  levene <- rmCollection(results)$rmAnovaContainer_assumptionsContainer$collection$rmAnovaContainer_assumptionsContainer_rmAnovaLevenesTable$data
+  expect_equal(rmColumn(levene, "vovkSellke"), rmVovkSellke(rmColumn(levene, "p")))
+})
+
+test_that("Levene's test with a covariate is computed on the residuals of the covariate model", {
+  d <- rmCoverageData()
+  options <- rmCoverageOptions(d$cells)
+  options$covariates        <- "cov"
+  options$covariates.types  <- "scale"
+  options$betweenModelTerms <- list(list(components = "group"), list(components = "cov"))
+  options$homogeneityTests  <- TRUE
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+  levene <- rmCollection(results)$rmAnovaContainer_assumptionsContainer$collection$rmAnovaContainer_assumptionsContainer_rmAnovaLevenesTable$data
+  expect_equal(vapply(levene, `[[`, character(1), "case"), d$cells)
+  for (row in levene) {
+    absResiduals <- abs(stats::residuals(stats::lm(d$wide[[row[["case"]]]] ~ group + cov, data = d$wide)))
+    ref          <- stats::anova(stats::lm(absResiduals ~ d$wide$group))
+    expect_equal(row[["F"]], ref[1, "F value"],  label = paste("Levene F for", row[["case"]]))
+    expect_equal(row[["p"]], ref[1, "Pr(>F)"],   label = paste("Levene p for", row[["case"]]))
+  }
+})
+
+test_that("Friedman test and Conover's post hoc tests match stats::friedman.test and Conover (1999)", {
+  d     <- rmCoverageData()
+  cells <- c("a1b1", "a2b1", "a3b1")
+  options <- initClassicalAnovaOptions("AnovaRepeatedMeasures")
+  options$repeatedMeasuresFactors <- list(list(name = "A", levels = c("a1", "a2", "a3")))
+  options$repeatedMeasuresCells   <- cells
+  options$withinModelTerms        <- list(list(components = "A"))
+  options$friedmanWithinFactor    <- "A"
+  options$conoverTest             <- TRUE
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+  nonparametric <- rmCollection(results)$rmAnovaContainer_nonparametricContainer$collection
+  friedman      <- nonparametric$rmAnovaContainer_nonparametricContainer_friedmanTable$data[[1]]
+
+  y   <- as.matrix(d$wide[cells])
+  b   <- nrow(y)
+  k   <- ncol(y)
+  ref <- stats::friedman.test(y)
+  expect_equal(friedman[["chiSqr"]],  unname(ref$statistic))
+  expect_equal(friedman[["df"]],      unname(ref$parameter))
+  expect_equal(friedman[["p"]],       ref$p.value)
+  expect_equal(friedman[["kendall"]], unname(ref$statistic) / (b * (k - 1))) # no ties within subjects
+
+  # Conover (1999, p. 371): |R_i - R_j| / sqrt(2 (b A - sum R^2) / ((b - 1) (k - 1))), df = (b - 1)(k - 1)
+  ranks <- t(apply(y, 1, rank))
+  R     <- colSums(ranks)
+  pairs <- utils::combn(k, 2)
+  se    <- sqrt(2 * (b * sum(ranks^2) - sum(R^2)) / ((b - 1) * (k - 1)))
+  tRef  <- unname(abs(R[pairs[1, ]] - R[pairs[2, ]]) / se)
+  pRef  <- 2 * stats::pt(tRef, (b - 1) * (k - 1), lower.tail = FALSE)
+  rbRef <- apply(pairs, 2, function(p) effectsize::rank_biserial(y[, p[1]], y[, p[2]], paired = TRUE)[["r_rank_biserial"]])
+
+  conover <- nonparametric$rmAnovaContainer_nonparametricContainer_conoverContainer$collection$rmAnovaContainer_nonparametricContainer_conoverContainer_A$data
+  expect_equal(vapply(conover, `[[`, character(1), "(I)"), c("a1", "a1", "a2"))
+  expect_equal(vapply(conover, `[[`, character(1), "(J)"), c("a2", "a3", "a3"))
+  expect_equal(rmColumn(conover, "wA"),         unname(R[pairs[1, ]]))
+  expect_equal(rmColumn(conover, "wB"),         unname(R[pairs[2, ]]))
+  expect_equal(rmColumn(conover, "df"),         rep((b - 1) * (k - 1), ncol(pairs)))
+  expect_equal(rmColumn(conover, "t"),          tRef)
+  expect_equal(rmColumn(conover, "pval"),       pRef)
+  expect_equal(rmColumn(conover, "bonferroni"), stats::p.adjust(pRef, "bonferroni"))
+  expect_equal(rmColumn(conover, "holm"),       stats::p.adjust(pRef, "holm"))
+  expect_equal(rmColumn(conover, "rbs"),        rbRef)
+})
+
+test_that("Bootstrapped marginal means bracket the model-based marginal means", {
+  d <- rmCoverageData()
+  options <- rmCoverageOptions(d$cells)
+  options$marginalMeanTerms            <- list(list(variable = "A"))
+  options$marginalMeanBootstrap        <- TRUE
+  options$marginalMeanBootstrapSamples <- 100
+  set.seed(1)
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+  table <- rmCollection(results)$rmAnovaContainer_marginalMeansContainer$collection$rmAnovaContainer_marginalMeansContainer_A
+  rows  <- table$data
+  fit   <- suppressMessages(afex::aov_car(y ~ group * A * B + Error(id / (A * B)), data = d$long, type = 3))
+  ref   <- suppressMessages(summary(emmeans::emmeans(fit, ~ A)))
+
+  expect_equal(vapply(rows, `[[`, character(1), "A"), as.character(ref$A))
+  expect_true(all(rmColumn(rows, "lower.CL") < ref$emmean & ref$emmean < rmColumn(rows, "upper.CL")))
+  expect_true(all(abs(rmColumn(rows, "lsmean") - ref$emmean) < 0.5 * ref$SE)) # bootstrap median near the estimate
+  expect_true(all(rmColumn(rows, "SE") > 0))
+  expect_true("Bootstrapping based on 100 successful replicates." %in% vapply(table$footnotes, `[[`, character(1), "text"))
+})
+
+test_that("Unpooled simple effects of a between subjects factor match a split-plot ANOVA per moderator level", {
+  d <- rmCoverageData()
+  options <- rmCoverageOptions(d$cells)
+  options$simpleMainEffectFactor             <- "group"
+  options$simpleMainEffectModeratorFactorOne <- "A"
+  options$simpleMainEffectErrorTermPooled    <- FALSE
+  results <- jaspTools::runAnalysis("AnovaRepeatedMeasures", d$wide, options)
+
+  rows <- rmCollection(results)$rmAnovaContainer_simpleEffectsContainer$collection$rmAnovaContainer_simpleEffectsContainer_simpleEffectsTable$data
+  expect_equal(vapply(rows, `[[`, character(1), "modOne"), c("a1", "a2", "a3"))
+  for (row in rows) {
+    level   <- droplevels(d$long[d$long$A == row[["modOne"]], ])
+    stratum <- as.data.frame(summary(stats::aov(y ~ group * B + Error(id / B), data = level))[["Error: id"]][[1]])
+    rownames(stratum) <- trimws(rownames(stratum))
+    expect_equal(row[["SumSq"]], stratum["group", "Sum Sq"],  label = paste("SS at", row[["modOne"]]))
+    expect_equal(row[["Df"]],    stratum["group", "Df"],      label = paste("df at", row[["modOne"]]))
+    expect_equal(row[["F"]],     stratum["group", "F value"], label = paste("F at", row[["modOne"]]))
+    expect_equal(row[["p"]],     stratum["group", "Pr(>F)"],  label = paste("p at", row[["modOne"]]))
+  }
+})

@@ -268,7 +268,7 @@ test_that("Descriptives table respects factor order", {
   levels1 <- c("Medium", "Sedentary", "Low", "High")
   dat$group <- factor(dat$group, levels = levels1)
 
-  result1 <- runAnalysis(name = "Anova", options = options, dataset = dat)
+  result1 <- jaspTools::runAnalysis(name = "Anova", options = options, dataset = dat)
 
   tb1 <- result1$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   rowNms1 <- sapply(tb1, `[[`, "group.")
@@ -279,7 +279,7 @@ test_that("Descriptives table respects factor order", {
   levels2 <- c("Sedentary", "Low", "Medium", "High")
   dat$group <- factor(dat$group, levels = levels2)
 
-  result2 <- runAnalysis(name = "Anova", options = options, dataset = dat, makeTests = FALSE)
+  result2 <- jaspTools::runAnalysis(name = "Anova", options = options, dataset = dat, makeTests = FALSE)
 
   tb2 <- result2$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   rowNms2 <- sapply(tb2, `[[`, "group.")
@@ -312,7 +312,7 @@ test_that("Descriptives table respects factor order", {
   options$modelTerms   <- list(list(components = "group1"), list(components = "group2"), list(components = "group3"))
   options$descriptives <- TRUE
 
-  result <- runAnalysis(name = "Anova", options = options, dataset = dat)
+  result <- jaspTools::runAnalysis(name = "Anova", options = options, dataset = dat)
 
   tb <- result$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   for (group in 1:3) {
@@ -331,7 +331,7 @@ test_that("Descriptives table respects factor order", {
     levels(dat[[colName]]) <- sample(levels(dat[[colName]]))
   }
 
-  result <- runAnalysis(name = "Anova", options = options, dataset = dat)
+  result <- jaspTools::runAnalysis(name = "Anova", options = options, dataset = dat)
 
   tb <- result$results$anovaContainer$collection$anovaContainer_descriptivesContainer$collection$anovaContainer_descriptivesContainer_tableDescriptives$data
   for (group in 1:3) {
@@ -923,4 +923,153 @@ test_that("Kruskal-Wallis and Dunn note that they ignore the other factors and c
   # a one-way design has nothing to ignore
   kruskal <- runKruskal("Anova", "facExperim")
   expect_false(note %in% footnotes(kruskal$anovaContainer_kruskalContainer_kruskalTable))
+})
+
+# The tests below check results against independent references (stats, emmeans, textbook formulas)
+# instead of against stored output, so a bug cannot be locked in as the expected value.
+
+# one-way design with unequal group sizes and unequal variances, plus a second factor and a covariate
+anovaCoverageData <- function() {
+  set.seed(2612)
+  g <- rep(c("g1", "g2", "g3"), c(12, 18, 15))
+  data.frame(
+    g = g,
+    h = rep(c("h1", "h2"), length.out = length(g)),
+    y = round(c(g1 = 0, g2 = 0.6, g3 = 1)[g] + rnorm(length(g), sd = c(g1 = 0.5, g2 = 1, g3 = 1.8)[g]), 3),
+    x = round(rnorm(length(g)), 3)
+  )
+}
+
+anovaCoverageOptions <- function() {
+  options <- initClassicalAnovaOptions("Anova")
+  options$dependent          <- "y"
+  options$fixedFactors       <- "g"
+  options$fixedFactors.types <- "nominal"
+  options$modelTerms         <- list(list(components = "g"))
+  options
+}
+
+anovaColumn     <- function(rows, col) vapply(rows, function(row) as.numeric(row[[col]]), numeric(1))
+anovaPostHoc    <- function(results) results$results$anovaContainer$collection$anovaContainer_postHocContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer$collection$anovaContainer_postHocContainer_postHocStandardContainer_g
+anovaVovkSellke <- function(p) ifelse(p < exp(-1), 1 / (-exp(1) * p * log(p)), 1) # Sellke, Bayarri & Berger (2001)
+
+test_that("Brown-Forsythe ANOVA matches the Brown-Forsythe (1974) F* statistic", {
+  dataset <- anovaCoverageData()
+  options <- anovaCoverageOptions()
+  options$homogeneityCorrectionBrown <- TRUE
+  options$vovkSellke                 <- TRUE
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+
+  rows  <- results$results$anovaContainer$collection$anovaContainer_anovaTable$data
+  brown <- Filter(function(row) identical(row[["correction"]], "Brown-Forsythe"), rows)
+  none  <- Filter(function(row) identical(row[["correction"]], "None"), rows)
+  brownResidual <- rows[[which(vapply(rows, function(row) identical(row[["correction"]], "Brown-Forsythe"), logical(1))) + 1]]
+
+  n  <- tapply(dataset$y, dataset$g, length)
+  m  <- tapply(dataset$y, dataset$g, mean)
+  s2 <- tapply(dataset$y, dataset$g, var)
+  N  <- sum(n)
+  w  <- (1 - n / N) * s2
+  fStar <- sum(n * (m - mean(dataset$y))^2) / sum(w)
+  df2   <- 1 / sum((w / sum(w))^2 / (n - 1))
+
+  expect_equal(brown[[1]][["F value"]], fStar)
+  expect_equal(brown[[1]][["Df"]], length(n) - 1)
+  expect_equal(brownResidual[["Df"]], df2)
+  expect_equal(brown[[1]][["Pr(>F)"]], stats::pf(fStar, length(n) - 1, df2, lower.tail = FALSE))
+  expect_equal(brown[[1]][["Sum Sq"]], none[[1]][["Sum Sq"]])
+  expect_equal(brown[[1]][["vovkSellke"]], anovaVovkSellke(brown[[1]][["Pr(>F)"]]))
+  expect_equal(none[[1]][["vovkSellke"]],  anovaVovkSellke(none[[1]][["Pr(>F)"]]))
+})
+
+test_that("Post hoc table without corrections matches unadjusted emmeans pairwise comparisons", {
+  dataset <- anovaCoverageData()
+  options <- anovaCoverageOptions()
+  options$postHocTerms <- "g"
+  for (correction in grep("^postHocCorrection", names(options), value = TRUE))
+    options[[correction]] <- FALSE
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+
+  rows <- anovaPostHoc(results)$data
+  ref  <- summary(emmeans::contrast(emmeans::emmeans(stats::lm(y ~ g, data = dataset), ~ g), "pairwise", adjust = "none"))
+  expect_equal(paste(vapply(rows, `[[`, character(1), "contrast_A"), "-", vapply(rows, `[[`, character(1), "contrast_B")), as.character(ref$contrast))
+  expect_equal(anovaColumn(rows, "estimate"), ref$estimate)
+  expect_equal(anovaColumn(rows, "SE"),       ref$SE)
+  expect_equal(anovaColumn(rows, "t.ratio"),  ref$t.ratio)
+  expect_equal(anovaColumn(rows, "df"),       ref$df)
+})
+
+test_that("Bootstrapped post hoc tests bracket the model-based mean differences and Cohen's d", {
+  dataset <- anovaCoverageData()
+  options <- anovaCoverageOptions()
+  options$postHocTerms                        <- "g"
+  options$postHocCi                           <- TRUE
+  options$postHocTypeStandardEffectSize       <- TRUE
+  options$postHocTypeStandardBootstrap        <- TRUE
+  options$postHocTypeStandardBootstrapSamples <- 100
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+
+  table <- anovaPostHoc(results)
+  rows  <- table$data
+  fit   <- stats::lm(y ~ g, data = dataset)
+  ref   <- summary(emmeans::contrast(emmeans::emmeans(fit, ~ g), "pairwise", adjust = "none"))
+  d     <- ref$estimate / stats::sigma(fit)
+
+  expect_true(all(anovaColumn(rows, "lower.CL") < ref$estimate & ref$estimate < anovaColumn(rows, "upper.CL")))
+  expect_true(all(abs(anovaColumn(rows, "estimate") - ref$estimate) < 0.5 * ref$SE)) # bootstrap median near the estimate
+  expect_true(all(anovaColumn(rows, "cohenD_LowerCI") < d & d < anovaColumn(rows, "cohenD_UpperCI")))
+  expect_equal(anovaColumn(rows, "t.ratio"), ref$t.ratio) # tests are not bootstrapped
+  footnotes <- vapply(table$footnotes, `[[`, character(1), "text")
+  expect_true(any(startsWith(footnotes, "Bootstrapping based on 100 replicates.")))
+})
+
+test_that("Bootstrapped marginal means bracket the model-based marginal means", {
+  dataset <- anovaCoverageData()
+  options <- anovaCoverageOptions()
+  options$marginalMeanTerms            <- list(list(variable = "g"))
+  options$marginalMeanBootstrap        <- TRUE
+  options$marginalMeanBootstrapSamples <- 100
+  set.seed(1)
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+
+  table <- results$results$anovaContainer$collection$anovaContainer_marginalMeansContainer$collection$anovaContainer_marginalMeansContainer_g
+  rows  <- table$data
+  ref   <- summary(emmeans::emmeans(stats::lm(y ~ g, data = dataset), ~ g))
+
+  expect_equal(vapply(rows, `[[`, character(1), "g"), as.character(ref$g))
+  expect_true(all(anovaColumn(rows, "lower.CL") < ref$emmean & ref$emmean < anovaColumn(rows, "upper.CL")))
+  expect_true(all(abs(anovaColumn(rows, "lsmean") - ref$emmean) < 0.5 * ref$SE))
+  expect_true("Bootstrapping based on 100 replicates." %in% vapply(table$footnotes, `[[`, character(1), "text"))
+})
+
+test_that("Residuals are saved to a new scale column for each residual type", {
+  # jaspTools returns the column's name and type, not its values
+  for (type in c("raw", "standard", "student")) {
+    options <- anovaCoverageOptions()
+    options$residualsSavedToData       <- TRUE
+    options$residualsSavedToDataType   <- type
+    options$residualsSavedToDataColumn <- paste0("residuals_", type)
+    results <- jaspTools::runAnalysis("Anova", anovaCoverageData(), options)
+
+    column <- results$results$anovaContainer$collection$anovaContainer_residualsSavedToDataColumn
+    expect_equal(column[["columnName"]], paste0("residuals_", type), label = paste(type, "column name"))
+    expect_equal(column[["columnType"]], "scale",                    label = paste(type, "column type"))
+  }
+})
+
+test_that("ANOVA reports zero residual variance and empty cells", {
+  dataset   <- anovaCoverageData()
+  dataset$y <- c(g1 = 1, g2 = 2, g3 = 3)[dataset$g]
+  results   <- jaspTools::runAnalysis("Anova", dataset, anovaCoverageOptions())
+  expect_match(results$results$anovaContainer$collection$anovaContainer_anovaTable$error$errorMessage, "Residual sum of squares is 0")
+
+  dataset <- anovaCoverageData()
+  dataset <- dataset[!(dataset$g == "g3" & dataset$h == "h2"), ]
+  options <- anovaCoverageOptions()
+  options$fixedFactors       <- c("g", "h")
+  options$fixedFactors.types <- c("nominal", "nominal")
+  options$modelTerms         <- list(list(components = "g"), list(components = "h"), list(components = c("g", "h")))
+  results <- jaspTools::runAnalysis("Anova", dataset, options)
+  expect_match(results$results$anovaContainer$collection$anovaContainer_anovaTable$error$errorMessage, "Your design contains empty cells")
 })

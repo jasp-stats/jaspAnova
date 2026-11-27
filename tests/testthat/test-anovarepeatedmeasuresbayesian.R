@@ -277,7 +277,7 @@ options$posteriorEstimates <- TRUE
 options$singleModelTerms <- list(list(components = "contcor1"), list(components = "facGender"))
 
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "test.csv", options)
 
 test_that("Model Comparison table results with interactions match", {
 	table <- results[["results"]][["tableModelComparison"]][["data"]]
@@ -341,7 +341,7 @@ options$modelTerms <- list(list(components = "Drink", isNuisance = FALSE), list(
 options$applyMoreyCorrectionErrorBars <- TRUE
 
 set.seed(1)
-results <- runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
+results <- jaspTools::runAnalysis("AnovaRepeatedMeasuresBayesian", "Alcohol Attitudes.csv", options)
 
 test_that("Descriptives plot matches for beer data", {
   plotName <- results[["results"]][["descriptivesContainer"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots"]][["collection"]][["descriptivesContainer_containerDescriptivesPlots_"]][["data"]]

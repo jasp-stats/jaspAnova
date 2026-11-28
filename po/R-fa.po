@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.96.6\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-09-15 03:58+0000\n"
 "Last-Translator: Sohrab Delshad <sdel4030@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -274,9 +274,10 @@ msgstr "رتبه %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "فاصله اطمینان %1$i%% برای رتبه %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "آزمون‌ها به‌طور جداگانه برای هر متغیر انجام می‌شوند، بدون در نظر گرفتن اثرات "
 "چندمتغیره."
@@ -309,31 +310,6 @@ msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
 "خطا هنگام بارگذاری داده‌ها. لطفاً مشاهدات اندازه‌گیری مکرر خود را بررسی کنید."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "عامل: <em>%s</em>، حاوی کمتر از دو سطح است."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "عامل‌ها: <em>%s</em>، حاوی کمتر از دو سطح هستند."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "اندازه‌گیری مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "اندازه‌گیری‌های مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "همپراش: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "همپراش‌ها: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"لطفاً نامی برای عامل‌های اندازه‌گیری مکرر (RM) انتخاب کنید که با نام عامل‌های "
-"بین‌آزمودنی‌ها متفاوت باشد."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -435,7 +411,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "W کندال"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "لطفاً جملات مناسب را برای آزمون فریدمن/دوربین مشخص کنید."
 
 msgid ""
@@ -445,17 +422,13 @@ msgstr ""
 "یک طرح بلوکی کامل بدون تکرار نیست. آزمون فریدمن فقط به‌عنوان جایگزینی برای "
 "تحلیل واریانس اندازه‌گیری مکرر یک‌طرفه در دسترس است."
 
-msgid "Durbin Test"
-msgstr "آزمون دوربین"
-
-msgid "df num"
-msgstr "درجه آزادی صورت"
-
-msgid "df den"
-msgstr "درجه آزادی مخرج"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"آزمون‌ها به‌طور جداگانه برای هر متغیر انجام می‌شوند، بدون در نظر گرفتن اثرات "
+"چندمتغیره."
 
 msgid "Conover Test"
 msgstr "آزمون کانوور"
@@ -732,6 +705,11 @@ msgstr "شانس‌های پیشین"
 msgid "Posterior Odds"
 msgstr "شانس‌های پسین"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "آماره‌های توصیفی"
 
@@ -774,9 +752,6 @@ msgstr "وابسته"
 
 msgid "Sampling posteriors"
 msgstr "پسین‌های نمونه‌گیری"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "طول نمونه‌ها باید برابر با طول وزن‌ها باشد!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1154,3 +1129,43 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "مدل پوچ (شامل %s و شیب‌های تصادفی)"
 msgstr[1] "مدل پوچ (شامل %s و شیب‌های تصادفی)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "عامل: <em>%s</em>، حاوی کمتر از دو سطح است."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "عامل‌ها: <em>%s</em>، حاوی کمتر از دو سطح هستند."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "اندازه‌گیری مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "اندازه‌گیری‌های مکرر: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "همپراش: <em>%s</em>، حاوی مقادیر بی‌نهایت است."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "همپراش‌ها: <em>%s</em>، حاوی مقادیر بی‌نهایت هستند."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "لطفاً نامی برای عامل‌های اندازه‌گیری مکرر (RM) انتخاب کنید که با نام عامل‌های "
+#~ "بین‌آزمودنی‌ها متفاوت باشد."
+
+#~ msgid "Durbin Test"
+#~ msgstr "آزمون دوربین"
+
+#~ msgid "df num"
+#~ msgstr "درجه آزادی صورت"
+
+#~ msgid "df den"
+#~ msgstr "درجه آزادی مخرج"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "طول نمونه‌ها باید برابر با طول وزن‌ها باشد!"

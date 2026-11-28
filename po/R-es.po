@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-10-02 19:20+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -284,9 +284,10 @@ msgstr "Rango %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "IC del %1$i%% para el Rango %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Los contrastes se realizan por separado para cada variable, sin considerar "
 "efectos multivariantes."
@@ -322,31 +323,6 @@ msgid ""
 msgstr ""
 "Fallo al cargar datos. Por favor, verifique sus observaciones de medidas "
 "repetidas."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Factor: <em>%s</em>, contiene menos de dos niveles."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Factores: <em>%s</em>, contienen menos de dos niveles."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "La medida repetida <em>%s</em> contiene valores infinitos."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Las medidas repetidas <em>%s</em> contienen valores infinitos."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "La covariable <em>%s</em> contiene valores infinitos."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Las covariables <em>%s</em> contienen valores infinitos."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Por favor, elija un nombre para los factores MR distinto de los nombres de "
-"los factores entre sujetos."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -453,7 +429,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "W de Kendall"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr ""
 "Por favor, especifique los términos adecuados para el contraste de Friedman/"
 "Durbin."
@@ -465,17 +442,13 @@ msgstr ""
 "No es un diseño de bloques completo sin repetir. El contraste de Friedman "
 "solo está disponible como alternativa al ANOVA de MR de un factor."
 
-msgid "Durbin Test"
-msgstr "Contraste de Durbin"
-
-msgid "df num"
-msgstr "gl num"
-
-msgid "df den"
-msgstr "gl denom"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Los contrastes se realizan por separado para cada variable, sin considerar "
+"efectos multivariantes."
 
 msgid "Conover Test"
 msgstr "Contraste de Conover"
@@ -770,6 +743,11 @@ msgstr "Probabilidades Previas"
 msgid "Posterior Odds"
 msgstr "Probabilidades Posteriores"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Descriptivos"
 
@@ -812,11 +790,6 @@ msgstr "Dependiente"
 
 msgid "Sampling posteriors"
 msgstr "Muestreo de posteriores"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr ""
-"¡La longitud de las muestras debe ser igual a la longitud de las "
-"ponderaciones!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1226,6 +1199,48 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Modelo nulo (incl. %s y pendientes aleatorias)"
 msgstr[1] "Modelo nulo (incl. %s, y pendientes aleatorias)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Factor: <em>%s</em>, contiene menos de dos niveles."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Factores: <em>%s</em>, contienen menos de dos niveles."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "La medida repetida <em>%s</em> contiene valores infinitos."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "Las medidas repetidas <em>%s</em> contienen valores infinitos."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "La covariable <em>%s</em> contiene valores infinitos."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "Las covariables <em>%s</em> contienen valores infinitos."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Por favor, elija un nombre para los factores MR distinto de los nombres "
+#~ "de los factores entre sujetos."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Contraste de Durbin"
+
+#~ msgid "df num"
+#~ msgstr "gl num"
+
+#~ msgid "df den"
+#~ msgstr "gl denom"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr ""
+#~ "¡La longitud de las muestras debe ser igual a la longitud de las "
+#~ "ponderaciones!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

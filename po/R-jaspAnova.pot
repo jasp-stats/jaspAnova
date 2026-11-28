@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jaspAnova 0.96.8\n"
-"POT-Creation-Date: 2026-11-21 02:38\n"
+"Project-Id-Version: jaspAnova 0.96.9\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,7 +227,7 @@ msgstr ""
 msgid "%1$i%% CI for Rank %2$s"
 msgstr ""
 
-msgid "Tests are conducted separately for each variable, without accounting for multivariate effects."
+msgid "Tests are conducted separately for each factor, without accounting for the other factors or covariates."
 msgstr ""
 
 msgid "Dunn"
@@ -255,27 +255,6 @@ msgid "Rank-biserial correlation based on individual Mann-Whitney tests."
 msgstr ""
 
 msgid "Error while loading data. Please verify your repeated measures observations."
-msgstr ""
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
-
-msgid "Please choose a name for the RM factors that differs from those for the between subjects factors."
 msgstr ""
 
 msgid "Data set too big for univariate follow-up test. Try unselecting \"Pool error term for follow-up tests\" in the Model tab."
@@ -356,22 +335,13 @@ msgstr ""
 msgid "Kendall's W"
 msgstr ""
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr ""
 
 msgid "Not an unreplicated complete block design. The Friedman test is only available as an alternative to one-way RM ANOVA."
 msgstr ""
 
-msgid "Durbin Test"
-msgstr ""
-
-msgid "df num"
-msgstr ""
-
-msgid "df den"
-msgstr ""
-
-msgid "p<sub>F</sub>"
+msgid "Tests are conducted over all subjects, without accounting for between subjects factors or covariates."
 msgstr ""
 
 msgid "Conover Test"
@@ -590,6 +560,9 @@ msgstr ""
 msgid "Posterior Odds"
 msgstr ""
 
+msgid "The repeated measures cell %s has labels that are not numbers. Set its type to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr ""
 
@@ -627,9 +600,6 @@ msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"
-msgstr ""
-
-msgid "length of samples must be equal to length of weights!"
 msgstr ""
 
 msgid "All predictions had zero variance. Check the predictors/DV for anomalies or increase the number of posterior samples."

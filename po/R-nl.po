@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2025-05-03 02:57+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -287,9 +287,10 @@ msgstr "Rang %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% BI voor Rang %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Tests worden voor elke variabele afzonderlijk uitgevoerd, zonder rekening te "
 "houden met multivariate effecten."
@@ -326,31 +327,6 @@ msgid ""
 msgstr ""
 "Fout tijdens laden van gegevens. Controleer uw herhaalde metingen "
 "waarnemingen."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Factor: <em>%s</em>, bevat minder dan twee niveaus."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Factoren: <em>%s</em>, bevatten minder dan twee niveaus."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "De herhaalde meting: <em>%s</em>, bevat oneindige waarden."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "De herhaalde metingen: <em>%s</em>, bevatten oneindige waarden."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "De covariaat: <em>%s</em>, bevat oneindige waarden."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "De covariaten: <em>%s</em>, bevatten oneindige waarden."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Kies een naam voor de BP factoren die verschilt van die voor de tussen-"
-"proefpersoon factoren."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -395,8 +371,8 @@ msgid ""
 "Mauchly's test of sphericity indicates that the assumption of sphericity is "
 "violated (p < .05)."
 msgstr ""
-"Mauchly's toets geeft aan dat de aanname van sfericiteit is geschonden (p "
-"< .05)."
+"Mauchly's toets geeft aan dat de aanname van sfericiteit is geschonden (p < "
+".05)."
 
 msgid ""
 "Cannot perform homogeneity tests because there are no between subjects "
@@ -455,7 +431,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "Kendalls W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Specificeer juiste termen voor de Friedman/Durbin toets."
 
 msgid ""
@@ -465,17 +442,13 @@ msgstr ""
 "Geen niet-herhaald volledig blokkendesign. De Friedman-toets is alleen "
 "beschikbaar als alternatief voor eenweg-herhaalde-metingen-ANOVA."
 
-msgid "Durbin Test"
-msgstr "Durbin Toets"
-
-msgid "df num"
-msgstr "vg teller"
-
-msgid "df den"
-msgstr "vg noemer"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Tests worden voor elke variabele afzonderlijk uitgevoerd, zonder rekening te "
+"houden met multivariate effecten."
 
 msgid "Conover Test"
 msgstr "Conover Toets"
@@ -764,6 +737,11 @@ msgstr "Prior Kans"
 msgid "Posterior Odds"
 msgstr "Posterior Kans"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Beschrijvende statistiek"
 
@@ -806,10 +784,6 @@ msgstr "Afhankelijk"
 
 msgid "Sampling posteriors"
 msgstr "Steekproef posteriors"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr ""
-"lengte van steekproeven moeten gelijk zijn aan de lengte van gewichten!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1214,6 +1188,47 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nulmodel (incl. %s en willekeurige hellingen)"
 msgstr[1] "Nulmodel (incl. %s, en willekeurige hellingen)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Factor: <em>%s</em>, bevat minder dan twee niveaus."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Factoren: <em>%s</em>, bevatten minder dan twee niveaus."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "De herhaalde meting: <em>%s</em>, bevat oneindige waarden."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "De herhaalde metingen: <em>%s</em>, bevatten oneindige waarden."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "De covariaat: <em>%s</em>, bevat oneindige waarden."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "De covariaten: <em>%s</em>, bevatten oneindige waarden."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Kies een naam voor de BP factoren die verschilt van die voor de tussen-"
+#~ "proefpersoon factoren."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin Toets"
+
+#~ msgid "df num"
+#~ msgstr "vg teller"
+
+#~ msgid "df den"
+#~ msgstr "vg noemer"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr ""
+#~ "lengte van steekproeven moeten gelijk zijn aan de lengte van gewichten!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

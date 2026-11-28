@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.0.0\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-09-24 03:51+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/jaspanova-"
@@ -274,9 +274,10 @@ msgstr "順位 %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "順位 %2$s の %1$i%% CI"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr "検定は、多変量効果を考慮せず、各変数について個別に実施した。"
 
 msgid "Dunn"
@@ -308,29 +309,6 @@ msgid ""
 msgstr ""
 "データの読み込み中にエラーが発生しました。繰り返し測定する観測を確認してくだ"
 "さい。"
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "要因: <em>%s</em>、2水準より少なくなっています。"
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "要因: <em>%s</em>、2水準より少なくなっています。"
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "反復測定：<em>%s</em>、無限大の値が含まれています。"
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "反復測定：<em>%s</em>、無限大の値が含まれています。"
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "共変量: <em>%s</em>、無限大の値が含まれています。"
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "共変量: <em>%s</em>、無限大の値が含まれています。"
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr "参加者間要因とは異なる反復測定要因の名前を選択してください。"
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -432,7 +410,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "ケンドールのW"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr ""
 "フリードマン(Friedman)/ダービン(Durbin)検定に適切な項を指定してください。"
 
@@ -443,17 +422,11 @@ msgstr ""
 "反復のない完全ブロック計画ではありません。フリードマン検定は一元配置の反復測"
 "定分散分析の代わりとしてのみ利用できます。"
 
-msgid "Durbin Test"
-msgstr "ダービン(Durbin)検定"
-
-msgid "df num"
-msgstr "df 番号"
-
-msgid "df den"
-msgstr "df den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr "検定は、多変量効果を考慮せず、各変数について個別に実施した。"
 
 msgid "Conover Test"
 msgstr "コノバー(Conover)検定"
@@ -733,6 +706,11 @@ msgstr "事前オッズ"
 msgid "Posterior Odds"
 msgstr "事後オッズ"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "記述統計"
 
@@ -775,9 +753,6 @@ msgstr "従属"
 
 msgid "Sampling posteriors"
 msgstr "事後分布のサンプリング"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1172,6 +1147,44 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "帰無モデル (%s と含む変量傾きを含む)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "要因: <em>%s</em>、2水準より少なくなっています。"
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "要因: <em>%s</em>、2水準より少なくなっています。"
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "反復測定：<em>%s</em>、無限大の値が含まれています。"
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "反復測定：<em>%s</em>、無限大の値が含まれています。"
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "共変量: <em>%s</em>、無限大の値が含まれています。"
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "共変量: <em>%s</em>、無限大の値が含まれています。"
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr "参加者間要因とは異なる反復測定要因の名前を選択してください。"
+
+#~ msgid "Durbin Test"
+#~ msgstr "ダービン(Durbin)検定"
+
+#~ msgid "df num"
+#~ msgstr "df 番号"
+
+#~ msgid "df den"
+#~ msgstr "df den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "サンプルの長さはウェイトの長さと同じでなければなりません！"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

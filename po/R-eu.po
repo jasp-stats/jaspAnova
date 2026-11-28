@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.0\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2025-09-23 10:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -284,9 +284,10 @@ msgstr "Mailaren %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% CI %2$s Mailaren kasuan"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Probak aldagai bakoitzerako bereizita egiten dira, efektu multibariableak "
 "kontuan hartu gabe."
@@ -324,31 +325,6 @@ msgid ""
 msgstr ""
 "Errorea datuak kargatzean. Mesedez, egiaztatu zure neurri errepikatuen "
 "behaketak."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Faktorea: <em>%s</em>, bi maila baino gutxiago ditu."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Faktoreak: <em>%s</em>, bi maila baino gutxiago ditu."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "<em>%s</em> neurri errepikatuak balio infinituak ditu."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "<em>%s</em> neurri errepikatuek balio infinituak dituzte."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "<em>%s</em> kobarianteak balio infinituak ditu."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "<em>%s</em> kobarianteek balio infinituak dituzte."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Mesedez, aukeratu RM faktoreen izen bat, subjektuen arteko faktoreen "
-"izenetatik desberdina dena."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -455,7 +431,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "Kendallen W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Mesedez, zehaztu Friedman/Durbin testarako termino egokiak."
 
 msgid ""
@@ -465,18 +442,13 @@ msgstr ""
 "Ez da bloke osoko diseinu errepikatu gabea. Friedman testa RM ANOVA norabide "
 "bakarreko alternatiba gisa soilik dago eskuragarri."
 
-msgid "Durbin Test"
-msgstr "Durbin Proba"
-
-msgid "df num"
-msgstr "df num"
-
 #, fuzzy
-msgid "df den"
-msgstr "ag den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Probak aldagai bakoitzerako bereizita egiten dira, efektu multibariableak "
+"kontuan hartu gabe."
 
 msgid "Conover Test"
 msgstr "Conover Proba"
@@ -765,6 +737,11 @@ msgstr "Aurreko Oddsa"
 msgid "Posterior Odds"
 msgstr "Ondorengo Oddsa"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Deskriptiboak"
 
@@ -807,9 +784,6 @@ msgstr "Menpekoa"
 
 msgid "Sampling posteriors"
 msgstr "Laginketa atzeko probabilitateak"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "laginen luzera pisuen luzeraren berdina izan behar da!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1211,6 +1185,47 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Eredu nulua (%s eta ausazko maldak barne)"
 msgstr[1] "Eredu nulua (%s eta ausazko maldak barne)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Faktorea: <em>%s</em>, bi maila baino gutxiago ditu."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Faktoreak: <em>%s</em>, bi maila baino gutxiago ditu."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "<em>%s</em> neurri errepikatuak balio infinituak ditu."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "<em>%s</em> neurri errepikatuek balio infinituak dituzte."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "<em>%s</em> kobarianteak balio infinituak ditu."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "<em>%s</em> kobarianteek balio infinituak dituzte."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Mesedez, aukeratu RM faktoreen izen bat, subjektuen arteko faktoreen "
+#~ "izenetatik desberdina dena."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin Proba"
+
+#~ msgid "df num"
+#~ msgstr "df num"
+
+#, fuzzy
+#~ msgid "df den"
+#~ msgstr "ag den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "laginen luzera pisuen luzeraren berdina izan behar da!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

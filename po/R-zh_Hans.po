@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-11-01 08:51+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -271,9 +271,10 @@ msgstr "秩 %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "Cohen's d 的 %s%% 置信区间"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr "对每个变量分别进行检验，而不考虑多变量效应。"
 
 msgid "Dunn"
@@ -306,29 +307,6 @@ msgstr "基于各 Mann-Whitney 检验的秩双列相关。"
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr "加载数据时出错。请验证您的重复测量观测。"
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "因子：<em>%s</em>，包含的水平少于两个。"
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "因子：<em>%s</em>，包含的水平少于两个。"
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "重复测量：<em>%s</em>，包含无限值。"
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "重复测量：<em>%s</em>，包含无限值。"
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "协变量：<em>%s</em>，包含无限值。"
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "协变量：<em>%s</em>，包含无限值。"
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr "请为 RM 因子选择一个与组间因子不同的名称。"
 
 #, fuzzy
 msgid ""
@@ -425,7 +403,8 @@ msgstr "p<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "Kendall's W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "请为 Friedman/Durbin 检验指定适当的项。"
 
 msgid ""
@@ -435,17 +414,11 @@ msgstr ""
 "不是非重复的完整区组设计。Friedman 检验仅可作为单向重复测量方差分析的替代方"
 "案。"
 
-msgid "Durbin Test"
-msgstr "Durbin 检验"
-
-msgid "df num"
-msgstr "df 编号"
-
-msgid "df den"
-msgstr "df den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr "对每个变量分别进行检验，而不考虑多变量效应。"
 
 msgid "Conover Test"
 msgstr "Conover 检验"
@@ -716,6 +689,11 @@ msgstr "先验几率"
 msgid "Posterior Odds"
 msgstr "后验几率"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "描述统计"
 
@@ -758,9 +736,6 @@ msgstr "依赖"
 
 msgid "Sampling posteriors"
 msgstr "抽样后验"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "样本的长度必须等于权重的长度！"
 
 #, fuzzy
 msgid ""
@@ -1140,6 +1115,44 @@ msgstr "由于样本量（必须在 3 到 5000 之间）或完全相关，结果
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "空模型（包括 %s）"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "因子：<em>%s</em>，包含的水平少于两个。"
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "因子：<em>%s</em>，包含的水平少于两个。"
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "重复测量：<em>%s</em>，包含无限值。"
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "重复测量：<em>%s</em>，包含无限值。"
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "协变量：<em>%s</em>，包含无限值。"
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "协变量：<em>%s</em>，包含无限值。"
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr "请为 RM 因子选择一个与组间因子不同的名称。"
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin 检验"
+
+#~ msgid "df num"
+#~ msgstr "df 编号"
+
+#~ msgid "df den"
+#~ msgstr "df den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "样本的长度必须等于权重的长度！"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.15\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2025-04-02 18:58+0000\n"
 "Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -294,8 +294,8 @@ msgid "%1$i%% CI for Rank %2$s"
 msgstr ""
 
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 
 msgid "Dunn"
@@ -331,35 +331,6 @@ msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
 "Ошибка в загрузке данных. Пожалуйста проверьте наличие повторных наблюдений."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Фактор: <em>%s</em>, состоит из менее двух категорий."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Факторы: <em>%s</em>, состоят из менее двух категорий."
-
-#, fuzzy
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "Повторное измерение: <em>%s</em>, содержит чрезмерно большие значения."
-
-#, fuzzy
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Повторные измерения: <em>%s</em>, содержат чрезмерно большие значения."
-
-#, fuzzy
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "Ковариата: <em>%s</em>, содержит чрезмерно большие значения."
-
-#, fuzzy
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Ковариаты: <em>%s</em>, содержат чрезмерно большие значения."
-
-#, fuzzy
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Пожалуйста выберите имя для факторов, отличные от межгрупповых факторов."
 
 #, fuzzy
 msgid ""
@@ -463,7 +434,7 @@ msgstr "W<sub>i</sub>"
 msgid "Kendall's W"
 msgstr "W Кендалла"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr ""
 
 msgid ""
@@ -471,17 +442,9 @@ msgid ""
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
 
-#, fuzzy
-msgid "Durbin Test"
-msgstr "Критерий Дарбина"
-
-msgid "df num"
-msgstr ""
-
-msgid "df den"
-msgstr ""
-
-msgid "p<sub>F</sub>"
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
 msgstr ""
 
 msgid "Conover Test"
@@ -738,6 +701,11 @@ msgstr ""
 msgid "Posterior Odds"
 msgstr ""
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Описательные статистики"
 
@@ -782,9 +750,6 @@ msgid "Dependent"
 msgstr "Зависимая переменная"
 
 msgid "Sampling posteriors"
-msgstr ""
-
-msgid "length of samples must be equal to length of weights!"
 msgstr ""
 
 msgid ""
@@ -1145,6 +1110,41 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Фактор: <em>%s</em>, состоит из менее двух категорий."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Факторы: <em>%s</em>, состоят из менее двух категорий."
+
+#, fuzzy
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr ""
+#~ "Повторное измерение: <em>%s</em>, содержит чрезмерно большие значения."
+
+#, fuzzy
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr ""
+#~ "Повторные измерения: <em>%s</em>, содержат чрезмерно большие значения."
+
+#, fuzzy
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "Ковариата: <em>%s</em>, содержит чрезмерно большие значения."
+
+#, fuzzy
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "Ковариаты: <em>%s</em>, содержат чрезмерно большие значения."
+
+#, fuzzy
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Пожалуйста выберите имя для факторов, отличные от межгрупповых факторов."
+
+#, fuzzy
+#~ msgid "Durbin Test"
+#~ msgstr "Критерий Дарбина"
 
 #, fuzzy
 #~ msgid "Chi-Squared"

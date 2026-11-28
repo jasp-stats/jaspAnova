@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-09-24 03:51+0000\n"
 "Last-Translator: quocthinh1709 <hqthinh@outlook.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/jasp/"
@@ -283,9 +283,10 @@ msgstr "Thứ hạng %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "Khoảng tin cậy %1$i%% cho thứ hạng %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Các kiểm định được thực hiện riêng biệt cho từng biến, mà không xét đến ảnh "
 "hưởng đa biến."
@@ -319,39 +320,6 @@ msgstr ""
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr "Lỗi khi tải dữ liệu. Vui lòng kiểm tra các quan sát đo lặp của bạn."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Yếu tố: <em>%s</em>, chứa ít hơn hai cấp độ."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Các yếu tố: <em>%s</em>, chứa ít hơn hai cấp độ."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
-"Thang đo lặp (repeated measure): <em>%s</em>, chứa giá trị vô hạn (infinite "
-"values)."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
-"Các thang đo lặp (repeated measures): <em>%s</em>, chứa giá trị vô hạn "
-"(infinite values)."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
-"Covariate (biến đồng biến): <em>%s</em>, chứa giá trị vô hạn (infinite "
-"values)."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
-"Các covariate (biến đồng biến): <em>%s</em>, chứa giá trị vô hạn (infinite "
-"values)."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Vui lòng đặt tên cho các RM factors (yếu tố đo lặp) khác với tên của các "
-"between-subjects factors (yếu tố giữa nhóm)."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -455,7 +423,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "W của Kendall"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Vui lòng chỉ định các thuật ngữ phù hợp cho kiểm định Friedman/Durbin."
 
 msgid ""
@@ -465,18 +434,13 @@ msgstr ""
 "Không phải thiết kế khối hoàn chỉnh không lặp (không lặp trong khối). Kiểm "
 "định Friedman chỉ dùng như phương án thay thế cho ANOVA đo lặp một nhân tố."
 
-msgid "Durbin Test"
-msgstr "Kiểm định Durbin"
-
-msgid "df num"
-msgstr "df tử số"
-
-msgid "df den"
-msgstr "df mẫu số"
-
 #, fuzzy
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Các kiểm định được thực hiện riêng biệt cho từng biến, mà không xét đến ảnh "
+"hưởng đa biến."
 
 msgid "Conover Test"
 msgstr "Kiểm định Conover"
@@ -736,6 +700,11 @@ msgstr ""
 msgid "Posterior Odds"
 msgstr ""
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr ""
 
@@ -775,9 +744,6 @@ msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"
-msgstr ""
-
-msgid "length of samples must be equal to length of weights!"
 msgstr ""
 
 msgid ""
@@ -1139,3 +1105,49 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Yếu tố: <em>%s</em>, chứa ít hơn hai cấp độ."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Các yếu tố: <em>%s</em>, chứa ít hơn hai cấp độ."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr ""
+#~ "Thang đo lặp (repeated measure): <em>%s</em>, chứa giá trị vô hạn "
+#~ "(infinite values)."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr ""
+#~ "Các thang đo lặp (repeated measures): <em>%s</em>, chứa giá trị vô hạn "
+#~ "(infinite values)."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr ""
+#~ "Covariate (biến đồng biến): <em>%s</em>, chứa giá trị vô hạn (infinite "
+#~ "values)."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr ""
+#~ "Các covariate (biến đồng biến): <em>%s</em>, chứa giá trị vô hạn "
+#~ "(infinite values)."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Vui lòng đặt tên cho các RM factors (yếu tố đo lặp) khác với tên của các "
+#~ "between-subjects factors (yếu tố giữa nhóm)."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Kiểm định Durbin"
+
+#~ msgid "df num"
+#~ msgstr "df tử số"
+
+#~ msgid "df den"
+#~ msgstr "df mẫu số"
+
+#, fuzzy
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"

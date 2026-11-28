@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-10-26 10:45+0000\n"
 "Last-Translator: 陳正昌 <chencc99@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -262,9 +262,10 @@ msgstr "Rank %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "Rank %2$s 的 %1$i%% 信賴區間"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr "每個變數分別進行檢定，而未考慮多變量效果。"
 
 msgid "Dunn"
@@ -294,29 +295,6 @@ msgstr "以 Mann-Whitney 檢定為基礎，計算等級二系列相關。"
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr "載入資料時發生錯誤。請驗證您的重複量數觀察值。"
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "因子：<em>%s</em>，水準數少於2。"
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "因子：<em>%s</em>，水準數少於2。"
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "重複量數: <em>%s</em> ，內含無限值。"
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "重複量數: <em>%s</em> ，內含無限值。"
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "共變數: <em>%s</em>，內含無限值。"
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "共變數: <em>%s</em>，內含無限值。"
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr "請為重複量數因子，命名一個不同於受試者間因子的名稱。"
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -411,7 +389,8 @@ msgstr "<sub>F</sub> p值"
 msgid "Kendall's W"
 msgstr "Kendall's W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "請為 Friedman/Durbin 考驗指定適當的設定。"
 
 msgid ""
@@ -421,17 +400,11 @@ msgstr ""
 "並非未重複的完全區組設計。 Friedman檢定僅可作為單因子重複測量變異數分析的替代"
 "方法。"
 
-msgid "Durbin Test"
-msgstr "Durbin考驗"
-
-msgid "df num"
-msgstr "分子自由度"
-
-msgid "df den"
-msgstr "分母自由度"
-
-msgid "p<sub>F</sub>"
-msgstr "<sub>F</sub> p值"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr "每個變數分別進行檢定，而未考慮多變量效果。"
 
 msgid "Conover Test"
 msgstr "Conover 考驗"
@@ -701,6 +674,11 @@ msgstr "先前勝率"
 msgid "Posterior Odds"
 msgstr "後驗勝率"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "描述性統計"
 
@@ -741,9 +719,6 @@ msgstr "依變項"
 
 msgid "Sampling posteriors"
 msgstr "事後抽樣"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "樣本長度與權重長度相同！"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1110,6 +1085,44 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "虛無模型（包括 %s 與隨機斜率）"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "因子：<em>%s</em>，水準數少於2。"
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "因子：<em>%s</em>，水準數少於2。"
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "重複量數: <em>%s</em> ，內含無限值。"
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "重複量數: <em>%s</em> ，內含無限值。"
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "共變數: <em>%s</em>，內含無限值。"
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "共變數: <em>%s</em>，內含無限值。"
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr "請為重複量數因子，命名一個不同於受試者間因子的名稱。"
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin考驗"
+
+#~ msgid "df num"
+#~ msgstr "分子自由度"
+
+#~ msgid "df den"
+#~ msgstr "分母自由度"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "<sub>F</sub> p值"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "樣本長度與權重長度相同！"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

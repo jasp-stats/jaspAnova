@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.95.5\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-06-13 03:51+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
@@ -280,9 +280,10 @@ msgstr "Peringkat %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% CI untuk Peringkat %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Uji dikonduksikan secara terpisah untuk setiap variabel, tanpa "
 "memperhitungkan untuk efek multivariat."
@@ -316,31 +317,6 @@ msgid ""
 msgstr ""
 "Galat saat memuat data. Silakan verifikasikan observasi pengukuran berulang "
 "Anda."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Silakan pilih nama untuk faktor RM yang membedakan dari itu untuk antara "
-"faktor subjek."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -444,7 +420,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "W Kendall"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Silakan tentukan istilah yang sesuai untuk uji Friedman/Durbin."
 
 msgid ""
@@ -454,17 +431,13 @@ msgstr ""
 "Bukan desain blok lengkap tidak direplikasi. Uji Friedman hanya tersedia "
 "sebagai alternatif dari ANOVA RM satu arah."
 
-msgid "Durbin Test"
-msgstr "Uji Durbin"
-
-msgid "df num"
-msgstr "df num"
-
-msgid "df den"
-msgstr "df den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Uji dikonduksikan secara terpisah untuk setiap variabel, tanpa "
+"memperhitungkan untuk efek multivariat."
 
 msgid "Conover Test"
 msgstr "Uji Conover"
@@ -749,6 +722,11 @@ msgstr "Ganjil Priori"
 msgid "Posterior Odds"
 msgstr "Ganjil Posterior"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Deskriptif"
 
@@ -791,9 +769,6 @@ msgstr "Dependen"
 
 msgid "Sampling posteriors"
 msgstr "Posterior pensampelan"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "panjang sampel harus sama dengan panjang berat!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1187,6 +1162,46 @@ msgstr ""
 msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Model null (inkl. %s, dan kemiringan acak)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Faktor: <em>%s</em>, berisi sedikit dari dua tingkat."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "Pengukuran berulang: <em>%s</em>, berisi nilai tanpa batasan."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "Kovariat: <em>%s</em>, berisi nilai tanpa batasan."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Silakan pilih nama untuk faktor RM yang membedakan dari itu untuk antara "
+#~ "faktor subjek."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Uji Durbin"
+
+#~ msgid "df num"
+#~ msgstr "df num"
+
+#~ msgid "df den"
+#~ msgstr "df den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "panjang sampel harus sama dengan panjang berat!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

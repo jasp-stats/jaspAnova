@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-01-07 03:08+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -279,9 +279,10 @@ msgstr "தரவரிசை %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% தொஒ தரவரிசை%2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "பன்முக விளைவுகளை கணக்கிடாமல், ஒவ்வொரு மாறிக்கும் சோதனைகள் தனித்தனியாக நடத்தப்படுகின்றன."
 
@@ -315,31 +316,6 @@ msgid ""
 "Error while loading data. Please verify your repeated measures observations."
 msgstr ""
 "தரவை ஏற்றும்போது பிழை. உங்கள் தொடர்ச்சியான நடவடிக்கைகள் அவதானிப்புகளை சரிபார்க்கவும்."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "காரணி: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளது."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "காரணிகள்: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளன."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "மீண்டும் நடவடிக்கை: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "மீண்டும் நடவடிக்கைகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "கோவாரியட்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "கோவாரியட்டுகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"பாடங்களுக்கு இடையிலான காரணிகளிடமிருந்து வேறுபடும் RM காரணிகளுக்கான பெயரைத் "
-"தேர்வுசெய்க."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -442,7 +418,8 @@ msgstr "Χ² <sub> எஃப் </sub>"
 msgid "Kendall's W"
 msgstr "கெண்டலின் டபிள்யூ"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "ப்ரீட்மேன்/டர்பின் சோதனைக்கு பொருத்தமான விதிமுறைகளைக் குறிப்பிடவும்."
 
 msgid ""
@@ -452,17 +429,12 @@ msgstr ""
 "பிரதியில்லாத முழுமையான தொகுதி வடிவமைப்பு அல்ல. Friedman சோதனையானது ஒரு வழி ஆர்எம் "
 "அனோவாவுக்கு மாற்றாக மட்டுமே கிடைக்கிறது."
 
-msgid "Durbin Test"
-msgstr "டர்பின் சோதனை"
-
-msgid "df num"
-msgstr "டி.எஃப் எண்"
-
-msgid "df den"
-msgstr "டி.எஃப் டென்"
-
-msgid "p<sub>F</sub>"
-msgstr "பி <sub> எஃப் </sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"பன்முக விளைவுகளை கணக்கிடாமல், ஒவ்வொரு மாறிக்கும் சோதனைகள் தனித்தனியாக நடத்தப்படுகின்றன."
 
 msgid "Conover Test"
 msgstr "கோனோவர் சோதனை"
@@ -748,6 +720,11 @@ msgstr "முன் முரண்பாடுகள்"
 msgid "Posterior Odds"
 msgstr "பின்புற முரண்பாடுகள்"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "விளக்கமான"
 
@@ -790,9 +767,6 @@ msgstr "சார்ந்தது"
 
 msgid "Sampling posteriors"
 msgstr "மாதிரி போச்டரியர்கள்"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "மாதிரிகளின் நீளம் எடைகளின் நீளத்திற்கு சமமாக இருக்க வேண்டும்!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1185,6 +1159,46 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "சுழிய மாதிரி (உள்ளிட்ட %s மற்றும் சீரற்ற சரிவுகள்)"
 msgstr[1] "சுழிய மாதிரி (உள்ளிட்ட %s, மற்றும் சீரற்ற சரிவுகள்)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "காரணி: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளது."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "காரணிகள்: <em>%s </em>, இரண்டு நிலைகளுக்கு குறைவாகவே உள்ளன."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "மீண்டும் நடவடிக்கை: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "மீண்டும் நடவடிக்கைகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "கோவாரியட்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளது."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "கோவாரியட்டுகள்: <em>%s </em>, எல்லையற்ற மதிப்புகளைக் கொண்டுள்ளன."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "பாடங்களுக்கு இடையிலான காரணிகளிடமிருந்து வேறுபடும் RM காரணிகளுக்கான பெயரைத் "
+#~ "தேர்வுசெய்க."
+
+#~ msgid "Durbin Test"
+#~ msgstr "டர்பின் சோதனை"
+
+#~ msgid "df num"
+#~ msgstr "டி.எஃப் எண்"
+
+#~ msgid "df den"
+#~ msgstr "டி.எஃப் டென்"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "பி <sub> எஃப் </sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "மாதிரிகளின் நீளம் எடைகளின் நீளத்திற்கு சமமாக இருக்க வேண்டும்!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

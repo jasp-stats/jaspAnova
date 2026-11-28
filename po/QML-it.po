@@ -224,10 +224,6 @@ msgid "RM Factor"
 msgstr "Fattore RM"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Optional Grouping Factor"
-msgstr "Fattori di raggruppamento opzionale"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
 msgstr "Test Post Hoc di Conover"
 
@@ -1754,23 +1750,12 @@ msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
-"The Friedman test is a non-parametric alternative to the Repeated-Measures "
-"ANOVA when there is a complete block design. The Durbin test will "
-"automatically be selected when there is an incomplete block design."
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid ""
 "This box contains all the repeated measures and between subjects factors "
 "that can be included in the analysis."
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid "The repeated measures factor(s) of interest."
-msgstr ""
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Possible to select the between subjects factor here."
 msgstr ""
 
 msgctxt "AnovaRepeatedMeasures|"
@@ -2915,4 +2900,10 @@ msgid ""
 "Include standardized mean differences (Cohen's d). Contrast weights are "
 "rescaled so that their absolute values sum to 2, making the effect size "
 "invariant to the scale of the specified weights."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid ""
+"The Friedman test is a non-parametric alternative to the Repeated-Measures "
+"ANOVA when there is a complete block design."
 msgstr ""

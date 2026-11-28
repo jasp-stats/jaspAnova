@@ -232,10 +232,6 @@ msgid "Factors"
 msgstr "因子"
 
 msgctxt "AnovaRepeatedMeasures|"
-msgid "Optional Grouping Factor"
-msgstr "可選的分組因子"
-
-msgctxt "AnovaRepeatedMeasures|"
 msgid "Conover's post hoc tests"
 msgstr "Conover 事後比較檢定"
 
@@ -1758,15 +1754,6 @@ msgstr "合併誤差項假設對比分數的變異數大致相等（即球面性
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
-"The Friedman test is a non-parametric alternative to the Repeated-Measures "
-"ANOVA when there is a complete block design. The Durbin test will "
-"automatically be selected when there is an incomplete block design."
-msgstr ""
-"Friedman 檢定是在完整區組設計下，重複量測 ANOVA 的無母數替代方法。當為不完整"
-"區組設計時，將自動選擇 Durbin 檢定。"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid ""
 "This box contains all the repeated measures and between subjects factors "
 "that can be included in the analysis."
 msgstr "此方框包含所有可納入分析的重複量測因素與受試者間因素。"
@@ -1774,10 +1761,6 @@ msgstr "此方框包含所有可納入分析的重複量測因素與受試者間
 msgctxt "AnovaRepeatedMeasures|"
 msgid "The repeated measures factor(s) of interest."
 msgstr "感興趣的重複量測因素。"
-
-msgctxt "AnovaRepeatedMeasures|"
-msgid "Possible to select the between subjects factor here."
-msgstr "可在此選擇受試者間因素。"
 
 msgctxt "AnovaRepeatedMeasures|"
 msgid ""
@@ -3094,4 +3077,10 @@ msgid ""
 "Include standardized mean differences (Cohen's d). Contrast weights are "
 "rescaled so that their absolute values sum to 2, making the effect size "
 "invariant to the scale of the specified weights."
+msgstr ""
+
+msgctxt "AnovaRepeatedMeasures|"
+msgid ""
+"The Friedman test is a non-parametric alternative to the Repeated-Measures "
+"ANOVA when there is a complete block design."
 msgstr ""

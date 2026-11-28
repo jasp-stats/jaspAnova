@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.17.0\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2025-07-03 07:49+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -280,9 +280,10 @@ msgstr "Ranga %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% PU dla rangi %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Testy przeprowadzane są osobno dla każdej zmiennej, bez uwzględnienia "
 "efektów wielozmiennowych."
@@ -318,31 +319,6 @@ msgid ""
 msgstr ""
 "Błąd podczas wczytywania danych. Proszę zweryfikować swoje obserwacje z "
 "powtórzonymi pomiarami."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Czynnik: <em>%s</em> zawiera mniej niż dwa poziomy."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Czynnik <em>%s</em> zawiera mniej niż dwa poziomy."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "Powtórzony pomiar <em>%s</em> zawiera wartości nieskończone."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Powtórzony pomiar <em>%s</em> zawiera wartości nieskończone."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "Współzmienna <em>%s</em> zawiera wartości nieskończone."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Współzmienna <em>%s</em> zawiera wartości nieskończone."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Proszę wybrać nazwę dla czynników wewnątrzobiektowych, która różni się od "
-"nazwy czynników międzyobiektowych."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -447,7 +423,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "W Kendalla"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Proszę podać odpowiednie składniki dla testu Friedmana/Durbina."
 
 msgid ""
@@ -457,17 +434,13 @@ msgstr ""
 "Występuje problem z układem danych. Test Friedmana można przeprowadzić tylko "
 "jako alternatywę dla testu jednoczynnikowa ANOVA dla prób zależnych."
 
-msgid "Durbin Test"
-msgstr "Test Durbina"
-
-msgid "df num"
-msgstr "df num"
-
-msgid "df den"
-msgstr "df den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Testy przeprowadzane są osobno dla każdej zmiennej, bez uwzględnienia "
+"efektów wielozmiennowych."
 
 msgid "Conover Test"
 msgstr "Test Conovera"
@@ -764,6 +737,11 @@ msgstr "Szanse a priori"
 msgid "Posterior Odds"
 msgstr "Szanse a posteriori"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Statystyki opisowe"
 
@@ -806,9 +784,6 @@ msgstr "Zależna"
 
 msgid "Sampling posteriors"
 msgstr "Próbkowanie a posteriori"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr "długość próbek musi być równa długości wag!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1216,6 +1191,46 @@ msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Model zerowy (w tym %s i losowe nachylenia)"
 msgstr[1] "Modele zerowe (w tym %s i losowe nachylenia)"
 msgstr[2] "Modeli zerowych (w tym %s i losowe nachylenia)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Czynnik: <em>%s</em> zawiera mniej niż dwa poziomy."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Czynnik <em>%s</em> zawiera mniej niż dwa poziomy."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "Powtórzony pomiar <em>%s</em> zawiera wartości nieskończone."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "Powtórzony pomiar <em>%s</em> zawiera wartości nieskończone."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "Współzmienna <em>%s</em> zawiera wartości nieskończone."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "Współzmienna <em>%s</em> zawiera wartości nieskończone."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Proszę wybrać nazwę dla czynników wewnątrzobiektowych, która różni się od "
+#~ "nazwy czynników międzyobiektowych."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Test Durbina"
+
+#~ msgid "df num"
+#~ msgstr "df num"
+
+#~ msgid "df den"
+#~ msgstr "df den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr "długość próbek musi być równa długości wag!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "

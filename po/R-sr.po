@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspAnova 0.19.2\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2025-12-17 03:06+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -273,9 +273,10 @@ msgstr "Ранг %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% CI за ранг %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Тестови се спроводе одвојено за сваку променљиву, без узимања у обзир "
 "мултиваритних ефеката."
@@ -308,29 +309,6 @@ msgstr ""
 
 msgid ""
 "Error while loading data. Please verify your repeated measures observations."
-msgstr ""
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr ""
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr ""
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr ""
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr ""
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr ""
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr ""
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
 msgstr ""
 
 msgid ""
@@ -423,7 +401,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "Kendall's W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Молимо вас да наведете одговарајуће термине за Friedman/Durbin тест."
 
 msgid ""
@@ -431,17 +410,13 @@ msgid ""
 "available as an alternative to one-way RM ANOVA."
 msgstr ""
 
-msgid "Durbin Test"
-msgstr "Durbin тест"
-
-msgid "df num"
-msgstr "df број"
-
-msgid "df den"
-msgstr "df деноминатор"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Тестови се спроводе одвојено за сваку променљиву, без узимања у обзир "
+"мултиваритних ефеката."
 
 msgid "Conover Test"
 msgstr "Conover тест"
@@ -708,6 +683,11 @@ msgstr ""
 msgid "Posterior Odds"
 msgstr ""
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Дескриптивна"
 
@@ -747,9 +727,6 @@ msgid "Dependent"
 msgstr ""
 
 msgid "Sampling posteriors"
-msgstr ""
-
-msgid "length of samples must be equal to length of weights!"
 msgstr ""
 
 msgid ""
@@ -1106,3 +1083,15 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin тест"
+
+#~ msgid "df num"
+#~ msgstr "df број"
+
+#~ msgid "df den"
+#~ msgstr "df деноминатор"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"

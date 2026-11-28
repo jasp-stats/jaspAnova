@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2026-09-19 02:46\n"
+"POT-Creation-Date: 2026-11-28 02:38\n"
 "PO-Revision-Date: 2026-05-17 06:11+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/jaspanova-r/"
@@ -282,9 +282,10 @@ msgstr "Rang %s"
 msgid "%1$i%% CI for Rank %2$s"
 msgstr "%1$i%% KI für Rang %2$s"
 
+#, fuzzy
 msgid ""
-"Tests are conducted separately for each variable, without accounting for "
-"multivariate effects."
+"Tests are conducted separately for each factor, without accounting for the "
+"other factors or covariates."
 msgstr ""
 "Die Tests werden für jede Variable einzeln durchgeführt, ohne "
 "Berücksichtigung multivariater Effekte."
@@ -319,31 +320,6 @@ msgid ""
 msgstr ""
 "Fehler beim Laden der Daten. Bitte kontrollieren Sie Ihre Beobachtungen mit "
 "Messwiederholung."
-
-msgid "Factor: <em>%s</em>, contains fewer than two levels."
-msgstr "Faktor: <em>%s</em>, enthält weniger als zwei Stufen."
-
-msgid "Factors: <em>%s</em>, contain fewer than two levels."
-msgstr "Faktoren: <em>%s</em>, enthalten weniger als zwei Stufen."
-
-msgid "The repeated measure: <em>%s</em>, contains infinite values."
-msgstr "Die Messwiederholung: <em>%s</em>, enthält unendliche Werte."
-
-msgid "The repeated measures: <em>%s</em>, contain infinite values."
-msgstr "Die Messwiederholungen: <em>%s</em>, enthalten unendliche Werte."
-
-msgid "The covariate: <em>%s</em>, contains infinite values."
-msgstr "Die Kovariate: <em>%s</em>, enthält unendliche Werte."
-
-msgid "The covariates: <em>%s</em>, contain infinite values."
-msgstr "Die Kovariaten: <em>%s</em>, enthalten unendliche Werte."
-
-msgid ""
-"Please choose a name for the RM factors that differs from those for the "
-"between subjects factors."
-msgstr ""
-"Bitte wähle einen Namen für die MW-Faktoren, der sich von denen der "
-"Zwischensubjektfaktoren unterscheidet."
 
 msgid ""
 "Data set too big for univariate follow-up test. Try unselecting \"Pool error "
@@ -449,7 +425,8 @@ msgstr "Χ²<sub>F</sub>"
 msgid "Kendall's W"
 msgstr "Kendalls W"
 
-msgid "Please specify appropriate terms for the Friedman/Durbin test."
+#, fuzzy
+msgid "Please specify appropriate terms for the Friedman test."
 msgstr "Bitte geben Sie gültige Terme für den Friedman/Durbin Test an."
 
 msgid ""
@@ -459,17 +436,13 @@ msgstr ""
 "Kein unrepliziertes komplettes Blockdesign. Der Friedman-Test ist nur als "
 "Alternative zur einfaktoriellen ANOVA mit Messwiederholung erhältlich."
 
-msgid "Durbin Test"
-msgstr "Durbin-Test"
-
-msgid "df num"
-msgstr "df Num"
-
-msgid "df den"
-msgstr "df Den"
-
-msgid "p<sub>F</sub>"
-msgstr "p<sub>F</sub>"
+#, fuzzy
+msgid ""
+"Tests are conducted over all subjects, without accounting for between "
+"subjects factors or covariates."
+msgstr ""
+"Die Tests werden für jede Variable einzeln durchgeführt, ohne "
+"Berücksichtigung multivariater Effekte."
 
 msgid "Conover Test"
 msgstr "Conover-Test"
@@ -760,6 +733,11 @@ msgstr "a-priori Chancen"
 msgid "Posterior Odds"
 msgstr "a-posteriori Chancen"
 
+msgid ""
+"The repeated measures cell %s has labels that are not numbers. Set its type "
+"to Scale in the data, so that its values are used."
+msgstr ""
+
 msgid "Descriptives"
 msgstr "Deskriptive Statistiken"
 
@@ -802,10 +780,6 @@ msgstr "Abhängig"
 
 msgid "Sampling posteriors"
 msgstr "Stichprobennahme der Posterior"
-
-msgid "length of samples must be equal to length of weights!"
-msgstr ""
-"Die Länge der Stichprobe muss mit der Länge der Gewichte übereinstimmen!"
 
 msgid ""
 "All predictions had zero variance. Check the predictors/DV for anomalies or "
@@ -1214,6 +1188,47 @@ msgid "Null model (incl. %s and random slopes)"
 msgid_plural "Null model (incl. %s, and random slopes)"
 msgstr[0] "Nullmodell (inkl. %s und zufällige Steigungen)"
 msgstr[1] "Nullmodell (inkl. %s, und zufällige Steigungen)"
+
+#~ msgid "Factor: <em>%s</em>, contains fewer than two levels."
+#~ msgstr "Faktor: <em>%s</em>, enthält weniger als zwei Stufen."
+
+#~ msgid "Factors: <em>%s</em>, contain fewer than two levels."
+#~ msgstr "Faktoren: <em>%s</em>, enthalten weniger als zwei Stufen."
+
+#~ msgid "The repeated measure: <em>%s</em>, contains infinite values."
+#~ msgstr "Die Messwiederholung: <em>%s</em>, enthält unendliche Werte."
+
+#~ msgid "The repeated measures: <em>%s</em>, contain infinite values."
+#~ msgstr "Die Messwiederholungen: <em>%s</em>, enthalten unendliche Werte."
+
+#~ msgid "The covariate: <em>%s</em>, contains infinite values."
+#~ msgstr "Die Kovariate: <em>%s</em>, enthält unendliche Werte."
+
+#~ msgid "The covariates: <em>%s</em>, contain infinite values."
+#~ msgstr "Die Kovariaten: <em>%s</em>, enthalten unendliche Werte."
+
+#~ msgid ""
+#~ "Please choose a name for the RM factors that differs from those for the "
+#~ "between subjects factors."
+#~ msgstr ""
+#~ "Bitte wähle einen Namen für die MW-Faktoren, der sich von denen der "
+#~ "Zwischensubjektfaktoren unterscheidet."
+
+#~ msgid "Durbin Test"
+#~ msgstr "Durbin-Test"
+
+#~ msgid "df num"
+#~ msgstr "df Num"
+
+#~ msgid "df den"
+#~ msgstr "df Den"
+
+#~ msgid "p<sub>F</sub>"
+#~ msgstr "p<sub>F</sub>"
+
+#~ msgid "length of samples must be equal to length of weights!"
+#~ msgstr ""
+#~ "Die Länge der Stichprobe muss mit der Länge der Gewichte übereinstimmen!"
 
 #~ msgid ""
 #~ "Mean Difference estimate is based on the median of the bootstrap "
